@@ -32,7 +32,15 @@ LOGOS = {
     "STAR TV": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Star_TV_logo.svg/512px-Star_TV_logo.svg.png",
     "KANAL D": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kanal_D_logo.svg/512px-Kanal_D_logo.svg.png",
 }
-
+EPG_IDS = {
+    "TRT 1": "TRT 1",
+    "TRT 2": "TRT 2",
+    "TV8": "TV8",
+    "ATV": "ATV",
+    "SHOW TV": "Show TV",
+    "STAR TV": "STAR",
+    "KANAL D": "KANAL D",
+}
 def clean_channel_name(name):
     # "TRT 1 • ALTERNATİF 2" -> "TRT 1"
     return re.sub(
@@ -64,7 +72,7 @@ def add_logo(info, name):
 
     return info
 
-ok = ["#EXTM3U"]
+ok = ['#EXTM3U url-tvg="https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml"']
 bad = []
 rows = []
 
