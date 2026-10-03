@@ -72,6 +72,22 @@ def add_logo(info, name):
 
     return info
 
+def add_epg_id(info, name):
+    channel = clean_channel_name(name)
+    epg_id = EPG_IDS.get(channel.upper())
+
+    if not epg_id:
+        return info
+
+    if 'tvg-id="' in info:
+        return re.sub(r'tvg-id="[^"]*"', f'tvg-id="{epg_id}"', info)
+
+    if "," in info:
+        left, right = info.split(",", 1)
+        return f'{left} tvg-id="{epg_id}",{right}'
+
+    return info
+
 ok = ['#EXTM3U url-tvg="https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml"']
 bad = []
 rows = []
@@ -103,6 +119,7 @@ for i, (inf, name, url) in enumerate(items, 1):
 
     if good:
         inf_with_logo = add_logo(inf, name)
+        inf_with_logo = add_epg_id(inf_with_logo, name)
         ok += [inf_with_logo, url]
         ok[0] = '#EXTM3U url-tvg="https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml"'
     else:
