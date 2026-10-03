@@ -33,7 +33,7 @@ LOGOS = {
     "KANAL D": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kanal_D_logo.svg/512px-Kanal_D_logo.svg.png",
 }
 EPG_IDS = {
-    "TRT 1": "TRT 1",
+   "TRT 1": "af0zo9et4xguwsk",
     "TRT 2": "TRT 2",
     "TV8": "TV8",
     "ATV": "ATV",
