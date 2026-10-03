@@ -105,8 +105,12 @@ for i, (inf, name, url) in enumerate(items, 1):
         url
     ])
 
+epg_url = "https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml"
+
+m3u_header = f'#EXTM3U url-tvg="{epg_url}"'
+
 Path("CALISANLAR.m3u").write_text(
-    "\n".join(ok) + "\n",
+    m3u_header + "\n" + "\n".join(ok) + "\n",
     encoding="utf-8"
 )
 
