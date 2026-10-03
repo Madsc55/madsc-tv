@@ -2,6 +2,7 @@ import sys
 import subprocess
 import csv
 import re
+import urllib.request
 from pathlib import Path
 
 src = Path(sys.argv[1])
@@ -95,6 +96,7 @@ for i, (inf, name, url) in enumerate(items, 1):
     if good:
         inf_with_logo = add_logo(inf, name)
         ok += [inf_with_logo, url]
+        ok[0] = '#EXTM3U url-tvg="https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml"'
     else:
         bad += [name, url, ""]
 
