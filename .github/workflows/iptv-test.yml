@@ -1,0 +1,31 @@
+name: IPTV Otomatik Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Dosyalari al
+        uses: actions/checkout@v4
+
+      - name: FFmpeg kur
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Kanallari test et
+        run: python3 iptv_test.py Madsc_TV_Temiz_Secim.m3u
+
+      - name: Sonuclari hazirla
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-IPTV-TEST-SONUCLARI
+          path: |
+            CALISANLAR.m3u
+            CALISMAYANLAR.txt
+            TEST_RAPORU.csv
+          retention-days: 30
