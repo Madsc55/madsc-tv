@@ -18,7 +18,7 @@ jobs:
           sudo apt-get install -y ffmpeg
 
       - name: Kanallari test et
-              run: python3 iptv_test.py MADSC_TV_TURKIYE_SON.m3u
+        run: python3 iptv_test.py "MADSC_TV_TURKIYE_SON.m3u"
 
       - name: Sonuclari hazirla
         uses: actions/upload-artifact@v4
