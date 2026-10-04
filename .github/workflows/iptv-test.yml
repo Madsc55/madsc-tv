@@ -18,12 +18,12 @@ jobs:
           sudo apt-get install -y ffmpeg
 
       - name: Kanallari test et
-        run: python3 iptv_test.py "MADSC_TV_TURKIYE_SON.m3u"
+        run: python3 iptv_test.py "MADSC_TV_47_LISTE_ADAY.m3u"
 
       - name: Sonuclari hazirla
         uses: actions/upload-artifact@v4
         with:
-          name: MADSC-IPTV-TEST-SONUCLARI
+          name: MADSC-IPTV-47-TEST-SONUCLARI
           path: |
             CALISANLAR.m3u
             CALISMAYANLAR.txt
