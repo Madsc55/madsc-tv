@@ -1,10 +1,15 @@
-name: IPTV Otomatik Test
+name: IPTV Otomatik Guncelleme
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "15 3 * * *"
+
+permissions:
+  contents: write
 
 jobs:
-  test:
+  test-ve-guncelle:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -20,10 +25,18 @@ jobs:
       - name: Kanallari test et
         run: python3 iptv_test.py "MADSC_TV_47_LISTE_ADAY.m3u"
 
-      - name: Sonuclari hazirla
+      - name: CALISANLAR dosyasini otomatik guncelle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CALISANLAR.m3u
+          git diff --cached --quiet || git commit -m "CALISANLAR listesini otomatik guncelle"
+          git push
+
+      - name: Test sonuclarini sakla
         uses: actions/upload-artifact@v4
         with:
-          name: MADSC-IPTV-47-TEST-SONUCLARI
+          name: MADSC-IPTV-OTOMATIK-TEST-SONUCLARI
           path: |
             CALISANLAR.m3u
             CALISMAYANLAR.txt
