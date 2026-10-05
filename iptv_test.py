@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-MADSC TV v5
+MADSC TV v6
 - v4'teki fazla sert HLS segment kontrolu yumusatildi.
 - HLS playlist + ffprobe asil karar mekanizmasidir; segment Range hatasi tek basina kanali elemez.
 - Bir kanal icin ayni kaynaktaki birden fazla URL test edilebilir.
 - Favoriler varsayilan liste + FAVORILER.txt ile kalici tutulur.
 - Yerel/yabanci/radyo/premium ve supheli relay filtreleri korunur.
-- ALTERNATIF ve ALTERNATIF DIJITAL kanal adina eklenmez; sadece grup adidir.
+- ALTERNATIF ve ALTERNATIF DIJITAL kanal adina eklenmez; sadece grup adidir.\n- v6: ffprobe 50 saniyeye kadar bekler, kanal basina tum calisan alternatifleri korur.\n- v6: aday limiti 30; gec cevap veren CDN/HLS kaynaklarini aceleyle elemez.
 """
 
 import csv
@@ -48,11 +48,11 @@ POPULARITY = DEFAULT_FAVORITES + [
     "TRT BELGESEL", "TRT 2", "TRT MÜZİK", "A2", "TEVE 2", "DMAX", "TLC",
 ]
 
-MAX_WORKERS = 10
-HTTP_TIMEOUT = 7
-FFPROBE_TIMEOUT = 14
-MAX_CANDIDATES_PER_CHANNEL = 10
-USER_AGENT = "Mozilla/5.0 (MADSC-TV/5.0)"
+MAX_WORKERS = 12
+HTTP_TIMEOUT = 20
+FFPROBE_TIMEOUT = 50
+MAX_CANDIDATES_PER_CHANNEL = 30
+USER_AGENT = "Mozilla/5.0 (MADSC-TV/6.0)"
 
 BLOCKED_HOST_SUFFIXES = ("helga.iptv2022.com", "siauliairsavlt.pw")
 
@@ -177,7 +177,7 @@ CURATED = {
 
 PREMIUM_PATTERNS = ("BEIN","EXXEN","DISNEY","HBO"," S SPORT","SSPORT","TIVIBU","D-SMART","DIGITURK","NETFLIX","GAIN PREMIUM")
 RADIO_PATTERNS = ("RADYO","RADIO"," FM")
-FOREIGN_HINTS = ("PERSIANA","ALMAHRIAH","MEKAMELEEN","ELSHARQ","AL-ZAHRA","AL ZAHRA","ARABIC","ARAB ","IRAN ","AZERBAIJAN","RUSSIA","GERMANY")
+FOREIGN_HINTS = ("PERSIANA","ALMAHRIAH","MEKAMELEEN","ELSHARQ","AL-ZAHRA","AL ZAHRA","ARABIC","ARAB ","ARABI","IRAN ","AZERBAIJAN","RUSSIA","GERMANY")
 LOCAL_TOKENS = {
     "ADANA","ADIYAMAN","AFYON","AKSARAY","AMASYA","ANTALYA","ALANYA","ARDAHAN","ARTVIN","AYDIN","BALIKESIR","BARTIN",
     "BATMAN","BAYBURT","BILECIK","BINGOL","BITLIS","BOLU","BURDUR","BURSA","CANAKKALE","CANKIRI","CORUM","DENIZLI",
@@ -257,6 +257,7 @@ def discovery_allowed(e):
     n=ascii_text(e["name"]).upper(); raw=ascii_text(e.get("raw_name","")).upper(); g=ascii_text(e.get("group","")).upper()
     blob=f"{n} {raw} {g}"
     if any(x in blob for x in PREMIUM_PATTERNS+RADIO_PATTERNS+FOREIGN_HINTS) or blocked_url(e["url"]): return False
+    if any(x in n for x in ("TRT WORLD","TRT ARABI")): return False
     if key_for(e["name"]) in KNOWN_BY_KEY: return True
     if set(re.findall(r"[A-Z0-9]+",n)) & LOCAL_TOKENS: return False
     country=ascii_text(e.get("country","")).upper()
@@ -319,7 +320,7 @@ def hls_precheck(url):
 
 def ffprobe(url):
     try:
-        p=subprocess.run(["ffprobe","-v","error","-rw_timeout","10000000","-analyzeduration","3000000","-probesize","3000000",
+        p=subprocess.run(["ffprobe","-v","error","-rw_timeout","45000000","-analyzeduration","10000000","-probesize","10000000",
                           "-select_streams","v:0","-show_entries","stream=codec_name,width,height","-of","json",url],
                          capture_output=True,text=True,timeout=FFPROBE_TIMEOUT)
         if p.returncode!=0:return False,0,0,"",(p.stderr or "")[:220]
@@ -402,7 +403,7 @@ def main():
     for source,url in DISCOVERY_SOURCES:
         try:
             print(f"Kesif kaynagi: {source}",flush=True);accepted=0
-            for e in parse_m3u(fetch_text(url,timeout=15),source):
+            for e in parse_m3u(fetch_text(url,timeout=30),source):
                 if discovery_allowed(e):
                     add_candidate(pool,e["name"],e["url"],source,e["logo"],e["tvg_id"],e["group"],e["digital_hint"]);accepted+=1
             print(f"  -> {accepted} uygun aday",flush=True)
@@ -443,11 +444,13 @@ def main():
                 len(meta["candidates"]),EPG_IDS.get(meta["name"],meta.get("tvg_id","")),"EVET" if x.get("digital_hint") else "HAYIR"])
         if not main:continue
         selected[k]={**meta,**main};alternatives[k]=[];digital_alternatives[k]=[]
+        seen_alt_urls=set()
         for x in good:
-            if x["url"]==main["url"]:continue
-            if x["height"]<max(576,int(main["height"]*.65)):continue
+            if x["url"]==main["url"] or x["url"] in seen_alt_urls:continue
+            if x["height"]<360:continue
+            seen_alt_urls.add(x["url"])
             target=digital_alternatives if x.get("digital_hint") else alternatives
-            if not target[k]:target[k]=[{**meta,**x}]
+            target[k].append({**meta,**x})
 
     pop={key_for(n):i for i,n in enumerate(POPULARITY)};grouped=defaultdict(list)
     for k,ch in selected.items():
@@ -479,7 +482,7 @@ def main():
         w=csv.writer(f);w.writerow(["Kanal","Durum","Kalite","Genislik","Yukseklik","Codec","Kaynak","Kontrol","URL","Secildi","Aday_Sayisi","EPG_ID","Dijital_Ipucu"]);w.writerows(report)
 
     print("\n===================================")
-    print("MADSC TV v5 TESTI TAMAMLANDI")
+    print("MADSC TV v6 TESTI TAMAMLANDI")
     print(f"Kesfedilen kanal    : {len(pool)}")
     print(f"Final calisan       : {len(selected)}")
     print(f"Calismayan          : {len(failed)}")
