@@ -352,9 +352,23 @@ def test_url(url):
 
 
 def candidate_urls(name, original_url):
+    channel = key_for(name)
+    fallbacks = FALLBACKS.get(channel, [])
+
+    # Sözcü TV'de güvenilir yedek adresleri önce dene.
+    # Ana listedeki üçüncü taraf adres ancak yedekler çalışmazsa denensin.
+    if channel in ("SÖZCÜ TV", "SOZCU TV", "SZC TV"):
+        result = list(fallbacks)
+
+        if original_url not in result:
+            result.append(original_url)
+
+        return result
+
+    # Diğer kanallarda mevcut adres önce denensin.
     result = [original_url]
 
-    for u in FALLBACKS.get(key_for(name), []):
+    for u in fallbacks:
         if u not in result:
             result.append(u)
 
