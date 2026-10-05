@@ -25,18 +25,18 @@ jobs:
       - name: Kanallari test et
         run: python3 iptv_test.py "MADSC_TV_47_LISTE_ADAY.m3u"
 
-      - name: CALISANLAR dosyasini otomatik guncelle
+      - name: Sonuclari otomatik guncelle
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u
-          git diff --cached --quiet || git commit -m "CALISANLAR listesini otomatik guncelle"
+          git add CALISANLAR.m3u CALISMAYANLAR.txt TEST_RAPORU.csv
+          git diff --cached --quiet || git commit -m "MADSC TV otomatik kanal testi"
           git push
 
       - name: Test sonuclarini sakla
         uses: actions/upload-artifact@v4
         with:
-          name: MADSC-IPTV-OTOMATIK-TEST-SONUCLARI
+          name: MADSC-IPTV-TEST-SONUCLARI
           path: |
             CALISANLAR.m3u
             CALISMAYANLAR.txt
