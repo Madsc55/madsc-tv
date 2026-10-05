@@ -187,6 +187,14 @@ def main():
   else:
    for name,r in mainrows:
     if CATEGORY[name]==group:add(name,r,group)
+ # Önceki ALTERNATİF kayıtları da yedek olarak koru; ana kayıtların sırasını bozma.
+ # Böylece yeni testte bir kaynak geçici olarak düşse bile eski yedek kaynak listeden kaybolmaz.
+ alt_urls={r['url'] for _,r in altrows}
+ for info,url in preserved_previous:
+  if info and 'group-title="ALTERNATİF"' in info and url not in alt_urls:
+   lines.append(info)
+   lines.append(url)
+   alt_urls.add(url)
  # Güvenlik: önceki çalışan kayıtlardan yeni testte hiç temsil edilmeyenleri geçici ağ hatası yüzünden silme.
  output_urls={lines[i] for i in range(2,len(lines),2) if lines[i].startswith(('http://','https://'))}
  for info,url in preserved_previous:
