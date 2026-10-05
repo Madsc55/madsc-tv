@@ -220,10 +220,15 @@ def main():
    if r and r.get('ok'): goodmap[name].append(r)
   goodmap[name].sort(key=lambda r:(r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
  lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
+ alt_seq=defaultdict(int)
  def add(name,r,group):
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
-  identity=name if group!='ALTERNATİF' else f'{name} ALTERNATİF'
-  lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
+  if group=='ALTERNATİF':
+   alt_seq[name]+=1; n=alt_seq[name]
+   identity=f'{name} ALTERNATİF {n}'; epg_out=f'ALT-{re.sub(r"[^A-Z0-9ÇĞİÖŞÜ]+","-",name.upper())}-{n}'; visible=f'{name} ALTERNATİF {n} {q(r["w"],r["h"])}'
+  else:
+   identity=name; epg_out=epg
+  lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
  # Fotoğraflardaki 1-32 sırası sabittir; hedef çözünürlük bulunamazsa eski doğru favori korunur.
  previous_favorite_entries=[]
