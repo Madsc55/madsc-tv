@@ -106,6 +106,7 @@ def main():
   if logo and name not in logos: logos[name]=logo
  prev=Path('CALISANLAR.m3u')
  preserved_favorites=[]
+ preserved_previous=[]
  if prev.exists():
   prev_text=prev.read_text('utf-8-sig',errors='ignore')
   info=None
@@ -117,6 +118,7 @@ def main():
      visible=info.split(',',1)[-1].strip()
      base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',visible).strip()
      if base in CATEGORY: preserved_favorites.append((base,s))
+    preserved_previous.append((info,s))
     info=None
   for name,url,logo in parse(prev_text):
    base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',name).strip()
@@ -185,6 +187,13 @@ def main():
   else:
    for name,r in mainrows:
     if CATEGORY[name]==group:add(name,r,group)
+ # Güvenlik: önceki çalışan kayıtlardan yeni testte hiç temsil edilmeyenleri geçici ağ hatası yüzünden silme.
+ output_urls={lines[i] for i in range(2,len(lines),2) if lines[i].startswith(('http://','https://'))}
+ for info,url in preserved_previous:
+  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info:
+   lines.append(info)
+   lines.append(url)
+   output_urls.add(url)
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
  with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
