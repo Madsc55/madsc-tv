@@ -2,9 +2,6 @@ name: IPTV Otomatik Guncelleme
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths: ['.github/workflows/iptv-test.yml']
   schedule:
     - cron: "15 3 * * *"
 
