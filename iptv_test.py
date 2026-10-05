@@ -9,7 +9,7 @@ UA='Mozilla/5.0 (MADSC-TV/2.0)'
 HTTP_TIMEOUT=10
 PROBE_TIMEOUT=30
 WORKERS=12
-MAX_PER_CHANNEL=16
+MAX_PER_CHANNEL=30
 BLOCKED=('helga.iptv2022.com',)
 GROUP_ORDER=['⭐ FAVORİLER','ULUSAL','HABER','SPOR','ALTERNATİF','ÇOCUK','BELGESEL','DİNİ','MÜZİK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','İNTERNET']
 FAVORITES=['TRT 1','ATV','KANAL D','SHOW TV','STAR TV','NOW','TV8','KANAL 7','SÖZCÜ TV','TV100','NTV','CNN TÜRK','TRT HABER','HABERTÜRK','HABER GLOBAL','TRT SPOR','A SPOR']
@@ -118,9 +118,40 @@ def main():
   if not good: failed.append(name); continue
   good.sort(key=lambda r:(r['w']*r['h'], r['url'].startswith('https://')),reverse=True)
   best=good[0]; mainrows.append((name,best))
-  alt=next((r for r in good[1:] if host(r['url'])!=host(best['url'])),None)
-  if alt: altrows.append((name,alt))
- favset=set(FAVORITES); lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
+  # Kullanıcının isteği: 1./2./3./4. taraf ayrımı yapma; çalışan kaliteli kaynakların hepsini koru.
+  # Aynı kanalın farklı çözünürlükte ve farklı hostlarda birden fazla kaydı ALTERNATİF altında bulunabilir.
+  seen_alt=set()
+  for r in good[1:]:
+   k=(r['url'],r['w'],r['h'])
+   if k not in seen_alt:
+    seen_alt.add(k); altrows.append((name,r))
+ # Mevcut FAVORİLER'i koru; eski CALISANLAR içindeki ⭐ FAVORİLER kayıtlarını silme.
+ favset=set(FAVORITES)
+ if prev.exists():
+  for oldname,oldurl,oldlogo in parse(prev.read_text('utf-8-sig',errors='ignore')):
+   base=re.sub(r'\\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\\d+P SD)
+ def add(name,r,group):
+  epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
+  lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
+  lines.append(r['url'])
+ for name,r in mainrows:
+  if name in favset:add(name,r,'⭐ FAVORİLER')
+ for group in GROUP_ORDER[1:]:
+  if group=='ALTERNATİF':
+   for name,r in altrows:add(name,r,'ALTERNATİF')
+  else:
+   for name,r in mainrows:
+    if CATEGORY[name]==group:add(name,r,group)
+ Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+ Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
+ with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
+  w=csv.writer(f); w.writerow(['Kanal','Durum','Genislik','Yukseklik','Kalite','Codec','Kontrol','URL']); w.writerows(report)
+ print(f'Bitti. Ana çalışan={len(mainrows)} alternatif={len(altrows)} çalışmayan kanal={len(failed)}',flush=True)
+
+if __name__=='__main__': main()
+,'',oldname).strip()
+   if base in CATEGORY: favset.add(base)
+ lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
  def add(name,r,group):
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
