@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/iptv-test.yml']
+    paths: ['.github/workflows/iptv-test.yml', 'MADSC_TV_47_LISTE_ADAY.m3u']
   schedule:
     - cron: "15 3 * * *"
 
