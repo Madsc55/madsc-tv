@@ -60,7 +60,7 @@ def parse(text):
  for raw in text.splitlines():
   s=raw.strip()
   if s.startswith('#EXTINF:'): info=s
-  elif info and s.startswith(('http://','https://')):
+  elif info and s.startswith(('http://','https://','rtmp://')):
    name=canonical_name(info.split(',',1)[-1].strip()); logo=''; m=re.search(r'tvg-logo="([^"]*)"',info)
    if m: logo=m.group(1).strip()
    out.append((name,s,logo)); info=None
@@ -97,11 +97,44 @@ def probe(url):
   return p.returncode==0 and w>0 and h>0,w,h,st.get('codec_name','')
  except Exception as e: return False,0,0,str(e)[:120]
 
+def protocol(url):
+ u=url.lower().split('?',1)[0]
+ if is_youtube(url): return 'YOUTUBE'
+ if u.startswith('rtmp://'): return 'RTMP'
+ if u.endswith('.mpd'): return 'DASH'
+ if u.endswith(('.ts','.m2ts')): return 'TS'
+ if u.endswith('.mp4'): return 'MP4'
+ if u.endswith('.webm'): return 'WEBM'
+ return 'HLS'
+
+def http_media_check(url, kind):
+ try:
+  data=get(url,65536)
+  if len(data)<512: return False,url,'empty-data'
+  if kind=='DASH':
+   text=data.decode('utf-8-sig','ignore')
+   if '<MPD' not in text and '<mpd' not in text: return False,url,'not-mpd'
+   return True,url,'dash+manifest'
+  if kind=='TS':
+   sync=sum(1 for off in range(0,min(len(data),188*20),188) if data[off:off+1]==b'\\x47')
+   if sync<2: return False,url,'not-ts'
+   return True,url,'ts+data'
+  return True,url,kind.lower()+'+data'
+ except Exception as e: return False,url,str(e)[:160]
+
 def test(url):
- if any(x in url.lower() for x in BLOCKED): return {'ok':False,'detail':'blocked','url':url,'w':0,'h':0}
- hls,media,detail=hls_check(url)
- ok,w,h,codec=probe(media if hls else url)
- return {'ok':bool(hls and ok),'detail':detail,'url':url,'media':media,'w':w,'h':h,'codec':codec}
+ if any(x in url.lower() for x in BLOCKED): return {'ok':False,'detail':'blocked','url':url,'w':0,'h':0,'protocol':protocol(url)}
+ kind=protocol(url)
+ if kind=='HLS':
+  valid,media,detail=hls_check(url)
+ elif kind in ('DASH','TS','MP4','WEBM'):
+  valid,media,detail=http_media_check(url,kind)
+ elif kind=='RTMP':
+  valid,media,detail=True,url,'rtmp+probe'
+ else:
+  return {'ok':False,'detail':'unsupported','url':url,'w':0,'h':0,'protocol':kind}
+ ok,w,h,codec=probe(media if valid else url)
+ return {'ok':bool(valid and ok),'detail':detail,'url':url,'media':media,'w':w,'h':h,'codec':codec,'protocol':kind}
 
 def q(w,h):
  if w>=3840 or h>=2160:return '2160P 4K UHD'
@@ -112,6 +145,9 @@ def q(w,h):
  return f'{h}P SD'
 
 def host(u): return urllib.parse.urlparse(u).netloc.lower()
+
+def ibo_compat(kind):
+ return {'HLS':'YUKSEK','TS':'YUKSEK','RTMP':'YUKSEK','DASH':'CIHAZA BAGLI','MP4':'CIHAZA BAGLI','WEBM':'CIHAZA BAGLI','YOUTUBE':'AYRI'}.get(kind,'BILINMIYOR')
 
 def is_youtube(url):
  return 'youtube.com/' in url.lower() or 'youtu.be/' in url.lower()
@@ -165,7 +201,7 @@ def main():
   good=[]
   for u in by.get(name,[]):
    r=results.get(u,{'ok':False,'detail':'not-tested','w':0,'h':0,'url':u})
-   report.append([name,'CALISIYOR' if r['ok'] else 'CALISMIYOR',r.get('w',0),r.get('h',0),q(r.get('w',0),r.get('h',0)) if r['ok'] else '',r.get('codec',''),r.get('detail',''),u])
+   report.append([name,'CALISIYOR' if r['ok'] else 'CALISMIYOR',r.get('protocol',protocol(u)),ibo_compat(r.get('protocol',protocol(u))),r.get('w',0),r.get('h',0),q(r.get('w',0),r.get('h',0)) if r['ok'] else '',r.get('codec',''),r.get('detail',''),u])
    if r['ok']: good.append(r)
   if not good: failed.append(name); continue
   good.sort(key=lambda r:(r['w']*r['h'], r['url'].startswith('https://')),reverse=True)
@@ -186,7 +222,8 @@ def main():
  lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
  def add(name,r,group):
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
-  lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
+  identity=name if group!='ALTERNATİF' else f'{name} ALTERNATİF'
+  lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
  # Fotoğraflardaki 1-32 sırası sabittir; hedef çözünürlük bulunamazsa eski doğru favori korunur.
  previous_favorite_entries=[]
@@ -247,7 +284,7 @@ def main():
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
  with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
-  w=csv.writer(f); w.writerow(['Kanal','Durum','Genislik','Yukseklik','Kalite','Codec','Kontrol','URL']); w.writerows(report)
+  w=csv.writer(f); w.writerow(['Kanal','Durum','Tur','IBO_Uyumlulugu','Genislik','Yukseklik','Kalite','Codec','Kontrol','URL']); w.writerows(report)
  print(f'Bitti. Ana çalışan={len(mainrows)} alternatif={len(altrows)} çalışmayan kanal={len(failed)}',flush=True)
 
 if __name__=='__main__': main()
