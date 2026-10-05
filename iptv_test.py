@@ -1,1162 +1,280 @@
-import sys
-import subprocess
+#!/usr/bin/env python3
 import csv
+import json
 import re
-import urllib.request
+import subprocess
+import sys
 import unicodedata
+import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
+from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-
-# ============================================================
-# AYARLAR
-# ============================================================
-
-EPG_URL = (
-    "https://raw.githubusercontent.com/"
-    "ahmethascelik/epghost/main/xmltv.xml"
-)
-
-# Kaynaklardan biri çalışmazsa diğerleri yine kullanılacak.
+EPG_URL = "https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml"
+USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
+HTTP_TIMEOUT = 7
+PROBE_TIMEOUT = 15
+MAX_WORKERS = 10
+MAX_CANDIDATES = 10
 DISCOVERY_SOURCES = [
-    (
-        "IPTV_ORG",
-        "https://iptv-org.github.io/iptv/countries/tr.m3u",
-    ),
+    ("IPTV_ORG", "https://iptv-org.github.io/iptv/countries/tr.m3u"),
 ]
+BLOCKED_URL_PARTS = ("helga.iptv2022.com", "onureroz.com")
+GROUP_ORDER = ["⭐ FAVORİLER", "ULUSAL", "HABER", "SPOR", "ALTERNATİF", "ÇOCUK", "BELGESEL", "DİNİ", "MÜZİK", "SİNEMA-DİZİ", "EĞİTİM-KÜLTÜR", "KAMU-TEMATİK", "İNTERNET"]
+DEFAULT_FAVORITES = ["TRT 1", "ATV", "KANAL D", "SHOW TV", "STAR TV", "NOW", "TV8", "KANAL 7", "SÖZCÜ TV", "TV100", "NTV", "CNN TÜRK", "TRT HABER", "HABERTÜRK", "HABER GLOBAL", "TRT SPOR", "A SPOR"]
 
-# Aynı URL'nin gereksiz yere tekrar test edilmesini engeller.
-MAX_DISCOVERED_PER_CHANNEL = 30
-
-
-# ============================================================
-# EPG ID
-# ============================================================
-
-EPG_IDS = {
-    "TRT 1": "af0zo9et4xguwsk",
-    "KANAL D": "bbwgmhsmhhoatzg",
-    "SHOW TV": "pvr08e5grfsebfw",
-    "STAR TV": "75tz02ooforewap",
-    "ATV": "2zkzbuscxwyjc4k",
-    "KANAL 7": "a8t877hb0oandbv",
-    "TV8": "w7x32brlcz26ibb",
-    "NOW": "m0abaihy7vla6ma",
-
-    "CNN TURK": "ah7mr9ol040kp3b",
-    "CNN TÜRK": "ah7mr9ol040kp3b",
-    "NTV": "nyz5s8p798n9cqg",
-    "TRT HABER": "in3p7jng04mr97m",
-    "HABERTURK": "gil1w2erz9l7imc",
-    "HABERTÜRK": "gil1w2erz9l7imc",
-    "24": "9b7ltozvb9c333g",
-    "24 TV": "9b7ltozvb9c333g",
-    "A HABER": "ql8qf4vb46o1h7t",
-    "TV100": "5i5mds6ap6h7m7w",
-    "TV 100": "5i5mds6ap6h7m7w",
-    "EKOL TV": "3kluptlla8k8re0",
-    "BEYAZ TV": "edf3lp61qexxxhl",
-    "TVNET": "njoweqtgl6xngkj",
-    "TV NET": "njoweqtgl6xngkj",
-    "HABER GLOBAL": "bwmpobxuqn2pz87",
-    "360": "cphtdpl9j70cn3a",
-    "BLOOMBERG HT": "4nu4fjjhm0y6wqm",
-    "TGRT HABER": "qz2fp61itc8xm4g",
-    "ULUSAL TV": "rjxdtygyec6mqjz",
-    "ULUSAL KANAL": "rjxdtygyec6mqjz",
-
-    "SÖZCÜ TV": "5zoe73avn97ggnt",
-    "SOZCU TV": "5zoe73avn97ggnt",
-    "SZC TV": "5zoe73avn97ggnt",
-
-    "HALK TV": "d1exl1gxity48nl",
-    "TELE1": "2m3k6xyjyek7djr",
-    "FLASH HABER": "10bd6fhoe76yplp",
-
-    "TRT SPOR": "v0kvdikxec8nngd",
-    "TRT SPOR YILDIZ": "1yyvuttcurbkcnr",
-    "A SPOR": "v25znppc6itjprw",
-    "HT SPOR": "spgsorunhgejuu2",
-    "TJK TV": "jgxiih7f6yhagpj",
-    "FB TV": "jemrsooej8d8jku",
-
-    "TRT ÇOCUK": "ybv52n8pldp0lfq",
-    "TRT COCUK": "ybv52n8pldp0lfq",
-    "MİNİKA GO": "phekqx3pyw2wiiq",
-    "MINIKA GO": "phekqx3pyw2wiiq",
-    "MİNİKA ÇOCUK": "52hjq0o16nwpdnq",
-    "MINIKA COCUK": "52hjq0o16nwpdnq",
-
-    "TRT BELGESEL": "80spas00o3iq47a",
-
-    "TRT 2": "nzdc0yd5xxv43yl",
-    "TRT TÜRK": "xe24vekaidpsql3",
-    "TRT TURK": "xe24vekaidpsql3",
-    "TRT AVAZ": "p6sz5lndgfas2r9",
-
-    "TRT MÜZİK": "18ws4yk42js588h",
-    "TRT MUZIK": "18ws4yk42js588h",
-    "DREAM TÜRK": "ttlji9eholru11x",
-    "DREAM TURK": "ttlji9eholru11x",
-    "POWER TÜRK": "82e4q3ribmz2mt1",
-    "POWER TURK": "82e4q3ribmz2mt1",
-
-    "DMAX": "6sokobdd9dwe0gl",
-    "TLC": "9z32hgan37zhgr6",
-    "TV8.5": "pd29xh24glvq4qz",
-    "TV 8,5": "pd29xh24glvq4qz",
-    "ÜLKE TV": "kanaalkyymvqcjf",
-    "ULKE TV": "kanaalkyymvqcjf",
-    "A PARA": "8yfvm8ak2t1qoe6",
-    "A2": "fc29p3wbp8wkgo4",
-    "TEVE 2": "6vs4sg9183gdxth",
-    "TEVE2": "6vs4sg9183gdxth",
+# Yalnızca ücretsiz/açık ve ülke çapında kullanılmasını istediğimiz kanallar.
+# urls alanı başlangıç adaylarıdır; başlangıç listesi, dünkü CALISANLAR ve keşif kaynağı da eklenir.
+CHANNELS = {
+"TRT 1": ("ULUSAL", "af0zo9et4xguwsk", ["https://tv-trt1.medya.trt.com.tr/master_1080.m3u8", "https://tv-trt1.medya.trt.com.tr/master_720.m3u8", "https://tv-trt1.medya.trt.com.tr/master.m3u8"]),
+"ATV": ("ULUSAL", "2zkzbuscxwyjc4k", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8", "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8"]),
+"KANAL D": ("ULUSAL", "bbwgmhsmhhoatzg", ["https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3", "https://demiroren-live.daioncdn.net/kanald/kanald_1080p.m3u8"]),
+"SHOW TV": ("ULUSAL", "pvr08e5grfsebfw", ["https://ciner-live.daioncdn.net/showtv/showtv_1080p.m3u8", "https://ciner-live.daioncdn.net/showtv/showtv_720p.m3u8", "https://ciner-live.daioncdn.net/showtv/showtv.m3u8"]),
+"STAR TV": ("ULUSAL", "75tz02ooforewap", ["https://dogus-live.daioncdn.net/startv/startv_720p.m3u8", "https://dogus-live.daioncdn.net/startv/startv.m3u8"]),
+"NOW": ("ULUSAL", "m0abaihy7vla6ma", ["https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8", "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv_720p.m3u8"]),
+"TV8": ("ULUSAL", "w7x32brlcz26ibb", ["https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8/tv8_1080p.m3u8", "https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8/tv8.m3u8"]),
+"KANAL 7": ("ULUSAL", "a8t877hb0oandbv", ["https://kanal7-live.daioncdn.net/kanal7/kanal7_1080p.m3u8"]),
+"BEYAZ TV": ("ULUSAL", "edf3lp61qexxxhl", ["https://beyaztv-live.daioncdn.net/beyaztv/beyaztv_1080p.m3u8", "https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8"]),
+"360": ("ULUSAL", "cphtdpl9j70cn3a", ["https://turkmedya-live.ercdn.net/tv360/tv360_1080p.m3u8", "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8"]),
+"A2": ("ULUSAL", "fc29p3wbp8wkgo4", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_1080p.m3u8"]),
+"TEVE2": ("ULUSAL", "6vs4sg9183gdxth", ["https://demiroren-live.daioncdn.net/teve2/teve2_1080p.m3u8"]),
+"DMAX": ("ULUSAL", "6sokobdd9dwe0gl", ["https://dogus-live.daioncdn.net/dmax/dmax_720p.m3u8"]),
+"TLC": ("ULUSAL", "9z32hgan37zhgr6", ["https://dogus-live.daioncdn.net/tlc/tlc_720p.m3u8"]),
+"TV8.5": ("ULUSAL", "pd29xh24glvq4qz", ["https://tv8.daioncdn.net/tv8bucuk/tv8bucuk_1080p.m3u8?app=tv8bucuk_web&ce=3"]),
+"TRT 2": ("ULUSAL", "nzdc0yd5xxv43yl", ["https://tv-trt2.medya.trt.com.tr/master.m3u8", "https://tv-trt2.medya.trt.com.tr/master_720.m3u8"]),
+"SÖZCÜ TV": ("HABER", "5zoe73avn97ggnt", ["https://szctvdvr.blutv.com/blutv_szctv_dvr/live_720p4350000kbps/index.m3u8", "http://5.178.103.239:55/yt1/szctv.m3u8"]),
+"TV100": ("HABER", "5i5mds6ap6h7m7w", ["https://tv100-live.daioncdn.net/tv100/tv100_1080p.m3u8"]),
+"NTV": ("HABER", "nyz5s8p798n9cqg", ["https://dogus.daioncdn.net/ntv/ntv_1080p.m3u8"]),
+"CNN TÜRK": ("HABER", "ah7mr9ol040kp3b", ["https://live.duhnet.tv/S2/HLS_LIVE/cnnturknp/playlist.m3u8"]),
+"TRT HABER": ("HABER", "in3p7jng04mr97m", ["https://tv-trthaber.medya.trt.com.tr/master_720p.m3u8"]),
+"HABERTÜRK": ("HABER", "gil1w2erz9l7imc", ["https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/haberturktv/haberturktv_1080p.m3u8"]),
+"HABER GLOBAL": ("HABER", "bwmpobxuqn2pz87", ["https://ensonhaber-live.ercdn.net/haberglobal/haberglobal_720p.m3u8"]),
+"HALK TV": ("HABER", "d1exl1gxity48nl", ["https://halktv-live.daioncdn.net/halktv/halktv_1080p.m3u8"]),
+"TGRT HABER": ("HABER", "qz2fp61itc8xm4g", ["https://canli.tgrthaber.com/tgrt.m3u8", "https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber_1080p.m3u8"]),
+"A HABER": ("HABER", "ql8qf4vb46o1h7t", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber_1080p.m3u8"]),
+"24": ("HABER", "9b7ltozvb9c333g", ["https://turkmedya-live.ercdn.net/tv24/tv24_1080p.m3u8"]),
+"EKOL TV": ("HABER", "3kluptlla8k8re0", ["https://ekoltv-live.ercdn.net/ekoltv/ekoltv_1080p.m3u8"]),
+"TELE1": ("HABER", "2m3k6xyjyek7djr", ["https://tele1-live.ercdn.net/tele1/tele1_1080p.m3u8"]),
+"ULUSAL TV": ("HABER", "rjxdtygyec6mqjz", ["https://ulusal-live.ercdn.net/ulusaltv/ulusaltv.m3u8"]),
+"BLOOMBERG HT": ("HABER", "4nu4fjjhm0y6wqm", ["https://ciner-live.daioncdn.net/bloomberght/bloomberght_720p.m3u8"]),
+"A PARA": ("HABER", "8yfvm8ak2t1qoe6", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/apara/apara_1080p.m3u8"]),
+"TVNET": ("HABER", "njoweqtgl6xngkj", ["https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8"]),
+"ÜLKE TV": ("HABER", "kanaalkyymvqcjf", ["https://livetv.radyotvonline.net/kanal7live/ulketv/playlist.m3u8"]),
+"FLASH HABER": ("HABER", "10bd6fhoe76yplp", ["https://flashhaber-live.ercdn.net/flashhaber/flashhaber.m3u8"]),
+"BENGÜTÜRK": ("HABER", "", ["https://tv.ensonhaber.com/benguturk/benguturk_720p.m3u8"]),
+"TRT SPOR": ("SPOR", "v0kvdikxec8nngd", ["https://tv-trtspor1.medya.trt.com.tr/master_1080.m3u8", "https://tv-trtspor1.medya.trt.com.tr/master_720.m3u8"]),
+"TRT SPOR YILDIZ": ("SPOR", "1yyvuttcurbkcnr", ["https://trt.daioncdn.net/trtspor-yildiz/master_1080p.m3u8?app=web&platform=trtspor"]),
+"A SPOR": ("SPOR", "v25znppc6itjprw", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor_1080p.m3u8"]),
+"HT SPOR": ("SPOR", "spgsorunhgejuu2", ["https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web"]),
+"TJK TV": ("SPOR", "jgxiih7f6yhagpj", ["https://tjktv-live.tjk.org/tjktv_1080p.m3u8"]),
+"FB TV": ("SPOR", "jemrsooej8d8jku", ["https://1hskrdto.rocketcdn.com/fenerbahcetv.smil/playlist.m3u8"]),
+"EKOL SPORTS": ("SPOR", "", ["https://ekoltv-live.ercdn.net/ekolsport/ekolsport_1080p.m3u8"]),
+"TRT ÇOCUK": ("ÇOCUK", "ybv52n8pldp0lfq", ["https://tv-trtcocuk.medya.trt.com.tr/master_1080.m3u8", "https://tv-trtcocuk.medya.trt.com.tr/master_720.m3u8"]),
+"TRT DİYANET ÇOCUK": ("ÇOCUK", "TRTDiyanetCocuk.tr@SD", ["https://tv-trtdiyanetcocuk.medya.trt.com.tr/master_720.m3u8"]),
+"MİNİKA GO": ("ÇOCUK", "phekqx3pyw2wiiq", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8"]),
+"MİNİKA ÇOCUK": ("ÇOCUK", "52hjq0o16nwpdnq", ["https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8"]),
+"TRT BELGESEL": ("BELGESEL", "80spas00o3iq47a", ["https://tv-trtbelgesel.medya.trt.com.tr/master_720.m3u8"]),
+"DİYANET TV": ("DİNİ", "DiyanetTV.tr@SD", ["https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8"]),
+"SEMERKAND TV": ("DİNİ", "SemerkandTV.tr", ["https://b01c02nl.mediatriple.net/videoonlylive/mtisvwurbfcyslive/broadcast_58d915bd40efc.smil/playlist.m3u8"]),
+"LALEGÜL TV": ("DİNİ", "LalegulTV.tr@SD", ["https://lbl.netmedya.net/hls/lalegultv.m3u8"]),
+"DOST TV": ("DİNİ", "DostTV.tr@SD", ["https://dost.stream.emsal.im/tv/live.m3u8"]),
+"TRT MÜZİK": ("MÜZİK", "18ws4yk42js588h", ["https://tv-trtmuzik.medya.trt.com.tr/master_720.m3u8"]),
+"DREAM TÜRK": ("MÜZİK", "ttlji9eholru11x", ["https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8"]),
+"KRAL POP TV": ("MÜZİK", "KralPopTV.tr@SD", ["https://dogus-live.daioncdn.net/kralpoptv/playlist.m3u8"]),
+"POWER TÜRK": ("MÜZİK", "82e4q3ribmz2mt1", ["https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8"]),
+"NUMBER1 TV": ("MÜZİK", "Number1TV.tr@SD", ["https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8"]),
+"TRT EBA": ("EĞİTİM-KÜLTÜR", "TRTEBA.tr@SD", []),
+"TBMM TV": ("KAMU-TEMATİK", "TBMMTV.tr@SD", ["https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8"]),
+"TRT AVAZ": ("KAMU-TEMATİK", "p6sz5lndgfas2r9", ["https://tv-trtavaz.medya.trt.com.tr/master_720.m3u8"]),
+"TRT TÜRK": ("KAMU-TEMATİK", "xe24vekaidpsql3", ["https://tv-trtturk.medya.trt.com.tr/master_720.m3u8"]),
 }
-
-
-# ============================================================
-# LOGOLAR
-# M3U'da mevcut logo varsa ona dokunulmaz.
-# ============================================================
-
-LOGOS = {
-    "TRT 1": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/3/3e/TRT_1_logo.svg/512px-TRT_1_logo.svg.png"
-    ),
-    "TRT 2": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/1/11/TRT_2_logo.svg/512px-TRT_2_logo.svg.png"
-    ),
-    "TV8": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/7/7c/TV8_logo.svg/512px-TV8_logo.svg.png"
-    ),
-    "ATV": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/5/5e/Atv_logo.svg/512px-Atv_logo.svg.png"
-    ),
-    "SHOW TV": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/5/5c/Show_TV_logo.svg/512px-Show_TV_logo.svg.png"
-    ),
-    "STAR TV": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/4/41/Star_TV_logo.svg/512px-Star_TV_logo.svg.png"
-    ),
-    "KANAL D": (
-        "https://upload.wikimedia.org/wikipedia/commons/"
-        "thumb/4/4c/Kanal_D_logo.svg/512px-Kanal_D_logo.svg.png"
-    ),
-}
-
-
-# ============================================================
-# BİZİM BİLDİĞİMİZ YEDEKLER
-# ============================================================
-
-FALLBACKS = {
-    "TRT 1": [
-        "https://tv-trt1.medya.trt.com.tr/master_1080.m3u8",
-        "https://tv-trt1.medya.trt.com.tr/master_720.m3u8",
-    ],
-
-    "ATV": [
-        "https://rnttwmjcin.turknet.ercdn.net/"
-        "lcpmvefbyo/atv/atv_1080p.m3u8",
-    ],
-
-    "KANAL D": [
-        "https://demiroren.daioncdn.net/kanald/"
-        "kanald.m3u8?app=kanald_web&ce=3",
-    ],
-
-    "SHOW TV": [
-        "https://ciner-live.daioncdn.net/showtv/showtv_1080p.m3u8",
-        "https://ciner-live.daioncdn.net/showtv/showtv_720p.m3u8",
-    ],
-
-    "STAR TV": [
-        "https://dogus.daioncdn.net/startv/"
-        "startv_720p.m3u8?"
-        "app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3",
-    ],
-
-    "TV8": [
-        "https://rkhubpaomb.turknet.ercdn.net/"
-        "fwjkgpasof/tv8/tv8_1080p.m3u8",
-    ],
-
-    "NOW": [
-        "https://uycyyuuzyh.turknet.ercdn.net/"
-        "nphindgytw/nowtv/nowtv.m3u8",
-    ],
-
-    "KANAL 7": [
-        "https://kanal7-live.daioncdn.net/"
-        "kanal7/kanal7_1080p.m3u8",
-    ],
-
-    "TV100": [
-        "https://tv100-live.daioncdn.net/"
-        "tv100/tv100_1080p.m3u8",
-    ],
-
-    "SÖZCÜ TV": [
-        "http://5.178.103.239:55/yt1/szctv.m3u8",
-        (
-            "https://szctvdvr.blutv.com/"
-            "blutv_szctv_dvr/"
-            "live_720p4350000kbps/index.m3u8"
-        ),
-    ],
-
-    "TRT HABER": [
-        "https://tv-trthaber.medya.trt.com.tr/master_720.m3u8",
-    ],
-
-    "NTV": [
-        "https://dogus.daioncdn.net/ntv/ntv_1080p.m3u8",
-    ],
-
-    "HABERTÜRK": [
-        "https://rmtftbjlne.turknet.ercdn.net/"
-        "bpeytmnqyp/haberturktv/"
-        "haberturktv_1080p.m3u8",
-    ],
-
-    "CNN TÜRK": [
-        "https://live.duhnet.tv/S2/HLS_LIVE/"
-        "cnnturknp/playlist.m3u8",
-    ],
-
-    "HABER GLOBAL": [
-        "https://ensonhaber-live.ercdn.net/"
-        "haberglobal/haberglobal_720p.m3u8",
-    ],
-
-    "HALK TV": [
-        "https://halktv-live.daioncdn.net/"
-        "halktv/halktv_1080p.m3u8",
-    ],
-
-    "TGRT HABER": [
-        "https://canli.tgrthaber.com/tgrt.m3u8",
-    ],
-
-    "A HABER": [
-        "https://rnttwmjcin.turknet.ercdn.net/"
-        "lcpmvefbyo/ahaber/ahaber_1080p.m3u8",
-    ],
-
-    "24 TV": [
-        "https://turkmedya-live.ercdn.net/"
-        "tv24/tv24_1080p.m3u8",
-    ],
-
-    "EKOL TV": [
-        "https://ekoltv-live.ercdn.net/"
-        "ekoltv/ekoltv_1080p.m3u8",
-    ],
-
-    "TELE1": [
-        "https://tele1-live.ercdn.net/"
-        "tele1/tele1_1080p.m3u8",
-    ],
-
-    "BLOOMBERG HT": [
-        "https://ciner-live.daioncdn.net/"
-        "bloomberght/bloomberght_720p.m3u8",
-    ],
-
-    "A PARA": [
-        "https://rnttwmjcin.turknet.ercdn.net/"
-        "lcpmvefbyo/apara/apara_1080p.m3u8",
-    ],
-
-    "TRT SPOR": [
-        "https://tv-trtspor1.medya.trt.com.tr/master_1080.m3u8",
-        "https://tv-trtspor1.medya.trt.com.tr/master_720.m3u8",
-    ],
-
-    "A SPOR": [
-        "https://rnttwmjcin.turknet.ercdn.net/"
-        "lcpmvefbyo/aspor/aspor_1080p.m3u8",
-    ],
-
-    "TRT ÇOCUK": [
-        "https://tv-trtcocuk.medya.trt.com.tr/master_1080.m3u8",
-        "https://tv-trtcocuk.medya.trt.com.tr/master_720.m3u8",
-    ],
-
-    "TRT BELGESEL": [
-        "https://tv-trtbelgesel.medya.trt.com.tr/master_720.m3u8",
-    ],
-
-    "TRT 2": [
-        "https://tv-trt2.medya.trt.com.tr/master_720.m3u8",
-    ],
-
-    "TRT MÜZİK": [
-        "https://tv-trtmuzik.medya.trt.com.tr/master_720.m3u8",
-    ],
-}
-
-
-# ============================================================
-# İSİM NORMALLEŞTİRME
-# ============================================================
 
 ALIASES = {
-    "SZC TV": "SOZCU TV",
-    "SOZCU": "SOZCU TV",
-
-    "CNN TURK": "CNN TURK",
-    "HABERTURK": "HABERTURK",
-
-    "TV 100": "TV100",
-
-    "TV 8 5": "TV8.5",
-    "TV8 5": "TV8.5",
-
-    "TEVE2": "TEVE 2",
-
-    "ULUSAL TV": "ULUSAL KANAL",
+"TRT1":"TRT 1", "TRT 1":"TRT 1", "TRT2":"TRT 2", "TRT 2":"TRT 2",
+"SHOW":"SHOW TV", "SHOW TV":"SHOW TV", "STAR":"STAR TV", "STAR TV":"STAR TV",
+"KANALD":"KANAL D", "KANAL D":"KANAL D", "KANAL7":"KANAL 7", "KANAL 7":"KANAL 7",
+"FOX":"NOW", "FOX TV":"NOW", "NOW TV":"NOW", "NOW":"NOW", "TV 100":"TV100", "TV100":"TV100",
+"SZC TV":"SÖZCÜ TV", "SOZCU TV":"SÖZCÜ TV", "SOZCU":"SÖZCÜ TV", "SÖZCÜ":"SÖZCÜ TV",
+"HABER TURK":"HABERTÜRK", "HABERTURK":"HABERTÜRK", "CNN TURK":"CNN TÜRK",
+"TV8 5":"TV8.5", "TV8.5":"TV8.5", "TEVE 2":"TEVE2", "A 2":"A2",
+"TRT COCUK":"TRT ÇOCUK", "MINIKA GO":"MİNİKA GO", "MINIKA COCUK":"MİNİKA ÇOCUK",
+"TRT MUZIK":"TRT MÜZİK", "DREAM TURK":"DREAM TÜRK", "POWER TURK":"POWER TÜRK",
+"ULKE TV":"ÜLKE TV", "DIYANET TV":"DİYANET TV", "LALEGUL TV":"LALEGÜL TV",
+"BENGUTURK":"BENGÜTÜRK", "TRT DIYANET COCUK":"TRT DİYANET ÇOCUK",
 }
 
+def ascii_key(s):
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode()
+    s = s.upper().replace("&", " ")
+    s = re.sub(r"\b(?:2160P|1440P|1080P|720P|576P|480P|360P|4K|UHD|QHD|FHD|HD|SD)\b", " ", s)
+    s = re.sub(r"\bALTERNATIF(?:\s+\d+)?\b", " ", s)
+    s = re.sub(r"\[[^]]*\]", " ", s)
+    s = re.sub(r"[^A-Z0-9.]+", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
 
-def ascii_text(text):
-    replacements = str.maketrans({
-        "ı": "i",
-        "İ": "I",
-        "ş": "s",
-        "Ş": "S",
-        "ğ": "g",
-        "Ğ": "G",
-        "ü": "u",
-        "Ü": "U",
-        "ö": "o",
-        "Ö": "O",
-        "ç": "c",
-        "Ç": "C",
-    })
+ALIAS_ASCII = {ascii_key(k): v for k, v in ALIASES.items()}
+for c in CHANNELS: ALIAS_ASCII[ascii_key(c)] = c
 
-    text = text.translate(replacements)
+def canonical(name):
+    return ALIAS_ASCII.get(ascii_key(name))
 
-    return "".join(
-        c
-        for c in unicodedata.normalize("NFKD", text)
-        if not unicodedata.combining(c)
-    )
-
-
-def clean_channel_name(name):
-    name = name.strip()
-
-    # ALTERNATIF 1, ALTERNATIF 2 vb.
-    name = re.sub(
-        r"\s*[•\-]?\s*ALTERNAT[İI]F\s*\d+.*$",
-        "",
-        name,
-        flags=re.IGNORECASE,
-    )
-
-    # Sondaki kalite etiketleri
-    name = re.sub(
-        r"\s*[\-\|•]?\s*"
-        r"(4K|UHD|FHD|FULL\s*HD|"
-        r"2160P?|1440P?|1080P?|720P?|576P?|HD)"
-        r"\s*$",
-        "",
-        name,
-        flags=re.IGNORECASE,
-    )
-
-    return name.strip()
-
-
-def key_for(name):
-    key = clean_channel_name(name)
-
-    key = ascii_text(key).upper()
-
-    key = re.sub(
-        r"[^A-Z0-9]+",
-        " ",
-        key,
-    )
-
-    key = re.sub(
-        r"\s+",
-        " ",
-        key,
-    ).strip()
-
-    key = ALIASES.get(key, key)
-
-    return key
-
-
-# Normalize dictionaries once.
-NORMALIZED_EPG_IDS = {
-    key_for(k): v
-    for k, v in EPG_IDS.items()
-}
-
-NORMALIZED_LOGOS = {
-    key_for(k): v
-    for k, v in LOGOS.items()
-}
-
-NORMALIZED_FALLBACKS = {}
-
-for channel_name, urls in FALLBACKS.items():
-    channel_key = key_for(channel_name)
-
-    NORMALIZED_FALLBACKS.setdefault(
-        channel_key,
-        []
-    )
-
-    for url in urls:
-        if url not in NORMALIZED_FALLBACKS[channel_key]:
-            NORMALIZED_FALLBACKS[channel_key].append(url)
-
-
-# ============================================================
-# EPG / LOGO
-# ============================================================
-
-def add_epg_id(info, name):
-    epg_id = NORMALIZED_EPG_IDS.get(
-        key_for(name)
-    )
-
-    if not epg_id:
-        return info
-
-    if 'tvg-id="' in info:
-        return re.sub(
-            r'tvg-id="[^"]*"',
-            f'tvg-id="{epg_id}"',
-            info,
-        )
-
-    if "," in info:
-        left, right = info.split(",", 1)
-
-        return (
-            f'{left} tvg-id="{epg_id}",'
-            f'{right}'
-        )
-
-    return info
-
-
-def add_logo(info, name):
-    # Var olan gerçek logo korunur.
-    match = re.search(
-        r'tvg-logo="([^"]*)"',
-        info,
-    )
-
-    if match and match.group(1).strip():
-        return info
-
-    logo = NORMALIZED_LOGOS.get(
-        key_for(name)
-    )
-
-    if not logo:
-        return info
-
-    if 'tvg-logo="' in info:
-        return re.sub(
-            r'tvg-logo="[^"]*"',
-            f'tvg-logo="{logo}"',
-            info,
-        )
-
-    if "," in info:
-        left, right = info.split(",", 1)
-
-        return (
-            f'{left} tvg-logo="{logo}",'
-            f'{right}'
-        )
-
-    return info
-
-
-# ============================================================
-# M3U PARSER
-# ============================================================
+def attrs(line):
+    return dict(re.findall(r'([\w-]+)="([^"]*)"', line))
 
 def parse_m3u(text):
-    entries = []
+    out=[]; info=None
+    for raw in text.splitlines():
+        line=raw.strip()
+        if line.startswith("#EXTINF:"): info=line
+        elif info and line.startswith(("http://","https://")):
+            meta=attrs(info); visible=info.split(",",1)[-1].strip()
+            name=meta.get("tvg-name") or visible
+            out.append({"name":name,"visible":visible,"url":line,"logo":meta.get("tvg-logo", ""),"tvg_id":meta.get("tvg-id", "")})
+            info=None
+    return out
 
-    info = None
+def fetch(url, limit=2_000_000, timeout=HTTP_TIMEOUT, headers=None):
+    h={"User-Agent":USER_AGENT,"Accept":"*/*"}; h.update(headers or {})
+    req=urllib.request.Request(url, headers=h)
+    with urllib.request.urlopen(req, timeout=timeout) as r: return r.read(limit), r.geturl()
 
-    for raw_line in text.splitlines():
-        line = raw_line.strip()
+def download_text(url): return fetch(url)[0].decode("utf-8-sig", "ignore")
 
-        if not line:
-            continue
+def hls_check(url):
+    try:
+        data, final=fetch(url, 1_000_000)
+        text=data.decode("utf-8", "ignore")
+        if "#EXTM3U" not in text: return False, url, "not-hls"
+        base=final
+        if "#EXT-X-STREAM-INF" in text:
+            lines=text.splitlines(); variants=[]
+            for i,line in enumerate(lines):
+                if line.startswith("#EXT-X-STREAM-INF"):
+                    m=re.search(r"RESOLUTION=(\d+)x(\d+)",line); score=int(m.group(1))*int(m.group(2)) if m else 0
+                    for nxt in lines[i+1:]:
+                        nxt=nxt.strip()
+                        if nxt and not nxt.startswith("#"):
+                            variants.append((score, urllib.parse.urljoin(base,nxt))); break
+            if not variants: return False,url,"master-no-variant"
+            _, media=max(variants); data, final=fetch(media,1_000_000); text=data.decode("utf-8","ignore"); base=final
+        seg=None
+        for line in text.splitlines():
+            line=line.strip()
+            if line and not line.startswith("#"):
+                seg=urllib.parse.urljoin(base,line); break
+        if not seg: return False,url,"no-segment"
+        chunk,_=fetch(seg,65536,headers={"Range":"bytes=0-65535"})
+        return (len(chunk)>512), (media if 'media' in locals() else url), f"segment={len(chunk)}"
+    except Exception as e: return False,url,str(e)[:180]
 
-        if line.startswith("#EXTINF:"):
-            info = line
-            continue
-
-        if (
-            info
-            and not line.startswith("#")
-            and (
-                line.startswith("http://")
-                or line.startswith("https://")
-            )
-        ):
-            name = info.split(",", 1)[-1].strip()
-
-            entries.append(
-                (
-                    info,
-                    name,
-                    line,
-                )
-            )
-
-            info = None
-
-    return entries
-
-
-# ============================================================
-# KAYNAK KEŞFİ
-# ============================================================
-
-def download_text(url):
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": (
-                "Mozilla/5.0 "
-                "(X11; Linux x86_64) "
-                "AppleWebKit/537.36 "
-                "Chrome/120 Safari/537.36"
-            )
-        },
-    )
-
-    with urllib.request.urlopen(
-        request,
-        timeout=20,
-    ) as response:
-        return response.read().decode(
-            "utf-8-sig",
-            errors="ignore",
-        )
-
-
-def load_discovery_sources():
-    by_channel = {}
-
-    total = 0
-
-    for source_name, source_url in DISCOVERY_SOURCES:
-        try:
-            print(
-                f"Kesif kaynagi okunuyor: "
-                f"{source_name}",
-                flush=True,
-            )
-
-            text = download_text(source_url)
-
-            entries = parse_m3u(text)
-
-            print(
-                f"  -> {len(entries)} yayin bulundu",
-                flush=True,
-            )
-
-            for _, name, url in entries:
-                channel = key_for(name)
-
-                if not channel:
-                    continue
-
-                by_channel.setdefault(
-                    channel,
-                    []
-                )
-
-                record = (
-                    url,
-                    source_name,
-                )
-
-                if record not in by_channel[channel]:
-                    by_channel[channel].append(
-                        record
-                    )
-
-                total += 1
-
-        except Exception as exc:
-            # Bir kaynak bozulursa bütün test durmaz.
-            print(
-                f"  -> Kaynak okunamadi: "
-                f"{source_name}: {exc}",
-                flush=True,
-            )
-
-    print(
-        f"Kesif tamamlandi. "
-        f"Toplam aday kaydi: {total}",
-        flush=True,
-    )
-
-    return by_channel
-
-
-DISCOVERED_STREAMS = load_discovery_sources()
-
-
-# ============================================================
-# YAYIN TESTİ
-# ============================================================
+def ffprobe(url):
+    try:
+        p=subprocess.run(["ffprobe","-v","error","-rw_timeout","12000000","-user_agent",USER_AGENT,"-select_streams","v:0","-show_entries","stream=width,height,codec_name","-of","json",url],capture_output=True,text=True,timeout=PROBE_TIMEOUT)
+        if p.returncode: return 0,0,"",(p.stderr or "")[:180]
+        j=json.loads(p.stdout or "{}"); streams=j.get("streams") or []
+        if not streams: return 0,0,"","no-video"
+        s=streams[0]; return int(s.get("width") or 0),int(s.get("height") or 0),s.get("codec_name") or "","ok"
+    except Exception as e: return 0,0,"",str(e)[:180]
 
 def test_url(url):
+    if any(x in url.lower() for x in BLOCKED_URL_PARTS): return {"ok":False,"url":url,"detail":"blocked"}
+    hls_ok, probe_url, detail=hls_check(url)
+    if not hls_ok: return {"ok":False,"url":url,"detail":detail}
+    w,h,codec,pdetail=ffprobe(probe_url)
+    return {"ok":bool(w and h),"url":url,"probe_url":probe_url,"width":w,"height":h,"codec":codec,"detail":detail+";"+pdetail}
+
+def quality(w,h):
+    if w>=3840 or h>=2160:return "2160P 4K UHD"
+    if h>=1440:return "1440P QHD"
+    if h>=1080:return "1080P FHD"
+    if h>=720:return "720P HD"
+    if h>=576:return "576P SD"
+    return f"{h}P SD" if h else "SD"
+
+def host(url): return (urllib.parse.urlparse(url).hostname or "").lower()
+
+def score(r, sources):
+    source_bonus=max(({"CURATED":40,"PREVIOUS":35,"SOURCE":25,"IPTV_ORG":15}.get(x,5) for x in sources), default=0)
+    return r.get("width",0)*r.get("height",0)*100 + source_bonus
+
+def epg_ids():
     try:
-        process = subprocess.run(
-            [
-                "ffprobe",
-                "-v",
-                "error",
-                "-rw_timeout",
-                "45000000",
-                "-show_entries",
-                "stream=codec_type,width,height",
-                "-of",
-                "csv=p=0",
-                url,
-            ],
-            capture_output=True,
-            text=True,
-            timeout=50,
-        )
-
-        probe = process.stdout.strip()
-
-        good = (
-            process.returncode == 0
-            and bool(probe)
-        )
-
-        detail = (
-            process.stderr or ""
-        ).strip()[:500]
-
-        width = 0
-        height = 0
-
-        if good:
-            for line in probe.splitlines():
-                parts = [
-                    part.strip()
-                    for part in line.split(",")
-                ]
-
-                if "video" not in parts:
-                    continue
-
-                numbers = []
-
-                for part in parts:
-                    if part.isdigit():
-                        numbers.append(
-                            int(part)
-                        )
-
-                if len(numbers) >= 2:
-                    width = numbers[0]
-                    height = numbers[1]
-                    break
-
-        return (
-            good,
-            detail,
-            probe,
-            width,
-            height,
-        )
-
-    except Exception as exc:
-        return (
-            False,
-            str(exc),
-            "",
-            0,
-            0,
-        )
-
-
-# ============================================================
-# ADAY HAVUZU
-# ============================================================
-
-def candidate_urls(name, original_url):
-    channel = key_for(name)
-
-    result = []
-
-    def add(url, source):
-        if not url:
-            return
-
-        for existing_url, _ in result:
-            if existing_url == url:
-                return
-
-        result.append(
-            (
-                url,
-                source,
-            )
-        )
-
-    # Bizim tanımladığımız yedekler.
-    for url in NORMALIZED_FALLBACKS.get(
-        channel,
-        []
-    ):
-        add(
-            url,
-            "FALLBACK",
-        )
-
-    # IPTV-org ve diger izinli kesif kaynaklari.
-    discovery_count = 0
-
-    for url, source_name in DISCOVERED_STREAMS.get(
-        channel,
-        []
-    ):
-        if discovery_count >= MAX_DISCOVERED_PER_CHANNEL:
-            break
-
-        old_length = len(result)
-
-        add(
-            url,
-            source_name,
-        )
-
-        if len(result) > old_length:
-            discovery_count += 1
-
-    # Dünkü / ana listedeki URL ASLA unutulmaz.
-    add(
-        original_url,
-        "ORIJINAL",
-    )
-
-    return result
-
-
-# ============================================================
-# KALİTE
-# ============================================================
-
-def quality_label(width, height):
-    if width >= 3840 or height >= 2160:
-        return "4K"
-
-    if height >= 1440:
-        return "1440P"
-
-    if height >= 1080:
-        return "1080P"
-
-    if height >= 720:
-        return "720P"
-
-    if height >= 576:
-        return "576P"
-
-    if height > 0:
-        return f"{height}P"
-
-    return "BILINMIYOR"
-
-
-def stream_score(width, height, source):
-    # En önemli kriter gerçek çözünürlük.
-    pixels = width * height
-
-    if pixels <= 0:
-        pixels = 1
-
-    # Aynı çözünürlükte bizim bilinen fallback
-    # ve mevcut çalışan kaynak biraz daha güvenli kabul edilir.
-    source_bonus = {
-        "FALLBACK": 30,
-        "ORIJINAL": 20,
-        "IPTV_ORG": 10,
-    }.get(
-        source,
-        0,
-    )
-
-    return (
-        pixels,
-        source_bonus,
-    )
-
-
-
-# ============================================================
-# MADSC TV FINAL KATEGORI / FAVORI / KALITE
-# ============================================================
-
-GROUP_ORDER = [
-    "⭐ FAVORİLER",
-    "ULUSAL",
-    "HABER",
-    "SPOR",
-    "ALTERNATİF",
-    "ALTERNATİF DİJİTAL",
-    "ÇOCUK",
-    "BELGESEL",
-    "DİNİ",
-    "MÜZİK",
-    "SİNEMA-DİZİ",
-    "EĞİTİM-KÜLTÜR",
-    "KAMU-TEMATİK",
-    "İNTERNET",
-]
-
-DEFAULT_FAVORITES = [
-    "TRT 1", "ATV", "KANAL D", "SHOW TV", "STAR TV", "NOW", "TV8",
-    "KANAL 7", "SÖZCÜ TV", "TV100", "NTV", "CNN TÜRK", "TRT HABER",
-    "HABERTÜRK", "HABER GLOBAL", "TRT SPOR", "A SPOR",
-]
-
-def load_favorites():
-    result = {key_for(x) for x in DEFAULT_FAVORITES}
-    fav_file = Path("FAVORILER.txt")
-    if fav_file.exists():
-        for raw in fav_file.read_text(encoding="utf-8-sig", errors="ignore").splitlines():
-            name = raw.strip()
-            if name and not name.startswith("#"):
-                result.add(key_for(name))
-    return result
-
-FAVORITE_KEYS = load_favorites()
-
-def set_group(info, group):
-    if 'group-title="' in info:
-        return re.sub(r'group-title="[^"]*"', f'group-title="{group}"', info)
-    if "," in info:
-        left, right = info.split(",", 1)
-        return f'{left} group-title="{group}",{right}'
-    return info
-
-def set_visible_name(info, visible_name):
-    if "," in info:
-        return info.split(",", 1)[0] + "," + visible_name
-    return info
-
-def quality_visible_name(name, width, height):
-    base = clean_channel_name(name)
-    if width >= 3840 or height >= 2160:
-        suffix = "2160P 4K UHD"
-    elif height >= 1440:
-        suffix = "1440P QHD"
-    elif height >= 1080:
-        suffix = "1080P FHD"
-    elif height >= 720:
-        suffix = "720P HD"
-    elif height >= 576:
-        suffix = "576P SD"
-    elif height > 0:
-        suffix = f"{height}P SD"
-    else:
-        suffix = "SD"
-    return f"{base} {suffix}"
-
-def original_group(info):
-    m = re.search(r'group-title="([^"]*)"', info)
-    return m.group(1).strip() if m else "İNTERNET"
-
-def normal_group(info, name):
-    # İlk iyi sürümdeki kategori bilgisini mümkün olduğunca koru.
-    g = original_group(info)
-    if g in GROUP_ORDER and g not in ("⭐ FAVORİLER", "ALTERNATİF", "ALTERNATİF DİJİTAL"):
-        return g
-    k = key_for(name)
-    if "SPOR" in k or k in {"A SPOR", "HT SPOR", "TJK TV", "FB TV"}:
-        return "SPOR"
-    if any(x in k for x in ("HABER", "CNN", "NTV", "TV100", "SOZCU", "HALK", "TELE1", "BLOOMBERG")):
-        return "HABER"
-    if any(x in k for x in ("COCUK", "MINIKA")):
-        return "ÇOCUK"
-    if "BELGESEL" in k:
-        return "BELGESEL"
-    if any(x in k for x in ("DIYANET", "SEMERKAND", "LALEGUL", "DOST TV")):
-        return "DİNİ"
-    if any(x in k for x in ("MUZIK", "DREAM", "KRAL", "POWER", "NUMBER 1")):
-        return "MÜZİK"
-    return "ULUSAL"
-
-def make_entry(info, name, candidate, group):
-    fixed = add_epg_id(info, name)
-    fixed = add_logo(fixed, name)
-    fixed = set_group(fixed, group)
-    fixed = set_visible_name(
-        fixed,
-        quality_visible_name(name, candidate["width"], candidate["height"]),
-    )
-    return (fixed, candidate["url"])
-
-# ============================================================
-# ANA DOSYAYI OKU
-# ============================================================
-
-if len(sys.argv) < 2:
-    raise SystemExit(
-        "Kullanim: "
-        "python3 iptv_test.py DOSYA.m3u"
-    )
-
-src = Path(
-    sys.argv[1]
-)
-
-if not src.exists():
-    raise SystemExit(
-        f"Dosya bulunamadi: {src}"
-    )
-
-source_text = src.read_text(
-    encoding="utf-8-sig",
-    errors="ignore",
-)
-
-items = parse_m3u(
-    source_text
-)
-
-
-# ============================================================
-# SÖZCÜ ANA LİSTEDE YOKSA EKLE
-# ============================================================
-
-existing_keys = {
-    key_for(name)
-    for _, name, _ in items
-}
-
-if key_for("SÖZCÜ TV") not in existing_keys:
-    sozcu_info = (
-        '#EXTINF:-1 '
-        'tvg-id="5zoe73avn97ggnt" '
-        'group-title="HABER",'
-        'SÖZCÜ TV'
-    )
-
-    # Sadece başlangıç adayıdır.
-    # Keşif sistemi diğer Sözcü adreslerini de ekler.
-    sozcu_url = (
-        "http://5.178.103.239:55/"
-        "yt1/szctv.m3u8"
-    )
-
-    items.append(
-        (
-            sozcu_info,
-            "SÖZCÜ TV",
-            sozcu_url,
-        )
-    )
-
-
-# ============================================================
-# TEST
-# ============================================================
-
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
-main_entries = []
-alternative_entries = []
-digital_entries = []
-bad_lines = []
-report_rows = []
-
-def looks_digital(name, info):
-    blob = (name + " " + info).upper()
-    return any(x in blob for x in ("NOT 24/7", "DIGITAL", "WEB TV", "WEBTV"))
-
-for index, (info, name, original_url) in enumerate(items, 1):
-    print()
-    print(f"[{index}/{len(items)}] {name}", flush=True)
-
-    candidates = candidate_urls(name, original_url)
-    print(f"  Aday sayisi: {len(candidates)}", flush=True)
-
-    tested = []
-    with ThreadPoolExecutor(max_workers=min(8, max(1, len(candidates)))) as pool:
-        future_map = {
-            pool.submit(test_url, url): (url, source_name)
-            for url, source_name in candidates
-        }
-        for future in as_completed(future_map):
-            url, source_name = future_map[future]
-            try:
-                good, detail, probe, width, height = future.result()
-            except Exception as exc:
-                good, detail, probe, width, height = False, str(exc), "", 0, 0
-
-            report_rows.append([
-                name,
-                "CALISIYOR" if good else "CALISMIYOR",
-                quality_label(width, height) if good else "",
-                width,
-                height,
-                source_name,
-                detail if not good else probe,
-                url if good else "",
-                original_url,
-                len(candidates),
-            ])
-
-            if good and width > 0 and height > 0:
-                tested.append({
-                    "url": url,
-                    "source": source_name,
-                    "probe": probe,
-                    "width": width,
-                    "height": height,
-                    "score": stream_score(width, height, source_name),
-                })
-
-    if not tested:
-        bad_lines.extend([name, original_url, ""])
-        print("  CALISAN KAYNAK BULUNAMADI", flush=True)
-        continue
-
-    tested.sort(key=lambda x: x["score"], reverse=True)
-    best = tested[0]
-    group = normal_group(info, name)
-    main_entries.append((group, key_for(name), *make_entry(info, name, best, group)))
-
-    # Çalışan bütün benzersiz yedekler korunur.
-    seen_urls = {best["url"]}
-    for alt in tested[1:]:
-        if alt["url"] in seen_urls:
-            continue
-        seen_urls.add(alt["url"])
-        target_group = "ALTERNATİF DİJİTAL" if looks_digital(name, info) else "ALTERNATİF"
-        entry = make_entry(info, name, alt, target_group)
-        if target_group == "ALTERNATİF DİJİTAL":
-            digital_entries.append((target_group, key_for(name), *entry))
-        else:
-            alternative_entries.append((target_group, key_for(name), *entry))
-
-    print(
-        f"  ANA -> {quality_label(best['width'], best['height'])} "
-        f"{best['width']}x{best['height']} [{best['source']}]",
-        flush=True,
-    )
-    print(f"  CALISAN YEDEK -> {max(0, len(tested)-1)}", flush=True)
-
-# Favoriler ana yayının birebir kopyasıdır; böylece normal kategoride de kalır.
-favorite_entries = []
-for group, channel_key, info, url in main_entries:
-    if channel_key in FAVORITE_KEYS:
-        favorite_entries.append(
-            ("⭐ FAVORİLER", channel_key, set_group(info, "⭐ FAVORİLER"), url)
-        )
-
-all_entries = favorite_entries + main_entries + alternative_entries + digital_entries
-order_index = {g: i for i, g in enumerate(GROUP_ORDER)}
-all_entries.sort(key=lambda x: (order_index.get(x[0], 999), x[1]))
-
-m3u_header = (
-    f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"'
-)
-
-working_lines = []
-for _, _, info, url in all_entries:
-    working_lines.extend([info, url])
-
-Path("CALISANLAR.m3u").write_text(
-    m3u_header + "\n" + "\n".join(working_lines) + "\n",
-    encoding="utf-8",
-)
-
-
-# ============================================================
-# CALISMAYANLAR.TXT
-# ============================================================
-
-Path(
-    "CALISMAYANLAR.txt"
-).write_text(
-    "\n".join(bad_lines),
-    encoding="utf-8",
-)
-
-
-# ============================================================
-# TEST_RAPORU.CSV
-# ============================================================
-
-with open(
-    "TEST_RAPORU.csv",
-    "w",
-    newline="",
-    encoding="utf-8-sig",
-) as file:
-    writer = csv.writer(
-        file
-    )
-
-    writer.writerow(
-        [
-            "Kanal",
-            "Durum",
-            "Kalite",
-            "Genislik",
-            "Yukseklik",
-            "Kaynak",
-            "FFprobe",
-            "Secilen_URL",
-            "Orijinal_URL",
-            "Aday_Sayisi",
-        ]
-    )
-
-    writer.writerows(
-        report_rows
-    )
-
-
-# ============================================================
-# SONUÇ
-# ============================================================
-
-working_count = (
-    len(working_lines) // 2
-)
-
-failed_count = (
-    len(bad_lines) // 3
-)
-
-print()
-print("===================================")
-print("MADSC IPTV FINAL TESTI TAMAMLANDI")
-print(f"Toplam kanal : {len(items)}")
-print(f"Calisan      : {working_count}")
-print(f"Calismayan   : {failed_count}")
-print("===================================")
+        data,_=fetch(EPG_URL,8_000_000,10); root=ET.fromstring(data)
+        return {x.attrib.get("id","") for x in root.findall("channel")}
+    except Exception as e:
+        print("EPG okunamadi:",e); return set()
+
+def main():
+    src=Path(sys.argv[1] if len(sys.argv)>1 else "MADSC_TV_47_LISTE_ADAY.m3u")
+    if not src.exists(): raise SystemExit(f"Dosya bulunamadi: {src}")
+    pools=defaultdict(dict); logos={}
+    def add(ch,url,source,logo=""):
+        if ch not in CHANNELS or not url or any(x in url.lower() for x in BLOCKED_URL_PARTS): return
+        rec=pools[ch].setdefault(url,set()); rec.add(source)
+        if logo and not logos.get(ch): logos[ch]=logo
+    for e in parse_m3u(src.read_text(encoding="utf-8-sig",errors="ignore")):
+        ch=canonical(e["name"]); add(ch,e["url"],"SOURCE",e["logo"])
+    prev=Path("CALISANLAR.m3u")
+    if prev.exists():
+        for e in parse_m3u(prev.read_text(encoding="utf-8-sig",errors="ignore")):
+            ch=canonical(e["name"]); add(ch,e["url"],"PREVIOUS",e["logo"])
+    for ch,(_,_,urls) in CHANNELS.items():
+        for u in urls:add(ch,u,"CURATED")
+    for source,url in DISCOVERY_SOURCES:
+        try:
+            for e in parse_m3u(download_text(url)):
+                ch=canonical(e["name"]); add(ch,e["url"],source,e["logo"])
+        except Exception as e: print("Kesif kaynagi okunamadi",source,e)
+    # Her kanal için aday sayısını sınırla; bilinen adaylar önce gelir.
+    selected={}
+    for ch,items in pools.items():
+        ordered=sorted(items.items(), key=lambda kv: max(({"CURATED":4,"PREVIOUS":3,"SOURCE":2,"IPTV_ORG":1}.get(s,0) for s in kv[1]),default=0), reverse=True)
+        selected[ch]=ordered[:MAX_CANDIDATES]
+    unique={u for items in selected.values() for u,_ in items}
+    print(f"Kanal: {len(CHANNELS)} | Benzersiz aday URL: {len(unique)}")
+    results={}
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+        fut={ex.submit(test_url,u):u for u in unique}
+        for i,f in enumerate(as_completed(fut),1):
+            u=fut[f]
+            try: results[u]=f.result()
+            except Exception as e: results[u]={"ok":False,"url":u,"detail":str(e)}
+            print(f"[{i}/{len(unique)}] {'OK' if results[u].get('ok') else 'X'} {u[:90]}",flush=True)
+    valid_epg=epg_ids(); favorites={canonical(x) for x in DEFAULT_FAVORITES}
+    rows=[]; main_entries=[]; alt_entries=[]; failures=[]
+    for ch,(group,epg,_) in CHANNELS.items():
+        tested=[]
+        for u,sources in selected.get(ch,[]):
+            r=results.get(u,{"ok":False,"url":u,"detail":"not-tested"}); rr=dict(r); rr["sources"]=sources
+            rows.append([ch,"CALISIYOR" if r.get("ok") else "CALISMIYOR",quality(r.get("width",0),r.get("height",0)) if r.get("ok") else "",r.get("width",0),r.get("height",0),"+".join(sorted(sources)),host(u),r.get("codec",""),r.get("detail",""),u,epg,"VAR" if epg and (not valid_epg or epg in valid_epg) else "YOK"])
+            if r.get("ok"): tested.append(rr)
+        if not tested:
+            failures.append(f"{ch}\nCALISAN KAYNAK BULUNAMADI\n"); continue
+        tested.sort(key=lambda r:score(r,r["sources"]),reverse=True); best=tested[0]
+        main_entries.append((group,ch,best,epg,logos.get(ch,"")))
+        # Yalnızca farklı hosttaki, makul kalitedeki en iyi bir yedeği ALTERNATİF'e al.
+        for alt in tested[1:]:
+            if host(alt["url"])!=host(best["url"]) and alt["height"]>=min(720,best["height"]):
+                alt_entries.append(("ALTERNATİF",ch,alt,epg,logos.get(ch,""))); break
+    priority={canonical(n):i for i,n in enumerate(DEFAULT_FAVORITES)}
+    def sortkey(x): return (GROUP_ORDER.index(x[0]),priority.get(x[1],999),x[1])
+    main_entries.sort(key=sortkey); alt_entries.sort(key=sortkey)
+    fav=[("⭐ FAVORİLER",ch,r,e,l) for g,ch,r,e,l in main_entries if ch in favorites]
+    all_entries=fav+main_entries+alt_entries; all_entries.sort(key=sortkey)
+    lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
+    for group,ch,r,epg,logo in all_entries:
+        # Görünen adda ALTERNATİF kelimesi yoktur; kalite ölçülen çözünürlüktür.
+        a=[f'tvg-name="{ch}"',f'group-title="{group}"']
+        if epg:a.insert(0,f'tvg-id="{epg}"')
+        if logo:a.append(f'tvg-logo="{logo}"')
+        lines.append(f'#EXTINF:-1 {" ".join(a)},{ch} {quality(r["width"],r["height"])}')
+        lines.append(r["url"])
+    Path("CALISANLAR.m3u").write_text("\n".join(lines)+"\n",encoding="utf-8")
+    Path("CALISMAYANLAR.txt").write_text("\n".join(failures),encoding="utf-8")
+    with open("TEST_RAPORU.csv","w",newline="",encoding="utf-8-sig") as f:
+        w=csv.writer(f); w.writerow(["Kanal","Durum","Kalite","Genislik","Yukseklik","Kaynak","Host","Codec","Uyumluluk","URL","EPG_ID","EPG_Durumu"]); w.writerows(rows)
+    print("="*50); print("MADSC TV TESTI TAMAMLANDI"); print("Ana calisan:",len(main_entries)); print("Alternatif:",len(alt_entries)); print("Calismayan:",len(failures)); print("="*50)
+
+if __name__=="__main__": main()
