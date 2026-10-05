@@ -29,7 +29,7 @@ CATEGORY={
 # Türkiye/Türkçe açık yayın havuzlarında bulunan yerel kanallar.
 # Bunlar ana/favori sırasını değiştirmez; çalışanlar kendi grubuna, ek kaynakları ALTERNATİF'e gider.
 for _n in [
- 'ANADOLU NET','ANADOLU NET TV','AKSU TV','BALKAN TÜRK','BR TV','BRTV KARABÜK','BRÜKSEL TÜRK',
+ 'VAN65','İKRA TV','TV3','AYAZ TV','ANADOLU NET','ANADOLU NET TV','AKSU TV','BALKAN TÜRK','BR TV','BRTV KARABÜK','BRÜKSEL TÜRK',
  'DENİZ POSTASI','DİM TV','DİYAR TV','ER TV MALATYA','ERCİYES TV','ERZURUM WEB TV','ES TV','ETV','ETV KAYSERİ',
  'EZGİ TV','FRT TV','FTV TÜRK','FİNEST TV','GRT GAZİANTEP TV','HABER61 TRABZON','HABER61 TV','HUNAT TV',
  'K+ KAYSERİ','KANAL 12','KANAL 15','KANAL 19 ÇORUM','KANAL 23','KANAL 26','KANAL 3','KANAL 3 AFYONKARAHİSAR',
