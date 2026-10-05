@@ -205,11 +205,14 @@ def main():
    if r['ok']: good.append(r)
   if not good: failed.append(name); continue
   good.sort(key=lambda r:(r['w']*r['h'], r['url'].startswith('https://')),reverse=True)
-  best=good[0]; mainrows.append((name,best))
+  # Mevcut HLS ana yayını önceliklidir; yeni protokoller mevcut kanalı değiştirmez.
+  hls_good=[r for r in good if r.get('protocol',protocol(r['url']))=='HLS']
+  best=(hls_good[0] if hls_good else good[0]); mainrows.append((name,best))
   # Kullanıcının isteği: 1./2./3./4. taraf ayrımı yapma; çalışan kaliteli kaynakların hepsini koru.
   # Aynı kanalın farklı çözünürlükte ve farklı hostlarda birden fazla kaydı ALTERNATİF altında bulunabilir.
   seen_alt=set()
-  for r in good[1:]:
+  for r in good:
+   if r['url']==best['url']: continue
    k=(r['url'],r['w'],r['h'])
    if k not in seen_alt:
     seen_alt.add(k); altrows.append((name,r))
@@ -218,7 +221,7 @@ def main():
   for u in by.get(name,[]):
    r=results.get(u)
    if r and r.get('ok'): goodmap[name].append(r)
-  goodmap[name].sort(key=lambda r:(r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
+  goodmap[name].sort(key=lambda r:(r.get('protocol',protocol(r['url']))=='HLS',r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
  lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
  alt_seq=defaultdict(int)
  def add(name,r,group):
