@@ -98,7 +98,6 @@ def main():
  prev=Path('CALISANLAR.m3u')
  preserved_favorites=[]
  if prev.exists():
-  # Mevcut yıldızlı kayıtları URL bazında sakla; sabit 32 dışında sonradan eklenen favoriler de kaybolmasın.
   prev_text=prev.read_text('utf-8-sig',errors='ignore')
   info=None
   for raw in prev_text.splitlines():
@@ -107,7 +106,10 @@ def main():
    elif info and s.startswith(('http://','https://')):
     if 'group-title="⭐ FAVORİLER"' in info:
      visible=info.split(',',1)[-1].strip()
-     base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)  for name,url,logo in parse(prev_text):
+     base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',visible).strip()
+     if base in CATEGORY: preserved_favorites.append((base,s))
+    info=None
+  for name,url,logo in parse(prev_text):
    base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',name).strip()
    if base in CATEGORY and url not in by[base]: by[base].insert(0,url)
    if logo and base not in logos: logos[base]=logo
@@ -152,7 +154,7 @@ def main():
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
- # Önce fotoğraflardaki 1-32 sırası; ardından sonradan yıldızlanan ve bu listede olmayan çalışan kayıtlar.
+ # Önce fotoğraflardaki 1-32 sırası; ardından sonradan yıldızlanan favoriler korunur.
  written_favorites=set()
  for name,target_h in FAVORITE_ORDER:
   choices=goodmap.get(name,[])
@@ -168,74 +170,6 @@ def main():
   if r and r.get('ok'):
    add(name,r,'⭐ FAVORİLER')
    written_favorites.add((name,url))
- for group in GROUP_ORDER[1:]:
-  if group=='ALTERNATİF':
-   for name,r in altrows:add(name,r,'ALTERNATİF')
-  else:
-   for name,r in mainrows:
-    if CATEGORY[name]==group:add(name,r,group)
- Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
- Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
- with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
-  w=csv.writer(f); w.writerow(['Kanal','Durum','Genislik','Yukseklik','Kalite','Codec','Kontrol','URL']); w.writerows(report)
- print(f'Bitti. Ana çalışan={len(mainrows)} alternatif={len(altrows)} çalışmayan kanal={len(failed)}',flush=True)
-
-if __name__=='__main__': main()
-,'',visible).strip()
-     if base in CATEGORY: preserved_favorites.append((base,s))
-    info=None
-  for name,url,logo in parse(prev.read_text('utf-8-sig',errors='ignore')):
-   base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',name).strip()
-   if base in CATEGORY and url not in by[base]: by[base].insert(0,url)
-   if logo and base not in logos: logos[base]=logo
- urls=[]
- for name in CATEGORY:
-  for u in by[name]:
-   if u not in urls: urls.append(u)
- print(f'Kanal={len(by)} benzersiz_test={len(urls)} isci={WORKERS} timeout={PROBE_TIMEOUT}s',flush=True)
- results={}
- with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-  fut={ex.submit(test,u):u for u in urls}
-  for i,f in enumerate(as_completed(fut),1):
-   u=fut[f]
-   try: results[u]=f.result()
-   except Exception as e: results[u]={'ok':False,'detail':str(e),'url':u,'w':0,'h':0}
-   if i%20==0: print(f'Test {i}/{len(urls)}',flush=True)
- mainrows=[]; altrows=[]; report=[]; failed=[]
- for name in CATEGORY:
-  good=[]
-  for u in by.get(name,[]):
-   r=results.get(u,{'ok':False,'detail':'not-tested','w':0,'h':0,'url':u})
-   report.append([name,'CALISIYOR' if r['ok'] else 'CALISMIYOR',r.get('w',0),r.get('h',0),q(r.get('w',0),r.get('h',0)) if r['ok'] else '',r.get('codec',''),r.get('detail',''),u])
-   if r['ok']: good.append(r)
-  if not good: failed.append(name); continue
-  good.sort(key=lambda r:(r['w']*r['h'], r['url'].startswith('https://')),reverse=True)
-  best=good[0]; mainrows.append((name,best))
-  # Kullanıcının isteği: 1./2./3./4. taraf ayrımı yapma; çalışan kaliteli kaynakların hepsini koru.
-  # Aynı kanalın farklı çözünürlükte ve farklı hostlarda birden fazla kaydı ALTERNATİF altında bulunabilir.
-  seen_alt=set()
-  for r in good[1:]:
-   k=(r['url'],r['w'],r['h'])
-   if k not in seen_alt:
-    seen_alt.add(k); altrows.append((name,r))
- goodmap=defaultdict(list)
- for name in CATEGORY:
-  for u in by.get(name,[]):
-   r=results.get(u)
-   if r and r.get('ok'): goodmap[name].append(r)
-  goodmap[name].sort(key=lambda r:(r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
- lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
- def add(name,r,group):
-  epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
-  lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
-  lines.append(r['url'])
- # Favoriler tam olarak fotoğraflardaki 1-32 sırasıyla yazılır.
- for name,target_h in FAVORITE_ORDER:
-  choices=goodmap.get(name,[])
-  if not choices: continue
-  exact=[r for r in choices if r.get('h')==target_h]
-  pick=exact[0] if exact else min(choices,key=lambda r:abs((r.get('h') or 0)-target_h))
-  add(name,pick,'⭐ FAVORİLER')
  for group in GROUP_ORDER[1:]:
   if group=='ALTERNATİF':
    for name,r in altrows:add(name,r,'ALTERNATİF')
