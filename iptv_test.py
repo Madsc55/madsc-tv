@@ -11,7 +11,7 @@ PROBE_TIMEOUT=30
 WORKERS=12
 MAX_PER_CHANNEL=9999
 BLOCKED=('helga.iptv2022.com',)
-GROUP_ORDER=['⭐ FAVORİLER','HABER','ULUSAL','SPOR','BELGESEL','MÜZİK','DİNİ','ALTERNATİF','İNTERNET','ÇOCUK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','YOUTUBE']
+GROUP_ORDER=['⭐ FAVORİLER','HABER','ULUSAL','SPOR','BELGESEL','MÜZİK','DİNİ','ALTERNATİF','İNTERNET','ÇOCUK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','YEREL KANALLAR','YOUTUBE']
 FAVORITE_ORDER=[
  ('TRT 1',1440),('TRT 2',1080),('ATV',1080),('KANAL D',1080),('SHOW TV',1080),('NOW',1080),('TV8',1080),('STAR TV',1080),
  ('TV100',1080),('NTV',1080),('CNN TÜRK',1080),('TRT HABER',1440),('HABERTÜRK',1080),('HALK TV',1080),('TGRT HABER',1080),
@@ -29,7 +29,7 @@ CATEGORY={
 # Türkiye/Türkçe açık yayın havuzlarında bulunan yerel kanallar.
 # Bunlar ana/favori sırasını değiştirmez; çalışanlar kendi grubuna, ek kaynakları ALTERNATİF'e gider.
 for _n in [
- 'VAN65','İKRA TV','TV3','AYAZ TV','ANADOLU NET','ANADOLU NET TV','AKSU TV','BALKAN TÜRK','BR TV','BRTV KARABÜK','BRÜKSEL TÜRK',
+ 'VAN65','İKRA TV','TV3','AYAZ TV','ORDU ALTAŞ TV','TV KAYSERİ','TV 52','EKİN TÜRK TV','KON TV','EGEMAX TV','TV DEN','KANAL 32','KANAL 26','BRTV','CAN TEMPO TV','GRT','MK TV','ANADOLU NET','ANADOLU NET TV','AKSU TV','BALKAN TÜRK','BR TV','BRTV KARABÜK','BRÜKSEL TÜRK',
  'DENİZ POSTASI','DİM TV','DİYAR TV','ER TV MALATYA','ERCİYES TV','ERZURUM WEB TV','ES TV','ETV','ETV KAYSERİ',
  'EZGİ TV','FRT TV','FTV TÜRK','FİNEST TV','GRT GAZİANTEP TV','HABER61 TRABZON','HABER61 TV','HUNAT TV',
  'K+ KAYSERİ','KANAL 12','KANAL 15','KANAL 19 ÇORUM','KANAL 23','KANAL 26','KANAL 3','KANAL 3 AFYONKARAHİSAR',
@@ -39,7 +39,7 @@ for _n in [
  'SAT 7 TÜRK','TV 41','TV 41 KOCAELİ','TV DEN','TEMPO TV','TİVİ 6','TON TV','URFANATİK TV','VİYANA TV','VUSLAT TV',
  'İZMİR TIME 35 TV','4U TV','ALTAS TV','BURSA AS TV','ÇAY TV','FİNANS TÜRK TV','FORTUNA TV','GONCA TV','GÜNEYDOĞU TV','KANAL 68','KANAL FIRAT','KANAL URFA','KARDELEN TV','KENT TÜRK TV','LINE TV','MAVİ KARADENİZ','MELTEM TV','MTÜRK TV','ON4 TV','ON 6','ÖNCÜ TV','POWER TV','POWER DANCE','POWER LOVE','POWER TÜRK AKUSTİK','NUMBER1 AŞK','NUMBER1 DANCE','NUMBER1 DAMAR','POWERTÜRK SLOW','POWERTÜRK TAPTAZE','TRT ARABİ','KANAL S SAMSUN','SAMSUN HABER TV','AKİT TV','CAN TV','TATLİSES TV','TOPRAK TV','TEK RUMELİ TV','TGRT EU','SIFIR TV','EDESSA TV','ETV MANİSA','LIFE TV','TRABZON BÜYÜKŞEHİR BELEDİYESİ TV'
 ]:
- CATEGORY.setdefault(_n,'İNTERNET')
+ CATEGORY.setdefault(_n,'YEREL KANALLAR')
 
 EPG={'KANAL D':'bbwgmhsmhhoatzg','SHOW TV':'pvr08e5grfsebfw','STAR TV':'75tz02ooforewap','ATV':'2zkzbuscxwyjc4k','TRT 1':'af0zo9et4xguwsk','KANAL 7':'a8t877hb0oandbv','TV8':'w7x32brlcz26ibb','NOW':'m0abaihy7vla6ma','CNN TÜRK':'ah7mr9ol040kp3b','NTV':'nyz5s8p798n9cqg','TRT HABER':'in3p7jng04mr97m','HABERTÜRK':'gil1w2erz9l7imc','24 TV':'9b7ltozvb9c333g','A HABER':'ql8qf4vb46o1h7t','TLC':'9z32hgan37zhgr6','TV100':'5i5mds6ap6h7m7w','EKOL TV':'3kluptlla8k8re0','BEYAZ TV':'edf3lp61qexxxhl','TVNET':'njoweqtgl6xngkj','HABER GLOBAL':'bwmpobxuqn2pz87','360':'cphtdpl9j70cn3a','BLOOMBERG HT':'4nu4fjjhm0y6wqm','TGRT HABER':'qz2fp61itc8xm4g','DMAX':'6sokobdd9dwe0gl','TV8.5':'pd29xh24glvq4qz','ÜLKE TV':'kanaalkyymvqcjf','A PARA':'8yfvm8ak2t1qoe6','TRT BELGESEL':'80spas00o3iq47a','TJK TV':'jgxiih7f6yhagpj','HT SPOR':'spgsorunhgejuu2','A SPOR':'v25znppc6itjprw','FB TV':'jemrsooej8d8jku','TRT SPOR':'v0kvdikxec8nngd','TRT SPOR YILDIZ':'1yyvuttcurbkcnr','ULUSAL KANAL':'rjxdtygyec6mqjz','SÖZCÜ TV':'5zoe73avn97ggnt','TRT 2':'nzdc0yd5xxv43yl','TRT TÜRK':'xe24vekaidpsql3','TRT MÜZİK':'18ws4yk42js588h','DREAM TÜRK':'ttlji9eholru11x','POWER TÜRK TV':'82e4q3ribmz2mt1','TRT ÇOCUK':'ybv52n8pldp0lfq','MİNİKA GO':'phekqx3pyw2wiiq','MİNİKA ÇOCUK':'52hjq0o16nwpdnq','HALK TV':'d1exl1gxity48nl','TELE1':'2m3k6xyjyek7djr','FLASH HABER':'10bd6fhoe76yplp','A2':'fc29p3wbp8wkgo4','TRT WORLD':'j1x67766q1lr7r6','TRT KURDİ':'u552n6w4dkv49wz','TRT AVAZ':'p6sz5lndgfas2r9','TEVE2':'6vs4sg9183gdxth','DİYANET TV':'DiyanetTV.tr@SD','KRAL POP TV':'KralPopTV.tr@SD','NUMBER1 TV':'Number1TV.tr@SD','SEMERKAND TV':'SemerkandTV.tr','TRT DİYANET ÇOCUK':'TRTDiyanetCocuk.tr@SD','DOST TV':'DostTV.tr@SD','LALEGÜL TV':'LalegulTV.tr@SD','TBMM TV':'TBMMTV.tr@SD','TRT EBA':'TRTEBA.tr@SD'}
 
