@@ -11,7 +11,7 @@ PROBE_TIMEOUT=30
 WORKERS=12
 MAX_PER_CHANNEL=9999
 BLOCKED=('helga.iptv2022.com',)
-GROUP_ORDER=['⭐ FAVORİLER','ULUSAL','HABER','SPOR','ALTERNATİF','ÇOCUK','BELGESEL','DİNİ','MÜZİK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','İNTERNET']
+GROUP_ORDER=['⭐ FAVORİLER','ULUSAL','HABER','SPOR','ALTERNATİF','ÇOCUK','BELGESEL','DİNİ','MÜZİK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','İNTERNET','YOUTUBE']
 FAVORITE_ORDER=[
  ('TRT 1',1440),('TRT 2',1080),('ATV',1080),('KANAL D',1080),('SHOW TV',1080),('NOW',1080),('TV8',1080),('STAR TV',1080),
  ('TV100',1080),('NTV',1080),('CNN TÜRK',1080),('TRT HABER',1440),('HABERTÜRK',1080),('HALK TV',1080),('TGRT HABER',1080),
@@ -95,13 +95,18 @@ def q(w,h):
 
 def host(u): return urllib.parse.urlparse(u).netloc.lower()
 
+def is_youtube(url):
+ return 'youtube.com/' in url.lower() or 'youtu.be/' in url.lower()
+
 def main():
  src=Path(sys.argv[1] if len(sys.argv)>1 else 'MADSC_TV_47_LISTE_ADAY.m3u')
  if not src.exists(): raise SystemExit(f'Yok: {src}')
  entries=parse(src.read_text('utf-8-sig',errors='ignore'))
+ youtube_entries=[(name,url,logo) for name,url,logo in entries if is_youtube(url)]
  by=defaultdict(list); logos={}
  for name,url,logo in entries:
   if name not in CATEGORY: continue
+  if is_youtube(url): continue
   if url not in [x for x in by[name]]: by[name].append(url)
   if logo and name not in logos: logos[name]=logo
  prev=Path('CALISANLAR.m3u')
@@ -200,7 +205,14 @@ def main():
   else: continue
   written_favorites.add((name,url))
  for group in GROUP_ORDER[1:]:
-  if group=='ALTERNATİF':
+  if group=='YOUTUBE':
+   seen_youtube=set()
+   for yname,yurl,ylogo in youtube_entries:
+    if yurl in seen_youtube: continue
+    seen_youtube.add(yurl)
+    lines.append(f'#EXTINF:-1 tvg-id="" tvg-name="{yname}" tvg-logo="{ylogo}" group-title="YOUTUBE",{yname}')
+    lines.append(yurl)
+  elif group=='ALTERNATİF':
    for name,r in altrows:add(name,r,'ALTERNATİF')
   else:
    for name,r in mainrows:
