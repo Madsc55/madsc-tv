@@ -165,22 +165,74 @@ def main():
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
- # Önce fotoğraflardaki 1-32 sırası; ardından sonradan yıldızlanan favoriler korunur.
+ # Fotoğraflardaki 1-32 sırası sabittir. Hedef çözünürlük yoksa daha düşük kaliteye düşürme:
+ # önce aynı isim+hedef çözünürlükteki eski favoriyi koru, sonra ancak daha yüksek kaliteyi kullan.
+ previous_favorite_entries=[]
+ for info,url in preserved_previous:
+  if info and 'group-title="⭐ FAVORİLER"' in info:
+   visible=info.split(',',1)[-1].strip()
+   base=re.sub(r'\\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\\d+P SD) for group in GROUP_ORDER[1:]:
+  if group=='ALTERNATİF':
+   for name,r in altrows:add(name,r,'ALTERNATİF')
+  else:
+   for name,r in mainrows:
+    if CATEGORY[name]==group:add(name,r,group)
+ # Önceki ALTERNATİF kayıtları da yedek olarak koru; ana kayıtların sırasını bozma.
+ # Böylece yeni testte bir kaynak geçici olarak düşse bile eski yedek kaynak listeden kaybolmaz.
+ alt_urls={r['url'] for _,r in altrows}
+ for info,url in preserved_previous:
+  if info and 'group-title="ALTERNATİF"' in info and url not in alt_urls:
+   lines.append(info)
+   lines.append(url)
+   alt_urls.add(url)
+ # Güvenlik: önceki çalışan kayıtlardan yeni testte hiç temsil edilmeyenleri geçici ağ hatası yüzünden silme.
+ output_urls={lines[i] for i in range(2,len(lines),2) if lines[i].startswith(('http://','https://'))}
+ for info,url in preserved_previous:
+  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info:
+   lines.append(info)
+   lines.append(url)
+   output_urls.add(url)
+ Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+ Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
+ with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
+  w=csv.writer(f); w.writerow(['Kanal','Durum','Genislik','Yukseklik','Kalite','Codec','Kontrol','URL']); w.writerows(report)
+ print(f'Bitti. Ana çalışan={len(mainrows)} alternatif={len(altrows)} çalışmayan kanal={len(failed)}',flush=True)
+
+if __name__=='__main__': main()
+,'',visible).strip()
+   m=re.search(r'\\s(\\d+)P(?:\\s|$)',visible)
+   previous_favorite_entries.append((base,int(m.group(1)) if m else 0,info,url))
  written_favorites=set()
  for name,target_h in FAVORITE_ORDER:
   choices=goodmap.get(name,[])
-  if not choices: continue
   exact=[r for r in choices if r.get('h')==target_h]
-  pick=exact[0] if exact else min(choices,key=lambda r:abs((r.get('h') or 0)-target_h))
-  add(name,pick,'⭐ FAVORİLER')
-  written_favorites.add((name,pick['url']))
+  higher=[r for r in choices if (r.get('h') or 0)>target_h]
+  if exact:
+   pick=exact[0]; add(name,pick,'⭐ FAVORİLER'); written_favorites.add((name,pick['url'])); continue
+  old_exact=[x for x in previous_favorite_entries if x[0]==name and x[1]==target_h]
+  if old_exact:
+   info,url=old_exact[0][2],old_exact[0][3]
+   lines.extend([info,url]); written_favorites.add((name,url)); continue
+  if higher:
+   pick=min(higher,key=lambda r:r.get('h') or 0)
+   add(name,pick,'⭐ FAVORİLER'); written_favorites.add((name,pick['url'])); continue
+  old_same=[x for x in previous_favorite_entries if x[0]==name]
+  if old_same:
+   info,url=old_same[0][2],old_same[0][3]
+   lines.extend([info,url]); written_favorites.add((name,url)); continue
+  if choices:
+   pick=max(choices,key=lambda r:r.get('h') or 0)
+   add(name,pick,'⭐ FAVORİLER'); written_favorites.add((name,pick['url']))
  fixed_names={name for name,_ in FAVORITE_ORDER}
+ # Fotoğraflardaki 32 kaydın ardından varsa daha önce eklenmiş ek yıldızlı favorileri kendi sırasıyla koru.
  for name,url in preserved_favorites:
   if name in fixed_names or (name,url) in written_favorites: continue
+  old=[x for x in previous_favorite_entries if x[0]==name and x[3]==url]
   r=results.get(url)
-  if r and r.get('ok'):
-   add(name,r,'⭐ FAVORİLER')
-   written_favorites.add((name,url))
+  if r and r.get('ok'): add(name,r,'⭐ FAVORİLER')
+  elif old: lines.extend([old[0][2],url])
+  else: continue
+  written_favorites.add((name,url))
  for group in GROUP_ORDER[1:]:
   if group=='ALTERNATİF':
    for name,r in altrows:add(name,r,'ALTERNATİF')
