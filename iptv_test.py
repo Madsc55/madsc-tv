@@ -163,8 +163,9 @@ FALLBACKS = {
     ],
 
     "SÖZCÜ TV": [
-        "https://szctvdvr.blutv.com/blutv_szctv_dvr/live_720p4350000kbps/index.m3u8",
-    ],
+    "http://5.178.103.239:55/yt1/szctv.m3u8",
+    "https://szctvdvr.blutv.com/blutv_szctv_dvr/live_720p4350000kbps/index.m3u8",
+],
 
     "SOZCU TV": [
         "https://szctvdvr.blutv.com/blutv_szctv_dvr/live_720p4350000kbps/index.m3u8",
