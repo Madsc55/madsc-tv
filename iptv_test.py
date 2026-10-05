@@ -125,39 +125,33 @@ def main():
    k=(r['url'],r['w'],r['h'])
    if k not in seen_alt:
     seen_alt.add(k); altrows.append((name,r))
- # Mevcut FAVORİLER'i koru; eski CALISANLAR içindeki ⭐ FAVORİLER kayıtlarını silme.
- favset=set(FAVORITES)
- if prev.exists():
-  for oldname,oldurl,oldlogo in parse(prev.read_text('utf-8-sig',errors='ignore')):
-   base=re.sub(r'\\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\\d+P SD)
- def add(name,r,group):
-  epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
-  lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
-  lines.append(r['url'])
- for name,r in mainrows:
-  if name in favset:add(name,r,'⭐ FAVORİLER')
- for group in GROUP_ORDER[1:]:
-  if group=='ALTERNATİF':
-   for name,r in altrows:add(name,r,'ALTERNATİF')
-  else:
-   for name,r in mainrows:
-    if CATEGORY[name]==group:add(name,r,group)
- Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
- Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
- with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
-  w=csv.writer(f); w.writerow(['Kanal','Durum','Genislik','Yukseklik','Kalite','Codec','Kontrol','URL']); w.writerows(report)
- print(f'Bitti. Ana çalışan={len(mainrows)} alternatif={len(altrows)} çalışmayan kanal={len(failed)}',flush=True)
-
-if __name__=='__main__': main()
-,'',oldname).strip()
-   if base in CATEGORY: favset.add(base)
+ # IBO'daki 32 favorinin fotoğraflardaki sırası.
+// Aynı kanalın farklı kalite favorileri (TRT HABER ve NOW) ayrıca korunur.
+ FAVORITE_ORDER=[
+  ('TRT 1',1440),('TRT 2',1080),('ATV',1080),('KANAL D',1080),('SHOW TV',1080),('NOW',1080),('TV8',1080),('STAR TV',1080),
+  ('TV100',1080),('NTV',1080),('CNN TÜRK',1080),('TRT HABER',1440),('HABERTÜRK',1080),('HALK TV',1080),('TGRT HABER',1080),
+  ('A HABER',1080),('24 TV',1080),('ULUSAL KANAL',576),('KANAL 7',1080),('TV8.5',1080),('BEYAZ TV',1080),('A2',1080),
+  ('TRT HABER',1080),('HABER GLOBAL',720),('A PARA',1080),('HT SPOR',1080),('FLASH HABER',720),('ÜLKE TV',720),
+  ('NOW',720),('TRT SPOR YILDIZ',1080),('A SPOR',1080),('EKOL SPORTS',1080)
+ ]
+ goodmap=defaultdict(list)
+ for name in CATEGORY:
+  for u in by.get(name,[])[:MAX_PER_CHANNEL]:
+   r=results.get(u)
+   if r and r.get('ok'): goodmap[name].append(r)
+  goodmap[name].sort(key=lambda r:(r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
  lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
  def add(name,r,group):
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   lines.append(f'#EXTINF:-1 tvg-id="{epg}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
- for name,r in mainrows:
-  if name in favset:add(name,r,'⭐ FAVORİLER')
+ # Favoriler tam olarak fotoğraflardaki 1-32 sırasıyla yazılır.
+ for name,target_h in FAVORITE_ORDER:
+  choices=goodmap.get(name,[])
+  if not choices: continue
+  exact=[r for r in choices if r.get('h')==target_h]
+  pick=exact[0] if exact else min(choices,key=lambda r:abs((r.get('h') or 0)-target_h))
+  add(name,pick,'⭐ FAVORİLER')
  for group in GROUP_ORDER[1:]:
   if group=='ALTERNATİF':
    for name,r in altrows:add(name,r,'ALTERNATİF')
