@@ -120,7 +120,7 @@ def main():
  src=Path(sys.argv[1] if len(sys.argv)>1 else 'MADSC_TV_47_LISTE_ADAY.m3u')
  if not src.exists(): raise SystemExit(f'Yok: {src}')
  entries=parse(src.read_text('utf-8-sig',errors='ignore'))
- youtube_entries=[(name,url,logo) for name,url,logo in entries if is_youtube(url)]
+ youtube_entries=[(name,url,logo) for name,url,logo in entries if is_youtube(url) and name.upper().endswith(' YOUTUBE')]
  by=defaultdict(list); logos={}
  for name,url,logo in entries:
   if name not in CATEGORY: continue
