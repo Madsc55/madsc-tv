@@ -50,7 +50,10 @@ ALIASES={
 }
 
 def canonical_name(name):
- return ALIASES.get(name.strip(),name.strip())
+ raw=name.strip()
+ aliased=ALIASES.get(raw,raw)
+ upper=aliased.upper()
+ return upper if upper in CATEGORY else aliased
 
 def parse(text):
  out=[]; info=None
