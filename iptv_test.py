@@ -172,7 +172,7 @@ def main():
   for raw in prev_text.splitlines():
    s=raw.strip()
    if s.startswith('#EXTINF:'): info=s
-   elif info and s.startswith(('http://','https://')):
+   elif info and s.startswith(('http://','https://','rtmp://')):
     if 'group-title="⭐ FAVORİLER"' in info:
      visible=info.split(',',1)[-1].strip()
      base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',visible).strip()
@@ -277,7 +277,7 @@ def main():
  for info,url in preserved_previous:
   if info and 'group-title="ALTERNATİF"' in info and url not in alt_urls:
    lines.append(info); lines.append(url); alt_urls.add(url)
- output_urls={x for x in lines if x.startswith(('http://','https://'))}
+ output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
  for info,url in preserved_previous:
   if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info:
    lines.append(info); lines.append(url); output_urls.add(url)
