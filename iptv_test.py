@@ -9,7 +9,7 @@ UA='Mozilla/5.0 (MADSC-TV/2.0)'
 HTTP_TIMEOUT=10
 PROBE_TIMEOUT=30
 WORKERS=12
-MAX_PER_CHANNEL=30
+MAX_PER_CHANNEL=9999
 BLOCKED=('helga.iptv2022.com',)
 GROUP_ORDER=['⭐ FAVORİLER','ULUSAL','HABER','SPOR','ALTERNATİF','ÇOCUK','BELGESEL','DİNİ','MÜZİK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','İNTERNET']
 FAVORITES=['TRT 1','ATV','KANAL D','SHOW TV','STAR TV','NOW','TV8','KANAL 7','SÖZCÜ TV','TV100','NTV','CNN TÜRK','TRT HABER','HABERTÜRK','HABER GLOBAL','TRT SPOR','A SPOR']
@@ -97,7 +97,7 @@ def main():
    if logo and base not in logos: logos[base]=logo
  urls=[]
  for name in CATEGORY:
-  for u in by[name][:MAX_PER_CHANNEL]:
+  for u in by[name]:
    if u not in urls: urls.append(u)
  print(f'Kanal={len(by)} benzersiz_test={len(urls)} isci={WORKERS} timeout={PROBE_TIMEOUT}s',flush=True)
  results={}
@@ -111,7 +111,7 @@ def main():
  mainrows=[]; altrows=[]; report=[]; failed=[]
  for name in CATEGORY:
   good=[]
-  for u in by.get(name,[])[:MAX_PER_CHANNEL]:
+  for u in by.get(name,[]):
    r=results.get(u,{'ok':False,'detail':'not-tested','w':0,'h':0,'url':u})
    report.append([name,'CALISIYOR' if r['ok'] else 'CALISMIYOR',r.get('w',0),r.get('h',0),q(r.get('w',0),r.get('h',0)) if r['ok'] else '',r.get('codec',''),r.get('detail',''),u])
    if r['ok']: good.append(r)
@@ -126,7 +126,7 @@ def main():
    if k not in seen_alt:
     seen_alt.add(k); altrows.append((name,r))
  # IBO'daki 32 favorinin fotoğraflardaki sırası.
-// Aynı kanalın farklı kalite favorileri (TRT HABER ve NOW) ayrıca korunur.
+# Aynı kanalın farklı kalite favorileri (TRT HABER ve NOW) ayrıca korunur.
  FAVORITE_ORDER=[
   ('TRT 1',1440),('TRT 2',1080),('ATV',1080),('KANAL D',1080),('SHOW TV',1080),('NOW',1080),('TV8',1080),('STAR TV',1080),
   ('TV100',1080),('NTV',1080),('CNN TÜRK',1080),('TRT HABER',1440),('HABERTÜRK',1080),('HALK TV',1080),('TGRT HABER',1080),
@@ -136,7 +136,7 @@ def main():
  ]
  goodmap=defaultdict(list)
  for name in CATEGORY:
-  for u in by.get(name,[])[:MAX_PER_CHANNEL]:
+  for u in by.get(name,[]):
    r=results.get(u)
    if r and r.get('ok'): goodmap[name].append(r)
   goodmap[name].sort(key=lambda r:(r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
