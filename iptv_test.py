@@ -4,6 +4,17 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import defaultdict
 
+# MADSC TV ANA KORUMA KURALLARI (2026-10-06)
+# Bu yapi f0762fbb sonrasi ana/referans duzendir.
+# - CALISANLAR.m3u IBO Player icin nihai ve esas listedir.
+# - Mevcut favori duzeni korunur; acik kullanici talebi olmadan silinmez/degistirilmez.
+# - Kanal adi varyantlari ALIASES ile gercek kanala eslenir ve kategori disinda birakilmaz.
+# - Calisan ana kaynak gercek kategorisinde; diger FARKLI calisan URL'ler ALTERNATIF'te tutulur.
+# - Ayni URL tekrar eklenmez; farkli URL dusuk cozunurlukte olsa bile sirf kalite nedeniyle atilmaz.
+# - Ana/favori kaynak yeni aday bulundu diye otomatik degistirilmez.
+# - Radyo ve YouTube nihai listeye eklenmez.
+# - Kategori/esleme kurallari yeni kanal eklerken genisletilir; bu temel kurallar geriye goturulmez.
+
 EPG_URL='https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml'
 UA='Mozilla/5.0 (MADSC-TV/2.0)'
 HTTP_TIMEOUT=10
