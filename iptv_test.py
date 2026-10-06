@@ -275,14 +275,7 @@ def main():
   else: continue
   written_favorites.add((name,url))
  for group in GROUP_ORDER[1:]:
-  if group=='YOUTUBE':
-   seen_youtube=set()
-   for yname,yurl,ylogo in youtube_entries:
-    if yurl in seen_youtube: continue
-    seen_youtube.add(yurl)
-    lines.append(f'#EXTINF:-1 tvg-id="" tvg-name="{yname}" tvg-logo="{ylogo}" group-title="YOUTUBE",{yname}')
-    lines.append(yurl)
-  elif group=='ALTERNATİF':
+  if group=='ALTERNATİF':
    for name,r in altrows:add(name,r,'ALTERNATİF')
   else:
    for name,r in mainrows:
@@ -290,11 +283,11 @@ def main():
  # Önceki ALTERNATİF kayıtları da yedek olarak koru; ana kayıtların sırasını bozma.
  alt_urls={r['url'] for _,r in altrows}
  for info,url in preserved_previous:
-  if info and 'group-title="ALTERNATİF"' in info and url not in alt_urls:
+  if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls:
    lines.append(info); lines.append(url); alt_urls.add(url)
  output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
  for info,url in preserved_previous:
-  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info:
+  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
    lines.append(info); lines.append(url); output_urls.add(url)
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
