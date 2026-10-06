@@ -252,13 +252,19 @@ def main():
   goodmap[name].sort(key=lambda r:(r.get('protocol',protocol(r['url']))=='HLS',r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
  lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
  alt_seq=defaultdict(int)
+ emitted_non_alt_urls=set()
+ emitted_alt_urls=set()
  def add(name,r,group):
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   if group=='ALTERNATİF':
+   # Aynı yayın URL'sini ALTERNATİF içinde veya ana/favori listede ikinci kez yazma.
+   if r['url'] in emitted_alt_urls or r['url'] in emitted_non_alt_urls: return
+   emitted_alt_urls.add(r['url'])
    alt_seq[name]+=1; n=alt_seq[name]
    identity=f'{name} {n}'; epg_out=epg; visible=f'{name} {n} {q(r["w"],r["h"])}'
   else:
    identity=name; epg_out=epg
+   emitted_non_alt_urls.add(r['url'])
   lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
  # Fotoğraflardaki 1-32 sırası sabittir; hedef çözünürlük bulunamazsa eski doğru favori korunur.
@@ -323,12 +329,13 @@ def main():
   else:
    for name,r in mainrows:
     if CATEGORY[name]==group:add(name,r,group)
- # Önceki ALTERNATİF kayıtları da yedek olarak koru; ana kayıtların sırasını bozma.
- alt_urls={r['url'] for _,r in altrows}
- for info,url in preserved_previous:
-  if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls:
-   lines.append(info); lines.append(url); alt_urls.add(url)
+ # Önceki ALTERNATİF kayıtları yalnızca gerçekten benzersiz URL ise koru.
+ # Böylece eski listeden aynı kaynak / aynı yayın tekrar geri dönmez.
  output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
+ alt_urls=set(emitted_alt_urls)
+ for info,url in preserved_previous:
+  if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls and url not in output_urls:
+   lines.append(info); lines.append(url); alt_urls.add(url); output_urls.add(url)
  for info,url in preserved_previous:
   if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'group-title="SVERIGE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
    lines.append(info); lines.append(url); output_urls.add(url)
