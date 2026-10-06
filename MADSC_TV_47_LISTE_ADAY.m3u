@@ -2350,3 +2350,17 @@ https://live.kanal7.com/live/kanal7AvrupaLive/index.m3u8
 
 #EXTINF:-1 tvg-name="MEDYA HABER TV" group-title="ALTERNATİF",MEDYA HABER TV GLOBAL ADAY
 https://hlspackager.akamaized.net/live/DB/MEDYA_HABER/HLS/MEDYA_HABER.m3u8
+
+# Kullanici cihazinda calismayan kanallar icin yeni yedek adaylar
+#EXTINF:-1 tvg-name="TRT SPOR YILDIZ" group-title="ALTERNATİF",TRT SPOR YILDIZ YENI YEDEK ADAY
+https://tv-trtsporyildiz.medya.trt.com.tr/master.m3u8
+#EXTINF:-1 tvg-name="ATV" group-title="ALTERNATİF",ATV YENI YEDEK ADAY
+https://turkuvaz-live.daioncdn.net/atv/atv.m3u8
+#EXTINF:-1 tvg-name="TLC" group-title="ALTERNATİF",TLC YENI YEDEK ADAY
+https://dogus-live.daioncdn.net/tlc/tlc.m3u8
+#EXTINF:-1 tvg-name="CNN TÜRK" group-title="ALTERNATİF",CNN TÜRK YENI YEDEK ADAY
+https://live.duhnet.tv/S2/HLS_LIVE/cnnturknp/track_4_1000/playlist.m3u8
+#EXTINF:-1 tvg-name="FLASH HABER" group-title="ALTERNATİF",FLASH HABER YENI YEDEK ADAY
+https://stream.guventechnology.com:19360/flashtv/flashtv.m3u8
+#EXTINF:-1 tvg-name="NTV" group-title="ALTERNATİF",NTV YENI YEDEK ADAY
+https://dogus-live.daioncdn.net/ntv/playlist.m3u8
