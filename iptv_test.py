@@ -303,7 +303,11 @@ def main():
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   if group=='ALTERNATİF':
    alt_seq[name]+=1; n=alt_seq[name]
-   identity=f'{name} {n}'; epg_out=epg; visible=f'{name} {n} {q(r["w"],r["h"])}'
+   # DMAX kaynaklari IBO'da ayni kanal kimligini kullansin; 1/2 eki logoyu bozmasin.
+   if name=='DMAX':
+    identity='DMAX'; epg_out=epg; visible=f'DMAX {q(r["w"],r["h"])}'
+   else:
+    identity=f'{name} {n}'; epg_out=epg; visible=f'{name} {n} {q(r["w"],r["h"])}'
   else:
    identity=name; epg_out=epg
   lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
