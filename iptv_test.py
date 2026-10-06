@@ -13,16 +13,19 @@ MAX_PER_CHANNEL=9999
 BLOCKED=('helga.iptv2022.com',)
 GROUP_ORDER=['⭐ FAVORİLER','HABER','ULUSAL','SPOR','BELGESEL','MÜZİK','SVERIGE','DİNİ','ALTERNATİF','İNTERNET','ÇOCUK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','YEREL KANALLAR']
 FAVORITE_ORDER=[
- ('TRT 1',1440),('TRT 2',1080),('KANAL D',1080),('ATV',1080),('SHOW TV',1080),('NOW',1080),('NOW',720),
- ('TV8',1080),('TV8.5',1080),('STAR TV',1080),('TV100',1080),('TV100',720),('NTV',1080),('CNN TÜRK',1080),
- ('TRT HABER',1440),('TRT HABER',1080),('HABERTÜRK',1080),('HALK TV',1080),('HALK TV',1080),('TGRT HABER',1080),
- ('A HABER',1080),('A HABER',1080),('24 TV',1080),('ULUSAL KANAL',576),('KANAL 7',1080),
+ ('TRT 1',1440),('TRT 2',1080),('KANAL D',1080),('ATV',1080),('SHOW TV',1080),
+ ('NOW',1080),('NOW',720),('TV8',1080),('TV8.5',1080),('TV8.5',1080),('STAR TV',1080),
+ ('TV100',1080),('TV100',720),('NTV',1080),('NTV',1080),('CNN TÜRK',1080),('CNN TÜRK',1080),
+ ('TRT HABER',1440),('TRT HABER',1440),('TRT HABER',1080),('TRT HABER',1080),
+ ('HABERTÜRK',1080),('HABERTÜRK',1080),('HALK TV',1080),('HALK TV',1080),('TGRT HABER',1080),
+ ('A HABER',1080),('A HABER',1080),('A HABER',1080),('24 TV',1080),('ULUSAL KANAL',576),('KANAL 7',1080),
  ('BEYAZ TV',1080),('BEYAZ TV',1080),('A2',1080),('A2',1080),('TEVE2',1080),('HABER GLOBAL',720),
- ('A PARA',1080),('A PARA',1080),('HT SPOR',1080),('FLASH HABER',720),('FLASH HABER',1080),
- ('TRT SPOR YILDIZ',1080),('TRT SPOR YILDIZ',1080),('A SPOR',1080),('A SPOR',1080),('EKOL SPORTS',1080),
- ('DMAX',1080),('DMAX',1080),('TLC',720),('TLC',720),('CNBC-E',1080),('TV4',1080),('TV4',720),
- ('BLOOMBERG HT',1080),('360',720),('TABİİ TV',1080),('TABİİ TV',1080),('TVNET',720),('ÜLKE TV',720),('ÜLKE TV',1080),
- ('TELE1',1080)
+ ('A PARA',1080),('A PARA',1080),('HT SPOR',1080),('HT SPOR',1080),
+ ('FLASH HABER',720),('FLASH HABER',1080),('TRT SPOR YILDIZ',1080),('TRT SPOR YILDIZ',1080),
+ ('A SPOR',1080),('A SPOR',1080),('EKOL SPORTS',1080),('DMAX',1080),('DMAX',1080),
+ ('TLC',720),('TLC',720),('CNBC-E',1080),('TV4',1080),('TV4',720),
+ ('BLOOMBERG HT',1080),('BLOOMBERG HT',1080),('360',720),('TABİİ TV',1080),('TABİİ TV',1080),
+ ('TVNET',720),('ÜLKE TV',720),('ÜLKE TV',1080),('TELE1',1080)
 ]
 CATEGORY={
 'TRT 1':'ULUSAL','ATV':'ULUSAL','KANAL D':'ULUSAL','SHOW TV':'ULUSAL','STAR TV':'ULUSAL','NOW':'ULUSAL','TV8':'ULUSAL','KANAL 7':'ULUSAL','BEYAZ TV':'ULUSAL','360':'ULUSAL','A2':'ULUSAL','TEVE2':'ULUSAL','DMAX':'ULUSAL','TLC':'ULUSAL','TV8.5':'ULUSAL','TRT 2':'ULUSAL',
@@ -249,22 +252,32 @@ def main():
    m=re.search(r'\\s(\\d+)P(?:\\s|$)',visible)
    previous_favorite_entries.append((base,int(m.group(1)) if m else 0,info,url))
  written_favorites=set()
+ favorite_occ=defaultdict(int)
+ favorite_used=defaultdict(set)
+ favorite_identity=defaultdict(int)
+ def add_favorite(name,r):
+  favorite_identity[name]+=1
+  n=favorite_identity[name]
+  epg=EPG.get(name,''); logo=logos.get(name,'')
+  identity=name if n==1 else f'{name} {n}'
+  epg_out=epg if n==1 else f'FAV-{re.sub(r"[^A-Z0-9ÇĞİÖŞÜ]+","-",name.upper())}-{n}'
+  visible=f'{identity} {q(r["w"],r["h"])}'
+  lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="⭐ FAVORİLER",{visible}')
+  lines.append(r['url'])
  for name,target_h in FAVORITE_ORDER:
+  favorite_occ[(name,target_h)]+=1
+  occ=favorite_occ[(name,target_h)]-1
   choices=goodmap.get(name,[])
-  exact=[r for r in choices if r.get('h')==target_h]
-  higher=[r for r in choices if (r.get('h') or 0)>target_h]
-  if exact:
-   pick=exact[0]; add(name,pick,'⭐ FAVORİLER'); written_favorites.add((name,pick['url'])); continue
-  old_exact=[x for x in previous_favorite_entries if x[0]==name and x[1]==target_h]
-  if old_exact:
-   info,url=old_exact[0][2],old_exact[0][3]; lines.extend([info,url]); written_favorites.add((name,url)); continue
-  if higher:
-   pick=min(higher,key=lambda r:r.get('h') or 0); add(name,pick,'⭐ FAVORİLER'); written_favorites.add((name,pick['url'])); continue
+  exact=[r for r in choices if r.get('h')==target_h and r['url'] not in favorite_used[name]]
+  higher=[r for r in choices if (r.get('h') or 0)>target_h and r['url'] not in favorite_used[name]]
+  any_unused=[r for r in choices if r['url'] not in favorite_used[name]]
+  pick=(exact[0] if exact else (min(higher,key=lambda r:r.get('h') or 0) if higher else (any_unused[0] if any_unused else (choices[occ % len(choices)] if choices else None))))
+  if pick:
+   add_favorite(name,pick); favorite_used[name].add(pick['url']); written_favorites.add((name,pick['url'])); continue
   old_same=[x for x in previous_favorite_entries if x[0]==name]
   if old_same:
-   info,url=old_same[0][2],old_same[0][3]; lines.extend([info,url]); written_favorites.add((name,url)); continue
-  if choices:
-   pick=max(choices,key=lambda r:r.get('h') or 0); add(name,pick,'⭐ FAVORİLER'); written_favorites.add((name,pick['url']))
+   info,url=old_same[occ % len(old_same)][2],old_same[occ % len(old_same)][3]
+   lines.extend([info,url]); written_favorites.add((name,url))
  fixed_names={name for name,_ in FAVORITE_ORDER}
  for name,url in preserved_favorites:
   if name in fixed_names or (name,url) in written_favorites: continue
