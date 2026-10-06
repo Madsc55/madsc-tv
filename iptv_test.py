@@ -28,7 +28,7 @@ FAVORITE_ORDER=[
  ('TVNET',720),('ÜLKE TV',720),('ÜLKE TV',1080),('TELE1',1080)
 ]
 CATEGORY={
-'TRT 1':'ULUSAL','ATV':'ULUSAL','KANAL D':'ULUSAL','SHOW TV':'ULUSAL','STAR TV':'ULUSAL','NOW':'ULUSAL','TV8':'ULUSAL','KANAL 7':'ULUSAL','BEYAZ TV':'ULUSAL','360':'ULUSAL','A2':'ULUSAL','TEVE2':'ULUSAL','DMAX':'ULUSAL','TLC':'ULUSAL','TV8.5':'ULUSAL','TRT 2':'ULUSAL',
+'TRT 1':'ULUSAL','TRT 3':'KAMU-TEMATİK','KANAL B':'ULUSAL','İLKE TV':'HABER','TORBA TV':'YEREL KANALLAR','ATV':'ULUSAL','KANAL D':'ULUSAL','SHOW TV':'ULUSAL','STAR TV':'ULUSAL','NOW':'ULUSAL','TV8':'ULUSAL','KANAL 7':'ULUSAL','BEYAZ TV':'ULUSAL','360':'ULUSAL','A2':'ULUSAL','TEVE2':'ULUSAL','DMAX':'ULUSAL','TLC':'ULUSAL','TV8.5':'ULUSAL','TRT 2':'ULUSAL',
 'SÖZCÜ TV':'HABER','AKİT TV':'HABER','TV100':'HABER','NTV':'HABER','CNN TÜRK':'HABER','TRT HABER':'HABER','HABERTÜRK':'HABER','HABER GLOBAL':'HABER','HALK TV':'HABER','TGRT HABER':'HABER','A HABER':'HABER','24 TV':'HABER','EKOL TV':'HABER','TELE1':'HABER','ULUSAL KANAL':'HABER','BLOOMBERG HT':'HABER','A PARA':'HABER','TVNET':'HABER','ÜLKE TV':'HABER','FLASH HABER':'HABER','BENGÜTÜRK':'HABER',
 'TRT SPOR':'SPOR','TRT SPOR YILDIZ':'SPOR','A SPOR':'SPOR','HT SPOR':'SPOR','SPORTS TV':'SPOR','TJK TV':'SPOR','TJK TV 2':'SPOR','FB TV':'SPOR','EKOL SPORTS':'SPOR','SIFIR TV':'SPOR','TAY TV':'SPOR','GS TV':'SPOR','BJK TV':'SPOR','SATRANÇ TV':'SPOR',
 'TRT ÇOCUK':'ÇOCUK','TRT DİYANET ÇOCUK':'ÇOCUK','MİNİKA GO':'ÇOCUK','MİNİKA ÇOCUK':'ÇOCUK','TRT BELGESEL':'BELGESEL','TGRT BELGESEL':'BELGESEL','TARIM TV':'BELGESEL','ÇİFTÇİ TV':'BELGESEL','TOPRAK TV':'BELGESEL',
@@ -176,6 +176,16 @@ def main():
 
  # IBO Player + Android TV/TCL için logoları doğrudan HTTPS PNG kaynaklarına sabitle.
  logo_overrides={
+  'TRT 1':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png',
+  'STAR TV':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/star-tv-tr.png',
+  'NTV':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/ntv-tr.png',
+  'CNN TÜRK':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/cnn-turk-tr.png',
+  'HABERTÜRK':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/haberturk-tr.png',
+  'A HABER':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/a-haber-tr.png',
+  'DMAX':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/dmax-tr.png',
+  'TV8.5':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/tv8-5-tr.png',
+  'ÜLKE TV':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/ulke-tv-tr.png',
+  'TRT 3':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-3-tr.png',
   'KANAL 7':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/kanal-7-tr.png',
   'A SPOR':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/a-spor-tr.png',
   'CNBC-E':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/cnbc-e-tr.png',
