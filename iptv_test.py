@@ -337,9 +337,9 @@ def main():
  for info,url in preserved_previous:
   if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls and url not in output_urls:
    lines.append(info); lines.append(url); alt_urls.add(url); output_urls.add(url)
- for info,url in preserved_previous:
-  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'group-title="SVERIGE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
-   lines.append(info); lines.append(url); output_urls.add(url)
+ # Eski normal/YEREL/INTERNET kayıtlarını körlemesine geri ekleme.
+ # CALISANLAR yalnız bu turda testten geçen kaynakları taşısın.
+ # FAVORİLER yukarıdaki özel koruma mantığıyla ayrıca korunur.
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
  with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
