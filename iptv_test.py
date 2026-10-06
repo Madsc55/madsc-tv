@@ -323,7 +323,7 @@ def main():
    lines.append(info); lines.append(url); alt_urls.add(url)
  output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
  for info,url in preserved_previous:
-  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
+  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'group-title="SVERIGE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
    lines.append(info); lines.append(url); output_urls.add(url)
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
