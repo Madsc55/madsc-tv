@@ -326,6 +326,8 @@ def main():
   written_favorites.add((name,url))
  for group in GROUP_ORDER[1:]:
   if group=='ALTERNATİF':
+   # Her kanalın ana/en iyi çalışan kaynağı kendi gerçek kategorisinde yazılır.
+   # Aynı kanalın diğer çalışan URL/çözünürlükleri yedek olarak ALTERNATİF'te kalır.
    for name,r in altrows:add(name,r,'ALTERNATİF')
   else:
    for name,r in mainrows:
