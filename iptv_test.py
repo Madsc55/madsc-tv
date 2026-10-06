@@ -43,7 +43,7 @@ CATEGORY.update({
  'DREAM TÜRK':'MÜZİK','DREAMTÜRK TV':'MÜZİK','NR1 TÜRK TV':'MÜZİK','MINIKA GO':'ÇOCUK','MINIKA ÇOCUK':'ÇOCUK'
 })
 # Yeni bulunan acik kanallar ve isim varyantlari.
-CATEGORY.update({'TV5':'HABER','LİDER HABER':'HABER','LİDER HABER TV':'HABER','TV42':'YEREL KANALLAR'})
+CATEGORY.update({'TV5':'HABER','LİDER HABER':'HABER','LİDER HABER TV':'HABER','TV42':'YEREL KANALLAR','EKOTÜRK':'HABER','TRT GENÇ':'EĞİTİM-KÜLTÜR'})
 # Aday havuzunda olup daha once kategori disinda kaldigi icin test edilmeyen kanallar.
 CATEGORY.update({
  'SHOW MAX':'ULUSAL','KOCAELİ TV':'YEREL KANALLAR','KANAL 5':'YEREL KANALLAR','KRAL TV':'MÜZİK',
@@ -69,7 +69,9 @@ EPG={'KANAL D':'bbwgmhsmhhoatzg','SHOW TV':'pvr08e5grfsebfw','STAR TV':'75tz02oo
 ALIASES={
  'TRT ÇOCUK DİYANET':'TRT DİYANET ÇOCUK','SAT7 TÜRK':'SAT 7 TÜRK','GS TV HD':'GS TV',
  'POWER TÜRK':'POWER TÜRK TV','POWERTÜRK TV':'POWER TÜRK TV',
- 'AKIT TV':'AKİT TV','AKIT TV (720P)':'AKİT TV','SOZCU TV':'SÖZCÜ TV','NUMBER 1 TV':'NUMBER1 TV','NUMBER 1 TÜRK':'NUMBER1 TÜRK'
+ 'AKIT TV':'AKİT TV','AKIT TV (720P)':'AKİT TV','SOZCU TV':'SÖZCÜ TV','NUMBER 1 TV':'NUMBER1 TV','NUMBER 1 TÜRK':'NUMBER1 TÜRK',
+ 'KRT':'KRT TV','EKOTURK':'EKOTÜRK','TV 42':'TV42','NR1 TÜRK TV':'NUMBER1 TÜRK',
+ 'KANAL S SAMSUN 1':'KANAL S SAMSUN','SAMSUN CANLI HABER TV 1':'SAMSUN HABER TV','TRT GENC':'TRT GENÇ'
 }
 
 def canonical_name(name):
