@@ -210,7 +210,7 @@ def main():
   'CNN TÜRK':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/cnn-turk-tr.png',
   'HABERTÜRK':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/haberturk-tr.png',
   'A HABER':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/a-haber-tr.png',
-  'DMAX':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/dmax-tr.png',
+  'DMAX':'https://commons.wikimedia.org/wiki/Special:Redirect/file/Dmax%20tv-channel.png',
   'TRT BELGESEL':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-belgesel-tr.png',
   'BENGÜTÜRK':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/bengu-turk-tr.png',
   'TJK TV':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/tjk-tv-tr.png',
