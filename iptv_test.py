@@ -13,7 +13,7 @@ MAX_PER_CHANNEL=9999
 BLOCKED=('helga.iptv2022.com',)
 GROUP_ORDER=['⭐ FAVORİLER','HABER','ULUSAL','SPOR','BELGESEL','MÜZİK','DİNİ','ALTERNATİF','İNTERNET','ÇOCUK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','YEREL KANALLAR']
 FAVORITE_ORDER=[
- ('TRT 1',1440),('TRT 2',1080),('KANAL D',1080),('ATV',1080),('SHOW TV',1080),
+ ('TRT 1',1440),('TRT 2',1080),('KANAL D',1080),('ATV',1080),('ATV',1080),('SHOW TV',1080),
  ('NOW',1080),('NOW',720),('TV8',1080),('TV8.5',1080),('TV8.5',1080),('STAR TV',1080),
  ('TV100',1080),('TV100',720),('NTV',1080),('NTV',1080),('CNN TÜRK',1080),('CNN TÜRK',1080),
  ('TRT HABER',1440),('TRT HABER',1440),('TRT HABER',1080),('TRT HABER',1080),
@@ -30,7 +30,7 @@ FAVORITE_ORDER=[
 CATEGORY={
 'TRT 1':'ULUSAL','ATV':'ULUSAL','KANAL D':'ULUSAL','SHOW TV':'ULUSAL','STAR TV':'ULUSAL','NOW':'ULUSAL','TV8':'ULUSAL','KANAL 7':'ULUSAL','BEYAZ TV':'ULUSAL','360':'ULUSAL','A2':'ULUSAL','TEVE2':'ULUSAL','DMAX':'ULUSAL','TLC':'ULUSAL','TV8.5':'ULUSAL','TRT 2':'ULUSAL',
 'SÖZCÜ TV':'HABER','AKİT TV':'HABER','TV100':'HABER','NTV':'HABER','CNN TÜRK':'HABER','TRT HABER':'HABER','HABERTÜRK':'HABER','HABER GLOBAL':'HABER','HALK TV':'HABER','TGRT HABER':'HABER','A HABER':'HABER','24 TV':'HABER','EKOL TV':'HABER','TELE1':'HABER','ULUSAL KANAL':'HABER','BLOOMBERG HT':'HABER','A PARA':'HABER','TVNET':'HABER','ÜLKE TV':'HABER','FLASH HABER':'HABER','BENGÜTÜRK':'HABER',
-'TRT SPOR':'SPOR','TRT SPOR YILDIZ':'SPOR','BEIN SPORTS HABER':'SPOR','A SPOR':'SPOR','HT SPOR':'SPOR','SPORTS TV':'SPOR','TJK TV':'SPOR','TJK TV 2':'SPOR','FB TV':'SPOR','EKOL SPORTS':'SPOR','SIFIR TV':'SPOR','TAY TV':'SPOR','GS TV':'SPOR','BJK TV':'SPOR','SATRANÇ TV':'SPOR',
+'TRT SPOR':'SPOR','TRT SPOR YILDIZ':'SPOR','A SPOR':'SPOR','HT SPOR':'SPOR','SPORTS TV':'SPOR','TJK TV':'SPOR','TJK TV 2':'SPOR','FB TV':'SPOR','EKOL SPORTS':'SPOR','SIFIR TV':'SPOR','TAY TV':'SPOR','GS TV':'SPOR','BJK TV':'SPOR','SATRANÇ TV':'SPOR',
 'TRT ÇOCUK':'ÇOCUK','TRT DİYANET ÇOCUK':'ÇOCUK','MİNİKA GO':'ÇOCUK','MİNİKA ÇOCUK':'ÇOCUK','TRT BELGESEL':'BELGESEL','TGRT BELGESEL':'BELGESEL','TARIM TV':'BELGESEL','ÇİFTÇİ TV':'BELGESEL','TOPRAK TV':'BELGESEL',
 'DİYANET TV':'DİNİ','VAV TV':'DİNİ','SEMERKAND TV':'DİNİ','LALEGÜL TV':'DİNİ','DOST TV':'DİNİ','SAT 7 TÜRK':'DİNİ','ON4 TV':'DİNİ','REHBER TV':'DİNİ','TRT MÜZİK':'MÜZİK','DREAM TÜRK':'MÜZİK','KRAL POP TV':'MÜZİK','POWER TÜRK TV':'MÜZİK','NUMBER1 TV':'MÜZİK','NUMBER1 TÜRK':'MÜZİK','POWER TV':'MÜZİK','POWER DANCE':'MÜZİK','POWER LOVE':'MÜZİK','POWER TÜRK AKUSTİK':'MÜZİK','POWERTÜRK SLOW':'MÜZİK','POWERTÜRK TAPTAZE':'MÜZİK','NUMBER1 AŞK':'MÜZİK','NUMBER1 DANCE':'MÜZİK','NUMBER1 DAMAR':'MÜZİK','TATLİSES TV':'MÜZİK',
 'BIR TV':'ULUSAL','GZT':'İNTERNET','DHA CANLI':'İNTERNET','TABİİ TV':'İNTERNET','TİVİ 6':'ULUSAL','ATV AVRUPA':'ULUSAL','CNBC-E':'ULUSAL','EURO D':'ULUSAL','EUROSTAR':'ULUSAL','TABİİ TV':'İNTERNET','TV4':'ULUSAL','KRT TV':'HABER','GZT':'İNTERNET','DHA CANLI':'İNTERNET','TRT EBA':'EĞİTİM-KÜLTÜR','TRT EBA İLKOKUL':'EĞİTİM-KÜLTÜR','TRT EBA ORTAOKUL':'EĞİTİM-KÜLTÜR','TRT EBA LİSE':'EĞİTİM-KÜLTÜR','TÜRK HABER':'HABER','TV1':'ULUSAL','TV264':'ULUSAL','TBMM TV':'KAMU-TEMATİK','TRT AVAZ':'KAMU-TEMATİK','TRT TÜRK':'KAMU-TEMATİK','TRT KURDİ':'KAMU-TEMATİK','TRT WORLD':'KAMU-TEMATİK'}
@@ -54,8 +54,7 @@ EPG={'KANAL D':'bbwgmhsmhhoatzg','SHOW TV':'pvr08e5grfsebfw','STAR TV':'75tz02oo
 ALIASES={
  'TRT ÇOCUK DİYANET':'TRT DİYANET ÇOCUK','SAT7 TÜRK':'SAT 7 TÜRK','GS TV HD':'GS TV',
  'POWER TÜRK':'POWER TÜRK TV','POWERTÜRK TV':'POWER TÜRK TV',
- 'AKIT TV':'AKİT TV','AKIT TV (720P)':'AKİT TV','SOZCU TV':'SÖZCÜ TV','NUMBER 1 TV':'NUMBER1 TV','NUMBER 1 TÜRK':'NUMBER1 TÜRK',
- 'BEIN SPORTS HABER':'BEIN SPORTS HABER','BEİN SPORTS HABER':'BEIN SPORTS HABER','BEINSPORTS HABER':'BEIN SPORTS HABER'
+ 'AKIT TV':'AKİT TV','AKIT TV (720P)':'AKİT TV','SOZCU TV':'SÖZCÜ TV','NUMBER 1 TV':'NUMBER1 TV','NUMBER 1 TÜRK':'NUMBER1 TÜRK'
 }
 
 def canonical_name(name):
@@ -185,13 +184,6 @@ def main():
   'HABER GLOBAL':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/haber-global-tr.png'
  }
  logos.update(logo_overrides)
- # Favorilerde IBO Player / Android TV için doğrudan HTTPS PNG logoları tercih et.
- logos.update({
-  'TRT 2':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-2-tr.png',
-  'KANAL D':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/kanal-d-tr.png',
-  'NOW':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/now-tr.png',
-  'KANAL 7':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/kanal-7-tr.png'
- })
  prev=Path('CALISANLAR.m3u')
  preserved_favorites=[]
  preserved_previous=[]
@@ -253,19 +245,13 @@ def main():
   goodmap[name].sort(key=lambda r:(r.get('protocol',protocol(r['url']))=='HLS',r['w']*r['h'],r['url'].startswith('https://')),reverse=True)
  lines=[f'#EXTM3U url-tvg="{EPG_URL}" x-tvg-url="{EPG_URL}"']
  alt_seq=defaultdict(int)
- emitted_non_alt_urls=set()
- emitted_alt_urls=set()
  def add(name,r,group):
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   if group=='ALTERNATİF':
-   # Aynı yayın URL'sini ALTERNATİF içinde veya ana/favori listede ikinci kez yazma.
-   if r['url'] in emitted_alt_urls or r['url'] in emitted_non_alt_urls: return
-   emitted_alt_urls.add(r['url'])
    alt_seq[name]+=1; n=alt_seq[name]
    identity=f'{name} {n}'; epg_out=epg; visible=f'{name} {n} {q(r["w"],r["h"])}'
   else:
    identity=name; epg_out=epg
-   emitted_non_alt_urls.add(r['url'])
   lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
   lines.append(r['url'])
  # Fotoğraflardaki 1-32 sırası sabittir; hedef çözünürlük bulunamazsa eski doğru favori korunur.
@@ -299,6 +285,9 @@ def main():
   if name=='TRT 2':
    preferred='https://tv-trt2.medya.trt.com.tr/master.m3u8'
    choices=sorted(choices,key=lambda r:r['url']!=preferred)
+  if name=='ATV':
+   preferred=('https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8' if occ==0 else 'https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8')
+   choices=sorted(choices,key=lambda r:r['url']!=preferred)
   exact=[r for r in choices if r.get('h')==target_h and r['url'] not in favorite_used[name]]
   higher=[r for r in choices if (r.get('h') or 0)>target_h and r['url'] not in favorite_used[name]]
   any_unused=[r for r in choices if r['url'] not in favorite_used[name]]
@@ -326,22 +315,19 @@ def main():
   written_favorites.add((name,url))
  for group in GROUP_ORDER[1:]:
   if group=='ALTERNATİF':
-   # Her kanalın ana/en iyi çalışan kaynağı kendi gerçek kategorisinde yazılır.
-   # Aynı kanalın diğer çalışan URL/çözünürlükleri yedek olarak ALTERNATİF'te kalır.
    for name,r in altrows:add(name,r,'ALTERNATİF')
   else:
    for name,r in mainrows:
     if CATEGORY[name]==group:add(name,r,group)
- # Önceki ALTERNATİF kayıtları yalnızca gerçekten benzersiz URL ise koru.
- # Böylece eski listeden aynı kaynak / aynı yayın tekrar geri dönmez.
- output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
- alt_urls=set(emitted_alt_urls)
+ # Önceki ALTERNATİF kayıtları da yedek olarak koru; ana kayıtların sırasını bozma.
+ alt_urls={r['url'] for _,r in altrows}
  for info,url in preserved_previous:
-  if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls and url not in output_urls:
-   lines.append(info); lines.append(url); alt_urls.add(url); output_urls.add(url)
- # Eski normal/YEREL/INTERNET kayıtlarını körlemesine geri ekleme.
- # CALISANLAR yalnız bu turda testten geçen kaynakları taşısın.
- # FAVORİLER yukarıdaki özel koruma mantığıyla ayrıca korunur.
+  if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls:
+   lines.append(info); lines.append(url); alt_urls.add(url)
+ output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
+ for info,url in preserved_previous:
+  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'group-title="SVERIGE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
+   lines.append(info); lines.append(url); output_urls.add(url)
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
  with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
