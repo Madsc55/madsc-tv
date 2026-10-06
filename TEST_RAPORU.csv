@@ -15,7 +15,7 @@ ATV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin
 ATV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_480p.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2261/index.m3u8
-ATV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2296/index.m3u8
+ATV,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,Remote end closed connection without response,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2296/index.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_360p.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_360p.m3u8
 ATV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno 111] Connection refused>,http://116.202.238.88/ATV_TR/tracks-v1a1/index.m3u8
@@ -233,7 +233,7 @@ A HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654
 EKOL TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ekoltv-live.ercdn.net/ekoltv/ekoltv.m3u8
 EKOL TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ekoltv-live.ercdn.net/ekoltv/ekoltv_1080p.m3u8
 EKOL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/293.m3u8
-TELE1,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,HTTP Error 404: Not Found,https://tele1-live.ercdn.net/tele1/tele1.m3u8
+TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tele1-live.ercdn.net/tele1/tele1.m3u8
 TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tele1-live.ercdn.net/tele1/tele1_1080p.m3u8
 TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'tele1dvr.blutv.com'. (_ssl.c:1000)>",https://tele1dvr.blutv.com/blutv_tele1_dvr2/live_720p2000000kbps/index.m3u8
 TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/107.m3u8
@@ -359,7 +359,7 @@ TARIM TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://content.t
 ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/chunks.m3u8
 ÇİFTÇİ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/chunks.m3u8?nimblesessionid=4092912537
 ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8
-ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6772/index.m3u8
+ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6772/index.m3u8
 ÇİFTÇİ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -3] Temporary failure in name resolution>,https://waw2.artiyerelmedya.net/ciftcitv/bant1/playlist.m3u8
 TOPRAK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://59cba4d34b678.streamlock.net/canlitv/topraktv/playlist.m3u8
 DİYANET TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8
@@ -388,7 +388,7 @@ DOST TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service no
 DOST TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/301.m3u8
 DOST TV,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6793/index.m3u8
 SAT 7 TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8
-SAT 7 TÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8
+SAT 7 TÜRK,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,IncompleteRead(342 bytes read),https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8
 ON4 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/on4/bant1/playlist.m3u8
 REHBER TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://cdn4.yayin.com.tr/rehbertv/tracks-v1a1/mono.m3u8
 TRT MÜZİK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtmuzik.medya.trt.com.tr/master.m3u8
@@ -506,7 +506,7 @@ AKSU TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.arti
 BALKAN TÜRK,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://live.euromediacenter.com/balkanturktv/index.m3u8
 BRTV KARABÜK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_brtv/brtv/chunks.m3u8
 BRÜKSEL TÜRK,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,https://live.euromediacenter.com/brukselturk/index.m3u8
-BRÜKSEL TÜRK,CALISMIYOR,HLS,YUKSEK,640,360,,h264,HTTP Error 404: Not Found,https://live.euromediacenter.com/brukselturk/tracks-v1a1/mono.m3u8
+BRÜKSEL TÜRK,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,https://live.euromediacenter.com/brukselturk/tracks-v1a1/mono.m3u8
 DİM TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_dimtv/dimtv/chunks.m3u8
 ERCİYES TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_erciyestv/erciyestv/playlist.m3u8
 ERZURUM WEB TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://win29.yayin.com.tr/erzurumwebtv/erzurumwebtv/iptvdelisi.m3u8
