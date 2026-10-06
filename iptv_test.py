@@ -285,11 +285,11 @@ def main():
    info,url=old_same[occ % len(old_same)][2],old_same[occ % len(old_same)][3]
    fallback={'url':url,'w':0,'h':target_h,'logo':logos.get(name,'')}
    add_favorite(name,fallback); written_favorites.add((name,url)); continue
-  candidate_same=[e for e in entries if e['name']==name]
+  candidate_same=[e for e in entries if e[0]==name]
   if candidate_same:
    src=candidate_same[occ % len(candidate_same)]
-   fallback={'url':src['url'],'w':0,'h':target_h,'logo':src.get('logo','')}
-   add_favorite(name,fallback); written_favorites.add((name,src['url'])); continue
+   fallback={'url':src[1],'w':0,'h':target_h,'logo':src[2]}
+   add_favorite(name,fallback); written_favorites.add((name,src[1])); continue
  fixed_names={name for name,_ in FAVORITE_ORDER}
  for name,url in preserved_favorites:
   if name in fixed_names or (name,url) in written_favorites: continue
