@@ -1,12 +1,12 @@
 ﻿Kanal,Durum,Tur,IBO_Uyumlulugu,Genislik,Yukseklik,Kalite,Codec,Kontrol,URL
-TRT 1,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6883/index.m3u8
+TRT 1,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6883/index.m3u8
 TRT 1,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://trt.daioncdn.net/trt-1/master.m3u8?app=web
 TRT 1,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://trt.daioncdn.net/trt-1/master_720p.m3u8?app=web
 TRT 1,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trt1.medya.trt.com.tr/master.m3u8
 TRT 1,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv-trt1.medya.trt.com.tr/master_1080.m3u8
 TRT 1,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trt1.medya.trt.com.tr/master_1440.m3u8
 TRT 1,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trt1.medya.trt.com.tr/master_720.m3u8
-TRT 1,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2293/index.m3u8
+TRT 1,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,Remote end closed connection without response,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2293/index.m3u8
 TRT 1,CALISMIYOR,DASH,CIHAZA BAGLI,0,0,,,HTTP Error 404: Not Found,http://mfe.cliptv.az/dash/TRT_1_HD.ism/playlist.mpd
 TRT 3,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tv-trt3.live.trt.com.tr/master.m3u8
 KANAL B,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://baskentaudiovideo.xyz/LiveApp/streams/mUE22idl26lA1683879097431.m3u8
@@ -16,12 +16,12 @@ KANAL B,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv.kanalb
 TORBA TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://59cba4d34b678.streamlock.net/canlitv/torbatv/playlist.m3u8
 ATV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/263.m3u8
 ATV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://izle.canlitvapp.com/aytv/index.m3u8
-ATV,CALISMIYOR,DASH,CIHAZA BAGLI,0,0,,"Command '['ffprobe', '-v', 'error', '-rw_timeout', '20000000', '-user_agent', 'Mozilla/5.0 (MADSC-TV/2.0)', '-select_str",dash+manifest,https://mfe01.cliptv.az/dash/ATV_Turk_HDufk050056_re.ism/playlist.mpd
+ATV,CALISIYOR,DASH,CIHAZA BAGLI,640,360,360P SD,h264,dash+manifest,https://mfe01.cliptv.az/dash/ATV_Turk_HDufk050056_re.ism/playlist.mpd
 ATV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_480p.m3u8
-ATV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2261/index.m3u8
-ATV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2296/index.m3u8
+ATV,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2261/index.m3u8
+ATV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2296/index.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_360p.m3u8
 ATV,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_360p.m3u8
 ATV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno 111] Connection refused>,http://116.202.238.88/ATV_TR/tracks-v1a1/index.m3u8
@@ -35,7 +35,7 @@ KANAL D,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://demiro
 KANAL D,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3
 KANAL D,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/track_4_1000/playlist.m3u8
 KANAL D,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/262.m3u8
-KANAL D,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2326/index.m3u8
+KANAL D,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2326/index.m3u8
 KANAL D,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=
 KANAL D,CALISMIYOR,DASH,CIHAZA BAGLI,0,0,,,HTTP Error 404: Not Found,http://mfe.cliptv.az/dash/Kanal_D_HD.ism/playlist.mpd
 SHOW TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/521.m3u8
@@ -48,27 +48,27 @@ SHOW TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ciner.
 SHOW TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showtv/showtv.m3u8
 SHOW TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/showtv/showtv_1080p.m3u8
 SHOW TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/6.m3u8
-SHOW TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2307/index.m3u8
-SHOW TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6889/index.m3u8
+SHOW TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2307/index.m3u8
+SHOW TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6889/index.m3u8
 SHOW TV,CALISMIYOR,DASH,CIHAZA BAGLI,0,0,,,HTTP Error 404: Not Found,http://mfe.cliptv.az/dash/Show_HD.ism/playlist.mpd
-STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6893/index.m3u8
+STAR TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6893/index.m3u8
 STAR TV,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,HTTP Error 404: Not Found,http://dygvideo.dygdigital.com/live/hls/startv4puhu?m3u8
 STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/startv/startv.m3u8
 STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/startv/startv_720p.m3u8
 STAR TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://dogus.daioncdn.net/startv/startv.m3u8?ce=3&app=1740db13-3ee9-4858-8d2c-b1a9cfaa3718
 STAR TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://dogus.daioncdn.net/startv/startv_720p.m3u8?app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3&sid=8l4w3lst4co5
 STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/264.m3u8
-STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2301/index.m3u8
+STAR TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2301/index.m3u8
 STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://raw.githubusercontent.com/ipstreet312/freeiptv/refs/heads/master/ressources/tur/star.m3u8
 STAR TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://dogus.daioncdn.net/startv/startv_720p.m3u8?&sid=8l4w3lst4co5&app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3
 STAR TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://cdn4.skygo.mn/live/disk1/Star/HLSv3-FTA/Star.m3u8
 NOW,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/265.m3u8
-NOW,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2309/index.m3u8
-NOW,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,The read operation timed out,https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8
+NOW,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2309/index.m3u8
+NOW,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8
 NOW,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv_480p.m3u8
-NOW,CALISMIYOR,HLS,YUKSEK,0,0,,,hls+segment,https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv_720p.m3u8
+NOW,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv_720p.m3u8
 NOW,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://c.fulltvizle.com/fox/tracks-v1a1/mono.m3u8
-NOW,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/32214/index.m3u8
+NOW,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/32214/index.m3u8
 TV8,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/9525.m3u8
 TV8,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/267.m3u8
 TV8,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8/tv8.m3u8
@@ -78,24 +78,24 @@ TV8,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv8-live.daion
 TV8,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788
 TV8,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788&ce=3
 TV8,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/15.m3u8
-TV8,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2286/index.m3u8
+TV8,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2286/index.m3u8
 KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/512.m3u8
-KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6903/index.m3u8
+KANAL 7,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6903/index.m3u8
 KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://kanal7-live.daioncdn.net/kanal7/kanal7.m3u8
 KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://kanal7-live.daioncdn.net/kanal7/kanal7_1080p.m3u8
 KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://kanal7.daioncdn.net/kanal7/kanal7.m3u8?app=f99587ad-1637-494d-8255-da35b09d17a1
 KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'kanal7dvr.blutv.com'. (_ssl.c:1000)>",https://kanal7dvr.blutv.com/blutv_kanal7_dvr2/live_720p2000000kbps/index.m3u8
 KANAL 7,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://yurhnwtpys.turknet.ercdn.net/cvmbjbpmdx/kanal7/kanal7_1080p.m3u8
-KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6904/index.m3u8
+KANAL 7,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6904/index.m3u8
 KANAL 7,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'kanal7.blutv.com'. (_ssl.c:1000)>",https://kanal7.blutv.com/blutv_kanal7_live/live.m3u8
 BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/497.m3u8
-BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6906/index.m3u8
+BEYAZ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6906/index.m3u8
 BEYAZ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8
 BEYAZ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://beyaztv-live.daioncdn.net/beyaztv/beyaztv_1080p.m3u8
 BEYAZ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://beyaztv-live.daioncdn.net/beyaztv/beyaztv_720p.m3u8
 BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/4.m3u8
-BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2310/index.m3u8
-BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6907/index.m3u8
+BEYAZ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2310/index.m3u8
+BEYAZ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6907/index.m3u8
 BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/blutv_beyaztv2/live.m3u8
 BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://beyaztv.daioncdn.net/beyaztv/beyaztv.m3u8?app=fcd5c66b-da9d-44ba-a410-4f34805c397d&ce=3
 360,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://turkmedya-live.ercdn.net/tv360/tv360.m3u8
@@ -104,12 +104,12 @@ BEYAZ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://beyazt
 A2,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/492.m3u8
 A2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8
 A2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8
-A2,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,The read operation timed out,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_1080p.m3u8
+A2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_1080p.m3u8
 A2,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv_720p.m3u8
 A2,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://c.fulltvizle.com/a2/tracks-v1a1/mono.m3u8
 A2,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/21.m3u8
-A2,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2260/index.m3u8
-A2,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6908/index.m3u8
+A2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2260/index.m3u8
+A2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6908/index.m3u8
 TEVE2,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/9519.m3u8
 TEVE2,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://live.duhnet.tv/S2/HLS_LIVE/teve2np/playlist.m3u8
 TEVE2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ackaxsqacw.turknet.ercdn.net/ozfkfbbjba/teve2/teve2.m3u8
@@ -119,21 +119,21 @@ TEVE2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://demiroren-li
 TEVE2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://demiroren-live.daioncdn.net/teve2/teve2_720p.m3u8
 TEVE2,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.duhnet.tv/S2/HLS_LIVE/teve2np/track_4_1000/playlist.m3u8
 TEVE2,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/19.m3u8
-TEVE2,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6910/index.m3u8
-DMAX,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2290/index.m3u8
+TEVE2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6910/index.m3u8
+DMAX,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2290/index.m3u8
 DMAX,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://c3921155.edmonst.net/iptv/DVHP2VB5QXL7UC/2290/index.m3u8
 DMAX,CALISMIYOR,HLS,YUKSEK,640,360,,h264,HTTP Error 404: Not Found,http://dygvideo.dygdigital.com/live/hls/dmaxdai?m3u8
 DMAX,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/dmax/dmax.m3u8
 DMAX,CALISMIYOR,HLS,YUKSEK,0,0,,,empty-segment,https://dogus.daioncdn.net/dmax/dmax.m3u8?app=dmax_web&ce=3
-DMAX,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2300/index.m3u8
+DMAX,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2300/index.m3u8
 DMAX,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/dmax/dmax_720p.m3u8
 TLC,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://c3921155.edmonst.net/iptv/DVHP2VB5QXL7UC/6915/index.m3u8
 TLC,CALISMIYOR,HLS,YUKSEK,640,360,,h264,HTTP Error 404: Not Found,http://dygvideo.dygdigital.com/live/hls/tlctvdai?m3u8
 TLC,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/tlc/tlc_720p.m3u8
 TLC,CALISMIYOR,HLS,YUKSEK,0,0,,,empty-segment,https://dogus.daioncdn.net/tlc/tlc.m3u8?app=tlc_web&ce=3
-TLC,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6914/index.m3u8
-TLC,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6915/index.m3u8
-TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6899/index.m3u8
+TLC,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6914/index.m3u8
+TLC,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6915/index.m3u8
+TV8.5,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6899/index.m3u8
 TV8.5,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8bucuk/tv8bucuk.m3u8
 TV8.5,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rkhubpaomb.turknet.ercdn.net/fwjkgpasof/tv8bucuk/tv8bucuk_1080p.m3u8
 TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv8-live.daioncdn.net/tv8bucuk/tv8bucuk_1080p.m3u8
@@ -141,12 +141,12 @@ TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://tv8.daion
 TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web&ce=3
 TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://tv8.daioncdn.net/tv8bucuk/tv8bucuk_1080p.m3u8?&sid=6b8vc9qda79i&app=bf58ab52-4865-4c81-b223-26b41009801e&ce=3
 TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://tv8.daioncdn.net/tv8bucuk/tv8bucuk_1080p.m3u8?app=tv8bucuk_web&ce=3
-TV8.5,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6898/index.m3u8
+TV8.5,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6898/index.m3u8
 TRT 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://trn03.tulix.tv/gt-trt2/playlist.m3u8
 TRT 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trt2.medya.trt.com.tr/master.m3u8
 TRT 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trt2.medya.trt.com.tr/master_1440.m3u8
 TRT 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trt2.medya.trt.com.tr/master_720.m3u8
-TRT 2,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6884/index.m3u8
+TRT 2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6884/index.m3u8
 TRT 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trt2-ts.live.trt.com.tr/master.m3u8
 SÖZCÜ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://b.fulltvizle.com/sozcu/tracks-v1a1/mono.m3u8
 SÖZCÜ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://izle.canlitvapp.com/sozcu/index.m3u8
@@ -161,9 +161,9 @@ TV100,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not 
 TV100,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://tv100.daioncdn.net/tv100/tv100_1080p.m3u8?app=web
 TV100,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/110.m3u8
 TV100,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/286.m3u8
-TV100,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2328/index.m3u8
+TV100,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2328/index.m3u8
 TV100,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ensonhaber-live.ercdn.net/tv100/tv100.m3u8
-NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6924/index.m3u8
+NTV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6924/index.m3u8
 NTV,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,HTTP Error 404: Not Found,http://dygvideo.dygdigital.com/live/hls/ntv4puhu?m3u8
 NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/ntv/ntv.m3u8
 NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/ntv/ntv_720p.m3u8
@@ -173,26 +173,26 @@ NTV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://dogus.daioncd
 NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://emmazbvkkf.turknet.ercdn.net/cnifuowzza/ntv/ntv_720p.m3u8
 NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/125.m3u8
 NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/282.m3u8
-NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2299/index.m3u8
-NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2302/index.m3u8
+NTV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2299/index.m3u8
+NTV,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2302/index.m3u8
 NTV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,http://152.89.62.111:8080/nXyAiP3DNp/QgOuvocpGv/223012
 NTV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://cdn4.skygo.mn/live/disk1/NTVHD/HLSv3-FTA/NTVHD.m3u8
 NTV,CALISMIYOR,DASH,CIHAZA BAGLI,0,0,,,HTTP Error 404: Not Found,http://mfe.cliptv.az/dash/NTV_HD.ism/playlist.mpd
-CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6926/index.m3u8
+CNN TÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6926/index.m3u8
 CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://c3921155.edmonst.net/iptv/DVHP2VB5QXL7UC/6926/index.m3u8
 CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://b.fulltvizle.com/cnn/playlist.m3u8
 CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://izle.canlitvapp.com/cnn/index.m3u8
 CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/109.m3u8
 CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tgn.bozztv.com/dvrfl05/gin-cnnturk/tracks-v1a1/mono.m3u8
-CNN TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2305/index.m3u8
+CNN TÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2305/index.m3u8
 TRT HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ensonhaber-live.ercdn.net/trthaber/trthaber.m3u8
 TRT HABER,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trthaber.medya.trt.com.tr/master.m3u8
 TRT HABER,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trthaber.medya.trt.com.tr/master_1440p.m3u8
 TRT HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trthaber.medya.trt.com.tr/master_720.m3u8
 TRT HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/104.m3u8
 TRT HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/279.m3u8
-TRT HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6921/index.m3u8
-HABERTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2308/index.m3u8
+TRT HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6921/index.m3u8
+HABERTÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2308/index.m3u8
 HABERTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://ciner-live.daioncdn.net/haberturktv/haberturktv.m3u8
 HABERTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://ciner-live.daioncdn.net/haberturktv/haberturktv_1080p.m3u8
 HABERTÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ciner.daioncdn.net/haberturktv/haberturktv_1080p.m3u8?sid=8b65nnyxpdwm&app=c98ab0b0-50cc-495b-bb37-778e91f5ff5b&ce=2
@@ -201,7 +201,7 @@ HABERTÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv.
 HABERTÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv.ensonhaber.com/haberturk/haberturk_1080p.m3u8
 HABERTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/105.m3u8
 HABERTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/280.m3u8
-HABERTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6927/index.m3u8
+HABERTÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6927/index.m3u8
 HABERTÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rmtftbjlne.turknet.ercdn.net/bpeytmnqyp/haberturktv/haberturktv.m3u8
 HABER GLOBAL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ensonhaber-live.ercdn.net/haberglobal/haberglobal.m3u8
 HABER GLOBAL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ensonhaber-live.ercdn.net/haberglobal/haberglobal_720p.m3u8
@@ -209,72 +209,72 @@ HABER GLOBAL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv.e
 HABER GLOBAL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv.ensonhaber.com/haberglobal/haberglobal_720p.m3u8
 HABER GLOBAL,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/113.m3u8
 HABER GLOBAL,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/288.m3u8
-HABER GLOBAL,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6928/index.m3u8
+HABER GLOBAL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6928/index.m3u8
 HALK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://halktv-live.daioncdn.net/halktv/halktv.m3u8
 HALK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://halktv-live.daioncdn.net/halktv/halktv_1080p.m3u8
 HALK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://halktv.daioncdn.net/halktv/halktv_1080p.m3u8?app=c86957d3-74a7-44da-9ad2-dc358c769609
 HALK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/106.m3u8
 HALK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/285.m3u8
 HALK TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://halktv-live.daioncdn.net/halktv/halktv_720p.m3u8
-TGRT HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6932/index.m3u8
-TGRT HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://canli.tgrthaber.com/tgrt.m3u8
+TGRT HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6932/index.m3u8
+TGRT HABER,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,HTTP Error 404: Not Found,https://canli.tgrthaber.com/tgrt.m3u8
 TGRT HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber.m3u8
 TGRT HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber_1080p.m3u8
 TGRT HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tgrthaber-live.daioncdn.net/tgrthaber/tgrthaber_720p.m3u8
 TGRT HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/111.m3u8
 TGRT HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe4598be8e5d.smil/playlist.m3u8
 TGRT HABER,CALISMIYOR,RTMP,YUKSEK,0,0,,,rtmp+probe,rtmp://tgrthaber.mediatriple.net:1935/tgrtliveedge/tgrt1
-A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6923/index.m3u8
+A HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6923/index.m3u8
 A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://b.fulltvizle.com/ahaber/playlist.m3u8
-A HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8
-A HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber_1080p.m3u8
+A HABER,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,The read operation timed out,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8
+A HABER,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,The read operation timed out,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber_1080p.m3u8
 A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://c.fulltvizle.com/ahaber/index.m3u8
 A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/116.m3u8
 A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/281.m3u8
-A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2259/index.m3u8
-A HABER,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2294/index.m3u8
+A HABER,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2259/index.m3u8
+A HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2294/index.m3u8
 24 TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://turkmedya-live.ercdn.net/tv24/tv24.m3u8
 24 TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://turkmedya-live.ercdn.net/tv24/tv24_1080p.m3u8
 24 TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv.ensonhaber.com/tv24/tv24.m3u8
 24 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/112.m3u8
 24 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/kanal24/kanal24.smil/chunklist_b896000.m3u8
-24 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2319/index.m3u8
+24 TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2319/index.m3u8
 EKOL TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ekoltv-live.ercdn.net/ekoltv/ekoltv.m3u8
 EKOL TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ekoltv-live.ercdn.net/ekoltv/ekoltv_1080p.m3u8
 EKOL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/293.m3u8
-TELE1,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,HTTP Error 404: Not Found,https://tele1-live.ercdn.net/tele1/tele1.m3u8
-TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tele1-live.ercdn.net/tele1/tele1_1080p.m3u8
+TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tele1-live.ercdn.net/tele1/tele1.m3u8
+TELE1,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tele1-live.ercdn.net/tele1/tele1_1080p.m3u8
 TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'tele1dvr.blutv.com'. (_ssl.c:1000)>",https://tele1dvr.blutv.com/blutv_tele1_dvr2/live_720p2000000kbps/index.m3u8
 TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/107.m3u8
-TELE1,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6930/index.m3u8
+TELE1,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6930/index.m3u8
 ULUSAL KANAL,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/114.m3u8
-ULUSAL KANAL,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6931/index.m3u8
+ULUSAL KANAL,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6931/index.m3u8
 BLOOMBERG HT,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://bloomberght-live.daioncdn.net/bloomberght/bloomberght.m3u8
 BLOOMBERG HT,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://ciner-live.daioncdn.net/bloomberght/bloomberght_720p.m3u8
 BLOOMBERG HT,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://ciner.daioncdn.net/bloomberght/bloomberght.m3u8
 BLOOMBERG HT,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv.ensonhaber.com/bloomberght/bloomberght_1080p.m3u8
 BLOOMBERG HT,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/129.m3u8
-BLOOMBERG HT,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2317/index.m3u8
+BLOOMBERG HT,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2317/index.m3u8
 BLOOMBERG HT,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ensonhaber-live.ercdn.net/bloomberght/bloomberght.m3u8
 BLOOMBERG HT,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv.ensonhaber.com/bloomberght/bloomberght.m3u8
 BLOOMBERG HT,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://mumbai-edge.smartplaytv.in/BloombergHT/index.m3u8
 BLOOMBERG HT,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,not-hls,http://193.123.61.120:3000/kanal/bloomberght
 A PARA,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/apara/apara_1080p.m3u8
 A PARA,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/131.m3u8
-A PARA,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6909/index.m3u8
+A PARA,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6909/index.m3u8
 TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/tvnet/tvnet/chunklist.m3u8
 TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/tvnet/tvnet/playlist.m3u8
 TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tvnet-live.lg.mncdn.com/tvnet/tvnet/chunklist.m3u8
 TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tvnet-live.lg.mncdn.com/tvnet/tvnet/playlist.m3u8
 TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/118.m3u8
 TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/290.m3u8
-TVNET,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6936/index.m3u8
-ÜLKE TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6934/index.m3u8
+TVNET,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6936/index.m3u8
+ÜLKE TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6934/index.m3u8
 ÜLKE TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://livetv.radyotvonline.net/kanal7live/ulketv/chunklist.m3u8
 ÜLKE TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://livetv.radyotvonline.net/kanal7live/ulketv/playlist.m3u8
 ÜLKE TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/117.m3u8
 ÜLKE TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/284.m3u8
-ÜLKE TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2311/index.m3u8
+ÜLKE TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2311/index.m3u8
 ÜLKE TV,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/blutv_ulketv2/live.m3u8
 FLASH HABER,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/mt_0.m3u8
 FLASH HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://flashhaber-live.ercdn.net/flashhaber/flashhaber.m3u8
@@ -290,17 +290,17 @@ TRT SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtspo
 TRT SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtspor1.medya.trt.com.tr/master_720.m3u8
 TRT SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -3] Temporary failure in name resolution>,https://corestream.siteyaptim.live/trt-spor/index.m3u8
 TRT SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)>,https://tv-trtspor1.live.trt.com.tr/master.m3u8
-TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/32213/index.m3u8
+TRT SPOR YILDIZ,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/32213/index.m3u8
 TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://c3921155.edmonst.net/iptv/DVHP2VB5QXL7UC/2145/index.m3u8
 TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://trt.daioncdn.net/trtspor-yildiz/master_1080p.m3u8?app=web&platform=trtspor
 TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtspor2.medya.trt.com.tr/master.m3u8
 TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtspor2.medya.trt.com.tr/master_1440p.m3u8
 TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtspor2.medya.trt.com.tr/master_720.m3u8
-TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2145/index.m3u8
+TRT SPOR YILDIZ,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2145/index.m3u8
 TRT SPOR YILDIZ,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)>,https://tv-trtspor2.live.trt.com.tr/master.m3u8
 A SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://izle.canlitvapp.com/aspor/index.m3u8
 A SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aSPOR/aSPOR_1080p.m3u8
-A SPOR,CALISMIYOR,HLS,YUKSEK,0,0,,,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8
+A SPOR,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,The read operation timed out,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8
 A SPOR,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor_1080p.m3u8
 A SPOR,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor_480p.m3u8
 A SPOR,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor_720p.m3u8
@@ -318,7 +318,7 @@ TJK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tjktv-l
 TJK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tjktv-live.tjk.org/tjktv/tjktv.m3u8
 TJK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tjktv-live.tjk.org/tjktv_1080p.m3u8
 TJK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tjktv.ercdn.net/tjktv.m3u8
-TJK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6837/index.m3u8
+TJK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6837/index.m3u8
 TJK TV 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://tjktv-live.tjk.org/tjktv2/tjktv2.m3u8
 TJK TV 2,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 401: Unauthorized,https://tjktv-live.tjk.org/tjktv2/tjktv2_1080p.m3u8
 TJK TV 2,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tjktv-live.tjk.org/tjktv_1080p.m3u8
@@ -338,7 +338,7 @@ TRT ÇOCUK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-
 TRT ÇOCUK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://tv-trtcocuk.medya.trt.com.tr/master_1080.m3u8
 TRT ÇOCUK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtcocuk.medya.trt.com.tr/master_1440.m3u8
 TRT ÇOCUK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trtcocuk.medya.trt.com.tr/master_720.m3u8
-TRT ÇOCUK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6841/index.m3u8
+TRT ÇOCUK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6841/index.m3u8
 TRT ÇOCUK,CALISMIYOR,DASH,CIHAZA BAGLI,0,0,,,HTTP Error 404: Not Found,http://mfe.cliptv.az/dash/TRT_Cocuk_HD.ism/playlist.mpd
 TRT DİYANET ÇOCUK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trtdiyanetcocuk.medya.trt.com.tr/master_720.m3u8
 TRT DİYANET ÇOCUK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8
@@ -346,31 +346,31 @@ MİNİKA GO,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://rnttwm
 MİNİKA GO,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8
 MİNİKA GO,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago_480p.m3u8
 MİNİKA GO,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago_720p.m3u8
-MİNİKA GO,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2266/index.m3u8
-MİNİKA GO,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6851/index.m3u8
+MİNİKA GO,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2266/index.m3u8
+MİNİKA GO,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6851/index.m3u8
 MİNİKA ÇOCUK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8
 MİNİKA ÇOCUK,CALISIYOR,HLS,YUKSEK,854,480,480P SD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk_480p.m3u8
 MİNİKA ÇOCUK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk_720p.m3u8
-MİNİKA ÇOCUK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6849/index.m3u8
+MİNİKA ÇOCUK,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6849/index.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtbelgesel.medya.trt.com.tr/master_1440.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tv-trtbelgesel.medya.trt.com.tr/master_720.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,http://medotv.nl:8000/RAMBOfoundedoninternetsoIchangedTheFuckinguSERNAMelol123/5caU9cN5jFjZ/678
-TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6852/index.m3u8
+TRT BELGESEL,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6852/index.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,http://tv-trtbelgesel.medya.trt.com.tr/master.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,timed out,http://hls127.freeott.top:8080/TRT_BELGESEL_TR/video.m3u8
 TRT BELGESEL,CALISMIYOR,RTMP,YUKSEK,0,0,,,rtmp+probe,rtmp://sol.trtcdn.com/tv/trtbelgesel/mp4:trtbelgesel_3
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -5] No address associated with hostname>,https://d2xwn494f2lep.cloudfront.net/v1/master/80dbfc318ab6b980679b32095ba497236de6d2f9/TRT-Belgesel/master.m3u8
 TRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 503: Service Unavailable,https://tv-trtbelgesel-dai.medya.trt.com.tr/master.m3u8
 TGRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe462afc6a0e.smil/playlist.m3u8
-TGRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6860/index.m3u8
+TGRT BELGESEL,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6860/index.m3u8
 TGRT BELGESEL,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tgn.bozztv.com/dvrfl05/gin-tgrtbelgesel/tracks-v1a1/mono.m3u8
 TARIM TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://content.tvkur.com/l/c7e1da7mm25p552d9u9g/index-1080p.m3u8
 TARIM TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://content.tvkur.com/l/c7e1da7mm25p552d9u9g/master.m3u8
 ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/chunks.m3u8
 ÇİFTÇİ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/chunks.m3u8?nimblesessionid=4092912537
 ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8
-ÇİFTÇİ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6772/index.m3u8
+ÇİFTÇİ TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6772/index.m3u8
 ÇİFTÇİ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -3] Temporary failure in name resolution>,https://waw2.artiyerelmedya.net/ciftcitv/bant1/playlist.m3u8
 TOPRAK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://59cba4d34b678.streamlock.net/canlitv/topraktv/playlist.m3u8
 DİYANET TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8
@@ -390,14 +390,14 @@ SEMERKAND TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://b
 LALEGÜL TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://lbl.netmedya.net/hls/lalegultv.m3u8
 LALEGÜL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/186.m3u8
 LALEGÜL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/300.m3u8
-LALEGÜL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6790/index.m3u8
+LALEGÜL TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6790/index.m3u8
 LALEGÜL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 503: Service Unavailable,http://lalegultv.netmedya.net/hls/lalegultv.m3u8
 LALEGÜL TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 503: Service Unavailable,http://lalegultv.netmedya.net/lalegul-tv/lalegultv.stream/playlist.m3u8
 DOST TV,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,https://dost.stream.emsal.im/tv/live.m3u8
 DOST TV,CALISIYOR,HLS,YUKSEK,480,270,270P SD,h264,hls+segment,https://tvsms.club/tvz.php?kanal=dost&file=.m3u8
 DOST TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/188.m3u8
 DOST TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/301.m3u8
-DOST TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6793/index.m3u8
+DOST TV,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6793/index.m3u8
 SAT 7 TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8
 SAT 7 TÜRK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8
 ON4 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/on4/bant1/playlist.m3u8
@@ -405,31 +405,32 @@ REHBER TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://cdn4.ya
 TRT MÜZİK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtmuzik.medya.trt.com.tr/master.m3u8
 TRT MÜZİK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtmuzik.medya.trt.com.tr/master_1440.m3u8
 TRT MÜZİK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trtmuzik.medya.trt.com.tr/master_720.m3u8
-TRT MÜZİK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6869/index.m3u8
-TRT MÜZİK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6870/index.m3u8
+TRT MÜZİK,CALISIYOR,HLS,YUKSEK,720,576,576P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6869/index.m3u8
+TRT MÜZİK,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6870/index.m3u8
 TRT MÜZİK,CALISMIYOR,RTMP,YUKSEK,0,0,,,rtmp+probe,rtmp://sol.trtcdn.com/tv/trtmuzik/mp4:trtmuzik_3
 DREAM TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.duhnet.tv//S2/HLS_LIVE/dreamturknp/playlist.m3u8
 DREAM TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8
 DREAM TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/track_4_1250/playlist.m3u8
-DREAM TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6873/index.m3u8
+DREAM TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6873/index.m3u8
 DREAM TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/blutv_dreamturk/smil:dreamturk_sd.smil/playlist.m3u8
-KRAL POP TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,http://dygvideo.dygdigital.com/live/hls/kralpop
+KRAL POP TV,CALISMIYOR,HLS,YUKSEK,854,480,,h264,HTTP Error 404: Not Found,http://dygvideo.dygdigital.com/live/hls/kralpop
 KRAL POP TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/kralpoptv/kralpoptv.m3u8
 KRAL POP TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://dogus-live.daioncdn.net/kralpoptv/playlist.m3u8
 KRAL POP TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://dogus.daioncdn.net/kralpoptv/kralpoptv.m3u8?app=kralpoptv_web
 POWER TÜRK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/chunks.m3u8?nimblesessionid=4092912804
 POWER TÜRK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_powerturktv/powerturktv/playlist.m3u8
 POWER TÜRK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlists.m3u8
-POWER TÜRK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2298/index.m3u8
+POWER TÜRK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2298/index.m3u8
 POWER TÜRK TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8
 NUMBER1 TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/chunklist_b400000.m3u8
 NUMBER1 TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8
 NUMBER1 TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e17cd6360b_1/playlist.m3u8
-NUMBER1 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6874/index.m3u8
+NUMBER1 TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6874/index.m3u8
 NUMBER1 TV,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/blutv_nr12/live.m3u8
 NUMBER1 TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e187770143.smil/playlist.m3u8
-NUMBER1 TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2267/index.m3u8
+NUMBER1 TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2267/index.m3u8
 NUMBER1 TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/blutv_nr1turk2/live.m3u8
+NUMBER1 TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://n10101m.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e187770143.smil/playlist.m3u8
 POWER TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_powertv/powertv/playlist.m3u8
 POWER TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8
 POWER TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://livetv.powerapp.com.tr/powerTV/powerhd.smil/chunklist_b2650000_sltur.m3u8
@@ -449,9 +450,9 @@ GZT,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://gzttv-live.lg.
 GZT,CALISMIYOR,HLS,YUKSEK,0,0,,,Remote end closed connection without response,https://mn-nl.mncdn.com/gzttv/gzttv/playlist.m3u8
 DHA CANLI,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8
 TABİİ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ceokzokgtd.erbvr.com/tabiitv/tabiitv.m3u8
-TABİİ TV,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,empty-segment,https://ceokzokgtd.erbvr.com/tabiitv/tabiitv_1080p.m3u8?sid=IUlyczhCBES7nvvwJSIycw&bvr_flags=10&bvr_ch=tabiitv&bvr_bw=2800000
+TABİİ TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://ceokzokgtd.erbvr.com/tabiitv/tabiitv_1080p.m3u8?sid=IUlyczhCBES7nvvwJSIycw&bvr_flags=10&bvr_ch=tabiitv&bvr_bw=2800000
 ATV AVRUPA,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tgn.bozztv.com/dvrfl05/gin-atvavrupa/tracks-v1a1/mono.m3u8
-ATV AVRUPA,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6888/index.m3u8
+ATV AVRUPA,CALISIYOR,HLS,YUKSEK,852,480,480P SD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6888/index.m3u8
 ATV AVRUPA,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 503: Service Unavailable,https://flask-api-hls-atvavrupahdtrkvz-live.onrender.com/hls_stream/master.m3u8
 ATV AVRUPA,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://streamer2.nexgen.bz/ATV/index.m3u8
 CNBC-E,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/153.m3u8
@@ -462,19 +463,20 @@ EURO D,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://live.duhnet
 EURO D,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/playlist.m3u8
 EURO D,CALISIYOR,HLS,YUKSEK,960,540,540P SD,h264,hls+segment,https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/track_3_750/playlist.m3u8
 EURO D,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/14.m3u8
-EURO D,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6892/index.m3u8
+EURO D,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6892/index.m3u8
 EUROSTAR,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://raw.githubusercontent.com/ipstreet312/freeiptv/master/ressources/tur/estar.m3u8
 EUROSTAR,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/16.m3u8
 EUROSTAR,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 403: Forbidden,https://tgn.bozztv.com/trn03/gt-eurostar/index.m3u8
-EUROSTAR,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6894/index.m3u8
+EUROSTAR,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6894/index.m3u8
 TV4,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://turkmedya-live.ercdn.net/tv4/tv4.m3u8
 TV4,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://turkmedya-live.ercdn.net/tv4/tv4_1080p.m3u8
 TV4,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://turkmedya-live.ercdn.net/tv4/tv4_720p.m3u8
-TV4,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2321/index.m3u8
-TV4,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6753/index.m3u8
+TV4,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2321/index.m3u8
+TV4,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6753/index.m3u8
 KRT TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/220.m3u8
 KRT TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/292.m3u8
-KRT TV,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/15255/index.m3u8
+KRT TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/15255/index.m3u8
+KRT TV,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'krtdvr.blutv.com'. (_ssl.c:1000)>",https://krtdvr.blutv.com/blutv_krt_live_dvr/live_720p4350000kbps/index.m3u8
 TRT EBA,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-e-okul01.medya.trt.com.tr/master.m3u8
 TRT EBA ORTAOKUL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-e-okul01.medya.trt.com.tr/master.m3u8
 TBMM TV,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8
@@ -483,14 +485,14 @@ TRT AVAZ,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-tr
 TRT AVAZ,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtavaz.medya.trt.com.tr/master_1440.m3u8
 TRT AVAZ,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trtavaz.medya.trt.com.tr/master_720.m3u8
 TRT AVAZ,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/42.m3u8
-TRT AVAZ,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6799/index.m3u8
+TRT AVAZ,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6799/index.m3u8
 TRT AVAZ,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)>,https://tv-trtavaz.live.trt.com.tr/master.m3u8
 TRT TÜRK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtturk.medya.trt.com.tr/master.m3u8
 TRT TÜRK,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtturk.medya.trt.com.tr/master_1440.m3u8
 TRT TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://tv-trtturk.medya.trt.com.tr/master_720.m3u8
 TRT TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://goldvod.org/live/hpgdiscoo/123456/43.m3u8
-TRT TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2281/index.m3u8
-TRT TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,no-segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6798/index.m3u8
+TRT TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/2281/index.m3u8
+TRT TÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://sewv654wfcsdwfi87fwvgbngh.siauliairsavlt.pw/iptv/WCSZMUM84X4689VHGC7UDAQQ/6798/index.m3u8
 TRT TÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1000)>,https://tv-trtturk.live.trt.com.tr/master.m3u8
 TRT TÜRK,CALISMIYOR,RTMP,YUKSEK,0,0,,,rtmp+probe,rtmp://sol.trtcdn.com/tv/trtturk/mp4:trtturk_3
 TRT KURDİ,CALISIYOR,HLS,YUKSEK,2560,1440,1440P QHD,h264,hls+segment,https://tv-trtkurdi.medya.trt.com.tr/master.m3u8
@@ -507,7 +509,7 @@ KANAL 68,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://live.arti
 KANAL URFA,CALISMIYOR,HLS,YUKSEK,720,404,,h264,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/kanalurfa/bant1/playlist.m3u8
 KANAL URFA,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno 101] Network is unreachable>,https://broadcasttr.com:446/kanalurfa/bant1/chunklist_w1125528664.m3u8
 KANAL AVRUPA,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://cdn-kanalavrupa.yayin.com.tr/kanalavrupa/index.m3u8
-KANAL AVRUPA,CALISMIYOR,HLS,YUKSEK,852,480,,h264,HTTP Error 404: Not Found,https://api-tv27.yayin.com.tr/kanalavrupa/index.m3u8
+KANAL AVRUPA,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://api-tv27.yayin.com.tr/kanalavrupa/index.m3u8
 KANAL AVRUPA,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,http://51.15.2.151/hls/kanalavrupa.m3u8
 ALTAS TV,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/altastv/bant1/playlist.m3u8
 BRT 1,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://edge.kuzeykibrissmart.tv/brt1hd/bant1/playlist.m3u8
@@ -518,11 +520,13 @@ ADA TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not
 GENÇ TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://sc-kuzeykibrissmarttv.ercdn.net/kibrisgenctv/bant1/playlist.m3u8
 KANAL T,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://sc-kuzeykibrissmarttv.ercdn.net/kanalt/bantp1/playlist.m3u8
 KIBRIS TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://sc-kuzeykibrissmarttv.ercdn.net/kibristv/bant1/playlist.m3u8
-NR1 TÜRK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://n10101m.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e187770143.smil/playlist.m3u8
 MINIKA GO,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8
 MINIKA GO,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://trkvz-live.daioncdn.net/minikago/minikago_720p.m3u8
 TV5,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://tv5-live.ercdn.net/tv5/tv5.m3u8
 LİDER HABER,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,http://nrttn172.kesintisizyayin.com:29010/lidertv/lidertv/sec-f5-v1-a1.m3u8
+TV42,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://canli.tv42.com.tr/memfs/d936e417-c4bd-4d42-89a2-02f289892d1d.m3u8
+EKOTÜRK,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://cdn.ekoturk.net/hls/master.m3u8
+EKOTÜRK,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -5] No address associated with hostname>,https://ythls.kekikakademi.org/youtube/channel/UCAGVKxpAKwXMWdmcHbrvcwQ.m3u8
 SHOW MAX,CALISMIYOR,HLS,YUKSEK,0,0,,,not-hls,https://github.com/rideordie16/YouTube/raw/main/ch/showmax.m3u8
 SHOW MAX,CALISMIYOR,HLS,YUKSEK,0,0,,,not-hls,https://raw.githubusercontent.com/rideordie16/YouTube/main/ch/showmax.m3u8
 KOCAELİ TV,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/kocaelitv/bant1/playlist.m3u8
@@ -575,7 +579,7 @@ KANAL 3,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -3] Temporary failure 
 KANAL 3,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,http://stream.taksimbilisim.com:1935/kanal3/bant1/playlist.m3u8
 KANAL 3,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://live.artidijitalmedya.com/artidijital_kanal3/kanal3guncel/playlist.m3u8
 KANAL 3 AFYONKARAHİSAR,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/chunks.m3u8
-KANAL 34 İSTANBUL,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.euromediacenter.com/kanal34/index.m3u8
+KANAL 34 İSTANBUL,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,HTTP Error 404: Not Found,https://live.euromediacenter.com/kanal34/index.m3u8
 KANAL 53 RİZE,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://kanal53.ozelip.com:3448/hybrid/play.m3u8
 KANAL V,CALISIYOR,HLS,YUKSEK,1280,720,720P HD,h264,hls+segment,https://live.artidijitalmedya.com/artidijital_kanalv/kanalv/playlist.m3u8
 KONYA KTV,CALISIYOR,HLS,YUKSEK,640,360,360P SD,h264,hls+segment,https://cdn-ktvtv.yayin.com.tr/ktvtv/ktvtv/playlist.m3u8
@@ -615,13 +619,15 @@ KENT TÜRK TV,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://live
 LINE TV,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/linetv/bant1/playlist.m3u8
 MAVİ KARADENİZ,CALISMIYOR,HLS,YUKSEK,0,0,,,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/mavikaradeniz/bant1/playlist.m3u8
 MELTEM TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,http://vhxyrsly.rocketcdn.com/meltemtv/chunklist.m3u8
-MELTEM TV,CALISMIYOR,HLS,YUKSEK,1920,1080,,h264,not-hls,https://vhxyrsly.rocketcdn.com/meltemtv/playlist.m3u8
+MELTEM TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://vhxyrsly.rocketcdn.com/meltemtv/playlist.m3u8
 MELTEM TV,CALISIYOR,HLS,YUKSEK,1920,1080,1080P FHD,h264,hls+segment,https://vhxyrsly.rocketcdn.com/meltemtv/chunklist.m3u8
 MTÜRK TV,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8
 ON 6,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://live.artidijitalmedya.com/artidijital_kanal16/kanal16/playlist.m3u8
 ÖNCÜ TV,CALISMIYOR,HLS,YUKSEK,1280,720,,h264,"<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)",https://edge1.socialsmart.tv/oncurtv/bant1/playlist.m3u8
 KANAL S SAMSUN,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://cdn-kanals.yayin.com.tr/kanals/kanals/playlist.m3u8
+KANAL S SAMSUN,CALISMIYOR,HLS,YUKSEK,0,0,,,HTTP Error 404: Not Found,https://cdn-kanals.yayin.com.tr/kanals/kanals/chunklist.m3u8
 SAMSUN HABER TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno 111] Connection refused>,http://cdn-samsuncanlihabertv.yayin.com.tr/samsuncanlihabertv/samsuncanlihabertv/playlist.m3u8
+SAMSUN HABER TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno 111] Connection refused>,https://cdn-samsuncanlihabertv.yayin.com.tr/samsuncanlihabertv/samsuncanlihabertv/playlist.m3u8
 CAN TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,http://canbroadcast.com:7000/canlican/tv.m3u8
 CAN TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error timed out>,https://livetv.canbroadcast.com:7443/canlican/tv.m3u8
 CAN TV,CALISMIYOR,HLS,YUKSEK,0,0,,,<urlopen error [Errno -2] Name or service not known>,https://canmedia.live/can-tv/video.m3u8
