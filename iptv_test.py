@@ -238,7 +238,7 @@ def main():
   epg=EPG.get(name,''); logo=logos.get(name,''); visible=f'{name} {q(r["w"],r["h"])}'
   if group=='ALTERNATİF':
    alt_seq[name]+=1; n=alt_seq[name]
-   identity=f'{name} {n}'; epg_out=f'ALT-{re.sub(r"[^A-Z0-9ÇĞİÖŞÜ]+","-",name.upper())}-{n}'; visible=f'{name} {n} {q(r["w"],r["h"])}'
+   identity=f'{name} {n}'; epg_out=epg; visible=f'{name} {n} {q(r["w"],r["h"])}'
   else:
    identity=name; epg_out=epg
   lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="{group}",{visible}')
@@ -260,7 +260,7 @@ def main():
   n=favorite_identity[name]
   epg=EPG.get(name,''); logo=logos.get(name,'')
   identity=name if n==1 else f'{name} {n}'
-  epg_out=epg if n==1 else f'FAV-{re.sub(r"[^A-Z0-9ÇĞİÖŞÜ]+","-",name.upper())}-{n}'
+  epg_out=epg
   visible=f'{identity} {q(r["w"],r["h"])}'
   lines.append(f'#EXTINF:-1 tvg-id="{epg_out}" tvg-name="{identity}" tvg-logo="{logo}" group-title="⭐ FAVORİLER",{visible}')
   lines.append(r['url'])
