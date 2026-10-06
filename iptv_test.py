@@ -268,6 +268,9 @@ def main():
   favorite_occ[(name,target_h)]+=1
   occ=favorite_occ[(name,target_h)]-1
   choices=goodmap.get(name,[])
+  if name=='TRT 1':
+   preferred='https://tv-trt1.medya.trt.com.tr/master.m3u8'
+   choices=sorted(choices,key=lambda r:r['url']!=preferred)
   exact=[r for r in choices if r.get('h')==target_h and r['url'] not in favorite_used[name]]
   higher=[r for r in choices if (r.get('h') or 0)>target_h and r['url'] not in favorite_used[name]]
   any_unused=[r for r in choices if r['url'] not in favorite_used[name]]
