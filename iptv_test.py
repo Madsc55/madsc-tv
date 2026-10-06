@@ -208,8 +208,12 @@ def main():
     preserved_previous.append((info,s))
     info=None
   for name,url,logo in parse(prev_text):
+   # Eski alternatif adlarini (ATV 1, KANAL D 6, TRT 1 4...) asil kanala geri bagla.
    base=re.sub(r'\s+(2160P 4K UHD|1440P QHD|1080P FHD|720P HD|576P SD|\d+P SD)$','',name).strip()
-   if base in CATEGORY and url not in by[base]: by[base].insert(0,url)
+   if base not in CATEGORY:
+    m=re.match(r'^(.*)\s+(\d+)$',base)
+    if m and m.group(1).strip() in CATEGORY: base=m.group(1).strip()
+   if base in CATEGORY and url not in by[base]: by[base].append(url)
    if logo and base not in logos: logos[base]=logo
  urls=[]
  for name in CATEGORY:
@@ -323,15 +327,9 @@ def main():
   else:
    for name,r in mainrows:
     if CATEGORY[name]==group:add(name,r,group)
- # Önceki ALTERNATİF kayıtları da yedek olarak koru; ana kayıtların sırasını bozma.
- alt_urls={r['url'] for _,r in altrows}
- for info,url in preserved_previous:
-  if info and 'group-title="ALTERNATİF"' in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url and url not in alt_urls:
-   lines.append(info); lines.append(url); alt_urls.add(url)
- output_urls={x for x in lines if x.startswith(('http://','https://','rtmp://'))}
- for info,url in preserved_previous:
-  if url not in output_urls and info and 'group-title="⭐ FAVORİLER"' not in info and 'group-title="YOUTUBE"' not in info and 'group-title="SVERIGE"' not in info and 'ATV 3 1080P FHD' not in info and 'test_atv_hungary' not in url:
-   lines.append(info); lines.append(url); output_urls.add(url)
+ # Eski ham kayitlari sona tekrar ekleme.
+ # Onceki URL'ler kendi gercek kanalina baglanip yeniden test edildi.
+ # Yalniz calisan alternatifler kanal bazinda tek ve bitisik blok halinde uretilir.
  Path('CALISANLAR.m3u').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  Path('CALISMAYANLAR.txt').write_text('\n'.join(failed)+'\n',encoding='utf-8')
  with open('TEST_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
