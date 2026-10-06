@@ -805,3 +805,21 @@ https://tv-trtcocuk.medya.trt.com.tr/master.m3u8
 https://trt.daioncdn.net/trt-1/master.m3u8?app=web
 #EXTINF:-1 tvg-id="2m3k6xyjyek7djr" tvg-name="TELE1" tvg-logo="https://www.lyngsat.com/logo/tv/tt/tele_1_tr.png" group-title="HABER",TELE1 1080P FHD
 https://tele1-live.ercdn.net/tele1/tele1_1080p.m3u8
+
+#EXTINF:-1 tvg-id="AkitTV.tr" tvg-name="AKIT TV" tvg-logo="https://i.ibb.co/MBwzD2b/akit-tv.png" group-title="HABER",AKIT TV 720P HD
+https://akittv-live.ercdn.net/akittv/akittv_720p.m3u8
+
+#EXTINF:-1 tvg-id="KanalS.tr" tvg-name="KANAL S SAMSUN" tvg-logo="https://i.imgur.com/DN6gdg2.png" group-title="YEREL KANALLAR",KANAL S SAMSUN
+https://cdn-kanals.yayin.com.tr/kanals/kanals/playlist.m3u8
+
+#EXTINF:-1 tvg-id="KanalS.tr" tvg-name="KANAL S SAMSUN" tvg-logo="https://i.imgur.com/DN6gdg2.png" group-title="ALTERNATİF",KANAL S SAMSUN 1
+https://cdn-kanals.yayin.com.tr/kanals/kanals/chunklist.m3u8
+
+#EXTINF:-1 tvg-id="nzdc0yd5xxv43yl" tvg-name="TRT 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-2-tr.png" group-title="ALTERNATİF",TRT 2 1
+https://tv-trt2.medya.trt.com.tr/master.m3u8
+
+#EXTINF:-1 tvg-id="nzdc0yd5xxv43yl" tvg-name="TRT 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-2-tr.png" group-title="ALTERNATİF",TRT 2 2 720P HD
+https://tv-trt2.medya.trt.com.tr/master_720.m3u8
+
+#EXTINF:-1 tvg-id="nzdc0yd5xxv43yl" tvg-name="TRT 2" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-2-tr.png" group-title="ALTERNATİF",TRT 2 3
+https://tv-trt2-ts.live.trt.com.tr/master.m3u8
