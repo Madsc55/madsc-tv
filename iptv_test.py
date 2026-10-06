@@ -174,14 +174,14 @@ def main():
   if url not in [x for x in by[name]]: by[name].append(url)
   if logo and name not in logos: logos[name]=logo
 
- # iOS IPTV uygulamalarında sorunsuz görünmesi için eksik/SVG/HTTP logoları HTTPS PNG ile sabitle.
+ # IBO Player + Android TV/TCL için logoları doğrudan HTTPS PNG kaynaklarına sabitle.
  logo_overrides={
-  'KANAL 7':'https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/kanal-7-tr.png',
-  'A SPOR':'https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/a-spor-tr.png',
-  'CNBC-E':'https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/cnbc-e-tr.png',
-  'BLOOMBERG HT':'https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/bloomberg-ht-tr.png',
-  'TELE1':'https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/tele1-tr.png',
-  'HABER GLOBAL':'https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/haber-global-tr.png'
+  'KANAL 7':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/kanal-7-tr.png',
+  'A SPOR':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/a-spor-tr.png',
+  'CNBC-E':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/cnbc-e-tr.png',
+  'BLOOMBERG HT':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/bloomberg-ht-tr.png',
+  'TELE1':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/tele1-tr.png',
+  'HABER GLOBAL':'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/haber-global-tr.png'
  }
  logos.update(logo_overrides)
  prev=Path('CALISANLAR.m3u')
