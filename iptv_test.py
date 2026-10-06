@@ -13,7 +13,7 @@ MAX_PER_CHANNEL=9999
 BLOCKED=('helga.iptv2022.com',)
 GROUP_ORDER=['⭐ FAVORİLER','HABER','ULUSAL','SPOR','BELGESEL','MÜZİK','DİNİ','ALTERNATİF','İNTERNET','ÇOCUK','SİNEMA-DİZİ','EĞİTİM-KÜLTÜR','KAMU-TEMATİK','YEREL KANALLAR']
 FAVORITE_ORDER=[
- ('TRT 1',1440),('TRT 2',1080),('KANAL D',1080),('ATV',1080),('SHOW TV',1080),
+ ('TRT 1',1440),('TRT 2',1080),('KANAL D',1080),('ATV',1080),('ATV',1080),('SHOW TV',1080),
  ('NOW',1080),('NOW',720),('TV8',1080),('TV8.5',1080),('TV8.5',1080),('STAR TV',1080),
  ('TV100',1080),('TV100',720),('NTV',1080),('NTV',1080),('CNN TÜRK',1080),('CNN TÜRK',1080),
  ('TRT HABER',1440),('TRT HABER',1440),('TRT HABER',1080),('TRT HABER',1080),
@@ -284,6 +284,9 @@ def main():
    choices=sorted(choices,key=lambda r:r['url']!=preferred)
   if name=='TRT 2':
    preferred='https://tv-trt2.medya.trt.com.tr/master.m3u8'
+   choices=sorted(choices,key=lambda r:r['url']!=preferred)
+  if name=='ATV':
+   preferred=('https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv_1080p.m3u8' if occ==0 else 'https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8')
    choices=sorted(choices,key=lambda r:r['url']!=preferred)
   exact=[r for r in choices if r.get('h')==target_h and r['url'] not in favorite_used[name]]
   higher=[r for r in choices if (r.get('h') or 0)>target_h and r['url'] not in favorite_used[name]]
