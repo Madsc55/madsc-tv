@@ -2,8 +2,6 @@ name: YENILER Guvenli Kanal Arama
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "30 4,16 * * *"
 
 permissions:
   contents: read
