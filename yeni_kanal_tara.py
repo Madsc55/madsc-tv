@@ -5,7 +5,10 @@ import re
 import urllib.request
 from pathlib import Path
 
-SOURCE = "https://iptv-org.github.io/iptv/countries/tr.m3u"
+SOURCES = [
+    "https://iptv-org.github.io/iptv/countries/tr.m3u",
+    "https://iptv-org.github.io/iptv/languages/tur.m3u",
+]
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
 
 def parse(content):
@@ -28,16 +31,22 @@ def norm(name):
 existing = parse(Path("CALISANLAR.m3u").read_text(encoding="utf-8-sig"))
 names = {norm(n) for n, _ in existing}
 urls = {u for _, u in existing}
-req = urllib.request.Request(SOURCE, headers={"User-Agent": "MADSC-TV-Candidate-Scanner/1.0"})
-with urllib.request.urlopen(req, timeout=30) as response:
-    candidates = parse(response.read().decode("utf-8-sig", errors="replace"))
+candidates = []
+for source in SOURCES:
+    try:
+        req = urllib.request.Request(source, headers={"User-Agent": "MADSC-TV-Candidate-Scanner/1.0"})
+        with urllib.request.urlopen(req, timeout=30) as response:
+            for name, url in parse(response.read().decode("utf-8-sig", errors="replace")):
+                candidates.append((name, url, source))
+    except Exception as error:
+        print(f"Kaynak okunamadi: {source}: {error}")
 rows = []
 seen = set()
-for name, url in candidates:
+for name, url, source in candidates:
     if not url.startswith(("https://", "http://")) or url in urls or (name, url) in seen:
         continue
     seen.add((name, url))
-    rows.append((name, "YENI_KANAL" if norm(name) not in names else "YENI_ALTERNATIF", url, SOURCE))
+    rows.append((name, "YENI_KANAL" if norm(name) not in names else "YENI_ALTERNATIF", url, source))
 with OUT.open("w", newline="", encoding="utf-8-sig") as file:
     writer = csv.writer(file)
     writer.writerow(("KANAL", "DURUM", "YAYIN_URL", "KAYNAK"))
