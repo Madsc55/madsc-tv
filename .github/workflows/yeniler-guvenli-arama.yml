@@ -1,0 +1,27 @@
+name: YENILER Guvenli Kanal Arama
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 4,16 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  yeni-kanal-tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Listeyi salt okunur al
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Yeni ulusal kanal ve alternatifleri ara
+        run: python3 yeni_kanal_tara.py
+      - name: Aday raporunu indirilebilir sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: YENILER-KANAL-ADAYLARI
+          path: YENILER_TARAMA_RAPORU.csv
+          retention-days: 30
