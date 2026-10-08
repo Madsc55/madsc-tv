@@ -1,0 +1,28 @@
+name: Yeni Aday Baglanti ve Logo On Test
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/commands/genel-guncelleme.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  yeni-aday-on-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: FFprobe kur
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Salt okunur aday testi
+        run: python3 yeni_aday_on_test.py
+      - name: Test raporunu sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: YENI-ADAY-ON-TEST
+          path: YENI_ADAY_ON_TEST.csv
+          retention-days: 30
