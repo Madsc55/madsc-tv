@@ -1,0 +1,26 @@
+name: Genis Cok Kaynakli Kanal Taramasi
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/commands/genel-guncelleme.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genis-tarama:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Cok kaynakli salt okunur tarama ve yayin testi
+        run: python3 genis_kanal_tara.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: GENIS-KANAL-TARAMA-RAPORU
+          path: GENIS_KANAL_TARAMA_RAPORU.csv
+          retention-days: 30
