@@ -2,6 +2,10 @@ name: YENILER Guvenli Kanal Arama
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/commands/genel-guncelleme.txt'
 
 permissions:
   contents: read
