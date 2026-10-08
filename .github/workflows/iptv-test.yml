@@ -2,6 +2,10 @@ name: IPTV Salt Okunur Kanal Testi
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/commands/genel-guncelleme.txt'
 
 concurrency:
   group: madsc-iptv-test
