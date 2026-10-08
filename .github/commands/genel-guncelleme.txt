@@ -1,6 +1,8 @@
-Kanal arama talebi: 2026-10-08 tekrar tarama 2
-Yalnizca arama ve salt okunur test.
-CALISANLAR.m3u, logolar, siralama, kategoriler, yedekler degismesin.
-Mevcut kanallari ve YENILER'i ad varyantlari ve URL ile karsilastir.
-Ayni URL tekrarini ele; farkli URL mevcut kanal ise sadece alternatif olarak raporla.
+Kanal arama talebi: 2026-10-08 tekrar tarama 3
+Yalnizca yeni kanal arama ve salt okunur test.
+CALISANLAR.m3u listesine KESINLIKLE dokunma.
+Logolar, siralama, kategoriler ve korumali yedekler degismesin.
+Mevcut liste ve YENILER ile kanal adi + normalize URL karsilastirmasi yap.
+Ayni URL ve ad varyantlarini yeni aday olarak sunma.
+Mevcut kanal farkli URL ise yalnizca alternatif aday olarak raporla; mevcut linki degistirme.
 IBO Player son karar merciidir.
