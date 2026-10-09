@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read-only multi-source IPTV discovery and bounded HLS segment test."""
 import csv
+import os
 import subprocess
 import json
 import re
@@ -38,6 +39,7 @@ SOURCES = [
 ]
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
 LIMIT = 30
+BATCH = int(os.getenv('SCAN_BATCH', '0'))
 PRIORITY = ("SOZCU", "TRT3", "AKIT", "GZT", "TV5", "SHOWMAX", "KANALDDRAMA", "HABER61", "LIFETV", "TGR T BELGESEL".replace(" ", ""), "TGRTBELGESEL")
 
 HEADERS = {"User-Agent": "Mozilla/5.0 MADSC-TV-Scanner/2.0"}
@@ -137,7 +139,7 @@ rows = []
 ordered = sorted(candidates.items(), key=lambda item: (0 if any(norm(item[1][0]).startswith(p) for p in PRIORITY) else 1, norm(item[1][0]) in names, item[1][0]))
 for index, (url, (name, source)) in enumerate(ordered):
     kind = "YENI_KANAL_ADAYI" if norm(name) not in names else "MEVCUT_KANAL_ALTERNATIFI"
-    if index < LIMIT and ".m3u8" in urllib.parse.urlsplit(url).path.lower():
+    if BATCH * LIMIT <= index < (BATCH + 1) * LIMIT and (".m3u8" in url.lower()):
         status, detail, segments = hls_probe(url)
         media, media_detail = ffprobe_stream(url) if status == "TEKNIK_AKIS_VAR" else ("TEST_EDILMEDI", "HLS teknik akis dogrulanamadi")
     else:
@@ -151,5 +153,5 @@ with OUT.open("w", newline="", encoding="utf-8-sig") as output:
 Path("YENILER_KAYNAK_HATALARI.txt").write_text(
     "\n".join(f"{source}: {error}" for source, error in source_errors) or "Kaynak hatasi yok",
     encoding="utf-8")
-print(f"Toplam {len(candidates)} benzersiz aday; ilk {min(LIMIT, len(ordered))} aday teknik teste secildi.")
+print(f"Toplam {len(candidates)} benzersiz aday; test grubu {BATCH}, sira {BATCH * LIMIT + 1}-{min((BATCH + 1) * LIMIT, len(ordered))}.")
 print("Ana liste degistirilmedi. Teknik akis, dogru kanal veya ses/goruntu kaniti degildir.")
