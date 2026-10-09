@@ -50,24 +50,36 @@ def main():
             source_results.append({"url":url,"status":"ok","programmes":count})
         except Exception as exc:
             source_results.append({"url":url,"status":"error","reason":str(exc)[:250]})
+    # Prefer programme-bearing sources and normalized display names over opaque provider IDs.
+    programme_counts=defaultdict(int)
+    for prog in all_programmes:
+        programme_counts[prog.get("channel")]+=1
     by_name=defaultdict(set)
+    def clean_name(value):
+        value=normalize(value)
+        return re.sub(r"(?:1080p|720p|2160p|4k|uhd|fhd|hd|sd|hevc|h265|h264|backup|alternatif|alternative|yedek|canli|live|turkiye|tr|[0-9]+)$","",value)
     for cid,ch in all_channels.items():
-        by_name[normalize(cid)].add(cid)
-        for label in ch.findall("display-name"):
-            if label.text: by_name[normalize(label.text)].add(cid)
+        if not programme_counts[cid]:
+            continue
+        for label in [cid]+[x.text or "" for x in ch.findall("display-name")]:
+            for key in (normalize(label),clean_name(label)):
+                if key: by_name[key].add(cid)
     matched={}
     unmatched=[]
     ambiguous=[]
     for index, channel in enumerate(channels):
-        key=index
         choices=set()
-        if channel["id"] in all_channels: choices={channel["id"]}
+        if channel["id"] in programme_counts:
+            choices={channel["id"]}
         if not choices:
             for name in (channel["name"],channel["display"]):
-                choices |= by_name.get(normalize(name),set())
-        if len(choices)==1: matched[key]=next(iter(choices))
-        elif len(choices)>1: ambiguous.append(channel)
-        else: unmatched.append(channel)
+                for key in (normalize(name),clean_name(name)):
+                    choices |= by_name.get(key,set())
+        if choices:
+            # If several EPG providers use the same name, use the most complete schedule.
+            matched[index]=max(choices,key=lambda cid:(programme_counts[cid],cid))
+        else:
+            unmatched.append(channel)
     result=ET.Element("tv",{"generator-info-name":"madsc-tv EPG builder"})
     output_ids={}
     written=set()
