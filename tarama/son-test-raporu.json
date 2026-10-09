@@ -1,0 +1,1076 @@
+{
+  "tested_utc": "2026-10-09T23:09:49.348927+00:00",
+  "total": 149,
+  "http_hls_pass": 86,
+  "not_verified_in_player": true,
+  "results": [
+    {
+      "name": "4U TV (720p)",
+      "url": "https://hls.4utv.live/hls/stream.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "360 TV (720p) [Not 24/7]",
+      "url": "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "A2TV (1080p)",
+      "url": "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Afroturk TV (1080p)",
+      "url": "https://edge.socialsmart.tv/naturaltv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Aksu TV (720p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_aksutv/aksutv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Al-Zahra TV Turkic (720p) [Not 24/7]",
+      "url": "https://live.al-zahratv.com/live/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Almahriah TV (576p)",
+      "url": "https://starmenajo.com/hls/almahriah/index.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Altas TV (1080p)",
+      "url": "https://edge1.socialsmart.tv/altastv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "ARAS TV (576p) [Not 24/7]",
+      "url": "http://1.rtmp.org/tv217/yayin.stream/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "ATV Alanya (1080p)",
+      "url": "https://cdn-alanyatv.yayin.com.tr/alanyatv/alanyatv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "ATV Alanya (720p) [Not 24/7]",
+      "url": "http://stream2.taksimbilisim.com:1935/alanyatv/alanyatv.smil/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "Benguturk TV (1080p)",
+      "url": "http://185.234.111.229:8000/play/a05u",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "BENGÜTÜRK TV (720p) [Not 24/7]",
+      "url": "https://tv.ensonhaber.com/benguturk/benguturk.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Beyaz TV (720p) [Not 24/7]",
+      "url": "https://mn-nl.mncdn.com/blutv_beyaztv2/live.m3u8",
+      "status": "failed",
+      "detail": "Remote end closed connection without response"
+    },
+    {
+      "name": "Bir TV (720p)",
+      "url": "https://edge.taksimbilisim.com/birtv/bant1/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Bloomberg HT (720p) [Not 24/7]",
+      "url": "https://tv.ensonhaber.com/bloomberght/bloomberght.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "BRTV (720p) [Geo-blocked]",
+      "url": "https://live.artidijitalmedya.com/artidijital_brtv/brtv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Bursa AS TV (900p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_astv/astv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Bursa AS TV (720p) [Geo-blocked]",
+      "url": "https://waw2.artiyerelmedya.net/astv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "name": "Bursa TV (720p) [Not 24/7]",
+      "url": "https://win1.yayin.com.tr/bursatv/bursatv/playlist.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "Cay TV (720p)",
+      "url": "https://edge1.socialsmart.tv/caytv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Cekmeköy TV (1080p)",
+      "url": "https://cdn-cekmekoybeltv.yayin.com.tr/cekmekoybeltv/cekmekoybeltv_1080p/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'cdn-cekmekoybeltv.yayin.com.tr'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Çiftçi TV (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Deniz Postası TV (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_denizpostasi/denizpostasi/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "DHA (720p) [Not 24/7]",
+      "url": "https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Disney Jr. (1080p) [Geo-blocked]",
+      "url": "https://saran-live.ercdn.net/disneyjunior/index.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 401: Unauthorized"
+    },
+    {
+      "name": "Diyar TV (720p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_diyartv/diyartv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Edessa TV (1080p)",
+      "url": "https://canli.edessatv.com/hls/stream.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Er TV (1080p) [Geo-blocked]",
+      "url": "https://live.artidijitalmedya.com/artidijital_ertv_new/ertv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "ETV Kayseri (720p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_etv/etv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "ETV Manisa (1080p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Finans Turk TV (720p)",
+      "url": "https://yayin30.haber100.com/live/finansturk/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Flash Haber TV",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Fortuna TV (1080p)",
+      "url": "https://edge.taksimbilisim.com/ftvturk/bant1/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Fortuna TV (720p)",
+      "url": "https://edge1.socialsmart.tv/ftvturk/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Guneydogu TV (720p)",
+      "url": "https://edge1.socialsmart.tv/gtv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "GZT (1080p)",
+      "url": "https://gzttv-live.lg.mncdn.com/gzttv/gzttv/playlist.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "Haber61 TV (720p) [Not 24/7]",
+      "url": "https://cdn-haber61tv.yayin.com.tr/haber61tv/smil:haber61tv.smil/index.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Haber61 TV (720p) [Not 24/7]",
+      "url": "https://win8.yayin.com.tr/haber61tv/smil:haber61tv.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Haber Global (720p) [Not 24/7]",
+      "url": "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Habertürk TV (720p) [Not 24/7]",
+      "url": "https://tv.ensonhaber.com/haberturk/haberturk.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "HTSpor TV (1080p)",
+      "url": "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Hunat TV (720p) [Geo-blocked]",
+      "url": "https://live.artidijitalmedya.com/artidijital_hunattv/hunattv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Hunat TV (480p) [Not 24/7]",
+      "url": "https://59cba4d34b678.streamlock.net/canlitv/hunattv/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "Icel TV (720p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/iceltv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Ilke TV (1080p)",
+      "url": "https://stream.ilketv.com.tr/hls/ilkecanli.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 3 (1080p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 3 (1080p) [Not 24/7]",
+      "url": "https://waw2.artiyerelmedya.net/kanal3/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "name": "Kanal 3 (720p) [Not 24/7]",
+      "url": "http://stream.taksimbilisim.com:1935/kanal3/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "Kanal 3 (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3guncel/playlist.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "Kanal 7 (1080p) [Not 24/7]",
+      "url": "https://kanal7-live.daioncdn.net/kanal7/kanal7.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 7 Avrupa (720p) [Not 24/7]",
+      "url": "https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 12 (720p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal12/kanal12/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 15 (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal15/kanal15/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 23 (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal23/kanal23/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 26 (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal26/kanal26/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal 32 (720p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/kanal32/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Kanal 33 (720p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/kanal33/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Kanal 34 (720p) [Not 24/7]",
+      "url": "https://vdo.digitalbox.xyz:3266/live/kanal34tvlive.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "KANAL 58 (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanal58/kanal58/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal D Drama (1080p)",
+      "url": "http://190.93.224.42/KANAL-D-DRAMA/index.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal D Drama (1080p)",
+      "url": "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD.stream/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal D Drama (1080p)",
+      "url": "http://bantel-cdn1.iptvperu.tv:1935/btnscrtn/KanalD_principal_SRT/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal D Drama (1080p)",
+      "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01602-themahqfrance-vivekanald-samsungspain/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal Firat (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanalfirat/kanalfirat/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal Hayat (1080p)",
+      "url": "https://tbn02a.ltnschedule.com/hls/nx21i.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kanal V (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kanalv/kanalv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kay TV (576p) [Geo-blocked]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kaytv/kaytv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kent Türk TV (1080p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_kentturktv/kentturktv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Kent Türk TV (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_38kenttv/38kenttv/playlist.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "Kocaeli TV (1080p)",
+      "url": "https://edge.taksimbilisim.com/kocaelitv/bant1/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Lalegül TV (720p) [Not 24/7]",
+      "url": "http://lalegultv.netmedya.net/hls/lalegultv.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "name": "Lalegül TV (720p) [Not 24/7]",
+      "url": "http://lalegultv.netmedya.net/lalegul-tv/lalegultv.stream/playlist.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "name": "Life TV (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_lifetv/lifetv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Line TV (720p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/linetv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Luys TV (1080p)",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtpayqrfkgirxelive/broadcast_5e91c5ac96898.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "MaviKaradeniz (1080p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_mavikaradeniz/mavikaradeniz/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Med Muzik (1080p)",
+      "url": "http://54.36.110.140/live3/live3.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Mekameleen TV (1080p)",
+      "url": "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Mercan TV (576p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_mercantv/mercantv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "MovieSmart Turk (576p)",
+      "url": "http://playhdnewjj.xyz:8080/recc121412/KVqfhtdJ2nQ7/174",
+      "status": "failed",
+      "detail": "[Errno 104] Connection reset by peer"
+    },
+    {
+      "name": "MTürk TV (1080p)",
+      "url": "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "National Geographic (1080p) [Geo-blocked]",
+      "url": "https://saran-live.ercdn.net/natgeohd/index.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 401: Unauthorized"
+    },
+    {
+      "name": "National Geographic Wild (1080p) [Geo-blocked]",
+      "url": "https://saran-live.ercdn.net/natgeowild/index.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 401: Unauthorized"
+    },
+    {
+      "name": "Natural TV (720p) [Not 24/7]",
+      "url": "http://broadcasttr.com:1935/naturaltv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno 101] Network is unreachable>"
+    },
+    {
+      "name": "Natural TV (720p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/naturaltv/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "NOW TV (720p)",
+      "url": "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "NOW TV",
+      "url": "http://116.202.238.88/FOXTV_TR/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno 111] Connection refused>"
+    },
+    {
+      "name": "Number 1 Ask (720p)",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Number 1 Damar (720p)",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Number 1 Dance (720p)",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Number 1 TV (720p)",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Number 1 TV (720p)",
+      "url": "https://mn-nl.mncdn.com/blutv_nr12/live.m3u8",
+      "status": "failed",
+      "detail": "Remote end closed connection without response"
+    },
+    {
+      "name": "Olay Türk TV Kayseri (720p) [Geo-blocked]",
+      "url": "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "On4 TV (1080p)",
+      "url": "https://edge1.socialsmart.tv/on4/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "Power Turk (1080p) [Not 24/7]",
+      "url": "https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Power Turk (720p) [Not 24/7]",
+      "url": "https://mn-nl.mncdn.com/blutv_powerturk/smil:powerturk_sd.smil/playlist.m3u8",
+      "status": "failed",
+      "detail": "Remote end closed connection without response"
+    },
+    {
+      "name": "Qaf TV (1080p)",
+      "url": "https://customer-9vqui33qma2rownb.cloudflarestream.com/7792e558fe54e23bdd4b462ec275cdba/manifest/video.m3u8",
+      "status": "unverified",
+      "http": 204,
+      "content_type": "text/plain",
+      "detail": "No HLS/TS signature"
+    },
+    {
+      "name": "S Sport (720p)",
+      "url": "https://corestream.siteyaptim.live/s-sport/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "name": "S Sport 2 (720p)",
+      "url": "https://corestream.siteyaptim.live/s-sport2/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "name": "S Sport 2",
+      "url": "https://bcovlive-a.akamaihd.net/29c60f23ea4840ba8726925a77fcfd0b/eu-central-1/6415845530001/profile_0/chunklist.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "name": "Sat7 Türk (1080p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_sat7turk/sat7turk/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Sat7 Türk (1080p)",
+      "url": "https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Satranç TV (480p) [Not 24/7]",
+      "url": "http://139.162.182.79/live/test/index.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Semerkand TV (1080p) [Not 24/7]",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtisvwurbfcyslive/broadcast_58d915bd40efc.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Sercem TV (1080p)",
+      "url": "https://canli.sercemtv.com.tr/hls/0/stream.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Sun RTV (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_sunrtv/sunrtv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Sun RTV (720p) [Not 24/7]",
+      "url": "https://tr.socialsmart.tv/suntv/bant1/chunks.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "Tele 1 (1080p)",
+      "url": "https://tele1-live.ercdn.net/tele1/tele1.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "TGRT Belgesel TV (576p) [Not 24/7]",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe462afc6a0e.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TGRT Haber (360p) [Not 24/7]",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtsxxkzwwuqtglive/broadcast_5fe4598be8e5d.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Tivi 6 (720p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_tivi6/tivi6/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TJK TV 2 (1080p) [Not 24/7]",
+      "url": "https://tjktv-live.tjk.org/tjktv2/tjktv2.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 401: Unauthorized"
+    },
+    {
+      "name": "Ton TV (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_tontv/tontv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Torba TV (720p) [Not 24/7]",
+      "url": "https://59cba4d34b678.streamlock.net/canlitv/torbatv/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "TR24 TV (720p) [Not 24/7]",
+      "url": "https://tv.ensonhaber.com/tv24/tv24.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT 2 (1440p) [Geo-blocked]",
+      "url": "https://tv-trt2.medya.trt.com.tr/master.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "TRT Arabi (1080p) [Not 24/7]",
+      "url": "https://tv-trtarabi.medya.trt.com.tr/master.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT EBA Ilkokul (720p)",
+      "url": "https://tv-e-okul00.medya.trt.com.tr/master.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT EBA Lise (720p)",
+      "url": "https://tv-e-okul02.medya.trt.com.tr/master.m3u8",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT Spor Yildiz (1440p) [Geo-blocked]",
+      "url": "https://trt.daioncdn.net/trtspor-yildiz/master.m3u8?app=web&platform=trtspor",
+      "status": "candidate_pass",
+      "http": 200,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT World (1080p) [Not 24/7]",
+      "url": "https://tv-trtworld.medya.trt.com.tr/master.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TürkHaber (720p)",
+      "url": "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "TV 8 (1080p) [Not 24/7]",
+      "url": "https://tv8-live.daioncdn.net/tv8/tv8.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "TV 24 (720p)",
+      "url": "https://turkmedya-live.ercdn.net/tv24/tv24.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TV 41 (720p) [Not 24/7]",
+      "url": "http://stream.taksimbilisim.com:1935/tv41/bant1/TV41.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "TV 41 (720p) [Not 24/7]",
+      "url": "http://stream.taksimbilisim.com:1935/tv41/smil:tv41.smil/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "TV 41 (720p) [Not 24/7]",
+      "url": "https://live.artidijitalmedya.com/artidijital_tv41/tv41/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TV 42",
+      "url": "https://canli.tv42.com.tr/memfs/d936e417-c4bd-4d42-89a2-02f289892d1d.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error timed out>"
+    },
+    {
+      "name": "TV 52 (720p) [Not 24/7]",
+      "url": "https://edge1.socialsmart.tv/tv52/bant1/playlist.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'edge1.socialsmart.tv'. (_ssl.c:1000)>"
+    },
+    {
+      "name": "TV 264 (1080p)",
+      "url": "https://b01c02nl.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee244263fd6d.smil/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TV Den (576p) [Not 24/7]",
+      "url": "http://canli.tvden.com.tr/hls/live.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Urfa Natik TV (720p)",
+      "url": "https://live.artidijitalmedya.com/artidijital_urfanatiktv/urfanatiktv/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Van 65 TV",
+      "url": "https://live.artidijitalmedya.com/artidijital_van65/van65/playlist.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Zarok TV (720p)",
+      "url": "https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT Spor (720p)",
+      "url": "https://corestream.siteyaptim.live/trt-spor/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    {
+      "name": "Viasat History (720p)",
+      "url": "https://nord.ayakkabiparti.lol/viasathistory/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "National Geographic",
+      "url": "https://nord.ayakkabiparti.lol/natgeo/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "National Geographic Wild",
+      "url": "https://nord.ayakkabiparti.lol/natgeowild/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "beIN Movies Stars",
+      "url": "https://nord.ayakkabiparti.lol/bsaction1/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "beIN Movies Turk",
+      "url": "https://nord.ayakkabiparti.lol/bsturk/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "beIN Box Office 1",
+      "url": "https://nord.ayakkabiparti.lol/box1/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "beIN Box Office 2",
+      "url": "https://nord.ayakkabiparti.lol/box2/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "beIN Box Office 3",
+      "url": "https://nord.ayakkabiparti.lol/box3/index.m3u8",
+      "status": "failed",
+      "detail": "<urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "name": "Show Turk (1080p)",
+      "url": "https://raw.githubusercontent.com/bnyusuf67-crypto/streams/refs/heads/main/streams/shturk.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "ATV Avrupa (576p)",
+      "url": "https://flask-api-hls-atvavrupahdtrkvz-live.onrender.com/hls_stream/master.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "name": "TRT Genc (1440p) [Geo-blocked]",
+      "url": "https://tv-trtgenc.medya.trt.com.tr/master.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/x-mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "Spacetoon Turkey (720p) [Not 24/7]",
+      "url": "https://live-tr-next.spacetoongo.com/ST_TR_NEXT/hls/h7qefeiwfbjn1.m3u8",
+      "status": "candidate_pass",
+      "http": 206,
+      "content_type": "application/vnd.apple.mpegurl",
+      "detail": "HLS/TS response"
+    },
+    {
+      "name": "TRT World (576p)",
+      "url": "https://cdn.pishow.tv/ott/live/266/master.m3u8",
+      "status": "failed",
+      "detail": "HTTP Error 404: Not Found"
+    }
+  ]
+}
