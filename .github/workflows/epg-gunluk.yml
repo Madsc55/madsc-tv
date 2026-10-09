@@ -1,5 +1,9 @@
 name: EPG Günlük Güncelleme
 on:
+  push:
+    paths:
+      - 'scripts/build_epg.py'
+      - '.github/workflows/epg-gunluk.yml'
   workflow_dispatch:
   schedule:
     - cron: '25 3 * * *'
