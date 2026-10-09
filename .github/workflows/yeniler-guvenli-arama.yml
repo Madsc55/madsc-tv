@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: FFprobe aracini kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Cok kaynakli M3U ara ve HLS teknik testleri yap
         run: python3 yeni_kanal_tara.py
       - name: Aday raporunu indirilebilir sakla
