@@ -1,0 +1,23 @@
+name: VOD metadata update
+on:
+  schedule:
+    - cron: '17 7 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch permitted TV episode schedule metadata
+        run: python scripts/vod_guncelle.py
+      - name: Commit VOD metadata only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vod/guncel-bolumler.json
+          git diff --cached --quiet || (git commit -m "Update Turkish TV episode schedule metadata" && git push)
