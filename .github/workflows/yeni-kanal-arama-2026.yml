@@ -1,0 +1,40 @@
+name: Yeni Kanal Aramasi
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'yeni_kanal_tara.py'
+      - '.github/workflows/yeni-kanal-arama-2026.yml'
+permissions:
+  contents: write
+jobs:
+  tara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Discover channels and test batch
+        env:
+          SCAN_BATCH: '0'
+        run: python3 -u yeni_kanal_tara.py
+      - name: Preserve results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yeni-kanal-tarama-sonuclari
+          if-no-files-found: warn
+          path: |
+            YENILER_TARAMA_RAPORU.csv
+            YENILER_KAYNAK_HATALARI.txt
+      - name: Save scan report to backups
+        if: success()
+        run: |
+          mkdir -p yedekler
+          cp YENILER_TARAMA_RAPORU.csv yedekler/YENILER_TARAMA_RAPORU_2026-10-09.csv
+          cp YENILER_KAYNAK_HATALARI.txt yedekler/YENILER_KAYNAK_HATALARI_2026-10-09.txt
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add yedekler/YENILER_TARAMA_RAPORU_2026-10-09.csv yedekler/YENILER_KAYNAK_HATALARI_2026-10-09.txt
+          git diff --cached --quiet || (git commit -m "Save new channel discovery report" && git push)
