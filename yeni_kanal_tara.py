@@ -37,6 +37,14 @@ SOURCES = [
  "https://raw.githubusercontent.com/sayatsirinoglu/IPTV-List/main/TURK-IPTV-2024.m3u",
  "https://iptv-org.github.io/iptv/languages/kur.m3u",
 ]
+# Discovered sources are recommendations, never trusted playlist modifications.
+DISCOVERY = Path("YENI_KAYNAK_ONERILERI.csv")
+if DISCOVERY.exists():
+    with DISCOVERY.open(encoding="utf-8-sig", newline="") as source_file:
+        for item in csv.DictReader(source_file):
+            url = (item.get("KAYNAK_URL") or "").strip()
+            if item.get("DURUM") == "ONERI_KONTROL_GEREKLI" and url.startswith("https://") and url not in SOURCES:
+                SOURCES.append(url)
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
 LIMIT = 30
 BATCH = int(os.getenv('SCAN_BATCH', '0'))
