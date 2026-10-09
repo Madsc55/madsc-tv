@@ -10,6 +10,7 @@ OUT = ROOT / "epg"
 OUT.mkdir(exist_ok=True)
 PLAYLIST = ROOT / "CALISANLAR.m3u"
 SOURCES = [
+    "https://raw.githubusercontent.com/trology85/iptv-epg-turkey/main/epg/turksat_epg.xml.gz",
     "https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml",
 ]
 def normalize(s):
