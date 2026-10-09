@@ -19,13 +19,17 @@ jobs:
           TEST_WORKERS: '10'
         run: python3 yedekler/tekrar_test_390.py
       - name: Upload test results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: 390-aday-tekrar-test
+          if-no-files-found: warn
           path: |
             yedekler/TEKRAR_TEST_2026-10-09.csv
             yedekler/TEKNIK_DOGRULANANLAR_2026-10-09.m3u
       - name: Commit backup reports only
+        if: success()
+        continue-on-error: true
         run: |
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
