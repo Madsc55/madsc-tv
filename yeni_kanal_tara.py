@@ -20,6 +20,16 @@ SOURCES = [
  "https://raw.githubusercontent.com/ilyswch/IPTV-TR/main/box.m3u",
  "https://raw.githubusercontent.com/ilyswch/IPTV-TR/main/box2.m3u",
  "https://raw.githubusercontent.com/omerdenizhan/IPTV-M3U/main/m3u/turkiye.m3u",
+ "https://raw.githubusercontent.com/rideordie16/tv/main/tv2.m3u",
+ "https://raw.githubusercontent.com/rideordie16/tv/main/tjk.m3u",
+ "https://itasli.github.io/TURKTV/index.m3u",
+ "https://stream.tvcdn.net/lists/tr.m3u",
+ "https://stream.tvcdn.net/lists/tr-alt.m3u",
+ "https://gist.githubusercontent.com/AyGitCi/8c105c9ab143830571ff61cc3883098e/raw/efti.m3u",
+ "https://gist.githubusercontent.com/ukusgul-a11y/daa167880fc0133fe325f7e6096aac82/raw/umit.m3u",
+ "https://raw.githubusercontent.com/mahirziyaokan/turkce-iptv/master/tr-00.m3u",
+ "https://raw.githubusercontent.com/mahirziyaokan/turkce-iptv/master/tr-01.m3u",
+ "https://raw.githubusercontent.com/mahirziyaokan/turkce-iptv/master/tr-02.m3u",
 ]
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
 LIMIT = 30
