@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "updated": "2026-10-10",
+  "tv_playlist_untouched": true,
+  "categories": {
+    "movies": [
+      "Türk Filmleri / Yeni",
+      "Türk Filmleri / Klasik",
+      "Yabancı Filmler / Yeni",
+      "Yabancı Filmler / Klasik",
+      "Animasyon",
+      "Aksiyon",
+      "Macera",
+      "Gerilim",
+      "Korku",
+      "Komedi",
+      "Dram",
+      "Bilim Kurgu"
+    ],
+    "series": [
+      "Türk Dizileri / Güncel",
+      "Türk Dizileri / Arşiv",
+      "Yabancı Diziler / Güncel",
+      "Yabancı Diziler / Arşiv"
+    ]
+  },
+  "items": [
+    {
+      "id": "big-buck-bunny",
+      "type": "movie",
+      "title": "Big Buck Bunny",
+      "year": 2008,
+      "genres": [
+        "Animasyon",
+        "Komedi"
+      ],
+      "language": "belirlenmedi",
+      "audio_tracks": [],
+      "subtitle_tracks": [],
+      "license": "CC BY 3.0",
+      "source": "https://peach.blender.org/about/",
+      "test_only": true,
+      "playback_verified": false
+    }
+  ],
+  "automation": {
+    "enabled": false,
+    "notes": "Yalnızca lisanslı kaynaklar ve doğrulanmış doğrudan video URL'leri; metadata güncellemesi oynatılabilir bölüm garantisi vermez."
+  }
+}
