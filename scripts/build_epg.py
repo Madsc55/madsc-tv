@@ -11,7 +11,10 @@ OUT.mkdir(exist_ok=True)
 PLAYLIST = ROOT / "CALISANLAR.m3u"
 SOURCES = [
     "https://raw.githubusercontent.com/trology85/iptv-epg-turkey/main/epg/turksat_epg.xml.gz",
-    "https://raw.githubusercontent.com/ahmethascelik/epghost/main/xmltv.xml",
+    "https://epgshare01.online/epgshare01/epg_ripper_TR1.xml.gz",
+    "https://epgshare01.online/epgshare01/epg_ripper_TR3.xml.gz",
+    "https://www.open-epg.com/files/turkey1.xml.gz",
+    "https://www.open-epg.com/files/turkey2.xml.gz",
 ]
 def normalize(s):
     return re.sub(r"[^a-z0-9]+", "", s.casefold().replace("ı","i").replace("İ","i").replace("ş","s").replace("ğ","g").replace("ü","u").replace("ö","o").replace("ç","c"))
@@ -55,8 +58,8 @@ def main():
     matched={}
     unmatched=[]
     ambiguous=[]
-    for channel in channels:
-        key=channel["id"] or channel["name"]
+    for index, channel in enumerate(channels):
+        key=index
         choices=set()
         if channel["id"] in all_channels: choices={channel["id"]}
         if not choices:
@@ -66,13 +69,23 @@ def main():
         elif len(choices)>1: ambiguous.append(channel)
         else: unmatched.append(channel)
     result=ET.Element("tv",{"generator-info-name":"madsc-tv EPG builder"})
-    for cid in set(matched.values()):
-        result.append(all_channels[cid])
+    output_ids={}
+    written=set()
+    for index, source_id in matched.items():
+        ch=channels[index]
+        target_id=ch["id"] or "madsc-"+str(index)
+        output_ids.setdefault(source_id,set()).add(target_id)
+        if target_id not in written:
+            new_channel=ET.SubElement(result,"channel",{"id":target_id})
+            ET.SubElement(new_channel,"display-name").text=ch["name"]
+            written.add(target_id)
     count=0
-    valid=set(matched.values())
     for prog in all_programmes:
-        if prog.get("channel") in valid:
-            result.append(prog);count+=1
+        for target_id in output_ids.get(prog.get("channel"),()):
+            new_prog=ET.fromstring(ET.tostring(prog))
+            new_prog.set("channel",target_id)
+            result.append(new_prog)
+            count+=1
     ET.ElementTree(result).write(OUT/"madsc-epg.xml",encoding="utf-8",xml_declaration=True)
     report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
     (OUT/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
