@@ -1,0 +1,37 @@
+﻿KANAL,TEKNIK_DURUM,ACIKLAMA,YAYIN_URL,KAYNAK
+AKIT TV,DOGRULANAMADI,"[tcp @ 0x55f51ebbcf40] Failed to resolve hostname akittv-live.ercdn.net: Name or service not known
+https://akittv-live.ercdn.net/akittv/akittv_720p.m3u8: Input/output error
+",https://akittv-live.ercdn.net/akittv/akittv_720p.m3u8,https://raw.githubusercontent.com/iptv-turk-tr/iptv/main/list.m3u
+AKIT TV,DOGRULANAMADI,"[tcp @ 0x55d12fa46540] Failed to resolve hostname akittv-live.ercdn.net: Name or service not known
+http://akittv-live.ercdn.net/akittv/akittv.m3u8: Input/output error
+",http://akittv-live.ercdn.net/akittv/akittv.m3u8,https://gist.githubusercontent.com/AyGitCi/8c105c9ab143830571ff61cc3883098e/raw/efti.m3u
+AKIT TV HD,DOGRULANAMADI,"[tcp @ 0x55fbcd9dcf40] Connection to tcp://185.150.130.123:8000 failed: Connection timed out
+http://185.150.130.123:8000/play/str147: Connection timed out
+",http://185.150.130.123:8000/play/str147,https://raw.githubusercontent.com/mahirziyaokan/turkce-iptv/master/tr-00.m3u
+Akit TV,DOGRULANAMADI,"[tcp @ 0x5562c4a68540] Connection to tcp://88.99.161.105:8080 failed: Connection timed out
+http://88.99.161.105:8080/extremerestream/epPLj7Nc92g5/186241: Connection timed out
+",http://88.99.161.105:8080/extremerestream/epPLj7Nc92g5/186241,https://raw.githubusercontent.com/sayatsirinoglu/IPTV-List/main/TURK-IPTV-2024.m3u
+Akit TV (720p),DOGRULANAMADI,"[tcp @ 0x5642d9db4f40] Failed to resolve hostname akittv-live.ercdn.net: Name or service not known
+https://akittv-live.ercdn.net/akittv/akittv.m3u8: Input/output error
+",https://akittv-live.ercdn.net/akittv/akittv.m3u8,https://raw.githubusercontent.com/omerdenizhan/IPTV-M3U/main/m3u/turkiye-iptv-org.m3u
+Akit TV (720p),DOGRULANAMADI,"[tcp @ 0x55bbc0bb1540] Connection to tcp://88.99.161.105:8080 failed: Connection timed out
+http://88.99.161.105:8080/extremerestream/epPLj7Nc92g5/194849: Connection timed out
+",http://88.99.161.105:8080/extremerestream/epPLj7Nc92g5/194849,https://raw.githubusercontent.com/sayatsirinoglu/IPTV-List/main/TURK-IPTV-2024.m3u
+SOZCU TV,DOGRULANAMADI,"https://szctvdvr.blutv.com/blutv_szctv_dvr/live_720p4350000kbps/index.m3u8: Server returned 4XX Client Error, but not one of 40{0,1,3,4}
+",https://szctvdvr.blutv.com/blutv_szctv_dvr/live_720p4350000kbps/index.m3u8,https://raw.githubusercontent.com/rideordie16/tv/main/tv2.m3u
+SÖZCÜ TV,DOGRULANAMADI,"https://yt.tecostream.xyz/live/sozcutelevizyonu?m3u8: Server returned 5XX Server Error reply
+",https://yt.tecostream.xyz/live/sozcutelevizyonu?m3u8,https://raw.githubusercontent.com/discevisita/iptv/main/tr.m3u
+SÖZCÜ TV,VIDEO_VAR,,https://helga.iptv2022.com/szc_tv/index.m3u8,https://gist.githubusercontent.com/ukusgul-a11y/daa167880fc0133fe325f7e6096aac82/raw/umit.m3u
+SÖZCÜ TV,DOGRULANAMADI,"https://raw.githubusercontent.com/tecotv2025/tecotv/refs/heads/main/playlist/Sozcu_Tv.m3u8: Server returned 404 Not Found
+",https://raw.githubusercontent.com/tecotv2025/tecotv/refs/heads/main/playlist/Sozcu_Tv.m3u8,https://gist.githubusercontent.com/ukusgul-a11y/daa167880fc0133fe325f7e6096aac82/raw/umit.m3u
+SÖZCÜ TV (backup),DOGRULANAMADI,"https://cdn.tecostream.xyz/Sozcu_Tv.m3u8: Server returned 404 Not Found
+",https://cdn.tecostream.xyz/Sozcu_Tv.m3u8,https://gist.githubusercontent.com/ukusgul-a11y/daa167880fc0133fe325f7e6096aac82/raw/umit.m3u
+AKIT TV,DOGRULANAMADI,"[tcp @ 0x55931bc9df40] Connection to tcp://185.234.111.229:8000 failed: Connection timed out
+http://185.234.111.229:8000/play/a05m: Connection timed out
+",http://185.234.111.229:8000/play/a05m,GitHub Yusiff0 IPTV
+AKIT TV,DOGRULANAMADI,"[tcp @ 0x55d1b5d9d540] Failed to resolve hostname stream.tvcdn.net: Name or service not known
+http://stream.tvcdn.net/haber/akit-tv.m3u8: Input/output error
+",http://stream.tvcdn.net/haber/akit-tv.m3u8,GitHub oldstuffs IPTV
+SÖZCÜ TV,DOGRULANAMADI,"[tcp @ 0x55582ffb4540] Failed to resolve hostname stream.tvcdn.net: Name or service not known
+http://stream.tvcdn.net/haber/sozcu-tv.m3u8: Input/output error
+",http://stream.tvcdn.net/haber/sozcu-tv.m3u8,GitHub oldstuffs IPTV
