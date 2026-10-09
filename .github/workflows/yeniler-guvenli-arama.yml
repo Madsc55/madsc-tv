@@ -21,6 +21,10 @@ jobs:
           persist-credentials: false
       - name: FFprobe aracini kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Yeni IPTV kaynaklarini kesfet ve raporla
+        env:
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+        run: python3 kaynak_kesfet.py
       - name: Cok kaynakli M3U ara ve HLS teknik testleri yap
         run: python3 yeni_kanal_tara.py
       - name: Aday raporunu indirilebilir sakla
@@ -30,5 +34,7 @@ jobs:
           path: |
             YENILER_TARAMA_RAPORU.csv
             YENILER_KAYNAK_HATALARI.txt
+            YENI_KAYNAK_ONERILERI.csv
+            KAYNAK_KESIF_HATALARI.txt
           if-no-files-found: error
           retention-days: 30
