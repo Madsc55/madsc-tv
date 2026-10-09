@@ -22,6 +22,21 @@
       "Türk Dizileri / Arşiv",
       "Yabancı Diziler / Güncel",
       "Yabancı Diziler / Arşiv"
+    ],
+    "platforms": [
+      "Disney+ Dizileri",
+      "Netflix Dizileri",
+      "BluTV / HBO Max Dizileri",
+      "Amazon Prime Video Dizileri",
+      "Exxen Dizileri",
+      "Gain Dizileri",
+      "tabii Dizileri",
+      "NOW / TV Kanal Dizileri",
+      "Star TV Dizileri",
+      "Kanal D Dizileri",
+      "Show TV Dizileri",
+      "atv Dizileri",
+      "TRT Dizileri"
     ]
   },
   "items": [
@@ -46,5 +61,6 @@
   "automation": {
     "enabled": false,
     "notes": "Yalnızca lisanslı kaynaklar ve doğrulanmış doğrudan video URL'leri; metadata güncellemesi oynatılabilir bölüm garantisi vermez."
-  }
+  },
+  "platform_note": "Platform kategorileri içerik sınıflandırmasıdır; abonelik gerektiren yapımların oynatma haklarını veya doğrudan video erişimini sağlamaz."
 }
