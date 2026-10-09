@@ -86,6 +86,8 @@ def main():
             new_prog.set("channel",target_id)
             result.append(new_prog)
             count+=1
+    if count == 0:
+        raise RuntimeError("No matching EPG programmes found; refusing to replace existing EPG")
     ET.ElementTree(result).write(OUT/"madsc-epg.xml",encoding="utf-8",xml_declaration=True)
     report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
     (OUT/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
