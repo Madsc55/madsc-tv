@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only multi-source IPTV discovery and bounded HLS segment test."""
+"""Read-only multi-source IPTV discovery and bounded HLS segment test. Scan requested 2026-10-09."""
 import csv
 import os
 import subprocess
