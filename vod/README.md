@@ -1,22 +1,16 @@
-# Film ve Dizi Arsivi - Hazirlik
+# Film ve dizi arşivi (ayrı çalışma alanı)
 
-Bu klasor, mevcut CALISANLAR.m3u dosyasindan tamamen bagimsizdir. TV kanallari degistirilmez.
-
-## Planlanan kategoriler
-- FILMLER / Turk Filmleri / Yeni
-- FILMLER / Turk Filmleri / Klasikler
-- FILMLER / Yabanci Filmler / Yeni
-- FILMLER / Yabanci Filmler / Klasikler
-- DIZILER / Turk Dizileri / Guncel
-- DIZILER / Turk Dizileri / Eski
-- DIZILER / Yabanci Diziler / Guncel
-- DIZILER / Yabanci Diziler / Eski
-
-## Kaynak kurallari
-Yalnizca resmi, izinli, kamu mali veya kullanicinin erisim hakki bulunan dogrudan oynatilabilir kaynaklar eklenecek. Uydurma oynatma linkleri veya sadece web sayfasi adresleri VOD olarak eklenmeyecek.
-
-## Teknik dogrulama
-IBO Player'in mevcut surumunde M3U VOD ve dizi bolumleri ayristirmasi once kucuk bir ornekle dogrulanacak. Gerekirse Xtream uyumlu ayri servis dusunulecek. Dogrulanmadan ana TV listesi veya uygulamadaki mevcut liste adresi degistirilmeyecek.
+TV ana listesi `CALISANLAR.m3u` **değiştirilmez**. Buradaki test listesi ayrı yüklenmek üzere hazırlanmıştır.
 
 ## Durum
-Hazirlik yapildi; henuz film veya dizi oynatma baglantisi eklenmedi.
+- Kategori ve katalog şeması oluşturuldu: `katalog.json`.
+- İzinli test filmi için `TEST-FILMLER.m3u` oluşturuldu.
+- **IBO Player'ın Filmler / TV Dizileri sekmelerinde gösterim henüz doğrulanmadı.** M3U içeriği Canlı TV altında görünebilir; Xtream API gerekebilir.
+- Ses seçimi, altyazı, dublaj, sezon/bölüm, ileri-geri sarma kaynağa ve oynatıcıya bağlıdır.
+- Otomatik film/bölüm ekleme henüz etkin değil. Sadece lisanslı ve doğrudan oynatılabilir kaynaklar eklenebilir.
+
+## Test içeriği
+Big Buck Bunny (2008), Blender Foundation, CC BY 3.0. Tam film jeneriği ve atıf korunmalıdır. Test akışının TV'de açılması doğrulanmamıştır.
+
+## Sonraki adım
+Oynatıcıda ayrı VOD test listesinin davranışını kontrol etmek; gerekli ise Xtream uyumlu ayrı servis tasarlamak. Ardından izinli kaynaklardan yeni bölüm taraması ve günlük otomasyon kurulacak.
