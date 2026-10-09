@@ -11,7 +11,27 @@ permissions:
   contents: read
 
 jobs:
+  kaynak-kesfi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Son 90 gunun IPTV kaynaklarini kesfet
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 kaynak_kesfet.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GUNCEL-KAYNAK-KESFI
+          path: |
+            YENI_KAYNAK_ONERILERI.csv
+            KAYNAK_KESIF_HATALARI.txt
+          retention-days: 30
+
   yeni-kanal-tara:
+    needs: kaynak-kesfi
     runs-on: ubuntu-latest
     timeout-minutes: 35
     strategy:
@@ -25,11 +45,10 @@ jobs:
           persist-credentials: false
       - name: FFprobe aracini kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Yeni IPTV kaynaklarini kesfet ve raporla
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: matrix.batch == 0
-        run: python3 kaynak_kesfet.py
+      - name: Yeni kesfedilen kaynaklari al
+        uses: actions/download-artifact@v4
+        with:
+          name: GUNCEL-KAYNAK-KESFI
       - name: Cok kaynakli M3U ara ve HLS teknik testleri yap
         env:
           SCAN_BATCH: ${{ matrix.batch }}
