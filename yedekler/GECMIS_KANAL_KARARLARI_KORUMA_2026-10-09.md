@@ -32,3 +32,10 @@ Durum: KULLANICI_CALISMIYOR. Önceki konuşmada listeden silindikleri bildirildi
 4. Sadece kanıtı olan kayıtları kesin sınıflandır; geçmiş verileri silme, ana listeyi değiştirme.
 
 Bu rapor doğrulanmamış sayıları kesin kanal sayısı olarak göstermemek için tutulmuştur.
+
+## 2026-10-09: Kök arşivler bulundu ve doğrudan okundu
+- `CALISMAYANLAR.txt`: 97 adet boş olmayan kanal adı. Dosya kanal adı listesi; her isim için URL, tarih, kullanıcı/teknik karar kaynağı bulunmuyor. Dolayısıyla listedeki tüm adları kullanıcı reddetti diye işaretleme.
+- `TEST_RAPORU.csv`: başlık dışında 635 kayıt; 337 `CALISIYOR`, 299 `CALISMIYOR` teknik sonuç. **Bu sonuçlar tarihsel test durumudur, güncel canlı doğrulama değildir.**
+- Aynı kanal adı farklı URL'lerle hem çalışan hem çalışmayan sonuçlar içerebilir; URL bazında ayır.
+- `CALISMAYANLAR.txt` ve `TEST_RAPORU.csv` korunur; hiçbir eski kayıt silinmedi.
+- Daha önceki 96 ve 98 sayıları, 299 teknik başarısız URL ile karşılaştırılmadan ayrı benzersiz kanal sayısı olarak toplanmaz.
