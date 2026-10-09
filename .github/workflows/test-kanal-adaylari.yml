@@ -1,0 +1,28 @@
+name: Test missing channels and save to backups
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tarama/iptv-org-tr-adaylar-2026-10-10.m3u'
+      - 'scripts/test_kanal_adaylari.py'
+      - '.github/workflows/test-kanal-adaylari.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test-and-backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test stream responses and build backup
+        run: python3 scripts/test_kanal_adaylari.py
+      - name: Commit test results to backup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add yedekler/TARAMA-TEST-SONUCLARI.m3u tarama/son-test-raporu.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Save tested missing-channel candidates in backups"
+            git push
+          fi
