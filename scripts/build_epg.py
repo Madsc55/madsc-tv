@@ -2,7 +2,7 @@
 """Build an independent XMLTV guide from public XMLTV feeds. Never edits CALISANLAR.m3u."""
 import gzip, json, re, urllib.request, xml.etree.ElementTree as ET
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,10 +92,37 @@ def main():
             ET.SubElement(new_channel,"display-name").text=ch["name"]
             written.add(target_id)
     count=0
+    now=datetime.now(timezone.utc)
+    window_start=now-timedelta(hours=12)
+    window_end=now+timedelta(days=3)
+    seen_programmes=set()
     for prog in all_programmes:
-        for target_id in output_ids.get(prog.get("channel"),()):
-            new_prog=ET.fromstring(ET.tostring(prog))
-            new_prog.set("channel",target_id)
+        source_id=prog.get("channel")
+        if source_id not in output_ids:
+            continue
+        try:
+            start=datetime.strptime(prog.get("start","")[:14],"%Y%m%d%H%M%S")
+            offset=prog.get("start","")[15:].strip()
+            if offset and re.fullmatch(r"[+-][0-9]{4}",offset):
+                from datetime import timedelta as td
+                sign=1 if offset[0]=="+" else -1
+                start=(start-sign*td(hours=int(offset[1:3]),minutes=int(offset[3:5]))).replace(tzinfo=timezone.utc)
+            else:
+                start=start.replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        if not window_start<=start<=window_end:
+            continue
+        for target_id in output_ids[source_id]:
+            unique=(target_id,prog.get("start"),prog.get("stop"),prog.findtext("title"))
+            if unique in seen_programmes:
+                continue
+            seen_programmes.add(unique)
+            new_prog=ET.Element("programme",{"start":prog.get("start",""),"stop":prog.get("stop",""),"channel":target_id})
+            for tag in ("title","sub-title","desc","category"):
+                child=prog.find(tag)
+                if child is not None and child.text:
+                    ET.SubElement(new_prog,tag,child.attrib).text=child.text[:400] if tag=="desc" else child.text
             result.append(new_prog)
             count+=1
     if count == 0:
