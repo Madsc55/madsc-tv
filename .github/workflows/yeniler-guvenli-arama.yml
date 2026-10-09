@@ -13,17 +13,20 @@ permissions:
 jobs:
   yeni-kanal-tara:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 35
     steps:
       - name: Listeyi salt okunur al
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Yeni ulusal kanal ve alternatifleri ara
+      - name: Cok kaynakli M3U ara ve HLS teknik testleri yap
         run: python3 yeni_kanal_tara.py
       - name: Aday raporunu indirilebilir sakla
         uses: actions/upload-artifact@v4
         with:
           name: YENILER-KANAL-ADAYLARI
-          path: YENILER_TARAMA_RAPORU.csv
+          path: |
+            YENILER_TARAMA_RAPORU.csv
+            YENILER_KAYNAK_HATALARI.txt
+          if-no-files-found: error
           retention-days: 30
