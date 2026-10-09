@@ -17,6 +17,9 @@ SOURCES = [
  "https://raw.githubusercontent.com/iptv-turk-tr/iptv/main/list.m3u",
  "https://raw.githubusercontent.com/discevisita/iptv/main/tr.m3u",
  "https://raw.githubusercontent.com/sayatsirinoglu/IPTV-List/main/tr.m3u",
+ "https://raw.githubusercontent.com/ilyswch/IPTV-TR/main/box.m3u",
+ "https://raw.githubusercontent.com/ilyswch/IPTV-TR/main/box2.m3u",
+ "https://raw.githubusercontent.com/omerdenizhan/IPTV-M3U/main/m3u/turkiye.m3u",
 ]
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
 LIMIT = 30
