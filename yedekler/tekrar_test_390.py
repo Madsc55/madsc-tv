@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recheck backed-up streams. Never modify CALISANLAR.m3u."""
+"""Recheck backed-up streams. Never modify CALISANLAR.m3u.\nGitHub Actions push trigger: 2026-10-09.\n"""
 import concurrent.futures, csv, os, re, subprocess
 from pathlib import Path
 
