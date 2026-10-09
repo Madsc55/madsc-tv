@@ -42,7 +42,7 @@ for run in RUNS:
                 url = row["YAYIN_URL"].strip()
                 if url not in known_urls and url not in passed:
                     passed[url] = row
-out = Path("yedekler/TUM_TEKNİK_TEST_ADAYLARI_2026-10-09.m3u")
+out = Path("yedekler/TUM_TEKNIK_TEST_ADAYLARI_2026-10-09.m3u")
 out.parent.mkdir(exist_ok=True)
 lines = ["#EXTM3U"]
 for url, row in sorted(passed.items(), key=lambda item: item[1]["KANAL"].casefold()):
