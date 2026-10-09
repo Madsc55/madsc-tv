@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Read-only multi-source IPTV discovery and bounded HLS segment test."""
 import csv
+import subprocess
+import json
 import re
 import time
 import urllib.request
@@ -18,6 +20,8 @@ SOURCES = [
 ]
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
 LIMIT = 30
+PRIORITY = ("SOZCU", "TRT3", "AKIT", "GZT", "TV5", "SHOWMAX", "KANALDDRAMA", "HABER61", "LIFETV", "TGR T BELGESEL".replace(" ", ""), "TGRTBELGESEL")
+
 HEADERS = {"User-Agent": "Mozilla/5.0 MADSC-TV-Scanner/2.0"}
 
 def fetch(url, timeout=12, limit=4000000):
@@ -73,6 +77,26 @@ def hls_probe(url, seconds=30):
     except Exception as error:
         return "DOGRULANAMADI", str(error)[:160], segments
 
+def ffprobe_stream(url):
+    """Check whether decodable video/audio stream metadata is exposed."""
+    try:
+        proc = subprocess.run(
+            ["ffprobe", "-v", "error", "-rw_timeout", "12000000",
+             "-analyzeduration", "5000000", "-probesize", "5000000",
+             "-show_entries", "stream=codec_type,codec_name,width,height",
+             "-of", "json", url],
+            capture_output=True, text=True, timeout=22, check=False)
+        if proc.returncode:
+            return "FFPROBE_HATA", (proc.stderr or "ffprobe hata").strip()[:160]
+        streams = json.loads(proc.stdout).get("streams", [])
+        video = any(x.get("codec_type") == "video" for x in streams)
+        audio = any(x.get("codec_type") == "audio" for x in streams)
+        return ("VIDEO_SES_VAR" if video and audio else
+                "YALNIZ_VIDEO" if video else "YALNIZ_SES" if audio else "MEDYA_YOK",
+                "ffprobe: video=%s ses=%s; kanal kimligi kontrol edilmedi" % (video, audio))
+    except Exception as error:
+        return "FFPROBE_HATA", str(error)[:160]
+
 existing = list(parse(Path("CALISANLAR.m3u").read_text(encoding="utf-8-sig")))
 names = {norm(name) for name, _ in existing}
 urls = {url for _, url in existing}
@@ -92,17 +116,19 @@ for source in SOURCES:
 
 rows = []
 # Prioritize genuinely missing names over existing channels' alternative streams.
-ordered = sorted(candidates.items(), key=lambda item: (norm(item[1][0]) in names, item[1][0]))
+ordered = sorted(candidates.items(), key=lambda item: (0 if any(norm(item[1][0]).startswith(p) for p in PRIORITY) else 1, norm(item[1][0]) in names, item[1][0]))
 for index, (url, (name, source)) in enumerate(ordered):
     kind = "YENI_KANAL_ADAYI" if norm(name) not in names else "MEVCUT_KANAL_ALTERNATIFI"
     if index < LIMIT and ".m3u8" in urllib.parse.urlsplit(url).path.lower():
         status, detail, segments = hls_probe(url)
+        media, media_detail = ffprobe_stream(url) if status == "TEKNIK_AKIS_VAR" else ("TEST_EDILMEDI", "HLS teknik akis dogrulanamadi")
     else:
         status, detail, segments = "TEST_EDILMEDI", "Test kotasi veya HLS olmayan URL", 0
-    rows.append((name, kind, status, segments, detail, url, source))
+        media, media_detail = "TEST_EDILMEDI", "Test uygulanmadi"
+    rows.append((name, kind, status, segments, detail, media, media_detail, url, source))
 with OUT.open("w", newline="", encoding="utf-8-sig") as output:
     writer = csv.writer(output)
-    writer.writerow(("KANAL", "ADAY_TURU", "TEKNIK_TEST", "OKUNAN_SEGMENT", "ACIKLAMA", "YAYIN_URL", "KAYNAK"))
+    writer.writerow(("KANAL", "ADAY_TURU", "TEKNIK_TEST", "OKUNAN_SEGMENT", "ACIKLAMA", "MEDYA_TEST", "MEDYA_ACIKLAMA", "YAYIN_URL", "KAYNAK"))
     writer.writerows(rows)
 Path("YENILER_KAYNAK_HATALARI.txt").write_text(
     "\n".join(f"{source}: {error}" for source, error in source_errors) or "Kaynak hatasi yok",
