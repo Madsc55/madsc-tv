@@ -100,8 +100,14 @@ def main():
             count+=1
     if count == 0:
         raise RuntimeError("No matching EPG programmes found; refusing to replace existing EPG")
-    ET.ElementTree(result).write(OUT/"madsc-epg.xml",encoding="utf-8",xml_declaration=True)
-    report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
+    epg_path=OUT/"madsc-epg.xml"
+    ET.ElementTree(result).write(epg_path,encoding="utf-8",xml_declaration=True)
+    ET.parse(epg_path)  # reject invalid XML before publishing
+    usable_ids={ch["id"] for ch in channels if ch["id"]}
+    exported_ids={ch.get("id") for ch in result.findall("channel")}
+    usable_count=sum(1 for ch in channels if ch["id"] in exported_ids)
+    print(f"EPG validation: {epg_path.stat().st_size} bytes; {len(exported_ids)} XMLTV channels; {usable_count} playlist entries with matching IDs")
+    report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"usable_playlist_entries":usable_count,"epg_bytes":epg_path.stat().st_size,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
     (OUT/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({k:v for k,v in report.items() if k not in ("unmatched","ambiguous")},ensure_ascii=False,indent=2))
 if __name__=="__main__": main()
