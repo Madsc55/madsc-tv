@@ -1,0 +1,45 @@
+name: Publish EPG to GitHub Pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'epg/madsc-epg.xml'
+      - '.github/workflows/epg-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: epg-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate EPG and prepare Pages files
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          epg = Path('epg/madsc-epg.xml')
+          root = ET.parse(epg).getroot()
+          assert root.tag == 'tv'
+          assert len(root.findall('channel')) > 0
+          assert len(root.findall('programme')) > 0
+          Path('_site').mkdir(exist_ok=True)
+          Path('_site/.nojekyll').write_text('')
+          Path('_site/index.html').write_text('<!doctype html><title>Madsc TV EPG</title><p>EPG: <a href="madsc-epg.xml">XMLTV</a></p>')
+          Path('_site/madsc-epg.xml').write_bytes(epg.read_bytes())
+          print(f'Validated {len(root.findall("channel"))} channels and {len(root.findall("programme"))} programmes')
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
