@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 """Import successful technical candidates from two completed GitHub Actions runs into a separate backup M3U."""
-import csv, io, json, os, re, urllib.request, zipfile
+import csv, io, json, os, re, urllib.request, urllib.parse, zipfile
 from pathlib import Path
 
 REPO = "Madsc55/madsc-tv"
 RUNS = [37917250685, 37930058848]
 TOKEN = os.environ["GH_TOKEN"]
 HEADERS = {"Authorization": "Bearer " + TOKEN, "Accept": "application/vnd.github+json", "User-Agent": "madsc-tv-backup"}
+class SafeRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        redirected = super().redirect_request(req, fp, code, msg, headers, newurl)
+        if redirected and urllib.parse.urlparse(newurl).hostname != "api.github.com":
+            redirected.remove_header("Authorization")
+            redirected.headers.pop("Authorization", None)
+            redirected.unredirected_hdrs.pop("Authorization", None)
+        return redirected
+
 def get(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=50) as response:
+    opener = urllib.request.build_opener(SafeRedirect())
+    with opener.open(urllib.request.Request(url, headers=HEADERS), timeout=50) as response:
         return response.read()
 def entries(text):
     meta = None
