@@ -24,4 +24,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add logos/duzeltilmis-*.png
-          git diff --cached --quiet || (git commit -m "Publish IBO-compatible PNG logos" && git push)
+          git diff --cached --quiet || (git commit -m "Publish IBO-compatible PNG logos" && git pull --rebase origin main && git push)
