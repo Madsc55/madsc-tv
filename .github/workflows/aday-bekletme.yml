@@ -12,7 +12,7 @@ on:
   schedule:
     - cron: '25 5 * * *'
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: aday-bekletme-main
   cancel-in-progress: false
@@ -23,6 +23,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Medya test araçlarını kur
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Ana listeyi değiştirmeden aday kanalları tara
@@ -60,37 +62,3 @@ jobs:
             aday_bekletme/ADAY_ONCELIK_RAPORU.csv
             aday_bekletme/AKILLI_TEKRAR_TEST_TAKVIMI.csv
             aday_bekletme/ALTINCI_TEKRAR_TEST.csv
-      - name: Test raporlarını GitHub'a kaydet
-        if: success()
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name github-actions
-          git config user.email github-actions@users.noreply.github.com
-          mkdir -p /tmp/aday-raporlar
-          for f in aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv aday_bekletme/ADAY_ONCELIK_RAPORU.csv; do
-            if [ -f "$f" ]; then
-              cp "$f" "/tmp/aday-raporlar/$(basename "$f")"
-            fi
-          done
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            git reset --hard origin/main
-            for f in /tmp/aday-raporlar/*; do
-              [ -f "$f" ] || continue
-              cp "$f" "aday_bekletme/$(basename "$f")"
-            done
-            git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv aday_bekletme/ADAY_ONCELIK_RAPORU.csv
-            if git diff --cached --quiet; then
-              echo "Raporlarda yeni degisiklik yok."
-              exit 0
-            fi
-            git commit -m "Aday bekletme raporlarını güncelle"
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-            echo "Kayit cakismasi: son depo durumu ile tekrar deneniyor ($attempt/5)"
-            sleep $((attempt * 3))
-          done
-          echo "Rapor GitHub'a kaydedilemedi; Actions artefakti saklandi."
-          exit 1
