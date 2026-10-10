@@ -1,0 +1,58 @@
+name: "29 - Izinsiz Yazma Yolu Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-29-write-path-audit.yml"
+permissions:
+  contents: read
+jobs:
+  write-path-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit write-capable workflow paths without execution
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          import yaml
+          report={"scanned":0,"findings":[],"errors":[],"scope":"static read-only; no workflows executed"}
+          patterns={
+            "write_permission":r"contents:\s*write|write-all",
+            "git_push":r"\bgit\s+push\b",
+            "git_commit":r"\bgit\s+commit\b",
+            "api_write":r"\bgh\s+api\b|create-pull-request",
+            "protected_target":r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/",
+            "approval_marker":r"approval|onay|workflow_dispatch|environment:",
+          }
+          for p in sorted(Path(".github/workflows").glob("*.yml")):
+              report["scanned"]+=1
+              s=p.read_text(encoding="utf-8-sig")
+              try:
+                  obj=yaml.safe_load(s)
+                  if not isinstance(obj,dict) or not obj.get("jobs"):report["errors"].append(str(p))
+              except Exception as e:
+                  report["errors"].append(f"{p}: {e}")
+                  continue
+              hits={key:bool(re.search(pattern,s,re.I)) for key,pattern in patterns.items()}
+              if any(hits[k] for k in ("write_permission","git_push","git_commit","api_write")):
+                  severity="HIGH_REVIEW" if hits["protected_target"] else "REVIEW"
+                  report["findings"].append({"workflow":str(p),"severity":severity,"signals":hits,"note":"approval_marker is only textual, not proof of enforced authorization"})
+          Path("write-path-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - name: Upload risk report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-29-YAZMA-RISK-RAPORU
+          path: write-path-report.json
+          if-no-files-found: error
