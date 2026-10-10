@@ -1,0 +1,56 @@
+name: "26 - Otomasyon Guvenlik ve Entegrasyon Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-26-automation-safety.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install YAML parser
+        run: python -m pip install pyyaml
+      - name: Read-only workflow safety inventory
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          import yaml
+          report={"workflows":0,"risky_workflows":[],"warnings":[],"errors":[],"coverage":{}}
+          for p in sorted(Path(".github/workflows").glob("*.yml")):
+              report["workflows"]+=1
+              source=p.read_text(encoding="utf-8-sig")
+              try:
+                  obj=yaml.safe_load(source)
+                  if not isinstance(obj,dict) or not isinstance(obj.get("jobs"),dict):
+                      report["errors"].append(f"Invalid jobs: {p}")
+                      continue
+                  risks=[]
+                  perms=obj.get("permissions",{})
+                  if isinstance(perms,str) and perms=="write-all": risks.append("write-all")
+                  if isinstance(perms,dict) and any(v=="write" for v in perms.values()):risks.append("write permissions")
+                  if re.search(r"git\s+(?:push|commit)|gh\s+(?:api|release)|create-pull-request|contents:\s*write",source,re.I):
+                      risks.append("possible repository mutation")
+                  if risks:report["risky_workflows"].append({"file":str(p),"risks":risks})
+              except Exception as e:report["errors"].append(f"{p}: {e}")
+          report["coverage"]={"workflow_syntax":"checked","repository_write_risk":"heuristic inspection","cross_workflow_execution":"not executed for safety","player_playback":"not tested"}
+          Path("automation-safety-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - name: Upload findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-26-OTOMASYON-GUVENLIK-RAPORU
+          path: automation-safety-report.json
+          if-no-files-found: error
