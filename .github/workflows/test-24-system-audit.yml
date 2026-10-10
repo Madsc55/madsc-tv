@@ -1,0 +1,71 @@
+name: "24 - Kapsamli Sistem Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-24-system-audit.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Denetim bagimliligi"
+        run: python -m pip install pyyaml
+      - name: "Tum Python, YAML, M3U ve guvenlik envanteri"
+        run: |
+          python - <<'PY'
+          import ast,hashlib,json,re
+          from pathlib import Path
+          import yaml
+          report={"errors":[],"warnings":[],"inventory":{}}
+          files=list(Path(".").rglob("*.py"))
+          for p in files:
+              try: ast.parse(p.read_text(encoding="utf-8-sig"),filename=str(p))
+              except Exception as e: report["errors"].append(f"Python {p}: {e}")
+          report["inventory"]["python_files"]=len(files)
+          workflows=list(Path(".github/workflows").glob("*.yml"))
+          report["inventory"]["workflows"]=len(workflows)
+          for p in workflows:
+              try:
+                  obj=yaml.safe_load(p.read_text(encoding="utf-8-sig"))
+                  if not isinstance(obj,dict) or not obj.get("jobs"): report["errors"].append(f"Workflow jobs missing: {p}")
+                  permissions=obj.get("permissions",{}) if isinstance(obj,dict) else {}
+                  if isinstance(permissions,dict) and permissions.get("contents")=="write":
+                      report["warnings"].append(f"Workflow has contents:write: {p}")
+              except Exception as e: report["errors"].append(f"YAML {p}: {e}")
+          protected=[Path("CALISANLAR.m3u"),Path("YENILER.m3u")]
+          before={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+          for p in protected:
+              lines=p.read_text(encoding="utf-8-sig").splitlines()
+              if not lines or lines[0].strip()!="#EXTM3U": report["errors"].append(f"Bad M3U header: {p}")
+              entries=[i for i,l in enumerate(lines) if l.startswith("#EXTINF:")]
+              report["inventory"][str(p)+"_channels"]=len(entries)
+              for i in entries:
+                  j=i+1
+                  while j<len(lines) and not lines[j].strip():j+=1
+                  if j==len(lines) or lines[j].startswith("#"): report["errors"].append(f"Missing stream URL: {p}:{i+1}")
+              if not entries:report["errors"].append(f"No channels: {p}")
+          after={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+          if before!=after:report["errors"].append("Protected files changed")
+          report["inventory"]["protected_sha256"]=before
+          Path("system-audit-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - name: "Tum mevcut birim testleri"
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          python -m unittest discover -s . -p 'test_*.py' -v
+      - name: "Denetim raporunu sakla"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-SISTEM-DENETIM-RAPORU
+          path: system-audit-report.json
+          if-no-files-found: warn
