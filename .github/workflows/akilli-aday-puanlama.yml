@@ -1,0 +1,33 @@
+name: Akilli Aday Puanlama
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/akilli_aday_puanla.py'
+      - '.github/workflows/akilli-aday-puanlama.yml'
+permissions:
+  contents: read
+jobs:
+  puanla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read-only candidate discovery
+        run: |
+          python3 -u yeni_kanal_tara.py
+        env:
+          SCAN_BATCH: '-1'
+      - name: Score candidates without promotion
+        run: python3 scripts/akilli_aday_puanla.py YENILER_TARAMA_RAPORU.csv
+      - name: Publish separate reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: AKILLI-ADAY-PUANLAMA
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            AKILLI_ADAY_PUANLARI.csv
+            AKILLI_ADAY_OZET.json
