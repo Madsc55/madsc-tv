@@ -2,6 +2,8 @@ name: YENILER Guvenli Kanal Arama
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 6,18 * * *'
   push:
     branches: [main]
     paths:
