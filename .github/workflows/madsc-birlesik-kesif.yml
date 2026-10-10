@@ -1,0 +1,33 @@
+name: MADSC TV Birlesik Kesif
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 5,17 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: madsc-birlesik-kesif
+  cancel-in-progress: false
+jobs:
+  kesif:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: FFprobe kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Tek programda kesif, tekrar, kalite, logo ve aday testi
+        run: python3 madsc_akilli_kesif.py
+      - name: Rapor arsivi
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-kesif-raporu
+          path: madsc_kesif/
+          retention-days: 30
+      - name: Yalniz raporlari kaydet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add madsc_kesif/
+          git diff --cached --quiet || (git commit -m "Update MADSC discovery reports" && git pull --rebase origin main && git push)
