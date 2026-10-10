@@ -10,7 +10,7 @@ on:
       - '.github/commands/genel-guncelleme.txt'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   kaynak-kesfi:
@@ -67,34 +67,3 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-  yenilere-aktar:
-    needs: yeni-kanal-tara
-    if: ${{ always() && needs.yeni-kanal-tara.result == 'success' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    concurrency:
-      group: madsc-yeniler-import
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - name: Tüm kanal tarama raporlarını indir
-        uses: actions/download-artifact@v4
-        with:
-          pattern: YENILER-KANAL-ADAYLARI-GRUP-*
-          path: /tmp/madsc-yeniler-reports
-          merge-multiple: false
-      - name: Testi geçen yeni kanalları yalnızca YENİLER listesine aktar
-        run: |
-          python3 scripts/yeniler_aktar.py /tmp/madsc-yeniler-reports/*/YENILER_TARAMA_RAPORU.csv
-      - name: Yalnızca YENİLER listesindeki değişiklikleri kaydet
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add YENILER.m3u
-          if ! git diff --cached --quiet; then
-            git commit -m "YENİLER: Teknik testten geçen yeni kanal adayları eklendi"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
