@@ -1,0 +1,39 @@
+name: "15 - Logo EPG Quality Test"
+on:
+  push:
+    paths:
+      - 'tools/logo_epg_audit.py'
+      - '.github/workflows/test-15-logo-epg.yml'
+  workflow_dispatch:
+jobs:
+  audit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify logo and EPG identity warnings
+        run: |
+          python - <<'PY'
+          from tools.logo_epg_audit import audit
+          sample = '''#EXTM3U
+          #EXTINF:-1 tvg-id="same" tvg-logo="https://example.com/a.png",One
+          https://example.com/stream1
+          #EXTINF:-1 tvg-id="SAME" tvg-logo="",Two
+          https://example.com/stream2
+          #EXTINF:-1 tvg-logo="bad-path",Three
+          https://example.com/stream3
+          '''
+          result = audit(sample)
+          assert result["channels_checked"] == 3
+          kinds = [w["type"] for w in result["warnings"]]
+          assert kinds.count("duplicate_tvg_id") == 1
+          assert "missing_logo" in kinds
+          assert "missing_tvg_id" in kinds
+          assert "suspicious_logo_url" in kinds
+          assert audit("#EXTM3U")["channels_checked"] == 0
+          print("15. test passed")
+          PY
+      - name: Audit existing playlist without modifying it
+        run: python tools/logo_epg_audit.py CALISANLAR.m3u > /tmp/logo_epg_audit.json
