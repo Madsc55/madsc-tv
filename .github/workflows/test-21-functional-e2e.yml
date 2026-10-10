@@ -1,0 +1,55 @@
+name: "21 - Islevsel Uctan Uca Guvenli Test"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-21-functional-e2e.yml"
+permissions:
+  contents: read
+jobs:
+  functional-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Adaydan rapora ve geri donus simulasyonuna gercek veri akisi"
+        run: |
+          python - <<'PY'
+          import hashlib, tempfile, csv, json, subprocess, sys
+          from pathlib import Path
+          from aday_tekrar_raporu import duplicate_groups
+          from aday_hata_siniflandirma import classify
+          from kaynak_degisiklik_raporu import compare
+          from tools.logo_epg_audit import audit
+          from tools.candidate_status_summary import summarize
+          from tools.change_simulation import simulate
+          from tools.workflow_safety import redact
+          protected = ['CALISANLAR.m3u','YENILER.m3u']
+          original_hashes = {f: hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in protected}
+          rows = [
+            {'KANAL':'Demo','YAYIN_URL':'https://example.org/a','KAYNAK':'A'},
+            {'KANAL':'Demo','YAYIN_URL':'https://example.org/a','KAYNAK':'B'},
+            {'KANAL':'Other','YAYIN_URL':'https://example.org/b','KAYNAK':'C'}
+          ]
+          assert len(duplicate_groups(rows)) == 1
+          assert classify({'TEKNIK_TEST':'HTTP 403','MEDYA_TEST':'','ACIKLAMA':''})[0] == 'ERISIM_VEYA_TOKEN_SORUNU'
+          assert summarize([{'status':'yeni'},{'status':'quarantine'},{'status':'verified'}])['total'] == 3
+          assert '[REDACTED]' in redact('https://example.org/a?token=secret')
+          with tempfile.TemporaryDirectory() as tmp:
+            d=Path(tmp)
+            before=d/'before.m3u'; after=d/'after.m3u'
+            old='#EXTM3U\n#EXTINF:-1 tvg-id="demo" tvg-logo="https://example.org/logo.png",Demo\nhttps://example.org/old\n'
+            new=old.replace('/old','/new')
+            before.write_text(old); after.write_text(new)
+            assert len(compare(before,after)) == 1
+            assert audit(old)['channels_checked'] == 1
+            plan=simulate(old,new)
+            assert plan['changed'] and not plan['applied'] and plan['channel_count_delta']==0
+            assert hashlib.sha256(before.read_bytes()).hexdigest()==plan['original_sha256']
+          assert original_hashes == {f: hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in protected}
+          print('PASS: synthetic candidate->classification->summary->source change->audit->rollback; protected files unchanged')
+          print('LIMIT: this is not a live IPTV stream test or exhaustive 1-18 integration.')
+          PY
