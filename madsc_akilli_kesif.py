@@ -2,7 +2,7 @@
 """MADSC unified read-only IPTV candidate scanner."""
 import csv,json,re,urllib.request,urllib.parse,subprocess,concurrent.futures,datetime,pathlib,os
 OUT=pathlib.Path("madsc_kesif"); OUT.mkdir(exist_ok=True)
-SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-INT":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/int.m3u"}
+SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TR2":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr_int.m3u"}
 def parse(s):
  lines=s.splitlines(); out=[]
  for i,line in enumerate(lines):
