@@ -1,0 +1,58 @@
+name: "20 - Genel Butunlesik Kontrol 1-18"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-20-full-integration.yml"
+permissions:
+  contents: read
+jobs:
+  full-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Tum gelistirme dosyalarinin soz dizimi ve korunmus liste kontrolu"
+        run: |
+          python - <<'PY'
+          import ast, hashlib
+          from pathlib import Path
+          scripts = list(Path('.').glob('*.py')) + list(Path('tools').glob('*.py'))
+          assert scripts
+          for f in scripts:
+              ast.parse(f.read_text(encoding='utf-8-sig'), filename=str(f))
+          for f in ('CALISANLAR.m3u','YENILER.m3u'):
+              assert Path(f).is_file()
+          print('Python dosyalari parse edildi:',len(scripts))
+          PY
+      - name: "Mevcut bagimsiz birim testleri"
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          python -m unittest discover -s . -p 'test_*.py' -v
+      - name: "1-18 arasi is akisi kapsama envanteri"
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          workflows = list(Path('.github/workflows').glob('*.yml'))
+          required = [
+            'altinci-aday-tekrar-test.yml',
+            'sekizinci-tekrar-raporu-test.yml',
+            'dokuzuncu-akilli-tekrar-test.yml',
+            'onikinci-hata-siniflandirma-test.yml',
+            'test-13-kaynak-degisiklik.yml',
+            'test-14-istikrar.yml',
+            'test-15-logo-epg.yml',
+            'test-16-workflow-safety.yml',
+            'test-17-candidate-summary.yml',
+            'test-18-change-simulation.yml',
+            'test-19-integration.yml'
+          ]
+          missing=[p for p in required if not Path('.github/workflows',p).is_file()]
+          assert not missing, missing
+          print('Mevcut test workflow dosyalari:',len(workflows))
+          print('Dogrulanan gelistirme workflow dosyalari:',len(required))
+          print('NOT: Bu kontrol tum 1-18 davranislarinin uctan uca kaniti degildir.')
+          PY
