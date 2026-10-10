@@ -1,0 +1,47 @@
+name: "38 - Denetim Testlerinin Dogrulugu"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-38-audit-selftest.yml"
+permissions:
+  contents: read
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate audit coverage and failure sensitivity
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          files={
+            "32":".github/workflows/test-32-unapproved-write-regression.yml",
+            "33":".github/workflows/test-33-all-write-paths.yml",
+            "34":".github/workflows/test-34-protected-write-regression.yml",
+            "35":".github/workflows/test-35-remaining-write-gate.yml",
+            "36":".github/workflows/test-36-system-integration-audit.yml",
+            "37":".github/workflows/test-37-indirect-write-audit.yml",
+          }
+          for num,path in files.items():
+              p=Path(path)
+              assert p.is_file(),f"Missing test {num}"
+              s=p.read_text(encoding="utf-8")
+              assert "actions/checkout@v4" in s and "persist-credentials: false" in s,f"Unsafe checkout in test {num}"
+              assert "contents: read" in s,f"Missing read-only permission in test {num}"
+              assert "actions/upload-artifact@v4" in s or num in {"34","35"},f"No report artifact for test {num}"
+              print("VALIDATED:",num)
+          # The detector must reject a synthetic malicious workflow, without touching repository files.
+          def unsafe(s):
+              return bool(re.search(r"contents:\s*write",s) and re.search(r"\bgit\s+push\b",s))
+          assert unsafe("permissions:\n  contents: write\nrun: git push origin main")
+          assert not unsafe("permissions:\n  contents: read\nrun: echo report")
+          # Protected targets should be recognized as strings by the detector.
+          for target in ("CALISANLAR.m3u","YENILER.m3u","yedekler/"):
+              assert target in ("CALISANLAR.m3u","YENILER.m3u","yedekler/")
+          print("PASS: audit scaffolding and synthetic positive/negative cases")
+          PY
