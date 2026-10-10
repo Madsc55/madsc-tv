@@ -10,18 +10,22 @@ permissions:
 jobs:
   puanla:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Install ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Read-only candidate discovery
         run: |
           python3 -u yeni_kanal_tara.py
         env:
           SCAN_BATCH: '-1'
-      - name: Score candidates without promotion
-        run: python3 scripts/akilli_aday_puanla.py YENILER_TARAMA_RAPORU.csv
+      - name: Verify priority streams with real ffprobe
+        run: python3 -u scripts/oncelikli_kanal_dogrula.py
+      - name: Score candidates with verified technical evidence
+        run: python3 scripts/akilli_aday_puanla.py YENILER_TARAMA_RAPORU.csv ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv
       - name: Publish separate reports
         uses: actions/upload-artifact@v4
         with:
@@ -31,3 +35,5 @@ jobs:
           path: |
             AKILLI_ADAY_PUANLARI.csv
             AKILLI_ADAY_OZET.json
+            ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv
+            ONCELIKLI_OZET.json
