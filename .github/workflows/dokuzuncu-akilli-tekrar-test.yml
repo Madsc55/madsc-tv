@@ -1,0 +1,17 @@
+name: Dokuzuncu Gelistirme Testi
+on:
+  push:
+    paths:
+      - 'akilli_tekrar_test_takvimi.py'
+      - 'test_akilli_tekrar_test_takvimi.py'
+      - '.github/workflows/dokuzuncu-akilli-tekrar-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Akilli tekrar test zamanlamasini dogrula
+        run: python3 -m unittest -v test_akilli_tekrar_test_takvimi.py
