@@ -8,6 +8,9 @@ on:
     - cron: '25 5 * * *'
 permissions:
   contents: write
+concurrency:
+  group: aday-bekletme-main
+  cancel-in-progress: false
 jobs:
   quarantine:
     runs-on: ubuntu-latest
@@ -43,4 +46,21 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
           git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv
-          git diff --cached --quiet || (git commit -m "Update candidate quarantine report" && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Update candidate quarantine report"
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                exit 0
+              fi
+              echo "Kayit cakismasi; uzaktaki degisiklikler aliniyor ($attempt/5)"
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "Otomatik birlestirme basarisiz; rapor artefakt olarak saklandi."
+                exit 1
+              fi
+              sleep $((attempt * 3))
+            done
+            echo "Bes denemeden sonra GitHub kaydi yapilamadi."
+            exit 1
+          fi
