@@ -1,0 +1,27 @@
+name: Besinci Gelistirme Zaman Asimi Testi
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/besinci-zaman-asimi-test.yml'
+      - 'gelismis_medya_testi.py'
+jobs:
+  zaman-asimi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zaman asimi davranisini dogrula
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          from unittest.mock import patch
+          import gelismis_medya_testi as media
+          row = {"YAYIN_URL":"https://example.com/test.m3u8","MEDYA_TEST":"VIDEO_SES_VAR"}
+          with patch.object(media.subprocess,"run",side_effect=subprocess.TimeoutExpired(cmd="ffmpeg",timeout=65)) as mock:
+              result = media.check(row)
+          assert result[2] == "TEKRAR_TEST_BEKLIYOR", result
+          assert result[:2] == ["BELIRSIZ","BELIRSIZ"], result
+          assert "bozuk sayilmadi" in result[3], result
+          assert mock.call_args.kwargs["timeout"] == 65
+          print("BESINCI GELISTIRME BASARILI: zaman asimi tekrar test bekliyor")
+          PY
