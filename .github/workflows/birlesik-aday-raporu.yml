@@ -32,8 +32,12 @@ jobs:
           SCAN_BATCH: '-1'
       - name: Technical stream evidence
         run: python3 -u scripts/oncelikli_kanal_dogrula.py
-      - name: Candidate scoring
-        run: python3 scripts/akilli_aday_puanla.py YENILER_TARAMA_RAPORU.csv ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv
+      - name: Probe general candidates with real video and audio checks
+        run: python3 -u scripts/genel_aday_medya_test.py
+        env:
+          ADAY_TEST_GRUBU: "0"
+      - name: Candidate scoring with real evidence
+        run: python3 scripts/akilli_aday_puanla.py YENILER_TARAMA_RAPORU.csv ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv GENEL_ADAY_GERCEK_MEDYA_RAPORU.csv
       - name: Stability evidence
         run: python3 scripts/kanal_kararlilik_takip.py
       - name: Consolidated approval report
@@ -47,3 +51,5 @@ jobs:
           path: |
             BIRLESIK_ADAY_ONAY_RAPORU.csv
             BIRLESIK_ADAY_OZET.json
+            GENEL_ADAY_GERCEK_MEDYA_RAPORU.csv
+            GENEL_ADAY_MEDYA_OZET.json
