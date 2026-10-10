@@ -1,0 +1,38 @@
+name: "14 - 7-30 Gun Istikrar Testi"
+on:
+  push:
+    paths:
+      - 'tools/channel_stability.py'
+      - '.github/workflows/test-14-istikrar.yml'
+  workflow_dispatch:
+jobs:
+  stability-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test 7 and 30 day stability and last success
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import importlib.util
+          spec = importlib.util.spec_from_file_location("stability", "tools/channel_stability.py")
+          mod = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(mod)
+          now = dt.datetime(2026,10,10,12,tzinfo=dt.timezone.utc)
+          def e(channel, days, success):
+              return {"channel":channel, "timestamp":(now-dt.timedelta(days=days)).isoformat(), "success":success}
+          rows=[e("TRT 1",1,True),e("TRT 1",3,False),e("TRT 1",10,True),e("TRT 1",35,False),e("Show TV",40,True)]
+          data=mod.report(rows,now)
+          a,b=data["channels"]
+          assert a["channel"]=="Show TV"
+          assert a["days_7"]["tests"]==0 and a["days_7"]["success_rate_percent"] is None
+          assert b["channel"]=="TRT 1"
+          assert b["days_7"]=={"tests":2,"passed":1,"success_rate_percent":50.0}
+          assert b["days_30"]=={"tests":3,"passed":2,"success_rate_percent":66.67}
+          assert b["last_success"]==(now-dt.timedelta(days=1)).isoformat()
+          assert mod.report([e("X",1,False)],now)["channels"][0]["last_success"] is None
+          print("14. test passed")
+          PY
