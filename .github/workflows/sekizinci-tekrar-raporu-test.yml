@@ -1,0 +1,44 @@
+name: "8. Geliştirme - Tekrar Eden Aday Testi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'aday_tekrar_raporu.py'
+      - 'yeni_kanal_tara.py'
+      - '.github/workflows/sekizinci-tekrar-raporu-test.yml'
+permissions:
+  contents: read
+jobs:
+  tekrar-kontrol:
+    name: Kaynaklar arası tekrarları doğrula
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python dosyalarının söz dizimini kontrol et
+        run: python3 -m py_compile yeni_kanal_tara.py aday_tekrar_raporu.py
+      - name: Farklı kaynaklarda tekrarlanan bağlantıları test et
+        run: |
+          python3 - <<'PY'
+          import csv, pathlib, subprocess, sys, tempfile
+          script = pathlib.Path.cwd() / "aday_tekrar_raporu.py"
+          with tempfile.TemporaryDirectory() as tmp:
+              root = pathlib.Path(tmp)
+              directory = root / "aday_bekletme"
+              directory.mkdir()
+              with (directory / "HAM_ADAY_KAYNAKLARI.csv").open("w", encoding="utf-8-sig", newline="") as file:
+                  writer = csv.writer(file)
+                  writer.writerow(["KANAL", "YAYIN_URL", "KAYNAK"])
+                  writer.writerows([
+                      ["Kanal A", "https://ornek.test/a.m3u8", "Kaynak 1"],
+                      ["Kanal A", "https://ornek.test/a.m3u8", "Kaynak 2"],
+                      ["Kanal B", "https://ornek.test/b.m3u8", "Kaynak 1"],
+                      ["Kanal B", "https://ornek.test/b.m3u8", "Kaynak 1"]])
+              subprocess.run([sys.executable, str(script)], cwd=root, check=True)
+              with (directory / "TEKRAR_EDEN_ADAYLAR.csv").open(encoding="utf-8-sig", newline="") as file:
+                  rows = list(csv.DictReader(file))
+              assert len(rows) == 1, rows
+              assert rows[0]["TEKRAR_SAYISI"] == "2", rows
+              assert "Kaynak 1" in rows[0]["KAYNAKLAR"] and "Kaynak 2" in rows[0]["KAYNAKLAR"]
+              print("8. geliştirme başarılı: farklı kaynaklardaki tekrarlar bulundu")
+          PY
