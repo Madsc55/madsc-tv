@@ -1,0 +1,45 @@
+name: "12. Gelistirme - Hata Siniflandirma Testi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'aday_hata_siniflandirma.py'
+      - '.github/workflows/onikinci-hata-siniflandirma-test.yml'
+permissions:
+  contents: read
+jobs:
+  hata-siniflandirma:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Siniflandirma senaryolarini test et
+        run: |
+          python3 - <<'PY'
+          import csv, pathlib, subprocess, sys, tempfile
+          from aday_hata_siniflandirma import classify
+          cases = [
+              ({"TEKNIK_TEST":"HTTP 403"}, "ERISIM_VEYA_TOKEN_SORUNU"),
+              ({"ACIKLAMA":"not available in your country"}, "OLASI_COGRAFI_ENGEL"),
+              ({"TEKNIK_TEST":"timeout"}, "GECICI_ERISIM_SORUNU_OLASI"),
+              ({"TEKNIK_TEST":"TEKNIK_AKIS_VAR","MEDYA_TEST":"VIDEO_SES_VAR"}, "TEKNIK_AKIS_DOGRULANDI"),
+              ({"TEKNIK_TEST":"BILINMIYOR"}, "NEDEN_BELIRSIZ"),
+          ]
+          for row, expected in cases:
+              actual, _ = classify(row)
+              assert actual == expected, (row, actual, expected)
+          script = pathlib.Path.cwd() / "aday_hata_siniflandirma.py"
+          with tempfile.TemporaryDirectory() as tmp:
+              root = pathlib.Path(tmp)
+              directory = root / "aday_bekletme"
+              directory.mkdir()
+              with (directory / "ADAY_DURUM_RAPORU.csv").open("w", encoding="utf-8-sig", newline="") as f:
+                  writer = csv.DictWriter(f, fieldnames=["KANAL","TEKNIK_TEST","MEDYA_TEST","ACIKLAMA"])
+                  writer.writeheader()
+                  writer.writerow({"KANAL":"Deneme","TEKNIK_TEST":"timeout"})
+              subprocess.run([sys.executable, str(script)], cwd=root, check=True)
+              with (directory / "ADAY_HATA_SINIFLANDIRMA.csv").open(encoding="utf-8-sig", newline="") as f:
+                  rows = list(csv.DictReader(f))
+              assert len(rows) == 1 and rows[0]["HATA_SINIFI"] == "GECICI_ERISIM_SORUNU_OLASI", rows
+          print("12. gelistirme senaryolari basarili")
+          PY
