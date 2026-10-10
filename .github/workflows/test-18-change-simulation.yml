@@ -1,0 +1,36 @@
+name: "18 - Change Simulation Rollback Test"
+on:
+  push:
+    paths:
+      - 'tools/change_simulation.py'
+      - '.github/workflows/test-18-change-simulation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  simulation-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify dry-run simulation and rollback fingerprint
+        run: |
+          python - <<'PY'
+          from tools.change_simulation import simulate, digest
+          original = "#EXTM3U\n#EXTINF:-1,TRT 1\nhttps://example.com/a\n"
+          proposed = original + "#EXTINF:-1,Show TV\nhttps://example.com/b\n"
+          result = simulate(original, proposed)
+          assert result["applied"] is False
+          assert result["changed"] is True
+          assert result["original_channels"] == 1
+          assert result["proposed_channels"] == 2
+          assert result["channel_count_delta"] == 1
+          assert result["rollback"]["original_sha256"] == digest(original)
+          assert simulate(original, original)["changed"] is False
+          print("18. test passed")
+          PY
+      - name: Confirm protected playlist unchanged
+        run: git diff --exit-code -- CALISANLAR.m3u YENILER.m3u
