@@ -1,5 +1,8 @@
 name: MADSC TV Birlesik Kesif
 on:
+  push:
+    paths:
+      - 'madsc_akilli_kesif.py'
   workflow_dispatch:
   schedule:
     - cron: '15 5,17 * * *'
