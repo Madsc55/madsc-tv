@@ -1,0 +1,55 @@
+name: "28 - Onay Kapisi ve Aday Durum Testi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-28-approval-gate.yml"
+permissions:
+  contents: read
+jobs:
+  approval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Read-only candidate state and approval audit
+        run: |
+          python - <<'PY'
+          import ast,hashlib,json
+          from pathlib import Path
+          root=Path(".")
+          report={"errors":[],"warnings":[],"candidate_states":{},"protected":{}}
+          target=root/"tools/candidate_status_summary.py"
+          if not target.is_file():
+              report["errors"].append("Missing candidate summary tool")
+          else:
+              namespace={"__name__":"candidate_summary_audit"}
+              exec(compile(target.read_text(encoding="utf-8"),str(target),"exec"),namespace)
+              summarize=namespace.get("summarize")
+              if not callable(summarize):report["errors"].append("Missing summarize function")
+              else:
+                  rows=[{"status":"new"},{"status":"verified"},{"status":"quarantine"},{"status":"broken"},{"status":"identity_pending"},{"status":"unknown"}]
+                  got=summarize(rows)
+                  expected={"total":6,"new":1,"verified":1,"quarantine":1,"broken":1,"identity_pending":1,"unknown":1}
+                  report["candidate_states"]={"expected":expected,"actual":got}
+                  if got!=expected:report["errors"].append("Candidate state classification mismatch")
+          for name in ("CALISANLAR.m3u","YENILER.m3u"):
+              p=root/name
+              if p.is_file():report["protected"][name]=hashlib.sha256(p.read_bytes()).hexdigest()
+              else:report["errors"].append(f"Missing protected playlist: {name}")
+          report["warnings"].append("This test verifies classification and read-only behavior, not authorization enforcement in all production workflows")
+          Path("approval-gate-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MADSC-28-ONAY-KAPISI-RAPORU
+          path: approval-gate-report.json
+          if-no-files-found: error
