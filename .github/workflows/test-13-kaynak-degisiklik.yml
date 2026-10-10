@@ -34,5 +34,7 @@ jobs:
               assert len(data['changes'])==3
               assert 'otomatik geri alma yapilmaz' in data['rollback_note']
               assert old.exists() and new.exists()
+              assert 'https://old.example/a.m3u8' in old.read_text()
+              assert 'https://new.example/a.m3u8' in new.read_text()
           print('13. test passed')
           PY
