@@ -1,0 +1,27 @@
+name: "Felaket Kurtarma - Ana Liste Geri Donus Tatbikati"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/felaket-kurtarma-tatbikati.yml"
+      - "scripts/disaster_recovery_dry_run.py"
+permissions:
+  contents: read
+jobs:
+  disaster-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Simulate corruption and recover protected playlists from Git snapshot
+        run: python3 scripts/disaster_recovery_dry_run.py
+      - name: Archive disaster recovery report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-FELAKET-KURTARMA-DOGRULAMA
+          path: DISASTER-RECOVERY-REPORT.json
+          if-no-files-found: error
