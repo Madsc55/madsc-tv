@@ -6,23 +6,23 @@ on:
     paths:
       - '.github/commands/aday-yedekleme.txt'
 permissions:
-  contents: write
+  contents: read
 jobs:
   yedek:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Basarili teknik test raporlarini yedek listesine aktar
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 yedekler/teknik_adaylari_aktar.py
-      - name: Yalnizca yeni yedek listesini kaydet
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add yedekler/TUM_TEKNIK_TEST_ADAYLARI_2026-10-09.m3u
-          if ! git diff --cached --quiet; then
-            git commit -m "Backup technically passing channel candidates (not verified in player)"
-            git push
-          fi
+      - name: Aday yedek taslagini yalnizca rapor olarak sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ONAY-BEKLEYEN-TEKNIK-ADAYLAR
+          path: yedekler/TUM_TEKNIK_TEST_ADAYLARI_2026-10-09.m3u
+          if-no-files-found: warn
