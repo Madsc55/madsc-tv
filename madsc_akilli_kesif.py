@@ -50,16 +50,22 @@ def main():
  try:history=json.loads(state.read_text()).get("history",{})
  except Exception:history={}
  if not isinstance(history,dict):history={}
+ # Previously failing URLs remain eligible for periodic recovery checks.
+ failed_archive=OUT/"eski_bozuk_linkler.csv"
  found=[];errors=[]
  for src,url in SOURCES.items():
   try:
    with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"MADSC-TV"}),timeout=18) as r:s=r.read(3000000).decode("utf-8-sig",errors="replace")
    for x in parse(s):x["source"]=src;found.append(x)
   except Exception as e:errors.append(src+": "+str(e)[:120])
+ # Include historical failed URLs even if discovery sources stop listing them.
+ for old_url,old in history.items():
+  if int(old.get("runs",0))>0 and int(old.get("successful_runs",0))==0 and old.get("url"):
+   found.append(dict(name=old.get("channel","Bilinmeyen"),url=old["url"],logo="",id="",source="GECMIS_BASARISIZ_YENIDEN_TEST"))
  pending=[];duplicates=[];seen=set()
  for x in found:
   k=key(x["url"])
-  why="AYNI_URL" if k in known else "AYNI_TARAMA" if k in seen else "AYNI_KANAL_KIMLIGI" if x["id"] and x["id"].lower() in ids else ""
+  why="AYNI_URL" if k in known and x["source"]!="GECMIS_BASARISIZ_YENIDEN_TEST" else "AYNI_TARAMA" if k in seen else "AYNI_KANAL_KIMLIGI" if x["id"] and x["id"].lower() in ids else ""
   if why:duplicates.append(dict(kanal=x["name"],url=x["url"],neden=why))
   else:seen.add(k);pending.append(x)
  limit=30
@@ -69,6 +75,7 @@ def main():
  rows.sort(key=lambda r:(-r["puan"],r["kanal"]))
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
  write("tekrarlar.csv",duplicates,["kanal","url","neden"])
+ write("eski_bozuk_linkler.csv",[dict(kanal=v.get("channel",""),url=v.get("url",k),durum="YENIDEN_TEST_ARSIVI") for k,v in history.items() if int(v.get("runs",0))>0 and int(v.get("successful_runs",0))==0],["kanal","url","durum"])
  alternatives=[dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="MEVCUT_KANAL_ICIN_ALTERNATIF_ONAY_BEKLIYOR") for x in pending if name(x["name"]) in names]
  write("alternatifler.csv",alternatives,["kanal","url","kaynak","durum"])
  now=datetime.datetime.now(datetime.timezone.utc).isoformat()
