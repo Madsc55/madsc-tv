@@ -8,21 +8,23 @@ on:
       - '.github/workflows/test-kanal-adaylari.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
   test-and-backup:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Test stream responses and build backup
         run: python3 scripts/test_kanal_adaylari.py
-      - name: Commit test results to backup
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add yedekler/TARAMA-TEST-SONUCLARI.m3u tarama/son-test-raporu.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Save tested missing-channel candidates in backups"
-            git push
-          fi
+      - name: Upload candidate test outputs for manual approval
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ADAY-TEST-RAPORU-ONAY-BEKLIYOR
+          path: |
+            yedekler/TARAMA-TEST-SONUCLARI.m3u
+            tarama/son-test-raporu.json
+          if-no-files-found: warn
