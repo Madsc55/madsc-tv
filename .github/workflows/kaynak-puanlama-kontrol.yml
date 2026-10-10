@@ -1,4 +1,4 @@
-name: Kaynak Puanlama Kod Kontrolu
+name: Kaynak Puanlama Kod Kontrolü
 on:
   workflow_dispatch:
   push:
@@ -10,11 +10,12 @@ permissions:
   contents: read
 jobs:
   test:
+    name: Kaynak puanlama testleri
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Python soz dizimi kontrolu
+      - name: Python Söz Dizimi Kontrolü
         run: python3 -m py_compile kaynak_guven_puani.py
       - name: Kaynak puanlama testleri
         run: python3 -m unittest discover -s tests -p 'test_kaynak_guven_puani.py' -v
