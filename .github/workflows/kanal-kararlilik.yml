@@ -1,0 +1,48 @@
+name: Kanal Kararlilik Takibi
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6,18 * * *'
+  push:
+    paths:
+      - 'scripts/kanal_kararlilik_takip.py'
+      - '.github/workflows/kanal-kararlilik.yml'
+permissions:
+  contents: read
+jobs:
+  takip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore previous observation history
+        uses: actions/cache/restore@v4
+        with:
+          path: KARARLILIK_GECMISI.json
+          key: kanal-kararlilik-${{ github.run_id }}
+          restore-keys: |
+            kanal-kararlilik-
+      - name: Install ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Read-only stream checks
+        run: python3 -u scripts/oncelikli_kanal_dogrula.py
+      - name: Compare observations across days
+        run: python3 scripts/kanal_kararlilik_takip.py
+      - name: Save observation history for next run
+        uses: actions/cache/save@v4
+        with:
+          path: KARARLILIK_GECMISI.json
+          key: kanal-kararlilik-${{ github.run_id }}
+      - name: Publish isolated reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: KANAL-KARARLILIK-RAPORU
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            KARARLILIK_RAPORU.csv
+            KARARLILIK_OZET.json
+            ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv
