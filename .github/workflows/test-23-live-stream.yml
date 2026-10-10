@@ -1,0 +1,59 @@
+name: "23 - Canli Akis Erisilebilirlik Testi"
+on:
+  push:
+    paths:
+      - ".github/workflows/test-23-live-stream.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Salt okunur canli erisim testi"
+        run: |
+          python - <<'PY'
+          import hashlib, json, urllib.request, urllib.error
+          from pathlib import Path
+          paths=[Path("CALISANLAR.m3u"),Path("YENILER.m3u")]
+          before={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+          results=[]
+          for p in paths:
+              lines=p.read_text(encoding="utf-8-sig").splitlines()
+              entries=[]
+              for i,line in enumerate(lines):
+                  if line.startswith("#EXTINF:"):
+                      for candidate in lines[i+1:]:
+                          if candidate.strip() and not candidate.startswith("#"):
+                              entries.append((line.split(",",1)[-1].strip(),candidate.strip()))
+                              break
+              checked=0
+              for name,url in entries:
+                  if checked>=15: break
+                  if not url.startswith(("http://","https://")): continue
+                  checked+=1
+                  status="inconclusive"; code=None
+                  try:
+                      req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0","Range":"bytes=0-2047"})
+                      with urllib.request.urlopen(req,timeout=7) as response:
+                          code=response.status
+                          payload=response.read(2048)
+                          status="reachable" if 200<=code<300 and payload else "inconclusive"
+                  except urllib.error.HTTPError as exc:
+                      code=exc.code
+                      status="http_error"
+                  except Exception:
+                      status="network_error"
+                  results.append({"file":str(p),"channel":name[:100],"status":status,"http_code":code})
+          after={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+          assert before==after,"Protected playlists changed"
+          counts={s:sum(r["status"]==s for r in results) for s in ("reachable","http_error","network_error","inconclusive")}
+          print(json.dumps({"checked":len(results),"counts":counts,"results":results},ensure_ascii=False))
+          print("PASS: protected files unchanged; reachability probe completed")
+          print("LIMIT: reachable does not guarantee decodable playback; geo-blocking and transient errors may cause false negatives")
+          PY
