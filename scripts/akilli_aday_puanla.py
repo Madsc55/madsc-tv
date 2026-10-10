@@ -26,12 +26,21 @@ def main():
     parser.add_argument("--output",default="AKILLI_ADAY_PUANLARI.csv")
     args=parser.parse_args()
     candidates={}
+    evidence={}
+    for path in args.inputs:
+        if "ONCELIKLI_KANAL_TEK_NIK_RAPORU" not in path: continue
+        with open(path,encoding="utf-8-sig",newline="") as handle:
+            for row in csv.DictReader(handle):
+                url=value(row,"YAYIN_URL")
+                if url: evidence[url]=row
     for path in args.inputs:
         with open(path,encoding="utf-8-sig",newline="") as handle:
             for row in csv.DictReader(handle):
                 url=value(row,"YAYIN_URL")
                 if not url.startswith(("https://","http://")):continue
                 key=url
+                if url in evidence:
+                    row={**row,**{k:v for k,v in evidence[url].items() if v and k in ("TEKNIK_MEDYA","COZUNURLUK","SES_IZI")}}
                 points,status=score(row)
                 item={"KANAL":value(row,"KANAL"),"ADAY_TURU":value(row,"ADAY_TURU","GRUP"),"PUAN":points,"DURUM":status,"TEKNIK_KANIT":value(row,"TEKNIK_MEDYA","MEDYA_TEST","TEKNIK_TEST"),"COZUNURLUK":value(row,"COZUNURLUK"),"SES_IZI":value(row,"SES_IZI"),"LOGO_ADAY_URL":value(row,"LOGO_ADAY_URL"),"YAYIN_URL":url,"KAYNAK":value(row,"KAYNAK"),"KIMLIK_DOGRULANDI":"HAYIR","KARARLILIK_DOGRULANDI":"HAYIR","ANA_LISTEYE_EKLENEBILIR":"HAYIR"}
                 if key not in candidates or points>candidates[key]["PUAN"]:candidates[key]=item
@@ -40,7 +49,7 @@ def main():
     with open(args.output,"w",encoding="utf-8-sig",newline="") as out:
         writer=csv.DictWriter(out,fieldnames=fields);writer.writeheader();writer.writerows(rows)
     counts=collections.Counter(r["DURUM"] for r in rows)
-    summary={"aday_sayisi":len(rows),"durumlar":dict(counts),"en_yuksek_puan":max((r["PUAN"] for r in rows),default=0),"uyari":"Puan yalnızca eldeki teknik kanıtları gösterir. Kimlik, 24-48 saat kararlılık ve IBO Player oynatma onayı yoktur. Otomatik ekleme yasaktır."}
+    summary={"aday_sayisi":len(rows),"durumlar":dict(counts),"en_yuksek_puan":max((r["PUAN"] for r in rows),default=0),"eslesen_teknik_kanit":sum(1 for url in candidates if url in evidence),"uyari":"Puan yalnızca eldeki teknik kanıtları gösterir. Kimlik, 24-48 saat kararlılık ve IBO Player oynatma onayı yoktur. Otomatik ekleme yasaktır."}
     Path("AKILLI_ADAY_OZET.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
