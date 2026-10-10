@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 from datetime import datetime, timezone
 from akilli_tekrar_test_takvimi import plan
+from yanlis_pozitif_koruma import verify_hls
 # Import only scanner helper definitions, without executing its full scan.
 import ast
 import subprocess
@@ -40,6 +41,12 @@ def check(url, record):
         media, detail = ffprobe_stream(url)
         explanation += "; " + detail
     success = technical == "TEKNIK_AKIS_VAR" and media == "VIDEO_SES_VAR"
+    if success:
+        verified, reason = verify_hls(url)
+        explanation += "; " + reason
+        success = verified
+        if not verified:
+            media = "SUREKLILIK_DOGRULANAMADI"
     status = "TEKNIK_TEST_GECTI_KIMLIK_BEKLIYOR" if success else "TEKRAR_TEST_BEKLIYOR"
     return [record.get("name", ""), url, record.get("source", ""),
             record.get("technical", ""), technical, media, status, explanation[:300]]
