@@ -4,6 +4,8 @@ import csv
 import json
 import os
 from pathlib import Path
+from datetime import datetime, timezone
+from akilli_tekrar_test_takvimi import plan
 # Import only scanner helper definitions, without executing its full scan.
 import ast
 import subprocess
@@ -47,10 +49,12 @@ def main():
     if not isinstance(history, dict):
         raise ValueError("Gecmis dosyasi hatali")
     limit = max(0, min(int(os.getenv("RETEST_LIMIT", "10")), 30))
+    due_urls = {row["YAYIN_URL"] for row in plan(history, datetime.now(timezone.utc))
+                if row["TEST_ZAMANI_GELDI"] == "EVET"}
     candidates = [(url, rec) for url, rec in history.items()
-                  if isinstance(rec, dict) and eligible(rec)
+                  if isinstance(rec, dict) and eligible(rec) and url in due_urls
                   and url.startswith(("https://", "http://"))]
-    # Prioritize previously timed-out or once successful candidates.
+    # Only test candidates whose smart schedule is due; prioritize one-success candidates.
     candidates.sort(key=lambda x: (-len(x[1].get("successful_runs", [])),
                                    x[1].get("last_seen", ""), x[0]))
     OUT.parent.mkdir(parents=True, exist_ok=True)
