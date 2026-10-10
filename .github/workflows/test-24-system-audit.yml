@@ -40,10 +40,12 @@ jobs:
                       report["warnings"].append(f"Workflow has contents:write: {p}")
               except Exception as e: report["errors"].append(f"YAML {p}: {e}")
           protected=[Path("CALISANLAR.m3u"),Path("YENILER.m3u")]
+          report["inventory"]["all_m3u_files"]=len(list(Path(".").rglob("*.m3u")))
+          report["inventory"]["backup_files"]=len([p for p in Path("yedekler").rglob("*") if p.is_file()])
           before={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
           for p in protected:
               lines=p.read_text(encoding="utf-8-sig").splitlines()
-              if not lines or lines[0].strip()!="#EXTM3U": report["errors"].append(f"Bad M3U header: {p}")
+              if not lines or not lines[0].lstrip().startswith("#EXTM3U"): report["errors"].append(f"Bad M3U header: {p}")
               entries=[i for i,l in enumerate(lines) if l.startswith("#EXTINF:")]
               report["inventory"][str(p)+"_channels"]=len(entries)
               for i in entries:
