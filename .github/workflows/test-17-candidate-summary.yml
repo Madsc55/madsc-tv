@@ -34,7 +34,7 @@ jobs:
               p.write_text(json.dumps({"candidates":rows}),encoding="utf-8")
               assert summarize(load(p))==expected
               p=Path(d)/"candidates.csv"
-              p.write_text("status\\nnew\\nverified\\n",encoding="utf-8")
+              p.write_text("status\nnew\nverified\n",encoding="utf-8")
               assert summarize(load(p))["total"]==2
           print("17. test passed")
           PY
