@@ -15,6 +15,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   quarantine:
+    name: Aday tarama ve güvenilirlik kontrolü
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -70,7 +71,7 @@ jobs:
               echo "Raporlarda yeni degisiklik yok."
               exit 0
             fi
-            git commit -m "Update candidate quarantine report"
+            git commit -m "Aday bekletme raporlarını güncelle"
             if git push origin HEAD:main; then
               exit 0
             fi
