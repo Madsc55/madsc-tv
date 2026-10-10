@@ -19,19 +19,19 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-      - name: Install media probe
+      - name: Medya test araçlarını kur
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-      - name: Scan candidates without modifying playlists
+      - name: Ana listeyi değiştirmeden aday kanalları tara
         run: python3 yeni_kanal_tara.py
-      - name: Report duplicate candidate URLs
+      - name: Tekrarlanan kanal bağlantılarını raporla
         run: python3 aday_tekrar_raporu.py
-      - name: Decode promising streams for up to 20 seconds
+      - name: Yayınların görüntü ve sesini test et
         run: python3 gelismis_medya_testi.py
-      - name: Update quarantine from fresh scan
+      - name: Aday bekletme kayıtlarını güncelle
         run: python3 aday_bekletme.py
-      - name: Score source reliability without modifying playlists
+      - name: Kaynak güvenilirlik puanlarını hesapla
         run: python3 kaynak_guven_puani.py
-      - name: Upload quarantine and scan reports
+      - name: Tarama ve test raporlarını yükle
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -45,7 +45,7 @@ jobs:
             aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv
             aday_bekletme/GELISMIS_MEDYA_TESTI.csv
             aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv
-      - name: Commit quarantine reports only
+      - name: Test raporlarını GitHub'a kaydet
         if: success()
         shell: bash
         run: |
