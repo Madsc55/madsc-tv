@@ -1,0 +1,39 @@
+name: IBO Bagimsiz Aday Test Listesi
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/ibo_bagimsiz_test_listesi.py'
+      - '.github/workflows/ibo-bagimsiz-test-listesi.yml'
+permissions:
+  contents: read
+jobs:
+  hazirla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Discover candidates
+        run: python3 -u yeni_kanal_tara.py
+        env:
+          SCAN_BATCH: '-1'
+      - name: Test real video and audio
+        run: python3 -u scripts/genel_aday_medya_test.py
+        env:
+          ADAY_TEST_GRUBU: '0'
+      - name: Build isolated IBO test playlist
+        run: python3 scripts/ibo_bagimsiz_test_listesi.py
+      - name: Upload isolated playlist only
+        uses: actions/upload-artifact@v4
+        with:
+          name: IBO-BAGIMSIZ-TEST-ADAYLARI
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            IBO_BAGIMSIZ_TEST_ADAYLARI.m3u
+            IBO_TEST_ADAYLARI.csv
+            IBO_TEST_OZET.json
