@@ -72,3 +72,5 @@ def main():
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
  print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
+
+# Initial integrated discovery validation trigger
