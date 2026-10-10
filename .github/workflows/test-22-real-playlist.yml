@@ -1,0 +1,39 @@
+name: "22 - Gercek Liste Salt Okunur Entegrasyon"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-22-real-playlist.yml"
+permissions:
+  contents: read
+jobs:
+  real-playlist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Gercek M3U dosyalarinda denetim ve koruma"
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          from tools.logo_epg_audit import audit
+          from tools.change_simulation import simulate
+          protected = [Path("CALISANLAR.m3u"), Path("YENILER.m3u")]
+          before = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+          for p in protected:
+              raw = p.read_text(encoding="utf-8-sig")
+              assert raw.lstrip().startswith("#EXTM3U"), f"Invalid header: {p}"
+              report = audit(raw)
+              assert report["channels_checked"] > 0, f"No channels: {p}"
+              simulation = simulate(raw, raw)
+              assert not simulation["changed"] and not simulation["applied"]
+              print(json.dumps({"file":str(p),"channels":report["channels_checked"],"audit_warnings":len(report["warnings"]),"unchanged_simulation":True},ensure_ascii=False))
+          after = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+          assert before == after, "Protected playlists changed"
+          print("PASS: real playlists parsed, audited and unchanged")
+          print("LIMIT: does not check stream reachability, EPG download, all 1-18 paths, or player playback")
+          PY
