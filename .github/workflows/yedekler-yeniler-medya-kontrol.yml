@@ -1,0 +1,30 @@
+name: Yedekler Yeniler Tam Medya Kontrolu
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/yedekler_yeniler_medya_kontrol.py'
+      - '.github/workflows/yedekler-yeniler-medya-kontrol.yml'
+permissions:
+  contents: read
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Check both categories without changing playlists
+        run: python3 -u scripts/yedekler_yeniler_medya_kontrol.py
+      - name: Upload separate reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: YEDEKLER-YENILER-TAM-TEST
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            YEDEKLER_YENILER_MEDYA_TEST.csv
+            YEDEKLER_YENILER_MEDYA_OZET.json
