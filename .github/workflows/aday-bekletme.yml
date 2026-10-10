@@ -1,6 +1,9 @@
 name: Aday Bekletme ve Tekrar Kontrol
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/aday-bekletme.yml'
   schedule:
     - cron: '25 5 * * *'
 permissions:
