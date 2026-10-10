@@ -66,7 +66,7 @@ def parse(content):
         elif line and not line.startswith("#") and meta:
             name = meta.rsplit(",", 1)[-1].strip()
             if name and line.startswith(("http://", "https://")):
-                yield name, line, (re.search(r\'tvg-logo="([^"]+)"\', meta).group(1) if re.search(r\'tvg-logo="([^"]+)"\', meta) else "")
+                yield name, line, (re.search(r'tvg-logo="([^"]+)"', meta).group(1) if re.search(r'tvg-logo="([^"]+)"', meta) else "")
             meta = None
 
 def norm(name):
