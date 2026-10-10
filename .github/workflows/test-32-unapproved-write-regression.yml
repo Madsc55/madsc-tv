@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - ".github/workflows/test-32-unapproved-write-regression.yml"
+      - ".github/workflows/yeni-kanal-arama-2026.yml"
+      - ".github/workflows/aday-yedekleme.yml"
 permissions:
   contents: read
 jobs:
