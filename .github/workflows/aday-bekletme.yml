@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/aday-bekletme.yml'
+      - 'aday_tekrar_raporu.py'
+      - 'kaynak_guven_puani.py'
   schedule:
     - cron: '25 5 * * *'
 permissions:
@@ -51,7 +53,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
           mkdir -p /tmp/aday-raporlar
-          for f in aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv; do
+          for f in aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv; do
             if [ -f "$f" ]; then
               cp "$f" "/tmp/aday-raporlar/$(basename "$f")"
             fi
@@ -63,7 +65,7 @@ jobs:
               [ -f "$f" ] || continue
               cp "$f" "aday_bekletme/$(basename "$f")"
             done
-            git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv
+            git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv
             if git diff --cached --quiet; then
               echo "Raporlarda yeni degisiklik yok."
               exit 0
