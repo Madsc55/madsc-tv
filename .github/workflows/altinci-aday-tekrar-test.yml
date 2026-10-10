@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'altinci_aday_tekrar_test.py'
+      - 'yanlis_pozitif_koruma.py'
       - '.github/workflows/altinci-aday-tekrar-test.yml'
 permissions:
   contents: read
@@ -23,8 +24,13 @@ jobs:
           assert m.eligible({"successful_runs": ["1"]})
           assert not m.eligible({"successful_runs": ["1", "2"]})
           with patch.object(m, "hls_probe", return_value=("TEKNIK_AKIS_VAR", "iki segment", 2)), patch.object(m, "ffprobe_stream", return_value=("VIDEO_SES_VAR", "video ve ses")):
-              result = m.check("https://example.org/stream.m3u8", {"name": "Ornek"})
-          assert result[6] == "TEKNIK_TEST_GECTI_KIMLIK_BEKLIYOR", result
+              with patch.object(m, "verify_hls", return_value=(True, "Iki ayri zamanda HLS segmenti dogrulandi")):
+                  result = m.check("https://example.org/stream.m3u8", {"name": "Ornek"})
+              assert result[6] == "TEKNIK_TEST_GECTI_KIMLIK_BEKLIYOR", result
+              with patch.object(m, "verify_hls", return_value=(False, "HLS dogrulama hatasi: HTTPError")):
+                  failed = m.check("https://example.org/stream.m3u8", {"name": "Ornek"})
+              assert failed[6] == "TEKRAR_TEST_BEKLIYOR", failed
+              assert failed[5] == "SUREKLILIK_DOGRULANAMADI", failed
           print("6. gelistirme birim testleri basarili")
           PY
       - name: "FFmpeg araclarini kur"
