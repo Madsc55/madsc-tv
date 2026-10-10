@@ -1,0 +1,55 @@
+name: "33 - Tum Otomasyonlarda Yazma Riski Taramasi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-33-all-write-paths.yml"
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install YAML parser
+        run: python -m pip install pyyaml
+      - name: Scan all workflow write paths and produce actionable report
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          import yaml
+          report={"total_workflows":0,"write_capable":[],"errors":[],"limitations":["Static analysis only; indirect writes in invoked scripts may need further inspection","A green result means scan completed, not that all write risks are fixed"]}
+          for p in sorted(Path(".github/workflows").glob("*.yml")):
+              report["total_workflows"]+=1
+              try:
+                  s=p.read_text(encoding="utf-8-sig")
+                  y=yaml.safe_load(s)
+                  if not isinstance(y,dict) or not isinstance(y.get("jobs"),dict):
+                      report["errors"].append(f"Invalid workflow: {p}")
+                      continue
+                  perms=y.get("permissions",{})
+                  permission_write=perms=="write-all" or (isinstance(perms,dict) and any(v=="write" for v in perms.values()))
+                  for job in y["jobs"].values():
+                      if not isinstance(job,dict):continue
+                      jp=job.get("permissions",{})
+                      permission_write|=jp=="write-all" or (isinstance(jp,dict) and any(v=="write" for v in jp.values()))
+                  git_write=bool(re.search(r"\bgit\s+(?:push|commit)\b|create-pull-request|\bgh\s+api\b",s,re.I))
+                  if permission_write or git_write:
+                      protected=bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/",s,re.I))
+                      report["write_capable"].append({"workflow":str(p),"write_permission":bool(permission_write),"write_command":git_write,"protected_reference":protected,"priority":"HIGH" if protected else "REVIEW"})
+              except Exception as e:report["errors"].append(f"{p}: {e}")
+          report["summary"]={"review_required":len(report["write_capable"]),"high_priority":sum(x["priority"]=="HIGH" for x in report["write_capable"])}
+          Path("all-write-paths-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MADSC-33-TUM-YAZMA-RISKLERI
+          path: all-write-paths-report.json
+          if-no-files-found: error
