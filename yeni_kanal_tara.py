@@ -66,7 +66,7 @@ def parse(content):
         elif line and not line.startswith("#") and meta:
             name = meta.rsplit(",", 1)[-1].strip()
             if name and line.startswith(("http://", "https://")):
-                yield name, line
+                yield name, line, (re.search(r\'tvg-logo="([^"]+)"\', meta).group(1) if re.search(r\'tvg-logo="([^"]+)"\', meta) else "")
             meta = None
 
 def norm(name):
@@ -126,8 +126,8 @@ def ffprobe_stream(url):
         return "FFPROBE_HATA", str(error)[:160]
 
 existing = list(parse(Path("CALISANLAR.m3u").read_text(encoding="utf-8-sig")))
-names = {norm(name) for name, _ in existing}
-urls = {url for _, url in existing}
+names = {norm(name) for name, _, _ in existing}
+urls = {url for _, url, _ in existing}
 candidates = {}
 source_errors = []
 for source in SOURCES:
@@ -135,9 +135,9 @@ for source in SOURCES:
         content = fetch(source, timeout=20).decode("utf-8-sig", errors="replace")
         entries = list(parse(content))
         print(f"Kaynak: {source} -> {len(entries)} kayit")
-        for name, url in entries:
+        for name, url, logo in entries:
             if url not in urls and url not in candidates:
-                candidates[url] = (name, source)
+                candidates[url] = (name, source, logo)
     except Exception as error:
         source_errors.append((source, str(error)[:180]))
         print(f"Kaynak hatasi: {source}: {error}")
@@ -145,7 +145,7 @@ for source in SOURCES:
 rows = []
 # Prioritize genuinely missing names over existing channels' alternative streams.
 ordered = sorted(candidates.items(), key=lambda item: (0 if any(norm(item[1][0]).startswith(p) for p in PRIORITY) else 1, norm(item[1][0]) in names, item[1][0]))
-for index, (url, (name, source)) in enumerate(ordered):
+for index, (url, (name, source, logo)) in enumerate(ordered):
     kind = "YENI_KANAL_ADAYI" if norm(name) not in names else "MEVCUT_KANAL_ALTERNATIFI"
     if BATCH * LIMIT <= index < (BATCH + 1) * LIMIT and (".m3u8" in url.lower()):
         status, detail, segments = hls_probe(url)
@@ -153,10 +153,10 @@ for index, (url, (name, source)) in enumerate(ordered):
     else:
         status, detail, segments = "TEST_EDILMEDI", "Test kotasi veya HLS olmayan URL", 0
         media, media_detail = "TEST_EDILMEDI", "Test uygulanmadi"
-    rows.append((name, kind, status, segments, detail, media, media_detail, url, source))
+    rows.append((name, kind, status, segments, detail, media, media_detail, url, source, logo))
 with OUT.open("w", newline="", encoding="utf-8-sig") as output:
     writer = csv.writer(output)
-    writer.writerow(("KANAL", "ADAY_TURU", "TEKNIK_TEST", "OKUNAN_SEGMENT", "ACIKLAMA", "MEDYA_TEST", "MEDYA_ACIKLAMA", "YAYIN_URL", "KAYNAK"))
+    writer.writerow(("KANAL", "ADAY_TURU", "TEKNIK_TEST", "OKUNAN_SEGMENT", "ACIKLAMA", "MEDYA_TEST", "MEDYA_ACIKLAMA", "YAYIN_URL", "KAYNAK", "LOGO_ADAY_URL"))
     writer.writerows(rows)
 Path("YENILER_KAYNAK_HATALARI.txt").write_text(
     "\n".join(f"{source}: {error}" for source, error in source_errors) or "Kaynak hatasi yok",
