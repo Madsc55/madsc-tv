@@ -4,7 +4,7 @@ import csv
 from collections import defaultdict
 from pathlib import Path
 
-source = Path('YENILER_TARAMA_RAPORU.csv')
+source = Path('aday_bekletme/HAM_ADAY_KAYNAKLARI.csv')
 if not source.exists():
     raise SystemExit('Tarama raporu bulunamadi')
 with source.open(encoding='utf-8-sig', newline='') as f:
@@ -20,6 +20,6 @@ with output.open('w', encoding='utf-8-sig', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['YAYIN_URL', 'TEKRAR_SAYISI', 'KANAL_ADLARI', 'KAYNAKLAR'])
     for url, entries in sorted(groups.items()):
-        if len(entries) > 1:
+        if len({e.get('KAYNAK', '') for e in entries}) > 1:
             writer.writerow([url, len(entries), ' | '.join(sorted({e.get('KANAL', '') for e in entries})), ' | '.join(sorted({e.get('KAYNAK', '') for e in entries}))])
 print('Tekrar raporu hazir; ana liste degismedi')
