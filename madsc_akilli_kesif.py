@@ -12,7 +12,7 @@ def parse(s):
    if nextline.startswith(("http://","https://")):
     def attr(k):
      m=re.search(k+'="([^"]*)"',line);return m.group(1) if m else ""
-    out.append(dict(name=line.rsplit(",",1)[-1].strip(),url=nextline.strip(),logo=attr("tvg-logo"),id=attr("tvg-id")))
+    out.append(dict(name=line.rsplit(",",1)[-1].strip(),url=nextline.strip(),logo=attr("tvg-logo"),id=attr("tvg-id"),group=attr("group-title")))
     break
  return out
 def key(u):
@@ -50,6 +50,40 @@ def main():
  try:history=json.loads(state.read_text()).get("history",{})
  except Exception:history={}
  if not isinstance(history,dict):history={}
+ # Read-only health audit of EVERY main playlist entry; rotate 40 per run.
+ # Independent state: three successful checks >=6 hours apart.
+ audit_state=OUT/"ana_liste_test_gecmisi.json"
+ try:audit=json.loads(audit_state.read_text(encoding="utf-8")).get("channels",{})
+ except Exception:audit={}
+ if not isinstance(audit,dict):audit={}
+ audit_now=datetime.datetime.now(datetime.timezone.utc)
+ unique={}
+ for idx,ch in enumerate(parse(master)):
+  uid=str(idx+1)+"|"+key(ch["url"])
+  unique[uid]=ch
+ audit={k:v for k,v in audit.items() if k in unique}
+ due=sorted(unique,key=lambda k:(audit.get(k,{}).get("last_test",""),k))
+ def audit_one(uid):
+  ch=unique[uid];v,a,res=probe(ch["url"]);return uid,bool(v and a),res
+ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+  checks=list(ex.map(audit_one,due[:40]))
+ for uid,ok,res in checks:
+  prev=audit.get(uid,{})
+  last=prev.get("last_success")
+  try:gap=(audit_now-datetime.datetime.fromisoformat(last)).total_seconds()/3600 if last else None
+  except Exception:gap=None
+  streak=int(prev.get("successful_runs",0))
+  if ok and (gap is None or gap>=6):streak+=1;prev["last_success"]=audit_now.isoformat()
+  if not ok:streak=0;prev["last_success"]=None
+  prev.update(last_test=audit_now.isoformat(),successful_runs=streak,last_result="TEKNIK_GECTI" if ok else "TEKNIK_GECEMEDI",resolution=res)
+  audit[uid]=prev
+ audit_rows=[]
+ for uid,ch in unique.items():
+  a=audit.get(uid,{})
+  status=("UC_TEST_GECTI" if a.get("successful_runs",0)>=3 else "TEKRAR_TEST_BEKLIYOR") if a.get("last_result")=="TEKNIK_GECTI" else ("TEKNIK_GECEMEDI_YENIDEN_BAKILACAK" if a.get("last_result") else "HENUZ_TEST_EDILMEDI")
+  audit_rows.append(dict(sira=uid.split("|",1)[0],kanal=ch["name"],kategori=ch.get("group",""),url=ch["url"],durum=status,basarili_ayri_test=a.get("successful_runs",0),son_test=a.get("last_test",""),cozunurluk=a.get("resolution",""),kullanici_karari="DEGISTIRILMEDI"))
+ write("ana_liste_saglik_raporu.csv",audit_rows,["sira","kanal","kategori","url","durum","basarili_ayri_test","son_test","cozunurluk","kullanici_karari"])
+ audit_state.write_text(json.dumps({"channels":audit},ensure_ascii=False,indent=2),encoding="utf-8")
  # Previously failing URLs remain eligible for periodic recovery checks.
  failed_archive=OUT/"eski_bozuk_linkler.csv"
  found=[];errors=[]
