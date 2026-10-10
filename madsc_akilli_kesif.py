@@ -136,3 +136,4 @@ def main():
 if __name__=="__main__":main()
 
 # Initial integrated discovery validation trigger
+# Manual continuation requested: main-list health audit next batch
