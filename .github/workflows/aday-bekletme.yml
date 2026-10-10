@@ -6,6 +6,7 @@ on:
       - '.github/workflows/aday-bekletme.yml'
       - 'aday_tekrar_raporu.py'
       - 'kaynak_guven_puani.py'
+      - 'aday_oncelik_raporu.py'
   schedule:
     - cron: '25 5 * * *'
 permissions:
@@ -32,6 +33,8 @@ jobs:
         run: python3 aday_bekletme.py
       - name: Kaynak güvenilirlik puanlarını hesapla
         run: python3 kaynak_guven_puani.py
+      - name: Aday kanalları öncelik sırasına koy
+        run: python3 aday_oncelik_raporu.py
       - name: Tarama ve test raporlarını yükle
         if: always()
         uses: actions/upload-artifact@v4
@@ -46,6 +49,7 @@ jobs:
             aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv
             aday_bekletme/GELISMIS_MEDYA_TESTI.csv
             aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv
+            aday_bekletme/ADAY_ONCELIK_RAPORU.csv
       - name: Test raporlarını GitHub'a kaydet
         if: success()
         shell: bash
@@ -54,7 +58,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
           mkdir -p /tmp/aday-raporlar
-          for f in aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv; do
+          for f in aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv aday_bekletme/ADAY_ONCELIK_RAPORU.csv; do
             if [ -f "$f" ]; then
               cp "$f" "/tmp/aday-raporlar/$(basename "$f")"
             fi
@@ -66,7 +70,7 @@ jobs:
               [ -f "$f" ] || continue
               cp "$f" "aday_bekletme/$(basename "$f")"
             done
-            git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv
+            git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv aday_bekletme/ADAY_ONCELIK_RAPORU.csv
             if git diff --cached --quiet; then
               echo "Raporlarda yeni degisiklik yok."
               exit 0
