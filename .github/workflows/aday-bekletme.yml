@@ -7,6 +7,8 @@ on:
       - 'aday_tekrar_raporu.py'
       - 'kaynak_guven_puani.py'
       - 'aday_oncelik_raporu.py'
+      - 'akilli_tekrar_test_takvimi.py'
+      - 'altinci_aday_tekrar_test.py'
   schedule:
     - cron: '25 5 * * *'
 permissions:
@@ -31,6 +33,12 @@ jobs:
         run: python3 gelismis_medya_testi.py
       - name: Aday bekletme kayıtlarını güncelle
         run: python3 aday_bekletme.py
+      - name: Akıllı tekrar test takvimini hazırla
+        run: python3 akilli_tekrar_test_takvimi.py
+      - name: Zamanı gelen adayları yeniden test et
+        env:
+          RETEST_LIMIT: '5'
+        run: python3 altinci_aday_tekrar_test.py
       - name: Kaynak güvenilirlik puanlarını hesapla
         run: python3 kaynak_guven_puani.py
       - name: Aday kanalları öncelik sırasına koy
@@ -50,6 +58,8 @@ jobs:
             aday_bekletme/GELISMIS_MEDYA_TESTI.csv
             aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv
             aday_bekletme/ADAY_ONCELIK_RAPORU.csv
+            aday_bekletme/AKILLI_TEKRAR_TEST_TAKVIMI.csv
+            aday_bekletme/ALTINCI_TEKRAR_TEST.csv
       - name: Test raporlarını GitHub'a kaydet
         if: success()
         shell: bash
