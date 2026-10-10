@@ -1,0 +1,38 @@
+name: "13 - Kaynak Degisiklik Testi"
+on:
+  push:
+    paths:
+      - "kaynak_degisiklik_raporu.py"
+      - ".github/workflows/test-13-kaynak-degisiklik.yml"
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Test source changes and safe rollback report
+        run: |
+          python - <<'PY'
+          import tempfile
+          from pathlib import Path
+          from kaynak_degisiklik_raporu import compare, main
+          from unittest.mock import patch
+          import json
+          with tempfile.TemporaryDirectory() as d:
+              d=Path(d)
+              old=d/'old.m3u'; new=d/'new.m3u'; report=d/'report.json'
+              old.write_text('#EXTM3U\n#EXTINF:-1 tvg-id="a",Channel A\nhttps://old.example/a.m3u8\n#EXTINF:-1,Removed\nhttps://old.example/r.m3u8\n')
+              new.write_text('#EXTM3U\n#EXTINF:-1 tvg-id="a",Channel A\nhttps://new.example/a.m3u8\n#EXTINF:-1,Added\nhttps://new.example/n.m3u8\n')
+              changes=compare(old,new)
+              assert sorted(c['type'] for c in changes)==['added','changed','removed'], changes
+              with patch('sys.argv',['audit',str(old),str(new),'--output',str(report)]):
+                  main()
+              data=json.loads(report.read_text())
+              assert len(data['changes'])==3
+              assert 'otomatik geri alma yapilmaz' in data['rollback_note']
+              assert old.exists() and new.exists()
+          print('13. test passed')
+          PY
