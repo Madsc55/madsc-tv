@@ -5,13 +5,15 @@ on:
     paths:
       - 'yedekler/tekrar_test_390.py'
 permissions:
-  contents: write
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Parallel 20-second video and audio tests
@@ -27,11 +29,3 @@ jobs:
           path: |
             yedekler/TEKRAR_TEST_2026-10-09.csv
             yedekler/TEKNIK_DOGRULANANLAR_2026-10-09.m3u
-      - name: Commit backup reports only
-        if: success()
-        continue-on-error: true
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@users.noreply.github.com
-          git add yedekler/TEKRAR_TEST_2026-10-09.csv yedekler/TEKNIK_DOGRULANANLAR_2026-10-09.m3u
-          git diff --cached --quiet || (git commit -m "Save 390 candidate technical retest reports" && git push)
