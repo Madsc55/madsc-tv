@@ -1,0 +1,50 @@
+name: "32 - Onaysiz Yazma Regresyon Testi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-32-unapproved-write-regression.yml"
+permissions:
+  contents: read
+jobs:
+  approval-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Detect concrete unapproved write paths
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          targets={
+            ".github/workflows/yeni-kanal-arama-2026.yml":"yedekler/",
+            ".github/workflows/aday-yedekleme.yml":"yedekler/",
+          }
+          report={"violations":[],"scanned":[],"scope":"read-only workflow source regression","protected_files_modified":False}
+          for filename,destination in targets.items():
+              p=Path(filename)
+              if not p.is_file():
+                  report["violations"].append({"workflow":filename,"reason":"missing workflow"})
+                  continue
+              text=p.read_text(encoding="utf-8-sig")
+              report["scanned"].append(filename)
+              writes=bool(re.search(r"\bgit\s+push\b",text))
+              target=destination in text
+              gate=bool(re.search(r"(?m)^\s*environment:\s*\S+",text))
+              if writes and target and not gate:
+                  report["violations"].append({"workflow":filename,"reason":"git push to backup path without GitHub environment approval gate"})
+          Path("approval-regression-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["violations"]:
+              print("ACTION REQUIRED: Approval controls are not demonstrated for these backup-writing workflows.")
+              raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MADSC-32-ONAYSIZ-YAZMA-RAPORU
+          path: approval-regression-report.json
+          if-no-files-found: error
