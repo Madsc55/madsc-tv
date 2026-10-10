@@ -37,8 +37,9 @@ jobs:
               subprocess.run([sys.executable, str(script)], cwd=root, check=True)
               with (directory / "TEKRAR_EDEN_ADAYLAR.csv").open(encoding="utf-8-sig", newline="") as file:
                   rows = list(csv.DictReader(file))
-              assert len(rows) == 1, rows
-              assert rows[0]["TEKRAR_SAYISI"] == "2", rows
+              assert len(rows) == 2, rows
+              assert all(row["TEKRAR_SAYISI"] == "2" for row in rows), rows
               assert "Kaynak 1" in rows[0]["KAYNAKLAR"] and "Kaynak 2" in rows[0]["KAYNAKLAR"]
-              print("8. geliştirme başarılı: farklı kaynaklardaki tekrarlar bulundu")
+              assert rows[1]["KANAL_ADLARI"] == "Kanal B" and rows[1]["KAYNAKLAR"] == "Kaynak 1", rows
+              print("11. geliştirme başarılı: kaynaklar arası ve aynı kaynak tekrarları bulundu")
           PY
