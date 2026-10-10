@@ -1,0 +1,29 @@
+name: Oncelikli Kanal Medya Dogrulama
+on:
+  push:
+    paths:
+      - 'scripts/oncelikli_kanal_dogrula.py'
+      - '.github/workflows/oncelikli-kanal-dogrulama.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify priority media streams
+        run: python3 -u scripts/oncelikli_kanal_dogrula.py
+      - name: Upload report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ONCELIKLI-KANAL-MEDYA-SONUCLARI
+          path: |
+            ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv
+            ONCELIKLI_OZET.json
