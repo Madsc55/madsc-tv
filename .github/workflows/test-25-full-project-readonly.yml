@@ -1,0 +1,84 @@
+name: "25 - Ilk Gunden Bugune Salt Okunur Proje Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-25-full-project-readonly.yml"
+permissions:
+  contents: read
+jobs:
+  project-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install pyyaml
+      - name: "Butun liste, yedek, otomasyon ve kodlari denetle"
+        run: |
+          python - <<'PY'
+          import ast,hashlib,json,re
+          from pathlib import Path
+          import yaml
+          report={"errors":[],"warnings":[],"inventory":{},"coverage":{}}
+          root=Path(".")
+          protected=[Path("CALISANLAR.m3u"),Path("YENILER.m3u")]
+          before={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+          scripts=list(root.rglob("*.py"))
+          report["inventory"]["python_files"]=len(scripts)
+          for p in scripts:
+              try:ast.parse(p.read_text(encoding="utf-8-sig"),filename=str(p))
+              except Exception as e:report["errors"].append(f"Python parse: {p}: {e}")
+          workflows=list(Path(".github/workflows").glob("*.yml"))
+          report["inventory"]["workflows"]=len(workflows)
+          for p in workflows:
+              try:
+                  obj=yaml.safe_load(p.read_text(encoding="utf-8-sig"))
+                  if not isinstance(obj,dict) or not obj.get("jobs"):report["errors"].append(f"Invalid workflow: {p}")
+                  permissions=obj.get("permissions",{}) if isinstance(obj,dict) else {}
+                  if isinstance(permissions,dict) and permissions.get("contents")=="write":
+                      report["warnings"].append(f"Write permission: {p}")
+                  if re.search(r"git\s+push|git\s+commit",p.read_text(encoding="utf-8-sig")):
+                      report["warnings"].append(f"Git mutation command: {p}")
+              except Exception as e:report["errors"].append(f"YAML parse: {p}: {e}")
+          playlists=list(root.rglob("*.m3u"))
+          report["inventory"]["playlists"]=len(playlists)
+          for p in playlists:
+              try:
+                  lines=p.read_text(encoding="utf-8-sig").splitlines()
+                  if not lines or not lines[0].lstrip().startswith("#EXTM3U"):
+                      report["errors"].append(f"Invalid M3U header: {p}")
+                  entries=[i for i,s in enumerate(lines) if s.startswith("#EXTINF:")]
+                  report["inventory"][str(p)+"_channels"]=len(entries)
+                  if not entries:report["warnings"].append(f"Empty playlist: {p}")
+                  for i in entries:
+                      j=i+1
+                      while j<len(lines) and not lines[j].strip():j+=1
+                      if j>=len(lines) or lines[j].startswith("#"):
+                          report["errors"].append(f"Missing URL: {p}:{i+1}")
+              except Exception as e:report["errors"].append(f"Playlist read: {p}: {e}")
+          report["inventory"]["backup_files"]=sum(p.is_file() for p in Path("yedekler").rglob("*"))
+          after={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in protected}
+          report["inventory"]["protected_sha256"]=before
+          if before!=after:report["errors"].append("Protected playlist changed")
+          report["coverage"]["static_structure"]="checked"
+          report["coverage"]["live_stream_playback"]="NOT TESTED; requires player confirmation"
+          report["coverage"]["end_to_end_automation"]="NOT PROVEN by static audit"
+          Path("full-project-audit.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - name: "Birim testleri"
+        run: |
+          python -m unittest discover -s tests -p 'test_*.py' -v
+          python -m unittest discover -s . -p 'test_*.py' -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MADSC-TAM-PROJE-DENETIM-RAPORU
+          path: full-project-audit.json
+          if-no-files-found: warn
