@@ -1,0 +1,60 @@
+name: "36 - Toplu Sistem Entegrasyon ve Guvenlik Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-36-system-integration-audit.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install YAML parser
+        run: python3 -m pip install --quiet pyyaml
+      - name: Audit workflow definitions and protected-write exposure
+        run: |
+          python3 - <<'PY'
+          import json,re
+          from pathlib import Path
+          import yaml
+          root=Path(".github/workflows")
+          report={"workflow_count":0,"errors":[],"protected_write_risks":[],"other_writers":[],"schedule_count":0,"limitations":["Static analysis does not execute IPTV streams or inspect indirect script writes","EPG and VOD repository writers are reported separately"]}
+          for p in sorted(root.glob("*.yml")):
+              report["workflow_count"]+=1
+              try:
+                  src=p.read_text(encoding="utf-8-sig")
+                  cfg=yaml.safe_load(src)
+                  assert isinstance(cfg,dict) and isinstance(cfg.get("jobs"),dict) and cfg["jobs"],"missing jobs"
+                  perms=cfg.get("permissions",{})
+                  jobs=cfg["jobs"]
+                  writable=perms=="write-all" or (isinstance(perms,dict) and perms.get("contents")=="write")
+                  for job in jobs.values():
+                      if isinstance(job,dict):
+                          jp=job.get("permissions",{})
+                          writable |= jp=="write-all" or (isinstance(jp,dict) and jp.get("contents")=="write")
+                  command=bool(re.search(r"\bgit\s+(?:push|commit)\b",src,re.I))
+                  protected=bool(re.search(r"\bgit\s+add\s+[^\n]*(?:CALISANLAR\.m3u|YENILER\.m3u|yedekler/)|\bpython\S*\s+scripts/yeniler_aktar\.py",src,re.I))
+                  if protected and (writable or command):
+                      report["protected_write_risks"].append(str(p))
+                  if writable or command:
+                      report["other_writers"].append({"workflow":str(p),"contents_write":bool(writable),"commit_or_push":command})
+                  triggers=cfg.get("on",cfg.get(True,{}))
+                  if isinstance(triggers,dict) and "schedule" in triggers:report["schedule_count"]+=1
+              except Exception as e:report["errors"].append(f"{p}: {e}")
+          report["status"]="FAIL" if report["errors"] or report["protected_write_risks"] else "PASS_WITH_REVIEW"
+          Path("system-audit-36.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"] or report["protected_write_risks"]:raise SystemExit(1)
+          PY
+      - name: Upload full audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-36-TOPLU-SISTEM-DENETIMI
+          path: system-audit-36.json
+          if-no-files-found: error
