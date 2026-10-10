@@ -42,25 +42,35 @@ jobs:
             aday_bekletme/GELISMIS_MEDYA_TESTI.csv
       - name: Commit quarantine reports only
         if: success()
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
-          git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv
-          if ! git diff --cached --quiet; then
-            git commit -m "Update candidate quarantine report"
-            for attempt in 1 2 3 4 5; do
-              if git push origin HEAD:main; then
-                exit 0
-              fi
-              echo "Kayit cakismasi; uzaktaki degisiklikler aliniyor ($attempt/5)"
-              git fetch origin main
-              if ! git rebase origin/main; then
-                git rebase --abort || true
-                echo "Otomatik birlestirme basarisiz; rapor artefakt olarak saklandi."
-                exit 1
-              fi
-              sleep $((attempt * 3))
+          mkdir -p /tmp/aday-raporlar
+          for f in aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv; do
+            if [ -f "$f" ]; then
+              cp "$f" "/tmp/aday-raporlar/$(basename "$f")"
+            fi
+          done
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            for f in /tmp/aday-raporlar/*; do
+              [ -f "$f" ] || continue
+              cp "$f" "aday_bekletme/$(basename "$f")"
             done
-            echo "Bes denemeden sonra GitHub kaydi yapilamadi."
-            exit 1
-          fi
+            git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv
+            if git diff --cached --quiet; then
+              echo "Raporlarda yeni degisiklik yok."
+              exit 0
+            fi
+            git commit -m "Update candidate quarantine report"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Kayit cakismasi: son depo durumu ile tekrar deneniyor ($attempt/5)"
+            sleep $((attempt * 3))
+          done
+          echo "Rapor GitHub'a kaydedilemedi; Actions artefakti saklandi."
+          exit 1
