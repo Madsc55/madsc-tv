@@ -1,17 +1,16 @@
 {
-  "zaman": "2026-10-10T22:54:12.064273+00:00",
+  "zaman": "2026-10-10T22:57:30.713793+00:00",
   "ana_liste": 629,
   "kaynaklar": {
     "iptv-org-TR": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u",
-    "iptv-org-TR2": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr_int.m3u"
+    "iptv-org-TURKIYE": "https://iptv-org.github.io/iptv/countries/tr.m3u"
   },
-  "bulunan": 215,
-  "tekrar": 215,
-  "aday": 0,
-  "test_edilen": 0,
-  "teknik_gecen": 0,
-  "hatalar": [
-    "iptv-org-TR2: HTTP Error 404: Not Found"
-  ],
+  "bulunan": 389,
+  "tekrar": 384,
+  "aday": 5,
+  "test_edilen": 5,
+  "teknik_gecen": 2,
+  "alternatif": 0,
+  "hatalar": [],
   "notlar": "Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir."
 }
