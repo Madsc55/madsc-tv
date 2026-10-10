@@ -1,37 +1,37 @@
 {
-  "generated_utc": "2026-10-09T22:20:38.442733+00:00",
-  "playlist_entries": 597,
-  "matched_entries": 474,
-  "unmatched_entries": 123,
+  "generated_utc": "2026-10-10T09:59:06.958339+00:00",
+  "playlist_entries": 968,
+  "matched_entries": 714,
+  "unmatched_entries": 254,
   "ambiguous_entries": 0,
-  "programmes": 10474,
-  "usable_playlist_entries": 407,
-  "epg_bytes": 3492958,
+  "programmes": 54164,
+  "usable_playlist_entries": 423,
+  "epg_bytes": 18829471,
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/trology85/iptv-epg-turkey/main/epg/turksat_epg.xml.gz",
       "status": "ok",
-      "programmes": 7422
+      "programmes": 7362
     },
     {
       "url": "https://epgshare01.online/epgshare01/epg_ripper_TR1.xml.gz",
       "status": "ok",
-      "programmes": 15250
+      "programmes": 15257
     },
     {
       "url": "https://epgshare01.online/epgshare01/epg_ripper_TR3.xml.gz",
       "status": "ok",
-      "programmes": 33479
+      "programmes": 32560
     },
     {
       "url": "https://www.open-epg.com/files/turkey1.xml.gz",
       "status": "ok",
-      "programmes": 7141
+      "programmes": 7928
     },
     {
       "url": "https://www.open-epg.com/files/turkey2.xml.gz",
       "status": "ok",
-      "programmes": 6688
+      "programmes": 8428
     }
   ],
   "unmatched": [
@@ -637,8 +637,663 @@
     },
     {
       "id": "",
+      "name": "BRÜKSEL TÜRK",
+      "display": "BRÜKSEL TÜRK"
+    },
+    {
+      "id": "",
+      "name": "KONYA KTV",
+      "display": "KONYA KTV"
+    },
+    {
+      "id": "",
+      "name": "TORBA TV",
+      "display": "TORBA TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "SIFIR TV",
+      "display": "SIFIR TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "GS TV",
+      "display": "GS TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TOPRAK TV",
+      "display": "TOPRAK TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "ON4 TV",
+      "display": "ON4 TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KANAL URFA",
+      "display": "KANAL URFA 404P"
+    },
+    {
+      "id": "",
+      "name": "KANAL URFA",
+      "display": "KANAL URFA KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "GENÇ TV",
+      "display": "GENÇ TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "SHOW MAX",
+      "display": "SHOW MAX KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "SHOW MAX",
+      "display": "SHOW MAX KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KOCAELİ TV",
+      "display": "KOCAELİ TV 1080P FHD"
+    },
+    {
+      "id": "",
+      "name": "KRAL TV",
+      "display": "KRAL TV 1080P FHD"
+    },
+    {
+      "id": "",
+      "name": "TRAKYA TÜRK TV",
+      "display": "TRAKYA TÜRK TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "BERAT TV",
+      "display": "BERAT TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "AYAZ TV",
+      "display": "AYAZ TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "GRT",
+      "display": "GRT KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "DİYAR TV",
+      "display": "DİYAR TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "HUNAT TV",
+      "display": "HUNAT TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KANAL 19 ÇORUM",
+      "display": "KANAL 19 ÇORUM 720P HD"
+    },
+    {
+      "id": "",
+      "name": "KANAL 34 İSTANBUL",
+      "display": "KANAL 34 İSTANBUL 720P HD"
+    },
+    {
+      "id": "",
+      "name": "GONCA TV",
+      "display": "GONCA TV 720P HD"
+    },
+    {
+      "id": "",
+      "name": "KARDELEN TV",
+      "display": "KARDELEN TV 720P HD"
+    },
+    {
+      "id": "",
+      "name": "MAVİ KARADENİZ",
+      "display": "MAVİ KARADENİZ KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "MTÜRK TV",
+      "display": "MTÜRK TV 720P HD"
+    },
+    {
+      "id": "",
+      "name": "ÖNCÜ TV",
+      "display": "ÖNCÜ TV 720P HD"
+    },
+    {
+      "id": "",
+      "name": "KANAL S SAMSUN",
+      "display": "KANAL S SAMSUN KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KANAL S SAMSUN",
+      "display": "KANAL S SAMSUN KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "SAMSUN HABER TV",
+      "display": "SAMSUN HABER TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "SAMSUN HABER TV",
+      "display": "SAMSUN HABER TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "CAN TV",
+      "display": "CAN TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "CAN TV",
+      "display": "CAN TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "CAN TV",
+      "display": "CAN TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TEK RUMELİ TV",
+      "display": "TEK RUMELİ TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TGRT EU",
+      "display": "TGRT EU KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TGRT EU",
+      "display": "TGRT EU KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TJK TV 2",
+      "display": "TJK TV 2 KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TJK TV 2",
+      "display": "TJK TV 2 KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TGRT BELGESEL",
+      "display": "TGRT BELGESEL KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "LALEGÜL TV",
+      "display": "LALEGÜL TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "LALEGÜL TV",
+      "display": "LALEGÜL TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "LALEGÜL TV",
+      "display": "LALEGÜL TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "LALEGÜL TV",
+      "display": "LALEGÜL TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KRAL POP TV",
+      "display": "KRAL POP TV 1080P FHD"
+    },
+    {
+      "id": "",
+      "name": "KRAL POP TV",
+      "display": "KRAL POP TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KRAL POP TV",
+      "display": "KRAL POP TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "POWER TÜRK TV",
+      "display": "POWER TÜRK TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "POWER DANCE",
+      "display": "POWER DANCE KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "POWER LOVE",
+      "display": "POWER LOVE KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "ATV AVRUPA",
+      "display": "ATV AVRUPA KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "ATV AVRUPA",
+      "display": "ATV AVRUPA KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "ATV AVRUPA",
+      "display": "ATV AVRUPA KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "EUROSTAR",
+      "display": "EUROSTAR KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "EUROSTAR",
+      "display": "EUROSTAR KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "EUROSTAR",
+      "display": "EUROSTAR KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "TBMM TV",
+      "display": "TBMM TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "KANAL AVRUPA",
+      "display": "KANAL AVRUPA KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "ADA TV",
+      "display": "ADA TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "SUN RTV",
+      "display": "SUN RTV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
+      "name": "FORTUNA TV",
+      "display": "FORTUNA TV 1080P FHD"
+    },
+    {
+      "id": "",
+      "name": "KENT TÜRK TV",
+      "display": "KENT TÜRK TV KALİTE BELİRSİZ"
+    },
+    {
+      "id": "",
       "name": "DHA CANLI",
       "display": "DHA CANLI 720P HD"
+    },
+    {
+      "id": "4UTV.tr@SD",
+      "name": "4U TV (720p)",
+      "display": "4U TV (720p)"
+    },
+    {
+      "id": "AfroturkTV.tr@SD",
+      "name": "Afroturk TV (1080p)",
+      "display": "Afroturk TV (1080p)"
+    },
+    {
+      "id": "AlZahraTVTurkic.tr@SD",
+      "name": "Al-Zahra TV Turkic (720p) [Not 24/7]",
+      "display": "Al-Zahra TV Turkic (720p) [Not 24/7]"
+    },
+    {
+      "id": "AlmahriahTV.tr@SD",
+      "name": "Almahriah TV (576p)",
+      "display": "Almahriah TV (576p)"
+    },
+    {
+      "id": "ATVAlanya.tr@SD",
+      "name": "ATV Alanya (720p) [Not 24/7]",
+      "display": "ATV Alanya (720p) [Not 24/7]"
+    },
+    {
+      "id": "BRTV.tr@SD",
+      "name": "BRTV (720p) [Geo-blocked]",
+      "display": "BRTV (720p) [Geo-blocked]"
+    },
+    {
+      "id": "ASTV.tr@SD",
+      "name": "Bursa AS TV (720p) [Geo-blocked]",
+      "display": "Bursa AS TV (720p) [Geo-blocked]"
+    },
+    {
+      "id": "BursaTV.tr@SD",
+      "name": "Bursa TV (720p) [Not 24/7]",
+      "display": "Bursa TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "CekmekoyTV.tr@SD",
+      "name": "Cekmeköy TV (1080p)",
+      "display": "Cekmeköy TV (1080p)"
+    },
+    {
+      "id": "DenizPostasiTV.tr@SD",
+      "name": "Deniz Postası TV (720p) [Not 24/7]",
+      "display": "Deniz Postası TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "DisneyJr.tr@SD",
+      "name": "Disney Jr. (1080p) [Geo-blocked]",
+      "display": "Disney Jr. (1080p) [Geo-blocked]"
+    },
+    {
+      "id": "DiyarTV.tr@SD",
+      "name": "Diyar TV (720p)",
+      "display": "Diyar TV (720p)"
+    },
+    {
+      "id": "EdessaTV.tr@SD",
+      "name": "Edessa TV (1080p)",
+      "display": "Edessa TV (1080p)"
+    },
+    {
+      "id": "Haber61TV.tr@SD",
+      "name": "Haber61 TV (720p) [Not 24/7]",
+      "display": "Haber61 TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "Haber61TV.tr@SD",
+      "name": "Haber61 TV (720p) [Not 24/7]",
+      "display": "Haber61 TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "HunatTV.tr@SD",
+      "name": "Hunat TV (720p) [Geo-blocked]",
+      "display": "Hunat TV (720p) [Geo-blocked]"
+    },
+    {
+      "id": "Kanal34.tr@SD",
+      "name": "Kanal 34 (720p) [Not 24/7]",
+      "display": "Kanal 34 (720p) [Not 24/7]"
+    },
+    {
+      "id": "KanalDDrama.tr@SD",
+      "name": "Kanal D Drama (1080p)",
+      "display": "Kanal D Drama (1080p)"
+    },
+    {
+      "id": "KanalDDrama.tr@SD",
+      "name": "Kanal D Drama (1080p)",
+      "display": "Kanal D Drama (1080p)"
+    },
+    {
+      "id": "KanalDDrama.tr@SD",
+      "name": "Kanal D Drama (1080p)",
+      "display": "Kanal D Drama (1080p)"
+    },
+    {
+      "id": "KanalDDrama.tr@SD",
+      "name": "Kanal D Drama (1080p)",
+      "display": "Kanal D Drama (1080p)"
+    },
+    {
+      "id": "LuysTV.tr@SD",
+      "name": "Luys TV (1080p)",
+      "display": "Luys TV (1080p)"
+    },
+    {
+      "id": "MedMuzik.tr@SD",
+      "name": "Med Muzik (1080p)",
+      "display": "Med Muzik (1080p)"
+    },
+    {
+      "id": "MekameleenTV.tr@SD",
+      "name": "Mekameleen TV (1080p)",
+      "display": "Mekameleen TV (1080p)"
+    },
+    {
+      "id": "MovieSmartTurk.tr@SD",
+      "name": "MovieSmart Turk (576p)",
+      "display": "MovieSmart Turk (576p)"
+    },
+    {
+      "id": "NationalGeographic.tr@SD",
+      "name": "National Geographic (1080p) [Geo-blocked]",
+      "display": "National Geographic (1080p) [Geo-blocked]"
+    },
+    {
+      "id": "NationalGeographicWild.tr@SD",
+      "name": "National Geographic Wild (1080p) [Geo-blocked]",
+      "display": "National Geographic Wild (1080p) [Geo-blocked]"
+    },
+    {
+      "id": "NaturalTV.tr@SD",
+      "name": "Natural TV (720p) [Not 24/7]",
+      "display": "Natural TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "NOWTV.tr@SD",
+      "name": "NOW TV",
+      "display": "NOW TV"
+    },
+    {
+      "id": "PowerTurkTV.tr@SD",
+      "name": "Power Turk (720p) [Not 24/7]",
+      "display": "Power Turk (720p) [Not 24/7]"
+    },
+    {
+      "id": "QafTV.tr@SD",
+      "name": "Qaf TV (1080p)",
+      "display": "Qaf TV (1080p)"
+    },
+    {
+      "id": "TRTArabi.tr@SD",
+      "name": "TRT Arabi (1080p) [Not 24/7]",
+      "display": "TRT Arabi (1080p) [Not 24/7]"
+    },
+    {
+      "id": "TRTEBAIlkokul.tr@SD",
+      "name": "TRT EBA Ilkokul (720p)",
+      "display": "TRT EBA Ilkokul (720p)"
+    },
+    {
+      "id": "TRTEBALise.tr@SD",
+      "name": "TRT EBA Lise (720p)",
+      "display": "TRT EBA Lise (720p)"
+    },
+    {
+      "id": "TRTSporYildiz.tr@SD",
+      "name": "TRT Spor Yildiz (1440p) [Geo-blocked]",
+      "display": "TRT Spor Yildiz (1440p) [Geo-blocked]"
+    },
+    {
+      "id": "TV8.tr@SD",
+      "name": "TV 8 (1080p) [Not 24/7]",
+      "display": "TV 8 (1080p) [Not 24/7]"
+    },
+    {
+      "id": "TV41.tr@SD",
+      "name": "TV 41 (720p) [Not 24/7]",
+      "display": "TV 41 (720p) [Not 24/7]"
+    },
+    {
+      "id": "beINBoxOffice1.tr@SD",
+      "name": "beIN Box Office 1",
+      "display": "beIN Box Office 1"
+    },
+    {
+      "id": "beINBoxOffice2.tr@SD",
+      "name": "beIN Box Office 2",
+      "display": "beIN Box Office 2"
+    },
+    {
+      "id": "beINBoxOffice3.tr@SD",
+      "name": "beIN Box Office 3",
+      "display": "beIN Box Office 3"
+    },
+    {
+      "id": "ShowTurk.tr@SD",
+      "name": "Show Turk (1080p)",
+      "display": "Show Turk (1080p)"
+    },
+    {
+      "id": "",
+      "name": "NUMBER ONE TÜRK",
+      "display": "NUMBER ONE TÜRK"
+    },
+    {
+      "id": "BeyazTV.tr@SD",
+      "name": "Beyaz TV (720p) [Not 24/7]",
+      "display": "Beyaz TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "FortunaTV.tr@SD",
+      "name": "Fortuna TV (720p)",
+      "display": "Fortuna TV (720p)"
+    },
+    {
+      "id": "HunatTV.tr@SD",
+      "name": "Hunat TV (480p) [Not 24/7]",
+      "display": "Hunat TV (480p) [Not 24/7]"
+    },
+    {
+      "id": "Kanal3.tr@SD",
+      "name": "Kanal 3 (1080p) [Not 24/7]",
+      "display": "Kanal 3 (1080p) [Not 24/7]"
+    },
+    {
+      "id": "Kanal3.tr@SD",
+      "name": "Kanal 3 (720p) [Not 24/7]",
+      "display": "Kanal 3 (720p) [Not 24/7]"
+    },
+    {
+      "id": "Kanal3.tr@SD",
+      "name": "Kanal 3 (720p) [Not 24/7]",
+      "display": "Kanal 3 (720p) [Not 24/7]"
+    },
+    {
+      "id": "Kanal7.tr@SD",
+      "name": "Kanal 7 (1080p) [Not 24/7]",
+      "display": "Kanal 7 (1080p) [Not 24/7]"
+    },
+    {
+      "id": "KentTurk.tr@SD",
+      "name": "Kent Türk TV (720p) [Not 24/7]",
+      "display": "Kent Türk TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "LalegulTV.tr@SD",
+      "name": "Lalegül TV (720p) [Not 24/7]",
+      "display": "Lalegül TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "LalegulTV.tr@SD",
+      "name": "Lalegül TV (720p) [Not 24/7]",
+      "display": "Lalegül TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "MTurkTV.tr@SD",
+      "name": "MTürk TV (1080p)",
+      "display": "MTürk TV (1080p)"
+    },
+    {
+      "id": "On4TV.tr@SD",
+      "name": "On4 TV (1080p)",
+      "display": "On4 TV (1080p)"
+    },
+    {
+      "id": "SunRTV.tr@SD",
+      "name": "Sun RTV (720p) [Not 24/7]",
+      "display": "Sun RTV (720p) [Not 24/7]"
+    },
+    {
+      "id": "TGRTHaber.tr@SD",
+      "name": "TGRT Haber (360p) [Not 24/7]",
+      "display": "TGRT Haber (360p) [Not 24/7]"
+    },
+    {
+      "id": "TJKTV2.tr@SD",
+      "name": "TJK TV 2 (1080p) [Not 24/7]",
+      "display": "TJK TV 2 (1080p) [Not 24/7]"
+    },
+    {
+      "id": "",
+      "name": "Torba TV (720p) [Not 24/7]",
+      "display": "Torba TV (720p) [Not 24/7]"
+    },
+    {
+      "id": "TRT2.tr@SD",
+      "name": "TRT 2 (1440p) [Geo-blocked]",
+      "display": "TRT 2 (1440p) [Geo-blocked]"
+    },
+    {
+      "id": "TV41.tr@SD",
+      "name": "TV 41 (720p) [Not 24/7]",
+      "display": "TV 41 (720p) [Not 24/7]"
+    },
+    {
+      "id": "TV41.tr@SD",
+      "name": "TV 41 (720p) [Not 24/7]",
+      "display": "TV 41 (720p) [Not 24/7]"
+    },
+    {
+      "id": "ATVAvrupa.tr@SD",
+      "name": "ATV Avrupa (576p)",
+      "display": "ATV Avrupa (576p)"
+    },
+    {
+      "id": "TRTWorld.tr@SD",
+      "name": "TRT World (576p)",
+      "display": "TRT World (576p)"
+    },
+    {
+      "id": "",
+      "name": "SHOW MAX",
+      "display": "SHOW MAX"
+    },
+    {
+      "id": "",
+      "name": "MECLİS TV",
+      "display": "MECLİS TV"
+    },
+    {
+      "id": "",
+      "name": "ORDU BEL TV",
+      "display": "ORDU BEL TV"
+    },
+    {
+      "id": "",
+      "name": "HABER61 TV",
+      "display": "HABER61 TV"
+    },
+    {
+      "id": "",
+      "name": "BALKAN TÜRK",
+      "display": "BALKAN TÜRK"
+    },
+    {
+      "id": "",
+      "name": "GURME TV",
+      "display": "GURME TV"
     },
     {
       "id": "",
