@@ -1,0 +1,29 @@
+name: "35 - Kalan Otomasyon Yazma Kapisi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-35-remaining-write-gate.yml"
+      - ".github/workflows/aday-bekletme.yml"
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Confirm quarantine has no repository write capability
+        run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          s=Path(".github/workflows/aday-bekletme.yml").read_text(encoding="utf-8")
+          for p in (r"contents:\s*write",r"\bgit\s+(?:push|commit|reset)\b"):
+              assert not re.search(p,s,re.I),f"Unsafe quarantine workflow: {p}"
+          assert "actions/upload-artifact@v4" in s
+          assert "persist-credentials: false" in s
+          print("SAFE: candidate quarantine is artifact-only and read-only")
+          PY
