@@ -25,7 +25,7 @@ def read_m3u(path):
         if line.startswith("#EXTINF:"):
             meta = line
         elif meta and line.startswith(("https://", "http://")):
-            entries.append((meta.rsplit(",", 1)[-1], line))
+            entries.append((meta.rsplit(",", 1)[-1], line, meta))
             meta = None
     return entries
 
@@ -34,11 +34,11 @@ def clean(value):
 
 def build(report_paths):
     existing = read_m3u(MAIN)
-    main_names = {norm(n) for n, _ in existing}
-    main_urls = {u for _, u in existing}
+    main_names = {norm(n) for n, _, _ in existing}
+    main_urls = {u for _, u, _ in existing}
     old = read_m3u(OUTPUT)
-    used_names = {norm(n) for n, _ in old}
-    used_urls = {u for _, u in old}
+    used_names = {norm(n) for n, _, _ in old}
+    used_urls = {u for _, u, _ in old}
     additions = []
     for report in report_paths:
         with open(report, encoding="utf-8-sig", newline="") as f:
@@ -62,8 +62,8 @@ def build(report_paths):
                 used_names.add(key)
                 used_urls.add(url)
     lines = ["#EXTM3U"]
-    for name, url in old:
-        lines += [f'#EXTINF:-1 group-title="YENILER",{clean(name)}', url]
+    for name, url, meta in old:
+        lines += [meta, url]
     for meta, url in additions:
         lines += [meta, url]
     OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
