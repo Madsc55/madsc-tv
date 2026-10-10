@@ -1,0 +1,36 @@
+name: "34 - Bes Otomasyon Guvenlik Regresyonu"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-34-protected-write-regression.yml"
+      - ".github/workflows/390-aday-tekrar-test.yml"
+      - ".github/workflows/ibo-yedek-kalite.yml"
+      - ".github/workflows/sozcu-akit-ozel-test.yml"
+      - ".github/workflows/test-kanal-adaylari.yml"
+      - ".github/workflows/yeniler-guvenli-arama.yml"
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify no automatic protected writes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          names=["390-aday-tekrar-test.yml","ibo-yedek-kalite.yml","sozcu-akit-ozel-test.yml","test-kanal-adaylari.yml","yeniler-guvenli-arama.yml"]
+          for name in names:
+              path=Path(".github/workflows")/name
+              source=path.read_text(encoding="utf-8")
+              forbidden=[r"contents:\s*write",r"\bgit\s+(?:push|commit)\b",r"\byenilere-aktar:"]
+              for pattern in forbidden:
+                  if re.search(pattern,source,re.I):
+                      raise SystemExit(f"UNSAFE: {name} contains {pattern}")
+              print("SAFE:",name)
+          PY
