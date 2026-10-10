@@ -6,13 +6,15 @@ on:
       - 'yedekler/ibo_yedek_kalite_tespit.py'
       - '.github/workflows/ibo-yedek-kalite.yml'
 permissions:
-  contents: write
+  contents: read
 jobs:
   quality:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install ffprobe
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Measure backup streams
@@ -24,10 +26,3 @@ jobs:
           name: ibo-yedek-kalite
           path: yedekler/IBO_YEDEK_KALITE_RAPORU_2026-10-09.csv
           if-no-files-found: warn
-      - name: Commit only backup display names and report
-        if: success()
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@users.noreply.github.com
-          git add CALISANLAR.m3u yedekler/IBO_YEDEK_KALITE_RAPORU_2026-10-09.csv
-          git diff --cached --quiet || (git commit -m "Annotate measured quality of IBO backup streams" && git push)
