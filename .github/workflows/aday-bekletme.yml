@@ -21,6 +21,8 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Scan candidates without modifying playlists
         run: python3 yeni_kanal_tara.py
+      - name: Report duplicate candidate URLs
+        run: python3 aday_tekrar_raporu.py
       - name: Decode promising streams for up to 20 seconds
         run: python3 gelismis_medya_testi.py
       - name: Update quarantine from fresh scan
@@ -40,6 +42,7 @@ jobs:
             aday_bekletme/gecmis.json
             aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv
             aday_bekletme/GELISMIS_MEDYA_TESTI.csv
+            aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv
       - name: Commit quarantine reports only
         if: success()
         shell: bash
