@@ -4,10 +4,28 @@ import csv
 import json
 import os
 from pathlib import Path
-from yeni_kanal_tara import hls_probe, ffprobe_stream
+# Import only scanner helper definitions, without executing its full scan.
+import ast
+import subprocess
+import time
+import urllib.request
+import urllib.parse
+
+def load_probes():
+    source = Path("yeni_kanal_tara.py").read_text(encoding="utf-8")
+    tree = ast.parse(source)
+    names = {"fetch", "hls_probe", "ffprobe_stream"}
+    nodes = [node for node in tree.body if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name in names]
+    module = ast.Module(body=nodes, type_ignores=[])
+    namespace = {"json": json, "subprocess": subprocess, "time": time,
+                 "urllib": urllib, "HEADERS": {"User-Agent": "Mozilla/5.0 MADSC-TV-Scanner/2.0"}}
+    exec(compile(module, "yeni_kanal_tara.py", "exec"), namespace)
+    return namespace["hls_probe"], namespace["ffprobe_stream"]
+
+hls_probe, ffprobe_stream = load_probes()
 
 STATE = Path("aday_bekletme/gecmis.json")
-OUT = Path("aday_bekletme/ALТINCI_TEKRAR_TEST.csv".replace("Т", "T"))
+OUT = Path("aday_bekletme/ALTINCI_TEKRAR_TEST.csv")
 FIELDS = ["KANAL", "YAYIN_URL", "KAYNAK", "ONCEKI_DURUM", "TEKNIK_TEST", "MEDYA_TEST", "SON_DURUM", "ACIKLAMA"]
 
 def eligible(record):
