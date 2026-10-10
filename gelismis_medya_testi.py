@@ -29,7 +29,7 @@ def check(row):
                 "20SN_MEDYA_COZUMLEME_GECTI_KIMLIK_BEKLIYOR" if both else "MEDYA_BILESENI_BELIRSIZ",
                 "20 saniyelik cozumleme tamamlandi; kanal kimligi ve yayin hakki dogrulanmadi"]
     except subprocess.TimeoutExpired:
-        return ["BELIRSIZ","BELIRSIZ","ZAMAN_ASIMI","65 saniye zaman asimi"]
+        return ["BELIRSIZ","BELIRSIZ","TEKRAR_TEST_BEKLIYOR","65 saniye zaman asimi; yayin bozuk sayilmadi, sonraki taramada yeniden denenecek"]
     except Exception as exc:
         return ["BELIRSIZ","BELIRSIZ","DOGRULANAMADI",str(exc)[:200]]
 
