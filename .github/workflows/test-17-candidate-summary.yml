@@ -1,0 +1,40 @@
+name: "17 - Candidate Status Summary Test"
+on:
+  push:
+    paths:
+      - 'tools/candidate_status_summary.py'
+      - '.github/workflows/test-17-candidate-summary.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate-summary-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test five status groups and unknown handling
+        run: |
+          python - <<'PY'
+          from tools.candidate_status_summary import summarize, load
+          import json, tempfile
+          from pathlib import Path
+          rows=[{"status":"new"},{"status":"verified"},{"status":"quarantine"},
+                {"status":"broken"},{"status":"identity_pending"},{"status":"yeni"},
+                {"status":"unrecognized"}]
+          expected={"total":7,"new":2,"verified":1,"quarantine":1,
+                    "broken":1,"identity_pending":1,"unknown":1}
+          assert summarize(rows)==expected
+          assert summarize([])["total"]==0
+          with tempfile.TemporaryDirectory() as d:
+              p=Path(d)/"candidates.json"
+              p.write_text(json.dumps({"candidates":rows}),encoding="utf-8")
+              assert summarize(load(p))==expected
+              p=Path(d)/"candidates.csv"
+              p.write_text("status\\nnew\\nverified\\n",encoding="utf-8")
+              assert summarize(load(p))["total"]==2
+          print("17. test passed")
+          PY
