@@ -10,7 +10,7 @@ on:
       - '.github/commands/genel-guncelleme.txt'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   kaynak-kesfi:
@@ -66,3 +66,35 @@ jobs:
             KAYNAK_KESIF_HATALARI.txt
           if-no-files-found: error
           retention-days: 30
+
+  yenilere-aktar:
+    needs: yeni-kanal-tara
+    if: ${{ always() && needs.yeni-kanal-tara.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: madsc-yeniler-import
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Download all scan reports
+        uses: actions/download-artifact@v4
+        with:
+          pattern: YENILER-KANAL-ADAYLARI-GRUP-*
+          path: /tmp/madsc-yeniler-reports
+          merge-multiple: false
+      - name: Import only technically passing distinct new candidates into YENILER
+        run: |
+          python3 scripts/yeniler_aktar.py /tmp/madsc-yeniler-reports/*/YENILER_TARAMA_RAPORU.csv
+      - name: Commit only YENILER playlist
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add YENILER.m3u
+          if ! git diff --cached --quiet; then
+            git commit -m "Update isolated YENILER technically tested candidates"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
