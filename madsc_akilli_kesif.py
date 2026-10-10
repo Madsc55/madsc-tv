@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """MADSC unified read-only IPTV candidate scanner."""
-import csv,json,re,urllib.request,urllib.parse,subprocess,concurrent.futures,datetime,pathlib,os
+import csv,json,re,urllib.request,urllib.parse,subprocess,concurrent.futures,datetime,pathlib,os,time
 OUT=pathlib.Path("madsc_kesif"); OUT.mkdir(exist_ok=True)
-SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TR2":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr_int.m3u"}
+SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TURKIYE":"https://iptv-org.github.io/iptv/countries/tr.m3u"}
 def parse(s):
  lines=s.splitlines(); out=[]
  for i,line in enumerate(lines):
@@ -36,7 +36,7 @@ def logo(u):
    return "VAR" if r.status<400 and r.headers.get("Content-Type","").startswith("image/") else "BELIRSIZ"
  except Exception:return "DOGRULANAMADI"
 def test(x):
- a=probe(x["url"]);b=probe(x["url"]);l=logo(x["logo"]);ok=all(a[:2]) and all(b[:2])
+ a=probe(x["url"]);time.sleep(3);b=probe(x["url"]);l=logo(x["logo"]);ok=all(a[:2]) and all(b[:2])
  return dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="TEKNIK_GECTI_ONAY_BEKLIYOR" if ok else "TEKRAR_TEST_BEKLIYOR",puan=30+int(ok)*40+int(l=="VAR")*15+int(bool(x["id"]))*15,video=bool(a[0] and b[0]),ses=bool(a[1] and b[1]),cozunurluk=b[2],logo=l,ulke="ISVEC_DOGRULANMADI",test1=str(a),test2=str(b))
 def write(file,rows,fields):
  with (OUT/file).open("w",encoding="utf-8-sig",newline="") as f:
@@ -47,8 +47,9 @@ def main():
   if pathlib.Path(f).exists():base+=parse(pathlib.Path(f).read_text(encoding="utf-8-sig"))
  known={key(x["url"]) for x in base};ids={x["id"].lower() for x in base if x["id"]};names={name(x["name"]) for x in base}
  state=OUT/"gecmis.json"
- try:history=set(json.loads(state.read_text()).get("tested",[]))
- except Exception:history=set()
+ try:history=json.loads(state.read_text()).get("history",{})
+ except Exception:history={}
+ if not isinstance(history,dict):history={}
  found=[];errors=[]
  for src,url in SOURCES.items():
   try:
@@ -58,17 +59,31 @@ def main():
  pending=[];duplicates=[];seen=set()
  for x in found:
   k=key(x["url"])
-  why="AYNI_URL" if k in known else "AYNI_TARAMA" if k in seen else "GECMISTE_TEST_EDILDI" if k in history else "AYNI_KANAL_KIMLIGI" if x["id"] and x["id"].lower() in ids else "AYNI_KANAL_ADI" if name(x["name"]) in names else ""
+  why="AYNI_URL" if k in known else "AYNI_TARAMA" if k in seen else "AYNI_KANAL_KIMLIGI" if x["id"] and x["id"].lower() in ids else ""
   if why:duplicates.append(dict(kanal=x["name"],url=x["url"],neden=why))
   else:seen.add(k);pending.append(x)
  limit=30
+ pending.sort(key=lambda x:(history.get(key(x["url"]),{}).get("last_test",""),x["name"]))
  with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:rows=list(ex.map(test,pending[:limit]))
  for x in pending[limit:]:rows.append(dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="SONRAKI_TEST_BEKLIYOR",puan=0,video="",ses="",cozunurluk="",logo="",ulke="ISVEC_DOGRULANMADI",test1="",test2=""))
  rows.sort(key=lambda r:(-r["puan"],r["kanal"]))
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
  write("tekrarlar.csv",duplicates,["kanal","url","neden"])
- state.write_text(json.dumps({"tested":sorted(history|{key(x["url"]) for x in pending[:limit]})},ensure_ascii=False,indent=2))
- summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR" for x in rows),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
+ alternatives=[dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="MEVCUT_KANAL_ICIN_ALTERNATIF_ONAY_BEKLIYOR") for x in pending if name(x["name"]) in names]
+ write("alternatifler.csv",alternatives,["kanal","url","kaynak","durum"])
+ now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ for row in rows:
+  if row["durum"]=="SONRAKI_TEST_BEKLIYOR":continue
+  k=key(row["url"]);prev=history.get(k,{})
+  prev["first_seen"]=prev.get("first_seen",now);prev["last_test"]=now
+  prev["runs"]=int(prev.get("runs",0))+1
+  prev["successful_runs"]=int(prev.get("successful_runs",0))+(row["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR")
+  prev["channel"]=row["kanal"];prev["url"]=row["url"]
+  row["durum"]="FARKLI_ZAMANLARDA_TEKRAR_DOGRULANDI_ONAY_BEKLIYOR" if prev["successful_runs"]>=2 and row["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR" else row["durum"]
+  history[k]=prev
+ write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
+ state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
+ summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum("DOGRULANDI" in x["durum"] or x["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
  print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
