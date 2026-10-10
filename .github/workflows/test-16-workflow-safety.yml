@@ -1,0 +1,46 @@
+name: "16 - Workflow Safety Test"
+on:
+  push:
+    paths:
+      - 'tools/workflow_safety.py'
+      - '.github/workflows/test-16-workflow-safety.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: safety-16-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  safety-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check masked URLs and bounded retries
+        timeout-minutes: 2
+        run: |
+          python - <<'PY'
+          from tools.workflow_safety import redact, bounded_retry
+          value = redact("https://user:pass@example.org/live?token=abc&channel=1&api_key=xyz#secret")
+          assert "abc" not in value and "xyz" not in value and "user" not in value and "pass@" not in value
+          assert "channel=1" in value and "[REDACTED]" in value
+          assert "secret123" not in redact("Bearer secret123")
+          assert "secret123" not in redact("password=secret123")
+          calls = []
+          def flaky():
+              calls.append(1)
+              if len(calls) < 3:
+                  raise TimeoutError()
+              return "ok"
+          assert bounded_retry(flaky, attempts=3, delay_seconds=0, sleep=lambda _: None) == "ok"
+          assert len(calls) == 3
+          try:
+              bounded_retry(lambda: (_ for _ in ()).throw(TimeoutError()), attempts=2, delay_seconds=0, sleep=lambda _: None)
+              raise AssertionError("should raise")
+          except TimeoutError:
+              pass
+          print("16. test passed")
+          PY
