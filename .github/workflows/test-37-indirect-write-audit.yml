@@ -1,0 +1,55 @@
+name: "37 - Python Dolayli Yazma Risk Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-37-indirect-write-audit.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Audit Python scripts invoked by workflows
+        run: |
+          python3 - <<'PY'
+          import json,re
+          from pathlib import Path
+          workflows=Path(".github/workflows")
+          protected=("CALISANLAR.m3u","YENILER.m3u")
+          result={"workflow_count":0,"scripts_checked":[],"missing_scripts":[],"potential_indirect_writes":[],"notes":["Static detection; flagged writes need manual verification","EPG and VOD scripts may legitimately write their own output files"]}
+          seen=set()
+          for p in sorted(workflows.glob("*.yml")):
+              result["workflow_count"]+=1
+              text=p.read_text(encoding="utf-8-sig")
+              scripts=re.findall(r"\bpython(?:3)?\s+(?:-u\s+)?([\w./-]+\.py)\b",text)
+              for name in scripts:
+                  if name in seen:continue
+                  seen.add(name)
+                  script=Path(name)
+                  if not script.exists():
+                      result["missing_scripts"].append({"workflow":str(p),"script":name})
+                      continue
+                  source=script.read_text(encoding="utf-8-sig",errors="replace")
+                  result["scripts_checked"].append(name)
+                  for line_no,line in enumerate(source.splitlines(),1):
+                      if any(x in line for x in protected) and re.search(r"write_text|write_bytes|open\(|Path\(|rename\(|replace\(|shutil|\.write\(",line):
+                          result["potential_indirect_writes"].append({"script":name,"line":line_no,"code":line.strip()[:180],"severity":"PROTECTED_REFERENCE"})
+                      elif re.search(r"subprocess|os\.system",line) and re.search(r"git|push|commit",line,re.I):
+                          result["potential_indirect_writes"].append({"script":name,"line":line_no,"code":line.strip()[:180],"severity":"GIT_COMMAND"})
+          result["scripts_checked_count"]=len(result["scripts_checked"])
+          result["status"]="REVIEW_REQUIRED" if result["potential_indirect_writes"] or result["missing_scripts"] else "NO_MATCHES_FOUND"
+          Path("indirect-write-audit-37.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(result,ensure_ascii=False,indent=2))
+          PY
+      - name: Save audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-37-DOLAYLI-YAZMA-DENETIMI
+          path: indirect-write-audit-37.json
+          if-no-files-found: error
