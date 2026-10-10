@@ -22,7 +22,7 @@ class SchedulerTest(unittest.TestCase):
                     "name": "Not due", "last_seen": "2099-01-01T00:00:00+00:00",
                     "successful_runs": [], "technical": "HATA", "media": "YOK"}
             }), encoding="utf-8")
-            with patch.object(retry, "STATE", state), patch.object(retry, "OUT", output), \\
+            with patch.object(retry, "STATE", state), patch.object(retry, "OUT", output), \
                  patch.object(retry, "check", return_value=["Due", "https://example.org/due.m3u8", "", "", "", "", "", ""]) as probe:
                 retry.main()
                 self.assertEqual(probe.call_count, 1)
