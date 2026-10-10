@@ -15,6 +15,8 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Scan candidates without modifying playlists
         run: python3 yeni_kanal_tara.py
+      - name: Decode promising streams for up to 20 seconds
+        run: python3 gelismis_medya_testi.py
       - name: Update quarantine from fresh scan
         run: python3 aday_bekletme.py
       - name: Score source reliability without modifying playlists
@@ -31,10 +33,11 @@ jobs:
             aday_bekletme/ADAY_DURUM_RAPORU.csv
             aday_bekletme/gecmis.json
             aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv
+            aday_bekletme/GELISMIS_MEDYA_TESTI.csv
       - name: Commit quarantine reports only
         if: success()
         run: |
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
-          git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv
+          git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv aday_bekletme/GELISMIS_MEDYA_TESTI.csv
           git diff --cached --quiet || (git commit -m "Update candidate quarantine report" && git push)
