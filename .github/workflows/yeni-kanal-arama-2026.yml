@@ -1,4 +1,4 @@
-name: Yeni Kanal Aramasi
+name: Yeni Kanal Araması
 on:
   workflow_dispatch:
   push:
@@ -28,7 +28,7 @@ jobs:
           path: |
             YENILER_TARAMA_RAPORU.csv
             YENILER_KAYNAK_HATALARI.txt
-      - name: Save scan report to backups
+      - name: Tarama raporunu yedeklere kaydet
         if: success()
         run: |
           mkdir -p yedekler
@@ -37,4 +37,4 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@users.noreply.github.com
           git add yedekler/YENILER_TARAMA_RAPORU_2026-10-09_GRUP1.csv yedekler/YENILER_KAYNAK_HATALARI_2026-10-09_GRUP1.txt
-          git diff --cached --quiet || (git commit -m "Save new channel discovery report" && git push)
+          git diff --cached --quiet || (git commit -m "Yeni kanal tarama raporu yedeklendi" && git pull --rebase origin main && git push origin HEAD:main)
