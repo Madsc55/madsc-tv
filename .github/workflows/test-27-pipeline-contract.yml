@@ -1,0 +1,58 @@
+name: "27 - Kanal Is Akisi Sozlesme Testi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-27-pipeline-contract.yml"
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify channel pipeline components and protected data
+        run: |
+          python - <<'PY'
+          import ast,hashlib,json
+          from pathlib import Path
+          report={"components":{},"errors":[],"warnings":[],"scope":"read-only static pipeline contract"}
+          root=Path(".")
+          components={
+            "discovery":["genis-kanal-tarama.yml","yeni-kanal-arama-2026.yml"],
+            "candidate_test":["yeni-aday-on-test.yml","altinci-aday-tekrar-test.yml"],
+            "retry":["dokuzuncu-akilli-tekrar-test.yml"],
+            "backup":["aday-yedekleme.yml","ibo-yedek-kalite.yml"],
+            "integration":["test-19-integration.yml","test-20-full-integration.yml","test-21-functional-e2e.yml"],
+          }
+          for category,names in components.items():
+              found=[n for n in names if (root/".github/workflows"/n).is_file()]
+              missing=[n for n in names if n not in found]
+              report["components"][category]={"present":found,"missing":missing}
+              if missing:report["errors"].append(f"{category}: missing {missing}")
+          for name in ("CALISANLAR.m3u","YENILER.m3u"):
+              p=root/name
+              if p.is_file():
+                  report["components"][name]={"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"bytes":p.stat().st_size}
+              else:report["errors"].append(f"Missing protected file: {name}")
+          for p in root.rglob("*.py"):
+              try:ast.parse(p.read_text(encoding="utf-8-sig"),filename=str(p))
+              except Exception as e:report["errors"].append(f"Python syntax {p}: {e}")
+          report["warnings"].append("Presence and syntax do not prove actual cross-workflow execution or player playback")
+          Path("pipeline-contract-report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - name: Upload contract report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-27-KANAL-IS-AKISI-RAPORU
+          path: pipeline-contract-report.json
+          if-no-files-found: error
