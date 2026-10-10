@@ -1,0 +1,28 @@
+name: Aday Bekletme ve Tekrar Kontrol
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '25 5 * * *'
+permissions:
+  contents: write
+jobs:
+  quarantine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update quarantine from existing scan report
+        run: python3 aday_bekletme.py
+      - name: Upload quarantine report
+        uses: actions/upload-artifact@v4
+        with:
+          name: aday-bekletme-raporu
+          path: |
+            aday_bekletme/ADAY_DURUM_RAPORU.csv
+            aday_bekletme/gecmis.json
+      - name: Commit quarantine reports only
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add aday_bekletme/ADAY_DURUM_RAPORU.csv aday_bekletme/gecmis.json
+          git diff --cached --quiet || (git commit -m "Update candidate quarantine report" && git push)
