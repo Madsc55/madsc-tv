@@ -1,0 +1,54 @@
+name: "31 - Korumali Liste Yazma Kapisi Denetimi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-31-protected-write-gate.yml"
+permissions:
+  contents: read
+jobs:
+  protected-write-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install YAML parser
+        run: python -m pip install pyyaml
+      - name: Audit mutation and approval controls
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          import yaml
+          result={"workflows_scanned":0,"review_required":[],"errors":[],"limitations":["Static heuristic cannot prove authorization enforcement","No channel files or workflows were executed"]}
+          for p in sorted(Path(".github/workflows").glob("*.yml")):
+              result["workflows_scanned"]+=1
+              try:
+                  s=p.read_text(encoding="utf-8-sig")
+                  y=yaml.safe_load(s)
+                  if not isinstance(y,dict) or not isinstance(y.get("jobs"),dict):
+                      result["errors"].append(f"Invalid workflow: {p}")
+                      continue
+                  permissions=y.get("permissions",{})
+                  writes=(permissions=="write-all" or (isinstance(permissions,dict) and any(v=="write" for v in permissions.values())) or bool(re.search(r"git\s+(?:push|commit)|create-pull-request",s,re.I)))
+                  if not writes:continue
+                  protected=bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/",s,re.I))
+                  explicit_gate=bool(re.search(r"environment:\s*[^\s]+",s))
+                  result["review_required"].append({"workflow":str(p),"write_capability":True,"protected_path_reference":protected,"environment_gate_marker":explicit_gate,"status":"MANUAL_REVIEW_REQUIRED"})
+              except Exception as e:result["errors"].append(f"{p}: {e}")
+          result["review_count"]=len(result["review_required"])
+          Path("protected-write-gate-report.json").write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(result,ensure_ascii=False,indent=2))
+          if result["errors"]:raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MADSC-31-KORUMALI-YAZMA-DENETIMI
+          path: protected-write-gate-report.json
+          if-no-files-found: error
