@@ -1,0 +1,53 @@
+name: "30 - Yazma Riskleri ve Onay Raporu"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/test-30-write-risk-report.yml"
+permissions:
+  contents: read
+jobs:
+  risk-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install YAML parser
+        run: python -m pip install pyyaml
+      - name: Produce explicit risk register
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          import yaml
+          report={"findings":[],"errors":[],"summary":{},"note":"Static inspection; not proof of runtime approval enforcement"}
+          for p in sorted(Path(".github/workflows").glob("*.yml")):
+              try:
+                  source=p.read_text(encoding="utf-8-sig")
+                  obj=yaml.safe_load(source)
+                  if not isinstance(obj,dict) or not obj.get("jobs"):
+                      report["errors"].append(f"Invalid workflow: {p}")
+                      continue
+                  perms=obj.get("permissions",{})
+                  write_permission=(isinstance(perms,str) and perms=="write-all") or (isinstance(perms,dict) and any(v=="write" for v in perms.values()))
+                  mutation=bool(re.search(r"\bgit\s+(push|commit)\b|create-pull-request|\bgh\s+api\b",source,re.I))
+                  protected=bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/",source,re.I))
+                  if write_permission or mutation:
+                      report["findings"].append({"workflow":str(p),"write_permission":write_permission,"mutation_signal":mutation,"protected_reference":protected,"priority":"HIGH" if protected else "REVIEW","action":"Review and require explicit approval before any protected-file writes"})
+              except Exception as e:report["errors"].append(f"{p}: {e}")
+          report["summary"]={"risky_workflows":len(report["findings"]),"high_priority":sum(x["priority"]=="HIGH" for x in report["findings"])}
+          Path("write-risk-register.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+          if report["errors"]:raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MADSC-30-YAZMA-RISK-KAYDI
+          path: write-risk-register.json
+          if-no-files-found: error
