@@ -1,0 +1,42 @@
+name: Aday Önceliklendirme Kontrolü
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'aday_oncelik_raporu.py'
+      - '.github/workflows/aday-oncelik-kontrol.yml'
+jobs:
+  oncelik-testi:
+    name: Öncelik sıralaması ve rapor testi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python söz dizimini denetle
+        run: python3 -m py_compile aday_oncelik_raporu.py
+      - name: Örnek adaylarla sıralamayı doğrula
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ornek/aday_bekletme"
+          cp aday_oncelik_raporu.py "$RUNNER_TEMP/ornek/"
+          cd "$RUNNER_TEMP/ornek"
+          python3 - <<'PY'
+          import csv
+          with open('aday_bekletme/ADAY_DURUM_RAPORU.csv','w',newline='',encoding='utf-8-sig') as f:
+              w=csv.DictWriter(f,fieldnames=['KANAL','DURUM','ADAY_TURU','MEDYA_TEST'])
+              w.writeheader()
+              w.writerows([
+                  {'KANAL':'Zayıf','DURUM':'BEKLIYOR','ADAY_TURU':'ALTERNATIF','MEDYA_TEST':'YOK'},
+                  {'KANAL':'Güçlü','DURUM':'TEKNIK_TEKRAR_DOGRULANDI_KIMLIK_BEKLIYOR','ADAY_TURU':'YENI_KANAL_ADAYI','MEDYA_TEST':'VIDEO_SES_VAR'},
+              ])
+          PY
+          python3 aday_oncelik_raporu.py
+          python3 - <<'PY'
+          import csv
+          with open('aday_bekletme/ADAY_ONCELIK_RAPORU.csv',encoding='utf-8-sig',newline='') as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==2
+          assert rows[0]['KANAL']=='Güçlü' and rows[0]['ONCELIK']=='1'
+          assert rows[1]['KANAL']=='Zayıf' and rows[1]['ONCELIK']=='5'
+          print('Öncelik sıralaması doğru; ana kanal listesi değiştirilmedi.')
+          PY
