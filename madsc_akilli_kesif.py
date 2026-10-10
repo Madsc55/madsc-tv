@@ -77,13 +77,19 @@ def main():
   k=key(row["url"]);prev=history.get(k,{})
   prev["first_seen"]=prev.get("first_seen",now);prev["last_test"]=now
   prev["runs"]=int(prev.get("runs",0))+1
-  prev["successful_runs"]=int(prev.get("successful_runs",0))+(row["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR")
+  passed=row["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR"
+  last_success=prev.get("last_success")
+  hours=(datetime.datetime.fromisoformat(now)-datetime.datetime.fromisoformat(last_success)).total_seconds()/3600 if last_success else None
+  distinct=passed and (last_success is None or hours>=6)
+  prev["successful_runs"]=int(prev.get("successful_runs",0))+int(distinct)
+  if passed and distinct:prev["last_success"]=now
+  if not passed:prev["successful_runs"]=0;prev["last_success"]=None
   prev["channel"]=row["kanal"];prev["url"]=row["url"]
-  row["durum"]="FARKLI_ZAMANLARDA_TEKRAR_DOGRULANDI_ONAY_BEKLIYOR" if prev["successful_runs"]>=2 and row["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR" else row["durum"]
+  row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "TEKRAR_TEST_BEKLIYOR"
   history[k]=prev
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
  state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
- summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum("DOGRULANDI" in x["durum"] or x["durum"]=="TEKNIK_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
+ summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
  print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
