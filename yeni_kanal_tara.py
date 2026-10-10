@@ -46,6 +46,7 @@ if DISCOVERY.exists():
             if item.get("DURUM") == "ONERI_KONTROL_GEREKLI" and url.startswith("https://") and url not in SOURCES:
                 SOURCES.append(url)
 OUT = Path("YENILER_TARAMA_RAPORU.csv")
+RAW_DUPLICATES = Path("aday_bekletme/HAM_ADAY_KAYNAKLARI.csv")
 LIMIT = 30
 BATCH = int(os.getenv('SCAN_BATCH', '0'))
 PRIORITY = ("SOZCU", "TRT3", "AKIT", "GZT", "TV5", "SHOWMAX", "KANALDDRAMA", "HABER61", "LIFETV", "TGR T BELGESEL".replace(" ", ""), "TGRTBELGESEL")
@@ -129,6 +130,7 @@ existing = list(parse(Path("CALISANLAR.m3u").read_text(encoding="utf-8-sig")))
 names = {norm(name) for name, _, _ in existing}
 urls = {url for _, url, _ in existing}
 candidates = {}
+raw_candidates = []
 source_errors = []
 for source in SOURCES:
     try:
@@ -136,11 +138,19 @@ for source in SOURCES:
         entries = list(parse(content))
         print(f"Kaynak: {source} -> {len(entries)} kayit")
         for name, url, logo in entries:
+            if url not in urls:
+                raw_candidates.append((name, url, source))
             if url not in urls and url not in candidates:
                 candidates[url] = (name, source, logo)
     except Exception as error:
         source_errors.append((source, str(error)[:180]))
         print(f"Kaynak hatasi: {source}: {error}")
+
+RAW_DUPLICATES.parent.mkdir(parents=True, exist_ok=True)
+with RAW_DUPLICATES.open("w", newline="", encoding="utf-8-sig") as raw_file:
+    writer = csv.writer(raw_file)
+    writer.writerow(("KANAL", "YAYIN_URL", "KAYNAK"))
+    writer.writerows(raw_candidates)
 
 rows = []
 # Prioritize genuinely missing names over existing channels' alternative streams.
