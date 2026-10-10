@@ -34,11 +34,12 @@ def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["KAYNAK", "ADAY_SAYISI", "EN_AZ_BIR_BASARI", "TEKRAR_DOGRULANAN", "GUVEN_PUANI", "NOT"])
+        writer.writerow(["KAYNAK", "ADAY_SAYISI", "EN_AZ_BIR_BASARI", "TEKRAR_DOGRULANAN", "GUVEN_PUANI", "GUVEN_DUZEYI", "NOT"])
         for name, s in sorted(sources.items()):
             # Bayesian smoothing: small samples do not get unjustified perfect scores.
-            score = round(100 * (s["passed"] + 2 * s["retested"] + 1) / (3 * s["total"] + 2))
-            writer.writerow([name, s["total"], s["passed"], s["retested"], score,
+            score = round(100 * (s["passed"] + s["retested"] + 1) / (2 * s["total"] + 2))
+            level = "VERI_YETERSIZ" if s["total"] < 10 else ("YUKSEK" if score >= 75 and s["retested"] >= 3 else "ORTA" if score >= 40 and s["retested"] >= 2 else "DUSUK")
+            writer.writerow([name, s["total"], s["passed"], s["retested"], score, level,
                              "Teknik guven puani; kanal kimligi veya yayin hakki dogrulamasi degildir"])
     print(f"Puanlanan kaynak: {len(sources)}; ana liste degismedi")
 
