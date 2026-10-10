@@ -28,11 +28,11 @@ def main():
     candidates={}
     evidence={}
     for path in args.inputs:
-        if "ONCELIKLI_KANAL_TEK_NIK_RAPORU" not in path: continue
+        if not ("ONCELIKLI_KANAL_TEK_NIK_RAPORU" in path or "GENEL_ADAY_GERCEK_MEDYA_RAPORU" in path): continue
         with open(path,encoding="utf-8-sig",newline="") as handle:
             for row in csv.DictReader(handle):
                 url=value(row,"YAYIN_URL")
-                if url: evidence[url]=row
+                if url and (url not in evidence or row.get("TEKNIK_MEDYA")=="VIDEO_SES_VAR"): evidence[url]=row
     for path in args.inputs:
         with open(path,encoding="utf-8-sig",newline="") as handle:
             for row in csv.DictReader(handle):
