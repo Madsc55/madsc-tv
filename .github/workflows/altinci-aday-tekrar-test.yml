@@ -1,0 +1,42 @@
+name: "6. Gelistirme - Aday Tekrar Testi"
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'altinci_aday_tekrar_test.py'
+      - '.github/workflows/altinci-aday-tekrar-test.yml'
+permissions:
+  contents: read
+jobs:
+  aday-tekrar-testi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Python kodunu ve guvenli yuklemeyi dogrula"
+        run: |
+          python3 -m py_compile altinci_aday_tekrar_test.py
+          python3 - <<'PY'
+          import altinci_aday_tekrar_test as m
+          from unittest.mock import patch
+          assert m.eligible({"successful_runs": []})
+          assert m.eligible({"successful_runs": ["1"]})
+          assert not m.eligible({"successful_runs": ["1", "2"]})
+          with patch.object(m, "hls_probe", return_value=("TEKNIK_AKIS_VAR", "iki segment", 2)), patch.object(m, "ffprobe_stream", return_value=("VIDEO_SES_VAR", "video ve ses")):
+              result = m.check("https://example.org/stream.m3u8", {"name": "Ornek"})
+          assert result[6] == "TEKNIK_TEST_GECTI_KIMLIK_BEKLIYOR", result
+          print("6. gelistirme birim testleri basarili")
+          PY
+      - name: "FFmpeg araclarini kur"
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: "Bekleyen adaylari tekrar dene"
+        env:
+          RETEST_LIMIT: '5'
+        run: python3 altinci_aday_tekrar_test.py
+      - name: "Turkce tekrar test raporunu yukle"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: altinci-gelistirme-tekrar-test-raporu
+          path: aday_bekletme/ALTINCI_TEKRAR_TEST.csv
+          if-no-files-found: warn
