@@ -13,7 +13,7 @@ def main():
     history = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
     if not isinstance(history, dict):
         raise SystemExit("Gecmis dosyasi gecersiz")
-    sources = defaultdict(lambda: {"total": 0, "passed": 0, "retested": 0})
+    sources = defaultdict(lambda: {"total": 0, "tested": 0, "passed": 0, "retested": 0})
     for url, item in history.items():
         if not isinstance(item, dict):
             continue
@@ -25,6 +25,13 @@ def main():
                 source = "BILINMIYOR"
         stats = sources[source]
         stats["total"] += 1
+        # Untested candidates must not count as failures.
+        technical = str(item.get("technical") or "")
+        media = str(item.get("media") or "")
+        tested = technical not in ("", "TEST_EDILMEDI") or media not in ("", "TEST_EDILMEDI") or bool(item.get("successful_runs"))
+        if not tested:
+            continue
+        stats["tested"] += 1
         runs = len(set(map(str, item.get("runs", []))))
         successes = len(set(map(str, item.get("successful_runs", []))))
         if successes:
@@ -34,12 +41,12 @@ def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["KAYNAK", "ADAY_SAYISI", "EN_AZ_BIR_BASARI", "TEKRAR_DOGRULANAN", "GUVEN_PUANI", "GUVEN_DUZEYI", "NOT"])
+        writer.writerow(["KAYNAK", "ADAY_SAYISI", "TEST_EDILEN_ADAY", "TEST_KAPSAMI_YUZDE", "EN_AZ_BIR_BASARI", "TEKRAR_DOGRULANAN", "GUVEN_PUANI", "GUVEN_DUZEYI", "NOT"])
         for name, s in sorted(sources.items()):
             # Bayesian smoothing: small samples do not get unjustified perfect scores.
-            score = round(100 * (s["passed"] + s["retested"] + 1) / (2 * s["total"] + 2))
-            level = "VERI_YETERSIZ" if s["total"] < 10 else ("YUKSEK" if score >= 75 and s["retested"] >= 3 else "ORTA" if score >= 40 and s["retested"] >= 2 else "DUSUK")
-            writer.writerow([name, s["total"], s["passed"], s["retested"], score, level,
+            score = round(100 * (s["passed"] + s["retested"] + 1) / (2 * s["tested"] + 2))
+            level = "VERI_YETERSIZ" if s["tested"] < 10 else ("YUKSEK" if score >= 75 and s["retested"] >= 3 else "ORTA" if score >= 40 and s["retested"] >= 2 else "DUSUK")
+            writer.writerow([name, s["total"], s["tested"], round(100 * s["tested"] / s["total"]) if s["total"] else 0, s["passed"], s["retested"], score, level,
                              "Teknik guven puani; kanal kimligi veya yayin hakki dogrulamasi degildir"])
     print(f"Puanlanan kaynak: {len(sources)}; ana liste degismedi")
 
