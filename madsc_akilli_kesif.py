@@ -107,11 +107,25 @@ def main():
  found=[];errors=[]
  freshness={src:source_freshness(url) for src,url in SOURCES.items()}
  write("kaynak_guncelligi.csv",[dict(kaynak=k,url=SOURCES[k],guncellik=v[0],son_guncelleme=v[1],gun=v[2] if v[2]!=99999 else "") for k,v in freshness.items()],["kaynak","url","guncellik","son_guncelleme","gun"])
- for src,url in sorted(SOURCES.items(),key=lambda item:freshness[item[0]][2]):
+ # Check source reachability concurrently; never treat a configured URL as a verified source.
+ def fetch_source(item):
+  src,url=item
   try:
-   with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"MADSC-TV"}),timeout=18) as r:s=r.read(3000000).decode("utf-8-sig",errors="replace")
-   for x in parse(s):x["source"]=src;found.append(x)
-  except Exception as e:errors.append(src+": "+str(e)[:120])
+   with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"MADSC-TV"}),timeout=18) as r:
+    body=r.read(3000000).decode("utf-8-sig",errors="replace")
+   channels=parse(body)
+   return src,channels,"" if body.lstrip().startswith("#EXTM3U") else "M3U_BASLIGI_YOK"
+  except Exception as e:return src,[],str(e)[:120]
+ ordered=sorted(SOURCES.items(),key=lambda item:freshness[item[0]][2])
+ with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:
+  source_results=list(ex.map(fetch_source,ordered))
+ source_rows=[]
+ for src,channels,error in source_results:
+  status="ERISILEMEDI" if error and not channels else "BOS_VEYA_GECERSIZ" if not channels else "ERISILDI"
+  source_rows.append(dict(kaynak=src,url=SOURCES[src],durum=status,kanal_sayisi=len(channels),hata=error))
+  if error:errors.append(src+": "+error)
+  for x in channels:x["source"]=src;found.append(x)
+ write("kaynak_erisim_raporu.csv",source_rows,["kaynak","url","durum","kanal_sayisi","hata"])
  # Include historical failed URLs even if discovery sources stop listing them.
  for old_url,old in history.items():
   if int(old.get("runs",0))>0 and int(old.get("successful_runs",0))==0 and old.get("url"):
