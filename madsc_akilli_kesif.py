@@ -2,7 +2,7 @@
 """MADSC unified read-only IPTV candidate scanner."""
 import csv,json,re,urllib.request,urllib.parse,subprocess,concurrent.futures,datetime,pathlib,os,time
 OUT=pathlib.Path("madsc_kesif"); OUT.mkdir(exist_ok=True)
-SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TURKIYE":"https://iptv-org.github.io/iptv/countries/tr.m3u","iptv-org-TURKCE":"https://iptv-org.github.io/iptv/languages/tur.m3u","iptv-org-AZERBAYCAN":"https://iptv-org.github.io/iptv/countries/az.m3u"}
+SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TURKIYE":"https://iptv-org.github.io/iptv/countries/tr.m3u","iptv-org-TURKCE":"https://iptv-org.github.io/iptv/languages/tur.m3u","iptv-org-AZERBAYCAN":"https://iptv-org.github.io/iptv/countries/az.m3u","omerdenizhan-TR":"https://raw.githubusercontent.com/omerdenizhan/IPTV-M3U/main/m3u/turkiye.m3u","ilyswch-TR":"https://raw.githubusercontent.com/ilyswch/turk-iptv/main/index.m3u","itasli-TR":"https://itasli.github.io/TURKTV/index.m3u","gkhncksn-TR":"https://raw.githubusercontent.com/gkhncksn/m3u8_lists/main/TURK_KANALLARI.m3u","Lunedor-TR":"https://raw.githubusercontent.com/Lunedor/iptvTR/main/iptv_tum_kanallar.m3u"}
 def parse(s):
  lines=s.splitlines(); out=[]
  for i,line in enumerate(lines):
