@@ -182,7 +182,7 @@ def main():
    quality_rows.append(dict(kanal=row["kanal"],url=row["url"],cozunurluk=row["cozunurluk"],kalite=q,durum=row["durum"],islem="MEVCUT_KANAL_ALTERNATIFI" if name(row["kanal"]) in names else "YENI_KANAL_ADAYI"))
  write("yuksek_kalite_alternatifleri.csv",quality_rows,["kanal","url","cozunurluk","kalite","durum","islem"])
  state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
- summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,kaynak_hedefi=SOURCE_TARGET,kaynak_guncelligi={k:v[0] for k,v in freshness.items()},bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
+ summary=dict(yeni_bekleyen_sonraki=max(0,len(untested)-min(limit,len(untested))),zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,kaynak_hedefi=SOURCE_TARGET,kaynak_guncelligi={k:v[0] for k,v in freshness.items()},bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
  print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
