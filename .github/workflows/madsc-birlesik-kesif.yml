@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: madsc-birlesik-kesif
+  group: madsc-rapor-yazma
   cancel-in-progress: false
 jobs:
   kesif:
@@ -28,25 +28,34 @@ jobs:
           name: madsc-kesif-raporu
           path: madsc_kesif/
           retention-days: 30
-      - name: Yalniz raporlari kaydet
+      - name: Yalniz raporlari guvenli kaydet
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add madsc_kesif/
-          if ! git diff --cached --quiet; then
-            git commit -m "Update MADSC discovery reports"
-            for attempt in 1 2 3 4 5; do
-              git fetch origin main
-              if git rebase -X ours origin/main; then
-                if git push origin HEAD:main; then
-                  exit 0
-                fi
-              else
-                git rebase --abort || true
-                echo "Report conflict: preserving report artifact; no force push"
-                exit 1
-              fi
-              sleep 3
-            done
-            exit 1
+          if [ ! -d madsc_kesif ]; then
+            echo "Rapor dizini yok; kaydedilecek veri yok"
+            exit 0
           fi
+          cp -a madsc_kesif "${RUNNER_TEMP}/madsc-kesif-rapor"
+          for attempt in $(seq 1 10); do
+            git fetch origin main
+            git checkout -B report-save origin/main
+            mkdir -p madsc_kesif
+            cp -a "${RUNNER_TEMP}/madsc-kesif-rapor/." madsc_kesif/
+            git add madsc_kesif/
+            if git diff --cached --quiet; then
+              echo "Raporlarda degisiklik yok"
+              exit 0
+            fi
+            git commit -m "Update MADSC discovery reports"
+            if git push origin HEAD:main; then
+              echo "Raporlar kaydedildi"
+              exit 0
+            fi
+            echo "Eszamanli guncelleme; yeniden deneme $attempt"
+            sleep $((attempt * 2))
+          done
+          echo "Raporlar GitHub'a kaydedilemedi; artifact arsivinde korunuyor"
+          exit 1
