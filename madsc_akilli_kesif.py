@@ -191,3 +191,5 @@ if __name__=="__main__":main()
 # User requested 155-source scan on 2026-10-11; triggers discovery workflow via push.
 
 # Re-run 155-source discovery after report-save checkout fix (2026-10-11).
+
+# Continue candidate stream verification, 2026-10-11.
