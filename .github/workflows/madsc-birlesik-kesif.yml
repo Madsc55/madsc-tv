@@ -1,4 +1,4 @@
-name: MADSC TV Birlesik Kesif
+name: MADSC TV - Birleşik Kanal Keşfi ve Testi
 on:
   push:
     paths:
@@ -17,18 +17,18 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: FFprobe kur
+      - name: Yayın kontrol aracını kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Tek programda kesif, tekrar, kalite, logo ve aday testi
+      - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
         run: python3 madsc_akilli_kesif.py
-      - name: Rapor arsivi
+      - name: Test raporlarını arşivle
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: madsc-kesif-raporu
           path: madsc_kesif/
           retention-days: 30
-      - name: Yalniz raporlari guvenli kaydet
+      - name: Raporları güvenli şekilde GitHub'a kaydet
         shell: bash
         run: |
           set -euo pipefail
