@@ -5,7 +5,7 @@ on:
       - 'madsc_akilli_kesif.py'
   workflow_dispatch:
   schedule:
-    - cron: '15 5,17 * * *'
+    - cron: '*/15 * * * *'
 permissions:
   contents: write
 concurrency:
