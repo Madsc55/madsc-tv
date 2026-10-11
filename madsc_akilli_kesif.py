@@ -187,3 +187,5 @@ if __name__=="__main__":main()
 # Manual unified channel discovery requested 2026-10-11
 
 # User requested unified discovery scan on 2026-10-11 at 02:40 Europe/Stockholm; playlist unchanged.
+
+# User requested 155-source scan on 2026-10-11; triggers discovery workflow via push.
