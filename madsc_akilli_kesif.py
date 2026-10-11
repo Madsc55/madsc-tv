@@ -195,3 +195,5 @@ if __name__=="__main__":main()
 # Continue candidate stream verification, 2026-10-11.
 
 # Continue staged 155-source candidate verification on 2026-10-11; no playlist changes.
+
+# Yeni 155 kaynak aday test turu - 2026-10-11 10:26 Europe/Stockholm.
