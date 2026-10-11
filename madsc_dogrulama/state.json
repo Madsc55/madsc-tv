@@ -207,7 +207,15 @@
     "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8": {
       "channel": "Love Nature HD (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T17:03:54.567665+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -605,7 +613,15 @@
     "https://ms7.mx-cd.net/dtv-11/198-989148/1Twente_TV.smil/chunklist_w954512639_b4292608_slNLD.m3u8": {
       "channel": "1Twente TV (1080p)",
       "url": "https://ms7.mx-cd.net/dtv-11/198-989148/1Twente_TV.smil/chunklist_w954512639_b4292608_slNLD.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:02:49.596321+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1455,7 +1471,15 @@
     "https://musichls.persiana.live/hls/stream.m3u8": {
       "channel": "4 Music",
       "url": "https://musichls.persiana.live/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T17:08:09.314575+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1537,7 +1561,15 @@
     "https://mumbai-edge.smartplaytv.in/6TVTelugu/index.m3u8": {
       "channel": "6 TV Telugu (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/6TVTelugu/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:16.579956+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1922,35 +1954,75 @@
     "https://mediaserver.abnvideos.com/streams/abnafghanistan.m3u8": {
       "channel": "ABN Afghanistan (540p)",
       "url": "https://mediaserver.abnvideos.com/streams/abnafghanistan.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976939,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T17:01:47.935340+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mediaserver.abnvideos.com/streams/abnafrica.m3u8": {
       "channel": "ABN Africa (480p)",
       "url": "https://mediaserver.abnvideos.com/streams/abnafrica.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T17:01:47.794857+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumbai-edge.smartplaytv.in/ABNAJ/index.m3u8": {
       "channel": "ABN Andhra Jyoti (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/ABNAJ/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:18.385949+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8": {
       "channel": "ABN Bible Movies Channel (720p)",
       "url": "https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 18.041667,
+          "frames": 432,
+          "error": "",
+          "time": "2026-10-11T17:02:18.299857+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mediaserver.abnvideos.com/streams/abnchina.m3u8": {
       "channel": "ABN China (720p)",
       "url": "https://mediaserver.abnvideos.com/streams/abnchina.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T17:01:49.174217+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1964,21 +2036,45 @@
     "https://mediaserver.abnvideos.com/streams/abntvindia.m3u8": {
       "channel": "ABN TV India (540p)",
       "url": "https://mediaserver.abnvideos.com/streams/abntvindia.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976939,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T17:01:53.528115+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mediaserver.abnvideos.com/streams/abnurdu.m3u8": {
       "channel": "ABN Urdu (540p)",
       "url": "https://mediaserver.abnvideos.com/streams/abnurdu.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T17:01:54.418155+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mediaserver.abnvideos.com/streams/abnsat.m3u8": {
       "channel": "ABNsat (720p)",
       "url": "https://mediaserver.abnvideos.com/streams/abnsat.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T17:01:52.598851+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2037,7 +2133,15 @@
     "https://mumbai-edge.smartplaytv.in/ABPNews/index.m3u8": {
       "channel": "ABP News (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/ABPNews/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:03:26.341659+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3114,21 +3218,45 @@
     "https://mumt04.tangotv.in/m18aqlK4AASEERVATHAMTV/index.m3u8": {
       "channel": "Aaseervatham TV (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4AASEERVATHAMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 699,
+          "error": "",
+          "time": "2026-10-11T17:06:17.321737+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumbai-edge.smartplaytv.in/Aastha/index.m3u8": {
       "channel": "Aastha (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/Aastha/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:28.044904+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt05.tangotv.in/87NeALx2AASTHABHAJAN/index.m3u8": {
       "channel": "Aastha Bhajan (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2AASTHABHAJAN/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:39.757102+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3531,7 +3659,15 @@
     "https://mumbai-edge.smartplaytv.in/AdhyatmTV/index.m3u8": {
       "channel": "Adhyatm TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/AdhyatmTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.980333,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-11T17:03:26.521396+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4140,7 +4276,15 @@
     "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/chunklist_b928000.m3u8": {
       "channel": "Al Alam Al Yawm",
       "url": "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/chunklist_b928000.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:02:11.745817+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4248,7 +4392,15 @@
     "https://mn-nl.mncdn.com/alhiwar_live/smil:alhiwar.smil/playlist.m3u8": {
       "channel": "Al Hiwar TV (1080p)",
       "url": "https://mn-nl.mncdn.com/alhiwar_live/smil:alhiwar.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:08.555125+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4538,7 +4690,15 @@
     "https://media1.livaat.com/static/AL-RASHEED-HD/playlist.m3u8": {
       "channel": "Al Rasheed TV (1080p)",
       "url": "https://media1.livaat.com/static/AL-RASHEED-HD/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:01:28.009981+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5849,7 +6009,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HANANDWARITV/index.m3u8": {
       "channel": "Anand Wari TV (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HANANDWARITV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:23.832275+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5916,7 +6084,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HANDYHARYANA/index.m3u8": {
       "channel": "Andy Haryana (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HANDYHARYANA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:05:27.452773+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6783,7 +6959,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HASIANETMIDDLEEAST/index.m3u8": {
       "channel": "Asianet Middle East (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HASIANETMIDDLEEAST/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 599,
+          "error": "",
+          "time": "2026-10-11T17:05:23.790163+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -7999,7 +8183,15 @@
     "https://mumbai-edge.smartplaytv.in/BIGTV/index.m3u8": {
       "channel": "BIG TV (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/BIGTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:03:38.695381+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -8362,7 +8554,15 @@
     "https://mumt05.tangotv.in/87NeALx2BVG/index.m3u8": {
       "channel": "BVG (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2BVG/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98325,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:06:48.041415+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9350,14 +9550,30 @@
     "https://mumbai-edge.smartplaytv.in/BhakthiTv/index.m3u8": {
       "channel": "Bhakthi TV (576p)",
       "url": "https://mumbai-edge.smartplaytv.in/BhakthiTv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:35.488191+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt05.tangotv.in/87NeALx2BHAKTISAGAR/index.m3u8": {
       "channel": "Bhakti Sagar (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2BHAKTISAGAR/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:49.251055+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9379,7 +9595,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8": {
       "channel": "Bharat Samachar (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HBHARATSAMACHAR/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:24.228825+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9927,7 +10151,15 @@
     "https://media.streambrothers.com:1936/8506/8506/playlist.m3u8": {
       "channel": "Bonaire.tv (1080p)",
       "url": "https://media.streambrothers.com:1936/8506/8506/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:01:28.051146+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11514,7 +11746,15 @@
     "https://mumt05.tangotv.in/87NeALx2CNA/index.m3u8": {
       "channel": "CNA International (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2CNA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999417,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:06:57.290088+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11566,28 +11806,60 @@
     "https://n18syndication.akamaized.net/bpk-tv/CNBC_Awaaz_NW18_MOB/output01/master.m3u8": {
       "channel": "CNBC Awaaz (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_Awaaz_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:28.167685+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://n18syndication.akamaized.net/bpk-tv/CNBC_Bazaar_NW18_MOB/output01/master.m3u8": {
       "channel": "CNBC Bajar (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_Bazaar_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:30.754406+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://n18syndication.akamaized.net/bpk-tv/CNBC_TV18_NW18_MOB/output01/index.m3u8": {
       "channel": "CNBC TV18 (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_TV18_NW18_MOB/output01/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:31.330540+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://n18syndication.akamaized.net/bpk-tv/CNBC_Tv18_Prime_HD_NW18_MOB/output01/index.m3u8": {
       "channel": "CNBC TV18 Prime HD (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/CNBC_Tv18_Prime_HD_NW18_MOB/output01/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:32.363900+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -12016,21 +12288,45 @@
     "https://mumbai-edge.smartplaytv.in/CVREnglishNews/index.m3u8": {
       "channel": "CVR English (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/CVREnglishNews/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:40.642884+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumbai-edge.smartplaytv.in/CVRHealth/index.m3u8": {
       "channel": "CVR Health (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/CVRHealth/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:41.467678+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumbai-edge.smartplaytv.in/CVROM/index.m3u8": {
       "channel": "CVR OM Spiritual (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/CVROM/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:47.579491+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -12848,7 +13144,15 @@
     "https://media2.streambrothers.com:1936/8140/8140/playlist.m3u8": {
       "channel": "Canal 33 Madrid (720p)",
       "url": "https://media2.streambrothers.com:1936/8140/8140/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T17:01:35.148943+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13018,7 +13322,15 @@
     "https://mumbai-edge.smartplaytv.in/CVRNews/index.m3u8": {
       "channel": "CVR News (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/CVRNews/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:36.758894+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13816,7 +14128,15 @@
     "https://movil.ejeserver.com/live/nets.m3u8": {
       "channel": "Canal Nets (720p)",
       "url": "https://movil.ejeserver.com/live/nets.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 893,
+          "error": "",
+          "time": "2026-10-11T17:02:30.700383+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15305,7 +15625,15 @@
     "https://mumbai-edge.smartplaytv.in/channeldivya/index.m3u8": {
       "channel": "Channel Divya (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/channeldivya/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996271,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:35.361428+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17848,7 +18176,15 @@
     "https://mumbai-edge.smartplaytv.in/ddbihar/index.m3u8": {
       "channel": "DD Bihar (480p)",
       "url": "https://mumbai-edge.smartplaytv.in/ddbihar/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:04:31.271496+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17945,7 +18281,15 @@
     "https://mumbai-edge.smartplaytv.in/DDIndia/index.m3u8": {
       "channel": "DD India (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/DDIndia/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:03:44.896279+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17982,7 +18326,15 @@
     "https://mumbai-edge.smartplaytv.in/DDKisan/index.m3u8": {
       "channel": "DD Kisan (480p)",
       "url": "https://mumbai-edge.smartplaytv.in/DDKisan/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:03:48.522773+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18169,7 +18521,15 @@
     "https://mumbai-edge.smartplaytv.in/DDSports/index.m3u8": {
       "channel": "DD Sports (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/DDSports/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:03:49.818839+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18863,7 +19223,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HDANGAL2/index.m3u8": {
       "channel": "Dangal 2 (720p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HDANGAL2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 24.0,
+          "frames": 600,
+          "error": "",
+          "time": "2026-10-11T17:05:36.759818+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18982,7 +19350,15 @@
     "https://mumt05.tangotv.in/87NeALx2DARSHAN24/index.m3u8": {
       "channel": "Darshan 24 (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2DARSHAN24/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984708,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:03.021249+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19634,7 +20010,15 @@
     "https://media.streambrothers.com:1936/8276/8276/playlist.m3u8": {
       "channel": "Didgah TV (480p)",
       "url": "https://media.streambrothers.com:1936/8276/8276/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:01:34.254442+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19988,7 +20372,15 @@
     "https://mumbai-edge.smartplaytv.in/Divyavani/index.m3u8": {
       "channel": "Divyavani TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/Divyavani/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:44.330673+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20618,7 +21010,15 @@
     "https://mumt04.tangotv.in/m18aqlK4E24/index.m3u8": {
       "channel": "E 24 (720p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4E24/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:03.281538+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -21506,7 +21906,15 @@
     "https://mistserver.evi-tv.com/hls/evi_tv_live/index.m3u8": {
       "channel": "EVI TV (1080p)",
       "url": "https://mistserver.evi-tv.com/hls/evi_tv_live/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:02:21.162489+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -21937,7 +22345,15 @@
     "https://movil.ejeserver.com/live/elmundodelcampo.m3u8": {
       "channel": "El Mundo del Campo (720p)",
       "url": "https://movil.ejeserver.com/live/elmundodelcampo.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1791,
+          "error": "",
+          "time": "2026-10-11T17:02:25.084584+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24897,7 +25313,15 @@
     "https://multimedia.fortalezatv.cl/video/video.m3u8": {
       "channel": "Fortaleza TV (1080p)",
       "url": "https://multimedia.fortalezatv.cl/video/video.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995333,
+          "frames": 870,
+          "error": "",
+          "time": "2026-10-11T17:03:20.319975+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -25576,7 +26000,15 @@
     "https://mumt05.tangotv.in/87NeALx2GSTV/index.m3u8": {
       "channel": "GS TV (576p)",
       "url": "https://mumt05.tangotv.in/87NeALx2GSTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:08.163521+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -25737,14 +26169,30 @@
     "https://mumt04.tangotv.in/m18aqlK4GANGAURTV/index.m3u8": {
       "channel": "Gangaur TV (576p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4GANGAURTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:11.837112+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://media.parvizshahbazi.com/ganjehozour/Main_tv/playlist.m3u8": {
       "channel": "Ganj e Hozour TV (1080p)",
       "url": "https://media.parvizshahbazi.com/ganjehozour/Main_tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:01:17.684350+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26076,7 +26524,15 @@
     "https://media.streambrothers.com:1936/8052/8052/playlist.m3u8": {
       "channel": "GlobalWorldTV (720p)",
       "url": "https://media.streambrothers.com:1936/8052/8052/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T17:01:33.029801+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26312,14 +26768,30 @@
     "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESACTION/index.m3u8": {
       "channel": "Goldmines Action (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESACTION/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:05:30.184124+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8": {
       "channel": "Goldmines Bollywood (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINESBOLLYWOOD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:55.127157+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26476,7 +26948,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlGOODNESSTV/index.m3u8": {
       "channel": "Goodness TV (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlGOODNESSTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 549,
+          "error": "",
+          "time": "2026-10-11T17:08:14.776665+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26630,21 +27110,45 @@
     "https://media2021.rtvweb.com/giovannipaolotv/web/playlist.m3u8": {
       "channel": "Giovanni Paolo TV (480p)",
       "url": "https://media2021.rtvweb.com/giovannipaolotv/web/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:01:37.023409+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://moviethls.wns.live/hls/stream.m3u8": {
       "channel": "Gold Star",
       "url": "https://moviethls.wns.live/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T17:02:30.322224+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8": {
       "channel": "Goldmines 2 (720p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HGOLDMINES2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:05:27.713792+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26961,7 +27465,15 @@
     "https://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8": {
       "channel": "Gugak TV (1080p)",
       "url": "https://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:02:12.812724+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28937,7 +29449,15 @@
     "https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8": {
       "channel": "IBC 24 (720p)",
       "url": "https://mumt05.tangotv.in/87NeALx2IBC24/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.985708,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:01.081931+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30371,7 +30891,15 @@
     "https://mumt05.tangotv.in/87NeALx2ISHWARBHAKTI/index.m3u8": {
       "channel": "Ishwar Bhakti TV (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2ISHWARBHAKTI/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.990229,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:14.618860+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30821,7 +31349,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8": {
       "channel": "Janam TV (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HJANAMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:34.728606+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30843,7 +31379,15 @@
     "https://mumt05.tangotv.in/87NeALx2JANTANTRA/index.m3u8": {
       "channel": "Jantantra TV (720p)",
       "url": "https://mumt05.tangotv.in/87NeALx2JANTANTRA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988438,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:17.321576+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31345,7 +31889,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlKNEWSINDIA/index.m3u8": {
       "channel": "K News India (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlKNEWSINDIA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 699,
+          "error": "",
+          "time": "2026-10-11T17:07:53.129046+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31956,14 +32508,30 @@
     "https://n18syndication.akamaized.net/bpk-tv/Kadak_NW18_MOB/output01/master.m3u8": {
       "channel": "Kadak (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/Kadak_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:42.429338+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt03.tangotv.in/Dsly5z3HKAIRALIARABIA/index.m3u8": {
       "channel": "Kairali Arabia (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HKAIRALIARABIA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:47.817477+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31985,7 +32553,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8": {
       "channel": "Kairali TV (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3KAIRALI/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979604,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:47.229667+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -32406,7 +32982,15 @@
     "https://ms2.mx-cd.net/tv/242-2079866/Omroep_de_Kempen.smil/playlist.m3u8": {
       "channel": "KempenTV (720p)",
       "url": "https://ms2.mx-cd.net/tv/242-2079866/Omroep_de_Kempen.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:54.100157+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -32562,7 +33146,15 @@
     "https://mumt05.tangotv.in/87NeALx2KHABRAINABHITAK/index.m3u8": {
       "channel": "Khabrain Abhi Tak (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2KHABRAINABHITAK/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.990542,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:02.752513+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -33577,7 +34169,15 @@
     "https://ms7.mx-cd.net/tv/238-2061506/Omroep_LEO_TV.smil/playlist.m3u8": {
       "channel": "LEO Middelse TV (720p)",
       "url": "https://ms7.mx-cd.net/tv/238-2061506/Omroep_LEO_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:01.808364+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34020,7 +34620,15 @@
     "https://movil.ejeserver.com/live/lamoradatv.m3u8": {
       "channel": "La Morada Radio TV (720p)",
       "url": "https://movil.ejeserver.com/live/lamoradatv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 895,
+          "error": "",
+          "time": "2026-10-11T17:02:26.254315+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34338,7 +34946,15 @@
     "https://ms7.mx-cd.net/tv/278-3414514/RTV_Lansingerland.smil/playlist.m3u8": {
       "channel": "Lansingerland TV (720p)",
       "url": "https://ms7.mx-cd.net/tv/278-3414514/RTV_Lansingerland.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:03:03.035517+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35161,7 +35777,15 @@
     "https://media.streambrothers.com:1936/8014/8014/playlist.m3u8": {
       "channel": "Live99FM (1080p)",
       "url": "https://media.streambrothers.com:1936/8014/8014/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:01:29.863838+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35308,7 +35932,15 @@
     "https://mumt05.tangotv.in/87NeALx2LOKSAAHI/index.m3u8": {
       "channel": "Lokshahi News (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2LOKSAAHI/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.985125,
+          "frames": 661,
+          "error": "",
+          "time": "2026-10-11T17:07:54.010390+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36073,7 +36705,15 @@
     "https://mgstv.siar.us/live/mgstv.m3u8": {
       "channel": "MGSTV (360p)",
       "url": "https://mgstv.siar.us/live/mgstv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1494,
+          "error": "",
+          "time": "2026-10-11T17:02:07.434122+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36102,7 +36742,15 @@
     "https://mhz-samsung-linear-ca.samsung.wurl.tv/playlist.m3u8": {
       "channel": "MHZ (720p)",
       "url": "https://mhz-samsung-linear-ca.samsung.wurl.tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 894,
+          "error": "",
+          "time": "2026-10-11T17:02:07.098440+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36294,7 +36942,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HMHONEMOVIE/index.m3u8": {
       "channel": "MH One Movies (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HMHONEMOVIE/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.99975,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:05:45.821964+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36331,35 +36987,75 @@
     "https://mrtvott.com/cache/MRTV-HD/master.m3u8": {
       "channel": "MRTV (1080p)",
       "url": "https://mrtvott.com/cache/MRTV-HD/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:02:41.746642+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mrtvott.com/cache/MRTV-Ent-HD/master.m3u8": {
       "channel": "MRTV Entertainment (1080p)",
       "url": "https://mrtvott.com/cache/MRTV-Ent-HD/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:02:38.712162+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mrtvott.com/cache/MRTV-NRC-HD/master.m3u8": {
       "channel": "MRTV NRC (1080p)",
       "url": "https://mrtvott.com/cache/MRTV-NRC-HD/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:02:42.761938+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mrtvott.com/cache/MRTV-NEWS-HD/master.m3u8": {
       "channel": "MRTV News (1080p)",
       "url": "https://mrtvott.com/cache/MRTV-NEWS-HD/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:02:40.750725+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mrtvott.com/cache/MRTV-SPORT/master.m3u8": {
       "channel": "MRTV Sports (1080p)",
       "url": "https://mrtvott.com/cache/MRTV-SPORT/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:02:44.224822+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36501,7 +37197,15 @@
     "https://mtchls.wns.live/hls/stream.m3u8": {
       "channel": "MTC",
       "url": "https://mtchls.wns.live/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:03:18.458767+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37207,7 +37911,15 @@
     "https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8": {
       "channel": "Mahaa Bhakti (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/MahaBhakthi/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:03:59.625919+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37229,7 +37941,15 @@
     "https://mumbai-edge.smartplaytv.in/MahaNews/index.m3u8": {
       "channel": "Mahaa News (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/MahaNews/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:01.874073+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37376,14 +38096,30 @@
     "https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8": {
       "channel": "Makkah TV (480p)",
       "url": "https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994688,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:01:34.660052+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt01.tangotv.in/O5aw8Zn3MAKKALTV/index.m3u8": {
       "channel": "Makkal TV (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3MAKKALTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:50.775544+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37535,7 +38271,15 @@
     "https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8": {
       "channel": "Manorama News (720p)",
       "url": "https://mmtvnews1.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/mmtvNewsCampaign1/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996917,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:16.608016+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37579,7 +38323,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlMANTAVYA24X7NEWS/index.m3u8": {
       "channel": "Mantavya News (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlMANTAVYA24X7NEWS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 699,
+          "error": "",
+          "time": "2026-10-11T17:07:53.940053+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37793,7 +38545,15 @@
     "https://mntv.livebox.co.in/mntvhls/live.m3u8": {
       "channel": "Marutam TV (1080p)",
       "url": "https://mntv.livebox.co.in/mntvhls/live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 490,
+          "error": "",
+          "time": "2026-10-11T17:02:32.581928+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37822,7 +38582,15 @@
     "https://movil.ejeserver.com/live/mas23tv.m3u8": {
       "channel": "Mas23 TV",
       "url": "https://movil.ejeserver.com/live/mas23tv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 896,
+          "error": "",
+          "time": "2026-10-11T17:02:28.040396+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37873,7 +38641,15 @@
     "https://mumbai-edge.smartplaytv.in/MastiMusic/index.m3u8": {
       "channel": "Mastiii (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/MastiMusic/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:03:54.937156+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38179,7 +38955,15 @@
     "https://mmtv-vglivessai.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/f8a0827f-030f-4a0d-b7e5-338996c09a5b/index.m3u8": {
       "channel": "Mazhavil Manorama (1080p)",
       "url": "https://mmtv-vglivessai.akamaized.net/v1/master/673630b269b766886555eebfddd4f27f3de3ab50/f8a0827f-030f-4a0d-b7e5-338996c09a5b/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:02:15.293002+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38201,7 +38985,15 @@
     "https://med-tv-it.fast.rakuten.tv/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-hls-aes128-medtv-1-restreaming/bitok/eyJzdGlkIjoiMGUzYjU2OWQtYTY3NC00ZDQxLThmZmMtNjA2NWU5YzMwNTViIiwibWt0IjoiaXQiLCJjaCI6IjUiLCJwdGYiOjV9/hls/main.m3u8": {
       "channel": "Med.TV (720p)",
       "url": "https://med-tv-it.fast.rakuten.tv/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-hls-aes128-medtv-1-restreaming/bitok/eyJzdGlkIjoiMGUzYjU2OWQtYTY3NC00ZDQxLThmZmMtNjA2NWU5YzMwNTViIiwibWt0IjoiaXQiLCJjaCI6IjUiLCJwdGYiOjV9/hls/main.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994646,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:01:13.466076+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38477,7 +39269,15 @@
     "https://mgvchannel21-ioriver-cdn.encoders.immergo.tv/master.m3u8": {
       "channel": "Megavision Canal 21 (1080p)",
       "url": "https://mgvchannel21-ioriver-cdn.encoders.immergo.tv/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:02:06.765652+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38536,7 +39336,15 @@
     "https://mumbai-edge.smartplaytv.in/MercyTV/index.m3u8": {
       "channel": "Mercy TV (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/MercyTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.974,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:58.737849+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38615,7 +39423,15 @@
     "https://mercury.streambridge.link:8042/telugu/metrotv/index.m3u8": {
       "channel": "Metro TV (1080p)",
       "url": "https://mercury.streambridge.link:8042/telugu/metrotv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.985,
+          "frames": 744,
+          "error": "",
+          "time": "2026-10-11T17:01:47.145794+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39199,7 +40015,15 @@
     "https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8": {
       "channel": "Mix Hollywood (720p)",
       "url": "https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T17:02:18.505086+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39251,14 +40075,30 @@
     "https://mohabathls.wns.live/hls/stream.m3u8": {
       "channel": "Mohabat TV",
       "url": "https://mohabathls.wns.live/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:32.011023+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt07.tangotv.in/zHjX9OFlMOJOTV/index.m3u8": {
       "channel": "Mojo TV (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlMOJOTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:47.060954+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39279,7 +40119,15 @@
     "https://moldovatv.ro/live-tv/live.m3u8": {
       "channel": "Moldova TV (1080p)",
       "url": "https://moldovatv.ro/live-tv/live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991655,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:02:25.618999+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39450,7 +40298,15 @@
     "https://moonbug-rokuus.amagi.tv/playlist.m3u8": {
       "channel": "Moonbug Kids (1080p)",
       "url": "https://moonbug-rokuus.amagi.tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986688,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:31.494693+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39499,7 +40355,15 @@
     "https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8": {
       "channel": "More Than Sports TV (1080p)",
       "url": "https://mts1.iptv-playoutcenter.de/mts/mts-web/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 607,
+          "error": "",
+          "time": "2026-10-11T17:03:26.498652+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39587,7 +40451,15 @@
     "https://mvg-mv-xumo.otteravision.com/mvg/mv/mv.m3u8": {
       "channel": "Motorvision (1080p)",
       "url": "https://mvg-mv-xumo.otteravision.com/mvg/mv/mv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:13.507393+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39698,7 +40570,15 @@
     "https://moymir.ru/hls/onair.m3u8": {
       "channel": "Moy mir (720p)",
       "url": "https://moymir.ru/hls/onair.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:02:46.770594+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39937,7 +40817,15 @@
     "https://muenchentv.iptv-playoutcenter.de/muenchentv/muenchentv.stream_1/playlist.m3u8": {
       "channel": "Munchen TV (1080p)",
       "url": "https://muenchentv.iptv-playoutcenter.de/muenchentv/muenchentv.stream_1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:03:17.663721+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40048,7 +40936,15 @@
     "https://mumt05.tangotv.in/87NeALx2MUSICINDIA/index.m3u8": {
       "channel": "Music India (720p)",
       "url": "https://mumt05.tangotv.in/87NeALx2MUSICINDIA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:03.163720+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40085,14 +40981,30 @@
     "https://meialai.iptelevishion.com/meialai/2/index.m3u8": {
       "channel": "Mei Alai TV (576p)",
       "url": "https://meialai.iptelevishion.com/meialai/2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997415,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:01:56.802139+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://metafilmhls.wns.live/hls/stream.m3u8": {
       "channel": "Meta Film TV",
       "url": "https://metafilmhls.wns.live/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T17:01:59.339087+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40412,7 +41324,15 @@
     "https://mytimeuk-rakuten-samsung.amagi.tv/playlist.m3u8": {
       "channel": "MyTime Movie Network East (1080p)",
       "url": "https://mytimeuk-rakuten-samsung.amagi.tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999896,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:08:12.968048+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40634,7 +41554,15 @@
     "https://media.joycorp.co.kr:4443/live/ngrp:live_all/playlist.m3u8": {
       "channel": "NBS (720p)",
       "url": "https://media.joycorp.co.kr:4443/live/ngrp:live_all/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 780,
+          "error": "",
+          "time": "2026-10-11T17:01:28.982545+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40735,7 +41663,15 @@
     "https://mumt05.tangotv.in/87NeALx2NENEWS/index.m3u8": {
       "channel": "NE News (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2NENEWS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:26.920783+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40851,7 +41787,15 @@
     "https://media-tyo.hls.nhkworld.jp/hls/wp/live/master.m3u8": {
       "channel": "NHK World Premium (720p)",
       "url": "https://media-tyo.hls.nhkworld.jp/hls/wp/live/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 882,
+          "error": "",
+          "time": "2026-10-11T17:01:17.936277+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40946,7 +41890,15 @@
     "https://ms2.mx-cd.net/tv/276-2860564/Omroep_NOOS.smil/playlist.m3u8": {
       "channel": "NOOS TV (720p)",
       "url": "https://ms2.mx-cd.net/tv/276-2860564/Omroep_NOOS.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:02:56.279561+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41291,7 +42243,15 @@
     "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8": {
       "channel": "NTV Telugu (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994708,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:03.333674+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41446,7 +42406,15 @@
     "https://mumt05.tangotv.in/87NeALx2NANDIGHOSHATV/index.m3u8": {
       "channel": "Nandighosha TV (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2NANDIGHOSHATV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:09.984606+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42183,7 +43151,15 @@
     "https://mumbai-edge.smartplaytv.in/Network10/index.m3u8": {
       "channel": "Network 10 (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/Network10/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:05.857276+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42220,7 +43196,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8": {
       "channel": "News 1 India (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlNEWS1INDIA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:48.964660+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42294,7 +43278,15 @@
     "https://mumt04.tangotv.in/m18aqlK4NEWS24MPCG/index.m3u8": {
       "channel": "News 24 MP & Chhattisgarh (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4NEWS24MPCG/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:17.782328+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42322,7 +43314,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3NEWSDAILY24/index.m3u8": {
       "channel": "News Daily 24 (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3NEWSDAILY24/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 599,
+          "error": "",
+          "time": "2026-10-11T17:05:08.102850+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42588,21 +43588,45 @@
     "https://n18syndication.akamaized.net/bpk-tv/News18_Assam_North_East_NW18_MOB/output01/master.m3u8": {
       "channel": "News18 Assam North-East (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Assam_North_East_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.980021,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:38.546307+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://n18syndication.akamaized.net/bpk-tv/News18_Bangla_NW18_MOB/output01/master.m3u8": {
       "channel": "News18 Bangla (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Bangla_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.985333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:38.596406+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://n18syndication.akamaized.net/bpk-tv/News18_Bihar_Jharkhand_NW18_MOB/output01/master.m3u8": {
       "channel": "News18 Bihar Jharkhand (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Bihar_Jharkhand_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988021,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:37.636699+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42616,7 +43640,15 @@
     "https://n18syndication.akamaized.net/bpk-tv/News18_Gujarati_NW18_MOB/output01/master.m3u8": {
       "channel": "News18 Gujarati (1080p)",
       "url": "https://n18syndication.akamaized.net/bpk-tv/News18_Gujarati_NW18_MOB/output01/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.990667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:08:41.487213+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42730,14 +43762,30 @@
     "https://mumt01.tangotv.in/O5aw8Zn3NEWSX/index.m3u8": {
       "channel": "NewsX (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3NEWSX/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:09.759437+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt03.tangotv.in/Dsly5z3HNEWSXWORLD/index.m3u8": {
       "channel": "NewsX World (720p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HNEWSXWORLD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:49.655347+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42787,7 +43835,15 @@
     "https://movil.ejeserver.com/live/nextv.m3u8": {
       "channel": "Nex TV Canal 21",
       "url": "https://movil.ejeserver.com/live/nextv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 896,
+          "error": "",
+          "time": "2026-10-11T17:02:32.120167+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43339,7 +44395,15 @@
     "https://media.noroc.tv/noroc/bitrate_1080p.m3u8": {
       "channel": "Noroc TV",
       "url": "https://media.noroc.tv/noroc/bitrate_1080p.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T17:01:09.924586+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44098,7 +45162,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3OMTV/index.m3u8": {
       "channel": "OM TV (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3OMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989313,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:05:02.225101+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44187,7 +45259,15 @@
     "https://ms2.mx-cd.net/tv/141-573555/OPEN_Rotterdam.smil/playlist.m3u8": {
       "channel": "OPEN Rotterdam TV (720p)",
       "url": "https://ms2.mx-cd.net/tv/141-573555/OPEN_Rotterdam.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1498,
+          "error": "",
+          "time": "2026-10-11T17:02:46.924507+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44209,7 +45289,15 @@
     "https://ms7.mx-cd.net/tv/200-1006554/ORTS_TV.smil/playlist.m3u8": {
       "channel": "ORTS TV (720p)",
       "url": "https://ms7.mx-cd.net/tv/200-1006554/ORTS_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:01.740386+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44734,7 +45822,15 @@
     "https://ms2.mx-cd.net/tv/272-2641704/Hoeksche_Waard_TV.smil/playlist.m3u8": {
       "channel": "Omroep Hoeksche Waard (480p)",
       "url": "https://ms2.mx-cd.net/tv/272-2641704/Hoeksche_Waard_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:54.753622+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44771,7 +45867,15 @@
     "https://ms7.mx-cd.net/dtv-11/208-1258878/Omroep_Peelrand_TV.smil/playlist.m3u8": {
       "channel": "Omroep Peelrand (720p)",
       "url": "https://ms7.mx-cd.net/dtv-11/208-1258878/Omroep_Peelrand_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:59.055588+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44793,7 +45897,15 @@
     "https://ms7.mx-cd.net/tv/184-782326/Omroep_Tilburg_TV.smil/playlist.m3u8": {
       "channel": "Omroep Tilburg (720p)",
       "url": "https://ms7.mx-cd.net/tv/184-782326/Omroep_Tilburg_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:57.918849+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -45758,7 +46870,15 @@
     "https://mumbai-edge.smartplaytv.in/PMC/index.m3u8": {
       "channel": "PMC Telugu (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/PMC/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:04:06.466677+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -45929,7 +47049,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlONLYBHARAT/index.m3u8": {
       "channel": "Only Bharat (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlONLYBHARAT/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979667,
+          "frames": 697,
+          "error": "",
+          "time": "2026-10-11T17:08:08.542426+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46385,7 +47513,15 @@
     "https://mumt04.tangotv.in/m18aqlK4PARASGOLD/index.m3u8": {
       "channel": "Paras Gold (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4PARASGOLD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:11.124374+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47311,7 +48447,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3PEARTV/index.m3u8": {
       "channel": "Pear TV (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3PEARTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:05:02.967196+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48196,7 +49340,15 @@
     "https://mumbai-edge.smartplaytv.in/PowerVision/index.m3u8": {
       "channel": "Powervision TV (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/PowerVision/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991406,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:09.685170+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48240,7 +49392,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HPRAMEYANEWS7/index.m3u8": {
       "channel": "Prameya News7 (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HPRAMEYANEWS7/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:46.197921+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48536,7 +49696,15 @@
     "https://msh0203.stream.seeweb.it/live/flv:stream2.sdp/playlist.m3u8": {
       "channel": "Primocanale (1080p)",
       "url": "https://msh0203.stream.seeweb.it/live/flv:stream2.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:07.401112+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48677,7 +49845,15 @@
     "https://media2021.rtvweb.com/promovideo_web/promovideo/playlist.m3u8": {
       "channel": "Promovideo TV (720p)",
       "url": "https://media2021.rtvweb.com/promovideo_web/promovideo/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:01:40.479343+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48736,7 +49912,15 @@
     "https://mumt04.tangotv.in/m18aqlK4PUBLICMOVIES/index.m3u8": {
       "channel": "Public Movies (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4PUBLICMOVIES/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:06:27.181194+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48809,7 +49993,15 @@
     "https://mumbai-edge.smartplaytv.in/PulariTV/index.m3u8": {
       "channel": "Pulari TV (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/PulariTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T17:04:11.874427+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48978,14 +50170,30 @@
     "https://mumt04.tangotv.in/m18aqlK4PUTHUYUGAMTV/index.m3u8": {
       "channel": "Puthuyugam TV (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4PUTHUYUGAMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:12.425957+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt05.tangotv.in/87NeALx2THEQ/index.m3u8": {
       "channel": "Q TV (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2THEQ/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 498,
+          "error": "",
+          "time": "2026-10-11T17:07:44.438138+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -49327,7 +50535,15 @@
     "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8": {
       "channel": "R9 (720p)",
       "url": "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1380,
+          "error": "",
+          "time": "2026-10-11T17:02:49.423786+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -49543,7 +50759,15 @@
     "https://mumbai-edge.smartplaytv.in/Prime9News/index.m3u8": {
       "channel": "Prime9 News (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/Prime9News/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:10.814545+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -49962,7 +51186,15 @@
     "https://mumbai-edge.smartplaytv.in/RTIndia/index.m3u8": {
       "channel": "RT India (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/RTIndia/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:10.829943+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50310,7 +51542,15 @@
     "https://media.neuquen.gov.ar/rtn/television/media.m3u8": {
       "channel": "RTN (720p)",
       "url": "https://media.neuquen.gov.ar/rtn/television/media.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:01:10.017993+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50568,14 +51808,30 @@
     "https://media.rtvnoord.nl/live/rtvnoord/tv/index.m3u8": {
       "channel": "RTV Noord (1080p)",
       "url": "https://media.rtvnoord.nl/live/rtvnoord/tv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:01:24.620974+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://media.rtvnoord.nl/live/rtvnoord/extra/index.m3u8": {
       "channel": "RTV Noord Extra (1080p)",
       "url": "https://media.rtvnoord.nl/live/rtvnoord/extra/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:01:28.433887+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50648,7 +51904,15 @@
     "https://ms2.mx-cd.net/dtv-10/268-2641474/RTV_Purmerend_TV.smil/playlist.m3u8": {
       "channel": "RTV Purmerend (720p)",
       "url": "https://ms2.mx-cd.net/dtv-10/268-2641474/RTV_Purmerend_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:44.979657+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50685,7 +51949,15 @@
     "https://ms7.mx-cd.net/tv/290-3222276/RTV_Rijnstreek.smil/playlist.m3u8": {
       "channel": "RTV Rijnstreek TV (720p)",
       "url": "https://ms7.mx-cd.net/tv/290-3222276/RTV_Rijnstreek.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:03:03.860888+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50737,7 +52009,15 @@
     "https://media.rtvwesterwolde.nl/hls/live/index.m3u8": {
       "channel": "RTV Westerwolde (432p)",
       "url": "https://media.rtvwesterwolde.nl/hls/live/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 668,
+          "error": "",
+          "time": "2026-10-11T17:01:14.742597+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -51705,7 +52985,15 @@
     "https://media.neuquen.gov.ar/rtn/television/playlist.m3u8": {
       "channel": "Radio TV Neuquen (720p)",
       "url": "https://media.neuquen.gov.ar/rtn/television/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:01:10.043451+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52182,7 +53470,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3RAJMUSIXKANDA/index.m3u8": {
       "channel": "Raj Musix Kannada (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3RAJMUSIXKANDA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981333,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:05.551420+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52234,7 +53530,15 @@
     "https://mumt04.tangotv.in/m18aqlK4RAJNEWSMALAYALAM/index.m3u8": {
       "channel": "Raj News Malayalam (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4RAJNEWSMALAYALAM/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:23.280105+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52263,7 +53567,15 @@
     "https://mn-nl.mncdn.com/palabroad/live/playlist.m3u8": {
       "channel": "Rajeen TV (1080p)",
       "url": "https://mn-nl.mncdn.com/palabroad/live/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:22.674226+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52404,14 +53716,30 @@
     "https://mumt01.tangotv.in/O5aw8Zn3RAMDHENU/index.m3u8": {
       "channel": "Ramdhenu (720p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3RAMDHENU/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:54.349250+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt01.tangotv.in/O5aw8Zn3RANG/index.m3u8": {
       "channel": "Rang (720p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3RANG/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:48.012608+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53039,7 +54367,15 @@
     "https://ms2.mx-cd.net/dtv-02/260-2403096/Regio90TV.smil/playlist.m3u8": {
       "channel": "Regio90 TV (720p)",
       "url": "https://ms2.mx-cd.net/dtv-02/260-2403096/Regio90TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:44.531704+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53172,7 +54508,15 @@
     "https://mumbai-edge.smartplaytv.in/republickannada/index.m3u8": {
       "channel": "Republic Kannada (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/republickannada/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983946,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:43.277782+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53201,7 +54545,15 @@
     "https://media.3netmedia.ro/hls/stream.m3u8": {
       "channel": "Radio Romania 3Net (480p)",
       "url": "https://media.3netmedia.ro/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T17:01:09.824525+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53735,7 +55087,15 @@
     "https://mumbai-edge.smartplaytv.in/RongeenTV/index.m3u8": {
       "channel": "Rongeen TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/RongeenTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:16.820777+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55314,7 +56674,15 @@
     "https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8": {
       "channel": "Sadhna News Madhya Pradesh/Chhattisgarh (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4SADHNEWSPMRAJ/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 28.0,
+          "frames": 600,
+          "error": "",
+          "time": "2026-10-11T17:06:40.248362+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55336,14 +56704,30 @@
     "https://mumt05.tangotv.in/87NeALx2SADHNATV/index.m3u8": {
       "channel": "Sadhna TV (720p)",
       "url": "https://mumt05.tangotv.in/87NeALx2SADHNATV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:13.699034+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt04.tangotv.in/m18aqlK4SAFARITV/index.m3u8": {
       "channel": "Safari TV (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4SAFARITV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:41.744037+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55365,7 +56749,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HSAHANANEWS/index.m3u8": {
       "channel": "Sahana News (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HSAHANANEWS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:49.427063+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55394,7 +56786,15 @@
     "https://mumbai-edge.smartplaytv.in/SaiTV/index.m3u8": {
       "channel": "Sai TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/SaiTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:14.275694+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55578,7 +56978,15 @@
     "https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8": {
       "channel": "Samachar Plus 24x7 (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2VERTENTSAMACHARPLUS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:24.992593+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55607,7 +57015,15 @@
     "https://mumbai-edge.smartplaytv.in/SamayKolkata/index.m3u8": {
       "channel": "Samay Kolkata (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/SamayKolkata/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:21.543548+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55679,7 +57095,15 @@
     "https://mumbai-edge.smartplaytv.in/SanaPlusHD/index.m3u8": {
       "channel": "Sana Plus (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/SanaPlusHD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:04:14.302790+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55693,7 +57117,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3SANDESHNEWS/index.m3u8": {
       "channel": "Sandesh News (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3SANDESHNEWS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981333,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:05:12.690931+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55722,7 +57154,15 @@
     "https://mumt06.tangotv.in/qYyB8fXVSANGATTV/index.m3u8": {
       "channel": "Sangat TV (720p)",
       "url": "https://mumt06.tangotv.in/qYyB8fXVSANGATTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997417,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:33.000770+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55981,7 +57421,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlSATHIYAMTV/index.m3u8": {
       "channel": "Sathiyam TV (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlSATHIYAMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:07:43.604804+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56473,7 +57921,15 @@
     "https://mumbai-edge.smartplaytv.in/ShakthiTV/index.m3u8": {
       "channel": "Shakthi TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/ShakthiTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989002,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:25.031529+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56510,7 +57966,15 @@
     "https://media.streambrothers.com:1936/8400/8400/playlist.m3u8": {
       "channel": "Shalom TV (360p)",
       "url": "https://media.streambrothers.com:1936/8400/8400/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:01:24.052900+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56716,7 +58180,15 @@
     "https://mumt04.tangotv.in/m18aqlK4SHEMAROOUMANG/index.m3u8": {
       "channel": "Shemaroo Umang (720p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4SHEMAROOUMANG/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989521,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:06:40.702379+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56880,7 +58352,13 @@
     "https://mumt03.tangotv.in/Dsly5z3HSHUBHSANDESH/index.m3u8": {
       "channel": "Shubhsandesh TV (720p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HSHUBHSANDESH/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T17:06:47.720448+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56924,7 +58402,15 @@
     "https://mumt04.tangotv.in/m18aqlK4SAIRAMTV/index.m3u8": {
       "channel": "Sairam TV (720p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4SAIRAMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997333,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:27.935333+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56991,7 +58477,15 @@
     "https://mumt03.tangotv.in/Dsly5z3H7SMUSIC/index.m3u8": {
       "channel": "7S Music (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3H7SMUSIC/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:09.622716+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57042,7 +58536,15 @@
     "https://mumbai-edge.smartplaytv.in/ABPMajha/index.m3u8": {
       "channel": "ABP Majha (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/ABPMajha/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:03:24.517134+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57109,7 +58611,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HAAKASHAATH/index.m3u8": {
       "channel": "Aakaash Aath (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HAAKASHAATH/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:13.150423+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57280,7 +58790,15 @@
     "https://mumt05.tangotv.in/87NeALx2ASSAMTALKS/index.m3u8": {
       "channel": "Assam Talks (720p)",
       "url": "https://mumt05.tangotv.in/87NeALx2ASSAMTALKS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997438,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:06:46.014595+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57302,7 +58820,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlAYUSHTV/index.m3u8": {
       "channel": "Ayush TV (720p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlAYUSHTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:35.422853+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57697,7 +59223,15 @@
     "https://movil.ejeserver.com/live/teledoradahd.m3u8": {
       "channel": "Canal Mas Television (720p)",
       "url": "https://movil.ejeserver.com/live/teledoradahd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:02:34.576811+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57927,14 +59461,30 @@
     "https://mumbai-edge.smartplaytv.in/ddmadhyapradesh/index.m3u8": {
       "channel": "DD Madhya Pradesh (480p)",
       "url": "https://mumbai-edge.smartplaytv.in/ddmadhyapradesh/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:04:35.970973+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumbai-edge.smartplaytv.in/ddodiya/index.m3u8": {
       "channel": "DD Odia (480p)",
       "url": "https://mumbai-edge.smartplaytv.in/ddodiya/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:04:38.475516+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58023,7 +59573,15 @@
     "https://ms2.mx-cd.net/tv/228-1864150/Omroep_Helmond.smil/playlist.m3u8": {
       "channel": "Dit is Helmond (480p)",
       "url": "https://ms2.mx-cd.net/tv/228-1864150/Omroep_Helmond.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:51.893844+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58374,7 +59932,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlFAKTMARATHI/index.m3u8": {
       "channel": "Fakt Marathi (720p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlFAKTMARATHI/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994688,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:31.286754+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58544,7 +60110,15 @@
     "https://mumbai-edge.smartplaytv.in/HMTV/index.m3u8": {
       "channel": "HMTV (360p)",
       "url": "https://mumbai-edge.smartplaytv.in/HMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.985,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:03:48.347013+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58602,7 +60176,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3HINDUDHARMAM/index.m3u8": {
       "channel": "Hindu Dharmam (720p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3HINDUDHARMAM/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T17:04:22.916606+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58818,7 +60400,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8": {
       "channel": "Jaihind TV (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HJAIHIND/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:05:48.820657+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59017,7 +60607,15 @@
     "https://mst3k-roku.amagi.tv/playlist.m3u8": {
       "channel": "MST3K (1080p)",
       "url": "https://mst3k-roku.amagi.tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 8.533333,
+          "frames": 256,
+          "error": "",
+          "time": "2026-10-11T17:03:37.988362+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59114,7 +60712,15 @@
     "https://movil.ejeserver.com/live/masmusica.m3u8": {
       "channel": "MasMusica FM (720p)",
       "url": "https://movil.ejeserver.com/live/masmusica.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 894,
+          "error": "",
+          "time": "2026-10-11T17:02:28.306770+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59166,7 +60772,15 @@
     "https://mn-nl.mncdn.com/halabtoday/livestream/index.m3u8": {
       "channel": "Halab Today TV (1080p)",
       "url": "https://mn-nl.mncdn.com/halabtoday/livestream/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:02:11.615553+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59345,7 +60959,15 @@
     "https://mytime-tcl.amagi.tv/playlist.m3u8": {
       "channel": "MyTime Movie Network East (1080p)",
       "url": "https://mytime-tcl.amagi.tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:08:12.966624+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59724,7 +61346,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3NORTHEASTLIVE/index.m3u8": {
       "channel": "Northeast Live (720p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3NORTHEASTLIVE/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:53.488433+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60051,7 +61681,13 @@
     "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8": {
       "channel": "Puthiya Thalaimurai (720p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlPUTHIYAEXPRESS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T17:08:53.008168+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60196,7 +61832,15 @@
     "https://mumt04.tangotv.in/m18aqlK4RAJNEWSTELUGU/index.m3u8": {
       "channel": "Raj News Telugu (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4RAJNEWSTELUGU/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:17.529520+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60278,7 +61922,15 @@
     "https://mumt05.tangotv.in/87NeALx2RENGONI/index.m3u8": {
       "channel": "Rengoni (360p)",
       "url": "https://mumt05.tangotv.in/87NeALx2RENGONI/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:17.643983+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60374,7 +62026,15 @@
     "https://mumbai-edge.smartplaytv.in/SVBC/index.m3u8": {
       "channel": "SVBC (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/SVBC/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:08.012763+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60388,7 +62048,15 @@
     "https://mumbai-edge.smartplaytv.in/SriSankara/index.m3u8": {
       "channel": "Sankara TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/SriSankara/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:21.492598+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60602,14 +62270,30 @@
     "https://mumt03.tangotv.in/Dsly5z3HSIRIKANNADA/index.m3u8": {
       "channel": "Siri Kannada (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HSIRIKANNADA/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:28.731442+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8": {
       "channel": "Siri Kannada All Time (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlSIRIKANNADAALLTIME/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:58.079125+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60901,7 +62585,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HSOHAMTV/index.m3u8": {
       "channel": "Soham TV (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HSOHAMTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988771,
+          "frames": 714,
+          "error": "",
+          "time": "2026-10-11T17:06:03.480724+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -61048,7 +62740,15 @@
     "https://mumt06.tangotv.in/qYyB8fXVINDRADHANU/index.m3u8": {
       "channel": "News Live Bangla (720p)",
       "url": "https://mumt06.tangotv.in/qYyB8fXVINDRADHANU/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:07:36.052209+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -62719,7 +64419,15 @@
     "https://mumt04.tangotv.in/m18aqlK4STUDIOONEPLUS/index.m3u8": {
       "channel": "Studio One + (720p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4STUDIOONEPLUS/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:36.245415+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -63523,7 +65231,15 @@
     "https://mumbai-edge.smartplaytv.in/SwatantraTV/index.m3u8": {
       "channel": "Swatantra TV (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/SwatantraTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:28.289123+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66004,7 +67720,15 @@
     "https://n11.stv.livebox.sk/stv-tv/stv4.stream/playlist.m3u8": {
       "channel": "TV NRSR (720p)",
       "url": "https://n11.stv.livebox.sk/stv-tv/stv4.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:08:23.733250+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66041,14 +67765,30 @@
     "https://n105.quickmedia.tv/noetv/live/noetv/Ifd4_1_4/chunks_dvr_timeshift-0-7200.m3u8": {
       "channel": "TV Noe (720p)",
       "url": "https://n105.quickmedia.tv/noetv/live/noetv/Ifd4_1_4/chunks_dvr_timeshift-0-7200.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977007,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:08:20.861008+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://n105.quickmedia.tv/noetvplus/live/noetvplus/Shz3_1_1/chunks_dvr_timeshift-0-7200.m3u8": {
       "channel": "TV Noe+ (720p)",
       "url": "https://n105.quickmedia.tv/noetvplus/live/noetvplus/Shz3_1_1/chunks_dvr_timeshift-0-7200.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977007,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T17:08:21.097193+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67018,7 +68758,15 @@
     "https://mumt04.tangotv.in/m18aqlK4TV27/index.m3u8": {
       "channel": "TV27 News (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4TV27/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:38.546047+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67158,7 +68906,15 @@
     "https://mumbai-edge.smartplaytv.in/TV5Telugu/index.m3u8": {
       "channel": "TV5 News (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/TV5Telugu/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:04:21.269735+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67306,7 +69062,15 @@
     "https://mumbai-edge.smartplaytv.in/Tv9Bangla/index.m3u8": {
       "channel": "TV9 Bangla (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/Tv9Bangla/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:32.649392+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67335,7 +69099,15 @@
     "https://mumbai-edge.smartplaytv.in/tv9kannada/index.m3u8": {
       "channel": "TV9 Kannada (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/tv9kannada/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.987667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:04:36.910559+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -68782,7 +70554,15 @@
     "https://mumt01.tangotv.in/O5aw8Zn3JANAMTVTAMIL/index.m3u8": {
       "channel": "Tamil Janam (360p)",
       "url": "https://mumt01.tangotv.in/O5aw8Zn3JANAMTVTAMIL/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994708,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:52.529260+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71144,7 +72924,15 @@
     "https://mumbai-edge.smartplaytv.in/Tennis2/index.m3u8": {
       "channel": "Tennis Channel 2 (1080p)",
       "url": "https://mumbai-edge.smartplaytv.in/Tennis2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T17:04:30.328724+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71291,7 +73079,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlTHANTHIONE/index.m3u8": {
       "channel": "Thanthi One (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlTHANTHIONE/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:08:05.605738+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71647,7 +73443,15 @@
     "https://mediaprod1.nowcast.cc:5443/LiveApp/streams/anZPy7eaVWLyDMZB1697488814699.m3u8": {
       "channel": "The Now Network (480p)",
       "url": "https://mediaprod1.nowcast.cc:5443/LiveApp/streams/anZPy7eaVWLyDMZB1697488814699.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:01:53.483260+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -73885,7 +75689,15 @@
     "https://mumt05.tangotv.in/87NeALx2UNIQUETV/index.m3u8": {
       "channel": "Unique TV (720p)",
       "url": "https://mumt05.tangotv.in/87NeALx2UNIQUETV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:07:20.082585+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -74271,7 +76083,15 @@
     "https://mumbai-edge.smartplaytv.in/V6News/index.m3u8": {
       "channel": "V6 News (720p)",
       "url": "https://mumbai-edge.smartplaytv.in/V6News/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:04:30.622478+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -74789,7 +76609,15 @@
     "https://mumt04.tangotv.in/m18aqlK4VASANTHTV/index.m3u8": {
       "channel": "Vasanth TV (360p)",
       "url": "https://mumt04.tangotv.in/m18aqlK4VASANTHTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:06:35.119978+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -74833,7 +76661,15 @@
     "https://ms2.mx-cd.net/tv/81-334271/VechtdalTV.smil/playlist.m3u8": {
       "channel": "Vechtdal TV (720p)",
       "url": "https://ms2.mx-cd.net/tv/81-334271/VechtdalTV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:56.538601+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75344,7 +77180,15 @@
     "https://micanal.ovh/livestreams/515.AUTOOAAZ721F.m3u8": {
       "channel": "Villa Mantero TV",
       "url": "https://micanal.ovh/livestreams/515.AUTOOAAZ721F.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 896,
+          "error": "",
+          "time": "2026-10-11T17:02:08.286974+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75567,7 +77411,15 @@
     "https://mumt07.tangotv.in/zHjX9OFlVISSATV/index.m3u8": {
       "channel": "Vissa TV (360p)",
       "url": "https://mumt07.tangotv.in/zHjX9OFlVISSATV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:08:06.407381+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75641,7 +77493,15 @@
     "https://mumt03.tangotv.in/Dsly5z3HVALAMDAIRO/index.m3u8": {
       "channel": "Valam TV Dayro (360p)",
       "url": "https://mumt03.tangotv.in/Dsly5z3HVALAMDAIRO/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:05:53.423897+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75750,7 +77610,15 @@
     "https://media.voceabasarabiei.md/vocea/bitrate_1080p.m3u8": {
       "channel": "Vocea Basarabiei TV",
       "url": "https://media.voceabasarabiei.md/vocea/bitrate_1080p.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T17:01:27.337114+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75942,7 +77810,15 @@
     "https://ms01.w24.at/W24/smil:liveevent.smil/playlist.m3u8": {
       "channel": "W24 (720p)",
       "url": "https://ms01.w24.at/W24/smil:liveevent.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997333,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T17:02:48.298495+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -76101,7 +77977,15 @@
     "https://ms7.mx-cd.net/dtv-11/99-660295/WOS.smil/playlist.m3u8": {
       "channel": "WOS (1080p)",
       "url": "https://ms7.mx-cd.net/dtv-11/99-660295/WOS.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:59.464343+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -76196,7 +78080,13 @@
     "https://mobile.ccdntech.com/transcoder/_definst_/vod164_Live/live/chunklist_w1177047531.m3u8": {
       "channel": "WXTV (480p)",
       "url": "https://mobile.ccdntech.com/transcoder/_definst_/vod164_Live/live/chunklist_w1177047531.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T17:03:28.549721+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -76372,7 +78262,15 @@
     "https://media.streambrothers.com:1936/uszqnhpjpa/uszqnhpjpa/playlist.m3u8": {
       "channel": "Wavez FM (1080p)",
       "url": "https://media.streambrothers.com:1936/uszqnhpjpa/uszqnhpjpa/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T17:01:35.554658+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -76521,7 +78419,15 @@
     "https://ms2.mx-cd.net/tv/151-573495/WeertFM_TV.smil/playlist.m3u8": {
       "channel": "WeertFM TV (720p)",
       "url": "https://ms2.mx-cd.net/tv/151-573495/WeertFM_TV.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T17:02:51.116487+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -77927,7 +79833,15 @@
     "https://media.slactech.com:1936/ZIZDirect/ZIZDirect/playlist.m3u8": {
       "channel": "ZIZ TV (1080p)",
       "url": "https://media.slactech.com:1936/ZIZDirect/ZIZDirect/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T17:01:08.670400+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
