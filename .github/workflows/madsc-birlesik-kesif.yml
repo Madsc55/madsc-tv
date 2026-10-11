@@ -4,10 +4,6 @@ on:
     paths:
       - 'madsc_akilli_kesif.py'
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - MADSC TV - Birleşik Kanal Keşfi ve Testi
-    types: [completed]
   schedule:
     - cron: '*/15 * * * *'
 permissions:
