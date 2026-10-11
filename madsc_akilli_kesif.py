@@ -198,3 +198,5 @@ if __name__=="__main__":main()
 # Continue staged 155-source candidate verification on 2026-10-11; no playlist changes.
 
 # Yeni 155 kaynak aday test turu - 2026-10-11 10:26 Europe/Stockholm.
+
+# Trigger next candidate verification run after workflow syntax fix, 2026-10-11.
