@@ -114,7 +114,13 @@
     "https://live.eltv.az/live/eltv/playlist.m3u8": {
       "channel": "EL TV",
       "url": "https://live.eltv.az/live/eltv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T16:49:39.055426+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -458,7 +464,15 @@
     "https://live.x2.co.th/live/13livetv-th.m3u8": {
       "channel": "13 Siam Thai (720p)",
       "url": "https://live.x2.co.th/live/13livetv-th.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 448,
+          "error": "",
+          "time": "2026-10-11T16:51:54.464352+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -991,7 +1005,15 @@
     "https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-03-srt.smil/playlist.m3u8": {
       "channel": "360° News (1080p)",
       "url": "https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-03-srt.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:48.955346+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1208,7 +1230,15 @@
     "https://live-us1.thaimomo.com/live-as/ch3hd-3/playlist.m3u8": {
       "channel": "3HD (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/ch3hd-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976939,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:08.708939+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1997,7 +2027,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/abctelevisionSRT/playlist.m3u8": {
       "channel": "ABTelevision (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/abctelevisionSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996583,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:20.429575+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2108,7 +2146,15 @@
     "https://live-tv.waytv.pt/adbtv/adbtv/playlist.m3u8": {
       "channel": "ADB TV (1080p)",
       "url": "https://live-tv.waytv.pt/adbtv/adbtv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993,
+          "frames": 1499,
+          "error": "",
+          "time": "2026-10-11T16:47:12.806874+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2249,7 +2295,15 @@
     "https://live.legitpro.co.in/cnnnews/index.m3u8": {
       "channel": "AKD Calcutta News (1080p)",
       "url": "https://live.legitpro.co.in/cnnnews/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:49:45.655335+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2469,7 +2523,15 @@
     "https://live.amelbatv.co:81/anctvlive/index.m3u8": {
       "channel": "ANC Television (720p)",
       "url": "https://live.amelbatv.co:81/anctvlive/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:47:52.720092+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3715,7 +3777,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/agroSRT/playlist.m3u8": {
       "channel": "Agro TV (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/agroSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979521,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:19.200609+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3973,21 +4043,45 @@
     "https://live.alarabiya.net/alarabiapublish/aswaaq.smil/playlist.m3u8": {
       "channel": "Al Arabiya Business (1080p)",
       "url": "https://live.alarabiya.net/alarabiapublish/aswaaq.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:50.153465+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.alarabiya.net/alarabiapublish/english/playlist_dvr.m3u8": {
       "channel": "Al Arabiya English (1080p)",
       "url": "https://live.alarabiya.net/alarabiapublish/english/playlist_dvr.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977007,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:47:36.194385+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.alarabiya.net/alarabiapublish/aaprograms.smil/playlist.m3u8": {
       "channel": "Al Arabiya Programs (1080p)",
       "url": "https://live.alarabiya.net/alarabiapublish/aaprograms.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999864,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:59.344425+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4147,28 +4241,60 @@
     "https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8": {
       "channel": "Al Jazeera 2 (1080p)",
       "url": "https://live-hls-web-aja2-gcp.thehlive.com/AJA2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:46:35.606918+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-hls-web-ajm-fa.thehlive.com/AJM/index.m3u8": {
       "channel": "Al Jazeera Mubasher (1080p)",
       "url": "https://live-hls-web-ajm-fa.thehlive.com/AJM/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.99425,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:10.425694+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-hls-web-ajm24-fa.getaj.net/AJM24/index.m3u8": {
       "channel": "Al Jazeera Mubasher 24 (1080p)",
       "url": "https://live-hls-web-ajm24-fa.getaj.net/AJM24/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997188,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:46:33.707286+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8": {
       "channel": "Al Jazeera Mubasher Broadcast 2 (1080p)",
       "url": "https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979917,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:46:32.151389+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4234,7 +4360,15 @@
     "https://live.cdnbridge.tv/Almasirah/Almasirah_all/playlist.m3u8": {
       "channel": "Al Masirah (1080p)",
       "url": "https://live.cdnbridge.tv/Almasirah/Almasirah_all/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997333,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:48:23.454997+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4314,7 +4448,15 @@
     "https://live.kwikmotion.com/sbrksariyadhradiolive/srpksariyadhradio/playlist.m3u8": {
       "channel": "Al Riyadh Radio (720p)",
       "url": "https://live.kwikmotion.com/sbrksariyadhradiolive/srpksariyadhradio/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:49:23.560250+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4461,7 +4603,15 @@
     "https://live.aljawadain.org/live/aljawadaintv/playlist.m3u8": {
       "channel": "Al-Jawadain TV (1080p)",
       "url": "https://live.aljawadain.org/live/aljawadaintv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:48.840739+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4556,7 +4706,15 @@
     "https://live.alawla.tv/hls/stream.m3u8": {
       "channel": "Alawla TV (1080p)",
       "url": "https://live.alawla.tv/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:56.836459+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4898,7 +5056,15 @@
     "https://live.kwikmotion.com/sbrksakhuzamaradiolive/srpkhuzama/playlist.m3u8": {
       "channel": "Alkhuzama Radio (720p)",
       "url": "https://live.kwikmotion.com/sbrksakhuzamaradiolive/srpkhuzama/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:49:21.490651+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5169,7 +5335,15 @@
     "https://live-us1.thaimomo.com/live-as/chamarin-3/playlist.m3u8": {
       "channel": "Amarin TV (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chamarin-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989048,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:21.616698+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5278,7 +5452,15 @@
     "https://live.gideo.video/americateve2/master.m3u8": {
       "channel": "America TeVe (1080p)",
       "url": "https://live.gideo.video/americateve2/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:48:37.810215+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5375,7 +5557,15 @@
     "https://live.kwikmotion.com/syriatv02live/syriatv02.smil/playlist.m3u8": {
       "channel": "Althania (1080p)",
       "url": "https://live.kwikmotion.com/syriatv02live/syriatv02.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:49:42.833992+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5568,7 +5758,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/andestvSRT/playlist.m3u8": {
       "channel": "Andes Television (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/andestvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982771,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:55.949051+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5974,7 +6172,15 @@
     "https://live.apostoltv.hu/live/playlist.m3u8": {
       "channel": "Apostol TV (576p)",
       "url": "https://live.apostoltv.hu/live/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:48:06.707655+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5988,7 +6194,15 @@
     "https://live.ams.com.kh/app/stream/playlist.m3u8": {
       "channel": "Apsara TV11 (720p)",
       "url": "https://live.ams.com.kh/app/stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:02.073301+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6282,7 +6496,15 @@
     "https://live-news.asharq.com/asharq.m3u8": {
       "channel": "Asharq News (1080p)",
       "url": "https://live-news.asharq.com/asharq.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:58.137703+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6422,7 +6644,15 @@
     "https://live.asil.tv/asiltv/index.m3u8": {
       "channel": "Asil TV (576p)",
       "url": "https://live.asil.tv/asiltv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:48:08.648722+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6784,7 +7014,15 @@
     "https://live.obslivestream.com/autenticatvmux/index.m3u8": {
       "channel": "Autentica Television (720p)",
       "url": "https://live.obslivestream.com/autenticatvmux/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:22.468344+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6924,7 +7162,15 @@
     "https://live.livestreamtv.ca/azstar/amlst:azstar/playlist.m3u8": {
       "channel": "Az Star TV (1080p)",
       "url": "https://live.livestreamtv.ca/azstar/amlst:azstar/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:43.926561+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -7625,7 +7871,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/bnbSRT/playlist.m3u8": {
       "channel": "BNB Digital (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/bnbSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997208,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:20.339978+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -8535,7 +8789,15 @@
     "https://live.beitolabbas.tv/live/beitolabbastv.m3u8": {
       "channel": "BeitolAbbas TV Channel (1080p)",
       "url": "https://live.beitolabbas.tv/live/beitolabbastv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:12.255406+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -8556,7 +8818,15 @@
     "https://live.dc.beltelecom.by/trkgomel/trkgomel.stream/playlist.m3u8": {
       "channel": "Belarus-4 (1080p)",
       "url": "https://live.dc.beltelecom.by/trkgomel/trkgomel.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-11T16:48:22.094088+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -8593,7 +8863,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/bellaabanquinaSRT/playlist.m3u8": {
       "channel": "Bella Abanquina TV (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/bellaabanquinaSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993583,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:20.025566+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9435,7 +9713,15 @@
     "https://live.x2.co.th/live/bntv.m3u8": {
       "channel": "Boonniyom TV (720p)",
       "url": "https://live.x2.co.th/live/bntv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 448,
+          "error": "",
+          "time": "2026-10-11T16:51:56.028643+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -10783,7 +11069,15 @@
     "https://live.cltv36.tv:5443/LiveApp/streams/cltvlive.m3u8": {
       "channel": "CLTV 36 (720p)",
       "url": "https://live.cltv36.tv:5443/LiveApp/streams/cltvlive.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T16:48:07.196769+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11040,7 +11334,15 @@
     "https://live.amelbatv.co:81/cnctulualive/index.fmp4.m3u8": {
       "channel": "CNC Tulua (720p)",
       "url": "https://live.amelbatv.co:81/cnctulualive/index.fmp4.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 895,
+          "error": "",
+          "time": "2026-10-11T16:47:55.573736+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11173,7 +11475,15 @@
     "https://live.obslivestream.com/crtvmux/index.m3u8": {
       "channel": "CR Television (720p)",
       "url": "https://live.obslivestream.com/crtvmux/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:30.908153+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11195,7 +11505,15 @@
     "https://live1.acangroup.org:1929/publiclive/crtv_news/playlist.m3u8": {
       "channel": "CRTV News (1080p)",
       "url": "https://live1.acangroup.org:1929/publiclive/crtv_news/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:52:11.331570+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11305,7 +11623,13 @@
     "https://live.legitpro.co.in/ctvnakdplus/index.m3u8": {
       "channel": "CTVN AKD Plus (1080p)",
       "url": "https://live.legitpro.co.in/ctvnakdplus/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T16:50:42.419845+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11503,7 +11827,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/cajamarcatvSRT/playlist.m3u8": {
       "channel": "Cajamarca TV (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/cajamarcatvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992521,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:21.807414+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11612,21 +11944,45 @@
     "https://live.canthotv.vn/live/tv/chunklist.m3u8": {
       "channel": "Can Tho TV (1080p)",
       "url": "https://live.canthotv.vn/live/tv/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:16.620109+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.canthotv.vn/cs2/live.stream/playlist.m3u8": {
       "channel": "Can Tho TV 2 (1080p)",
       "url": "https://live.canthotv.vn/cs2/live.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 20.007333,
+          "frames": 500,
+          "error": "",
+          "time": "2026-10-11T16:48:23.000938+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.canthotv.vn/cs3/tv/chunklist.m3u8": {
       "channel": "Can Tho TV 3 (1080p)",
       "url": "https://live.canthotv.vn/cs3/tv/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T16:47:57.554494+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -12606,7 +12962,15 @@
     "https://live.obslivestream.com/canal8/index.m3u8": {
       "channel": "Canal 8 Catacaos (720p)",
       "url": "https://live.obslivestream.com/canal8/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:23.280439+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13994,7 +14358,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/casmatvSRT-TRA/playlist.m3u8": {
       "channel": "Casma TV (720p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/casmatvSRT-TRA/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:48.469350+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14372,7 +14744,15 @@
     "https://live-us1.thaimomo.com/live-as/ch5hd-2/playlist.m3u8": {
       "channel": "Channel 5 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/ch5hd-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 29.994667,
+          "frames": 0,
+          "error": "",
+          "time": "2026-10-11T16:47:25.368797+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14392,7 +14772,15 @@
     "https://live-us1.thaimomo.com/live-as/ch7hd-3/playlist.m3u8": {
       "channel": "Channel 7 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/ch7hd-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:11.792389+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14628,7 +15016,15 @@
     "https://live.channel8.com/Channel8-Kurdish/index.fmp4.m3u8": {
       "channel": "Channel8 (1080p)",
       "url": "https://live.channel8.com/Channel8-Kurdish/index.fmp4.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 625,
+          "error": "",
+          "time": "2026-10-11T16:48:24.186649+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15310,7 +15706,15 @@
     "https://live.cineramatvbo.com/hls/stream.m3u8": {
       "channel": "Cinerama Television (720p)",
       "url": "https://live.cineramatvbo.com/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 8.106667,
+          "frames": 195,
+          "error": "",
+          "time": "2026-10-11T16:48:06.182522+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16357,7 +16761,15 @@
     "https://live.obslivestream.com/conecta2/index.m3u8": {
       "channel": "Conecta2TV (720p)",
       "url": "https://live.obslivestream.com/conecta2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:29.248352+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16430,7 +16842,15 @@
     "https://live-iptv.cool-channel.com/cool/live-720P.m3u8": {
       "channel": "Cool Channel",
       "url": "https://live-iptv.cool-channel.com/cool/live-720P.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:04.857892+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17793,7 +18213,15 @@
     "https://live-stream.dvb.no/hls/stream_src/index.m3u8": {
       "channel": "DVB TV (720p)",
       "url": "https://live-stream.dvb.no/hls/stream_src/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:47:03.251058+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17830,7 +18258,15 @@
     "https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8": {
       "channel": "Da Nang TV 1 (1080p)",
       "url": "https://live.mediatech.vn/live/285b59a111d76974225a8e3004bfc31a509/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:10.152588+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17882,7 +18318,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/dactvSRT/playlist.m3u8": {
       "channel": "Dac TV (720p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/dactvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998708,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:24.954761+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17985,7 +18429,15 @@
     "https://live.mediatech.vn/live/2859145290d0d7947ef88b6240123b62474/chunklist.m3u8": {
       "channel": "Da Nang TV2 (1080p)",
       "url": "https://live.mediatech.vn/live/2859145290d0d7947ef88b6240123b62474/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988073,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:00.413639+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18125,14 +18577,30 @@
     "https://live-mcl.cdn01.net/smarttv/48vy43564/playlist.m3u8": {
       "channel": "Daystar TV (1080p)",
       "url": "https://live-mcl.cdn01.net/smarttv/48vy43564/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:47.870934+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-mcl.cdn01.net/smarttv/64wj6m6d8/playlist.m3u8": {
       "channel": "Daystar TV Espanol (720p)",
       "url": "https://live-mcl.cdn01.net/smarttv/64wj6m6d8/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983979,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:54.048560+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18587,7 +19055,15 @@
     "https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8": {
       "channel": "Dheeran TV (576p)",
       "url": "https://live.we2live.in/dheerantv/dheerantv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976009,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:58.112584+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19266,7 +19742,15 @@
     "https://live.dottotv.ro/index.m3u8": {
       "channel": "Dotto TV (1080p)",
       "url": "https://live.dottotv.ro/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1498,
+          "error": "",
+          "time": "2026-10-11T16:48:31.936107+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20744,7 +21228,15 @@
     "https://live.efarinatv.com/hls/bgtaufikganteng.m3u8": {
       "channel": "Efarina TV (720p)",
       "url": "https://live.efarinatv.com/hls/bgtaufikganteng.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:48:33.457179+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20758,7 +21250,15 @@
     "https://live.ekamraott.com/bharat/bharat/index.m3u8": {
       "channel": "Ekamra Bharat Odia (360p)",
       "url": "https://live.ekamraott.com/bharat/bharat/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:26.150200+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -21029,7 +21529,15 @@
     "https://live.elheddaftv.com:8081/elheddaftv/index.m3u8": {
       "channel": "El-Heddaf TV (1080p)",
       "url": "https://live.elheddaftv.com:8081/elheddaftv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:48:36.922739+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -23121,7 +23629,15 @@
     "https://live-manifest.production-public.tubi.io/live/e7be5ad5-9044-4151-95d4-a9aae10ab0a5/playlist.m3u8": {
       "channel": "Fast TV (720p)",
       "url": "https://live-manifest.production-public.tubi.io/live/e7be5ad5-9044-4151-95d4-a9aae10ab0a5/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:57.600779+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24236,7 +24752,15 @@
     "https://live.kwikmotion.com/futurelive/ftv.smil/playlist.m3u8": {
       "channel": "Future TV (1080p)",
       "url": "https://live.kwikmotion.com/futurelive/ftv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998322,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:12.152078+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24318,7 +24842,15 @@
     "https://live-us1.thaimomo.com/live-as/chgmmchannel-3/playlist.m3u8": {
       "channel": "GMM 25 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chgmmchannel-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991383,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:16.901586+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24987,7 +25519,15 @@
     "https://live.streams.ovh:8081/gnomitv/index.m3u8": {
       "channel": "Gnomi TV (720p)",
       "url": "https://live.streams.ovh:8081/gnomitv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:51:13.052421+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -25959,7 +26499,15 @@
     "https://live.streamhch.com/live/streams/hch1.m3u8": {
       "channel": "HCH (720p)",
       "url": "https://live.streamhch.com/live/streams/hch1.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:51:19.908610+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27163,7 +27711,15 @@
     "https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8": {
       "channel": "Holy Quran Radio (1080p)",
       "url": "https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:49:23.275430+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27461,7 +28017,15 @@
     "https://live-rian.cdnvideo.ru/rian/rus-radio/playlist.m3u8": {
       "channel": "Horoshee Kino (1080p)",
       "url": "https://live-rian.cdnvideo.ru/rian/rus-radio/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:07.588314+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27646,7 +28210,15 @@
     "https://live.i-news.tv/hls/stream.m3u8": {
       "channel": "I News (720p)",
       "url": "https://live.i-news.tv/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:48:54.662871+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27831,7 +28403,15 @@
     "https://live-ilce.ovp-vivaro.digital/ovp-origin-abr/ngrp:6359ef999f3fb_all/playlist.m3u8": {
       "channel": "ILCE Canal 15 Summa Saberes (720p)",
       "url": "https://live-ilce.ovp-vivaro.digital/ovp-origin-abr/ngrp:6359ef999f3fb_all/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:42.980420+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28211,28 +28791,60 @@
     "https://live.imamhossaintv.com/live/ih1.m3u8": {
       "channel": "Imam Hussein TV 1 (1080p)",
       "url": "https://live.imamhossaintv.com/live/ih1.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:48.433918+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.imamhossaintv.com/live/ih2.m3u8": {
       "channel": "Imam Hussein TV 2 (1080p)",
       "url": "https://live.imamhossaintv.com/live/ih2.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:48:44.688667+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.imamhossaintv.com/live/ih3.m3u8": {
       "channel": "Imam Hussein TV 3 (1080p)",
       "url": "https://live.imamhossaintv.com/live/ih3.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:53.763245+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.imamhossaintv.com/live/ih4.m3u8": {
       "channel": "Imam Hussein TV 4 (1080p)",
       "url": "https://live.imamhossaintv.com/live/ih4.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:48:54.011012+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28306,7 +28918,15 @@
     "https://live.tvimpact.ro:8088/hevc/index.m3u8": {
       "channel": "Impact TV (1080p)",
       "url": "https://live.tvimpact.ro:8088/hevc/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 1499,
+          "error": "",
+          "time": "2026-10-11T16:51:48.047586+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28676,7 +29296,15 @@
     "https://live-onesignal.royalmedia.co.ke/live/T-MxRsFebq6zx7k2QFMbLw.m3u8": {
       "channel": "Inooro TV",
       "url": "https://live-onesignal.royalmedia.co.ke/live/T-MxRsFebq6zx7k2QFMbLw.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1497,
+          "error": "",
+          "time": "2026-10-11T16:47:07.307240+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28809,7 +29437,15 @@
     "https://live.intermediatv.ro/ram/playlist.m3u8": {
       "channel": "Intermedia TV (576p)",
       "url": "https://live.intermediatv.ro/ram/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.99325,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:43.389534+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28918,7 +29554,15 @@
     "https://live.presstv.ir/hls/presstv_5_482/index.m3u8": {
       "channel": "Iran Press",
       "url": "https://live.presstv.ir/hls/presstv_5_482/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:50:56.542769+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -29432,7 +30076,15 @@
     "https://live.jswk.online/IK_RTPM/live/index.m3u8": {
       "channel": "Janta TV (360p)",
       "url": "https://live.jswk.online/IK_RTPM/live/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999365,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:48:57.053373+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -29461,14 +30113,30 @@
     "https://live.jayatv.lk/hls/stream.m3u8": {
       "channel": "Jaya TV (1080p)",
       "url": "https://live.jayatv.lk/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991833,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:03.955188+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.kwikmotion.com/sbrksajeddahradiolive/srpksajeddahradio/chunks.m3u8": {
       "channel": "Jeddah Radio (1080p)",
       "url": "https://live.kwikmotion.com/sbrksajeddahradiolive/srpksajeddahradio/chunks.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:49:28.748367+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -29616,7 +30284,15 @@
     "https://live.jintv.org/medialive/jintv.m3u8": {
       "channel": "Jin TV",
       "url": "https://live.jintv.org/medialive/jintv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 1493,
+          "error": "",
+          "time": "2026-10-11T16:48:52.419029+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -29872,7 +30548,15 @@
     "https://live-scjn.ovp-vivaro.digital/ovp-origin/638a22b47746d/playlist.m3u8": {
       "channel": "Justicia TV (720p)",
       "url": "https://live-scjn.ovp-vivaro.digital/ovp-origin/638a22b47746d/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:47:04.994071+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30752,7 +31436,15 @@
     "https://live.kanshitv.co.uk/mobile/kanshitvkey.m3u8": {
       "channel": "Kanshi TV (720p)",
       "url": "https://live.kanshitv.co.uk/mobile/kanshitvkey.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:10.506306+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31507,7 +32199,15 @@
     "https://live.vrtcdn.be/groupb/live/9c429b62-e160-417a-b438-cdf985bcd352/live.isml/.mpd": {
       "channel": "Klara (720p)",
       "url": "https://live.vrtcdn.be/groupb/live/9c429b62-e160-417a-b438-cdf985bcd352/live.isml/.mpd",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:08.158971+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -32667,7 +33367,15 @@
     "https://live.lavozdemaria.com:3436/live/lavozdemarialive.m3u8": {
       "channel": "La Voz de Maria (720p)",
       "url": "https://live.lavozdemaria.com:3436/live/lavozdemarialive.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T16:49:43.367222+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -32901,7 +33609,15 @@
     "https://live-us1.thaimomo.com/live-as/chlantung-2/playlist.m3u8": {
       "channel": "Lanthung TV (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chlantung-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.980499,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:23.126902+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -33352,7 +34068,15 @@
     "https://live.lietuvosryto.tv/live/hls/eteris.m3u8": {
       "channel": "Lietuvos Rytas TV (1080p)",
       "url": "https://live.lietuvosryto.tv/live/hls/eteris.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 744,
+          "error": "",
+          "time": "2026-10-11T16:49:53.572400+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -33535,7 +34259,15 @@
     "https://live.creacast.com/littoralfm-ch1/stream/playlist.m3u8": {
       "channel": "Littoral FM TV (720p)",
       "url": "https://live.creacast.com/littoralfm-ch1/stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:48:27.049784+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34363,7 +35095,15 @@
     "https://live-us1.thaimomo.com/live-as/chmcothd-3/playlist.m3u8": {
       "channel": "MCOT HD (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chmcothd-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.990794,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:24.787411+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34531,7 +35271,15 @@
     "https://live.mnb.mn/hls/mnb_sport.stream.m3u8": {
       "channel": "MNB Sport (1080p)",
       "url": "https://live.mnb.mn/hls/mnb_sport.stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:50:12.549734+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34553,7 +35301,15 @@
     "https://live.vrtcdn.be/groupa/live/1718328a-5c53-410d-87ec-d8db68124cfc/live.isml/.mpd": {
       "channel": "MNM (720p)",
       "url": "https://live.vrtcdn.be/groupa/live/1718328a-5c53-410d-87ec-d8db68124cfc/live.isml/.mpd",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:59.917729+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34641,7 +35397,15 @@
     "https://live-us1.thaimomo.com/live-as/chmono29-2/playlist.m3u8": {
       "channel": "MONO 29 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chmono29-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98415,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:23.537596+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34824,7 +35588,15 @@
     "https://live.mtna.tv/hls/mtna/mtna.m3u8": {
       "channel": "MTNA TV",
       "url": "https://live.mtna.tv/hls/mtna/mtna.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:49:55.427668+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35241,7 +36013,15 @@
     "https://live.salto.nl/hls/malive_high.m3u8": {
       "channel": "MaLive (1080p)",
       "url": "https://live.salto.nl/hls/malive_high.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.987,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:50:54.706570+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35541,7 +36321,15 @@
     "https://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8": {
       "channel": "Maidan (720p)",
       "url": "https://live-maidantv.cdnvideo.ru/maidantv/maidantv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:46:56.001470+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35614,7 +36402,15 @@
     "https://live.obslivestream.com/makaomux/index.m3u8": {
       "channel": "Makao TV (1080p)",
       "url": "https://live.obslivestream.com/makaomux/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:31.528932+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36028,7 +36824,15 @@
     "https://live.arnoproducciones.com/hls/norte.m3u8": {
       "channel": "Mas Norte TV",
       "url": "https://live.arnoproducciones.com/hls/norte.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T16:48:04.886768+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36220,7 +37024,15 @@
     "https://live.matele.be/hls/live.m3u8": {
       "channel": "Matele (1080p)",
       "url": "https://live.matele.be/hls/live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:50:03.333196+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37109,7 +37921,15 @@
     "https://live1.1tvcrimea.ru/milletlive.m3u8": {
       "channel": "Millet (720p)",
       "url": "https://live1.1tvcrimea.ru/milletlive.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 648,
+          "error": "",
+          "time": "2026-10-11T16:52:12.434306+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37212,7 +38032,15 @@
     "https://live.miracleonline.org/hls/miracle1.m3u8": {
       "channel": "Miracle Channel (1080p)",
       "url": "https://live.miracleonline.org/hls/miracle1.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:50:04.850567+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37987,7 +38815,15 @@
     "https://live1.ottlive.co.in/munsiftv/munsiftv/index.m3u8": {
       "channel": "Munsif TV (720p)",
       "url": "https://live1.ottlive.co.in/munsiftv/munsiftv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:22.788088+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39072,21 +39908,45 @@
     "https://live.ntdtv.com/aplive200/playlist.m3u8": {
       "channel": "NTD TV Asia-Pacific",
       "url": "https://live.ntdtv.com/aplive200/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:50:11.797677+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.ntdtv.com/cwlive220/playlist.m3u8": {
       "channel": "NTD TV Canada",
       "url": "https://live.ntdtv.com/cwlive220/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:12.374035+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.ntdtv.com/cnlive900/playlist.m3u8": {
       "channel": "NTD TV China",
       "url": "https://live.ntdtv.com/cnlive900/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:17.758271+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39137,7 +39997,15 @@
     "https://live-ntm13.cdnvideo.ru/ntm13/smil:ntm13.smil/playlist.m3u8": {
       "channel": "NTM (720p)",
       "url": "https://live-ntm13.cdnvideo.ru/ntm13/smil:ntm13.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:00.038766+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39284,7 +40152,15 @@
     "https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8": {
       "channel": "NVK Sakha (1080p)",
       "url": "https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 745,
+          "error": "",
+          "time": "2026-10-11T16:47:12.409054+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39580,7 +40456,15 @@
     "https://live.nasul.tv/live/stream.m3u8": {
       "channel": "Nasul TV (720p)",
       "url": "https://live.nasul.tv/live/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:49:58.960758+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39608,7 +40492,15 @@
     "https://live-us1.thaimomo.com/live-as/chNation-3/playlist.m3u8": {
       "channel": "Nation TV (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chNation-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.96,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:11.912539+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39772,7 +40664,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/nativachanchamayoSRT/playlist.m3u8": {
       "channel": "Nativa TV Satipo (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/nativachanchamayoSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:52.911779+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39860,7 +40760,15 @@
     "https://live.iplanay.gob.mx/hls/nayarittv.m3u8": {
       "channel": "Nayarit Comunica (1080p)",
       "url": "https://live.iplanay.gob.mx/hls/nayarittv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T16:48:57.092924+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39949,7 +40857,15 @@
     "https://live.neatv.gr:8888/hls/neatv.m3u8": {
       "channel": "Nea TV (1080p)",
       "url": "https://live.neatv.gr:8888/hls/neatv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:50:16.147112+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40007,7 +40923,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/neotvSRT/playlist.m3u8": {
       "channel": "Neo TV (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/neotvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995688,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:49.496819+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40095,7 +41019,15 @@
     "https://live1.ottlive.co.in/news11/news11/index.m3u8": {
       "channel": "News 11 (720p)",
       "url": "https://live1.ottlive.co.in/news11/news11/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:21.687206+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40248,7 +41180,13 @@
     "https://live1.ottlive.co.in/newsmarathi/newsmarathi/index.m3u8": {
       "channel": "News Marathi 24x7 (720p)",
       "url": "https://live1.ottlive.co.in/newsmarathi/newsmarathi/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T16:53:24.025333+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40270,7 +41208,15 @@
     "https://live.newsnation81.com/newsnation81/newsnation81/index.m3u8": {
       "channel": "News Nation 81 (1080p)",
       "url": "https://live.newsnation81.com/newsnation81/newsnation81/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:50:19.105569+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40329,7 +41275,15 @@
     "https://live.nowtelly.com/now_spanish/live/playlist.m3u8": {
       "channel": "News of the World (1080p)",
       "url": "https://live.nowtelly.com/now_spanish/live/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:15.575541+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40592,7 +41546,15 @@
     "https://live.enhdtv.com:19360/nexthd/nexthd.m3u8": {
       "channel": "Next HD (1080p)",
       "url": "https://live.enhdtv.com:19360/nexthd/nexthd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T16:48:41.938800+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40621,7 +41583,15 @@
     "https://live.mediatech.vn/live/2859591eef2e92249b682db021f4247c364/chunklist.m3u8": {
       "channel": "Nghe An TV (1080p)",
       "url": "https://live.mediatech.vn/live/2859591eef2e92249b682db021f4247c364/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:50:01.839592+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40901,7 +41871,15 @@
     "https://live.kwikmotion.com/sbrksanedaradiolive/srpksanedaradio/playlist.m3u8": {
       "channel": "Nidae AlIslam Radio (1080p)",
       "url": "https://live.kwikmotion.com/sbrksanedaradiolive/srpksanedaradio/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:49:35.808688+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40936,7 +41914,15 @@
     "https://live-nikatv.cdnvideo.ru/nikatv/nikatv.sdp/playlist.m3u8": {
       "channel": "Nika TV (720p)",
       "url": "https://live-nikatv.cdnvideo.ru/nikatv/nikatv.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.990667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:46:48.568284+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41039,7 +42025,15 @@
     "https://live-vestinn.cdnvideo.ru/vestinn/nn24-khl/playlist.m3u8": {
       "channel": "Nizhniy Novgorod 24 (720p)",
       "url": "https://live-vestinn.cdnvideo.ru/vestinn/nn24-khl/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977438,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:43.144387+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41448,7 +42442,15 @@
     "https://live.tvcontrolcp.com:1936/tvnitelevision/tvnitelevision/playlist.m3u8": {
       "channel": "Nuestra Imagen TV (720p)",
       "url": "https://live.tvcontrolcp.com:1936/tvnitelevision/tvnitelevision/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1784,
+          "error": "",
+          "time": "2026-10-11T16:51:39.344059+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41639,7 +42641,15 @@
     "https://live-us1.thaimomo.com/live-as/chnews1-2/playlist.m3u8": {
       "channel": "News1 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chnews1-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982857,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:27.613985+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42039,7 +43049,15 @@
     "https://live.knou.ac.kr/knou1/live1/playlist.m3u8": {
       "channel": "OUN (1080p)",
       "url": "https://live.knou.ac.kr/knou1/live1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:49:14.594994+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42327,7 +43345,15 @@
     "https://live.olidigital.in/olitv/olitv/index.m3u8": {
       "channel": "Oli TV (1080p)",
       "url": "https://live.olidigital.in/olitv/olitv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:51.707221+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42656,7 +43682,15 @@
     "https://live-evg5.tv360.bitel.com.pe/bitel/onda/playlist.m3u8": {
       "channel": "Onda TV (720p)",
       "url": "https://live-evg5.tv360.bitel.com.pe/bitel/onda/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:56.174736+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42678,7 +43712,15 @@
     "https://live-us1.thaimomo.com/live-as/chone-3/playlist.m3u8": {
       "channel": "One 31 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chone-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:27.677779+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42714,7 +43756,15 @@
     "https://live.ekamraott.com/onepaschima/onepaschima/index.m3u8": {
       "channel": "One Paschima (360p)",
       "url": "https://live.ekamraott.com/onepaschima/onepaschima/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:27.575280+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43099,7 +44149,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/ozonotv/playlist.m3u8": {
       "channel": "Ozono TV (720p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/ozonotv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T16:46:27.570553+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43556,7 +44614,15 @@
     "https://live.ro24tv.ro/hls/stream.m3u8": {
       "channel": "PROFI 24 TV (720p)",
       "url": "https://live.ro24tv.ro/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T16:51:01.965324+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44349,7 +45415,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/pequestv/playlist.m3u8": {
       "channel": "Peques TV (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/pequestv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996542,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:53.723882+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44535,7 +45609,15 @@
     "https://live1.1tvcrimea.ru/1tvcrimea.m3u8": {
       "channel": "Perviy Krymskiy (720p)",
       "url": "https://live1.1tvcrimea.ru/1tvcrimea.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:52:17.631939+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44637,7 +45719,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/piuratvSRT/playlist.m3u8": {
       "channel": "PiuraTV (720p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/piuratvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.980729,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:08.363836+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44666,7 +45756,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/planeatvSRT/playlist.m3u8": {
       "channel": "Planea TV (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/planeatvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996042,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:33.307186+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46412,7 +47510,15 @@
     "https://live.tvcontrolcp.com:1936/puruwatv/puruwatv/playlist.m3u8": {
       "channel": "Puruwa TV (1080p)",
       "url": "https://live.tvcontrolcp.com:1936/puruwatv/puruwatv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:51:35.059371+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46448,7 +47554,15 @@
     "https://live.kwikmotion.com/qbusinesslive/qbusiness.smil/playlist.m3u8": {
       "channel": "QBC (1080p)",
       "url": "https://live.kwikmotion.com/qbusinesslive/qbusiness.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:16.507119+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46540,7 +47654,15 @@
     "https://live.kwikmotion.com/qtv1live/qtv1.smil/playlist.m3u8": {
       "channel": "Qatar Television (1080p)",
       "url": "https://live.kwikmotion.com/qtv1live/qtv1.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983979,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:21.946469+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46628,14 +47750,30 @@
     "https://live-evg5.tv360.bitel.com.pe/bitel/qollasuyotv/playlist.m3u8": {
       "channel": "Qollasuyo TV (1080p)",
       "url": "https://live-evg5.tv360.bitel.com.pe/bitel/qollasuyotv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999,
+          "frames": 1799,
+          "error": "",
+          "time": "2026-10-11T16:45:52.272818+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.mediatech.vn/live/285aaa79b4b265a457d81bb72bc32e2c114/chunklist.m3u8": {
       "channel": "Quang Ngai TV (1080p)",
       "url": "https://live.mediatech.vn/live/285aaa79b4b265a457d81bb72bc32e2c114/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:50:00.944043+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47356,7 +48494,15 @@
     "https://live.obslivestream.com/selvatv/index.m3u8": {
       "channel": "RSelvaTV (720p)",
       "url": "https://live.obslivestream.com/selvatv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:50:29.381560+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47747,7 +48893,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/rtp/playlist.m3u8": {
       "channel": "RTP (720p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/rtp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T16:45:56.292177+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48026,7 +49180,15 @@
     "https://live.streamteam.eu:8443/parkstad/parkstad/tv/playlist.m3u8": {
       "channel": "RTV Parkstad (1080p)",
       "url": "https://live.streamteam.eu:8443/parkstad/parkstad/tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-11T16:51:09.366261+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48326,7 +49488,15 @@
     "https://live.vrtcdn.be/groupa/live/3c3a12b5-093d-4a19-ae1f-3e775433286e/live.isml/.mpd": {
       "channel": "Radio 1 (720p)",
       "url": "https://live.vrtcdn.be/groupa/live/3c3a12b5-093d-4a19-ae1f-3e775433286e/live.isml/.mpd",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:04.016444+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48347,7 +49517,15 @@
     "https://live.vrtcdn.be/groupa/live/66a9668e-b37b-4de2-878e-0218563b2dd2/live.isml/.mpd": {
       "channel": "Radio 2 (720p)",
       "url": "https://live.vrtcdn.be/groupa/live/66a9668e-b37b-4de2-878e-0218563b2dd2/live.isml/.mpd",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:08.087535+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48874,7 +50052,15 @@
     "https://live.ondadigitaltv.com/RADIOODTV/index.m3u8": {
       "channel": "Radio Onda Digital (1080p)",
       "url": "https://live.ondadigitaltv.com/RADIOODTV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:50:50.108495+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -49215,7 +50401,15 @@
     "https://live.tvcontrolcp.com:8081/radiozona/index.m3u8": {
       "channel": "Radio Zona 90.3 (720p)",
       "url": "https://live.tvcontrolcp.com:8081/radiozona/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:51:42.108951+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -49251,7 +50445,15 @@
     "https://live.obslivestream.com/tvoriente/index.m3u8": {
       "channel": "RadioTV Oriente (720p)",
       "url": "https://live.obslivestream.com/tvoriente/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:37.265626+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50032,7 +51234,15 @@
     "https://live.kwikmotion.com/redtvlive/redtv.smil/playlist.m3u8": {
       "channel": "Red TV Lebanon (1080p)",
       "url": "https://live.kwikmotion.com/redtvlive/redtv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:49:21.266662+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50326,7 +51536,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/regiontvSRT/playlist.m3u8": {
       "channel": "Region TV Callao (720p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/regiontvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988188,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:09.844509+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50539,7 +51757,15 @@
     "https://live1.giocabet.tv/stream/6/index.m3u8": {
       "channel": "Rete 55",
       "url": "https://live1.giocabet.tv/stream/6/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:52:21.767784+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50814,7 +52040,15 @@
     "https://live-rikatv.cdnvideo.ru/rikatv/rikatv_tcode.sdp/playlist.m3u8": {
       "channel": "Rika TV (480p)",
       "url": "https://live-rikatv.cdnvideo.ru/rikatv/rikatv_tcode.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.987075,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:00.473775+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50998,7 +52232,15 @@
     "https://live.chechensoft.ru/vainahtv/ngrp:vaynahtv_all/playlist.m3u8": {
       "channel": "Rossiya 1 Vainah (480p)",
       "url": "https://live.chechensoft.ru/vainahtv/ngrp:vaynahtv_all/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T16:48:06.103072+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -51035,7 +52277,15 @@
     "https://live.kwikmotion.com/royatvpublic/royatv.smil/playlist.m3u8": {
       "channel": "Roya TV (1080p)",
       "url": "https://live.kwikmotion.com/royatvpublic/royatv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:22.413399+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -51102,7 +52352,15 @@
     "https://live-evg5.tv360.bitel.com.pe/bitel/mixtvSRT/playlist.m3u8": {
       "channel": "RumbaMix TV (1080p)",
       "url": "https://live-evg5.tv360.bitel.com.pe/bitel/mixtvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995563,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:56.763125+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -51369,7 +52627,15 @@
     "https://live.koryocdn.org/ryongnamsan/index.m3u8": {
       "channel": "Ryongnamsan Television (720p)",
       "url": "https://live.koryocdn.org/ryongnamsan/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1498,
+          "error": "",
+          "time": "2026-10-11T16:49:12.121037+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -51558,7 +52824,15 @@
     "https://live.leveex.hr/hls/live.m3u8": {
       "channel": "SBTV (1080p)",
       "url": "https://live.leveex.hr/hls/live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:49:45.315965+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -51947,7 +53221,15 @@
     "https://live.streamteam.eu:8443/sol2playout/sol2/live/playlist.m3u8": {
       "channel": "SOL2 (1080p)",
       "url": "https://live.streamteam.eu:8443/sol2playout/sol2/live/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:51:09.890812+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52555,7 +53837,15 @@
     "https://live.saharamedias.net:3317/live/shara24live.m3u8": {
       "channel": "Sahara 24 (1080p)",
       "url": "https://live.saharamedias.net:3317/live/shara24live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:51:02.731274+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52576,7 +53866,15 @@
     "https://live.salamtelevisi.com/hls/0/stream.m3u8": {
       "channel": "Salam TV (720p)",
       "url": "https://live.salamtelevisi.com/hls/0/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:51:10.012371+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52605,7 +53903,15 @@
     "https://live.salira.tv:3870/stream/play.m3u8": {
       "channel": "Salira TV (720p)",
       "url": "https://live.salira.tv:3870/stream/play.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T16:51:07.259269+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52736,7 +54042,15 @@
     "https://live.bradosti.net/live/samaraweb_playlist.m3u8": {
       "channel": "Samarra TV (1080p)",
       "url": "https://live.bradosti.net/live/samaraweb_playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989,
+          "frames": 700,
+          "error": "",
+          "time": "2026-10-11T16:48:19.042546+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -52865,7 +54179,15 @@
     "https://live.sangkemtv.com/memfs/sangkem.m3u8": {
       "channel": "Sangkem TV (1080p)",
       "url": "https://live.sangkemtv.com/memfs/sangkem.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999458,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T16:51:27.898392+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53145,7 +54467,15 @@
     "https://live.kwikmotion.com/sbrksasaudiaradiolive/srpksasaudiaradio/playlist.m3u8": {
       "channel": "Saudia Radio (1080p)",
       "url": "https://live.kwikmotion.com/sbrksasaudiaradiolive/srpksasaudiaradio/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:49:35.535414+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53671,14 +55001,30 @@
     "https://live.kwikmotion.com/smcquranlive/quranradiolive/playlist.m3u8": {
       "channel": "Sharjah Radio Quran (1080p)",
       "url": "https://live.kwikmotion.com/smcquranlive/quranradiolive/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.987333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:40.102459+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.kwikmotion.com/smc1live/smc1tv.smil/playlist.m3u8": {
       "channel": "Sharjah TV (1080p)",
       "url": "https://live.kwikmotion.com/smc1live/smc1tv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:37.350379+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -53846,7 +55192,15 @@
     "https://live.shoppingntmall.com/live/10011.m3u8": {
       "channel": "Shopping NT (720p)",
       "url": "https://live.shoppingntmall.com/live/10011.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:51:04.473244+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -54231,14 +55585,30 @@
     "https://live-hls-web-ajm.getaj.net/AJM/index.m3u8": {
       "channel": "Al Jazeera Mubasher (1080p)",
       "url": "https://live-hls-web-ajm.getaj.net/AJM/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983583,
+          "frames": 600,
+          "error": "",
+          "time": "2026-10-11T16:47:03.428640+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-hls-apps-ajm24-fa.getaj.net/AJM24/index.m3u8": {
       "channel": "Al Jazeera Mubasher 24 (1080p)",
       "url": "https://live-hls-apps-ajm24-fa.getaj.net/AJM24/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997188,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:46:34.501651+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -54267,7 +55637,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/aunoSRT/playlist.m3u8": {
       "channel": "Antena 1 (720p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/aunoSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986854,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:14.283463+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -55419,7 +56797,15 @@
     "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8": {
       "channel": "France 24 (1080p)",
       "url": "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:34.664483+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -56642,7 +58028,15 @@
     "https://live.nowtelly.com/now_usa/live_usa/playlist.m3u8": {
       "channel": "News of the World (1080p)",
       "url": "https://live.nowtelly.com/now_usa/live_usa/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:50:18.200279+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57150,7 +58544,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/rumba/playlist.m3u8": {
       "channel": "Radio Rumba TV (720p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/rumba/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1798,
+          "error": "",
+          "time": "2026-10-11T16:46:06.758064+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -57685,7 +59087,15 @@
     "https://live-stream.skynewsarabia.com/c-vertical-channel/vertical-stream/index.m3u8": {
       "channel": "Sky News Arabia Vertical (1440p)",
       "url": "https://live-stream.skynewsarabia.com/c-vertical-channel/vertical-stream/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:26.213455+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58096,7 +59506,15 @@
     "https://live.obslivestream.com/sonoondatv/index.m3u8": {
       "channel": "Sono Onda TV (720p)",
       "url": "https://live.obslivestream.com/sonoondatv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.97712,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T16:50:34.975762+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -58846,7 +60264,15 @@
     "https://live.koryocdn.org/sports/index.m3u8": {
       "channel": "Sports Television (720p)",
       "url": "https://live.koryocdn.org/sports/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1499,
+          "error": "",
+          "time": "2026-10-11T16:49:13.937651+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59593,7 +61019,15 @@
     "https://live.vrtcdn.be/groupb/live/450aa9d1-7173-47f3-aaaa-9701426f8ddd/live.isml/.m3u8": {
       "channel": "StuBru (1080p)",
       "url": "https://live.vrtcdn.be/groupb/live/450aa9d1-7173-47f3-aaaa-9701426f8ddd/live.isml/.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:52:03.533465+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59614,7 +61048,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/studiopasco/playlist.m3u8": {
       "channel": "Studio Pasco TV (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/studiopasco/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:13.418277+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59747,7 +61189,15 @@
     "https://live.enhdtv.com:8081/8060/index.m3u8": {
       "channel": "Suceso TV (720p)",
       "url": "https://live.enhdtv.com:8081/8060/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988667,
+          "frames": 1742,
+          "error": "",
+          "time": "2026-10-11T16:48:36.923030+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -59865,7 +61315,15 @@
     "https://live.obslivestream.com/supercanal/index.m3u8": {
       "channel": "Super Canal (720p)",
       "url": "https://live.obslivestream.com/supercanal/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:29.858879+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60218,7 +61676,15 @@
     "https://live.bangkokstream.com:19360/suwannabhumi/suwannabhumi.m3u8": {
       "channel": "Suwannabhumi Channel (720p)",
       "url": "https://live.bangkokstream.com:19360/suwannabhumi/suwannabhumi.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:48:13.808016+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60497,7 +61963,15 @@
     "https://live-us1.thaimomo.com/live-as/chtsport-1/playlist.m3u8": {
       "channel": "T Sports 7 (240p)",
       "url": "https://live-us1.thaimomo.com/live-as/chtsport-1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:33.492046+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60709,7 +62183,15 @@
     "https://live-tbn-ssai.simplestreamcdn.com/v1/master/774d979dd66704abea7c5b62cb34c6815fda0d35/tbn-live/manifest.m3u8": {
       "channel": "TBN UK (1080p)",
       "url": "https://live-tbn-ssai.simplestreamcdn.com/v1/master/774d979dd66704abea7c5b62cb34c6815fda0d35/tbn-live/manifest.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983979,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:22.648236+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60775,7 +62257,15 @@
     "https://live.tcm10.com.br/tcm10hd/stream.m3u8": {
       "channel": "TCM 10 HD (1080p)",
       "url": "https://live.tcm10.com.br/tcm10hd/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T16:51:23.647269+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -60819,7 +62309,15 @@
     "https://live-tdk42kz.cdnvideo.ru/tdk42kz/tdk42kz_720.smil/playlist.m3u8": {
       "channel": "TDK 42 (720p)",
       "url": "https://live-tdk42kz.cdnvideo.ru/tdk42kz/tdk42kz_720.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:28.000271+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -61100,7 +62598,15 @@
     "https://live-us1.thaimomo.com/live-as/chtnn24-2/playlist.m3u8": {
       "channel": "TNN16 (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chtnn24-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 2,
+          "error": "",
+          "time": "2026-10-11T16:47:37.498681+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -61263,7 +62769,15 @@
     "https://live.sli.ke/live/npnhm84gz9/master.m3u8": {
       "channel": "TOI Global (1080p)",
       "url": "https://live.sli.ke/live/npnhm84gz9/master.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.985,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:21.821633+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -62807,7 +64321,15 @@
     "https://live-evg5.tv360.bitel.com.pe/bitel/tvnorte/playlist.m3u8": {
       "channel": "TV Norte Chiclayo (720p)",
       "url": "https://live-evg5.tv360.bitel.com.pe/bitel/tvnorte/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 895,
+          "error": "",
+          "time": "2026-10-11T16:45:58.858708+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -63064,7 +64586,15 @@
     "https://live.mariatvcdn.com/tvprato/2db0dd5674586686a867ec52c3aa8e06.sdp/index.m3u8": {
       "channel": "TV Prato (1080p)",
       "url": "https://live.mariatvcdn.com/tvprato/2db0dd5674586686a867ec52c3aa8e06.sdp/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:49:47.255437+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -63679,7 +65209,15 @@
     "https://live.tv1.rw/index.m3u8": {
       "channel": "TV1 (480p)",
       "url": "https://live.tv1.rw/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:51:33.833328+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -63768,7 +65306,15 @@
     "https://live.amelbatv.co:81/teleopita/index.fmp4.m3u8": {
       "channel": "TV3 La Plata (480p)",
       "url": "https://live.amelbatv.co:81/teleopita/index.fmp4.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999229,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T16:47:55.930295+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -64181,7 +65727,15 @@
     "https://live.tvcbenin.com/direct/729c37a1d3319ee21991227b1f84c687.sdp/playlist.m3u8": {
       "channel": "TVC Benin (720p)",
       "url": "https://live.tvcbenin.com/direct/729c37a1d3319ee21991227b1f84c687.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T16:51:36.716026+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -64355,14 +65909,30 @@
     "https://live.kh.malimarcdn.com/live/tvk.stream/playlist.m3u8": {
       "channel": "TVK (720p)",
       "url": "https://live.kh.malimarcdn.com/live/tvk.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 12.013667,
+          "frames": 300,
+          "error": "",
+          "time": "2026-10-11T16:48:48.349607+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.kh.malimarcdn.com/live/tvk2.stream/playlist.m3u8": {
       "channel": "TVK 2 (720p)",
       "url": "https://live.kh.malimarcdn.com/live/tvk2.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 7.978667,
+          "frames": 200,
+          "error": "",
+          "time": "2026-10-11T16:49:00.615496+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -64821,7 +66391,15 @@
     "https://live.wrencdn.in/wrencdn/hls/tv13_web/index.m3u8": {
       "channel": "TV13 Gujarati (480p)",
       "url": "https://live.wrencdn.in/wrencdn/hls/tv13_web/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:06.611370+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -65337,7 +66915,15 @@
     "https://live.we2live.in/taazatv/live/playlist.m3u8": {
       "channel": "Taaza TV (576p)",
       "url": "https://live.we2live.in/taazatv/live/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:58.281538+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -65453,7 +67039,15 @@
     "https://live.cmr24.fm/TVI/HD/chunks.m3u8": {
       "channel": "TamilVision-TV (1080p)",
       "url": "https://live.cmr24.fm/TVI/HD/chunks.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:48:34.236096+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -65955,7 +67549,15 @@
     "https://live.tele7abc.ro/hls/stream/index.m3u8": {
       "channel": "Tele7ABC HD (720p)",
       "url": "https://live.tele7abc.ro/hls/stream/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:51:22.269961+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66148,7 +67750,15 @@
     "https://live.mariatvcdn.com/telemistretta/8fbcd205ada81b295ee6c211c3a80dde.sdp/playlist.m3u8": {
       "channel": "TeleMistretta (1080p)",
       "url": "https://live.mariatvcdn.com/telemistretta/8fbcd205ada81b295ee6c211c3a80dde.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:49:56.669026+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66177,7 +67787,15 @@
     "https://live.11-cdn.com/TeleOnce/3fc63fe00050c646635f16b071cd33e2.sdp/playlist.m3u8": {
       "channel": "TeleOnce (1080p)",
       "url": "https://live.11-cdn.com/TeleOnce/3fc63fe00050c646635f16b071cd33e2.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 879,
+          "error": "",
+          "time": "2026-10-11T16:47:46.814360+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66435,7 +68053,15 @@
     "https://live.obslivestream.com/telecolormux/index.m3u8": {
       "channel": "Telecolor Yurimaguas (1080p)",
       "url": "https://live.obslivestream.com/telecolormux/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:36.941289+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66543,7 +68169,15 @@
     "https://live-hq.evgcdn.net/live/2851dc2c9af68834814a89e61db0faee561/chunklist.m3u8": {
       "channel": "Tay Ninh TV (720p)",
       "url": "https://live-hq.evgcdn.net/live/2851dc2c9af68834814a89e61db0faee561/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 650,
+          "error": "",
+          "time": "2026-10-11T16:46:44.921388+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66765,7 +68399,15 @@
     "https://live-tvkrasnodar.cdnvideo.ru/tvkrasnodar/tvkrasnodar.sdp/playlist.m3u8": {
       "channel": "Telekanal Krasnodar (1080p)",
       "url": "https://live-tvkrasnodar.cdnvideo.ru/tvkrasnodar/tvkrasnodar.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:16.807059+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -66779,7 +68421,15 @@
     "https://live.telemadrid.cross-media.es/6389770581112/eu-central-1/6416060453001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiajI5YjgyLmVncmVzcy5haGc3NmwiLCJhY2NvdW50X2lkIjoiNjQxNjA2MDQ1MzAwMSIsImVobiI6ImxpdmUudGVsZW1hZHJpZC5jcm9zcy1tZWRpYS5lcyIsImlzcyI6ImJsaXZlLXBsYXliYWNrLXNvdXJjZS1hcGkiLCJzdWIiOiJwYXRobWFwdG9rZW4iLCJhdWQiOlsiNjQxNjA2MDQ1MzAwMSJdLCJqdGkiOiI2Mzg5NzcwNTgxMTEyIn0.kqriAMUkHT6m0V6wkCHJum_EUyL4PAi1zJMKlfmYHEU/playlist-hls.m3u8": {
       "channel": "Telemadrid (720p)",
       "url": "https://live.telemadrid.cross-media.es/6389770581112/eu-central-1/6416060453001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiajI5YjgyLmVncmVzcy5haGc3NmwiLCJhY2NvdW50X2lkIjoiNjQxNjA2MDQ1MzAwMSIsImVobiI6ImxpdmUudGVsZW1hZHJpZC5jcm9zcy1tZWRpYS5lcyIsImlzcyI6ImJsaXZlLXBsYXliYWNrLXNvdXJjZS1hcGkiLCJzdWIiOiJwYXRobWFwdG9rZW4iLCJhdWQiOlsiNjQxNjA2MDQ1MzAwMSJdLCJqdGkiOiI2Mzg5NzcwNTgxMTEyIn0.kqriAMUkHT6m0V6wkCHJum_EUyL4PAi1zJMKlfmYHEU/playlist-hls.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T16:51:24.016923+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67141,7 +68791,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/teleselva/playlist.m3u8": {
       "channel": "Teleselva (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/teleselva/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.981833,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:12.662040+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67206,7 +68864,15 @@
     "https://live-evg5.tv360.bitel.com.pe/bitel/telesystemSRT/playlist.m3u8": {
       "channel": "Telesystem TV (1080p)",
       "url": "https://live-evg5.tv360.bitel.com.pe/bitel/telesystemSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:54.392682+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67369,7 +69035,15 @@
     "https://live.kingdom-tv.com:3545/stream/play.m3u8": {
       "channel": "Television Caribbean (1080p)",
       "url": "https://live.kingdom-tv.com:3545/stream/play.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T16:49:11.273880+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67518,7 +69192,15 @@
     "https://live.tv-m.net/hls/stream.m3u8": {
       "channel": "Televizija M (1080p)",
       "url": "https://live.tv-m.net/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T16:51:32.481656+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67768,7 +69450,15 @@
     "https://live.thaichaiyo.tv/tcy/live-transmux.m3u8": {
       "channel": "Thai Chaiyo",
       "url": "https://live.thaichaiyo.tv/tcy/live-transmux.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:36.995158+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -67789,7 +69479,15 @@
     "https://live-us1.thaimomo.com/live-as/chthairathhd-3/playlist.m3u8": {
       "channel": "Thairath TV (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chthairathhd-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 29.987052,
+          "frames": 0,
+          "error": "",
+          "time": "2026-10-11T16:47:36.933965+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -68828,14 +70526,28 @@
     "https://live.topnews.co.th/hls/topnews_a_720.m3u8": {
       "channel": "Top News (720p)",
       "url": "https://live.topnews.co.th/hls/topnews_a_720.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:51:29.229902+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live1.ottlive.co.in/topnewsmarathi/topnewsmarathi/index.m3u8": {
       "channel": "Top News Marathi (1080p)",
       "url": "https://live1.ottlive.co.in/topnewsmarathi/topnewsmarathi/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T16:53:26.619353+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -69281,7 +70993,15 @@
     "https://live.suricloud.com/hls/tbntv/index.m3u8": {
       "channel": "Trishul Broadcasting Network (720p)",
       "url": "https://live.suricloud.com/hls/tbntv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1799,
+          "error": "",
+          "time": "2026-10-11T16:51:23.482696+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -69340,7 +71060,15 @@
     "https://live.prostream.al/al/smil:tropojatv.smil/playlist.m3u8": {
       "channel": "Tropoja Televizion (1080p)",
       "url": "https://live.prostream.al/al/smil:tropojatv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:50:51.176723+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -69392,7 +71120,15 @@
     "https://live-us1.thaimomo.com/live-as/chTrue4u-2/playlist.m3u8": {
       "channel": "True4U (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chTrue4u-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:20.167722+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -70049,7 +71785,15 @@
     "https://live-ugratv.cdnvideo.ru/ugratv/ugratv/playlist.m3u8": {
       "channel": "Ugra-TV (1080p)",
       "url": "https://live-ugratv.cdnvideo.ru/ugratv/ugratv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:26.874521+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -70107,7 +71851,15 @@
     "https://live-us1.thaimomo.com/live-as/chtvb-2/playlist.m3u8": {
       "channel": "Umm TV (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chtvb-2/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:47:25.389957+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -70519,7 +72271,15 @@
     "https://live.obslivestream.com/uraniotv/index.m3u8": {
       "channel": "Uranio TV (720p)",
       "url": "https://live.obslivestream.com/uraniotv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:38.165009+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -70911,7 +72671,13 @@
     "https://live1.ottlive.co.in/vtvgujarati/vtvgujarati/index.m3u8": {
       "channel": "VTV News (576p)",
       "url": "https://live1.ottlive.co.in/vtvgujarati/vtvgujarati/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T16:53:28.096562+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71437,7 +73203,15 @@
     "https://live.obslivestream.com/viaaltomayomux/index.m3u8": {
       "channel": "Via Altomayo (720p)",
       "url": "https://live.obslivestream.com/viaaltomayomux/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:41.549234+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71733,7 +73507,15 @@
     "https://live.villagetv.net/villagetv/hd/index.m3u8": {
       "channel": "Village TV (1080p)",
       "url": "https://live.villagetv.net/villagetv/hd/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:39.752526+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71896,7 +73678,15 @@
     "https://live-evg8.tv360.bitel.com.pe/bitel/visionsur/playlist.m3u8": {
       "channel": "Vision Sur (1080p)",
       "url": "https://live-evg8.tv360.bitel.com.pe/bitel/visionsur/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:35.334110+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -71918,7 +73708,15 @@
     "https://live.visir.is/hls-live/visir.smil/playlist.m3u8": {
       "channel": "Visir (1080p)",
       "url": "https://live.visir.is/hls-live/visir.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:51:53.460795+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -72028,7 +73826,15 @@
     "https://live.obslivestream.com/vivatv/index.m3u8": {
       "channel": "Viva TV Yurimaguas (720p)",
       "url": "https://live.obslivestream.com/vivatv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:50:42.331251+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -73167,7 +74973,15 @@
     "https://live-us1.thaimomo.com/live-as/chworkpointt-3/playlist.m3u8": {
       "channel": "Workpoint TV (576p)",
       "url": "https://live-us1.thaimomo.com/live-as/chworkpointt-3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:33.306952+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -73218,7 +75032,15 @@
     "https://live1.ottlive.co.in/worldpunjabitv/worldpunjabitv/index.m3u8": {
       "channel": "World Punjabi TV (1080p)",
       "url": "https://live1.ottlive.co.in/worldpunjabitv/worldpunjabitv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988625,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:29.351712+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -73247,7 +75069,15 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/ncanalSRT/playlist.m3u8": {
       "channel": "Wtv (1080p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/ncanalSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995313,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:53.012220+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -73939,7 +75769,15 @@
     "https://live.yourtime.tv/hls/stream.m3u8": {
       "channel": "YourTime TV",
       "url": "https://live.yourtime.tv/hls/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:52:09.620695+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -74064,21 +75902,45 @@
     "https://live-evg7.tv360.bitel.com.pe/bitel/yurimaguastvSRT/playlist.m3u8": {
       "channel": "Yurimaguas TV (720p)",
       "url": "https://live-evg7.tv360.bitel.com.pe/bitel/yurimaguastvSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:46:14.635936+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-evg5.tv360.bitel.com.pe/bitel/yurivisionSRT/playlist.m3u8": {
       "channel": "Yurivision (1080p)",
       "url": "https://live-evg5.tv360.bitel.com.pe/bitel/yurivisionSRT/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995021,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T16:45:51.400504+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8": {
       "channel": "Yuvelirochka (1080p)",
       "url": "https://live-uvelirochka.cdnvideo.ru/uvelirochka/uvelirochka_720p3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979093,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:47:39.255747+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -74583,7 +76445,15 @@
     "https://live.zitata.tv/direct-hls/playlist.m3u8": {
       "channel": "Zitata TV",
       "url": "https://live.zitata.tv/direct-hls/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982208,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T16:52:19.724676+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75035,21 +76905,45 @@
     "https://live.presstv.ir/hls/ifilm2.m3u8": {
       "channel": "iFilm 2",
       "url": "https://live.presstv.ir/hls/ifilm2.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:50:52.116556+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.presstv.ir/hls/ifilmar.m3u8": {
       "channel": "iFilm Arabic",
       "url": "https://live.presstv.ir/hls/ifilmar.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:50:53.380762+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "https://live.presstv.ir/hls/ifilmen.m3u8": {
       "channel": "iFilm English",
       "url": "https://live.presstv.ir/hls/ifilmen.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T16:50:50.751158+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75270,7 +77164,15 @@
     "https://live-hls-7agy.livepush.io/live_abr_cdn/nsitWAl1pTZtwca/emnmZbKZcO8RfwJR/index.m3u8": {
       "channel": "ticker News (1080p)",
       "url": "https://live-hls-7agy.livepush.io/live_abr_cdn/nsitWAl1pTZtwca/emnmZbKZcO8RfwJR/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T16:46:37.875331+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -75524,7 +77426,15 @@
     "https://live.azenagroup.com/zenith/index.m3u8": {
       "channel": "zenith (1080p)",
       "url": "https://live.azenagroup.com/zenith/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1499,
+          "error": "",
+          "time": "2026-10-11T16:48:11.289572+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
