@@ -12,7 +12,10 @@ class VerificationTests(unittest.TestCase):
         self.assertFalse(pipeline.eligible({'checks': [check]}, now))
         self.assertTrue(pipeline.eligible({'checks': [check]}, now + dt.timedelta(hours=6)))
         self.assertFalse(pipeline.eligible({'checks': [check]*3}, now + dt.timedelta(days=1)))
-        self.assertFalse(pipeline.eligible({'checks': [{'passed': False}]}, now))
+        failed = {'passed': False, 'time': now.isoformat()}
+        self.assertFalse(pipeline.eligible({'checks': [failed]}, now))
+        self.assertTrue(pipeline.eligible({'checks': [failed]}, now + dt.timedelta(hours=6)))
+        self.assertFalse(pipeline.eligible({'checks': [failed]*3}, now + dt.timedelta(days=1)))
 
     @patch('verification_pipeline.subprocess.run')
     def test_decode_requires_duration_and_frames(self, run):
