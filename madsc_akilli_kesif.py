@@ -101,7 +101,7 @@ def main():
  pending=[];duplicates=[];seen=set()
  for x in found:
   k=key(x["url"])
-  why="AYNI_URL" if k in known and x["source"]!="GECMIS_BASARISIZ_YENIDEN_TEST" else "AYNI_TARAMA" if k in seen else "AYNI_KANAL_KIMLIGI" if x["id"] and x["id"].lower() in ids else ""
+  why="AYNI_URL" if k in known and x["source"]!="GECMIS_BASARISIZ_YENIDEN_TEST" else "AYNI_TARAMA" if k in seen else ""
   if why:duplicates.append(dict(kanal=x["name"],url=x["url"],neden=why))
   else:seen.add(k);pending.append(x)
  limit=30
@@ -131,6 +131,18 @@ def main():
   row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "TEKRAR_TEST_BEKLIYOR"
   history[k]=prev
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
+ # High-resolution alternatives are only reported, never inserted into playlists.
+ def quality(res):
+  try:w,h=map(int,res.split("x"))
+  except Exception:return "BELIRSIZ"
+  return "4K_UHD" if w>=3840 and h>=2160 else "QHD" if w>=2560 and h>=1440 else "FHD" if w>=1920 and h>=1080 else "HD" if w>=1280 and h>=720 else "SD"
+ quality_rows=[]
+ for row in rows:
+  if row["durum"]=="SONRAKI_TEST_BEKLIYOR":continue
+  q=quality(row["cozunurluk"])
+  if q in ("FHD","QHD","4K_UHD") and name(row["kanal"]) in names:
+   quality_rows.append(dict(kanal=row["kanal"],url=row["url"],cozunurluk=row["cozunurluk"],kalite=q,durum=row["durum"],islem="YEDEKLERE_EKLEME_ICIN_KULLANICI_ONAYI_BEKLIYOR"))
+ write("yuksek_kalite_alternatifleri.csv",quality_rows,["kanal","url","cozunurluk","kalite","durum","islem"])
  state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
  summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
