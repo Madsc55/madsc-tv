@@ -41,6 +41,10 @@ jobs:
           cp -a madsc_kesif "${RUNNER_TEMP}/madsc-kesif-rapor"
           for attempt in $(seq 1 10); do
             git fetch origin main
+            # Discovery modifies tracked report files; reset only the runner checkout.
+            # A preserved report copy is restored below; remote playlists stay untouched.
+            git reset --hard origin/main
+            git clean -fd -- madsc_kesif/
             git checkout -B report-save origin/main
             mkdir -p madsc_kesif
             cp -a "${RUNNER_TEMP}/madsc-kesif-rapor/." madsc_kesif/
