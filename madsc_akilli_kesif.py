@@ -136,9 +136,10 @@ def main():
   why="AYNI_URL" if k in known and x["source"]!="GECMIS_BASARISIZ_YENIDEN_TEST" else "AYNI_TARAMA" if k in seen else ""
   if why:duplicates.append(dict(kanal=x["name"],url=x["url"],neden=why))
   else:seen.add(k);pending.append(x)
- limit=60
+ # Her otomatik turda daha fazla, daha once denenmemis adayi test et.
+ limit=240
  pending.sort(key=lambda x:(int(history.get(key(x["url"]),{}).get("runs",0)) > 0, freshness.get(x["source"],("","",99999))[2], history.get(key(x["url"]),{}).get("last_test",""), x["name"]))
- with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:rows=list(ex.map(test,pending[:limit]))
+ with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:rows=list(ex.map(test,pending[:limit]))
  for x in pending[limit:]:rows.append(dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="SONRAKI_TEST_BEKLIYOR",puan=0,video="",ses="",cozunurluk="",logo="",ulke="ISVEC_DOGRULANMADI",test1="",test2=""))
  rows.sort(key=lambda r:(-r["puan"],r["kanal"]))
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
