@@ -18,6 +18,10 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+      - name: Kuyruk sonrası en güncel test geçmişini al
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
       - name: Yayın kontrol aracını kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
