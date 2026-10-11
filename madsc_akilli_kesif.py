@@ -153,3 +153,5 @@ if __name__=="__main__":main()
 # Manual continuation requested: main-list health audit next batch
 
 # Manual unified channel discovery requested 2026-10-11
+
+# User requested unified discovery scan on 2026-10-11 at 02:40 Europe/Stockholm; playlist unchanged.
