@@ -1,0 +1,62 @@
+name: MADSC - Uc Asamali Aday Dogrulama
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/madsc-uc-asama.yml'
+  schedule:
+    - cron: '17 * * * *'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: madsc-rapor-yazma
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load latest saved state
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Validate verification rules
+        run: python3 -m unittest test_verification_pipeline -v
+      - name: Install decoder
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Decode due candidates
+        run: python3 verification_pipeline.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-uc-asama
+          path: madsc_dogrulama/
+          retention-days: 30
+      - name: Save verification state only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp -a madsc_dogrulama "${RUNNER_TEMP}/verification"
+          for attempt in $(seq 1 10); do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p madsc_dogrulama
+            cp -a "${RUNNER_TEMP}/verification/." madsc_dogrulama/
+            git add -- madsc_dogrulama/
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Save separate three-stage candidate verification"
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          exit 1
+      - name: Continue due candidates without waiting
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          remaining=$(python3 -c 'import json; print(json.load(open("madsc_dogrulama/summary.json"))["due_now"])')
+          if [ "$remaining" -gt 0 ]; then
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-uc-asama.yml/dispatches" -f ref=main
+          fi
