@@ -6,6 +6,10 @@ on:
       - 'epg/madsc-epg.xml'
       - '.github/workflows/epg-pages.yml'
   workflow_dispatch:
+  workflow_run:
+    workflows: ['EPG Günlük Güncelleme']
+    types: [completed]
+    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -15,12 +19,15 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - name: Validate EPG and prepare Pages files
         run: |
           python3 - <<'PY'
@@ -44,4 +51,33 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-# Retry deployment after GitHub Pages activation
+      - name: Verify published guide matches prepared XML
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, time, urllib.request
+          from pathlib import Path
+          expected = hashlib.sha256(Path('epg/madsc-epg.xml').read_bytes()).hexdigest()
+          url = os.environ['PAGE_URL'].rstrip('/') + '/madsc-epg.xml'
+          last_status = 'NOT_CHECKED'
+          for attempt in range(20):
+              try:
+                  req = urllib.request.Request(
+                      url + '?check=' + os.environ['GITHUB_RUN_ID'] + '-' + str(attempt),
+                      headers={'Cache-Control': 'no-cache', 'User-Agent': 'MADSC-EPG-verify/1.0'})
+                  with urllib.request.urlopen(req, timeout=15) as response:
+                      data = response.read(30_000_000)
+                  actual = hashlib.sha256(data).hexdigest()
+                  if actual == expected:
+                      print(json.dumps({'published_url': url, 'sha256': actual,
+                                        'bytes': len(data), 'published_matches': True}))
+                      break
+                  last_status = 'CONTENT_MISMATCH'
+              except Exception:
+                  last_status = 'FETCH_ERROR'
+              if attempt < 19:
+                  time.sleep(3)
+          else:
+              raise RuntimeError('Published EPG check failed: ' + last_status)
+          PY
