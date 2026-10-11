@@ -1,16 +1,18 @@
 {
-  "zaman": "2026-10-11T00:30:24.028060+00:00",
+  "zaman": "2026-10-11T00:42:49.607801+00:00",
   "ana_liste": 619,
   "kaynaklar": {
     "iptv-org-TR": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u",
-    "iptv-org-TURKIYE": "https://iptv-org.github.io/iptv/countries/tr.m3u"
+    "iptv-org-TURKIYE": "https://iptv-org.github.io/iptv/countries/tr.m3u",
+    "iptv-org-TURKCE": "https://iptv-org.github.io/iptv/languages/tur.m3u",
+    "iptv-org-AZERBAYCAN": "https://iptv-org.github.io/iptv/countries/az.m3u"
   },
-  "bulunan": 392,
-  "tekrar": 387,
-  "aday": 5,
-  "test_edilen": 5,
+  "bulunan": 588,
+  "tekrar": 558,
+  "aday": 30,
+  "test_edilen": 30,
   "teknik_gecen": 0,
-  "alternatif": 0,
+  "alternatif": 3,
   "hatalar": [],
   "notlar": "Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir."
 }

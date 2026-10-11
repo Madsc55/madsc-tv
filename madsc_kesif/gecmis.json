@@ -18,8 +18,8 @@
     },
     "https://nord.ayakkabiparti.lol/bbc/index.m3u8": {
       "first_seen": "2026-10-10T22:57:30.713282+00:00",
-      "last_test": "2026-10-11T00:30:24.027159+00:00",
-      "runs": 8,
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 9,
       "successful_runs": 0,
       "channel": "BBC Earth Turkiye",
       "url": "https://nord.ayakkabiparti.lol/bbc/index.m3u8",
@@ -27,8 +27,8 @@
     },
     "http://88.212.15.29/live/bbc_first/index.m3u8": {
       "first_seen": "2026-10-10T22:57:30.713282+00:00",
-      "last_test": "2026-10-11T00:30:24.027159+00:00",
-      "runs": 8,
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 9,
       "successful_runs": 0,
       "channel": "BBC First Turkiye",
       "url": "http://88.212.15.29/live/bbc_first/index.m3u8",
@@ -36,8 +36,8 @@
     },
     "http://213.91.179.28:8000/play/a0bw": {
       "first_seen": "2026-10-10T22:57:30.713282+00:00",
-      "last_test": "2026-10-11T00:30:24.027159+00:00",
-      "runs": 8,
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 9,
       "successful_runs": 0,
       "channel": "RTG int.",
       "url": "http://213.91.179.28:8000/play/a0bw",
@@ -45,8 +45,8 @@
     },
     "https://andro.mangeinde4.lat/checklist/androstreamlivees1.m3u8": {
       "first_seen": "2026-10-11T00:25:56.422357+00:00",
-      "last_test": "2026-10-11T00:30:24.027159+00:00",
-      "runs": 2,
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 3,
       "successful_runs": 1,
       "last_success": "2026-10-11T00:25:56.422357+00:00",
       "channel": "Eurosport 1 Turkiye",
@@ -54,12 +54,237 @@
     },
     "https://andro.mangeinde4.lat/checklist/androstreamlivees2.m3u8": {
       "first_seen": "2026-10-11T00:25:56.422357+00:00",
-      "last_test": "2026-10-11T00:30:24.027159+00:00",
-      "runs": 2,
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 3,
       "successful_runs": 1,
       "last_success": "2026-10-11T00:25:56.422357+00:00",
       "channel": "Eurosport 2 Turkiye",
       "url": "https://andro.mangeinde4.lat/checklist/androstreamlivees2.m3u8"
+    },
+    "http://stream.apa.tv/apastream/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "APA Tv (1080p)",
+      "url": "http://stream.apa.tv/apastream/index.m3u8"
+    },
+    "https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Ayaz TV (720p)",
+      "url": "https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8"
+    },
+    "https://str.yodacdn.net/azertv/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Az TV (1080p)",
+      "url": "https://str.yodacdn.net/azertv/index.m3u8"
+    },
+    "https://lives.atv.az:5443/ATV_TV_STREAM/streams/atvcanli.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Azad TV (1080p)",
+      "url": "https://lives.atv.az:5443/ATV_TV_STREAM/streams/atvcanli.m3u8"
+    },
+    "https://cdn.fast.jwp.services/v1/channel/1_jB6940Ei_TvhvIHDL/manifest.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "BabyFirst (720p)",
+      "url": "https://cdn.fast.jwp.services/v1/channel/1_jB6940Ei_TvhvIHDL/manifest.m3u8"
+    },
+    "https://live.eltv.az/live/eltv/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "EL TV",
+      "url": "https://live.eltv.az/live/eltv/playlist.m3u8"
+    },
+    "https://tv.gunaz.tv/hls/live.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "GunAz TV",
+      "url": "https://tv.gunaz.tv/hls/live.m3u8"
+    },
+    "http://live.al-zahratv.com/live/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Imam Hussein TV 5 (720p)",
+      "url": "http://live.al-zahratv.com/live/playlist.m3u8"
+    },
+    "https://str2.yodacdn.net/kanal35/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Kanal 35 (720p)",
+      "url": "https://str2.yodacdn.net/kanal35/index.m3u8"
+    },
+    "https://lives.atv.az:5443/KANAL-S/streams/kanals.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Kanal S",
+      "url": "https://lives.atv.az:5443/KANAL-S/streams/kanals.m3u8"
+    },
+    "http://85.132.78.122:8050/hls/stream/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Kapaz TV",
+      "url": "http://85.132.78.122:8050/hls/stream/index.m3u8"
+    },
+    "https://5a3ed7a72ed4b.streamlock.net/live/SMIL:myStream.smil/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Kurdistan TV (720p) [Not 24/7]",
+      "url": "https://5a3ed7a72ed4b.streamlock.net/live/SMIL:myStream.smil/playlist.m3u8"
+    },
+    "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Love Nature HD (1080p)",
+      "url": "https://mumbai-edge.smartplaytv.in/LoveNature/index.m3u8"
+    },
+    "http://212.42.111.152:8080/hls/manas.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Manas TV (1080p)",
+      "url": "http://212.42.111.152:8080/hls/manas.m3u8"
+    },
+    "https://str2.yodacdn.net/ntv/video.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "Naxcivan TV (720p)",
+      "url": "https://str2.yodacdn.net/ntv/video.m3u8"
+    },
+    "https://ncdn.telewebion.ir/azarbayjangharbi/live/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 1,
+      "last_success": "2026-10-11T00:42:49.606597+00:00",
+      "channel": "West Azerbaijan TV",
+      "url": "https://ncdn.telewebion.ir/azarbayjangharbi/live/playlist.m3u8"
+    },
+    "https://cdn10-alvinchannel.yayin.com.tr/alvinchannel/alvinchannel/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "Alvin Channel TV (360p) [Not 24/7]",
+      "url": "https://cdn10-alvinchannel.yayin.com.tr/alvinchannel/alvinchannel/playlist.m3u8"
+    },
+    "https://53be5ef2d13aa.streamlock.net/cubesanewz-secure/smil:cubesanewz-secure-web.smil/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "AnewZ TV",
+      "url": "https://53be5ef2d13aa.streamlock.net/cubesanewz-secure/smil:cubesanewz-secure-web.smil/playlist.m3u8"
+    },
+    "https://rtmp.baku.tv/hls/bakutv.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "Baku.TV",
+      "url": "https://rtmp.baku.tv/hls/bakutv.m3u8"
+    },
+    "https://mn-nl.mncdn.com/cbcsports_live/cbcsports/playlist.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "CBC Sport [Geo-blocked]",
+      "url": "https://mn-nl.mncdn.com/cbcsports_live/cbcsports/playlist.m3u8"
+    },
+    "https://media.finest.tv/hls/live.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "Finest TV (288p) [Not 24/7]",
+      "url": "https://media.finest.tv/hls/live.m3u8"
+    },
+    "https://live.itv.az/itv.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "Ictimai TV",
+      "url": "https://live.itv.az/itv.m3u8"
+    },
+    "https://str.yodacdn.net/medeniyyettele/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "Medeniyyet TV (1080p)",
+      "url": "https://str.yodacdn.net/medeniyyettele/index.m3u8"
+    },
+    "http://31.148.48.15/RTG_HD/index.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "RTG TV (720p)",
+      "url": "http://31.148.48.15/RTG_HD/index.m3u8"
+    },
+    "http://hls127.freeott.top:8080/BG_Dizi_HD/video.m3u8": {
+      "first_seen": "2026-10-11T00:42:49.606597+00:00",
+      "last_test": "2026-10-11T00:42:49.606597+00:00",
+      "runs": 1,
+      "successful_runs": 0,
+      "last_success": null,
+      "channel": "Timeless Dizi Channel (Poland) (1080p)",
+      "url": "http://hls127.freeott.top:8080/BG_Dizi_HD/video.m3u8"
     }
   }
 }
