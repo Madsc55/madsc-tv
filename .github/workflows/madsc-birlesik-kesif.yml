@@ -33,4 +33,20 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add madsc_kesif/
-          git diff --cached --quiet || (git commit -m "Update MADSC discovery reports" && git pull --rebase origin main && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Update MADSC discovery reports"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              if git rebase -X ours origin/main; then
+                if git push origin HEAD:main; then
+                  exit 0
+                fi
+              else
+                git rebase --abort || true
+                echo "Report conflict: preserving report artifact; no force push"
+                exit 1
+              fi
+              sleep 3
+            done
+            exit 1
+          fi
