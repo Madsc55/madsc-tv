@@ -80,7 +80,15 @@
     "http://live.al-zahratv.com/live/playlist.m3u8": {
       "channel": "Imam Hussein TV 5 (720p)",
       "url": "http://live.al-zahratv.com/live/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:39.452753+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -101,7 +109,13 @@
     "http://85.132.78.122:8050/hls/stream/index.m3u8": {
       "channel": "Kapaz TV",
       "url": "http://85.132.78.122:8050/hls/stream/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T15:07:49.564913+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -151,7 +165,15 @@
     "http://dost.stream.emsal.im/tv/live.m3u8": {
       "channel": "DOST TV",
       "url": "http://dost.stream.emsal.im/tv/live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998625,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:42.661686+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -744,7 +766,15 @@
     "http://92.114.85.87:8018/play/a00k/index.m3u8": {
       "channel": "4 Fun Dance",
       "url": "http://92.114.85.87:8018/play/a00k/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 718,
+          "error": "",
+          "time": "2026-10-11T15:08:34.491253+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -772,7 +802,15 @@
     "http://eu2.tv4e.gr:1935/live/myStream.sdp/playlist.m3u8": {
       "channel": "4E (1080p)",
       "url": "http://eu2.tv4e.gr:1935/live/myStream.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:09:46.721660+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -941,7 +979,15 @@
     "http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8": {
       "channel": "88 Stereo (720p)",
       "url": "http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:10:24.428274+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1449,7 +1495,15 @@
     "http://alwifaklive.info:1935/live/myStream/playlist.m3u8": {
       "channel": "ALWifak News TV (360p)",
       "url": "http://alwifaklive.info:1935/live/myStream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:45.212414+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -1873,7 +1927,15 @@
     "http://92.114.85.87:8010/play/a00b/index.m3u8": {
       "channel": "AXN Spin",
       "url": "http://92.114.85.87:8010/play/a00b/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 463,
+          "error": "",
+          "time": "2026-10-11T15:07:37.816406+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2079,14 +2141,30 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-pro2/live_fullhd?offsetSeconds=0": {
       "channel": "Acasa (1080p)",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-pro2/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:43.642393+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-progold/live_fullhd?offsetSeconds=0": {
       "channel": "Acasa Gold (1080p)",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-progold/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:48.244783+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2149,7 +2227,15 @@
     "http://actionlive.siliconweb.com/actionabr/actiontv/playlist.m3u8": {
       "channel": "Action 24 (1080p)",
       "url": "http://actionlive.siliconweb.com/actionabr/actiontv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:26.996228+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2482,7 +2568,15 @@
     "http://htvajyal.mada.ps:8888/ajyal/index.m3u8": {
       "channel": "Ajyal TV (720p)",
       "url": "http://htvajyal.mada.ps:8888/ajyal/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:01.771458+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2615,7 +2709,15 @@
     "http://media.smc-host.com:1935/alhorreya.tv/alhorreya.smil/playlist.m3u8": {
       "channel": "Al Horreya TV (1080p)",
       "url": "http://media.smc-host.com:1935/alhorreya.tv/alhorreya.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:55.290386+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2950,7 +3052,15 @@
     "http://live2.alalam.ir/live/Alalam/index.m3u8": {
       "channel": "Alalam News Channel Syria (1080p)",
       "url": "http://live2.alalam.ir/live/Alalam/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:10:36.879637+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -2993,7 +3103,15 @@
     "http://albuk.dyndns.tv:1935/albuk/albuk.stream/playlist.m3u8": {
       "channel": "Alb UK TV (1080p)",
       "url": "http://albuk.dyndns.tv:1935/albuk/albuk.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:22.616015+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3566,7 +3684,15 @@
     "http://mkstream.servehttp.com:1940/AmouYazid/ay1/playlist.m3u8": {
       "channel": "Amou Yazid TV (1080p)",
       "url": "http://mkstream.servehttp.com:1940/AmouYazid/ay1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:11:07.041049+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3629,7 +3755,15 @@
     "http://play.kankanlive.com/live/1711956137852982.m3u8": {
       "channel": "Ando TV (1080p)",
       "url": "http://play.kankanlive.com/live/1711956137852982.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:11:44.677186+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3771,7 +3905,15 @@
     "http://92.114.85.87:8010/play/a00g/index.m3u8": {
       "channel": "Antena HD",
       "url": "http://92.114.85.87:8010/play/a00g/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 737,
+          "error": "",
+          "time": "2026-10-11T15:07:40.056158+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -3974,7 +4116,15 @@
     "http://amdlive.ctnd.com.edgesuite.net/arirang_3ch/smil:arirang_3ch.smil/playlist.m3u8": {
       "channel": "Arirang Radio (1080p)",
       "url": "http://amdlive.ctnd.com.edgesuite.net/arirang_3ch/smil:arirang_3ch.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 719,
+          "error": "",
+          "time": "2026-10-11T15:08:54.819429+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4300,7 +4450,15 @@
     "http://media4.tripsmarter.com:1935/LiveTV/ACVBHD/playlist.m3u8": {
       "channel": "Atlanta Channel (720p)",
       "url": "http://media4.tripsmarter.com:1935/LiveTV/ACVBHD/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:11:03.158433+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4700,7 +4858,15 @@
     "http://amdlive-ch02.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8": {
       "channel": "Arirang TV (1080p)",
       "url": "http://amdlive-ch02.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:09:10.461454+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -4829,7 +4995,15 @@
     "http://bbstv.clouducs.com:1935/bbstv-live/livestream/playlist.m3u8": {
       "channel": "BBS TV (1080p)",
       "url": "http://bbstv.clouducs.com:1935/bbstv-live/livestream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:03.773409+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5067,7 +5241,15 @@
     "http://bst.bratsk.ru/hls/bst2/index.m3u8": {
       "channel": "BST (1080p)",
       "url": "http://bst.bratsk.ru/hls/bst2/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:09:07.777381+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5323,7 +5505,15 @@
     "http://antik.streaming.tivio.studio/channels/yXDwkH0CbFfkhU7ZnHlT/index.m3u8": {
       "channel": "Ballcasterz (1080p)",
       "url": "http://antik.streaming.tivio.studio/channels/yXDwkH0CbFfkhU7ZnHlT/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:44.603854+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5538,7 +5728,13 @@
     "http://go.bkpcp.top/mg/bjws": {
       "channel": "Beijing Satellite TV (1080p)",
       "url": "http://go.bkpcp.top/mg/bjws",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T15:10:59.594047+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5643,7 +5839,15 @@
     "http://push-int.siliconweb.com/bestTV/stream/playlist.m3u8": {
       "channel": "Best TV (1080p)",
       "url": "http://push-int.siliconweb.com/bestTV/stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:41.519469+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -5818,7 +6022,15 @@
     "http://live-bigasia.cdnvideo.ru/bigasia/bigasia.smil/playlist.m3u8": {
       "channel": "Big Asia (720p)",
       "url": "http://live-bigasia.cdnvideo.ru/bigasia/bigasia.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:10:36.546069+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6530,7 +6742,15 @@
     "http://92.114.85.87:8017/play/a004/index.m3u8": {
       "channel": "CBeebies (576p)",
       "url": "http://92.114.85.87:8017/play/a004/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 723,
+          "error": "",
+          "time": "2026-10-11T15:08:10.212628+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6573,56 +6793,120 @@
     "http://74.91.26.218:82/live/cctv10hd.m3u8": {
       "channel": "CCTV-10 (720p)",
       "url": "http://74.91.26.218:82/live/cctv10hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976621,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:06:07.445105+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv11hd.m3u8": {
       "channel": "CCTV-11 (720p)",
       "url": "http://74.91.26.218:82/live/cctv11hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977642,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:08.451764+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv12hd.m3u8": {
       "channel": "CCTV-12 (720p)",
       "url": "http://74.91.26.218:82/live/cctv12hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:11.832470+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv13hd.m3u8": {
       "channel": "CCTV-13 (720p)",
       "url": "http://74.91.26.218:82/live/cctv13hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977619,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:11.954143+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv14hd.m3u8": {
       "channel": "CCTV-14 (1080p)",
       "url": "http://74.91.26.218:82/live/cctv14hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.97712,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:14.764581+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv17hd.m3u8": {
       "channel": "CCTV-17 (1080p)",
       "url": "http://74.91.26.218:82/live/cctv17hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983333,
+          "frames": 1798,
+          "error": "",
+          "time": "2026-10-11T15:06:14.473263+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv2hd.m3u8": {
       "channel": "CCTV-2 (720p)",
       "url": "http://74.91.26.218:82/live/cctv2hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977279,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:17.468532+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv3hd.m3u8": {
       "channel": "CCTV-3 (720p)",
       "url": "http://74.91.26.218:82/live/cctv3hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976644,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:17.924172+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6636,7 +6920,15 @@
     "http://74.91.26.218:82/live/cctv4hd.m3u8": {
       "channel": "CCTV-4 Asia (720p)",
       "url": "http://74.91.26.218:82/live/cctv4hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:18.056502+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -6650,14 +6942,30 @@
     "http://69.30.245.50/live/cctv6.m3u8": {
       "channel": "CCTV-6 (1080p)",
       "url": "http://69.30.245.50/live/cctv6.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:01.390643+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://74.91.26.218:82/live/cctv7hd.m3u8": {
       "channel": "CCTV-7 (720p)",
       "url": "http://74.91.26.218:82/live/cctv7hd.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:19.221977+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -7439,7 +7747,15 @@
     "http://arcast.net:1935/cadena103/cadena103/playlist.m3u8": {
       "channel": "Cadena103.TV (720p)",
       "url": "http://arcast.net:1935/cadena103/cadena103/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:08:52.975009+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -7754,7 +8070,15 @@
     "http://arcast.net:1935/mp/mp/playlist.m3u8": {
       "channel": "Canal 13 La Rioja (720p)",
       "url": "http://arcast.net:1935/mp/mp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:56.883383+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -7810,7 +8134,15 @@
     "http://canal2000.berkano-systems.net/streaming/streams/canal2000.m3u8": {
       "channel": "Canal 2000 (720p)",
       "url": "http://canal2000.berkano-systems.net/streaming/streams/canal2000.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:08:46.877676+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -7909,7 +8241,15 @@
     "http://intelincloud01.com.ar/hls/cn3/index.m3u8": {
       "channel": "Canal 3 Pinamar",
       "url": "http://intelincloud01.com.ar/hls/cn3/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:10:18.281396+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -8072,7 +8412,15 @@
     "http://cdn8.live247stream.com/canadaone/tv/playlist.m3u8": {
       "channel": "Canada One (720p)",
       "url": "http://cdn8.live247stream.com/canadaone/tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996833,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:28.907161+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -8386,7 +8734,15 @@
     "http://coninfo.net:1935/9linklivert/smil:9linkmultibr.smil/playlist.m3u8": {
       "channel": "Canal 9 Resistencia (720p)",
       "url": "http://coninfo.net:1935/9linklivert/smil:9linkmultibr.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.987438,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:24.002497+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9008,28 +9364,60 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport2/live_fullhd?offsetSeconds=0": {
       "channel": "Canal+ Sport 2 SK",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport2/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:52.918487+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport3/live_fullhd?offsetSeconds=0": {
       "channel": "Canal+ Sport 3 SK",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport3/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:53.491840+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport4/live_fullhd?offsetSeconds=0": {
       "channel": "Canal+ Sport 4 SK",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport4/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:54.008994+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport5/live_fullhd?offsetSeconds=0": {
       "channel": "Canal+ Sport 5 SK",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport5/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:53.746521+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9057,7 +9445,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport/live_fullhd?offsetSeconds=0": {
       "channel": "Canal+ Sport SK",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:52.417274+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9426,7 +9822,15 @@
     "http://player.cetelmon.tv/protecteddfd43c2f3a8b41f3f28582bf8993aca6/992_high.m3u8": {
       "channel": "Cetelmon TV (404p)",
       "url": "http://player.cetelmon.tv/protecteddfd43c2f3a8b41f3f28582bf8993aca6/992_high.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.979705,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:36.116958+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9615,7 +10019,15 @@
     "http://live-11cinema.cdnvideo.net/11cinemanet/11cinemanet/playlist.m3u8": {
       "channel": "Channel 8 International (576p)",
       "url": "http://live-11cinema.cdnvideo.net/11cinemanet/11cinemanet/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:32.291243+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9848,7 +10260,15 @@
     "http://play1-qk.nmtv.cn/live/1735546697341033.m3u8": {
       "channel": "Chifeng Comprehensive News Chanel",
       "url": "http://play1-qk.nmtv.cn/live/1735546697341033.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T15:11:32.227417+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9926,7 +10346,15 @@
     "http://media3.smc-host.com:1935/cycnow.com/smil:cyc.smil/playlist.m3u8": {
       "channel": "Christian Youth Channel CYC (1080p)",
       "url": "http://media3.smc-host.com:1935/cycnow.com/smil:cyc.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:11:02.061123+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -9940,7 +10368,15 @@
     "http://hwapi.yntv.net/ew265l/848y54.m3u8": {
       "channel": "Chuxiong News Channel",
       "url": "http://hwapi.yntv.net/ew265l/848y54.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 686,
+          "error": "",
+          "time": "2026-10-11T15:10:14.945117+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -10025,28 +10461,60 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=567&source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2gzMy90cmFja3MtdjJhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDc1MjM2MiZzdD12bmp2elZKY2JtUndKMkFzY1l0UWpR": {
       "channel": "Cine+",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2gzMy90cmFja3MtdjJhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDc1MjM2MiZzdD12bmp2elZKY2JtUndKMkFzY1l0UWpR&master=567",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:21.607646+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://777905.live.tvstitch.com/playlist.m3u8?master=539&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDAvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI3NDUmc3Q9cVZaQ3Vpd2l3UzEwLW1tMzEwMktDZw%3D%3D": {
       "channel": "Cine+ Hit",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDAvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI3NDUmc3Q9cVZaQ3Vpd2l3UzEwLW1tMzEwMktDZw%3D%3D&master=539",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:20.025584+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://777905.live.tvstitch.com/playlist.m3u8?master=540&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNzUvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI5MDYmc3Q9TUtpMWlxbmN6NGFDdjRrdmN0TkVtUQ%3D%3D": {
       "channel": "Cine+ Kids",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNzUvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI5MDYmc3Q9TUtpMWlxbmN6NGFDdjRrdmN0TkVtUQ%3D%3D&master=540",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:20.532471+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://777905.live.tvstitch.com/playlist.m3u8?master=568&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoMzQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI2Mzgmc3Q9RHdRc3AyN2l6V3J1dllqUEZ5aS1yUQ%3D%3D": {
       "channel": "Cine+ Legend",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoMzQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTI2Mzgmc3Q9RHdRc3AyN2l6V3J1dllqUEZ5aS1yUQ%3D%3D&master=568",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:24.653805+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -10090,7 +10558,15 @@
     "http://flussonic.linkintel.ru/cinema/index.m3u8": {
       "channel": "Cinema (576p)",
       "url": "http://flussonic.linkintel.ru/cinema/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 25.0,
+          "frames": 500,
+          "error": "",
+          "time": "2026-10-11T15:10:20.704437+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11470,7 +11946,15 @@
     "http://81.171.10.42:554/liveD/DStream.sdp/playlist.m3u8": {
       "channel": "DELTA TV (720p)",
       "url": "http://81.171.10.42:554/liveD/DStream.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:06:40.575876+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11675,7 +12159,15 @@
     "http://cloudfront44.lexanetwork.com:1732/hlsrelay003/hls/livestream.sdp.m3u8": {
       "channel": "DTV (720p)",
       "url": "http://cloudfront44.lexanetwork.com:1732/hlsrelay003/hls/livestream.sdp.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1495,
+          "error": "",
+          "time": "2026-10-11T15:09:39.556945+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -11788,7 +12280,15 @@
     "http://dancehits80.denvs.ru:8080/index.m3u8": {
       "channel": "DanceHits80",
       "url": "http://dancehits80.denvs.ru:8080/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:09:25.915080+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -12530,7 +13030,15 @@
     "http://ms2.mx-cd.net/tv/Omroep_Helmond.smil/chunklist.m3u8": {
       "channel": "Dit is Helmond (480p)",
       "url": "http://ms2.mx-cd.net/tv/Omroep_Helmond.smil/chunklist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:08.442548+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -12812,7 +13320,15 @@
     "http://cdn12.henico.net:8080/live/dncal/index.m3u8": {
       "channel": "Dukh Nivaran (720p)",
       "url": "http://cdn12.henico.net:8080/live/dncal/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:22.199323+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -12978,7 +13494,15 @@
     "http://72.1.184.5:8089/play/a05d/index.m3u8": {
       "channel": "E! Latin America (720p)",
       "url": "http://72.1.184.5:8089/play/a05d/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 864,
+          "error": "",
+          "time": "2026-10-11T15:06:19.642559+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13155,7 +13679,13 @@
     "http://85.132.53.162:1935/live/eltv/playlist.m3u8": {
       "channel": "EL TV (360p)",
       "url": "http://85.132.53.162:1935/live/eltv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "error": "TIMEOUT",
+          "time": "2026-10-11T15:07:45.536901+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13262,14 +13792,30 @@
     "http://85.237.89.160:9590/usa-s/ESPN-HD/index.m3u8": {
       "channel": "ESPN (720p)",
       "url": "http://85.237.89.160:9590/usa-s/ESPN-HD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1799,
+          "error": "",
+          "time": "2026-10-11T15:06:44.479160+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://85.237.89.160:9590/usa-s/ESPN-2-HD/index.m3u8": {
       "channel": "ESPN 2 (720p)",
       "url": "http://85.237.89.160:9590/usa-s/ESPN-2-HD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1799,
+          "error": "",
+          "time": "2026-10-11T15:06:43.555321+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13341,7 +13887,15 @@
     "http://85.237.89.160:9590/usa-s/ESPN-U-HD/index.m3u8": {
       "channel": "ESPNU (720p)",
       "url": "http://85.237.89.160:9590/usa-s/ESPN-U-HD/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1797,
+          "error": "",
+          "time": "2026-10-11T15:06:47.463839+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13888,7 +14442,15 @@
     "http://media3.smc-host.com:1935/elbesharagtv.com/gtv.smil/playlist.m3u8": {
       "channel": "Elbeshara GTV (1080p)",
       "url": "http://media3.smc-host.com:1935/elbesharagtv.com/gtv.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:11:02.135537+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -13930,7 +14492,15 @@
     "http://92.114.85.87:8002/play/a00e/index.m3u8": {
       "channel": "Eleven Sports 1",
       "url": "http://92.114.85.87:8002/play/a00e/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984,
+          "frames": 431,
+          "error": "",
+          "time": "2026-10-11T15:07:35.453361+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14234,21 +14804,45 @@
     "http://92.114.85.87:8016/play/a005/index.m3u8": {
       "channel": "Eska Rock TV (1080p)",
       "url": "http://92.114.85.87:8016/play/a005/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 592,
+          "error": "",
+          "time": "2026-10-11T15:08:12.113992+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://92.114.85.87:8018/play/a00h/index.m3u8": {
       "channel": "Eska TV (1080p)",
       "url": "http://92.114.85.87:8018/play/a00h/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 400,
+          "error": "",
+          "time": "2026-10-11T15:08:26.207882+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://92.114.85.87:8016/play/a008/index.m3u8": {
       "channel": "Eska TV Extra (1080p)",
       "url": "http://92.114.85.87:8016/play/a008/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.8,
+          "frames": 426,
+          "error": "",
+          "time": "2026-10-11T15:08:14.697924+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14283,7 +14877,15 @@
     "http://78.108.244.134:8899/ekids": {
       "channel": "EKids (576p)",
       "url": "http://78.108.244.134:8899/ekids",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 7.24,
+          "frames": 175,
+          "error": "",
+          "time": "2026-10-11T15:06:31.864034+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14495,7 +15097,15 @@
     "http://nue01-edge01.itdc.ge/euronewsgeorgia/mpegts": {
       "channel": "Euronews Georgia",
       "url": "http://nue01-edge01.itdc.ge/euronewsgeorgia/mpegts",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994286,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:30.230730+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14639,7 +15249,15 @@
     "http://91.228.35.249:8001/1:0:1:3D:1964:13E:820000:0:0:0": {
       "channel": "Eurosport 3 Polska",
       "url": "http://91.228.35.249:8001/1:0:1:3D:1964:13E:820000:0:0:0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:06:56.877947+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14733,7 +15351,15 @@
     "http://62.1.176.18:8888/extra/index.m3u8": {
       "channel": "Extra ProNews (576p)",
       "url": "http://62.1.176.18:8888/extra/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:05:56.982434+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -14754,7 +15380,15 @@
     "http://livestreamcdn.net:1935/ExtremaTV/ExtremaTV/playlist.m3u8": {
       "channel": "Extrema TV (720p)",
       "url": "http://livestreamcdn.net:1935/ExtremaTV/ExtremaTV/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:10:51.810656+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15185,14 +15819,30 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-canal-33/live_hq?offsetSeconds=0": {
       "channel": "Favorit TV2",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-canal-33/live_hq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:33.931779+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://cdn9.live247stream.com/punjabitvcanada/tv/playlist.m3u8": {
       "channel": "Fazal TV (1080p)",
       "url": "http://cdn9.live247stream.com/punjabitvcanada/tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 896,
+          "error": "",
+          "time": "2026-10-11T15:09:30.570096+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15313,7 +15963,15 @@
     "http://88.99.215.227/FilmUADrama/index.m3u8": {
       "channel": "FilmUADrama (1080p)",
       "url": "http://88.99.215.227/FilmUADrama/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:06:58.981891+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15419,7 +16077,15 @@
     "http://92.114.85.87:8018/play/a00i/index.m3u8": {
       "channel": "Fokus TV",
       "url": "http://92.114.85.87:8018/play/a00i/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 236,
+          "error": "",
+          "time": "2026-10-11T15:08:30.879494+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15454,7 +16120,15 @@
     "http://flash.softhost.com.br:1935/fonte/fontetv/live.m3u8": {
       "channel": "Fonte TV (720p)",
       "url": "http://flash.softhost.com.br:1935/fonte/fontetv/live.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:37.283712+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15668,7 +16342,15 @@
     "http://85.237.89.160:9590/usa-s/FOX-SPORTS-1/index.m3u8": {
       "channel": "Fox Sports 1 (1080p)",
       "url": "http://85.237.89.160:9590/usa-s/FOX-SPORTS-1/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1798,
+          "error": "",
+          "time": "2026-10-11T15:06:49.096664+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15689,7 +16371,15 @@
     "http://89.187.185.76:8080/France3/index.m3u8": {
       "channel": "France 3 (1080p)",
       "url": "http://89.187.185.76:8080/France3/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 745,
+          "error": "",
+          "time": "2026-10-11T15:07:06.118720+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -15890,14 +16580,30 @@
     "http://liveko24-manminglobal3.ktcdn.co.kr/liveko24/gcnko_1300k.stream/playlist.m3u8": {
       "channel": "GCN (720p)",
       "url": "http://liveko24-manminglobal3.ktcdn.co.kr/liveko24/gcnko_1300k.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:11:04.132640+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://liveen24-manminglobal3.ktcdn.co.kr/liveen24/gcnus_1300k.stream/playlist.m3u8": {
       "channel": "GCN America (720p)",
       "url": "http://liveen24-manminglobal3.ktcdn.co.kr/liveen24/gcnus_1300k.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:11:03.583513+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16130,7 +16836,15 @@
     "http://cdn6.live247stream.com/gaundapunjab/tv/playlist.m3u8": {
       "channel": "Gaunda Punjab TV (720p)",
       "url": "http://cdn6.live247stream.com/gaundapunjab/tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997167,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:26.459135+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16263,7 +16977,15 @@
     "http://85.238.112.69:8811/hls_sec/239.0.4.18-.m3u8": {
       "channel": "Glas (576p)",
       "url": "http://85.238.112.69:8811/hls_sec/239.0.4.18-.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992167,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-11T15:06:51.461831+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16327,14 +17049,30 @@
     "http://79.127.238.228:14093": {
       "channel": "GloboNews (1080p)",
       "url": "http://79.127.238.228:14093",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:06:33.655794+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://79.127.238.228:14455": {
       "channel": "Globoplay Novelas (1080p)",
       "url": "http://79.127.238.228:14455",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:06:38.212773+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16888,7 +17626,15 @@
     "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8": {
       "channel": "Gubernia Samara (576p)",
       "url": "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.977188,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:41.904137+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16902,7 +17648,15 @@
     "http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8": {
       "channel": "Gugbang TV (1080p)",
       "url": "http://mediaworks.dema.mil.kr:1935/live_edge/cudo.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:11:00.785790+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16916,7 +17670,15 @@
     "http://99.27.51.147:8080/Gulli/index.m3u8": {
       "channel": "Gulli (1080p)",
       "url": "http://99.27.51.147:8080/Gulli/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:08:29.118567+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16930,7 +17692,15 @@
     "http://cdn12.henico.net:8080/live/gsctv/index.m3u8": {
       "channel": "GurSikh Sabha TV (720p)",
       "url": "http://cdn12.henico.net:8080/live/gsctv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:22.007190+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -16958,7 +17728,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-mooz-dance/live_hq?offsetSeconds=0": {
       "channel": "H!t Music Channel",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-mooz-dance/live_hq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:35.616195+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17119,7 +17897,15 @@
     "http://61.82.49.4:1935/live/_definst_/tv.stream/playlist.m3u8": {
       "channel": "HLCG-DTV (720p)",
       "url": "http://61.82.49.4:1935/live/_definst_/tv.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-11T15:06:01.509386+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17154,7 +17940,15 @@
     "http://61.85.197.53:1935/jtv_live/myStream/playlist.m3u8": {
       "channel": "HLDQ-DTV (360p)",
       "url": "http://61.85.197.53:1935/jtv_live/myStream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:05:57.946249+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17606,7 +18400,15 @@
     "http://live.streams.ovh:1935/hightv/hightv/playlist.m3u8": {
       "channel": "High TV (720p)",
       "url": "http://live.streams.ovh:1935/hightv/hightv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:10:44.614239+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -17870,7 +18672,15 @@
     "http://92.114.85.87:8010/play/a00h/index.m3u8": {
       "channel": "Home TV",
       "url": "http://92.114.85.87:8010/play/a00h/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 708,
+          "error": "",
+          "time": "2026-10-11T15:07:40.804104+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18024,7 +18834,15 @@
     "http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/dWlwPTEyNy4wLjAuMSZ1aWQ9cWluZy1jbXMmbm5fdGltZXpvbmU9OCZjZG5leF9pZD1hbF9obHNfbGR2dCZ1dWlkPTliODY4NmU5ZTM2YzYwMmMmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8": {
       "channel": "Hunan TV (2160p)",
       "url": "http://hlsal-ldvt.qing.mgtv.com/nn_live/nn_x64/dWlwPTEyNy4wLjAuMSZ1aWQ9cWluZy1jbXMmbm5fdGltZXpvbmU9OCZjZG5leF9pZD1hbF9obHNfbGR2dCZ1dWlkPTliODY4NmU5ZTM2YzYwMmMmZT02OTE0NjA0JnY9MSZpZD1ITldTWkdTVCZzPTcwN2RiYTc2YzJjNmJmMTQ4MmUyZGYzOWU2NWM3YWFi/HNWSZGST.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:07.635353+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18131,7 +18949,15 @@
     "http://68.183.41.209:8080/live/5d9a537c64b9c/index.m3u8": {
       "channel": "IBN TV Africa (720p)",
       "url": "http://68.183.41.209:8080/live/5d9a537c64b9c/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:05:56.673644+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18350,7 +19176,15 @@
     "http://cdn10.live-tv.od.ua:8081/itvrv/abr/playlist.m3u8": {
       "channel": "ITV (720p)",
       "url": "http://cdn10.live-tv.od.ua:8081/itvrv/abr/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-11T15:09:12.160460+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18505,7 +19339,15 @@
     "http://live.imamhossaintv.com/live/ih6.m3u8": {
       "channel": "Imam Hussein TV 6 (1080p)",
       "url": "http://live.imamhossaintv.com/live/ih6.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:10:44.961858+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -18913,7 +19755,15 @@
     "http://iran620.com:1935/live/IranJewishTv/playlist.m3u8": {
       "channel": "Iran Jewish TV (720p)",
       "url": "http://iran620.com:1935/live/IranJewishTv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:10:13.591353+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19074,7 +19924,15 @@
     "http://igi-hls.cdnvideo.ru/igi/igi_tcode/playlist.m3u8": {
       "channel": "Izvestia (1080p)",
       "url": "http://igi-hls.cdnvideo.ru/igi/igi_tcode/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:10:09.934188+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19678,7 +20536,15 @@
     "http://66.242.170.53/hls/live/temp/index.m3u8": {
       "channel": "KBSV 23.1 (720p)",
       "url": "http://66.242.170.53/hls/live/temp/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 896,
+          "error": "",
+          "time": "2026-10-11T15:05:50.973239+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19751,7 +20617,15 @@
     "http://livestream.usatv.com/hls/master-iUSATVLIVENET.m3u8": {
       "channel": "KIIO-LD 10.1",
       "url": "http://livestream.usatv.com/hls/master-iUSATVLIVENET.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.99325,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:50.082941+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19835,7 +20709,15 @@
     "http://89.218.30.37/ktklive/live.hq/playlist.m3u8": {
       "channel": "KTK (720p)",
       "url": "http://89.218.30.37/ktklive/live.hq/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 21.52,
+          "frames": 536,
+          "error": "",
+          "time": "2026-10-11T15:07:16.177066+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -19926,7 +20808,15 @@
     "http://antik.streaming.tivio.studio/channels/HC7JIqyyvQMl0mnqbbnI/index.m3u8": {
       "channel": "KVIFF TV (1080p)",
       "url": "http://antik.streaming.tivio.studio/channels/HC7JIqyyvQMl0mnqbbnI/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:48.246257+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20095,7 +20985,15 @@
     "http://khkbh.dk:8080/hls/livestream/index.m3u8": {
       "channel": "Kanal Hovedstaden (720p)",
       "url": "http://khkbh.dk:8080/hls/livestream/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:10:19.145082+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20398,7 +21296,15 @@
     "http://kino-1.catcast.tv/content/38617/index.m3u8": {
       "channel": "Kino 1",
       "url": "http://kino-1.catcast.tv/content/38617/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992018,
+          "frames": 738,
+          "error": "",
+          "time": "2026-10-11T15:10:20.824308+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20723,7 +21629,15 @@
     "http://cdn-01.bonus-tv.ru/kriktv_edge/playlist.m3u8": {
       "channel": "Krik-TV (1080p)",
       "url": "http://cdn-01.bonus-tv.ru/kriktv_edge/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:09:02.192637+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -20744,7 +21658,15 @@
     "http://dmi3y-tv.online/hls/zabava/region/MAYK/CH_MAYKOP.m3u8": {
       "channel": "Kuban 24 (480p)",
       "url": "http://dmi3y-tv.online/hls/zabava/region/MAYK/CH_MAYKOP.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:09:27.640398+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -21668,7 +22590,15 @@
     "http://77.68.40.210:8888/hls/cronache.m3u8": {
       "channel": "Le Cronache TV (720p)",
       "url": "http://77.68.40.210:8888/hls/cronache.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:29.559088+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -21873,7 +22803,15 @@
     "http://k4.usastreams.com/limontv1/limontv1/playlist.m3u8": {
       "channel": "Limon TV (1080p)",
       "url": "http://k4.usastreams.com/limontv1/limontv1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:19.115678+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -22238,7 +23176,15 @@
     "http://99.27.51.147:8080/M6/index.m3u8": {
       "channel": "M6 (1080p)",
       "url": "http://99.27.51.147:8080/M6/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:08:26.244536+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -23390,7 +24336,15 @@
     "http://makomedia.mikrohalo.hu/hls/makotv.m3u8": {
       "channel": "Makoi Varosi Televizio (576p)",
       "url": "http://makomedia.mikrohalo.hu/hls/makotv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:56.519501+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -23404,14 +24358,30 @@
     "http://iptv.makrodigitaltv.makrodigital.com:8081/makrodigitaltelevision/iptv/playlist.m3u8": {
       "channel": "MakroDigital Television (1080p)",
       "url": "http://iptv.makrodigitaltv.makrodigital.com:8081/makrodigitaltelevision/iptv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:14.048041+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://flussonic.linkintel.ru/mama/index.m3u8": {
       "channel": "Mama (576p)",
       "url": "http://flussonic.linkintel.ru/mama/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:10:03.225981+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -23821,7 +24791,15 @@
     "http://live.playmax.live/matribhumi/index.m3u8": {
       "channel": "Matribhumi TV (720p)",
       "url": "http://live.playmax.live/matribhumi/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:44.718634+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24460,7 +25438,15 @@
     "http://hls.mirtv.cdnvideo.ru/mirtv-parampublish/mirtv_2500/playlist.m3u8": {
       "channel": "Mir (1080p)",
       "url": "http://hls.mirtv.cdnvideo.ru/mirtv-parampublish/mirtv_2500/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:57.481324+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24701,7 +25687,15 @@
     "http://live.greektv.ca/hls1/greektv.m3u8": {
       "channel": "Montreal Greek TV (480p)",
       "url": "http://live.greektv.ca/hls1/greektv.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 896,
+          "error": "",
+          "time": "2026-10-11T15:10:30.371959+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24842,7 +25836,15 @@
     "http://alvetv.com/moviebanglatv/8080/index.m3u8": {
       "channel": "Movie Bangla",
       "url": "http://alvetv.com/moviebanglatv/8080/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 746,
+          "error": "",
+          "time": "2026-10-11T15:08:34.549693+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -24921,7 +25923,15 @@
     "http://91.226.120.120/chid210/tracks-v1a1/mono.m3u8": {
       "channel": "Moya Planeta (1080p)",
       "url": "http://91.226.120.120/chid210/tracks-v1a1/mono.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:07:15.273998+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -25113,7 +26123,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-ncn/live_hq?offsetSeconds=0": {
       "channel": "Music Channel",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-ncn/live_hq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:35.809166+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -25283,7 +26301,15 @@
     "http://connectiktv.ddns.net:5000/mytvchannel/@mytvchannel/playlist.m3u8": {
       "channel": "My TV Channel (720p)",
       "url": "http://connectiktv.ddns.net:5000/mytvchannel/@mytvchannel/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:24.953945+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -25633,7 +26659,15 @@
     "http://nonghyup.flive.skcdn.com/nonghyup/_definst_/nhlive/playlist.m3u8": {
       "channel": "NHTV (720p)",
       "url": "http://nonghyup.flive.skcdn.com/nonghyup/_definst_/nhlive/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983968,
+          "frames": 1800,
+          "error": "",
+          "time": "2026-10-11T15:11:16.515485+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26246,7 +27280,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-telestar1/live_hq?offsetSeconds=0": {
       "channel": "National TV2",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-telestar1/live_hq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:47.679510+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -26403,14 +27445,30 @@
     "http://play1-qk.nmtv.cn/live/1769652018126032.m3u8": {
       "channel": "Nei Monggol TV (1080i)",
       "url": "http://play1-qk.nmtv.cn/live/1769652018126032.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 551,
+          "error": "",
+          "time": "2026-10-11T15:11:39.513338+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://play1-qk.nmtv.cn/live/1769652109096027.m3u8": {
       "channel": "Nei Monggol TV 2 Mongolian Culture Channel (1080i)",
       "url": "http://play1-qk.nmtv.cn/live/1769652109096027.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:11:40.456833+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27301,7 +28359,15 @@
     "http://amaru.dyndns.org:8870/0.m3u8": {
       "channel": "Nortevision (1080p)",
       "url": "http://amaru.dyndns.org:8870/0.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984875,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:08:26.825434+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27435,7 +28501,15 @@
     "http://novapress.ro:2022/live/nova/playlist.m3u8": {
       "channel": "Nova TV Brasov (576p)",
       "url": "http://novapress.ro:2022/live/nova/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:11:17.605979+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27606,7 +28680,15 @@
     "http://92.114.85.87:8010/play/a00j/index.m3u8": {
       "channel": "Nuta TV",
       "url": "http://92.114.85.87:8010/play/a00j/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 722,
+          "error": "",
+          "time": "2026-10-11T15:07:44.784495+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27669,7 +28751,15 @@
     "http://91.228.35.249:8001/1:0:1:1C8A:1CE8:71:820000:0:0:0": {
       "channel": "Newsmax Polska",
       "url": "http://91.228.35.249:8001/1:0:1:1C8A:1CE8:71:820000:0:0:0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:06:56.717883+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27733,21 +28823,45 @@
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-magdeburg_high/playlist.m3u8": {
       "channel": "OK Magdeburg (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-magdeburg_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:08.913647+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-merseburg_high/playlist.m3u8": {
       "channel": "OK Merseburg-Querfurt (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-merseburg_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:10.422711+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-salzwedel_high/playlist.m3u8": {
       "channel": "OK Salzwedel (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-salzwedel_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:06:04.370631+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27769,7 +28883,15 @@
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-wernigerode_high/playlist.m3u8": {
       "channel": "OK Wernigerode (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-wernigerode_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:07.053328+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27804,7 +28926,15 @@
     "http://dvrfl05.bozztv.com/vch_vchannel18/index.m3u8": {
       "channel": "ON Vie Drama (720p)",
       "url": "http://dvrfl05.bozztv.com/vch_vchannel18/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:09:25.134798+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -27846,14 +28976,30 @@
     "http://osnmedia.servicecdn.ru/streams/17603_88089/playlist.m3u8": {
       "channel": "OSN (1080p)",
       "url": "http://osnmedia.servicecdn.ru/streams/17603_88089/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:11:20.554987+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://flussonic.linkintel.ru/otr/index.m3u8": {
       "channel": "OTR (1080p)",
       "url": "http://flussonic.linkintel.ru/otr/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:09:45.282731+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28417,7 +29563,15 @@
     "http://ftp.orbita.dn.ua/hls/orbita.m3u8": {
       "channel": "Orbita TV (360p)",
       "url": "http://ftp.orbita.dn.ua/hls/orbita.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 745,
+          "error": "",
+          "time": "2026-10-11T15:09:40.792765+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28531,7 +29685,15 @@
     "http://cdn2.ujjina.com:1935/iptvovacion1/liveovacion1tv/playlist.m3u8": {
       "channel": "Ovacion TV (1080p)",
       "url": "http://cdn2.ujjina.com:1935/iptvovacion1/liveovacion1tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:14.571487+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28778,14 +29940,30 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-protv/live_fullhd?offsetSeconds=0": {
       "channel": "PRO TV (1080p)",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-protv/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:48.364723+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-protv-international/live_fullhd?offsetSeconds=0": {
       "channel": "PRO TV International",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-protv-international/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:47.919663+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -28918,7 +30096,15 @@
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/punktum_high/playlist.m3u8": {
       "channel": "PUNKTum Fernsehen (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/punktum_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:07.680605+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -29032,7 +30218,15 @@
     "http://live.stream.cdn.pamirtv.com/ptv/d0dbe915091d400bd8ee7f27f0791303.sdp/index.m3u8": {
       "channel": "Pamir TV (1080p)",
       "url": "http://live.stream.cdn.pamirtv.com/ptv/d0dbe915091d400bd8ee7f27f0791303.sdp/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988571,
+          "frames": 719,
+          "error": "",
+          "time": "2026-10-11T15:10:52.693847+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -29766,7 +30960,15 @@
     "http://78.130.149.196:1935/live/pptv.stream/playlist.m3u8": {
       "channel": "Plovdiv Orthodox TV (1080p)",
       "url": "http://78.130.149.196:1935/live/pptv.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:41.483966+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30019,7 +31221,15 @@
     "http://92.63.196.180:8080/live/74173747597177/7vfxky4rjx3j/10209.m3u8": {
       "channel": "Polsat Games (1080p)",
       "url": "http://92.63.196.180:8080/live/74173747597177/7vfxky4rjx3j/10209.m3u8?token=Q0FaWEpZFFsXAwNWUFMEBwJXAwMDVlpTBgVTVwEHAQNeWgoACVVXVQAVGEZGFUdTUl9qWwIVAlBSAQBdGENHQ10RbVBdEwxDAgANUAJVFxoRRlxfAxUCUU4RQA1QQwheTQ9eFRtUThVQRVoFWT5RU0VbVldEDVYUDl8cRlsPbVRdDlNXXRMMQwQVGEZcEkUUCVxAXgobGgMLR0IFQAQQClYWXlUVE1UOQFlAFkxDDxRjfhceRFJAFQddQw1bDxAKGg4BTAETGkNcRGsWUBJBRFZTWFcUFQJDUhEcRlkASm9bDFxXXFJCCFpZR0YPQwQUHxBYXQheTA4QbEANUEMIXk0PXkQ=",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.973333,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:08:16.541875+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30041,7 +31251,15 @@
     "http://92.114.85.87:8014/play/a00i/index.m3u8": {
       "channel": "Polsat Rodzina",
       "url": "http://92.114.85.87:8014/play/a00i/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 627,
+          "error": "",
+          "time": "2026-10-11T15:08:12.402096+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30108,7 +31326,15 @@
     "http://92.114.85.87:8014/play/a00g/index.m3u8": {
       "channel": "Polsat Viasat Explore",
       "url": "http://92.114.85.87:8014/play/a00g/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 474,
+          "error": "",
+          "time": "2026-10-11T15:08:05.826299+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30130,7 +31356,15 @@
     "http://92.114.85.87:8016/play/a004/index.m3u8": {
       "channel": "Polsat Viasat Nature",
       "url": "http://92.114.85.87:8016/play/a004/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 573,
+          "error": "",
+          "time": "2026-10-11T15:08:13.396501+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30222,7 +31456,15 @@
     "http://92.114.85.87:8010/play/a00k/index.m3u8": {
       "channel": "Power TV",
       "url": "http://92.114.85.87:8010/play/a00k/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 717,
+          "error": "",
+          "time": "2026-10-11T15:07:46.388108+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30411,7 +31653,15 @@
     "http://primeasia.selfip.net/Samsung/index.m3u8": {
       "channel": "Prime Asia TV (1080p)",
       "url": "http://primeasia.selfip.net/Samsung/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:11:36.647325+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30454,7 +31704,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-prox/live_fullhd?offsetSeconds=0": {
       "channel": "Pro Arena (1080p)",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-prox/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:51.132835+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30468,7 +31726,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-procinema/live_fullhd?offsetSeconds=0": {
       "channel": "Pro Cinema (1080p)",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-procinema/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:44.346386+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -30547,7 +31813,15 @@
     "http://cdn-01.bonus-tv.ru/prosveschenie_edge/index.m3u8": {
       "channel": "Prosveshchenie (576p)",
       "url": "http://cdn-01.bonus-tv.ru/prosveschenie_edge/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:09:05.375350+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31004,7 +32278,15 @@
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/ran1_high/playlist.m3u8": {
       "channel": "RAN1 (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/ran1_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:08.511351+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31032,7 +32314,15 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=180&source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2g2NS90cmFja3MtdjJhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDcxMDcwMCZzdD1MXzZYc2M4elNra3RCaWYyVzU1dWF3": {
       "channel": "RAZ 3 (720p)",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2g2NS90cmFja3MtdjJhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDcxMDcwMCZzdD1MXzZYc2M4elNra3RCaWYyVzU1dWF3&master=180",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:17.628332+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31075,7 +32365,15 @@
     "http://58bd5b7a98e04.streamlock.net/medienasa-live/rbw_high/playlist.m3u8": {
       "channel": "RBW (1080p)",
       "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/rbw_high/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:04.720005+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31748,7 +33046,15 @@
     "http://iptv.rtv-ooe.at/stream.m3u8": {
       "channel": "RTV (1080p)",
       "url": "http://iptv.rtv-ooe.at/stream.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1498,
+          "error": "",
+          "time": "2026-10-11T15:10:15.387256+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31888,7 +33194,15 @@
     "http://dcur8bjarl5c2.cloudfront.net/live/rijnmond/tv-extra/index.m3u8": {
       "channel": "RTV Rijnmond Extra (1080p)",
       "url": "http://dcur8bjarl5c2.cloudfront.net/live/rijnmond/tv-extra/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:43.520814+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31937,7 +33251,15 @@
     "http://ms7.mx-cd.net/tv/212-1299944/RTV-Zulthe.smil/playlist.m3u8": {
       "channel": "RTV Zulthe (720p)",
       "url": "http://ms7.mx-cd.net/tv/212-1299944/RTV-Zulthe.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:10.961807+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -31965,7 +33287,15 @@
     "http://d26sxnc75smwvh.cloudfront.net/livehttporigin/rutclive_720p2.stream/playlist.m3u8": {
       "channel": "RUTC TV (720p)",
       "url": "http://d26sxnc75smwvh.cloudfront.net/livehttporigin/rutclive_720p2.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:25.451819+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -33099,7 +34429,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-rapsodia-tv/live_hq?offsetSeconds=0": {
       "channel": "Rapsodia TV",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-rapsodia-tv/live_hq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:47.706036+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -33561,7 +34899,15 @@
     "http://cdn1.live-tv.od.ua:8081/31chod/31chod-abr/31chod/31chod/playlist.m3u8": {
       "channel": "Reporter (720p)",
       "url": "http://cdn1.live-tv.od.ua:8081/31chod/31chod-abr/31chod/31chod/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:09:05.798586+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34146,7 +35492,15 @@
     "http://nue01-edge01.itdc.ge/rustavi2hqnew/mpegts": {
       "channel": "Rustavi 2",
       "url": "http://nue01-edge01.itdc.ge/rustavi2hqnew/mpegts",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991833,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:32.247172+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34259,7 +35613,15 @@
     "http://cdn12.henico.net:8080/live/sadatv/index.m3u8": {
       "channel": "SADA TV (1080p)",
       "url": "http://cdn12.henico.net:8080/live/sadatv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1799,
+          "error": "",
+          "time": "2026-10-11T15:09:29.304113+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34592,7 +35954,15 @@
     "http://cdn10.live-tv.od.ua:8081/sk1zt/sk1zt-abr/playlist.m3u8": {
       "channel": "SK 1 (720p)",
       "url": "http://cdn10.live-tv.od.ua:8081/sk1zt/sk1zt-abr/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:09:19.605626+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34719,7 +36089,15 @@
     "http://highvolume155.streampartner.nl/adminsrc/adminsrc/playlist.m3u8": {
       "channel": "SRC TV (720p)",
       "url": "http://highvolume155.streampartner.nl/adminsrc/adminsrc/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-11T15:09:53.211639+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -34818,7 +36196,15 @@
     "http://89.201.163.244:8080/hls/hdmi.m3u8": {
       "channel": "STV (720p)",
       "url": "http://89.201.163.244:8080/hls/hdmi.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 374,
+          "error": "",
+          "time": "2026-10-11T15:07:14.044038+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35248,7 +36634,15 @@
     "http://live.cast-control.eu:1935/samiaki/samiaki/playlist.m3u8": {
       "channel": "Samiaki TV (576p)",
       "url": "http://live.cast-control.eu:1935/samiaki/samiaki/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995011,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:10:31.762510+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -35720,7 +37114,15 @@
     "http://lb.streaming.sk/senzi/stream/playlist.m3u8": {
       "channel": "Senzi (1080p)",
       "url": "http://lb.streaming.sk/senzi/stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:36.894790+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36180,7 +37582,15 @@
     "http://89.104.114.24:8080/art/index.m3u8": {
       "channel": "ART (576p)",
       "url": "http://89.104.114.24:8080/art/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:07:04.200838+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36244,7 +37654,15 @@
     "http://media.smc-host.com:1935/alhorreya.tv/mp4:alhorreya3/playlist.m3u8": {
       "channel": "Al Horreya TV (1080p)",
       "url": "http://media.smc-host.com:1935/alhorreya.tv/mp4:alhorreya3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:55.562924+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36265,7 +37683,15 @@
     "http://m.live.net.sa:1935/live/quran/playlist.m3u8": {
       "channel": "Al Quran Al Kareem TV (720p)",
       "url": "http://m.live.net.sa:1935/live/quran/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:10:42.177632+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36293,7 +37719,15 @@
     "http://amdlive-ch02.ctnd.com.edgesuite.net/arirang_3ch/smil:arirang_3ch.smil/playlist.m3u8": {
       "channel": "Arirang Radio (1080p)",
       "url": "http://amdlive-ch02.ctnd.com.edgesuite.net/arirang_3ch/smil:arirang_3ch.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 719,
+          "error": "",
+          "time": "2026-10-11T15:08:55.002450+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36321,7 +37755,15 @@
     "http://live.azstartv.com/azstar/smil:azstar.smil/playlist.m3u8": {
       "channel": "Az Star TV (1080p)",
       "url": "http://live.azstartv.com/azstar/smil:azstar.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:37.478723+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36479,7 +37921,15 @@
     "http://live-play.zxstv.com.cn/zhongxuesheng/zhongxuesheng.m3u8": {
       "channel": "CND Film Middle School Channel",
       "url": "http://live-play.zxstv.com.cn/zhongxuesheng/zhongxuesheng.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989977,
+          "frames": 447,
+          "error": "",
+          "time": "2026-10-11T15:10:29.352678+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -36500,7 +37950,15 @@
     "http://media.smc-host.com:1935/csat.tv/smil:csat.smil/playlist.m3u8": {
       "channel": "CSat TV (1080p)",
       "url": "http://media.smc-host.com:1935/csat.tv/smil:csat.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:11:00.366616+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -37360,7 +38818,15 @@
     "http://ms7.mx-cd.net/tv/Omroep_de_Kempen.smil/playlist.m3u8": {
       "channel": "KempenTV (720p)",
       "url": "http://ms7.mx-cd.net/tv/Omroep_de_Kempen.smil/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:11:11.820013+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38340,7 +39806,15 @@
     "http://cdn10.live-tv.od.ua:8081/sferarv/sferarv-abr/playlist.m3u8": {
       "channel": "Sfera-TV (720p)",
       "url": "http://cdn10.live-tv.od.ua:8081/sferarv/sferarv-abr/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:09:12.117471+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38719,7 +40193,15 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=1103&source=aHR0cDovLzE3Ni4xMjIuMTI1LjIzOjcwMDAvY2g0My90cmFja3MtdjFhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTU3LjEyOC4yMzYuMjIzJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDc1NTE0NiZzdD02SC1HSlEtemw4X1NCQjMzRjVLTUpn": {
       "channel": "Sonce+",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTI1LjIzOjcwMDAvY2g0My90cmFja3MtdjFhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTU3LjEyOC4yMzYuMjIzJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDc1NTE0NiZzdD02SC1HSlEtemw4X1NCQjMzRjVLTUpn&master=1103",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:17.865165+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -38791,7 +40273,15 @@
     "http://euvia.cdn.ses-ps.com/HLS-Live/index.m3u8": {
       "channel": "Sonnenklar TV (1080p)",
       "url": "http://euvia.cdn.ses-ps.com/HLS-Live/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.990748,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:40.797481+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39417,7 +40907,15 @@
     "http://livestar.siliconweb.com/starvod/star4/star4.m3u8": {
       "channel": "Star Channel (1080p)",
       "url": "http://livestar.siliconweb.com/starvod/star4/star4.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994376,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:51.745352+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39475,7 +40973,15 @@
     "http://cdn98.com/play/live.php?extension=ts&mac=00%3A1A%3A79%3A99%3A54%3A11&play_token=o1cczsG9wV&stream=225805": {
       "channel": "Star Jalsha (1080p)",
       "url": "http://cdn98.com/play/live.php?mac=00:1A:79:99:54:11&stream=225805&extension=ts&play_token=o1cczsG9wV",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:09:12.493323+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39777,7 +41283,15 @@
     "http://92.114.85.87:8018/play/a004/index.m3u8": {
       "channel": "Stopklatka TV",
       "url": "http://92.114.85.87:8018/play/a004/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 714,
+          "error": "",
+          "time": "2026-10-11T15:08:12.532467+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -39812,7 +41326,15 @@
     "http://cdn22.streampartner.nl/streektv/streektv/playlist.m3u8": {
       "channel": "StreekTV (720p)",
       "url": "http://cdn22.streampartner.nl/streektv/streektv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-11T15:09:16.868958+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40003,7 +41525,15 @@
     "http://ptuf.ridsys.in/riptv/live/GEMINI_TV/index.m3u8": {
       "channel": "Sun Gemini (576p)",
       "url": "http://ptuf.ridsys.in/riptv/live/GEMINI_TV/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 742,
+          "error": "",
+          "time": "2026-10-11T15:11:52.091879+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40053,7 +41583,15 @@
     "http://92.114.85.87:8004/play/a00c/index.m3u8": {
       "channel": "Super Polsat",
       "url": "http://92.114.85.87:8004/play/a00c/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 622,
+          "error": "",
+          "time": "2026-10-11T15:07:35.549729+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40420,7 +41958,15 @@
     "http://92.114.85.87:8010/play/a00l/index.m3u8": {
       "channel": "Szlagier TV",
       "url": "http://92.114.85.87:8010/play/a00l/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 710,
+          "error": "",
+          "time": "2026-10-11T15:07:59.268109+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40497,7 +42043,15 @@
     "http://cdn11.live247stream.com/tag/tv/playlist.m3u8": {
       "channel": "TAG TV (720p)",
       "url": "http://cdn11.live247stream.com/tag/tv/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998333,
+          "frames": 879,
+          "error": "",
+          "time": "2026-10-11T15:09:13.510817+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40553,7 +42107,15 @@
     "http://dc.tbnbaltia.eu:8088/dvr/rewind-21600.m3u8": {
       "channel": "TBN Baltia (1080p)",
       "url": "http://dc.tbnbaltia.eu:8088/dvr/rewind-21600.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-11T15:09:41.895236+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40744,7 +42306,15 @@
     "http://live.tkr.cdnvideo.ru/tkr/tkr.sdp/playlist.m3u8": {
       "channel": "TKR (720p)",
       "url": "http://live.tkr.cdnvideo.ru/tkr/tkr.sdp/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:10:51.371827+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -40758,7 +42328,15 @@
     "http://79.127.238.228:14433": {
       "channel": "TLC Latin America (720p)",
       "url": "http://79.127.238.228:14433",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983729,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:06:32.700946+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41278,7 +42856,15 @@
     "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8": {
       "channel": "TV Bahia (1080i)",
       "url": "http://hls1.sua.tv/live/globotvbahiafhdbr2/s.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:09:52.819339+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41321,7 +42907,15 @@
     "http://78.96.33.89:8080": {
       "channel": "TV Buzau (576p)",
       "url": "http://78.96.33.89:8080",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983515,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:07:00.898018+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41436,14 +43030,30 @@
     "http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8": {
       "channel": "TV Chosun (720p)",
       "url": "http://onair.cdn.tvchosun.com/origin1/_definst_/tvchosun_s1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986667,
+          "frames": 802,
+          "error": "",
+          "time": "2026-10-11T15:11:16.985580+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8": {
       "channel": "TV Chosun 2 (720p)",
       "url": "http://onair2.cdn.tvchosun.com/origin2/_definst_/tvchosun_s3/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.997667,
+          "frames": 758,
+          "error": "",
+          "time": "2026-10-11T15:11:19.748840+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41548,7 +43158,15 @@
     "http://cdn22.streampartner.nl/tvellef/livestream/playlist.m3u8": {
       "channel": "TV Ellef (1080p)",
       "url": "http://cdn22.streampartner.nl/tvellef/livestream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:09:13.822965+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -41768,7 +43386,15 @@
     "http://95.105.255.137:1935/tvturiec/tvliptov.stream/playlist.m3u8": {
       "channel": "TV Liptov (1080p)",
       "url": "http://95.105.255.137:1935/tvturiec/tvliptov.stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991667,
+          "frames": 412,
+          "error": "",
+          "time": "2026-10-11T15:08:22.744426+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42058,7 +43684,15 @@
     "http://ip.opoja.tv:1935/tvopoja/tvopoja/playlist.m3u8": {
       "channel": "TV Opoja (1080p)",
       "url": "http://ip.opoja.tv:1935/tvopoja/tvopoja/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:19.071512+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42187,7 +43821,15 @@
     "http://nue01-edge01.itdc.ge/pirvelitv/mpegts": {
       "channel": "TV Pirveli",
       "url": "http://nue01-edge01.itdc.ge/pirvelitv/mpegts",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999833,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:29.621294+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -42279,14 +43921,30 @@
     "http://92.114.85.87:8018/play/a008/index.m3u8": {
       "channel": "TV Republika",
       "url": "http://92.114.85.87:8018/play/a008/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 24.5,
+          "frames": 405,
+          "error": "",
+          "time": "2026-10-11T15:08:23.947255+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://89.38.8.130:39419": {
       "channel": "TV SE (576p)",
       "url": "http://89.38.8.130:39419",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999333,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:07:21.262786+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43215,7 +44873,15 @@
     "http://92.114.85.87:8010/play/a006/index.m3u8": {
       "channel": "TVP 3 Warszawa",
       "url": "http://92.114.85.87:8010/play/a006/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 599,
+          "error": "",
+          "time": "2026-10-11T15:07:40.138638+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43309,7 +44975,15 @@
     "http://78.62.9.23:55555/TVP%20Wilno%20HD": {
       "channel": "TVP Wilno",
       "url": "http://78.62.9.23:55555/TVP%20Wilno%20HD",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 714,
+          "error": "",
+          "time": "2026-10-11T15:06:50.682685+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43353,7 +45027,15 @@
     "http://85.186.22.140/testing/pl5/playlist/ram/playlist.m3u8": {
       "channel": "TVPlus Suceava (576p)",
       "url": "http://85.186.22.140/testing/pl5/playlist/ram/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994542,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:36.630523+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43388,14 +45070,30 @@
     "http://fms.tvavicenza.it:1935/live/diretta_1/playlist.m3u8": {
       "channel": "TVA Vicenza (720p)",
       "url": "http://fms.tvavicenza.it:1935/live/diretta_1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996333,
+          "frames": 1499,
+          "error": "",
+          "time": "2026-10-11T15:09:47.428096+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://92.114.85.87:8010/play/a00n/index.m3u8": {
       "channel": "TVC Super",
       "url": "http://92.114.85.87:8010/play/a00n/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 722,
+          "error": "",
+          "time": "2026-10-11T15:08:03.169564+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43437,7 +45135,15 @@
     "http://82.208.141.70:8778/1.m3u8": {
       "channel": "TVR Iasi (1080p)",
       "url": "http://82.208.141.70:8778/1.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989625,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:46.952312+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43522,7 +45228,15 @@
     "http://92.114.85.87:8010/play/a00e/index.m3u8": {
       "channel": "TVS",
       "url": "http://92.114.85.87:8010/play/a00e/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 721,
+          "error": "",
+          "time": "2026-10-11T15:07:40.728174+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -43753,7 +45467,15 @@
     "http://89.38.8.130:39443": {
       "channel": "TVSat (576p)",
       "url": "http://89.38.8.130:39443",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999542,
+          "frames": 732,
+          "error": "",
+          "time": "2026-10-11T15:07:22.044659+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44077,7 +45799,15 @@
     "http://fms.tvavicenza.it:1935/telechiara/diretta/playlist.m3u8": {
       "channel": "Tele Chiara (720p)",
       "url": "http://fms.tvavicenza.it:1935/telechiara/diretta/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:09:55.503844+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -44305,7 +46035,15 @@
     "http://89.137.197.15:8080/testing/pl5/playlist/ram/playlist.m3u8": {
       "channel": "TeleM Botosani (540p)",
       "url": "http://89.137.197.15:8080/testing/pl5/playlist/ram/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:06:54.216612+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46098,7 +47836,15 @@
     "http://live-tolknews.cdnvideo.ru/tolknews/stream/playlist.m3u8": {
       "channel": "Tolk (720p)",
       "url": "http://live-tolknews.cdnvideo.ru/tolknews/stream/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 1499,
+          "error": "",
+          "time": "2026-10-11T15:10:24.094100+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46141,7 +47887,15 @@
     "http://live-saha.cdnvideo.ru/saha/tooky/playlist.m3u8": {
       "channel": "Tooku (1080p)",
       "url": "http://live-saha.cdnvideo.ru/saha/tooky/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:10:40.608446+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46155,7 +47909,15 @@
     "http://api.toonamiaftermath.com:3000/pst/playlist.m3u8": {
       "channel": "Toonami Aftermath (480p)",
       "url": "http://api.toonamiaftermath.com:3000/pst/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 1799,
+          "error": "",
+          "time": "2026-10-11T15:08:46.407527+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46338,7 +48100,15 @@
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-inedit-tv/live_hq?offsetSeconds=0": {
       "channel": "TraLaLa DSN",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-inedit-tv/live_hq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:34.058197+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46373,7 +48143,15 @@
     "http://83.103.149.75:8085/udp/239.30.0.9:4000": {
       "channel": "Traditional TV (1080p)",
       "url": "http://83.103.149.75:8085/udp/239.30.0.9:4000",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.96,
+          "frames": 399,
+          "error": "",
+          "time": "2026-10-11T15:06:56.558534+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -46900,7 +48678,15 @@
     "http://media.rtvutrecht.nl/live/rtvutrecht/ustad/index.m3u8": {
       "channel": "UStad (1080p)",
       "url": "http://media.rtvutrecht.nl/live/rtvutrecht/ustad/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.983042,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-11T15:11:08.449677+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47292,7 +49078,15 @@
     "http://provedores.unsion.tv:8081/srt/1/playlist.m3u8": {
       "channel": "Unsion TV (1080p)",
       "url": "http://provedores.unsion.tv:8081/srt/1/playlist.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-11T15:11:30.147012+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47490,14 +49284,30 @@
     "http://92.114.85.87:8016/play/a00a/index.m3u8": {
       "channel": "VOX Music TV (1080p)",
       "url": "http://92.114.85.87:8016/play/a00a/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.98,
+          "frames": 587,
+          "error": "",
+          "time": "2026-10-11T15:08:13.447054+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-vp-tv/live_lq?offsetSeconds=0": {
       "channel": "VP TV",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-vp-tv/live_lq?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:46.648829+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47923,7 +49733,15 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=79&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoODUvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTMyOTgmc3Q9eWVMNVRuX0tiUlAwVWd0UjctYTBMZw%3D%3D": {
       "channel": "Viasat Explore",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoODUvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTMyOTgmc3Q9eWVMNVRuX0tiUlAwVWd0UjctYTBMZw%3D%3D&master=79",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:25.442873+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47944,7 +49762,15 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=78&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoODYvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTM0ODYmc3Q9MVprUlhpb2xfODRPc2RMR2R0VDNzQQ%3D%3D": {
       "channel": "Viasat History",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoODYvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTM0ODYmc3Q9MVprUlhpb2xfODRPc2RMR2R0VDNzQQ%3D%3D&master=78",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:25.359083+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -47973,28 +49799,60 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=105&source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2g0Ny90cmFja3MtdjFhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDU5OTA0MiZzdD1tVWRSQVFvbDY4SHVMTEc2MENpeTFn": {
       "channel": "Viasat Kino Action",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjUxOjcwMDAvY2g0Ny90cmFja3MtdjFhMS9tb25vLm0zdTg%2FbGl2ZT0xJmlwPTE3OC4xMzYuNDIuMjIwJmlkPTk0ODg2NSZzZWNyZXQ9bjF1N3VpMDYmc3NsPTEmMjF5bz0wJmU9MTc5MDU5OTA0MiZzdD1tVWRSQVFvbDY4SHVMTEc2MENpeTFn&master=105",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:15.916581+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://777905.live.tvstitch.com/playlist.m3u8?master=249&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk4Mzcmc3Q9UzRPS1VZemNocmREQWhnSTJkTDJ5QQ%3D%3D": {
       "channel": "Viasat Kino Comedy",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk4Mzcmc3Q9UzRPS1VZemNocmREQWhnSTJkTDJ5QQ%3D%3D&master=249",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:19.789047+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://777905.live.tvstitch.com/playlist.m3u8?master=102&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDgvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk5NDcmc3Q9N3ROblpCZy02WTBka1RuekRIZjU0QQ%3D%3D": {
       "channel": "Viasat Kino World",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDgvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA1OTk5NDcmc3Q9N3ROblpCZy02WTBka1RuekRIZjU0QQ%3D%3D&master=102",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:14.398914+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://777905.live.tvstitch.com/playlist.m3u8?master=77&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoODQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTMxMTAmc3Q9dTZrbUNadl9LWlpqMllkWVJRbDVBdw%3D%3D": {
       "channel": "Viasat Nature",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoODQvdHJhY2tzLXYxYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA3NTMxMTAmc3Q9dTZrbUNadl9LWlpqMllkWVJRbDVBdw%3D%3D&master=77",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:25.519578+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48008,14 +49866,30 @@
     "http://777905.live.tvstitch.com/playlist.m3u8?master=599&source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDUvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA2MDExNzAmc3Q9VS12czVHQmhOdF9WQXJ4bHVYVzR2dw%3D%3D": {
       "channel": "Viasat Serial",
       "url": "http://777905.live.tvstitch.com/playlist.m3u8?source=aHR0cDovLzE3Ni4xMjIuMTAzLjI0MTo3MDAwL2NoNDUvdHJhY2tzLXYyYTEvbW9uby5tM3U4P2xpdmU9MSZpcD0xNzguMTM2LjQyLjIyMCZpZD05NDg4NjUmc2VjcmV0PW4xdTd1aTA2JnNzbD0xJjIxeW89MCZlPTE3OTA2MDExNzAmc3Q9VS12czVHQmhOdF9WQXJ4bHVYVzR2dw%3D%3D&master=599",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-11T15:06:24.955676+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://92.114.85.87:8010/play/a00a/index.m3u8": {
       "channel": "Viasat True Crime",
       "url": "http://92.114.85.87:8010/play/a00a/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 448,
+          "error": "",
+          "time": "2026-10-11T15:07:37.732020+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48389,14 +50263,30 @@
     "http://media1.skifnet.by/voentv/index.m3u8": {
       "channel": "VoyenTV (1080p)",
       "url": "http://media1.skifnet.by/voentv/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994688,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-11T15:11:13.527965+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
     "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-protv-plus16/live_fullhd?offsetSeconds=0": {
       "channel": "Voyo Sport 1 (1080p)",
       "url": "http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-ro-protv-plus16/live_fullhd?offsetSeconds=0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 747,
+          "error": "",
+          "time": "2026-10-11T15:11:49.262242+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -48721,7 +50611,15 @@
     "http://htvint.mada.ps:8889/orient/index.m3u8": {
       "channel": "Watar TV (720p)",
       "url": "http://htvint.mada.ps:8889/orient/index.m3u8",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-11T15:10:06.059139+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -49353,7 +51251,15 @@
     "http://php.jdshipin.com:8880/xztv.php?id=zy": {
       "channel": "Xizang TV Tibetan (720p)",
       "url": "http://php.jdshipin.com:8880/xztv.php?id=zy",
-      "checks": [],
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986,
+          "frames": 600,
+          "error": "",
+          "time": "2026-10-11T15:11:40.689699+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
@@ -50255,7 +52161,15 @@
     "http://91.228.35.249:8001/1:0:1:72:2FA8:13E:820000:0:0:0": {
       "channel": "eQtv",
       "url": "http://91.228.35.249:8001/1:0:1:72:2FA8:13E:820000:0:0:0",
-      "checks": [],
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-11T15:07:09.191828+00:00"
+        }
+      ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED"
     },
