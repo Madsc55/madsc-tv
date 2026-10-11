@@ -8,6 +8,7 @@ on:
     - cron: '*/15 * * * *'
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: madsc-rapor-yazma
   cancel-in-progress: false
@@ -63,3 +64,18 @@ jobs:
           done
           echo "Raporlar GitHub'a kaydedilemedi; artifact arsivinde korunuyor"
           exit 1
+      - name: Yeni aday varsa sonraki test turunu hemen baslat
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          remaining=$(python3 -c 'import json; print(json.load(open("madsc_kesif/ozet.json")).get("yeni_bekleyen_sonraki",0))')
+          echo "Henuz test edilmemis aday: $remaining"
+          if [ "$remaining" -gt 0 ]; then
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-birlesik-kesif.yml/dispatches" -f ref=main
+            echo "Siradaki test turu tetiklendi."
+          else
+            echo "Yeni aday kalmadi; gereksiz test turu baslatilmadi."
+          fi
