@@ -1,18 +1,25 @@
 {
-  "zaman": "2026-10-11T00:42:49.607801+00:00",
-  "ana_liste": 619,
+  "zaman": "2026-10-11T01:20:06.341822+00:00",
+  "ana_liste": 633,
   "kaynaklar": {
     "iptv-org-TR": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u",
     "iptv-org-TURKIYE": "https://iptv-org.github.io/iptv/countries/tr.m3u",
     "iptv-org-TURKCE": "https://iptv-org.github.io/iptv/languages/tur.m3u",
-    "iptv-org-AZERBAYCAN": "https://iptv-org.github.io/iptv/countries/az.m3u"
+    "iptv-org-AZERBAYCAN": "https://iptv-org.github.io/iptv/countries/az.m3u",
+    "omerdenizhan-TR": "https://raw.githubusercontent.com/omerdenizhan/IPTV-M3U/main/m3u/turkiye.m3u",
+    "ilyswch-TR": "https://raw.githubusercontent.com/ilyswch/turk-iptv/main/index.m3u",
+    "itasli-TR": "https://itasli.github.io/TURKTV/index.m3u",
+    "gkhncksn-TR": "https://raw.githubusercontent.com/gkhncksn/m3u8_lists/main/TURK_KANALLARI.m3u",
+    "Lunedor-TR": "https://raw.githubusercontent.com/Lunedor/iptvTR/main/iptv_tum_kanallar.m3u"
   },
-  "bulunan": 588,
-  "tekrar": 558,
-  "aday": 30,
-  "test_edilen": 30,
+  "bulunan": 1486,
+  "tekrar": 975,
+  "aday": 511,
+  "test_edilen": 60,
   "teknik_gecen": 0,
-  "alternatif": 3,
-  "hatalar": [],
+  "alternatif": 66,
+  "hatalar": [
+    "ilyswch-TR: HTTP Error 404: Not Found"
+  ],
   "notlar": "Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir."
 }
