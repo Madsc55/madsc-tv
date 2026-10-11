@@ -2,7 +2,7 @@
 """MADSC unified read-only IPTV candidate scanner."""
 import csv,json,re,urllib.request,urllib.parse,subprocess,concurrent.futures,datetime,pathlib,os,time
 OUT=pathlib.Path("madsc_kesif"); OUT.mkdir(exist_ok=True)
-SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TURKIYE":"https://iptv-org.github.io/iptv/countries/tr.m3u"}
+SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TURKIYE":"https://iptv-org.github.io/iptv/countries/tr.m3u","iptv-org-TURKCE":"https://iptv-org.github.io/iptv/languages/tur.m3u","iptv-org-AZERBAYCAN":"https://iptv-org.github.io/iptv/countries/az.m3u"}
 def parse(s):
  lines=s.splitlines(); out=[]
  for i,line in enumerate(lines):
@@ -104,7 +104,7 @@ def main():
   why="AYNI_URL" if k in known and x["source"]!="GECMIS_BASARISIZ_YENIDEN_TEST" else "AYNI_TARAMA" if k in seen else ""
   if why:duplicates.append(dict(kanal=x["name"],url=x["url"],neden=why))
   else:seen.add(k);pending.append(x)
- limit=30
+ limit=60
  pending.sort(key=lambda x:(history.get(key(x["url"]),{}).get("last_test",""),x["name"]))
  with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:rows=list(ex.map(test,pending[:limit]))
  for x in pending[limit:]:rows.append(dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="SONRAKI_TEST_BEKLIYOR",puan=0,video="",ses="",cozunurluk="",logo="",ulke="ISVEC_DOGRULANMADI",test1="",test2=""))
@@ -140,8 +140,8 @@ def main():
  for row in rows:
   if row["durum"]=="SONRAKI_TEST_BEKLIYOR":continue
   q=quality(row["cozunurluk"])
-  if q in ("FHD","QHD","4K_UHD") and name(row["kanal"]) in names:
-   quality_rows.append(dict(kanal=row["kanal"],url=row["url"],cozunurluk=row["cozunurluk"],kalite=q,durum=row["durum"],islem="YEDEKLERE_EKLEME_ICIN_KULLANICI_ONAYI_BEKLIYOR"))
+  if q in ("FHD","QHD","4K_UHD"):
+   quality_rows.append(dict(kanal=row["kanal"],url=row["url"],cozunurluk=row["cozunurluk"],kalite=q,durum=row["durum"],islem="MEVCUT_KANAL_ALTERNATIFI" if name(row["kanal"]) in names else "YENI_KANAL_ADAYI"))
  write("yuksek_kalite_alternatifleri.csv",quality_rows,["kanal","url","cozunurluk","kalite","durum","islem"])
  state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
  summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
