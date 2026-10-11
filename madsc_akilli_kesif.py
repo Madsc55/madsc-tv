@@ -6,6 +6,19 @@ OUT=pathlib.Path("madsc_kesif"); OUT.mkdir(exist_ok=True)
 SOURCE_TARGET=155
 
 SOURCES={"iptv-org-TR":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u","iptv-org-TURKIYE":"https://iptv-org.github.io/iptv/countries/tr.m3u","iptv-org-TURKCE":"https://iptv-org.github.io/iptv/languages/tur.m3u","iptv-org-AZERBAYCAN":"https://iptv-org.github.io/iptv/countries/az.m3u","omerdenizhan-TR":"https://raw.githubusercontent.com/omerdenizhan/IPTV-M3U/main/m3u/turkiye.m3u","ilyswch-TR":"https://raw.githubusercontent.com/ilyswch/turk-iptv/main/index.m3u","itasli-TR":"https://itasli.github.io/TURKTV/index.m3u","gkhncksn-TR":"https://raw.githubusercontent.com/gkhncksn/m3u8_lists/main/TURK_KANALLARI.m3u","Lunedor-TR":"https://raw.githubusercontent.com/Lunedor/iptvTR/main/iptv_tum_kanallar.m3u"}
+def source_freshness(url):
+ """GitHub source-file commit date, not stream uptime or verified channel freshness."""
+ p=urllib.parse.urlsplit(url); parts=p.path.strip("/").split("/")
+ if p.netloc!="raw.githubusercontent.com" or len(parts)<4:return ("BILINMIYOR","",99999)
+ owner,repo,branch=parts[:3];path="/".join(parts[3:])
+ api="https://api.github.com/repos/"+owner+"/"+repo+"/commits?path="+urllib.parse.quote(path)+"&per_page=1"
+ try:
+  req=urllib.request.Request(api,headers={"User-Agent":"MADSC-TV","Accept":"application/vnd.github+json"})
+  with urllib.request.urlopen(req,timeout=8) as r:data=json.load(r)
+  stamp=data[0]["commit"]["committer"]["date"]
+  days=max(0,(datetime.datetime.now(datetime.timezone.utc)-datetime.datetime.fromisoformat(stamp.replace("Z","+00:00"))).days)
+  return ("SON_1_GUN" if days<=1 else "SON_7_GUN" if days<=7 else "SON_15_GUN" if days<=15 else "SON_30_GUN" if days<=30 else "ESKI",stamp,days)
+ except Exception:return ("BILINMIYOR","",99999)
 def parse(s):
  lines=s.splitlines(); out=[]
  for i,line in enumerate(lines):
@@ -92,7 +105,9 @@ def main():
  # Previously failing URLs remain eligible for periodic recovery checks.
  failed_archive=OUT/"eski_bozuk_linkler.csv"
  found=[];errors=[]
- for src,url in SOURCES.items():
+ freshness={src:source_freshness(url) for src,url in SOURCES.items()}
+ write("kaynak_guncelligi.csv",[dict(kaynak=k,url=SOURCES[k],guncellik=v[0],son_guncelleme=v[1],gun=v[2] if v[2]!=99999 else "") for k,v in freshness.items()],["kaynak","url","guncellik","son_guncelleme","gun"])
+ for src,url in sorted(SOURCES.items(),key=lambda item:freshness[item[0]][2]):
   try:
    with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"MADSC-TV"}),timeout=18) as r:s=r.read(3000000).decode("utf-8-sig",errors="replace")
    for x in parse(s):x["source"]=src;found.append(x)
@@ -108,7 +123,7 @@ def main():
   if why:duplicates.append(dict(kanal=x["name"],url=x["url"],neden=why))
   else:seen.add(k);pending.append(x)
  limit=60
- pending.sort(key=lambda x:(history.get(key(x["url"]),{}).get("last_test",""),x["name"]))
+ pending.sort(key=lambda x:(freshness.get(x["source"],("","",99999))[2],history.get(key(x["url"]),{}).get("last_test",""),x["name"]))
  with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:rows=list(ex.map(test,pending[:limit]))
  for x in pending[limit:]:rows.append(dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="SONRAKI_TEST_BEKLIYOR",puan=0,video="",ses="",cozunurluk="",logo="",ulke="ISVEC_DOGRULANMADI",test1="",test2=""))
  rows.sort(key=lambda r:(-r["puan"],r["kanal"]))
@@ -147,7 +162,7 @@ def main():
    quality_rows.append(dict(kanal=row["kanal"],url=row["url"],cozunurluk=row["cozunurluk"],kalite=q,durum=row["durum"],islem="MEVCUT_KANAL_ALTERNATIFI" if name(row["kanal"]) in names else "YENI_KANAL_ADAYI"))
  write("yuksek_kalite_alternatifleri.csv",quality_rows,["kanal","url","cozunurluk","kalite","durum","islem"])
  state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
- summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
+ summary=dict(zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,kaynak_hedefi=SOURCE_TARGET,kaynak_guncelligi={k:v[0] for k,v in freshness.items()},bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
  print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
