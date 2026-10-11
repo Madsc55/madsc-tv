@@ -7,8 +7,6 @@ GAP = dt.timedelta(hours=6)
 
 def eligible(record, now):
     checks = record.get('checks', [])
-    if checks and not checks[-1]['passed']:
-        return False
     if len(checks) >= 3:
         return False
     return not checks or now - dt.datetime.fromisoformat(checks[-1]['time']) >= GAP
@@ -53,9 +51,11 @@ def main():
     records = list(state['channels'].values())
     summary = {'time': now.isoformat(), 'candidates': len(records), 'tested_this_run': len(due),
                'due_now': sum(eligible(r, now) for r in records),
-               'waiting_6h': sum(bool(r['checks']) and r['checks'][-1]['passed'] and len(r['checks']) < 3 and not eligible(r, now) for r in records),
+               'waiting_6h': sum(bool(r['checks']) and len(r['checks']) < 3 and not eligible(r, now) for r in records),
                'failed': sum(bool(r['checks']) and not r['checks'][-1]['passed'] for r in records),
                'three_decode_passes': sum(len(r['checks']) == 3 and all(c['passed'] for c in r['checks']) for r in records),
+               'completed_three_attempts': sum(len(r['checks']) == 3 for r in records),
+               'pass_distribution': {str(n): sum(len(r['checks']) == 3 and sum(c['passed'] for c in r['checks']) == n for r in records) for n in range(4)},
                'ready_for_playlist': 0,
                'limits': ['Decode success does not verify station identity, freezing, or Sweden IBO playback. Identity and device confirmation remain required.']}
     temporary = OUT / 'state.tmp'
