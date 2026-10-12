@@ -91,3 +91,8 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 
 ## 12 Ekim — YEDEKLER kullanıcı temizliği
 - Kullanıcının açık talimatıyla YEDEKLER (19) grubundan TRT 1 ve DHA CANLI hariç 17 kayıt çıkarıldı; YEDEKLER (2) oldu. GitHub commit `a9d3317004a9f12f93bae0371b0e7d9ddab636aa`. Dosya yeniden okunup iki kaydın kaldığı doğrulandı. Diğer kategoriler/favoriler/sıralamalar ve harici korunan yedekler değiştirilmedi. Çıkarılan 17 adayın geçmiş test kayıtları silinmedi; aynı işlemi tekrar yapma.
+
+## 12 Ekim — eksik Türk kanal hedef takibi
+- Kullanıcı sistemin eksik dört geliştirmesini uygulamayı onayladı. `tools/eksik_turk_kanal_takibi.py` oluşturuldu (commit `f587bfa662a08b76b9e7d9c05bfccb88ccffccb1`): Sözcü TV, Akit TV, Kanal Samsun, Samsun Haber için mevcut playlist ve `madsc_kesif/gecmis.json` içinde ad eşleşmesi arayan salt-okunur JSON rapor. Akış testi yapmaz; gerçek kanal kimliği/dil/IBO onayı vermez.
+- Mevcut `.github/workflows/birlesik-durum-raporu.yml` güncellendi (commit `a38fe08f12aa8770712beae246446ccc5644233d`): 06:40/18:40 UTC birleşik artifact içine `missing-turkish-channels.json` da eklenir. GitHub dosyası yeniden okunarak doğrulandı; ilk Actions çalışması henüz doğrulanmadı.
+- Kalan geliştirmeler: isim hedeflerine göre dış kaynaklarda gerçekten yeni kanal keşfi, 155 kaynak değişim karşılaştırması, gerçek yayın kimliği/yabancı dil elemesi, eski çakışan otomasyonların iş akışı bazında analizi. Bunlar tamamlandı sayılmaz.
