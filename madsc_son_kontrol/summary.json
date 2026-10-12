@@ -1,0 +1,17 @@
+{
+  "checked_utc": "2026-10-12T09:21:07.892494+00:00",
+  "scope": "First priority batch, not all 6436 candidate URLs. Remaining candidates retain their prior results.",
+  "selected": 39,
+  "completed": 39,
+  "requested_seconds": 300,
+  "status_counts": {
+    "CONTINUITY_FAILED": 2,
+    "TECHNICAL_PASS_CONTENT_REVIEW": 6,
+    "TECHNICAL_PASS_IDENTITY_PENDING": 29,
+    "TIMEOUT": 2
+  },
+  "ready_for_playlist": 0,
+  "identity_and_device_confirmation_required": true,
+  "playlist_blob": "b32b887e982d66357c8f379dc385e0fb1d1cf6a5",
+  "three_stage_state_blob": "c3ad6fdea2b8b87f2e75904cff2f2212bfc326a5"
+}
