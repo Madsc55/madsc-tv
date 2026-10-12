@@ -71,3 +71,8 @@ Kanıt: raporlar/YEDEK_KATEGORI_LOGO_2026-10-12.json. Aynı taşıma yeni sohbet
 ## Son MTürk/Ton TV kontrolü
 Kullanıcı Yerel 56/57 MTürk logo uyuşmazlığını düzeltme istedi. İki varyant aynı yayın URL'sini kullanıyor. Yayıncının https://www.mturktv.com/wp-content/uploads/2025/04/MTurkTV.png dosyası görsel olarak incelendi; logos/resmi-mturk-20261012.png olarak aynen saklandı. Bu iki tam etiketin toplam dört kategori kopyasında yalnız logo adresi eşitlendi (Hepsi/Belgesel/Yerel); isim/URL/ID/kategori/sıra değişmedi. Onaylı eski URL+PNG hash bakım kaydı eklendi. Canlı kare girişimi 5xx döndürdü; yayındaki amblem veya IBO görünümü kesin doğrulanmış yazılmadı. Kullanıcı cihaz kontrolü sonraki adım.
 Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezli bölgesel genel yayın olduğunu destekliyor. Yerel kategorisinde kalması uygun; taşınmadı. Önceki dört logo/Eurosport ve üç YEDEKLER taşıması tekrar yapılmadı.
+
+## 12 Ekim 2026 — son sohbet işlemi: M2O taşıması
+- Güncel YEDEKLER 9. kayıt M2O TV DJ STATION 720P HD olarak doğrulandı. İtalya m2o TV için iptv-org/Wikimedia'daki m2o 2019 markalı PNG adresi kullanıldı; yayın üstü amblem ve İsveç IBO cihaz görünümü henüz doğrulanmadı.
+- Kullanıcının açık talimatıyla yalnız bu kayıt YEDEKLER'den çıkarılıp aynı akış URL'si/ID/isim/kaliteyle MÜZİK ve HEPSİ sonuna eklendi. YEDEKLER 20→19, MÜZİK 33→34, HEPSİ 374→375. Önceki Hepsi sıralaması, ilk 90 ve favoriler değişmedi.
+- CALISANLAR.m3u commit: 6f0dcfc3714feb5d54fa6db081f34d28f0a83803. Önceki MTürk logo düzeltmesi ve Ton TV Yerel kararı zaten yapılmıştı; tekrar uygulanmadı. Kullanıcıdan IBO'da logo/akış görünümü beklenir.
