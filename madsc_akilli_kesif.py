@@ -182,6 +182,18 @@ def main():
   allowed=public_artwork_url(logo_url)
   artwork.append(dict(channel=x["name"],stream_sha256=__import__("hashlib").sha256(key(x["url"]).encode()).hexdigest(),source=x["source"],channel_id=x.get("id",""),logo_url=logo_url if allowed else "",logo_source_review_required=bool(logo_url and not allowed)))
  (OUT/"logo_candidates.json").write_text(json.dumps(artwork,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+ # Prepare candidate PNG artwork in the same discovery run, without changing playlists.
+ # Source artwork is not proof of channel identity; all matches remain review-pending.
+ try:
+  from scripts.candidate_logo_report import prepare as prepare_candidate_artwork
+  previous_path=OUT/"candidate_logos.json"
+  previous=json.loads(previous_path.read_text(encoding="utf-8")).get("results",[]) if previous_path.exists() else []
+  prepared=prepare_candidate_artwork(artwork,previous,limit=40)
+  previous_path.write_text(json.dumps({"checked_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"results":prepared,"limits":"PNG preparation only; visual identity and IBO approval required. No playlist edits."},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+  print(json.dumps({"candidate_logos_review":len(prepared),"png_ready":sum(x.get("status")=="PNG_READY_REVIEW_PENDING" for x in prepared)},ensure_ascii=False))
+ except Exception as exc:
+  (OUT/"logo_hazirlama_hatasi.txt").write_text(type(exc).__name__+": "+str(exc)[:300]+"\n",encoding="utf-8")
+  print("Candidate logo preparation failed; discovery and channel tests continue.")
  print(json.dumps({"yeni_bekleyen":len(untested),"onceki_testli":len(tested),"bu_tur_yeni":min(limit,len(untested))},ensure_ascii=False))
  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:rows=list(ex.map(test,pending[:limit]))
  for x in pending[limit:]:rows.append(dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="SONRAKI_TEST_BEKLIYOR",puan=0,video="",ses="",cozunurluk="",logo="",ulke="ISVEC_DOGRULANMADI",test1="",test2=""))
