@@ -36,7 +36,23 @@ def main():
     statefile = OUT / 'state.json'
     state = json.loads(statefile.read_text()) if statefile.exists() else {'channels': {}}
     history = json.loads(pathlib.Path('madsc_kesif/gecmis.json').read_text())['history']
-    # Merge unseen wide-scan candidates without modifying existing checks.\n    review_path = pathlib.Path('madsc_genis_tarama/candidate_review.json')\n    if review_path.exists():\n        review = json.loads(review_path.read_text(encoding='utf-8'))['candidates']\n        if not isinstance(review, dict):\n            raise ValueError('Invalid wide-scan review queue')\n        for candidate in review.values():\n            if candidate.get('status') != 'IDENTITY_REVIEW_REQUIRED_NOT_TESTED':\n                continue\n            url = candidate['url']\n            identity = key(url)\n            if identity not in history:\n                state['channels'].setdefault(identity, {\n                    'channel': candidate['name'], 'url': url, 'checks': [],\n                    'identity': 'NOT_VERIFIED', 'ibo_sweden': 'NOT_VERIFIED',\n                    'source': candidate['source'], 'origin': 'WIDE_SOURCE_SCAN'})\n    for identity, candidate in history.items():
+    # Merge unseen wide-scan candidates without modifying existing checks.
+    review_path = pathlib.Path('madsc_genis_tarama/candidate_review.json')
+    if review_path.exists():
+        review = json.loads(review_path.read_text(encoding='utf-8'))['candidates']
+        if not isinstance(review, dict):
+            raise ValueError('Invalid wide-scan review queue')
+        for candidate in review.values():
+            if candidate.get('status') != 'IDENTITY_REVIEW_REQUIRED_NOT_TESTED':
+                continue
+            url = candidate['url']
+            identity = key(url)
+            if identity not in history:
+                state['channels'].setdefault(identity, {
+                    'channel': candidate['name'], 'url': url, 'checks': [],
+                    'identity': 'NOT_VERIFIED', 'ibo_sweden': 'NOT_VERIFIED',
+                    'source': candidate['source'], 'origin': 'WIDE_SOURCE_SCAN'})
+    for identity, candidate in history.items():
         if candidate.get('successful_runs', 0) > 0:
             state['channels'].setdefault(identity, {'channel': candidate['channel'],
                 'url': candidate['url'], 'checks': [], 'identity': 'NOT_VERIFIED',
