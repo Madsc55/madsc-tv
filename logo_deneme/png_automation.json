@@ -1,42 +1,17 @@
 {
-  "missing_logo_entries": 0,
-  "unresolved": [],
-  "unique_logos": 0,
-  "png_ready": 0,
+  "missing_logo_entries": 21,
+  "unresolved": [
+    "CGTN DOCUMENTARY",
+    "FTV TÜRK",
+    "M2O TV DJ STATION",
+    "10 TV"
+  ],
+  "unique_logos": 21,
+  "png_ready": 21,
   "already_local": 0,
   "failed": 0,
   "identity": "Existing logos untouched; automatic insertion requires a saved visual review and unchanged PNG hash.",
   "problem_channels": [
-    {
-      "name": "TLC 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "TLC 2 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "TLC 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "TLC 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "TLC 2 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
     {
       "name": "SPACETOON TURKEY 720P",
       "status": "HTTP_ERROR",
@@ -98,7 +73,7 @@
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "name": "BBC FİRST TURKİYE",
+      "name": "TBMM TV 720P HD",
       "status": "HTTP_ERROR",
       "http": 429,
       "visual_match": "NOT_VERIFIED"
@@ -170,13 +145,13 @@
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "name": "TLC 720P HD",
+      "name": "TBMM TV 720P HD",
       "status": "HTTP_ERROR",
       "http": 429,
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "name": "TLC 1080P FHD",
+      "name": "TBMM TV 720P HD 2",
       "status": "HTTP_ERROR",
       "http": 429,
       "visual_match": "NOT_VERIFIED"
@@ -188,12 +163,6 @@
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "name": "BBC FİRST TURKİYE",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
       "name": "BAKU.TV",
       "status": "HTTP_ERROR",
       "http": 403,
@@ -258,8 +227,262 @@
       "status": "HTTP_ERROR",
       "http": 403,
       "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "AZ STAR TV 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "KANAL 35 720P HD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "NAXCIVAN TV 720P HD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "AZ TV 480P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "CGTN DOCUMENTARY 576P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "KURDISTAN TV 720P HD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "FTV TÜRK 540P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": ".BLACK 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "M2O TV DJ STATION 720P HD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "&TV 216P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": ".RED 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "WEST AZERBAIJAN TV 240P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": ".SCI-FI 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "1+1 INTERNATIONAL 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "1+1 MARAFON 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "1+1 UKRAINA 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "111 TV 720P HD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "12TV 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "10 TV 576P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "12 TV PARMA 540P SD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "13 FESTIVAL 1080P FHD",
+      "status": "MISSING_LOGO",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
     }
   ],
-  "pending_visual_review": [],
-  "results": []
+  "pending_visual_review": [
+    "AZ STAR TV 1080P FHD",
+    "KANAL 35 720P HD",
+    "NAXCIVAN TV 720P HD",
+    "AZ TV 480P SD",
+    "CGTN DOCUMENTARY 576P SD",
+    "KURDISTAN TV 720P HD",
+    "FTV TÜRK 540P SD",
+    ".BLACK 1080P FHD",
+    "M2O TV DJ STATION 720P HD",
+    "&TV 216P SD",
+    ".RED 1080P FHD",
+    "WEST AZERBAIJAN TV 240P SD",
+    ".SCI-FI 1080P FHD",
+    "1+1 INTERNATIONAL 1080P FHD",
+    "1+1 MARAFON 1080P FHD",
+    "1+1 UKRAINA 1080P FHD",
+    "111 TV 720P HD",
+    "12TV 1080P FHD",
+    "10 TV 576P SD",
+    "12 TV PARMA 540P SD",
+    "13 FESTIVAL 1080P FHD"
+  ],
+  "results": [
+    {
+      "source_sha256": "239908e80daba409c39592219ec2d8577088b220b6e8bc7047bd84fa5aa0592a",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/239908e80daba409c3959221.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "d9c93133adb0965f935a99f34c78e497fffc366cfbac43703a130a955eeaf5ef",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/d9c93133adb0965f935a99f3.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "0e5df2c3c4939ed146058c3dd3a28166eb21bda7d8ce5a0bf05cb6d693a07f7a",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/0e5df2c3c4939ed146058c3d.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "14dd38545017604dea57019bc0c8940b0b6cc1c78dc435fc25880ca08cb0dae1",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/14dd38545017604dea57019b.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "466feaf99e11e9e6b5a13624880de11136831a4bad4105fa12bc56c28a407e62",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/466feaf99e11e9e6b5a13624.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "a1354a385cc3a0bbf4806757bb1cfcdbf282adabcd81a6ad94f3636e2bf8f757",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/a1354a385cc3a0bbf4806757.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "de12d72328241ce2686e3658a7230bec246a785d59948c49307409049d4e53f4",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/de12d72328241ce2686e3658.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "a806902047a6662fcd26bdf3e16231332d3d215ea157368073b885e8f8cd9b3c",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/a806902047a6662fcd26bdf3.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "0779b126a79286a57a25dd0fb0ae2c53ab14759e674ec00dece525a89b0a903b",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/0779b126a79286a57a25dd0f.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "c89c0ee60bebb694cf3fa0e6e32a770bd523f1cd4ff994d64100aa4495afba20",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/c89c0ee60bebb694cf3fa0e6.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "f68138c4ecf641465f54848cf94b0554f48608233ae2caa6e3bd8dad5f284acc",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/f68138c4ecf641465f54848c.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "048131bc742d8064c301a096fd656d14a6b491d930213bac44f0bc721da016ca",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/048131bc742d8064c301a096.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "b118b37c38a98c811a93ec1566584d56a59789f7b2a742dc31dfd2aa25a51b32",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/b118b37c38a98c811a93ec15.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "5effb3739213b20377cdcf7a072f24ce7b36e93c60f581e19f051390639eab0d",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/5effb3739213b20377cdcf7a.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "041e37594c71899c9e381aee208cf0712927c7a560d1ec8a232eed7e2f7e6a78",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/041e37594c71899c9e381aee.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "b48a3be1c10228a1eab69b2d43de3cd49a9c74cfa0d7fcf80f965f56896c3835",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/b48a3be1c10228a1eab69b2d.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "44195e35f88c8190bcaa9ca967294b5eae53b206064182c5a095e8b3b26d868e",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/44195e35f88c8190bcaa9ca9.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "a19eb811872c0b7b898df7a3c0b5062f154bd7908cd334887cd294825f423a4a",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/a19eb811872c0b7b898df7a3.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "b1aeb5844a1583bbae02bb2659eb789c7eda0bf1a2fa840fd222d7bf5cc3be00",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/b1aeb5844a1583bbae02bb26.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "bd21f886cb64f0fa455c6619325eefd680f6b375d6b5a21ae4cb2d93e3e4e534",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/bd21f886cb64f0fa455c6619.png",
+      "status": "png_ready"
+    },
+    {
+      "source_sha256": "dec9680f11da632401ea5ac406cce5ecb0c095a3c30525ff1792fa7d39ecc19d",
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/dec9680f11da632401ea5ac4.png",
+      "status": "png_ready"
+    }
+  ]
 }

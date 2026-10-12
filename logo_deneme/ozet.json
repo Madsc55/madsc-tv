@@ -1,23 +1,23 @@
 {
-  "checked_utc": "2026-10-12T16:25:01.014109+00:00",
-  "playlist_sha256": "293427a69f175b7e8d5e658eb6f3c4e7d7c913be4e47ca9a9615382976bfef4e",
-  "entries": 1029,
+  "checked_utc": "2026-10-12T18:22:48.071895+00:00",
+  "playlist_sha256": "ad9a0642fdb06b3fef0e7149ec4647d8d659b98b2eec7409fdbcc266c3dab837",
+  "entries": 1050,
   "unique_logo_urls": 191,
-  "missing_logo_entries": 0,
+  "missing_logo_entries": 21,
   "unique_url_statuses": {
-    "HTTP_ERROR": 8,
+    "HTTP_ERROR": 7,
     "IMAGE_OK": 182,
-    "SVG_XML_OK": 1
+    "SVG_XML_OK": 2
   },
   "formats": {
-    "PNG": 173,
+    "PNG": 172,
+    "JPEG": 7,
     "WEBP": 3,
-    "JPEG": 6,
-    "SVG": 1
+    "SVG": 2
   },
-  "image_ok_entries": 985,
-  "svg_entries": 2,
-  "problem_entries": 42,
+  "image_ok_entries": 989,
+  "svg_entries": 4,
+  "problem_entries": 57,
   "limits": [
     "Image decode does not prove the correct station logo or IBO device support.",
     "Failures may be temporary or runner/location dependent.",
