@@ -1,12 +1,13 @@
 {
-  "generated_utc": "2026-10-12T11:04:39.298077+00:00",
-  "playlist_entries": 1029,
-  "matched_entries": 724,
-  "unmatched_entries": 305,
+  "generated_utc": "2026-10-12T21:13:29.373697+00:00",
+  "playlist_entries": 1039,
+  "matched_entries": 728,
+  "unmatched_entries": 311,
   "ambiguous_entries": 0,
-  "programmes": 24323,
-  "usable_playlist_entries": 579,
-  "epg_bytes": 8884737,
+  "programmes": 17826,
+  "overlap_skipped": 4670,
+  "usable_playlist_entries": 581,
+  "epg_bytes": 6444926,
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/trology85/iptv-epg-turkey/main/epg/turksat_epg.xml.gz",
@@ -16,7 +17,7 @@
     {
       "url": "https://epgshare01.online/epgshare01/epg_ripper_TR1.xml.gz",
       "status": "ok",
-      "programmes": 15324
+      "programmes": 15247
     },
     {
       "url": "https://epgshare01.online/epgshare01/epg_ripper_TR3.xml.gz",
@@ -706,6 +707,21 @@
       "display": "APA TV 1080P FHD"
     },
     {
+      "id": "madsc.candidate.69a8bb5fe41db0e9ed98",
+      "name": "FTV TÜRK",
+      "display": "FTV TÜRK 540P SD"
+    },
+    {
+      "id": "madsc.candidate.105395ca9b5e6b372edc",
+      "name": ".SCI-FI",
+      "display": ".SCI-FI 1080P FHD"
+    },
+    {
+      "id": "madsc.candidate.44636ab9d0674b540b36",
+      "name": "M2O TV DJ STATION",
+      "display": "M2O TV DJ STATION 720P HD"
+    },
+    {
       "id": "DenizPostasiTV.tr@SD",
       "name": "DENİZ POSTASI TV 720P",
       "display": "DENİZ POSTASI TV 720P"
@@ -724,6 +740,11 @@
       "id": "",
       "name": "ÖNCÜ TV",
       "display": "ÖNCÜ TV 720P HD"
+    },
+    {
+      "id": "madsc.candidate.105395ca9b5e6b372edc",
+      "name": ".SCI-FI",
+      "display": ".SCI-FI 1080P FHD"
     },
     {
       "id": "FinansTurkTV.tr@SD",
@@ -751,9 +772,9 @@
       "display": "HABER61 TV"
     },
     {
-      "id": "cphtdpl9j70cn3a",
-      "name": "360 2",
-      "display": "360 2 720P HD"
+      "id": "",
+      "name": "İLKE TV",
+      "display": "İLKE TV 1080P FHD"
     },
     {
       "id": "",
@@ -794,6 +815,11 @@
       "id": "jgxiih7f6yhagpj",
       "name": "TJK TV",
       "display": "TJK TV 1080P FHD"
+    },
+    {
+      "id": "madsc.candidate.69a8bb5fe41db0e9ed98",
+      "name": "FTV TÜRK",
+      "display": "FTV TÜRK 540P SD"
     },
     {
       "id": "EdessaTV.tr@SD",
@@ -1016,6 +1042,11 @@
       "display": "POWERTÜRK TAPTAZE 1080P FHD"
     },
     {
+      "id": "madsc.candidate.44636ab9d0674b540b36",
+      "name": "M2O TV DJ STATION",
+      "display": "M2O TV DJ STATION 720P HD"
+    },
+    {
       "id": "AlZahraTVTurkic.tr@SD",
       "name": "AL-ZAHRA TV TURKİC 720P",
       "display": "AL-ZAHRA TV TURKİC 720P"
@@ -1216,24 +1247,24 @@
       "display": "LİNE TV 720P"
     },
     {
-      "id": "",
-      "name": "ATV AVRUPA",
-      "display": "ATV AVRUPA 480P SD"
-    },
-    {
       "id": "FinansTurkTV.tr@SD",
       "name": "FİNANS TURK TV 720P",
       "display": "FİNANS TURK TV 720P"
     },
     {
       "id": "",
-      "name": "FLASH HABER TV",
-      "display": "FLASH HABER TV"
+      "name": "KANAL AVRUPA 1",
+      "display": "KANAL AVRUPA 1 1080P FHD"
     },
     {
       "id": "",
-      "name": "İLKE TV",
-      "display": "İLKE TV 1080P FHD"
+      "name": "TEMPO TV 1",
+      "display": "TEMPO TV 1 720P HD"
+    },
+    {
+      "id": "",
+      "name": "ATV AVRUPA",
+      "display": "ATV AVRUPA 480P SD"
     },
     {
       "id": "",
@@ -1242,8 +1273,18 @@
     },
     {
       "id": "",
-      "name": "KANAL AVRUPA 1",
-      "display": "KANAL AVRUPA 1 1080P FHD"
+      "name": "SHOW MAX",
+      "display": "SHOW MAX"
+    },
+    {
+      "id": "cphtdpl9j70cn3a",
+      "name": "360 2",
+      "display": "360 2 720P HD"
+    },
+    {
+      "id": "",
+      "name": "FLASH HABER TV",
+      "display": "FLASH HABER TV"
     },
     {
       "id": "",
@@ -1261,11 +1302,6 @@
       "display": "SHOW MAX"
     },
     {
-      "id": "",
-      "name": "SHOW MAX",
-      "display": "SHOW MAX"
-    },
-    {
       "id": "TBMMTV.tr@SD",
       "name": "TBMM TV",
       "display": "TBMM TV 720P HD"
@@ -1274,11 +1310,6 @@
       "id": "TBMMTV.tr@SD",
       "name": "TBMM TV",
       "display": "TBMM TV 720P HD 2"
-    },
-    {
-      "id": "",
-      "name": "TEMPO TV 1",
-      "display": "TEMPO TV 1 720P HD"
     },
     {
       "id": "6vs4sg9183gdxth",
