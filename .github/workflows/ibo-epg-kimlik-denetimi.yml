@@ -1,9 +1,12 @@
 name: MADSC - IBO EPG Kimlik Denetimi
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '23 6,18 * * *'
   push:
     paths:
       - '.github/workflows/ibo-epg-kimlik-denetimi.yml'
+      - 'scripts/ibo_epg_kimlik_denetimi.py'
 permissions:
   contents: read
 jobs:
