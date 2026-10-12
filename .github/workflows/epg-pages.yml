@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'epg/madsc-epg.xml'
+      - 'epg/ibo-test-epg.xml'
       - '.github/workflows/epg-pages.yml'
   workflow_dispatch:
   workflow_run:
@@ -42,6 +43,11 @@ jobs:
           Path('_site/.nojekyll').write_text('')
           Path('_site/index.html').write_text('<!doctype html><title>Madsc TV EPG</title><p>EPG: <a href="madsc-epg.xml">XMLTV</a></p>')
           Path('_site/madsc-epg.xml').write_bytes(epg.read_bytes())
+          pilot = Path('epg/ibo-test-epg.xml')
+          pilot_root = ET.parse(pilot).getroot()
+          assert len(pilot_root.findall('channel')) == 5
+          assert len(pilot_root.findall('programme')) > 0
+          Path('_site/ibo-test-epg.xml').write_bytes(pilot.read_bytes())
           print(f'Validated {len(root.findall("channel"))} channels and {len(root.findall("programme"))} programmes')
           PY
       - uses: actions/configure-pages@v5
