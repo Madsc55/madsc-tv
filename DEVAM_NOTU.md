@@ -94,3 +94,18 @@ Mahmut, Madsc55/madsc-tv içindeki DEVAM_NOTU.md dosyasını ve güncel Actions/
 - Son kontrol başarılı üç aşamalı workflow tamamlanmasına bağlandı; önceki sonuçları koruyan güncel main kullanılır. Bu, tüm 5711 bekleyen son kontrolün bittiği anlamına gelmez.
 - Altı yerel test ve iki YAML kontrolü geçti; canlı son kontrollerin sonuçları henüz bekleniyor.
 - Kanal kimliği, gerçek amblem, İsveç IBO ve EPG görünürlüğü otomatik teknik geçişle onaylanmaz. Ana liste, YENİLER, favoriler ve yedekler bu çalışmada değişmedi.
+
+## 12 Ekim — 10:30–14:30 Stockholm geçmiş denetimi
+GitHub commit aralığı 08:30–12:30 UTC incelendi: 55 commit, bu aralıkta başlayan 10 Actions çalışması; hepsi başarılı tamamlanmış. Commit sayısı test sayısı değildir.
+Tamamlanan aşağıdaki işler yeniden uygulanmayacak:
+- 10:38–10:44: ilk 6436 adayın sonuç sınıfları ve ayrı ön hazırlık/IBO aday raporları; üçlü denemeler tamamlanmış eski kayıtlara ek deneme yok.
+- 10:55–11:21: öncelikli 39 URL'nin 300 saniye son kontrolü tamamlandı. 29 işaretsiz teknik geçiş, 6 içerik incelemesi, 2 süreklilik başarısızlığı, 2 zaman aşımı.
+- 11:26–11:33: 36 mevcut görüntü incelendi, 3 görüntü yoktu. Kaydedilmiş kimlik sınıfları: 4 görsel destek, 20 reddedilmiş/desteklenmemiş Türk hedef kimliği, 15 inceleme bekliyor. Bu 39 URL'nin final testleri ve verilmiş kimlik kararları korunacak; yalnız açık kalan kimlikler ele alınacak. Sonraki kullanıcı ADA/Kanal D reddi ilk görsel desteği geçersiz kılar.
+- 11:31–12:18: yedek alternatifleri ekleme, sonra kullanıcı kararına göre taşıma ve ADA/Kanal D kaldırma; yedekler TRT1/DHA. SAT7 Türk üç URL Hepsi/Dini; APA TV Yerel/Hepsi. Yeniden ekleme/taşıma yok.
+- 11:41–13:13: kategori ve sıra talimatları uygulandı; Hepsi ilk 90 korunması, favori düzenleri, tematik kanalların taşınması, Öncü/Kanal15/Manas Sinema, Deniz Postası Sinema, Ulusal başlangıcında Favoriler1 sırası. Sıralama yeniden çalıştırılmayacak.
+- 12:05: kanal adları/ölçülmüş çözünürlük gösterimleri düzenlendi. Kısmen yapılmış kalite işi bütünüyle yapılmamış kabul edilmeyecek; yalnız kanıtı eksik etiketler doğrulanacak.
+- 12:34–13:06: Kanal19, Öncü, Konya Olay, KTV, TV41, Van65, OBB, Hunat, Gonca, Deniz Postası ve Show Max logo işleri kaydedildi. Dolu logolar son kullanıcı talimatıyla korunur; yeniden değiştirme yok.
+- 12:53–13:15: PNG/boş-logo otomasyonu ve görsel onay kapısı kuruldu; dört başarılı logo işi. 1029 kayıtta boş logo yok; 8 yayın karesi hazırlanmış olması amblem eşleşmesi değildir.
+- 13:04: EPG günlük güncelleme ve Pages yayımlama başarılı. Beş kanallık pilot daha önceden hazırlanmış; yeniden sıfırdan kurma yok, yalnız güncellik/eşleşme/saat kontrolü ve cihaz görünürlüğü eksik.
+- 12:29–12:33: 326 ek adayın ara denemeleri kaydedildi (293 iki, 33 bir deneme); bunların yalnız eksik denemeleri devam eder.
+Açık kalan: 15 öncelikli kimlik incelemesi ve yeni adayların kimliği, 326 adayın eksik denemeleri, ilk 39 dışındaki final kontroller, kanıtı eksik kalite/logo bilgileri, güncel EPG cihaz onayı, 11 geliştirme planının madde bazlı mevcut uygulama denetimi ve aylık geniş tarama takvimi. Günde iki keşif/tek devam/tekrar koruması akşam zaten düzeltildi.
