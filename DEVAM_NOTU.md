@@ -86,3 +86,11 @@ Mahmut, Madsc55/madsc-tv içindeki DEVAM_NOTU.md dosyasını ve güncel Actions/
 - Keşif geçmişi bozuk veya okunamazsa sistem geçmişi sıfırlayıp yeniden taramaz; durur.
 - Yerel kontrol: tamamlanmış, yakın zamanda denenmiş, zamanı gelmiş ve geçersiz tarihli kayıt senaryoları geçti. Yeni Actions sonucu henüz doğrulanmadı.
 - Ana liste, mevcut logolar, YENİLER, favori sıraları ve yedek dosyaları bu düzeltmede değiştirilmedi.
+
+## 12 Ekim 2026 — kalan testlerin sürdürülmesi
+- Üç aşamalı doğrulama yeniden başlatıldı: kayıtlı 326 eksik aday (293 iki deneme, 33 bir deneme); yeni keşif geçmişinden ek uygun adaylar ayrıca alınabilir. İlk çalıştırma 38283156064 başladı; tamamlanan 6436 kaydı eligible kuralı atlar.
+- Decoder kurulmadan önce kayıtlı ve yeni adayların uygunluğu kontrol edilir; boş tur test yapmaz. Altı saat aralık ve üç deneme sınırı korunur.
+- final_validation.py artık 39 eski sonucu korur; başarılı/başarısız/zaman aşımı fark etmeksizin önce sonuçlanmış URL'yi yeniden test etmez. Yeni son kontrol en fazla 24 adaylık ayrı grup; yeni aday yalnız üç başarılı denemeden sonra seçilir.
+- Son kontrol başarılı üç aşamalı workflow tamamlanmasına bağlandı; önceki sonuçları koruyan güncel main kullanılır. Bu, tüm 5711 bekleyen son kontrolün bittiği anlamına gelmez.
+- Altı yerel test ve iki YAML kontrolü geçti; canlı son kontrollerin sonuçları henüz bekleniyor.
+- Kanal kimliği, gerçek amblem, İsveç IBO ve EPG görünürlüğü otomatik teknik geçişle onaylanmaz. Ana liste, YENİLER, favoriler ve yedekler bu çalışmada değişmedi.
