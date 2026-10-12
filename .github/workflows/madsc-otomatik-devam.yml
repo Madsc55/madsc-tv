@@ -5,30 +5,13 @@ on:
       - "MADSC TV - Birleşik Kanal Keşfi ve Testi"
     types: [completed]
 permissions:
-  actions: write
   contents: read
 jobs:
   devam:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - name: Kalan aday varsa sonraki turu baslat
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
+      - name: Tek devam yolu kontrolü
         run: |
-          python3 - <<'PY'
-          import csv, pathlib, os, subprocess
-          p=pathlib.Path("madsc_kesif/adaylar.csv")
-          if not p.exists():
-              print("Aday raporu bulunamadi; otomatik devam guvenlik nedeniyle durduruldu.")
-              raise SystemExit(0)
-          with p.open(encoding="utf-8-sig", newline="") as f:
-              remaining=sum(r.get("durum")=="SONRAKI_TEST_BEKLIYOR" for r in csv.DictReader(f))
-          print(f"Bekleyen aday: {remaining}")
-          if remaining:
-              subprocess.run(["gh","workflow","run","madsc-birlesik-kesif.yml","--ref","main"],check=True)
-          PY
+          echo "Devam tetiklemesi yalnız birleşik keşif akışının son adımında yapılır."
+          echo "Bu akış yeni tur başlatmaz; çift tetikleme kaldırıldı."
