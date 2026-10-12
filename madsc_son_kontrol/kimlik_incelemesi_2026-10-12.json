@@ -1,0 +1,1700 @@
+{
+  "checked_date": "2026-10-12",
+  "inspection": "Assistant reviewed all 36 captured image samples. 3 candidates had no captured image.",
+  "results": [
+    {
+      "candidate_id": "ec7e099f0b494a77a879",
+      "label": "Az Star TV (1080p)",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.715752+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.995,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 1,
+        "black": 1,
+        "silence": 1
+      },
+      "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+      "image_evidence": "madsc_son_kontrol/images/ec7e099f0b494a77a879.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "ec433e8fafe9be2ec0b6",
+      "label": "KN Music TV",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.712043+00:00",
+      "station_identity": "VISUAL_MATCH_SUPPORTED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "30000/1001"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.998333,
+        "decoded_frames": 8991
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/ec433e8fafe9be2ec0b6.jpg",
+      "visual_reason": "KN Music logo visible",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "4ffce77137390c746d01",
+      "label": "Kanal 35 (720p)",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.714604+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "30/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 8999
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/4ffce77137390c746d01.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "857a37fbbf11f2b9c59d",
+      "label": "Naxcivan TV (720p)",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.715551+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.984333,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/857a37fbbf11f2b9c59d.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "bf7bfb4c3be725366e3d",
+      "label": "Kanal S",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.714950+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.984,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/bf7bfb4c3be725366e3d.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "0b1435b9d40033704026",
+      "label": "Azad TV (1080p)",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.713513+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.997,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/0b1435b9d40033704026.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "4d29a66f1bde786331a4",
+      "label": "A2 4",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:00:50.506134+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [],
+      "audio": [],
+      "continuity": {
+        "passed": false,
+        "decoded_seconds": 0,
+        "decoded_frames": 0
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "CONTINUITY_FAILED",
+      "image_evidence": null,
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "b8de79a6dfb39370e91a",
+      "label": "Ayaz TV (720p)",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.712497+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 854,
+          "height": 480,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7498
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/b8de79a6dfb39370e91a.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "09cbd8340efc2ad2de3e",
+      "label": "Az TV (1080p)",
+      "selection_reason": "Turkey/Azerbaijan source URL match",
+      "checked_utc": "2026-10-12T08:55:56.712715+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 854,
+          "height": 480,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "status": "TIMEOUT",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "443ebfb47ededc054bda",
+      "label": "DOST TV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:00:46.687792+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 21,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+      "image_evidence": "madsc_son_kontrol/images/443ebfb47ededc054bda.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "3b883c09d21dba7240f0",
+      "label": "ADA TV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:00:59.710761+00:00",
+      "station_identity": "VISUAL_MATCH_SUPPORTED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "30/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 9000
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/3b883c09d21dba7240f0.jpg",
+      "visual_reason": "ADA TV logo visible",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "a16defa18135121b02d0",
+      "label": "ATV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:01:03.523182+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.984,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/a16defa18135121b02d0.jpg",
+      "visual_reason": "Azerbaijan ATV branding/programme; not Turkey ATV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "ebe69920b977a2d90f68",
+      "label": "DMAX",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:01:05.680199+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 960,
+          "height": 540,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7499
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/ebe69920b977a2d90f68.jpg",
+      "visual_reason": "Italian DMAX captions; Turkish service not established",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "c0f0ea4cf8a5f237923e",
+      "label": "360",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:00:48.876283+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 320,
+          "height": 180,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.995104,
+        "decoded_frames": 7501
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/c0f0ea4cf8a5f237923e.jpg",
+      "visual_reason": "Cyrillic 360 news programme; not Turkey 360",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "b40a044a700aa54076e4",
+      "label": "BabyFirst",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:01:04.661597+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 544,
+          "height": 480,
+          "avg_frame_rate": "30000/1001"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.9997,
+        "decoded_frames": 8949
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/b40a044a700aa54076e4.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "f2bcf8a08de48841a9f1",
+      "label": "DMAX",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:01:06.031262+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.994667,
+        "decoded_frames": 14999
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/f2bcf8a08de48841a9f1.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "3a287967c85e78e3e479",
+      "label": "ES TV (720p)",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:02:43.048863+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.987029,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 1
+      },
+      "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+      "image_evidence": "madsc_son_kontrol/images/3a287967c85e78e3e479.jpg",
+      "visual_reason": "Hungarian ES television text; not requested Turkish ES TV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "2bd6fe85eb049553ca27",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:06:04.552095+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "50/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.982333,
+        "decoded_frames": 14966
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/2bd6fe85eb049553ca27.jpg",
+      "visual_reason": "Arabic programme with NTV branding; not Turkey NTV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "14cc59b9cf5bbc81fad3",
+      "label": "KANAL D",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:05:48.333761+00:00",
+      "station_identity": "VISUAL_MATCH_SUPPORTED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 480,
+          "height": 384,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 1
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/14cc59b9cf5bbc81fad3.jpg",
+      "visual_reason": "Kanal D logo and Turkish subtitles visible",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "685507481a3e64f4d7a5",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:06:06.594859+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 854,
+          "height": 480,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.988027,
+        "decoded_frames": 8991
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/685507481a3e64f4d7a5.jpg",
+      "visual_reason": "Canadian locations and NTV branding; not Turkey NTV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "3e7ec5a232f6d0ede3bf",
+      "label": "KANAL D 2",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:05:53.587645+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 480,
+          "height": 384,
+          "avg_frame_rate": "50/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "50/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 1
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 1
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 14997
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/3e7ec5a232f6d0ede3bf.jpg",
+      "visual_reason": "Romanian advertising phone text; not Turkey Kanal D",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "5dd16786cbe5e489a9b8",
+      "label": "Life TV (720p)",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:06:00.719219+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7498
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/5dd16786cbe5e489a9b8.jpg",
+      "visual_reason": "Indian-language religious LIFE programme; not Turkey Life TV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "c7f9b85b936b4c8130dc",
+      "label": "Life TV (720p)",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:05:53.695940+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 768,
+          "height": 432,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 0,
+          "height": 0,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7494
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/c7f9b85b936b4c8130dc.jpg",
+      "visual_reason": "Foreign LIFE branding/programme; Turkey identity not supported",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "e6624a0d96993d334036",
+      "label": "Life TV (720p)",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:06:02.421442+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        }
+      ],
+      "status": "TIMEOUT",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "192a5265a7865caf9502",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:07:53.555768+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "30000/1001"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.985,
+        "decoded_frames": 8991
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/192a5265a7865caf9502.jpg",
+      "visual_reason": "Portuguese religious programme; not Turkey NTV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "eacbfc3158d5b9bbcb5f",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:10:48.825833+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7498
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/eacbfc3158d5b9bbcb5f.jpg",
+      "visual_reason": "Indian NTV branding and language; not Turkey NTV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "2f478e4b876a0266e054",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:10:52.641352+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 854,
+          "height": 480,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "44100",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.9997,
+        "decoded_frames": 8991
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/2f478e4b876a0266e054.jpg",
+      "visual_reason": "Foreign programme, no Turkish NTV identity evidence",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "7fb540d9335ad978cd5d",
+      "label": "POWER TV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:10:58.349062+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "50/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "mp2",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.976,
+        "decoded_frames": 7458
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/7fb540d9335ad978cd5d.jpg",
+      "visual_reason": "Foreign POWER TV branding/programme; Turkey service not supported",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "88f43297a64f60ec03a5",
+      "label": "Stingray Naturescape",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:11:10.572016+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "30000/1001"
+        },
+        {
+          "codec_name": "h264",
+          "width": 842,
+          "height": 474,
+          "avg_frame_rate": "30000/1001"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "30000/1001"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "30000/1001"
+        },
+        {
+          "codec_name": "h264",
+          "width": 256,
+          "height": 144,
+          "avg_frame_rate": "30000/1001"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.9997,
+        "decoded_frames": 8988
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/88f43297a64f60ec03a5.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "4765a2c637760f7b2a08",
+      "label": "POWER TV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:11:00.240137+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1024,
+          "height": 576,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 424,
+          "height": 240,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7489
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/4765a2c637760f7b2a08.jpg",
+      "visual_reason": "Indian-language Power TV programme; not Turkey Power TV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "4508235c0af878cbdf6d",
+      "label": "SAT 7 TÜRK",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:11:03.597100+00:00",
+      "station_identity": "VISUAL_MATCH_SUPPORTED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 0,
+          "height": 0,
+          "avg_frame_rate": "0/0"
+        },
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 0,
+          "height": 0,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "0",
+          "channels": 0
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "0",
+          "channels": 0
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.981,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/4508235c0af878cbdf6d.jpg",
+      "visual_reason": "SAT 7 TURK logo and Turkish programme visible",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "2d889aedf1a89ef38656",
+      "label": "TVNET",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:15:57.408379+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "24000/1001"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.978594,
+        "decoded_frames": 7193
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/2d889aedf1a89ef38656.jpg",
+      "visual_reason": "Black screenshot; no Turkish TVNET identity evidence",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "b285cc321125a8b0fbb2",
+      "label": "TLC",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:12:37.500152+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7478
+      },
+      "review_events": {
+        "freeze": 1,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+      "image_evidence": "madsc_son_kontrol/images/b285cc321125a8b0fbb2.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "5fb48fb8c1c5999076a5",
+      "label": "TV100",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:12:47.569887+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 0,
+          "height": 0,
+          "avg_frame_rate": "0/0"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        },
+        {
+          "codec_name": "aac",
+          "sample_rate": "0",
+          "channels": 0
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.997875,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/5fb48fb8c1c5999076a5.jpg",
+      "visual_reason": "Greek TV100 programme; not Turkey TV100",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "698d7d333738bda85cbe",
+      "label": "TV4",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:15:37.153223+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.990023,
+        "decoded_frames": 7501
+      },
+      "review_events": {
+        "freeze": 4,
+        "black": 0,
+        "silence": 1
+      },
+      "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+      "image_evidence": "madsc_son_kontrol/images/698d7d333738bda85cbe.jpg",
+      "visual_reason": "Bullhead City English civic programme; not Turkey TV4",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "a49c38ba7374a8a43d19",
+      "label": "TV8",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:15:45.445698+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 640,
+          "height": 360,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.989333,
+        "decoded_frames": 7499
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 2
+      },
+      "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+      "image_evidence": "madsc_son_kontrol/images/a49c38ba7374a8a43d19.jpg",
+      "visual_reason": "Slovak TV8 programme; not Turkey TV8",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "454849434264d4393088",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:16:14.053031+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": false,
+        "decoded_seconds": 234.04,
+        "decoded_frames": 5850
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "CONTINUITY_FAILED",
+      "image_evidence": "madsc_son_kontrol/images/454849434264d4393088.jpg",
+      "visual_reason": "Albanian political programme; not Turkey NTV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "81f4a6e6afaf42afdbba",
+      "label": "NTV",
+      "selection_reason": "Existing playlist name match; station identity not yet confirmed",
+      "checked_utc": "2026-10-12T09:16:08.212019+00:00",
+      "station_identity": "REJECTED_OR_UNSUPPORTED_FOR_REQUESTED_TURKISH_STATION",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.997667,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/81f4a6e6afaf42afdbba.jpg",
+      "visual_reason": "German n-tv programme; not Turkey NTV",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    },
+    {
+      "candidate_id": "829555d86adb1ac415d4",
+      "label": "CGTN Documentary (1080p)",
+      "selection_reason": "Requested catalogue research name; identity still requires review",
+      "checked_utc": "2026-10-12T09:16:16.607754+00:00",
+      "station_identity": "REVIEW_REQUIRED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "video": [
+        {
+          "codec_name": "h264",
+          "width": 720,
+          "height": 576,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 720,
+          "avg_frame_rate": "25/1"
+        },
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "audio": [
+        {
+          "codec_name": "aac",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "continuity": {
+        "passed": true,
+        "decoded_seconds": 299.988,
+        "decoded_frames": 7500
+      },
+      "review_events": {
+        "freeze": 0,
+        "black": 0,
+        "silence": 0
+      },
+      "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+      "image_evidence": "madsc_son_kontrol/images/829555d86adb1ac415d4.jpg",
+      "visual_reason": "Single frame insufficient for confident requested-station identification",
+      "evidence_artifact": "https://github.com/Madsc55/madsc-tv/actions/runs/38226560498/artifacts/11737801831",
+      "identity_limit": "Visual match support is based on one captured frame, not continuous identity verification; actual Sweden IBO playback remains unverified."
+    }
+  ],
+  "main_playlist_changed": false,
+  "ibo_device_verified": false
+}
