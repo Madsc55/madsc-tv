@@ -142,3 +142,8 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 - Güvenlikte `scripts/protected_playlist_audit.py` ve test-39 iş akışı okundu: yalnız `CALISANLAR.m3u`, `YENILER.m3u` dosyalarının varlığı/#EXTM3U ve AGENTS.md varlığı denetleniyor. Bu, kullanıcı onayını veya yetkisiz commit engelini kanıtlamaz. 39. denetim yeşil; branch protection/ruleset uygulanması doğrulanmadı.
 - `test-31-protected-write-gate.yml` incelendi: yazma yetkili iş akışlarını statik olarak listeler, yalnız raporlar; gerçek onay kapısı değil.
 - SIRADAKİ İŞ: Korunan listeler, FAVORİLER/HEPSİ sırası ve yedeklere yazma yollarını denetle; mevcut keşif/test raporlamasını bozmadan yazma kapısını sağlamlaştır. GitHub main dalı kurallarını gerçekten doğrula/uygulanabilir yolunu belirle. Kullanıcının açık onayı olmadan ana listeleri değiştirme. Kullanıcı her önemli adımın başlık altında ve kaldığımız yer ile not edilmesini özellikle istedi.
+
+## 13 Ekim — 23 güvenlik kuralı kullanıcı onayıyla kaydedildi
+- Kullanıcı önceki 19 kuralı ve dört ek güvenlik önlemini onayladı; tüm metin `GUVENLIK_KURALLARI.md` dosyasına commit `03299eed839f87ff9b8a51e97a8001b8fc97beaf` ile kaydedildi.
+- Dört ek madde: değişiklik öncesi geri yüklenebilir yedek, keşif/testin korunan listeye yazmasını engelleme, onaylı değişiklik sonrası M3U/sıra/URL bütünlük kontrolü, kontrollü geri yükleme.
+- POLİTİKA ONAYI ≠ TEKNİK UYGULAMA: test-39 ve test-31 gerçek yazma kapısı değil. Sonraki iş otomasyonların yazma yollarını tarayıp güvenli uygulama, test ve doğrulama; ana kanal dosyaları değişmeyecek. Kullanıcı ek kural önerilerine de açık, fakat her yeni kural ayrı onay gerektirir.
