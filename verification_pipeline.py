@@ -19,8 +19,12 @@ def decode(url):
     try:
         p = subprocess.run(command, capture_output=True, text=True, timeout=80)
         values = dict(line.split('=', 1) for line in p.stdout.splitlines() if '=' in line)
-        seconds = int(values.get('out_time_us', '0')) / 1000000
-        frames = int(values.get('frame', '0'))
+        try:
+            seconds = int(values.get('out_time_us', '0')) / 1000000
+            frames = int(values.get('frame', '0'))
+        except (ValueError, TypeError):
+            return {'passed': False, 'seconds': 0, 'frames': 0,
+                    'error': 'INVALID_PROGRESS'}
         return {'passed': p.returncode == 0 and seconds >= 29 and frames > 0,
                 'seconds': seconds, 'frames': frames,
                 'error': '' if p.returncode == 0 else 'DECODE_ERROR'}
