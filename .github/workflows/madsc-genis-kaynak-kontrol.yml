@@ -1,0 +1,53 @@
+name: MADSC - Haftalik ve Aylik Genis Kaynak Kontrolu
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 4 * * 1'
+    - cron: '15 3 1 * *'
+permissions:
+  contents: write
+concurrency:
+  group: madsc-rapor-yazma
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check weekly additional sources
+        if: github.event.schedule == '15 4 * * 1' || github.event_name == 'workflow_dispatch'
+        env:
+          MADSC_SCAN_MODE: weekly
+        run: python3 tools/genis_kaynak_taramasi.py
+      - name: Check monthly 155 sources
+        if: github.event.schedule == '15 3 1 * *' || github.event_name == 'workflow_dispatch'
+        env:
+          MADSC_SCAN_MODE: monthly
+        run: python3 tools/genis_kaynak_taramasi.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-source-scan
+          path: madsc_genis_tarama/
+          retention-days: 30
+      - name: Preserve source history and reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp -a madsc_genis_tarama "${RUNNER_TEMP}/source-audit"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            git checkout -B source-report origin/main
+            mkdir -p madsc_genis_tarama
+            cp -a "${RUNNER_TEMP}/source-audit/." madsc_genis_tarama/
+            git add madsc_genis_tarama/
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Update source change audit"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 2))
+          done
+          exit 1
