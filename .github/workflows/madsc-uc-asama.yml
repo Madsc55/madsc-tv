@@ -24,9 +24,24 @@ jobs:
           git reset --hard origin/main
       - name: Validate verification rules
         run: python3 -m unittest test_verification_pipeline -v
+      - name: Check unfinished candidates before installing decoder
+        id: pending
+        run: |
+          python3 - <<'PYCODE'
+          import datetime, json, os, pathlib
+          from verification_pipeline import eligible
+          state = json.loads(pathlib.Path('madsc_dogrulama/state.json').read_text())['channels']
+          now = datetime.datetime.now(datetime.timezone.utc)
+          due = sum(eligible(record, now) for record in state.values())
+          print(f'Zamani gelen eksik deneme: {due}; bitmis kayitlar atlandi.')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'due={due}\n')
+          PYCODE
       - name: Install decoder
+        if: steps.pending.outputs.due != '0'
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Decode due candidates
+        if: steps.pending.outputs.due != '0'
         run: python3 verification_pipeline.py
       - uses: actions/upload-artifact@v4
         if: always()
@@ -35,6 +50,7 @@ jobs:
           path: madsc_dogrulama/
           retention-days: 30
       - name: Save verification state only
+        if: steps.pending.outputs.due != '0'
         shell: bash
         run: |
           set -euo pipefail
@@ -53,6 +69,7 @@ jobs:
           done
           exit 1
       - name: Continue due candidates without waiting
+        if: steps.pending.outputs.due != '0'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
