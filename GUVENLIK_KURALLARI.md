@@ -29,9 +29,14 @@ Onay: Kullanıcı, 13 Ekim 2026. Bu belge yeni kanal taşıma/silme/düzeltme iz
 23. Hata sonrası hangi sürüme dönüleceği kaydedilir; otomatik geri alma korunan kanalları sessizce değiştirmez.
 
 ## Uygulama durumu ve sınırlar
-- Bu belge, 23 kuralın kullanıcı tarafından onaylanmış politika kaydıdır; her kuralın otomatik olarak teknik açıdan zorlandığı anlamına gelmez.
+- Bu belge, 24 kuralın kullanıcı tarafından onaylanmış politika kaydıdır; her kuralın otomatik olarak teknik açıdan zorlandığı anlamına gelmez.
 - test-39 mevcut durumda dosya varlığını ve M3U başlığını denetler; yazma izni kapısı değildir.
 - test-31 yazma kabiliyetli iş akışlarını raporlar; gerçek izin kapısı değildir.
 - GitHub branch ruleset / branch protection etkinliği ayrıca doğrulanmalıdır.
 - Yeni güvenlik kodu geliştirilirken otomatik keşif, teknik test, rapor ve devam mekanizması bozulmamalı.
 - Ek kurallar kullanıcıyla ayrıca değerlendirilebilir; otomatik olarak kabul edilmiş sayılmaz.
+
+## 24. kural — Kullanıcı onayı: hata zincirini güvenle durdur
+24. Aynı otomatik işlem art arda başarısız olduğunda sonsuz tekrar yapılmaz; ilgili iş güvenli biçimde durur, hata ve kaldığı aşama raporlanır. Ana liste, YENİLER, favoriler, HEPSİ sırası ve korunan yedekler değiştirilmez. Sorun giderildikten sonra geçmiş korunarak kaldığı yerden devam edilebilir.
+
+**Uygulama incelemesi (13 Ekim 2026):** Son kontrol, birleşik keşif ve üç aşama iş akışlarında en fazla 10 git push denemesi ve hata halinde başarısız çıkış zaten vardır; son kontrolün otomatik devam adımı yalnız başarı halinde çalışır. Ancak bütün iş akışlarını kapsayan, birbirini izleyen başarısız çalışmaları sayıp otomatik durduran ortak devre kesici henüz doğrulanmadı. 24. kural politika olarak onaylandı; eksik teknik uygulama ayrıca test edilecektir.
