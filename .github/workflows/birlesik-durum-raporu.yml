@@ -18,9 +18,11 @@ jobs:
           python-version: "3.11"
       - name: Generate combined status without starting any stream tests
         run: python tools/guncel_test_durum_ozeti.py > combined-status.json
+      - name: Report missing Turkish channel targets without retesting
+        run: python tools/eksik_turk_kanal_takibi.py > missing-turkish-channels.json
       - name: Archive read-only snapshot
         uses: actions/upload-artifact@v4
         with:
           name: madsc-combined-status
-          path: combined-status.json
+          path: |\n            combined-status.json\n            missing-turkish-channels.json
           retention-days: 30
