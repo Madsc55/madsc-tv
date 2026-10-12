@@ -1,21 +1,8 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="2zkzbuscxwyjc4k" tvg-name="ATV" tvg-logo="https://gbzottvsc25.tvplus.com.tr:33207/CPS/images/universal/film/logo/202506/20250623/71/0916028009315eb88428_op_0_XL.webp" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",ATV - 3/3 aday
-http://190.93.224.42/ATV/index.m3u8
-#EXTINF:-1 tvg-id="bbwgmhsmhhoatzg" tvg-name="KANAL D" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/kanal-d-tr.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",KANAL D - 3/3 aday
+# Identity supported by captured image; IBO Sweden playback still requires device confirmation.
+#EXTINF:-1 tvg-id="" tvg-name="ADA TV" tvg-logo="https://i.imgur.com/LPQfdz2.png" group-title="IBO KONTROL - CIHAZ ONAYI BEKLIYOR",ADA TV
+https://live-evg10.tv360.bitel.com.pe/bitel/alasdeaguilaSRT/playlist.m3u8
+#EXTINF:-1 tvg-id="bbwgmhsmhhoatzg" tvg-name="KANAL D" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/kanal-d-tr.png" group-title="IBO KONTROL - CIHAZ ONAYI BEKLIYOR",KANAL D
 https://stream1.kanald.ro/iphone/knd-live.m3u8
-#EXTINF:-1 tvg-id="nyz5s8p798n9cqg" tvg-name="NTV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/ntv-tr.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",NTV - 3/3 aday
-https://2-fss-1.streamhoster.com/pl_122/201748-1431018-1/playlist.m3u8
-#EXTINF:-1 tvg-id="9z32hgan37zhgr6" tvg-name="TLC" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/92/Tlc_logo_discovery.jpg" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",TLC - 3/3 aday
-http://stream.mcquack.net/168/index.m3u8
-#EXTINF:-1 tvg-id="6sokobdd9dwe0gl" tvg-name="DMAX" tvg-logo="https://commons.wikimedia.org/wiki/Special:Redirect/file/Dmax%20tv-channel.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",DMAX - 3/3 aday
-https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8
-#EXTINF:-1 tvg-id="cphtdpl9j70cn3a" tvg-name="360" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/360-tr.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",360 - 3/3 aday
-https://cdn-evacoder-tv.facecast.io/evacoder_hls_hi/CkxfR1xNUAJwTgtXTBZTAJli/index.m3u8
-#EXTINF:-1 tvg-id="w7x32brlcz26ibb" tvg-name="TV8" tvg-logo="https://d3ckc0u56niq67.cloudfront.net/conf/images/tv8_Hkc.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",TV8 - 3/3 aday
-http://109.74.145.11:1935/tv8/mp4:tv8.stream_360p/playlist.m3u8
-#EXTINF:-1 tvg-id="njoweqtgl6xngkj" tvg-name="TVNET" tvg-logo="https://i.ibb.co/2jtzN6F/tvnet.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",TVNET - 3/3 aday
-https://player.tvnet.lv/stream/amlst:61659/playlist.m3u8
-#EXTINF:-1 tvg-id="5i5mds6ap6h7m7w" tvg-name="TV100" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/tv100-tr.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",TV100 - 3/3 aday
-https://gwebstream.net/hls/master.m3u8
-#EXTINF:-1 tvg-id="DostTV.tr@SD" tvg-name="DOST TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/turkey/dost-tv-tr.png" group-title="IBO ADAY KONTROL - KIMLIK BEKLIYOR",DOST TV - 3/3 aday
-http://dost.stream.emsal.im/tv/live.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="SAT 7 TÜRK" tvg-logo="https://i.imgur.com/cKQIK4i.png" group-title="IBO KONTROL - CIHAZ ONAYI BEKLIYOR",SAT 7 TÜRK
+https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist_dvr.m3u8
