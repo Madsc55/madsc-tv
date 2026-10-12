@@ -1,3 +1,6 @@
+## 12 Ekim 2026 — EPG çakışma önlemi (cihazda henüz doğrulanmadı)
+Kullanıcı başka uygulamada EPG'nin göründüğünü ancak TRT 1 için yanlış program başlığı gösterdiğini; IBO Player'da ise hiç görünmediğini doğruladı. `scripts/build_epg.py` commit `0b25561` ile aynı XMLTV kanal kimliğine binen saat aralıklarını tekilleştirecek ve atlanan çakışmaları `overlap_skipped` olarak raporlayacak şekilde güncellendi. Bu kaynakların doğruluğunu garanti etmez ve IBO Player uyumluluğunu henüz kanıtlamaz. CALISANLAR.m3u, favoriler, yedekler, YENİLER değiştirilmedi. Sonraki iş: EPG Actions run durumunu ve yayımlanan XMLTV'nin gerçek cihaz sonucunu kontrol etmek; TRT 1 kaynağını yayın akışıyla karşılaştırmak.
+
 ## 12 Ekim 2026 - Uc asama hata duzeltmesi
 Kullanici kirmizi Actions ekranini paylasti. Run 38303499979 job 114991848830 logunda verification_pipeline.py line 40 IndentationError goruldu: kod icinde gercek satir sonu yerine literal ters-bolun-n yazilmisti. verification_pipeline.py duzeltildi (66541b4), uc asama workflow push tetikleyicisine verification_pipeline.py eklendi (90f999f). Yeni Actions run 38303727064 ilk kontrolde QUEUED; basarili oldugu henuz teyit edilmedi. Playlist ve eski test kayitlari degistirilmedi.
 
