@@ -256,3 +256,5 @@ if __name__=="__main__":main()
 # Yeni 155 kaynak aday test turu - 2026-10-11 10:26 Europe/Stockholm.
 
 # Trigger next candidate verification run after workflow syntax fix, 2026-10-11.
+
+# User-requested new candidate discovery scan, 2026-10-12; preserve playlist and prior test history.
