@@ -1,0 +1,43 @@
+{
+  "source_playlist_sha": "132811a9eac1ca107f0c32d8cf6b21ff8e39ce33",
+  "source_backup_count": 23,
+  "user_approved": true,
+  "changes": [
+    {
+      "backup_position": 7,
+      "label": "CGTN DOCUMENTARY 576P SD",
+      "url": "https://hlspackager.akamaized.net/live/DB/CGTN_DOCUMENTARY/HLS/CGTN_DOCUMENTARY.m3u8",
+      "to": "BELGESEL",
+      "also": "HEPSI",
+      "logo": "CGTN Documentary"
+    },
+    {
+      "backup_position": 9,
+      "label": "FTV TÜRK 540P SD",
+      "url": "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8",
+      "to": "SPOR",
+      "also": "HEPSI",
+      "logo": "Red Bull TV"
+    },
+    {
+      "backup_position": 15,
+      "label": ".SCI-FI 1080P FHD",
+      "url": "http://stream.mcquack.net/180/index.m3u8",
+      "to": "SINEMA",
+      "also": "HEPSI",
+      "logo": ".sci-fi"
+    }
+  ],
+  "counts": {
+    "YEDEKLER": 20,
+    "HEPSI": 374,
+    "BELGESEL": 13,
+    "SPOR": 22,
+    "SINEMA": 6
+  },
+  "preserved": "All unrelated records, existing order, favourite groups, stream URLs, identifiers and names",
+  "name_mismatch": "FTV TURK source URL belongs to RedBullTV.at in current iptv-org streams; original label preserved",
+  "previous_four_logos_user_confirmed": true,
+  "new_logos_device_verified": false,
+  "stream_retested": false
+}

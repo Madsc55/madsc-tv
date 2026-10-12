@@ -1,7 +1,7 @@
 # MADSC TV — güncel devam notu
 
 ## SOHBET DEVRİ
-Güncelleme: 12 Ekim 2026, Stockholm 20:27 talimatı sonrası. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
+Güncelleme: 12 Ekim 2026, Stockholm 20:35 sonrası kullanıcı kategori/logo talimatı. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
 
 ## Kesin kurallar
 - Ana liste/YENİLER, favoriler ve Hepsi'nin korunacak ilk 90 sırası, korunan yedekler yalnız açık kullanıcı izin kapsamında değişir.
@@ -29,7 +29,7 @@ Kullanıcı 20:27'de ana listesindeki TRT Diyanet Çocuk (Çocuk 17), Deniz Post
 - Dört kanalın gerçek markalı PNG'leri indirildi, görüntüleri incelendi ve logos/resmi-*-20261012.png altında önbelleklendi. Bu dört tam etiketin 10 kategori kaydında yalnız logo adresi değişti. Diğer Diyanet Çocuk varyantına dokunulmadı.
 - İki Eurosport, Hepsi kayıtları/sıraları korunarak aynı URL/metadata ile Spor'un sonuna birer kez eklendi; Spor 19→21. Favoriler, Hepsi ilk 90, YEDEKLER ve yayın URL'leri korundu.
 - automatic_png_logos.py artık logo_deneme/approved_repairs.json içinde açık onay verilmiş tam etiket/eski URL eşleşmesini ve yerel PNG SHA256'sını doğrulayarak dolu ama sorunlu adresleri düzeltebilir. Diğer dolu logolar değişmez; genel otomatik marka/on-air onayı verilmez.
-- Doğrulama: izinli eski kaynak, PNG hash, ilgisiz kayıtları koruma ve tekrar çalışmada değişiklik yapmama geçti; playlist farkı yalnız izinli logo/Spor kapsamıyla sınırlı. IBO'da dört logonun görünmesi kullanıcı cihaz kontrolü bekliyor.
+- Doğrulama: izinli eski kaynak, PNG hash, ilgisiz kayıtları koruma ve tekrar çalışmada değişiklik yapmama geçti; playlist farkı yalnız izinli logo/Spor kapsamıyla sınırlı. Kullanıcı sonraki konuşmada dört logo düzeltmesinin IBO'da olduğunu bildirdi.
 Kanıt: raporlar/ANA_LISTE_LOGO_SPOR_2026-10-12.json. Bu düzeltmeyi yeniden uygulama.
 
 ## Sıradaki işler — yalnız eksik kapsam
@@ -62,3 +62,8 @@ Mahmut, Madsc55/madsc-tv içindeki DEVAM_NOTU.md'nin SOHBET DEVRİ bölümünü,
 
 ## Son izinli ekleme
 21 ayrı adayın URL'si mevcut ana dosyada yoktu; her biri yalnız YEDEKLER'e bir kez eklendi. Aynı URL'li 11 mevcut kayıt ve aynı isimli 7 alternatif bu talimat kapsamında yeniden eklenmedi. Mevcut 1029 kayıt, ad/ID/logo/URL/sıra korunarak bırakıldı; yalnız YEDEKLER grup sayacı 2→23 güncellendi. Dış yedekler/YENİLER/favoriler değişmedi. İsimler ve teknik/görsel durumlar: raporlar/YEDEKLERE_EKLENEN_ADAYLAR_2026-10-12.json. Logo kaynağı kesin olmayan yeni kayıtlarda boş alan kullanıldı; uydurma logo eklenmedi. Gerçek kalite etiketi mevcut ffprobe ölçümüne dayanır, IBO kalite/çalışırlık onayı değildir.
+
+## Son kullanıcı onaylı YEDEKLER taşıması — 12 Ekim 2026
+Kullanıcı önceki dört logo düzeltmesini cihazında doğruladı. Taşıma öncesi 23 kayıtlı YEDEKLER sırası sabitlendi: 7 CGTN DOCUMENTARY → BELGESEL; 9 FTV TÜRK etiketi/Red Bull TV kaynak URL'si → SPOR; 15 .SCI-FI → SİNEMA. Üçüne gerçek markalı PNG kondu; aynı URL/isim/kalite/ID ile HEPSİ sonuna birer kopya eklendi. Mevcut Hepsi sırası ve ilk 90/favoriler korunur. Bu üç kayıt YEDEKLER'den taşındı, diğer kayıtları korundu. Yeni sayılar: YEDEKLER 20, HEPSİ 374, BELGESEL 13, SPOR 22, SİNEMA 6.
+9. kaydın rbmn-live/BoRB-AT bağlantısı iptv-org akış kaynağında RedBullTV.at ile eşleşir. Logo Red Bull TV'dir; kullanıcının isim değiştirme talimatı olmadığından FTV TÜRK etiketi korunmuştur, ad düzeltmesi açık iş. .SCI-FI yabancı yayın kullanıcı isteğiyle kabul edildi. Kategori/ekleme onayı teknik/kimlik/dil garantisi sayılmaz; geçmiş testler yeniden yapılmadı. Yeni logoların IBO görünürlüğü sonraki cihaz kontrolünü bekler.
+Kanıt: raporlar/YEDEK_KATEGORI_LOGO_2026-10-12.json. Aynı taşıma yeni sohbetlerde tekrar uygulanmaz; yeni YEDEKLER sıraları önceki 7/9/15 ile karıştırılmaz.
