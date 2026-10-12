@@ -1,4 +1,4 @@
-name: MADSC - Rule 24 Circuit Breaker Test
+name: MADSC - 24. Kural Güvenlik Testi
 on:
   push:
     paths:
@@ -10,11 +10,14 @@ permissions:
   contents: read
 jobs:
   test:
+    name: Ardışık hata güvenlik denetimi
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Depo dosyalarını al
+        uses: actions/checkout@v4
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify fail-chain gate
+      - name: Başarısızlık zinciri kurallarını test et
         run: python3 -m unittest test_workflow_failure_gate -v
