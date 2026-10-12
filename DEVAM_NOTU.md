@@ -99,3 +99,7 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 
 ## 12 Ekim — GitHub Actions hata düzeltmesi
 - Kullanıcı ekran görüntüsünde `.github/workflows/birlesik-durum-raporu.yml` için art arda iki başarısız push çalışması gösterdi. Dosyada artifact `path` alanına gerçek satır sonları yerine düz `\\n` karakterleri yazılmıştı. Çok satırlı YAML gerçek satır sonlarıyla düzeltildi, commit `950bf822602bd25191f0abfecd1a18a3093ee481`; GitHub'dan yeniden okunup doğrulandı. Bu, doğrulanmış yapılandırma hatasıdır; Actions job logları henüz incelenmediği için iki başarısız koşunun tek nedeni olduğu iddia edilmez. Sonraki çalışma sonucu ayrıca kontrol edilmeli.
+
+## 12 Ekim — raporun tekrar çalışması için ek düzeltme
+- Kullanıcı önceki iki kırmızı rapor işinin kırmızı kaldığını ve yeni çalışma olmadığını bildirdi. `madsc_kesif/gecmis.json` GitHub dosya okumasında boş içerik döndürdü; salt-okunur hedef raporunun boş/bozuk JSON durumunda çökmemesi ve durumu açıkça raporlaması sağlandı (commit `52a30fce587e636bf06d05822a383b08a1413125`). Geçmiş kayıtlar değiştirilmedi.
+- Birleşik rapor workflow'una yalnız kendi YAML/script dosyalarındaki `main` push değişikliklerinde tetikleme eklendi (commit `36adc44bd828c663cc1adfb7622908c6df742fff`); mevcut schedule ve manual dispatch korundu. Workflow ve script yeniden okunarak değişiklikler doğrulandı. Yeni Actions çalışmasının yeşil olduğu henüz doğrulanmadı. Eski kırmızı kayıtlar tarihsel olarak kalır; yeni run ayrı görünür.
