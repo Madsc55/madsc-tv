@@ -135,7 +135,20 @@ def main():
    channels=parse(body)
    return src,channels,"" if body.lstrip().startswith("#EXTM3U") else "M3U_BASLIGI_YOK"
   except Exception as e:return src,[],str(e)[:120]
- ordered=sorted(SOURCES.items(),key=lambda item:freshness[item[0]][2])
+ # Daily discovery: retain all 155 configured sources for audit, but do not
+ # ingest global/country-foreign feeds into the Turkish candidate pipeline.
+ # Diaspora stations may be hosted abroad; source hostname is not station identity.
+ def turkish_feed(src):
+  if src.startswith("dearbulut-country-") or src.startswith("dearbulut-language-"):
+   return False
+  if src.startswith("dearbulut-") and src not in {
+   "dearbulut-TR","dearbulut-TURKCE","dearbulut-KURTCE",
+   "dearbulut-KIBRIS","dearbulut-HABER","dearbulut-SPOR",
+   "dearbulut-BELGESEL","dearbulut-COCUK","dearbulut-MUZIK",
+   "dearbulut-KULTUR","dearbulut-BILIM","dearbulut-EGITIM"}:
+   return False
+  return src not in {"iptv-org-AZERBAYCAN"}
+ ordered=sorted(((k,v) for k,v in SOURCES.items() if turkish_feed(k)),key=lambda item:freshness[item[0]][2])
  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:
   source_results=list(ex.map(fetch_source,ordered))
  source_rows=[]
