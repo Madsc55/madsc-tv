@@ -155,6 +155,14 @@ def main():
  untested=[x for x in pending if int(history.get(key(x["url"]),{}).get("runs",0)) == 0]
  tested=[x for x in pending if int(history.get(key(x["url"]),{}).get("runs",0)) > 0]
  pending=untested  # Discovery never retests historical candidates.
+ # Keep public artwork metadata separate from stream URLs and playlist writes.
+ from scripts.candidate_logo_report import public_artwork_url
+ artwork=[]
+ for x in pending:
+  logo_url=x.get("logo", "")
+  allowed=public_artwork_url(logo_url)
+  artwork.append(dict(channel=x["name"],stream_sha256=__import__("hashlib").sha256(key(x["url"]).encode()).hexdigest(),source=x["source"],channel_id=x.get("id",""),logo_url=logo_url if allowed else "",logo_source_review_required=bool(logo_url and not allowed)))
+ (OUT/"logo_candidates.json").write_text(json.dumps(artwork,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  print(json.dumps({"yeni_bekleyen":len(untested),"onceki_testli":len(tested),"bu_tur_yeni":min(limit,len(untested))},ensure_ascii=False))
  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:rows=list(ex.map(test,pending[:limit]))
  for x in pending[limit:]:rows.append(dict(kanal=x["name"],url=x["url"],kaynak=x["source"],durum="SONRAKI_TEST_BEKLIYOR",puan=0,video="",ses="",cozunurluk="",logo="",ulke="ISVEC_DOGRULANMADI",test1="",test2=""))

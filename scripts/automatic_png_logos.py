@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PREFIX = 'https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/'
 LIMIT = 4_000_000
 
-def convert(url):
+def convert(url, output_dir=None):
     filename = hashlib.sha256(url.encode()).hexdigest()[:24] + '.png'
-    output = ROOT / 'logos/auto' / filename
+    output = (Path(output_dir) if output_dir is not None else ROOT / 'logos/auto') / filename
     if url.startswith(PREFIX):
         return url, url, 'already_local'
     try:

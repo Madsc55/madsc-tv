@@ -71,3 +71,10 @@ Bu rakamlar kategori kayıtlarıdır; benzersiz çalışan kanal sayısı değil
 
 ## Yeniden başlatma cümlesi
 Mahmut, Madsc55/madsc-tv içindeki DEVAM_NOTU.md dosyasını ve güncel Actions/raporları oku. Logo otomasyonunun görsel doğrulama ve ayrı kanal-adayı entegrasyonu işinden devam et. Tamamlanan işleri tekrarlama, koruma kurallarını uygula.
+
+## 12 Ekim 2026 devam güncellemesi
+- Kullanıcının son talimatı: ana listedeki dolu logo alanları korunacak; yalnız logosuz kayıtlar ele alınacak. Son yerel envanter 1029 kayıtta boş logo alanı olmadığını gösterdi. Erişim hatası dolu logoyu değiştirme izni değildir.
+- Yeni keşif adaylarının logo adresleri ayrı metadata ve PNG hazırlama raporuna bağlandı. Aday görselleri yalnız madsc_kesif/candidate_pngs altında hazırlanır; mevcut logos/auto dosyaları değiştirilmez.
+- Kamusal HTTPS logo kaynakları hazırlanır; kimlik bilgili veya sorgu parametreli kaynaklar indirilmeden incelemeye ayrılır. Yayın URL'leri bu yeni logo raporuna yazılmaz. PNG hazırlanması gerçek amblem veya kullanıcı onayı değildir.
+- Yerel ağsız kontroller geçti: ayrı çıktı, onaysız durumlar, eksik/kısıtlı kaynak ayrımı, önbellek ve bozuk dosya yeniden hazırlama. GitHub Actions çalışması henüz doğrulanmadı.
+- 326 adayın kalan doğrulaması, tüm adayların son kontrolü, cihaz/EPG doğrulaması ve takvim düzenlemesi açık kalır. Tamamlanan kanal taşıma ve sıralamalar tekrarlanmayacak.
