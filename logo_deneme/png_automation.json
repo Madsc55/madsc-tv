@@ -1,20 +1,144 @@
 {
   "approved_existing_logo_repairs": 0,
-  "missing_logo_entries": 21,
+  "missing_logo_entries": 18,
   "unresolved": [
-    "CGTN DOCUMENTARY",
-    "FTV TÜRK",
     "M2O TV DJ STATION",
     "10 TV"
   ],
-  "unique_logos": 21,
-  "png_ready": 21,
+  "unique_logos": 20,
+  "png_ready": 20,
   "already_local": 0,
   "failed": 0,
   "identity": "Existing logos untouched; automatic insertion requires a saved visual review and unchanged PNG hash.",
   "problem_channels": [
     {
-      "name": "SPACETOON TURKEY 720P",
+      "name": "BIR TV 720P HD",
+      "status": "NETWORK_OR_TLS_ERROR",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "BIR TV 720P HD",
+      "status": "NETWORK_OR_TLS_ERROR",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "DREAM TÜRK 1 720P HD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "DREAM TÜRK 2 720P HD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "DREAM TÜRK 720P HD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK AKUSTİK 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK SLOW 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK SLOW 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK TAPTAZE 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK TAPTAZE 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "BIR TV 720P HD",
+      "status": "NETWORK_OR_TLS_ERROR",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "BIR TV 720P HD",
+      "status": "NETWORK_OR_TLS_ERROR",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "DREAM TÜRK 1 720P HD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "DREAM TÜRK 2 720P HD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "DREAM TÜRK 720P HD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK AKUSTİK 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK SLOW 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK SLOW 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK TAPTAZE 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "POWERTÜRK TAPTAZE 1080P FHD",
+      "status": "HTTP_ERROR",
+      "http": 403,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "BIR TV 720P HD",
+      "status": "NETWORK_OR_TLS_ERROR",
+      "http": null,
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "name": "TRT EBA ORTAOKUL 720P HD",
       "status": "HTTP_ERROR",
       "http": 429,
       "visual_match": "NOT_VERIFIED"
@@ -68,123 +192,9 @@
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "name": "TRT EBA 720P HD",
+      "name": "DHA CANLI 720P HD",
       "status": "HTTP_ERROR",
       "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "SPACETOON TURKEY 720P",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "DREAM TÜRK 1 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "DREAM TÜRK 2 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "DREAM TÜRK 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK AKUSTİK 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK SLOW 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK SLOW 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK TAPTAZE 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK TAPTAZE 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "TRT EBA 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "SPACETOON TURKEY 720P",
-      "status": "HTTP_ERROR",
-      "http": 429,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "DREAM TÜRK 1 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "DREAM TÜRK 2 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "DREAM TÜRK 720P HD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK AKUSTİK 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK SLOW 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK SLOW 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK TAPTAZE 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "POWERTÜRK TAPTAZE 1080P FHD",
-      "status": "HTTP_ERROR",
-      "http": 403,
       "visual_match": "NOT_VERIFIED"
     },
     {
@@ -212,19 +222,7 @@
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "name": "CGTN DOCUMENTARY 576P SD",
-      "status": "MISSING_LOGO",
-      "http": null,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
       "name": "KURDISTAN TV 720P HD",
-      "status": "MISSING_LOGO",
-      "http": null,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": "FTV TÜRK 540P SD",
       "status": "MISSING_LOGO",
       "http": null,
       "visual_match": "NOT_VERIFIED"
@@ -255,12 +253,6 @@
     },
     {
       "name": "WEST AZERBAIJAN TV 240P SD",
-      "status": "MISSING_LOGO",
-      "http": null,
-      "visual_match": "NOT_VERIFIED"
-    },
-    {
-      "name": ".SCI-FI 1080P FHD",
       "status": "MISSING_LOGO",
       "http": null,
       "visual_match": "NOT_VERIFIED"
@@ -319,15 +311,12 @@
     "KANAL 35 720P HD",
     "NAXCIVAN TV 720P HD",
     "AZ TV 480P SD",
-    "CGTN DOCUMENTARY 576P SD",
     "KURDISTAN TV 720P HD",
-    "FTV TÜRK 540P SD",
     ".BLACK 1080P FHD",
     "M2O TV DJ STATION 720P HD",
     "&TV 216P SD",
     ".RED 1080P FHD",
     "WEST AZERBAIJAN TV 240P SD",
-    ".SCI-FI 1080P FHD",
     "1+1 INTERNATIONAL 1080P FHD",
     "1+1 MARAFON 1080P FHD",
     "1+1 UKRAINA 1080P FHD",
@@ -406,11 +395,6 @@
     {
       "source_sha256": "5effb3739213b20377cdcf7a072f24ce7b36e93c60f581e19f051390639eab0d",
       "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/5effb3739213b20377cdcf7a.png",
-      "status": "png_ready"
-    },
-    {
-      "source_sha256": "041e37594c71899c9e381aee208cf0712927c7a560d1ec8a232eed7e2f7e6a78",
-      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/auto/041e37594c71899c9e381aee.png",
       "status": "png_ready"
     },
     {
