@@ -1,5 +1,11 @@
 name: "MADSC - Birlesik Salt Okunur Durum Raporu"
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/birlesik-durum-raporu.yml"
+      - "tools/eksik_turk_kanal_takibi.py"
+      - "tools/guncel_test_durum_ozeti.py"
   workflow_dispatch:
   schedule:
     - cron: "40 6,18 * * *"
