@@ -110,3 +110,7 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 
 ## 12 Ekim — kalan test ve son kontrol kuyruğu raporu
 - Kullanıcı kalan üç aşamalı ve son kontrollerle devam edilmesini onayladı. `tools/guncel_test_durum_ozeti.py` yalnız mevcut snapshot'ları okuyarak kalan final testleri, kimlik/içerik incelemesi, süreklilik hataları, zaman aşımı ve cihaz onayı ihtiyaçlarını ayrı JSON alanlarıyla raporlayacak biçimde güncellendi; commit `180c6badc37c1d6805bcd62b9e3921ba3cff653a`. Dosya yeniden okunarak doğrulandı. Mevcut otomatik üç aşamalı ve son kontrol workflow'larına dokunulmadı; tamamlanan testler tekrar başlatılmadı. Yeni rapor Actions çalışması ve güncel kuyruk sonucu henüz doğrulanmadı.
+
+## 12 Ekim — kullanıcı talebiyle doğrulama
+- GitHub'dan yeniden okunan `madsc_dogrulama/summary.json` (17:35:46 UTC): 6981 URL adayı, 6729 üç aşama tamam, 252 bekliyor, 6028 üç teknik geçiş. `madsc_son_kontrol/summary.json` (17:35:45 UTC): 63 tamam, 5687 bekliyor; 48 kimlik bekliyor, 10 içerik inceleme, 2 süreklilik başarısız, 3 zaman aşımı. `madsc_kesif/ozet.json` (19:45:39 UTC): yeni bekleyen sonraki 0, bu tur test 0; tüm testlerin bittiği anlamına gelmez.
+- Birleşik rapor kodunda kalan son kontrol alanı ve tutarlılık koruması GitHub'dan doğrulandı. Commit `799eacface43f0916f15a253d50a2bc744497158` için GitHub commit status endpoint boş status listesi döndürdü; bu, Actions run başarısını doğrulamaz. Canlı Actions run/log erişimi olmadan yeşil iddia edilmez. Kullanıcı onayı olmadan playlist değiştirilmedi.
