@@ -22,6 +22,9 @@ def main():
     repo = os.environ["GITHUB_REPOSITORY"]
     workflow = os.environ["GITHUB_WORKFLOW_REF"].split("/.github/workflows/", 1)[1].split("@", 1)[0]
     current = int(os.environ["GITHUB_RUN_ID"])
+    if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
+        print("Elle başlatılan kurtarma çalışması: devre kesici geçmişi kontrol edilmeden denemeye izin verildi.")
+        return
     url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/runs?per_page=100"
     req = urllib.request.Request(url, headers={
         "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
