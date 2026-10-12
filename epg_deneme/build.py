@@ -2,7 +2,7 @@
 """Isolated five-channel EPG preparation; never writes production playlists or EPG."""
 import argparse, copy, gzip, hashlib, json, re, urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -15,6 +15,23 @@ def stamp(value):
     if not re.fullmatch(r'\d{14} [+-]\d{4}', value):
         raise ValueError('Missing or invalid XMLTV timezone')
     return datetime.strptime(value, '%Y%m%d%H%M%S %z').astimezone(timezone.utc)
+
+def period(start_value, stop_value):
+    start, stop = stamp(start_value), stamp(stop_value)
+    repaired = False
+    # A narrow source convention: evening shows ending after midnight retain the start date.
+    local_start = datetime.strptime(start_value, '%Y%m%d%H%M%S %z')
+    local_stop = datetime.strptime(stop_value, '%Y%m%d%H%M%S %z')
+    if (stop <= start and local_start.date() == local_stop.date()
+            and local_start.utcoffset() == local_stop.utcoffset()
+            and local_start.hour >= 18 and local_stop.hour < 6):
+        candidate = stop + timedelta(days=1)
+        if timedelta(0) < candidate-start <= timedelta(hours=12):
+            stop, repaired = candidate, True
+    if stop <= start:
+        raise ValueError('Invalid programme interval')
+    return start, stop, repaired
+
 
 def attr(line, name):
     found = re.search(r'\b' + re.escape(name) + r'="([^"]*)"', line)
@@ -55,12 +72,12 @@ def main():
             raise RuntimeError('Missing existing tvg-id for ' + name)
         ET.SubElement(ET.SubElement(result, 'channel', {'id': target}), 'display-name').text = name
         playlist += [re.sub(r'group-title="[^"]*"', 'group-title="EPG DENEME — 5 KANAL"', line), url]
-        seen, programmes, invalid = set(), [], 0
+        seen, programmes, invalid, repairs = set(), [], 0, []
         for p in source.findall('programme'):
             if p.get('channel') != source_id:
                 continue
             try:
-                start, stop = stamp(p.get('start', '')), stamp(p.get('stop', ''))
+                start, stop, repaired = period(p.get('start', ''), p.get('stop', ''))
                 if stop <= start or not p.findtext('title'):
                     raise ValueError('Invalid duration/title')
             except ValueError:
@@ -70,19 +87,23 @@ def main():
             if signature in seen:
                 continue
             seen.add(signature)
+            if repaired:
+                repairs.append({'title': p.findtext('title'), 'source_start': p.get('start'),
+                    'source_stop': p.get('stop'), 'corrected_stop_utc': stop.isoformat(),
+                    'basis': 'Inferred midnight rollover; programme schedule not independently confirmed'})
             if stop <= now:
                 continue
             programmes.append((start, stop, p))
         programmes.sort(key=lambda item: (item[0], item[1]))
         overlaps = sum(a[1] > b[0] for a, b in zip(programmes, programmes[1:]))
-        current = [p for start, stop, p in programmes if start <= now < stop]
+        current = [(start, stop, p) for start, stop, p in programmes if start <= now < stop]
         for start, stop, p in programmes:
             new = copy.deepcopy(p)
             new.set('channel', target)
             new.set('start', start.strftime('%Y%m%d%H%M%S +0000'))
             new.set('stop', stop.strftime('%Y%m%d%H%M%S +0000'))
             result.append(new)
-        report['channels'].append({'name': name, 'playlist_id': target, 'source_id': source_id, 'id_match': True, 'programmes': len(programmes), 'rejected_source_entries': invalid, 'overlaps': overlaps, 'current_programme_count': len(current), 'current_title': current[0].findtext('title') if len(current) == 1 else None, 'current_start_stockholm': stamp(current[0].get('start')).astimezone(zone).isoformat() if len(current) == 1 else None, 'current_stop_stockholm': stamp(current[0].get('stop')).astimezone(zone).isoformat() if len(current) == 1 else None, 'coverage_end_stockholm': max((stop for _, stop, _ in programmes), default=now).astimezone(zone).isoformat(), 'metadata_pass': len(current) == 1 and overlaps == 0})
+        report['channels'].append({'name': name, 'playlist_id': target, 'source_id': source_id, 'id_match': True, 'programmes': len(programmes), 'rejected_source_entries': invalid, 'source_time_repairs': repairs, 'overlaps': overlaps, 'current_programme_count': len(current), 'current_title': current[0][2].findtext('title') if len(current) == 1 else None, 'current_start_stockholm': current[0][0].astimezone(zone).isoformat() if len(current) == 1 else None, 'current_stop_stockholm': current[0][1].astimezone(zone).isoformat() if len(current) == 1 else None, 'coverage_end_stockholm': max((stop for _, stop, _ in programmes), default=now).astimezone(zone).isoformat(), 'metadata_pass': len(current) == 1 and overlaps == 0})
     assert args.playlist.read_bytes() == before, 'Protected playlist changed'
     out = Path(__file__).resolve().parent
     ET.indent(result)

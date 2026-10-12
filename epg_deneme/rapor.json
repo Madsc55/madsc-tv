@@ -1,8 +1,8 @@
 {
-  "checked_utc": "2026-10-11T19:15:24.064604+00:00",
+  "checked_utc": "2026-10-12T17:30:26.565072+00:00",
   "source": "https://raw.githubusercontent.com/trology85/iptv-epg-turkey/main/epg/turksat_epg.xml.gz",
-  "source_sha256": "6a31f70f32e146f9e44f089b32e9b2dafee3c43c420f812337bd61f398889e71",
-  "playlist_sha256": "b46d649c7fccb9b8c39aa4182ed3e3efe02c2127030b4ce2d53c7510f1ba669e",
+  "source_sha256": "13898fd167657e80498b9e0d6af660bb22e599ef3e82fdff2e918b511cdcc2df",
+  "playlist_sha256": "293427a69f175b7e8d5e658eb6f3c4e7d7c913be4e47ca9a9615382976bfef4e",
   "timezone": "Europe/Stockholm",
   "ibo_device_visibility": "NOT_VERIFIED",
   "media_playback": "NOT_RETESTED",
@@ -13,13 +13,22 @@
       "source_id": "TRT.1",
       "id_match": true,
       "programmes": 1,
-      "rejected_source_entries": 2,
+      "rejected_source_entries": 0,
+      "source_time_repairs": [
+        {
+          "title": "Evlilik Güzeldir",
+          "source_start": "20261012200000 +0300",
+          "source_stop": "20261012001500 +0300",
+          "corrected_stop_utc": "2026-10-12T21:15:00+00:00",
+          "basis": "Inferred midnight rollover; programme schedule not independently confirmed"
+        }
+      ],
       "overlaps": 0,
       "current_programme_count": 1,
-      "current_title": "Teşkilat",
-      "current_start_stockholm": "2026-10-11T19:00:00+02:00",
-      "current_stop_stockholm": "2026-10-11T22:55:00+02:00",
-      "coverage_end_stockholm": "2026-10-11T22:55:00+02:00",
+      "current_title": "Evlilik Güzeldir",
+      "current_start_stockholm": "2026-10-12T19:00:00+02:00",
+      "current_stop_stockholm": "2026-10-12T23:15:00+02:00",
+      "coverage_end_stockholm": "2026-10-12T23:15:00+02:00",
       "metadata_pass": true
     },
     {
@@ -27,14 +36,23 @@
       "playlist_id": "in3p7jng04mr97m",
       "source_id": "TRT.Haber",
       "id_match": true,
-      "programmes": 1,
-      "rejected_source_entries": 2,
+      "programmes": 3,
+      "rejected_source_entries": 0,
+      "source_time_repairs": [
+        {
+          "title": "Gece Bakışı",
+          "source_start": "20261012230000 +0300",
+          "source_stop": "20261012005500 +0300",
+          "corrected_stop_utc": "2026-10-12T21:55:00+00:00",
+          "basis": "Inferred midnight rollover; programme schedule not independently confirmed"
+        }
+      ],
       "overlaps": 0,
       "current_programme_count": 1,
-      "current_title": "Odak Gündem",
-      "current_start_stockholm": "2026-10-11T20:00:00+02:00",
-      "current_stop_stockholm": "2026-10-11T22:00:00+02:00",
-      "coverage_end_stockholm": "2026-10-11T22:00:00+02:00",
+      "current_title": "Ana Haber",
+      "current_start_stockholm": "2026-10-12T19:00:00+02:00",
+      "current_stop_stockholm": "2026-10-12T19:45:00+02:00",
+      "coverage_end_stockholm": "2026-10-12T23:55:00+02:00",
       "metadata_pass": true
     },
     {
@@ -42,14 +60,23 @@
       "playlist_id": "ybv52n8pldp0lfq",
       "source_id": "TRT.Çocuk",
       "id_match": true,
-      "programmes": 4,
-      "rejected_source_entries": 2,
+      "programmes": 9,
+      "rejected_source_entries": 0,
+      "source_time_repairs": [
+        {
+          "title": "Sagun",
+          "source_start": "20261012235000 +0300",
+          "source_stop": "20261012001500 +0300",
+          "corrected_stop_utc": "2026-10-12T21:15:00+00:00",
+          "basis": "Inferred midnight rollover; programme schedule not independently confirmed"
+        }
+      ],
       "overlaps": 0,
       "current_programme_count": 1,
-      "current_title": "Kehribar İle Boncuk",
-      "current_start_stockholm": "2026-10-11T21:10:00+02:00",
-      "current_stop_stockholm": "2026-10-11T21:35:00+02:00",
-      "coverage_end_stockholm": "2026-10-11T22:50:00+02:00",
+      "current_title": "Köstebekgiller",
+      "current_start_stockholm": "2026-10-12T19:30:00+02:00",
+      "current_stop_stockholm": "2026-10-12T19:55:00+02:00",
+      "coverage_end_stockholm": "2026-10-12T23:15:00+02:00",
       "metadata_pass": true
     },
     {
@@ -57,14 +84,23 @@
       "playlist_id": "p6sz5lndgfas2r9",
       "source_id": "TRT.Avaz",
       "id_match": true,
-      "programmes": 3,
-      "rejected_source_entries": 1,
+      "programmes": 7,
+      "rejected_source_entries": 0,
+      "source_time_repairs": [
+        {
+          "title": "Sence Bilir Mi?",
+          "source_start": "20261012233000 +0300",
+          "source_stop": "20261012003000 +0300",
+          "corrected_stop_utc": "2026-10-12T21:30:00+00:00",
+          "basis": "Inferred midnight rollover; programme schedule not independently confirmed"
+        }
+      ],
       "overlaps": 0,
       "current_programme_count": 1,
-      "current_title": "Kendi Gök Kubbemiz",
-      "current_start_stockholm": "2026-10-11T20:30:00+02:00",
-      "current_stop_stockholm": "2026-10-11T21:30:00+02:00",
-      "coverage_end_stockholm": "2026-10-11T22:45:00+02:00",
+      "current_title": "Altaylardan Tuna'ya",
+      "current_start_stockholm": "2026-10-12T19:00:00+02:00",
+      "current_stop_stockholm": "2026-10-12T20:15:00+02:00",
+      "coverage_end_stockholm": "2026-10-12T23:30:00+02:00",
       "metadata_pass": true
     },
     {
@@ -72,14 +108,23 @@
       "playlist_id": "xe24vekaidpsql3",
       "source_id": "TRT.Türk",
       "id_match": true,
-      "programmes": 1,
-      "rejected_source_entries": 1,
+      "programmes": 3,
+      "rejected_source_entries": 0,
+      "source_time_repairs": [
+        {
+          "title": "Temelli Misafir",
+          "source_start": "20261012233000 +0300",
+          "source_stop": "20261012011500 +0300",
+          "corrected_stop_utc": "2026-10-12T22:15:00+00:00",
+          "basis": "Inferred midnight rollover; programme schedule not independently confirmed"
+        }
+      ],
       "overlaps": 0,
       "current_programme_count": 1,
-      "current_title": "Avrupa'nın Nabzı",
-      "current_start_stockholm": "2026-10-11T21:00:00+02:00",
-      "current_stop_stockholm": "2026-10-11T22:30:00+02:00",
-      "coverage_end_stockholm": "2026-10-11T22:30:00+02:00",
+      "current_title": "Seksenler",
+      "current_start_stockholm": "2026-10-12T19:30:00+02:00",
+      "current_stop_stockholm": "2026-10-12T21:00:00+02:00",
+      "coverage_end_stockholm": "2026-10-13T00:15:00+02:00",
       "metadata_pass": true
     }
   ],
