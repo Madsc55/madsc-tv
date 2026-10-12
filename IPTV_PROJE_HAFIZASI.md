@@ -62,3 +62,12 @@ GitHub Actions'ta `YENİLER Güvenli Kanal Arama` isimli iş akışı ve `yenile
 5. Yeni önemli kararları veya onaylı değişiklikleri bu hafıza dosyasına işle; fakat kanal listesine izinsiz dokunma.
 
 Yeni sohbette söylenecek cümle: **“Mahmut, Madsc55/madsc-tv deposundaki IPTV_PROJE_HAFIZASI.md dosyasını oku ve kaldığımız yerden devam et.”**
+
+
+## 2026-10-12 — Ulusal ana kanal deposu kuralı
+- Kullanıcı Ulusal kategorisini bütün kanalların ana deposu olarak tanımladı. Mevcut, yeni bulunan ve kullanıcı onayıyla listeye alınan bütün kanalların Ulusal'da da kaydı bulunmalı.
+- Bir kanalı Sinema, Spor, Belgesel, Çocuk, Dini, Yerel veya Favoriler gibi başka bir kategoriye eklemek, Ulusal'daki kaydını kaldırma yetkisi vermez. Kullanıcı açıkça Ulusal'dan kaldırmayı istemedikçe Ulusal kaydı korunur.
+- Yeni aday bulmak, ana listeye otomatik ekleme yetkisi değildir; mevcut onay kuralları geçerlidir.
+- CNBC-e Sinema'ya kopyalandı; Ulusal ve Favoriler 1 kayıtları korundu.
+- Ulusal kategori sayısı kanal kaydı sayısıdır. Aynı kanalın alternatif bağlantıları da ayrı kayıtlar olduğundan farklı kanal sayısı ayrıca hesaplanmalıdır.
+- Bu talimatın kaydı tek başına geçmişteki bütün kategorilerin Ulusal'a toplu kopyalandığı anlamına gelmez; mevcut kapsam gerektiğinde güncel dosyadan denetlenmeli.
