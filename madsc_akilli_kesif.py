@@ -75,10 +75,10 @@ def main():
   if pathlib.Path(f).exists():base+=parse(pathlib.Path(f).read_text(encoding="utf-8-sig"))
  known={key(x["url"]) for x in base};ids={x["id"].lower() for x in base if x["id"]};names={name(x["name"]) for x in base}
  state=OUT/"gecmis.json"
- try:history=json.loads(state.read_text()).get("history",{})
- except Exception:history={}
- if not isinstance(history,dict):history={}
- # Read-only full health audit of EVERY main playlist entry each run.
+ # Never forget previous tests when history is unreadable.
+ history=json.loads(state.read_text(encoding="utf-8")).get("history")
+ if not isinstance(history,dict):raise RuntimeError("Invalid discovery history; scanning stopped")
+ # Only unfinished main-playlist checks, at least six hours apart.
  # Independent state: three successful checks >=6 hours apart.
  audit_state=OUT/"ana_liste_test_gecmisi.json"
  try:audit=json.loads(audit_state.read_text(encoding="utf-8")).get("channels",{})
@@ -90,7 +90,14 @@ def main():
   uid=str(idx+1)+"|"+key(ch["url"])
   unique[uid]=ch
  audit={k:v for k,v in audit.items() if k in unique}
- due=sorted(unique,key=lambda k:(audit.get(k,{}).get("last_test",""),k))
+ def health_check_due(previous):
+  if int(previous.get("successful_runs",0))>=3:return False
+  last=previous.get("last_test")
+  if not last:return True
+  try:return (audit_now-datetime.datetime.fromisoformat(last)).total_seconds()>=6*3600
+  except (ValueError,TypeError):return False
+ due=sorted((uid for uid in unique if health_check_due(audit.get(uid,{}))),key=lambda k:(audit.get(k,{}).get("last_test",""),k))
+
  def audit_one(uid):
   ch=unique[uid];v,a,res=probe(ch["url"]);return uid,bool(v and a),res
  with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:
