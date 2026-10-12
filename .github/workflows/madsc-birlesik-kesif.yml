@@ -17,7 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - name: Depo dosyalarını al
+        uses: actions/checkout@v4
+      - name: 24. kural - ardışık hata güvenlik kontrolü
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/workflow_failure_gate.py
       - name: Kuyruk sonrası en güncel test geçmişini al
         run: |
           git fetch origin main
