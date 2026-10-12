@@ -1,0 +1,34 @@
+name: MADSC - Aday Logo EPG Birlesim Testi
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/aday-logo-epg-test.yml'
+      - 'scripts/candidate_epg_logo_join.py'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Python syntax
+        run: python3 -m py_compile scripts/candidate_epg_logo_join.py
+      - name: Join existing evidence without modifying protected files
+        run: |
+          before=$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)
+          python3 scripts/candidate_epg_logo_join.py
+          after=$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)
+          test "$before" = "$after"
+          python3 - <<'PY'
+          import json
+          d=json.load(open('madsc_kesif/candidate_epg_logo_join.json'))
+          assert d['pilot_epg_channels']==5
+          assert all(not x['playlist_approved'] and not x['ready_for_playlist'] for x in d['candidate_results'])
+          print('PASS: read-only candidate report and approval guard')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aday-logo-epg-birlesim-test
+          path: madsc_kesif/candidate_epg_logo_join.json
