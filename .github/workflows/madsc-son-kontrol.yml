@@ -10,6 +10,7 @@ on:
       - '.github/workflows/madsc-son-kontrol.yml'
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: madsc-son-kontrol
   cancel-in-progress: false
@@ -56,3 +57,19 @@ jobs:
             if git push origin HEAD:main; then exit 0; fi
           done
           exit 1
+
+      - name: Continue remaining final checks automatically
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          remaining=$(python3 -c 'import json; print(json.load(open("madsc_son_kontrol/summary.json"))["remaining"])')
+          echo "Remaining unreviewed final-check candidates: $remaining"
+          if [ "$remaining" -gt 0 ]; then
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-son-kontrol.yml/dispatches" -f ref=main
+            echo "Next 24-candidate final-check batch queued."
+          else
+            echo "All currently eligible final checks completed."
+          fi
