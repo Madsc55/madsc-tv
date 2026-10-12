@@ -25,5 +25,21 @@ class VerificationTests(unittest.TestCase):
         self.assertFalse(pipeline.decode('https://example.org/live')['passed'])
         self.assertIn('0:a:0', run.call_args.args[0])
 
+    @patch('verification_pipeline.subprocess.run')
+    def test_non_numeric_progress_fails_without_aborting_batch(self, run):
+        for field in ('out_time_us', 'frame'):
+            for invalid in ('N/A', '', 'not-a-number'):
+                with self.subTest(field=field, value=invalid):
+                    values = {'out_time_us': '30000000', 'frame': '800'}
+                    values[field] = invalid
+                    output = ''.join(f'{k}={v}\n' for k, v in values.items())
+                    run.return_value = subprocess.CompletedProcess([], 0, output, '')
+                    result = pipeline.decode('https://example.org/live')
+                    self.assertFalse(result['passed'])
+                    self.assertEqual(result['error'], 'INVALID_PROGRESS')
+        run.return_value = subprocess.CompletedProcess([], 0,
+            'frame=800\nout_time_us=30000000\n', '')
+        self.assertTrue(pipeline.decode('https://example.org/live')['passed'])
+
 if __name__ == '__main__':
     unittest.main()
