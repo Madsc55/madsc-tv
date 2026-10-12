@@ -10229,5 +10229,1007 @@
     },
     "status": "TECHNICAL_PASS_IDENTITY_PENDING",
     "image_evidence": "madsc_son_kontrol/images/d7067728064c154a4ed0.jpg"
+  },
+  {
+    "candidate_id": "ab1251d8eefdf616bd2e",
+    "label": "AWE (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.337958+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ab1251d8eefdf616bd2e.jpg"
+  },
+  {
+    "candidate_id": "4c2c2e67c2017b7bf439",
+    "label": "AWE Plus (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.339805+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999289,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4c2c2e67c2017b7bf439.jpg"
+  },
+  {
+    "candidate_id": "9556c6bf6fbe2b4a9876",
+    "label": "AWE International (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.338203+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.982104,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9556c6bf6fbe2b4a9876.jpg"
+  },
+  {
+    "candidate_id": "03ca652a1ae0a675e050",
+    "label": "AVA Series",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.337359+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/03ca652a1ae0a675e050.jpg"
+  },
+  {
+    "candidate_id": "52a610dc7595bba22c06",
+    "label": "AXN (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.343081+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.994792,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/52a610dc7595bba22c06.jpg"
+  },
+  {
+    "candidate_id": "f6bb9b92ec9a87ef48f3",
+    "label": "AWTV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.342800+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8997
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f6bb9b92ec9a87ef48f3.jpg"
+  },
+  {
+    "candidate_id": "7658c9472f62888bdc78",
+    "label": "AVI Rewind (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.337557+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.032067,
+      "decoded_frames": 7804
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/7658c9472f62888bdc78.jpg"
+  },
+  {
+    "candidate_id": "9564fc6fd3e742645ede",
+    "label": "AXN Asia (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:37:34.346882+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 6069
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9564fc6fd3e742645ede.jpg"
+  },
+  {
+    "candidate_id": "d37e9a3d04c57cf4c97b",
+    "label": "AXN White (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:31.037482+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 167.982971,
+      "decoded_frames": 4200
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": "madsc_son_kontrol/images/d37e9a3d04c57cf4c97b.jpg"
+  },
+  {
+    "candidate_id": "28d0f3888014b5508c26",
+    "label": "AXN Black (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:13.641619+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.987778,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/28d0f3888014b5508c26.jpg"
+  },
+  {
+    "candidate_id": "07a54ef9b86a6d496261",
+    "label": "AXN Movies (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:23.213617+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 14997
+    },
+    "review_events": {
+      "freeze": 4,
+      "black": 2,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/07a54ef9b86a6d496261.jpg"
+  },
+  {
+    "candidate_id": "3a562b2cbf117ed1c7b8",
+    "label": "AXN Latin America (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:20.704311+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999979,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3a562b2cbf117ed1c7b8.jpg"
+  },
+  {
+    "candidate_id": "18453e5218b247907115",
+    "label": "AXS TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:32.430078+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "mpeg2video",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 17982
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/18453e5218b247907115.jpg"
+  },
+  {
+    "candidate_id": "87e8694e7a9b46bc265b",
+    "label": "AXN Spin",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:28.231242+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.976,
+      "decoded_frames": 6721
+    },
+    "review_events": {
+      "freeze": 4,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/87e8694e7a9b46bc265b.jpg"
+  },
+  {
+    "candidate_id": "72dbd55d3b795cc6ae99",
+    "label": "AYNI TV (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:42:43.153629+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/72dbd55d3b795cc6ae99.jpg"
+  },
+  {
+    "candidate_id": "ddcd35cb764a9595ca1f",
+    "label": "AZA TV HD (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:43:19.060401+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.981333,
+      "decoded_frames": 15000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ddcd35cb764a9595ca1f.jpg"
+  },
+  {
+    "candidate_id": "f477e83b803dd9307b84",
+    "label": "Aadinath TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:45:43.099868+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 424,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7476
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f477e83b803dd9307b84.jpg"
+  },
+  {
+    "candidate_id": "f382c7b3fabe8fd91c3a",
+    "label": "Aamar Bangla (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:47:12.880126+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 5997
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f382c7b3fabe8fd91c3a.jpg"
+  },
+  {
+    "candidate_id": "1b75e22045ea4754d022",
+    "label": "Aaryaa TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:47:15.052870+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.983855,
+      "decoded_frames": 7268
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1b75e22045ea4754d022.jpg"
+  },
+  {
+    "candidate_id": "9186c6b52a6126cedc36",
+    "label": "Aaj Ki Khabar (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:46:53.102145+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9186c6b52a6126cedc36.jpg"
+  },
+  {
+    "candidate_id": "95173e698a86ad435ac0",
+    "label": "Aaseervatham TV (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:47:24.386158+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 450,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/95173e698a86ad435ac0.jpg"
+  },
+  {
+    "candidate_id": "370462d94a4b86ea8fc0",
+    "label": "Aastha Bhajan (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:47:41.134033+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/370462d94a4b86ea8fc0.jpg"
+  },
+  {
+    "candidate_id": "1e914c7f550c8c6dc673",
+    "label": "Aastha (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:47:36.242864+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1e914c7f550c8c6dc673.jpg"
+  },
+  {
+    "candidate_id": "001e5efcfc77cf9984ee",
+    "label": "Aastha Gujarati (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:48:12.742044+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 256,
+        "height": 144,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 704,
+        "height": 396,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/001e5efcfc77cf9984ee.jpg"
   }
 ]
