@@ -6914,5 +6914,1119 @@
     },
     "status": "TECHNICAL_PASS_CONTENT_REVIEW",
     "image_evidence": "madsc_son_kontrol/images/af5a1dcef71d81842057.jpg"
+  },
+  {
+    "candidate_id": "6aabd556f4d33fd64087",
+    "label": "ABC News Live (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.448575+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "hevc",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "hevc",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "hevc",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "hevc",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/6aabd556f4d33fd64087.jpg"
+  },
+  {
+    "candidate_id": "ba58161f73a27227bf5f",
+    "label": "ABHP TV (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.451325+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8881
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ba58161f73a27227bf5f.jpg"
+  },
+  {
+    "candidate_id": "9d323c372862e0c4dfe4",
+    "label": "A2i TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.445908+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.987,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9d323c372862e0c4dfe4.jpg"
+  },
+  {
+    "candidate_id": "9c371292eb14cc8086b8",
+    "label": "ABC Entertains (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.446461+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9c371292eb14cc8086b8.jpg"
+  },
+  {
+    "candidate_id": "b2b4a46a5147ce09e12d",
+    "label": "ABC TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.450451+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b2b4a46a5147ce09e12d.jpg"
+  },
+  {
+    "candidate_id": "ff6a5e33464b5c607f73",
+    "label": "ABC Kids (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.448207+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ff6a5e33464b5c607f73.jpg"
+  },
+  {
+    "candidate_id": "4512ea8715d74cc23856",
+    "label": "ABC TV Plus (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.450809+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4512ea8715d74cc23856.jpg"
+  },
+  {
+    "candidate_id": "e67b2675441b6266f94f",
+    "label": "A7TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:49:47.446113+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7203
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e67b2675441b6266f94f.jpg"
+  },
+  {
+    "candidate_id": "6b480740d8d8c7016b95",
+    "label": "ABN Afghanistan (540p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:48.429088+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7188
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 2
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/6b480740d8d8c7016b95.jpg"
+  },
+  {
+    "candidate_id": "f357b53ef48324ff3fd1",
+    "label": "ABN China (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:52.985795+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.996395,
+      "decoded_frames": 7055
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/f357b53ef48324ff3fd1.jpg"
+  },
+  {
+    "candidate_id": "3cf0b947e71663845999",
+    "label": "ABN Africa (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:49.502074+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 560,
+        "height": 420,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7198
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3cf0b947e71663845999.jpg"
+  },
+  {
+    "candidate_id": "37a19963e30506ef5282",
+    "label": "ABN (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:40.884814+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8896
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/37a19963e30506ef5282.jpg"
+  },
+  {
+    "candidate_id": "30d4cc21c807900cde4f",
+    "label": "ABN News (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:53.705643+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.968005,
+      "decoded_frames": 6249
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/30d4cc21c807900cde4f.jpg"
+  },
+  {
+    "candidate_id": "4e73b64e368228d0d045",
+    "label": "ABN TV India (540p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:58.982540+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978458,
+      "decoded_frames": 7054
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4e73b64e368228d0d045.jpg"
+  },
+  {
+    "candidate_id": "898e0783657e52dfe163",
+    "label": "ABN Andhra Jyoti (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:54:49.507640+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.984333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/898e0783657e52dfe163.jpg"
+  },
+  {
+    "candidate_id": "ec28177ca271574db4b3",
+    "label": "ABN Urdu (540p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:55:12.999592+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989615,
+      "decoded_frames": 7192
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/ec28177ca271574db4b3.jpg"
+  },
+  {
+    "candidate_id": "78b9de434a465a3703e6",
+    "label": "ABNsat (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:29.031011+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986531,
+      "decoded_frames": 7054
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/78b9de434a465a3703e6.jpg"
+  },
+  {
+    "candidate_id": "cc9c9ba0139c1e8f3d16",
+    "label": "ABTV Bariloche",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:54.611437+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9845,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/cc9c9ba0139c1e8f3d16.jpg"
+  },
+  {
+    "candidate_id": "2acfc4e2fa07afb1a28d",
+    "label": "ABP Majha (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:51.488284+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "32000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "32000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.982,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2acfc4e2fa07afb1a28d.jpg"
+  },
+  {
+    "candidate_id": "7504eae2c34b817490b9",
+    "label": "ABP Ananda (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:39.816144+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 320,
+        "height": 180,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 416,
+        "height": 234,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/7504eae2c34b817490b9.jpg"
+  },
+  {
+    "candidate_id": "6362d4bd27f78f893c45",
+    "label": "ABP Ganga (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:45.618330+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 320,
+        "height": 180,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6362d4bd27f78f893c45.jpg"
+  },
+  {
+    "candidate_id": "9a5532e71cd7c5dfdaae",
+    "label": "ABP Asmita (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:40.184855+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 320,
+        "height": 180,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9a5532e71cd7c5dfdaae.jpg"
+  },
+  {
+    "candidate_id": "c22cde93c1fed45458ce",
+    "label": "ABTelevision (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T23:00:07.064278+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.990896,
+      "decoded_frames": 8883
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c22cde93c1fed45458ce.jpg"
+  },
+  {
+    "candidate_id": "8d3bcc4a4538b2014f44",
+    "label": "ABP News (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-12T22:59:52.150537+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8d3bcc4a4538b2014f44.jpg"
   }
 ]
