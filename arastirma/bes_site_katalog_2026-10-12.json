@@ -1,0 +1,245 @@
+{
+  "checked_date": "2026-10-12",
+  "playlist_blob_sha": "b32b887e982d66357c8f379dc385e0fb1d1cf6a5",
+  "scope": "Read-only catalogue comparison; no playlist changes, no stream tests, no existing workflow changes.",
+  "requested_sites": [
+    "https://vin.canlitvizle.tv",
+    "https://canlitv.com/tr",
+    "https://amp.canlitvizle.tv",
+    "https://amp.tvfrekanslar.com",
+    "https://tr.canlitvizle.tv"
+  ],
+  "catalogue_counts": {
+    "vin": 333,
+    "amp": 307,
+    "tr_mobile": 456,
+    "canlitv": 299,
+    "tvfrekanslar": 42
+  },
+  "method": "Names compared using tvg-name and explicit normalization/aliases. Counts represent catalogue labels, not distinct active stations, working URLs or certified missing stations. Broad unmatched counts intentionally withheld pending identity/alias review.",
+  "overlap": "vin/amp/tr canlitvizle link mainly to m.canlitvizle.tv; not independent stream-source evidence. Repeated mobile pagination returns identical catalogue. tvfrekanslar pagination redirects to tr.canlitv.watch homepage and was not counted as separate pages.",
+  "priorities": [
+    {
+      "name": "On6 Tv",
+      "sources": [
+        {
+          "site": "vin",
+          "url": "https://m.canlitvizle.tv/on6-tv"
+        },
+        {
+          "site": "amp",
+          "url": "https://m.canlitvizle.tv/on6-tv"
+        },
+        {
+          "site": "tr_mobile",
+          "url": "https://m.canlitvizle.tv/on6-tv"
+        },
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/on6-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Gözde Tv",
+      "sources": [
+        {
+          "site": "tr_mobile",
+          "url": "https://m.canlitvizle.tv/gozde-tv"
+        },
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/gozde-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Kanal Plus",
+      "sources": [
+        {
+          "site": "tr_mobile",
+          "url": "https://m.canlitvizle.tv/kanal-plus"
+        },
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/kanal-plus"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "CGTN Documentary",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/cgtn-documentary"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Spacetoon Kids TV",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/spacetoon-kids-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Neo Haber",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/neo-haber"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Telenews",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/telenews"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Bodrum Kent TV",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/bodrum-kent-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Kanal 38",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/kanal38"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Düzce Tv",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/duzce-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Sonsöz TV",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/salihli-sonsoz-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Ruha Tv",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/ruha-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Urfa Haber",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/urfa-haber"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    },
+    {
+      "name": "Ahi Tv",
+      "sources": [
+        {
+          "site": "canlitv",
+          "url": "https://canlitv.com/ahi-tv"
+        }
+      ],
+      "status": "name_not_matched_research_only",
+      "stream_verified": false,
+      "identity_verified": false,
+      "ibo_verified": false
+    }
+  ],
+  "warnings": [
+    {
+      "name": "Edirne TV",
+      "issue": "amp catalogue links to /kapanan; canlitv has a separate page. Active status unresolved."
+    },
+    {
+      "name": "Ronahi TV",
+      "issue": "vin entry points to trt-kurdi; incorrect identity risk."
+    }
+  ],
+  "player_samples": {
+    "pages": [
+      "https://canlitv.com/salihli-sonsoz-tv",
+      "https://canlitv.com/cgtn-documentary",
+      "https://canlitv.com/cartoon-network"
+    ],
+    "finding": "No direct m3u8 URL found in inspected static HTML. This does not establish absence of a stream."
+  },
+  "next_step": "Check official broadcaster identity/current status, seek openly provided stream addresses, compare URLs with durable previous-test history; test only genuinely new URLs. Radio and pay/encrypted services excluded from candidate testing.",
+  "protected_files_changed": false
+}
