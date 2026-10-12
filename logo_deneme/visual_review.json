@@ -1,10 +1,16 @@
 {
-  "checked_channels": 9,
+  "checked_channels": 10,
   "results": [
     {
-      "channel": "SPACETOON TURKEY",
-      "frame": "eb71ebd2e70ba2aee616.jpg",
+      "channel": "TLC",
+      "frame": "4564c56eb438850001cc.jpg",
       "status": "FRAME_READY_FOR_REVIEW",
+      "visual_match": "NOT_VERIFIED"
+    },
+    {
+      "channel": "SPACETOON TURKEY",
+      "frame": null,
+      "status": "FRAME_UNAVAILABLE_RETRY_NEXT_RUN",
       "visual_match": "NOT_VERIFIED"
     },
     {
@@ -38,9 +44,9 @@
       "visual_match": "NOT_VERIFIED"
     },
     {
-      "channel": "TRT EBA",
-      "frame": "f1f277d6c0e3d42342f3.jpg",
-      "status": "FRAME_READY_FOR_REVIEW",
+      "channel": "BBC FİRST TURKİYE",
+      "frame": null,
+      "status": "FRAME_UNAVAILABLE_RETRY_NEXT_RUN",
       "visual_match": "NOT_VERIFIED"
     },
     {
