@@ -1,3 +1,6 @@
+
+## 13 Ekim 2026 - Kural 25 ve otomatik belge testi
+Kullanici her ekleme sonrasi testin asistan tarafindan otomatik baslatilmasini istedi. AGENTS.md Kural 25 eklendi (e047974). Yeni .github/workflows/madsc-documentation-check.yml eklendi (6709a63); AGENTS.md, OZELLIK_ENVANTERI.md ve DEVAM_NOTU.md degisikliklerinde otomatik belge kontrolu calisir. GitHub Actions run 38322907188 otomatik tetiklendi; ilk kontrolde QUEUED idi: https://github.com/Madsc55/madsc-tv/actions/runs/38322907188 . Korunan kanal listeleri degismedi. Bu belge testi IPTV yayin veya cihaz uyumlulugu testi degildir.
 ## 13 Ekim 2026 — Özellik envanteri ve tekrar önleme prosedürü
 Kullanıcının isteği üzerine OZELLIK_ENVANTERI.md eklendi (commit e7ea52333c02fea90f645c48eaadbf73ceee8a0a). Mevcut kanal keşfi, aday PNG, EPG üretimi/yayını, IBO pilotu, kimlik denetimi, kalite uyarıları ve birleşik raporun gerçek kapsamları kaydedildi. AGENTS.md yeni iş öncesi envanter+kod+son Actions kontrolünü zorunlu kılacak şekilde güncellendi (commit df78ea694917231653af918d5fdaa8c2cff378a2). Bu belge tek başına kod düzeyinde zorlayıcı kapı değildir; yeni workflow/özellik eklenmedi, ana playlist ve korunan veriler değişmedi. Sıradaki iş: gerçekten eksik kalan günlük keşif uçtan uca run doğrulaması.
 
