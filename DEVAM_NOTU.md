@@ -1,7 +1,7 @@
 # MADSC TV — güncel devam notu
 
 ## SOHBET DEVRİ
-Güncelleme: 12 Ekim 2026, Stockholm 20:35 sonrası kullanıcı kategori/logo talimatı. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
+Güncelleme: 12 Ekim 2026, Stockholm 20:44 sonrası MTürk logo ve Ton TV kontrolü. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
 
 ## Kesin kurallar
 - Ana liste/YENİLER, favoriler ve Hepsi'nin korunacak ilk 90 sırası, korunan yedekler yalnız açık kullanıcı izin kapsamında değişir.
@@ -68,7 +68,6 @@ Kullanıcı önceki dört logo düzeltmesini cihazında doğruladı. Taşıma ö
 9. kaydın rbmn-live/BoRB-AT bağlantısı iptv-org akış kaynağında RedBullTV.at ile eşleşir. Logo Red Bull TV'dir; kullanıcının isim değiştirme talimatı olmadığından FTV TÜRK etiketi korunmuştur, ad düzeltmesi açık iş. .SCI-FI yabancı yayın kullanıcı isteğiyle kabul edildi. Kategori/ekleme onayı teknik/kimlik/dil garantisi sayılmaz; geçmiş testler yeniden yapılmadı. Yeni logoların IBO görünürlüğü sonraki cihaz kontrolünü bekler.
 Kanıt: raporlar/YEDEK_KATEGORI_LOGO_2026-10-12.json. Aynı taşıma yeni sohbetlerde tekrar uygulanmaz; yeni YEDEKLER sıraları önceki 7/9/15 ile karıştırılmaz.
 
-
-## Yeni açık logo düzeltmesi — 12 Ekim 2026, Stockholm 20:42
-Kullanıcı YEREL 56 ve 57 MTÜRK TV kayıtlarının logo/ekran amblemi uyuşmazlığını düzeltmeyi açıkça istedi. İki kayıt aynı edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8 URL'sine bağlı. Mevcut logos/duzeltilmis-mturk.png görseli incelendi: mavi kutu içinde M ve MTürk TV yazısı olan temsili tasarım; gerçek amblem olarak kabul edilmez. Düzeltme henüz uygulanmadı. Gerçek yayındaki amblemle görsel eşleşme sağlanmadan yeni logo uydurulmaz. Resmî site mturktv.com; hizmet bölümünde kanal resmi /wp-content/uploads/2025/05/mturktv.jpg. Resmî görüntü indirimi tamamlanmadı; shell ağ isteği 'network approval was cancelled before a decision was returned' ile kesildi. İlgili Hepsi/Belgesel kopyalarının logo tutarlılığı izinli düzeltmede değerlendirilir; isim/URL/kategori/sıra değişmez.
-Kullanıcı ayrıca Yerel 64 TON TV'nin yerel olup olmadığını sordu. Kayıt TON TV 720P, TonTV.tr@SD. Resmî tontv.com.tr sitesi Çanakkale ve bölge odaklı yayın kimliğini ve Çanakkale adresini doğruluyor; Yerel kategorisi uygun, kategori değişikliği talebi yok.
+## Son MTürk/Ton TV kontrolü
+Kullanıcı Yerel 56/57 MTürk logo uyuşmazlığını düzeltme istedi. İki varyant aynı yayın URL'sini kullanıyor. Yayıncının https://www.mturktv.com/wp-content/uploads/2025/04/MTurkTV.png dosyası görsel olarak incelendi; logos/resmi-mturk-20261012.png olarak aynen saklandı. Bu iki tam etiketin toplam dört kategori kopyasında yalnız logo adresi eşitlendi (Hepsi/Belgesel/Yerel); isim/URL/ID/kategori/sıra değişmedi. Onaylı eski URL+PNG hash bakım kaydı eklendi. Canlı kare girişimi 5xx döndürdü; yayındaki amblem veya IBO görünümü kesin doğrulanmış yazılmadı. Kullanıcı cihaz kontrolü sonraki adım.
+Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezli bölgesel genel yayın olduğunu destekliyor. Yerel kategorisinde kalması uygun; taşınmadı. Önceki dört logo/Eurosport ve üç YEDEKLER taşıması tekrar yapılmadı.

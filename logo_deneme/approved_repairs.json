@@ -34,5 +34,23 @@
     "png_sha256": "bd7fad986b9068339b06e6b91308980b31462f64d90a30373e1252668b1175d2",
     "approved_by": "User request 2026-10-12 Stockholm 20:27; replace only these existing channel logos",
     "artwork_review": "Channel-branded artwork visually inspected; not an on-air identity or IBO device approval"
+  },
+  "MTÜRK TV 1080P": {
+    "allowed_previous_sources": [
+      "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/duzeltilmis-mturk.png"
+    ],
+    "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/resmi-mturk-20261012.png",
+    "png_sha256": "495d65bf10567186d0bb5e68c35cddd22e7428961aec15cfb3056f9563499eb6",
+    "approved_by": "User request 2026-10-12 Stockholm: MTurk Yerel 56/57 logo mismatch; same-station category copies synchronized",
+    "artwork_review": "Official broadcaster website PNG visually inspected; on-air frame unavailable (5xx), IBO appearance not yet verified"
+  },
+  "MTÜRK TV 720P HD": {
+    "allowed_previous_sources": [
+      "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/duzeltilmis-mturk.png"
+    ],
+    "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/resmi-mturk-20261012.png",
+    "png_sha256": "495d65bf10567186d0bb5e68c35cddd22e7428961aec15cfb3056f9563499eb6",
+    "approved_by": "User request 2026-10-12 Stockholm: MTurk Yerel 56/57 logo mismatch; same-station category copies synchronized",
+    "artwork_review": "Official broadcaster website PNG visually inspected; on-air frame unavailable (5xx), IBO appearance not yet verified"
   }
 }
