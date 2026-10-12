@@ -1,0 +1,29 @@
+name: "39 - Korunan Listeler Guvenlik Denetimi"
+on:
+  push:
+    paths:
+      - 'CALISANLAR.m3u'
+      - 'YENILER.m3u'
+      - 'AGENTS.md'
+      - 'scripts/protected_playlist_audit.py'
+      - '.github/workflows/test-39-protected-playlist.yml'
+  pull_request:
+    paths:
+      - 'CALISANLAR.m3u'
+      - 'YENILER.m3u'
+      - 'AGENTS.md'
+      - 'scripts/protected_playlist_audit.py'
+      - '.github/workflows/test-39-protected-playlist.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check protected playlist integrity (read-only)
+        run: python3 scripts/protected_playlist_audit.py
