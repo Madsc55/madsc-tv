@@ -66,20 +66,39 @@ def audit(candidate, duration):
         result['status'] = 'PROBE_OR_DECODER_ERROR'
     return result
 
+def pending_candidates(manifest, state, results):
+    """Never repeat a recorded final check, including failures or timeouts."""
+    completed = {r['candidate_id'] for r in results}
+    candidates = {hashlib.sha256(r['url'].encode()).hexdigest()[:20]: r
+                  for r in manifest['candidates']}
+    for record in state.values():
+        checks = record.get('checks', [])
+        if len(checks) != 3 or not all(c['passed'] for c in checks):
+            continue
+        token = hashlib.sha256(record['url'].encode()).hexdigest()[:20]
+        candidates.setdefault(token, {'url': record['url'], 'label': record['channel'],
+            'reason': 'Three separate decode passes; identity and device still unverified'})
+    return [r for token, r in candidates.items() if token not in completed]
+
 def main():
     manifest = json.loads(pathlib.Path('final_validation_manifest.json').read_text())
     (OUT / 'images').mkdir(parents=True, exist_ok=True)
-    results = []
+    resultfile = OUT / 'results.json'
+    results = json.loads(resultfile.read_text()) if resultfile.exists() else []
+    state = json.loads(pathlib.Path('madsc_dogrulama/state.json').read_text())['channels']
+    candidates = pending_candidates(manifest, state, results)
+    batch = candidates[:24]
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
-        futures = [pool.submit(audit, r, manifest['duration_seconds']) for r in manifest['candidates']]
+        futures = [pool.submit(audit, r, manifest['duration_seconds']) for r in batch]
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
             results.append(result)
-            # Incremental artifact checkpoints; no stream URLs or raw decoder logs in report.
-            (OUT / 'results.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
+            resultfile.write_text(json.dumps(results, ensure_ascii=False, indent=2))
             print(json.dumps({'label': result['label'], 'status': result['status']}, ensure_ascii=False), flush=True)
     summary = {'checked_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
-               'scope': manifest['scope'], 'selected': len(manifest['candidates']),
+               'scope': 'Resumable completed-candidate batches; previous results preserved.',
+               'selected_this_run': len(batch), 'remaining': max(0, len(candidates)-len(batch)),
+               'selected': len(results),
                'completed': len(results), 'requested_seconds': manifest['duration_seconds'],
                'status_counts': {s: sum(r['status'] == s for r in results) for s in sorted({r['status'] for r in results})},
                'ready_for_playlist': 0,

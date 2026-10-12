@@ -1,6 +1,10 @@
 name: MADSC - Tamamlanan Aday Son Kontrol
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - 'MADSC - Uc Asamali Aday Dogrulama'
+    types: [completed]
   push:
     paths:
       - '.github/workflows/madsc-son-kontrol.yml'
@@ -11,6 +15,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   continuity:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:

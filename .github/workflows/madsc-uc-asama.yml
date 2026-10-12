@@ -33,6 +33,8 @@ jobs:
           state = json.loads(pathlib.Path('madsc_dogrulama/state.json').read_text())['channels']
           now = datetime.datetime.now(datetime.timezone.utc)
           due = sum(eligible(record, now) for record in state.values())
+          history = json.loads(pathlib.Path('madsc_kesif/gecmis.json').read_text())['history']
+          due += sum(key not in state and record.get('successful_runs', 0) > 0 for key, record in history.items())
           print(f'Zamani gelen eksik deneme: {due}; bitmis kayitlar atlandi.')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write(f'due={due}\n')
