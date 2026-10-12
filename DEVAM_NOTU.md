@@ -76,3 +76,7 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 - Güncel YEDEKLER 9. kayıt M2O TV DJ STATION 720P HD olarak doğrulandı. İtalya m2o TV için iptv-org/Wikimedia'daki m2o 2019 markalı PNG adresi kullanıldı; yayın üstü amblem ve İsveç IBO cihaz görünümü henüz doğrulanmadı.
 - Kullanıcının açık talimatıyla yalnız bu kayıt YEDEKLER'den çıkarılıp aynı akış URL'si/ID/isim/kaliteyle MÜZİK ve HEPSİ sonuna eklendi. YEDEKLER 20→19, MÜZİK 33→34, HEPSİ 374→375. Önceki Hepsi sıralaması, ilk 90 ve favoriler değişmedi.
 - CALISANLAR.m3u commit: 6f0dcfc3714feb5d54fa6db081f34d28f0a83803. Önceki MTürk logo düzeltmesi ve Ton TV Yerel kararı zaten yapılmıştı; tekrar uygulanmadı. Kullanıcıdan IBO'da logo/akış görünümü beklenir.
+
+## 12 Ekim — yeni sohbet, kullanıcı onaylı hızlandırma adımı
+- Kullanıcı mevcut testleri tekrar etmeden 11 geliştirmede kalan işleri ilerletmeyi istedi. İlk adım olarak yalnız okuyan `tools/guncel_test_durum_ozeti.py` eklendi (commit `4440942728890237ec0c5e0b3a5a727b3fe58dba`), GitHub'dan tekrar okunarak doğrulandı. İki mevcut summary dosyasını birleştirir; snapshot zamanlarını ve URL/kanal ayrımını açıkça yazar; test başlatmaz, playlist değiştirmez. Actions üzerinde çalıştırılması henüz doğrulanmadı.
+- Sıradaki işler: birleşik raporu otomatik Actions artifact akışına güvenli bağlama, aylık geniş tarama modunu ayrı ve tekrarsız uygulama, güncel Actions durumunu doğrulama. Tamamlanmış üçlü ve final testleri tekrar edilmez; 6 saat sınırı korunur.
