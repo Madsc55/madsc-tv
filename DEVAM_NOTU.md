@@ -1,7 +1,7 @@
 # MADSC TV — güncel devam notu
 
 ## SOHBET DEVRİ
-Güncelleme: 12 Ekim 2026, Stockholm 19:57. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
+Güncelleme: 12 Ekim 2026, Stockholm 20:18 sonrası. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
 
 ## Kesin kurallar
 - Ana liste/YENİLER, favoriler ve Hepsi'nin korunacak ilk 90 sırası, korunan yedekler yalnız açık kullanıcı izin kapsamında değişir.
@@ -22,7 +22,7 @@ Güncelleme: 12 Ekim 2026, Stockholm 19:57. Yeni sohbet önce bu dosyayı, AGENT
 
 ## Tekrarlanmayacak tamamlanan işler
 Sabah 10:30–14:30 Stockholm: 55 commit, 10 başarılı Actions. İlk 39 final testi ve verilmiş kimlik kararları, kategori taşıma/sıralama, Öncü/Kanal15/Manas Sinema taşıması, logo değişiklikleri ve EPG Pages bağlantısı yapılmış. Ayrıntılar geçmiş dosyasında.
-Yedekler son liste snapshot'ında TRT1 ve DHA; SAT7 Türk üç kalite etiketli URL Hepsi/Dini. Gerçek çözünürlük kanıtı eksik etiketler ayrı ele alınır.
+Kullanıcının 20:18 talimatıyla ayrı bulunan 21 aday YEDEKLER'e eklendi; TRT1 ve DHA ilk iki kayıt olarak korundu. YEDEKLER toplam 23 kayıt. Bunlar cihaz/kimlik onayı bekleyen adaylardır; yabancı kanallar ve zaman aşımı sonucu olan Az TV de kullanıcı incelemesi için dahil.  SAT7 Türk üç kalite etiketli URL Hepsi/Dini. Gerçek çözünürlük kanıtı eksik etiketler ayrı ele alınır.
 
 ## Sıradaki işler — yalnız eksik kapsam
 1. 252 eksik denemenin zamanı geldiğinde mevcut üçlü akış; geçmiş denemeler korunur.
@@ -51,3 +51,6 @@ Her mesaj değil; önemli karar, tamamlanan iş veya doğrulanmış sonuç sonra
 
 ## Yeni sohbet cümlesi
 Mahmut, Madsc55/madsc-tv içindeki DEVAM_NOTU.md'nin SOHBET DEVRİ bölümünü, AGENTS.md'yi ve güncel Actions/raporları oku. Kaldığımız yerden devam et; tamamlananları tekrarlama, korunan listelere ve dolu logolara izinsiz dokunma.
+
+## Son izinli ekleme
+21 ayrı adayın URL'si mevcut ana dosyada yoktu; her biri yalnız YEDEKLER'e bir kez eklendi. Aynı URL'li 11 mevcut kayıt ve aynı isimli 7 alternatif bu talimat kapsamında yeniden eklenmedi. Mevcut 1029 kayıt, ad/ID/logo/URL/sıra korunarak bırakıldı; yalnız YEDEKLER grup sayacı 2→23 güncellendi. Dış yedekler/YENİLER/favoriler değişmedi. İsimler ve teknik/görsel durumlar: raporlar/YEDEKLERE_EKLENEN_ADAYLAR_2026-10-12.json. Logo kaynağı kesin olmayan yeni kayıtlarda boş alan kullanıldı; uydurma logo eklenmedi. Gerçek kalite etiketi mevcut ffprobe ölçümüne dayanır, IBO kalite/çalışırlık onayı değildir.
