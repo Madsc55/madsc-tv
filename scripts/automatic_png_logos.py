@@ -60,11 +60,13 @@ def main():
     lines = raw.splitlines(keepends=True)
     missing = [i for i,line in enumerate(lines) if line.startswith('#EXTINF') and
                not re.search(r'tvg-logo="[^"\s][^"]*"',line)]
-    if not missing:
-        print(json.dumps({'missing_logo_entries':0,'filled':0,'existing_logos_changed':0}))
-        return
-    channels = download_json('channels')
-    logos = download_json('logos')
+    audit_path = ROOT / 'logo_deneme/rapor.json'
+    audit = json.loads(audit_path.read_text()) if audit_path.exists() else {'entries':[]}
+    problems = [r for r in audit['entries'] if r['status'] not in ('IMAGE_OK','SVG_XML_OK')]
+    config_path = ROOT / 'logo_deneme/verified_sources.json'
+    verified = json.loads(config_path.read_text()) if config_path.exists() else {}
+    channels = download_json('channels') if missing else []
+    logos = download_json('logos') if missing else []
     by_id = {c['id']:c for c in channels}
     by_name = {}
     for channel in channels:
@@ -95,7 +97,12 @@ def main():
         results = list(pool.map(convert, urls))
     replacements = {old:new for old,new,status in results if status in ('png_ready','already_local')}
     for i,options in selected.items():
-        url = next((url for url in options if url in replacements), None)
+        # Exact names alone do not prove the on-air artwork. Require a saved review.
+        label = lines[i].rsplit(',',1)[-1].strip()
+        review = verified.get(label, {})
+        url = next((url for url in options if url in replacements and
+                    review.get('source') == url and review.get('visual_match') is True and
+                    review.get('png_sha256') == hashlib.sha256((ROOT/'logos/auto'/replacements[url].rsplit('/',1)[-1]).read_bytes()).hexdigest()), None)
         if url is None:
             continue
         if 'tvg-logo="' in lines[i]:
@@ -112,7 +119,9 @@ def main():
     report = {'missing_logo_entries':len(missing),'unresolved':unresolved,'unique_logos':len(urls),'png_ready':sum(s=='png_ready' for _,_,s in results),
         'already_local':sum(s=='already_local' for _,_,s in results),
         'failed':sum(s not in ('png_ready','already_local') for _,_,s in results),
-        'identity':'Existing logos untouched; new artwork matched by exact channel ID or unique exact name.',
+        'identity':'Existing logos untouched; automatic insertion requires a saved visual review and unchanged PNG hash.',
+        'problem_channels':[{'name':r['name'],'status':r['status'],'http':r.get('http'),'visual_match':'NOT_VERIFIED'} for r in problems],
+        'pending_visual_review':[lines[i].rsplit(',',1)[-1].strip() for i in missing if not re.search(r'tvg-logo="[^"\s][^"]*"',lines[i])],
         'results':[{'source_sha256':hashlib.sha256(u.encode()).hexdigest(),'png':n if s in ('png_ready','already_local') else None,'status':s} for u,n,s in results]}
     (ROOT/'logo_deneme/png_automation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in report.items() if k!='results'}))
