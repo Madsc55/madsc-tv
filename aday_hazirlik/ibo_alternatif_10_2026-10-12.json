@@ -2,7 +2,7 @@
   "snapshot_time": "2026-10-12T07:39:03.200429+00:00",
   "count": 10,
   "playlist_changed": false,
-  "status": "Three 30-second decode passes only; broadcaster identity, sustained playback and actual Sweden IBO device playback not yet confirmed.",
+  "status": "SUPERSEDED_AFTER_IMAGE_IDENTITY_REVIEW",
   "channels": [
     {
       "name": "ATV",
@@ -267,5 +267,13 @@
     "Check sustained video/audio without freezing.",
     "Check actual IBO Player Pro device/version in Sweden; TV result cannot be inferred from GitHub."
   ],
-  "development_gate": "11 improvements and schedule changes remain deferred until required verification is complete."
+  "development_gate": "11 improvements and schedule changes remain deferred until required verification is complete.",
+  "corrected_list_count": 3,
+  "corrected_list_names": [
+    "ADA TV",
+    "KANAL D",
+    "SAT 7 TÜRK"
+  ],
+  "corrected_list_path": "aday_hazirlik/ibo_kimlik_destekli_2026-10-12.m3u",
+  "warning": "Original ten-name candidate list is not a verified Turkey alternative list. Foreign and unsupported name collisions were removed after actual image inspection; prior entries retained here as history only."
 }
