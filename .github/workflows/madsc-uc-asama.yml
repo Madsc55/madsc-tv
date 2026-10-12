@@ -35,6 +35,11 @@ jobs:
           due = sum(eligible(record, now) for record in state.values())
           history = json.loads(pathlib.Path('madsc_kesif/gecmis.json').read_text())['history']
           due += sum(key not in state and record.get('successful_runs', 0) > 0 for key, record in history.items())
+          from madsc_akilli_kesif import key
+          review_path = pathlib.Path('madsc_genis_tarama/candidate_review.json')
+          if review_path.exists():
+              review = json.loads(review_path.read_text())['candidates']
+              due += sum(key(record['url']) not in state and key(record['url']) not in history for record in review.values() if record.get('status') == 'IDENTITY_REVIEW_REQUIRED_NOT_TESTED')
           print(f'Zamani gelen eksik deneme: {due}; bitmis kayitlar atlandi.')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write(f'due={due}\n')
