@@ -1,0 +1,32 @@
+name: MADSC - IBO EPG Kimlik Denetimi
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/ibo-epg-kimlik-denetimi.yml'
+permissions:
+  contents: read
+jobs:
+  read_only_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python syntax validation
+        run: python3 -m py_compile scripts/ibo_epg_kimlik_denetimi.py
+      - name: Validate playlist versus existing five-channel IBO XMLTV pilot
+        run: |
+          python3 scripts/ibo_epg_kimlik_denetimi.py --playlist CALISANLAR.m3u --xmltv epg/ibo-test-epg.xml --output "$RUNNER_TEMP/ibo_epg_identity_audit.json"
+          python3 - "$RUNNER_TEMP/ibo_epg_identity_audit.json" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1],encoding="utf-8"))
+          for k in ("playlist_entries","xmltv_channels","xmltv_programmes","matching_entries_with_programmes"):
+              assert d[k]>0,(k,d[k])
+          print(json.dumps({k:v for k,v in d.items() if not isinstance(v,list)},ensure_ascii=False,indent=2))
+          PY
+      - name: Upload read-only audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ibo-epg-identity-audit
+          path: ${{ runner.temp }}/ibo_epg_identity_audit.json
+          retention-days: 14
