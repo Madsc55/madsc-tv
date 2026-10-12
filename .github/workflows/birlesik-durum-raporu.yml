@@ -1,0 +1,26 @@
+name: "MADSC - Birlesik Salt Okunur Durum Raporu"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "40 6,18 * * *"
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Generate combined status without starting any stream tests
+        run: python tools/guncel_test_durum_ozeti.py > combined-status.json
+      - name: Archive read-only snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-combined-status
+          path: combined-status.json
+          retention-days: 30
