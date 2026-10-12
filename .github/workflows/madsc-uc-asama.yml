@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/madsc-uc-asama.yml'
+      - 'verification_pipeline.py'
   schedule:
     - cron: '17 * * * *'
 permissions:
