@@ -45,7 +45,7 @@ Bu rakamlar kategori kayıtlarıdır; benzersiz çalışan kanal sayısı değil
 ## Kurulu takvim (GitHub cron UTC; Stockholm yaz/kış saatine göre değişir)
 - Logo bakım: 05:23 ve 17:23 UTC; main playlist/script/workflow değişince push tetiklenir.
 - EPG günlük: 03:25 UTC; başarılı tamamlanınca Pages yayın.
-- Birleşik keşif: mevcut cron her 15 dakika; bekleyen yeni aday varsa devam tetikler. Aylık kapsamlı / günde iki yeni keşif kararına henüz dönüştürülmemiş.
+- Birleşik keşif: 06:00 ve 18:00 UTC; yalnız yeni URL adayları. Tek otomatik devam yolu birleşik keşif akışının son adımında; ayrı tamamlanma akışı artık tur başlatmaz.
 - Üç aşamalı doğrulama: her saat :17; en fazla 240 uygun URL, 12 eşzamanlı test, en az 6 saat aralık; uygun aday kalırsa otomatik devam.
 - Güvenli yeni kaynak/kanal arama: 06:00 ve 18:00 UTC; salt okunur, rapor/artifact. Bu eski farklı iş akışı yeni tekrarsız birleşik keşif takvimiyle aynı kabul edilmemeli.
 - Salt okunur kanal testi: 06:30 ve 18:30 UTC; eski MADSC_TV_47_LISTE_ADAY.m3u üzerinde çalışır, güncel ana listedeki her kanalı test ettiği iddia edilmez.
@@ -78,3 +78,11 @@ Mahmut, Madsc55/madsc-tv içindeki DEVAM_NOTU.md dosyasını ve güncel Actions/
 - Kamusal HTTPS logo kaynakları hazırlanır; kimlik bilgili veya sorgu parametreli kaynaklar indirilmeden incelemeye ayrılır. Yayın URL'leri bu yeni logo raporuna yazılmaz. PNG hazırlanması gerçek amblem veya kullanıcı onayı değildir.
 - Yerel ağsız kontroller geçti: ayrı çıktı, onaysız durumlar, eksik/kısıtlı kaynak ayrımı, önbellek ve bozuk dosya yeniden hazırlama. GitHub Actions çalışması henüz doğrulanmadı.
 - 326 adayın kalan doğrulaması, tüm adayların son kontrolü, cihaz/EPG doğrulaması ve takvim düzenlemesi açık kalır. Tamamlanan kanal taşıma ve sıralamalar tekrarlanmayacak.
+
+## 12 Ekim 2026 — gereksiz tekrar düzeltmesi
+- İki devam tetikleyicisinden ayrı workflow_run tetiklemesi kaldırıldı; rapor kaydı sonrası kalan yeni aday sayısını okuyan tek yol korundu.
+- Her 15 dakikalık keşif yerine günde iki keşif (06:00/18:00 UTC).
+- Ana liste sağlık kontrolü artık üç başarılı kontrolü tamamlanan kayıtları ve son kontrolü üzerinden altı saat geçmeyenleri atlar. Geçersiz tarih yeniden test nedeni sayılmaz.
+- Keşif geçmişi bozuk veya okunamazsa sistem geçmişi sıfırlayıp yeniden taramaz; durur.
+- Yerel kontrol: tamamlanmış, yakın zamanda denenmiş, zamanı gelmiş ve geçersiz tarihli kayıt senaryoları geçti. Yeni Actions sonucu henüz doğrulanmadı.
+- Ana liste, mevcut logolar, YENİLER, favori sıraları ve yedek dosyaları bu düzeltmede değiştirilmedi.
