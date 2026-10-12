@@ -1,0 +1,221 @@
+{
+  "created": "2026-10-12",
+  "state_blob": "c3ad6fdea2b8b87f2e75904cff2f2212bfc326a5",
+  "playlist_blob": "b32b887e982d66357c8f379dc385e0fb1d1cf6a5",
+  "cohort": "Only previously completed three-pass records; pending 293 excluded.",
+  "duration_seconds": 300,
+  "scope": "First priority batch, not all 6436 candidate URLs. Remaining candidates retain their prior results.",
+  "candidates": [
+    {
+      "label": "KN Music TV",
+      "url": "https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "KNMusicTV.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Ayaz TV (720p)",
+      "url": "https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "AyazTV.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Az TV (1080p)",
+      "url": "https://str.yodacdn.net/azertv/index.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "AzTV.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Azad TV (1080p)",
+      "url": "https://lives.atv.az:5443/ATV_TV_STREAM/streams/atvcanli.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "AzadTV.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Kanal 35 (720p)",
+      "url": "https://str2.yodacdn.net/kanal35/index.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "Kanal35.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Kanal S",
+      "url": "https://lives.atv.az:5443/KANAL-S/streams/kanals.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "KanalS.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Naxcivan TV (720p)",
+      "url": "https://str2.yodacdn.net/ntv/video.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "NaxcivanTV.az@SD",
+      "country": "az"
+    },
+    {
+      "label": "Az Star TV (1080p)",
+      "url": "https://live.livestreamtv.ca/azstar/amlst:azstar/playlist.m3u8",
+      "reason": "Turkey/Azerbaijan source URL match",
+      "source_id": "AzStarTV.ca@SD",
+      "country": "az"
+    },
+    {
+      "label": "DOST TV",
+      "url": "http://dost.stream.emsal.im/tv/live.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "360",
+      "url": "https://cdn-evacoder-tv.facecast.io/evacoder_hls_hi/CkxfR1xNUAJwTgtXTBZTAJli/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "A2 4",
+      "url": "http://138.59.227.20:8000/play/a05u/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "ADA TV",
+      "url": "https://live-evg10.tv360.bitel.com.pe/bitel/alasdeaguilaSRT/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "ATV",
+      "url": "http://190.93.224.42/ATV/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "BabyFirst",
+      "url": "http://168.196.127.137:6001/play/a06j/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "DMAX",
+      "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "DMAX",
+      "url": "http://5.180.164.197:8080/DMAX/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "ES TV (720p)",
+      "url": "https://cloudfront44.lexanetwork.com:1344/relay44_1/HDE040.sdp/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "KANAL D",
+      "url": "https://stream1.kanald.ro/iphone/knd-live.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "KANAL D 2",
+      "url": "https://stream2.kanald.ro/iphone/knd2-live.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "Life TV (720p)",
+      "url": "https://lifetv.bitflip.ee/live/stream1.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "Life TV (720p)",
+      "url": "https://lifetv.livebox.co.in/lifetvhls/lifetv.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "Life TV (720p)",
+      "url": "https://lifetv.mpks.sk/s.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://sunplay-cdn.bitratelabs.com/live/local-channel/ntv-e3d4300b49c8c901e9339174215d7580/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://2-fss-1.streamhoster.com/pl_122/201748-1431018-1/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://cdn.livespanel.com/nossatv/nossatv/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://tvsen5.aynaott.com/xV4jEKf3D9zc/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://2-fss-1.streamhoster.com/pl_122/201748-1431018-1/chunklist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "POWER TV",
+      "url": "http://92.114.85.87:8010/play/a00k/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "POWER TV",
+      "url": "https://cdn.pishow.tv/ott/live/247/master.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "SAT 7 TÜRK",
+      "url": "https://svs.itworkscdn.net/sat7turklive/sat7turk.smil/playlist_dvr.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "Stingray Naturescape",
+      "url": "https://d39g1vxj2ef6in.cloudfront.net/v1/master/3fec3e5cac39a52b2132f9c66c83dae043dc17d4/prod-rakuten-stitched/master.m3u8?ads.xumo_channelId=88883056",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "TLC",
+      "url": "http://stream.mcquack.net/168/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "TV100",
+      "url": "https://gwebstream.net/hls/master.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "TV4",
+      "url": "https://cdn3.wowza.com/5/UWpORHhLSEs5SkJs/bullheadcity/G0860_002/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "TV8",
+      "url": "http://109.74.145.11:1935/tv8/mp4:tv8.stream_360p/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "TVNET",
+      "url": "https://player.tvnet.lv/stream/amlst:61659/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://dash4.antik.sk/live/test_ntv_tizen/playlist.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "NTV",
+      "url": "https://protokolldns.xyz/ntv.l.i.v.e5547892023/index.m3u8",
+      "reason": "Existing playlist name match; station identity not yet confirmed"
+    },
+    {
+      "label": "CGTN Documentary (1080p)",
+      "url": "https://hlspackager.akamaized.net/live/DB/CGTN_DOCUMENTARY/HLS/CGTN_DOCUMENTARY.m3u8",
+      "reason": "Requested catalogue research name; identity still requires review"
+    }
+  ]
+}
