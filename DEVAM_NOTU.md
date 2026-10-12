@@ -109,3 +109,11 @@ Tamamlanan aşağıdaki işler yeniden uygulanmayacak:
 - 13:04: EPG günlük güncelleme ve Pages yayımlama başarılı. Beş kanallık pilot daha önceden hazırlanmış; yeniden sıfırdan kurma yok, yalnız güncellik/eşleşme/saat kontrolü ve cihaz görünürlüğü eksik.
 - 12:29–12:33: 326 ek adayın ara denemeleri kaydedildi (293 iki, 33 bir deneme); bunların yalnız eksik denemeleri devam eder.
 Açık kalan: 15 öncelikli kimlik incelemesi ve yeni adayların kimliği, 326 adayın eksik denemeleri, ilk 39 dışındaki final kontroller, kanıtı eksik kalite/logo bilgileri, güncel EPG cihaz onayı, 11 geliştirme planının madde bazlı mevcut uygulama denetimi ve aylık geniş tarama takvimi. Günde iki keşif/tek devam/tekrar koruması akşam zaten düzeltildi.
+
+## 12 Ekim 19:30 sonrası — EPG pilotu ve geliştirme envanteri
+- Beş kanallık ayrı EPG pilotu güncel kaynakla yenilendi. Ana liste/üretim EPG değiştirilmedi.
+- Kaynak XMLTV'de gece yarısına geçen programların stop tarihi aynı güne yazılmıştı. Aynı tarih/saat dilimindeki akşam → gece aralığı, en çok 12 saat koşuluyla sonraki güne yorumlanıyor; kaynak ilk değerleri ve yorumun bağımsız yayın akışı doğrulaması olmadığı source_time_repairs alanında açıkça korunuyor. Üç tarih kuralı testi geçti.
+- Yenileme anında beş kanalın XML kimliği/güncel program/saat/çakışma kontrolleri geçti. IBO görünürlüğü NOT_VERIFIED; yayın sürekliliği tekrar test edilmedi. Kapsam sonları raporda; pilot kalıcı tam gün rehberi değildir.
+- 11 geliştirme madde bazında mevcut kodla karşılaştırıldı: raporlar/GELISTIRME_11_DURUM_2026-10-12.md. Var olan araçlar yeniden kurulmadı, eski testler yeniden çalıştırılmadı.
+- Üçlü kontrolün ilk sürdürme turu 240 aday işledi; yeni keşif geçmişinden 219 aday daha state'e girdi. 17:25 UTC snapshot toplam 6981, tamamlanmış eski 6436, o anda 305 uygun ve 240 altı saat bekleyen kayıt. Bu toplamı önceki 326'nın tamamlanması diye sunma.
+- Son kontrol #2 ve üçlü #89 çalışıyor; kuyruktaki son kontrol #4 aynı sonuçlar bitince güncel main üzerinden atlama yapacak. Kuyrukta değiştirilen eski bekleyen runlar cancelled görünebilir; terminal kanalların başarısız olduğu anlamına gelmez.
