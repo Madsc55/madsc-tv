@@ -1,5 +1,34 @@
 # MADSC TV — kaldığımız yer / devam notu
 
+## SOHBET DEVRİ — önce bu bölümü oku
+Kayıt: 12 Ekim 2026, Stockholm 19:36 civarı. Yeni sohbet bu kontrol noktasından başlar; aşağıdaki eski tarihli bölümler geçmiş kaydıdır. Güncel repo/Actions raporları bu özetten daha yeniyse onlar esas alınır.
+
+### Son doğrulanmış durum
+- Üçlü test: 6981 URL; 6729 üç denemesini tamamladı; 6028 3/3 geçiş. 252 kayıt altı saat bekliyor; rapor anında uygun aday 0. Kaynak: madsc_dogrulama/summary.json (2026-10-12T17:35:46.935099+00:00). URL sayısı kanal sayısı değildir.
+- Son kontrol: 63 sonuç korunuyor (ilk 39 + yeni 24). Dağılım: 48 teknik geçiş/kimlik bekliyor, 10 içerik incelemesi, 2 süreklilik başarısız, 3 zaman aşımı. Kaynak: madsc_son_kontrol/summary.json (2026-10-12T17:35:45.680210+00:00). Bu final kuyruk sayısı snapshot'tır; yeni tamamlanan üçlü kayıtlarla artabilir.
+- Beş kanallık ayrı EPG pilotu 12 Ekim yenilendi. Kaynak gece yarısı tarih yorumları raporlandı; IBO cihaz görünürlüğü onaylanmadı.
+- 11 geliştirme için mevcut uygulama/eksik envanteri: raporlar/GELISTIRME_11_DURUM_2026-10-12.md.
+- Sabah 10:30–14:30 tamamlanan işler denetlendi: 55 commit/10 başarılı Actions. Eski testleri, kanal taşımalarını, sıralamaları veya verilmiş kimlik kararlarını tekrar yapma.
+
+### Sıradaki işlem
+1. Güncel Actions ve iki test summary/state dosyasını oku. Tamamlananları atla; yalnız eksik ve zamanı gelmiş denemeler.
+2. İlk 39'daki 15 açık kimlik incelemesi ve yeni final görüntülerini değerlendir; daha önce incelenen 36 görüntü/20 ret kararını koru. ADA/Kanal D için kullanıcı reddi ilk görsel destekten üstündür.
+3. Gerçek IBO/EPG görünürlüğü ve hız bilgisi için cihaz sonucu gerekir; otomatik onay yazma.
+4. 11 planın yalnız kayıtlı eksik kapsamı, kanıtı eksik kalite/logo bilgilerinin hazırlığı ve aylık tarama modu.
+5. Ana liste, dolu logolar, YENİLER, favori sıraları ve korunan yedeklere izinsiz değişiklik yok.
+
+### Sohbet dolmadan kayıt kuralı
+- Her önemli işlem/test sonucu/kullanıcı kararı sonrası bu güncel bölüm yenilenir; commit ve run URL/ID'si, test zamanı, kanıt durumu ve sıradaki somut iş yazılır.
+- Kullanıcı “devam notunu kaydet”, “sohbet doluyor” veya “yeni sohbet açacağım” dediğinde önce güncel dosya kaydedilir; kaydetme başarısı doğrulanmadan “kaydedildi” denmez.
+- Sohbet uzadığında tamamlanan iş bloğunun sonunda kısa “devam notu kaydedildi” bilgisi verilir. Kesin sohbet kapasitesi/kalan mesaj sayısı görünmediği için dolmadan belirli bir eşikte uyarı garantisi verilmez.
+- Limit veya iletişim hatası olursa son kalıcı kontrol noktasına dön; sohbetten kaybolan yanıtı işlemin tamamlandığının kanıtı sayma.
+- Yeni sohbet eski belleğe dayanarak işlem başlatmaz: bu dosya + güncel kaynaklar okunur, bir kez tamamlanan/eksik ayrımı yapılır.
+- Gereksiz tekrar veya sırf devir için test/kanal taraması başlatma.
+
+### Yeni sohbete yapıştırılacak cümle
+Mahmut, Madsc55/madsc-tv deposundaki DEVAM_NOTU.md dosyasının SOHBET DEVRİ bölümünü, AGENTS.md kurallarını ve güncel Actions/raporları oku. Kaydedilmiş kaldığımız yerden devam et; tamamlanan işleri tekrarlama, korunan listelere ve dolu logolara izinsiz dokunma.
+
+
 Güncelleme: 12 Ekim 2026, İsveç 17:26 sonrası.
 Bu not GitHub main dosyaları, commitler ve Actions kayıtlarından yeniden oluşturuldu. Kaybolduğu bildirilen sohbetin tam metni bulunamadı; kaydedilmemiş son talimatlar bilinmiyor. Eski raporlar yerine bu snapshot ve gelecekteki güncel kaynaklar esas alınmalı.
 
