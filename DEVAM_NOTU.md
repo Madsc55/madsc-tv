@@ -1,3 +1,6 @@
+## 12 Ekim 2026 - Uc asama hata duzeltmesi
+Kullanici kirmizi Actions ekranini paylasti. Run 38303499979 job 114991848830 logunda verification_pipeline.py line 40 IndentationError goruldu: kod icinde gercek satir sonu yerine literal ters-bolun-n yazilmisti. verification_pipeline.py duzeltildi (66541b4), uc asama workflow push tetikleyicisine verification_pipeline.py eklendi (90f999f). Yeni Actions run 38303727064 ilk kontrolde QUEUED; basarili oldugu henuz teyit edilmedi. Playlist ve eski test kayitlari degistirilmedi.
+
 ## 12 Ekim 2026 - Genis tarama ile uc asamali test baglantisi
 Kullanici onayi ile verification_pipeline.py genis kaynak aday kaydini okuyup sadece madsc_dogrulama/state.json icinde bulunmayan URL'leri mevcut uc denemeli kuyruge alacak bicimde guncellendi (ec3640f). madsc-uc-asama.yml due kontrolune yeni aday sayimi eklendi (e892c67). madsc-genis-kaynak-kontrol.yml kaynak raporunu kaydettikten sonra uc asama workflow_dispatch baslatacak bicimde guncellendi (8d88ee8). Testler arasinda mevcut 6 saat kosulu ve biten 3 denemeyi tekrar etmeme kurali korunur. Playlistler, YENILER, favoriler, yedekler ve kimlik onayi degismedi. Bu commitlerin Actions uzerinde basarili calismasi henuz teyit edilmedi; kullanicinin IBO cihaz testi ayridir.
 
