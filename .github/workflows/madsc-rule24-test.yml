@@ -1,0 +1,20 @@
+name: MADSC - Rule 24 Circuit Breaker Test
+on:
+  push:
+    paths:
+      - 'tools/workflow_failure_gate.py'
+      - 'test_workflow_failure_gate.py'
+      - '.github/workflows/madsc-rule24-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify fail-chain gate
+        run: python3 -m unittest test_workflow_failure_gate -v
