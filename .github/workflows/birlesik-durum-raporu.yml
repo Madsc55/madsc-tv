@@ -9,6 +9,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "40 6,18 * * *"
+    - cron: "10 5 * * 1"
+    - cron: "10 5 1 * *"
 permissions:
   contents: read
 jobs:
@@ -26,6 +28,8 @@ jobs:
         run: python tools/guncel_test_durum_ozeti.py > combined-status.json
       - name: Report missing Turkish channel targets without retesting
         run: python tools/eksik_turk_kanal_takibi.py > missing-turkish-channels.json
+      - name: Audit 155-source inventory without fetching streams
+        run: python tools/kaynak_kapsam_denetimi.py > source-inventory-audit.json
       - name: Archive read-only snapshot
         uses: actions/upload-artifact@v4
         with:
@@ -33,4 +37,5 @@ jobs:
           path: |
             combined-status.json
             missing-turkish-channels.json
+            source-inventory-audit.json
           retention-days: 30
