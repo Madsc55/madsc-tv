@@ -13,7 +13,8 @@
   "limits": [
     "Single-frame wordmark support is not exact regional-feed or language proof.",
     "Old accepted/rejected decisions are unchanged; user rejection of ADA/Kanal D overrides earlier support.",
-    "No playlist, existing logo, favourite order or backup modified."
+    "No playlist, existing logo, favourite order or backup modified.",
+    "Same-name matches are provisional, not proof of the same station. Some separate candidates are foreign channels."
   ],
   "results": [
     {
@@ -26,7 +27,10 @@
       "frame_sha256": "4de729e50cc5d1b9ccc70bc9f21798c1b3eb90c375bd43f29aa48d4708381736",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "4ffce77137390c746d01",
@@ -38,7 +42,10 @@
       "frame_sha256": "369cbfd40e80d4c2581c9c814a327e9044ca8387cc401842a999f0adb053b957",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "857a37fbbf11f2b9c59d",
@@ -50,7 +57,10 @@
       "frame_sha256": "08eeeefc484a9286e505054ca44d61c92e536fa94e29dfc581a31f280ac403be",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "bf7bfb4c3be725366e3d",
@@ -62,7 +72,15 @@
       "frame_sha256": "b185f99e0626011d23a7ef79f2cc7506a5c6c8d7539dfdc53d8556b5400d8be0",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "KANAL S 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "0b1435b9d40033704026",
@@ -74,7 +92,15 @@
       "frame_sha256": "aff474db6cf7b448514fb0cfcc7609bffe751cec3e0d4267d5d55baace1f59e8",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "AZAD TV 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "4d29a66f1bde786331a4",
@@ -86,7 +112,15 @@
       "frame_sha256": null,
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "A2 4 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "b8de79a6dfb39370e91a",
@@ -98,7 +132,16 @@
       "frame_sha256": "38492d70a394b16369b8b474dbce99257a34917c9852bcb1f7cb3a8d66cb9722",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "AYAZ TV 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "🎧 MÜZİK (33)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "09cbd8340efc2ad2de3e",
@@ -110,7 +153,10 @@
       "frame_sha256": null,
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "443ebfb47ededc054bda",
@@ -122,7 +168,15 @@
       "frame_sha256": "d23d75758d063cc02d54fc29b76c3e115277226962c84fdb12a78aca009b9605",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "DOST TV 576P SD"
+      ],
+      "main_groups": [
+        "📺 HEPSİ (371)",
+        "🕌 DİNİ (17)"
+      ]
     },
     {
       "candidate_id": "b40a044a700aa54076e4",
@@ -134,7 +188,16 @@
       "frame_sha256": "5b37304365bf7900c437ad2f0e7dfaa54091cd4f01a35ec6b33929bb85833e6c",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "BABYFİRST 360P"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)",
+        "🧸 ÇOCUK (20)"
+      ]
     },
     {
       "candidate_id": "f2bcf8a08de48841a9f1",
@@ -146,7 +209,16 @@
       "frame_sha256": "4f9402c4d302df105a07b27228d02c89a28a50e321569971d0c5426350119961",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "DMAX 1080P FHD"
+      ],
+      "main_groups": [
+        "⭐ FAVORİLER (65)",
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "e6624a0d96993d334036",
@@ -158,7 +230,15 @@
       "frame_sha256": null,
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "LİFE TV 720P"
+      ],
+      "main_groups": [
+        "📍 YEREL (70)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "88f43297a64f60ec03a5",
@@ -170,7 +250,16 @@
       "frame_sha256": "54c4261fba3fa2395c9ed18b58bbfe794725cffb442e4694d526c40a432f9a56",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "STINGRAY NATURESCAPE 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "🌍 BELGESEL (12)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "b285cc321125a8b0fbb2",
@@ -182,7 +271,18 @@
       "frame_sha256": "5f22bbdd8a6ceb98de06621addcd6187123f092704faaa4e42c8996479742e8a",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED",
+      "main_names": [
+        "TLC 1080P FHD",
+        "TLC 720P HD"
+      ],
+      "main_groups": [
+        "⭐ FAVORİLER (65)",
+        "⭐ FAVORİLER 1 (61)",
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "829555d86adb1ac415d4",
@@ -194,7 +294,10 @@
       "frame_sha256": "debb24f55320c702f641293647feb379ae41a1f491048c98a7c5709a005cdb9a",
       "artifact_id": 11737801831,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "28e9ccd0f085cd3630d2",
@@ -206,7 +309,10 @@
       "frame_sha256": "eff51f4d094481dd7c2b066024edcaf7d0c98ee5cc4d097630e5acaaea0c1094",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "c1d00cbce979f7e40f06",
@@ -218,7 +324,15 @@
       "frame_sha256": "f08c5b37714bbd70b4a55b7793b7845a5aabc46d802f5397a7bd036943f249f3",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "EUROSPORT 1 TURKİYE 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "a607efbc3d033688bf01",
@@ -230,7 +344,15 @@
       "frame_sha256": "b6dc5ec32be180846d948b77e94e49646ae9fd0efa69968930828f137995163d",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "PERSİANA TURKİYE 720P HD"
+      ],
+      "main_groups": [
+        "📍 YEREL (70)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "fa0bd0f749e96d1e2bf6",
@@ -242,7 +364,15 @@
       "frame_sha256": "fad869993060c3bfafc70608e01f6a52f0db2c010bd15f723aace07810995447",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "EUROSPORT 2 TURKİYE 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "82639b2aaf7787df72a7",
@@ -254,7 +384,15 @@
       "frame_sha256": "94fc57d491124bb7fef0dadc285b5891fb1e5e09743c8fd2025a12e435c99346",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "IMAM HUSSEİN TV 5 720P HD"
+      ],
+      "main_groups": [
+        "📺 HEPSİ (371)",
+        "🕌 DİNİ (17)"
+      ]
     },
     {
       "candidate_id": "a087b12df5a2eefda643",
@@ -266,7 +404,15 @@
       "frame_sha256": "dc5358313a356308115de6d744d1d3fcd26f05d386631ccfca83546b1a787202",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "GUNAZ TV 1080P FHD"
+      ],
+      "main_groups": [
+        "📍 YEREL (70)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "7845108477e143b3e3fd",
@@ -278,7 +424,16 @@
       "frame_sha256": "c72bfce8d6b1bde5adfef02fb4cb9820cc34cdf00d9047d970fa81833768dd17",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "LOVE NATURE HD 1080P FHD"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "🌍 BELGESEL (12)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "91a7270a752e65fcc5b6",
@@ -290,7 +445,16 @@
       "frame_sha256": null,
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "BABYFİRST 360P"
+      ],
+      "main_groups": [
+        "🇹🇷 ULUSAL (281)",
+        "📺 HEPSİ (371)",
+        "🧸 ÇOCUK (20)"
+      ]
     },
     {
       "candidate_id": "69a8bb5fe41db0e9ed98",
@@ -302,7 +466,10 @@
       "frame_sha256": "f26ef78322779f3af987e475320ce71c66938a94bceb7d5c15c902ea4c146bb1",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "25ce74d98642ee2b4e7f",
@@ -314,7 +481,15 @@
       "frame_sha256": "afe39f38cc8c852db994045555cf30d6a2f830da94b8f251eab00d13ddd2bc95",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "EXISTING_EXACT_URL",
+      "main_names": [
+        "MANAS TV 720P HD"
+      ],
+      "main_groups": [
+        "🎬 SİNEMA (5)",
+        "📺 HEPSİ (371)"
+      ]
     },
     {
       "candidate_id": "44c2c648e8955516bc3c",
@@ -326,7 +501,10 @@
       "frame_sha256": "a3d2795f5549d16b0fdfce39f8dbb6ce627f516987ad7881bb6229d708185cae",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "44636ab9d0674b540b36",
@@ -338,7 +516,10 @@
       "frame_sha256": "0dd063a01dd0497898cba4e4f9ad050c0f8c104840a18df623eb5f945ffcbcdf",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "fdb77c17d53eafe89081",
@@ -350,7 +531,10 @@
       "frame_sha256": "d08496db0f3eff251e5d291ecc0585fb4d4364a5b77c2a5b7d3dce6a7dc55930",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "3782d8567ccb18674565",
@@ -362,7 +546,10 @@
       "frame_sha256": "f2cdcc062e0c9f069641f6cfb71b3c3b6b3d2d3d5e03c18aa120d98da2db89bc",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "16f20f8d939b75154d23",
@@ -374,7 +561,10 @@
       "frame_sha256": "60284b994c9015cd93b50bc593f918ca9fb6f91d91368db0b8018b8c330bd3e6",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "105395ca9b5e6b372edc",
@@ -386,7 +576,10 @@
       "frame_sha256": "b42d76df63368adad74ef9693fdabaefc3d4e829fdb90aeca7170a3b250f5365",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "8a2283bef1b149715818",
@@ -398,7 +591,10 @@
       "frame_sha256": "5a44c52798dc1b6f74605f04cdf26696816a41ba052c78b5d3ce46b589cc4928",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "cac80497d85d81e28f95",
@@ -410,7 +606,10 @@
       "frame_sha256": "f46f8f63b9b52060bbf595b709193fe67df034a6f6554d4fd010838613cabc8c",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "e1995dd0a8605bc40c42",
@@ -422,7 +621,10 @@
       "frame_sha256": "46e865349088805d0451ed92290bce5f6ad702b8f5048de7d8c8058346296594",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "6060782530d161d5cd71",
@@ -434,7 +636,10 @@
       "frame_sha256": "14b17a494327481d11671a9336a768fd2b78877104e54f0e622f97d373516f38",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "45970c52f98de2e5c254",
@@ -446,7 +651,10 @@
       "frame_sha256": "50e920b8470209b478b8996ee1023d9c2009f3286a925fd08bea668f21098aba",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "db0cd59930c971b0b11c",
@@ -458,7 +666,10 @@
       "frame_sha256": "1d57668e05dccc6230b61a499817239de9a2f32dac660f68273ce5ccabc1fc63",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "5668c89e6b767c93ae31",
@@ -470,7 +681,10 @@
       "frame_sha256": "77716022853df39d57e709a3b77eea27593daea8391cd5346a3a55580334927e",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     },
     {
       "candidate_id": "cd6674231e8a7345fc30",
@@ -482,7 +696,16 @@
       "frame_sha256": "c9045db291bd871b15968cb977de40bdbe2207bb3d56ec6bff3293e921033ea5",
       "artifact_id": 11763325747,
       "ibo_sweden": "NOT_VERIFIED",
-      "playlist_approved": false
+      "playlist_approved": false,
+      "main_list_relation": "SEPARATE_CANDIDATE_NOT_IN_MAIN",
+      "main_names": [],
+      "main_groups": []
     }
-  ]
+  ],
+  "main_list_blob": "042b280409a99d2d19dc379cad4b4889d7c391f8",
+  "main_relation_counts": {
+    "SEPARATE_CANDIDATE_NOT_IN_MAIN": 21,
+    "EXISTING_EXACT_URL": 11,
+    "SAME_NAME_DIFFERENT_URL_IDENTITY_UNCONFIRMED": 7
+  }
 }
