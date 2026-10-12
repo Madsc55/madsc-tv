@@ -1,3 +1,6 @@
+## 12 Ekim 2026 - Haftalik ve aylik kaynak kontrolleri
+Kullanici onayiyla haftalik ek kaynak ve aylik 155 kaynak icerik-degisim denetimi kodu eklendi: tools/genis_kaynak_taramasi.py (4dc631a), zamanlama dosyasi .github/workflows/madsc-genis-kaynak-kontrol.yml (474713c). Bu yeni akis yayinin oynatilmasini veya kanal kimligini test etmez; kaynaklari okuyup SHA-256 degisimini ve M3U kayit sayisini raporlar. Haftalik hedefli ek kaynaklar, aylik 155 kaynak. Yeni workflow basarili calisma sonucu henuz dogrulanmadi. Salt okunur genel bakim araci tools/genel_sistem_bakimi.py (057a3c8) eklendi ve birlesik durum raporuna baglandi (17f2825). Ana liste, favoriler, YENILER, logolar ve test gecmisi degistirilmedi. Aday bazinda yeni kanal ayristirma, teknik test ve kimlik dogrulama bu genis tarama akisinda HENUZ YOKTUR.
+
 # MADSC TV — güncel devam notu
 
 ## SOHBET DEVRİ
