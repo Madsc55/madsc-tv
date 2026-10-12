@@ -147,3 +147,6 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 - Kullanıcı önceki 19 kuralı ve dört ek güvenlik önlemini onayladı; tüm metin `GUVENLIK_KURALLARI.md` dosyasına commit `03299eed839f87ff9b8a51e97a8001b8fc97beaf` ile kaydedildi.
 - Dört ek madde: değişiklik öncesi geri yüklenebilir yedek, keşif/testin korunan listeye yazmasını engelleme, onaylı değişiklik sonrası M3U/sıra/URL bütünlük kontrolü, kontrollü geri yükleme.
 - POLİTİKA ONAYI ≠ TEKNİK UYGULAMA: test-39 ve test-31 gerçek yazma kapısı değil. Sonraki iş otomasyonların yazma yollarını tarayıp güvenli uygulama, test ve doğrulama; ana kanal dosyaları değişmeyecek. Kullanıcı ek kural önerilerine de açık, fakat her yeni kural ayrı onay gerektirir.
+
+## 13 Ekim — 24. güvenlik kuralı onaylandı
+- Kullanıcı tekrarlanan otomasyon hatalarında güvenli durma ve hata raporu önerisini kabul etti. `GUVENLIK_KURALLARI.md` 24. maddeyle güncellendi (commit 6c56118796c299f22080b5f68f8a8ff4993f8e2a). Üç ana workflow incelendi: her birinde sınırlı git push denemesi bulunuyor; tüm koşular boyunca ortak hata sayacı/devre kesici henüz doğrulanmadı. Sıradaki iş teknik uygulama ve test; korunan kanal listeleri değişmedi.
