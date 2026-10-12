@@ -9,3 +9,5 @@ Her yeni sohbette işleme başlamadan DEVAM_NOTU.md içindeki SOHBET DEVRİ böl
 - Kullanıcı sohbet dolduğunu/yeni sohbete geçeceğini veya devir notu istediğini belirtirse önce mevcut durumu kalıcı kaydet ve sonucu doğrula. Devir için test başlatma.
 - Sohbetin kesin dolma eşiği veya kalan ChatGPT kota/mesaj/fotoğraf sayısı görünmüyorsa uydurma veya otomatik erken uyarı garantisi verme. Uzun çalışma bloklarında proaktif kısa kayıt yap.
 - Kaydetme ya da yanıt iletimi başarısızsa işlem tamamlandı varsayma; yeni sohbet son doğrulanmış kalıcı kayıttan devam eder.
+
+- Kullanıcının 13 Ekim'de onayladığı 23 maddelik koruma politikası `GUVENLIK_KURALLARI.md` dosyasındadır. Onaylı politika, ana listeyi değiştirme izni değildir. Yeni kurallar ayrıca kullanıcıya sorulur.
