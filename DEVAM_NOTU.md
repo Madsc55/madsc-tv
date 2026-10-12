@@ -1,7 +1,7 @@
 # MADSC TV — güncel devam notu
 
 ## SOHBET DEVRİ
-Güncelleme: 12 Ekim 2026, Stockholm 20:18 sonrası. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
+Güncelleme: 12 Ekim 2026, Stockholm 20:27 talimatı sonrası. Yeni sohbet önce bu dosyayı, AGENTS.md'yi ve ilgili GÜNCEL raporları okur. Bu dosya kısa kontrol noktasıdır; bütün sohbetin dökümü değildir. Kaynak rapor daha yeniyse rapor esas alınır.
 
 ## Kesin kurallar
 - Ana liste/YENİLER, favoriler ve Hepsi'nin korunacak ilk 90 sırası, korunan yedekler yalnız açık kullanıcı izin kapsamında değişir.
@@ -23,6 +23,14 @@ Güncelleme: 12 Ekim 2026, Stockholm 20:18 sonrası. Yeni sohbet önce bu dosyay
 ## Tekrarlanmayacak tamamlanan işler
 Sabah 10:30–14:30 Stockholm: 55 commit, 10 başarılı Actions. İlk 39 final testi ve verilmiş kimlik kararları, kategori taşıma/sıralama, Öncü/Kanal15/Manas Sinema taşıması, logo değişiklikleri ve EPG Pages bağlantısı yapılmış. Ayrıntılar geçmiş dosyasında.
 Kullanıcının 20:18 talimatıyla ayrı bulunan 21 aday YEDEKLER'e eklendi; TRT1 ve DHA ilk iki kayıt olarak korundu. YEDEKLER toplam 23 kayıt. Bunlar cihaz/kimlik onayı bekleyen adaylardır; yabancı kanallar ve zaman aşımı sonucu olan Az TV de kullanıcı incelemesi için dahil.  SAT7 Türk üç kalite etiketli URL Hepsi/Dini. Gerçek çözünürlük kanıtı eksik etiketler ayrı ele alınır.
+
+## Son ana liste logo/kategori düzeltmesi
+Kullanıcı 20:27'de ana listesindeki TRT Diyanet Çocuk (Çocuk 17), Deniz Postası (Sinema 2), BBC First Türkiye ve Baku.TV logolarının düzeltilmesini, Eurosport 1/2 Türkiye'nin Spor'a eklenmesini açıkça onayladı. Bunlar yeni aday/YEDEKLER talebi değildir.
+- Dört kanalın gerçek markalı PNG'leri indirildi, görüntüleri incelendi ve logos/resmi-*-20261012.png altında önbelleklendi. Bu dört tam etiketin 10 kategori kaydında yalnız logo adresi değişti. Diğer Diyanet Çocuk varyantına dokunulmadı.
+- İki Eurosport, Hepsi kayıtları/sıraları korunarak aynı URL/metadata ile Spor'un sonuna birer kez eklendi; Spor 19→21. Favoriler, Hepsi ilk 90, YEDEKLER ve yayın URL'leri korundu.
+- automatic_png_logos.py artık logo_deneme/approved_repairs.json içinde açık onay verilmiş tam etiket/eski URL eşleşmesini ve yerel PNG SHA256'sını doğrulayarak dolu ama sorunlu adresleri düzeltebilir. Diğer dolu logolar değişmez; genel otomatik marka/on-air onayı verilmez.
+- Doğrulama: izinli eski kaynak, PNG hash, ilgisiz kayıtları koruma ve tekrar çalışmada değişiklik yapmama geçti; playlist farkı yalnız izinli logo/Spor kapsamıyla sınırlı. IBO'da dört logonun görünmesi kullanıcı cihaz kontrolü bekliyor.
+Kanıt: raporlar/ANA_LISTE_LOGO_SPOR_2026-10-12.json. Bu düzeltmeyi yeniden uygulama.
 
 ## Sıradaki işler — yalnız eksik kapsam
 1. 252 eksik denemenin zamanı geldiğinde mevcut üçlü akış; geçmiş denemeler korunur.

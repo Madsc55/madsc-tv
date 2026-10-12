@@ -51,6 +51,38 @@ def convert(url, output_dir=None):
     except Exception as error:
         return url, url, type(error).__name__
 
+
+def apply_approved_repairs(lines, repairs):
+    """Repair only explicitly approved old logo URLs using hash-checked local PNGs."""
+    prefix = 'https://raw.githubusercontent.com/Madsc55/madsc-tv/main/'
+    count = 0
+    for i, line in enumerate(lines):
+        if not line.startswith('#EXTINF'):
+            continue
+        label = line.rsplit(',', 1)[-1].strip()
+        review = repairs.get(label)
+        if not review:
+            continue
+        match = re.search(r'tvg-logo="([^"]*)"', line)
+        if not match or match[1] not in review.get('allowed_previous_sources', []):
+            continue
+        url = review.get('png', '')
+        if not url.startswith(prefix + 'logos/'):
+            continue
+        path = (ROOT / url[len(prefix):]).resolve()
+        if not path.is_relative_to((ROOT / 'logos').resolve()) or not path.is_file():
+            continue
+        data = path.read_bytes()
+        if hashlib.sha256(data).hexdigest() != review.get('png_sha256'):
+            continue
+        with Image.open(io.BytesIO(data)) as image:
+            image.load()
+            if image.format != 'PNG':
+                continue
+        lines[i] = re.sub(r'tvg-logo="[^"]*"', 'tvg-logo="' + url + '"', line)
+        count += 1
+    return count
+
 def main():
     playlist = ROOT / 'CALISANLAR.m3u'
     raw = playlist.read_text(encoding='utf-8')
@@ -58,6 +90,9 @@ def main():
         with urllib.request.urlopen('https://iptv-org.github.io/api/'+name+'.json', timeout=20) as response:
             return json.load(response)
     lines = raw.splitlines(keepends=True)
+    repair_path = ROOT / 'logo_deneme/approved_repairs.json'
+    repairs = json.loads(repair_path.read_text()) if repair_path.exists() else {}
+    repaired = apply_approved_repairs(lines, repairs)
     missing = [i for i,line in enumerate(lines) if line.startswith('#EXTINF') and
                not re.search(r'tvg-logo="[^"\s][^"]*"',line)]
     audit_path = ROOT / 'logo_deneme/rapor.json'
@@ -116,7 +151,7 @@ def main():
     if playlist.read_text(encoding='utf-8') != raw:
         raise RuntimeError('playlist_changed_during_conversion')
     playlist.write_text(updated,encoding='utf-8')
-    report = {'missing_logo_entries':len(missing),'unresolved':unresolved,'unique_logos':len(urls),'png_ready':sum(s=='png_ready' for _,_,s in results),
+    report = {'approved_existing_logo_repairs':repaired,'missing_logo_entries':len(missing),'unresolved':unresolved,'unique_logos':len(urls),'png_ready':sum(s=='png_ready' for _,_,s in results),
         'already_local':sum(s=='already_local' for _,_,s in results),
         'failed':sum(s not in ('png_ready','already_local') for _,_,s in results),
         'identity':'Existing logos untouched; automatic insertion requires a saved visual review and unchanged PNG hash.',

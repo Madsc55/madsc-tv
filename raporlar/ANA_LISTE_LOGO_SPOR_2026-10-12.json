@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-12",
+  "scope": "Explicit user permission for four existing main-list logos and two sports-category additions",
+  "sources": {
+    "diyanet": "https://i.imgur.com/8PmXz9t.png",
+    "deniz": "https://images.seeklogo.com/logo-png/35/1/deniz-postasi-logo-png_seeklogo-359841.png",
+    "bbc": "https://i.imgur.com/UBoBYUI.png",
+    "baku": "https://i.imgur.com/r4FzxSg.png"
+  },
+  "logos": {
+    "diyanet": {
+      "path": "logos/resmi-diyanet-20261012.png",
+      "sha256": "139152f701acca87e9cc0060e5ac9d494442923613a8360d9945bf03d8d81a73",
+      "size": [
+        512,
+        247
+      ]
+    },
+    "deniz": {
+      "path": "logos/resmi-deniz-20261012.png",
+      "sha256": "14807395aff93d33bafe4e6949e98980b68e46aa4cb228deb193efbe6d1faf09",
+      "size": [
+        600,
+        600
+      ]
+    },
+    "bbc": {
+      "path": "logos/resmi-bbc-20261012.png",
+      "sha256": "4b85e658bf9147aafd74575b655818e04269aae8c7cbd5f29498bf56a12b6b38",
+      "size": [
+        512,
+        297
+      ]
+    },
+    "baku": {
+      "path": "logos/resmi-baku-20261012.png",
+      "sha256": "bd7fad986b9068339b06e6b91308980b31462f64d90a30373e1252668b1175d2",
+      "size": [
+        512,
+        135
+      ]
+    }
+  },
+  "replacements": {
+    "TRT DİYANET ÇOCUK 720P": {
+      "allowed_previous_sources": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/95/TRT_Diyanet_%C3%87ocuk_logo.png"
+      ],
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/resmi-diyanet-20261012.png",
+      "png_sha256": "139152f701acca87e9cc0060e5ac9d494442923613a8360d9945bf03d8d81a73",
+      "approved_by": "User request 2026-10-12 Stockholm 20:27; replace only these existing channel logos",
+      "artwork_review": "Channel-branded artwork visually inspected; not an on-air identity or IBO device approval"
+    },
+    "DENİZ POSTASI TV 720P": {
+      "allowed_previous_sources": [
+        "https://images.seeklogo.com/logo-png/35/1/deniz-postasi-logo-png_seeklogo-359841.png"
+      ],
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/resmi-deniz-20261012.png",
+      "png_sha256": "14807395aff93d33bafe4e6949e98980b68e46aa4cb228deb193efbe6d1faf09",
+      "approved_by": "User request 2026-10-12 Stockholm 20:27; replace only these existing channel logos",
+      "artwork_review": "Channel-branded artwork visually inspected; not an on-air identity or IBO device approval"
+    },
+    "BBC FİRST TURKİYE": {
+      "allowed_previous_sources": [
+        "https://upload.wikimedia.org/wikipedia/commons/8/82/BBC_First_2022.svg"
+      ],
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/resmi-bbc-20261012.png",
+      "png_sha256": "4b85e658bf9147aafd74575b655818e04269aae8c7cbd5f29498bf56a12b6b38",
+      "approved_by": "User request 2026-10-12 Stockholm 20:27; replace only these existing channel logos",
+      "artwork_review": "Channel-branded artwork visually inspected; not an on-air identity or IBO device approval"
+    },
+    "BAKU.TV": {
+      "allowed_previous_sources": [
+        "https://baku.tv/assets/frontend/img/logo.svg"
+      ],
+      "png": "https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/resmi-baku-20261012.png",
+      "png_sha256": "bd7fad986b9068339b06e6b91308980b31462f64d90a30373e1252668b1175d2",
+      "approved_by": "User request 2026-10-12 Stockholm 20:27; replace only these existing channel logos",
+      "artwork_review": "Channel-branded artwork visually inspected; not an on-air identity or IBO device approval"
+    }
+  },
+  "sports": {
+    "before": 19,
+    "after": 21,
+    "added": [
+      "EUROSPORT 1 TURKİYE",
+      "EUROSPORT 2 TURKİYE"
+    ],
+    "existing_hepsi_records_preserved": true
+  },
+  "device_visibility": "PENDING_IBO_USER_CHECK",
+  "checks": [
+    "PNG decoded and visually inspected",
+    "Exact stream URLs names IDs order and unaffected metadata preserved",
+    "Approved repair source/hash and no repeat mutation checked"
+  ]
+}
