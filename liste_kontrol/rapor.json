@@ -1,0 +1,733 @@
+{
+  "checked_utc": "2026-10-12T00:58:58.044898+00:00",
+  "source": "CALISANLAR.m3u",
+  "source_git_blob": "10140e983f70456d121ea341264a788b65748412",
+  "source_sha256": "dfe60de40ed62a2c79c274fa7364555667c6b61f5930ca3454da3f733e50c31f",
+  "version_label": "10140e983f70",
+  "ibo_loaded_version": "NOT_OBSERVED",
+  "total_category_entries": 657,
+  "unique_stream_urls": 372,
+  "categories": [
+    {
+      "name": "⭐ FAVORİLER (64)",
+      "actual_entries": 64,
+      "label_count": 64,
+      "count_matches": true
+    },
+    {
+      "name": "⭐ FAVORİLER 1 (61)",
+      "actual_entries": 61,
+      "label_count": 61,
+      "count_matches": true
+    },
+    {
+      "name": "⭐ FAVORİLER 3 (1)",
+      "actual_entries": 1,
+      "label_count": 1,
+      "count_matches": true
+    },
+    {
+      "name": "🎬 SİNEMA (1)",
+      "actual_entries": 1,
+      "label_count": 1,
+      "count_matches": true
+    },
+    {
+      "name": "📺 HABER (70)",
+      "actual_entries": 70,
+      "label_count": 70,
+      "count_matches": true
+    },
+    {
+      "name": "🇹🇷 ULUSAL (283)",
+      "actual_entries": 283,
+      "label_count": 283,
+      "count_matches": true
+    },
+    {
+      "name": "⚽️ SPOR (18)",
+      "actual_entries": 18,
+      "label_count": 18,
+      "count_matches": true
+    },
+    {
+      "name": "🌍 BELGESEL (11)",
+      "actual_entries": 11,
+      "label_count": 11,
+      "count_matches": true
+    },
+    {
+      "name": "🧸 ÇOCUK (20)",
+      "actual_entries": 20,
+      "label_count": 20,
+      "count_matches": true
+    },
+    {
+      "name": "🎧 MÜZİK (32)",
+      "actual_entries": 32,
+      "label_count": 32,
+      "count_matches": true
+    },
+    {
+      "name": "📍 YEREL (77)",
+      "actual_entries": 77,
+      "label_count": 77,
+      "count_matches": true
+    },
+    {
+      "name": "🕌 DİNİ (16)",
+      "actual_entries": 16,
+      "label_count": 16,
+      "count_matches": true
+    },
+    {
+      "name": "📦 YEDEKLER (3)",
+      "actual_entries": 3,
+      "label_count": 3,
+      "count_matches": true
+    }
+  ],
+  "national_missing_unique_streams": 90,
+  "national_missing": [
+    {
+      "name": "ADA TV 1080P FHD",
+      "stream_key": "112be78a708be43ce62a051be994bdbf738f07ecfe352b5a410ecdcd6b08ffc3",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "AKSU TV (720P) ADAY",
+      "stream_key": "6b2d21343932d0164f9990861a839da8dfe2eebc0264d38ecc74f9347cb03328",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ALANYA POSTA TV (1080P) ADAY",
+      "stream_key": "6dd6a0aacf8f4ee6b7476b79ddf5b135bc23a9ea3e9072f5bf46be870c4a6f31",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ALANYA POSTA TV 1 1080P FHD",
+      "stream_key": "7c82eedc7914ba456604b24c386e2f157a0605726f358c877dbb4b099abb7232",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ALTAS TV (1080P) ADAY",
+      "stream_key": "c331cae2a1927b7c837191f1b0ebbf40c858cb408264ac9a6ddbc39c09e245b5",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ANADOLU NET TV (1080P) ADAY",
+      "stream_key": "1fd65e7900608ab536c796f47d3a2f2c0b8ff21765f9add7114a6d57061821b4",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ANADOLU NET TV 1 1080P FHD",
+      "stream_key": "a34a294beedff8c6e32e8065b12ad2726cd114581c3f2342be8f058182be1907",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ATV ALANYA (1080P) ADAY",
+      "stream_key": "6ca6d3ffaa509bd646439a97e95165b1285f7527a48ee1013877031e152a809b",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "BRTV (720p) [Geo-blocked]",
+      "stream_key": "14ae66260f734928017ca1127b85f682edcc87e12e041219773b686ccb8cffc4",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "BURSA AS TV (900P) ADAY",
+      "stream_key": "5dfb3ef95c4c730eb4b85233c0415a3d9b55f4d431fd5ba72e5eb08de26c4190",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "CAY TV (720P) ADAY",
+      "stream_key": "d448d3632c7cd26143dd8574cbf05b643285217174cf46ec2d60994902146c82",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "Deniz Postası TV (720p) [Not 24/7]",
+      "stream_key": "f6d403a22b644d56075070e9bd4d6c77f85cbe93dc96912011f45d3556ef3308",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ER TV (1080P) ADAY",
+      "stream_key": "263940d91bb7ed2ac9137a379f0155d3d836a0a78860c0df16e4154ac9867e8e",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ERZURUM WEB TV (720P) ADAY",
+      "stream_key": "3c86b907aab9a803275877b9239aaa5252154f0af45b899cab798e8f5791118c",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "FİNEST TV",
+      "stream_key": "63d5abc8c33b066a6fd575a81df7bc48f42f2f3090952fcc1503dd700119ec40",
+      "categories": [
+        "🎧 MÜZİK (32)",
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "Al-Zahra TV Turkic (720p) [Not 24/7]",
+      "stream_key": "6be17d44f769fc057c045c875e3ff3b63a842e58df893842c74356771147e89b",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "DİYANET TV 1 1080P FHD",
+      "stream_key": "725e6880edf0ef66b6a4abf4402a125583e5bb1952a39744f12ad128ebea704f",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "DİYANET TV 2 1080P FHD",
+      "stream_key": "3f13036971c923c2954289bfc760327cd09692ea55b7dfbb89a4f40b622b25a5",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "DİYANET TV 1080P FHD",
+      "stream_key": "234309628aea0e97bd600bd278fb4f0f6a37ada9c0275bbe8ed5208ad6588a0e",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "Diyar TV (720p)",
+      "stream_key": "cf5b6f24f7523da15a35c7f176e9f3673de2f49f9488ad4a5db19ef70c830874",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "DOST TV 576P SD",
+      "stream_key": "19d7f772eb38844c54a5c59ef0266bf16819868cf02ab94d18379d1213774692",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "KANAL HAYAT (1080P) ADAY",
+      "stream_key": "24b98ffcb5bdbdffd287ddb9cec0940a106359ef80c76aae0c83cbd9e68ec9fd",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "LALEGÜL TV 720P HD",
+      "stream_key": "f17b2e9ac22cf674269f662bc299f8d762bcb559e5b6e3d5001692e37ff79139",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "REHBER TV 720P HD",
+      "stream_key": "942b7221b7f9adcca563645b5d514b46fca104aa4045c7c2ae56ddc5c7d91fde",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "SAT 7 TÜRK 1 720P HD",
+      "stream_key": "61e709dbf5e4b4597c4fa70b35867187c74fc4a350d2c5c977cfd3d2ceb9ddb9",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "SAT 7 TÜRK 1080P FHD",
+      "stream_key": "fe5595ba18544117311fef687967397f9372ddd0eb9f0ed9e3dd97deaf4771e4",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "SEMERKAND TV 1 1080P FHD",
+      "stream_key": "267038d23510e3bdffb7f88e68b6e4ea486222dd4f018be58d3eda2bbe202a80",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "SEMERKAND TV 2 1080P FHD",
+      "stream_key": "793c15fb642ab9afdfafef988cce8a757248ca27b84bb89790dd37dfced16350",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "SEMERKAND TV 1080P FHD",
+      "stream_key": "f054de429d72f6b4e5724b00a9eabeae166eccab04ab321f51f0e91ae0110db0",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "VAV TV 1080P FHD",
+      "stream_key": "6e70237d073f5d7d8c6b690d9cf074ea7fb71231b445cd8e8a2f85dd80b2c5f1",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "IMAM HUSSEİN TV 5 720P HD",
+      "stream_key": "82639b2aaf7787df72a7d16141f8ce13dabd89e95602edcf92b832befde28ce6",
+      "categories": [
+        "🕌 DİNİ (16)"
+      ]
+    },
+    {
+      "name": "ERZURUM WEB TV 1 720P HD",
+      "stream_key": "adf206f08211db153711a3bf6888afc44b0ac18dc5371f8d1bb5936486a5fe7b",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ES TV (720P) ADAY",
+      "stream_key": "9a6b937692f0814e00b6711f1f11b884b47eac7d1b00c1beb73692a632ea9c16",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ES TV 1 720P HD",
+      "stream_key": "48896a6c0061b0c85c6ba9f4981adee39d8c575ca04647a450c93abd4deccff1",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ETV KAYSERİ (720P) ADAY",
+      "stream_key": "6fc80e8e8c93cf6ab16fa0ac855e67c8825cc01d86cbb30eac21e1dc67a798f7",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ETV MANİSA (1080P) ADAY",
+      "stream_key": "d84c704ef074d218824029f232d488da47c28e73b1fd47e9073f4f1ad116d9ae",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "Fortuna TV (720p)",
+      "stream_key": "eeb8763071ef6f1d2a5334e9a90c4c567b9f8ff34151592de9719935d6f979e8",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "FORTUNA TV (1080P) ADAY",
+      "stream_key": "e2ffa24403e5c836745d54d70311d7e3a5656a0c357d8a42b7418c009cfedb31",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "GONCA TV 720P HD",
+      "stream_key": "31fbceca79800c73f33d443f0d3b12927ffcb484771a0aac93238d14e978a292",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "GUNEYDOGU TV (720P) ADAY",
+      "stream_key": "bdcbf37142ce43ee5b179dea2ea93cde8a99af0eec00e5939be2ab9a59c40fcf",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "GURME TV",
+      "stream_key": "d6e3a30b20858e1d37aa94b4a5b5f2d0d19029dfaa62b4ddcbcfd773870f95db",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "HABER61 TV",
+      "stream_key": "20b7e24c1aa955f486fef2987143761c095debfea522f328ca4f0c4b80a88324",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "Hunat TV (720p) [Geo-blocked]",
+      "stream_key": "11572c783d403e5820b4b6c26c120b114ae68daf59653fdb52c803cce76c512c",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ICEL TV (720P) ADAY",
+      "stream_key": "3ceb614189a7ffd32c3b2876692562abf0566b129b43e4c28502df5cab0d9881",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 3 (1080P) ADAY",
+      "stream_key": "3b86fb7cb01b8f31ee10757cd19ef2bead0f9a3edd933053c1f2a20b47807cbf",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 12 (720P) ADAY",
+      "stream_key": "e7b6b111726e73167fd93cc891fb55cd486d5bcfe07d9200370b690e469ce4c9",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 15 (720P) ADAY",
+      "stream_key": "227b4df06562d006dccbddde32f41bedd372659c3f87bad378a28697db720349",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 19 ÇORUM 720P HD",
+      "stream_key": "9104be9e7e1aab56a5824d357c2e4ca1175ae344a842f058d74f62089ee5585e",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 23 (1080P) ADAY",
+      "stream_key": "738095db85dbcfd039be0a42dc365e695de5d69ed6e0b17b2226fc154823770b",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 23 1 1080P FHD",
+      "stream_key": "7eed13eb050dc61d371c61a0a3caadc95785048ed65b1a95ba45cf512401a47c",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 23 2 720P HD",
+      "stream_key": "e336068ea6c93bafe254a8fe09662a2659d837c23f84b4319cacc70622cc19ca",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 26 (720P) ADAY",
+      "stream_key": "2d38b3d58855001eb024b04803814698dc728dca88c7b0d24dfb7c67b6127bf4",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 26 1 720P HD",
+      "stream_key": "412fd78eff49ffad8709abc1d625e138ad116341492526455b5d7b195ec4a178",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 32 (720P) ADAY",
+      "stream_key": "113efe295c44f6db06bdd6c5bad4f7c3c0a46a31f2f8d5fb1e4f501b60cad565",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 32 720P HD",
+      "stream_key": "4f110591e12551ab419dce9b3f3fd1aa5182e79c53cd11a99f11b022c2985780",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 33 (720P) ADAY",
+      "stream_key": "1e1ae5f937b29151547f1d3780fc631887f75c794bb634c1768a219822037a70",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 58 (720P) ADAY",
+      "stream_key": "158d5750142f466f208df40759badc9f74f8d4d4218114adb660aeee172ca773",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL 58 1 720P HD",
+      "stream_key": "8fbc374728c3ff962f132ac86013fe43c4ab9fd0ec42759288b5cecf3d37f708",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL FİRAT (720P) ADAY",
+      "stream_key": "62ccb3a5b1d636a4ba5d5952c9a708b41461e62e1db9a89f502da632b6ae961f",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL URFA 404P",
+      "stream_key": "7474601461c8a7743e584410908ecf63f34bd84faf9cc3be4e4a84dfa0b2ed56",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KANAL V (720P) ADAY",
+      "stream_key": "1bae607701c5df134eb7e646c4aab431561c507cf5cad939eb8de2fb1807d8ff",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KARDELEN TV 720P HD",
+      "stream_key": "28757cd658044037c49837c33d48cfc7b1e25d9ba4965c5fda420a369460aa6e",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KAY TV (576P) ADAY",
+      "stream_key": "84124cad6c54ed6a675e0c5f2b6eb3b3cfdd505ccadf146e48073623f7706fd3",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KENT TÜRK TV (1080P) ADAY",
+      "stream_key": "d0a38462ec500a00b7ac34285ff075265afb1b310f912a448a1ae2cbbeabee24",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KOCAELİ TV (1080P) ADAY",
+      "stream_key": "f16ce1272d95cd9e43d7cd71fa4037fdc61ec92eec7ebc917918ee109e79307d",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KOCAELİ TV 1080P FHD",
+      "stream_key": "f8b078e59393f77c67d5a268d239d874a9747a34896cc6766959593f86d0d481",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KONYA KTV",
+      "stream_key": "29e9ffe7d90a79f8b6dfa493524d339536a48d7fbca1df20e1ef8b2f5d51e290",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KONYA OLAY TV (720P) ADAY",
+      "stream_key": "234aac696b5254440aff3e9b2c1e7d94e7f291c1b1787faf09e86db0e16649a1",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "KONYA OLAY TV 1 720P HD",
+      "stream_key": "0bf850846e691f303122299282bf00618d5277efea6de9aa9ea1370ea5370704",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "LİFE TV (720P) ADAY",
+      "stream_key": "6244699e1ecfe88cd0fb9284c5b83e26ced3cbf1b6ae6322e1bef2a137ef2c5b",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "LİNE TV (720P) ADAY",
+      "stream_key": "81e07e2bd0aa4f9fcaa339abf7b89a24687e8c019233b2cc66ff1d94e0d18a07",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "MAVİKARADENİZ (1080P) ADAY",
+      "stream_key": "31314a1d12879fc4ef363a276ddef2f0c0d8cd0836dd4d4788d42e9903c5ed17",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "Med Muzik (1080p)",
+      "stream_key": "d2c2e82e4bdf046ceaf0f128c6126d202aa0ba0eea668d27d5403b85c3cc3a8b",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "MERCAN TV (576P) ADAY",
+      "stream_key": "349e445943aedd13681c7d75ccab7d76d324844bf59f507c25511baecdfc178d",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "OLAY TÜRK TV KAYSERİ (720P) ADAY",
+      "stream_key": "cb105b2bde640c8b9381f03446810f01faa90934147bb7347c6fd733bdb09766",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ORDU BEL TV",
+      "stream_key": "5ec2b0fc0697fed80e22a411e81a327a44658e5d9aba0ef453533490afcd802e",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "ÖNCÜ TV 720P HD",
+      "stream_key": "7f9595ffc7611c2c7ac0672a3bb8ba640c82df60ebff15b0372dfd2a2e6a4368",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "SERCEM TV (1080P) ADAY",
+      "stream_key": "ce4a50236e1fa6a1d58511302bc552175cac0353626d0e8fd273f015c5276a66",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "SUN RTV (720P) ADAY",
+      "stream_key": "61a74b4abba56e46e6b749ece9fcbdbe1d382847ed7a84190b2cbdf89f875a18",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "TEMPO TV (720P) ADAY",
+      "stream_key": "0a91a487f070137f7ced951efcfbe838bdc25993f08446649e4675b4e2ffa825",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "TON TV (720P) ADAY",
+      "stream_key": "4d5badb46d9b9c4460773543b6d0d916e9154b899e2ba60ddb6a1fbbf02035ca",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "TV 1 (720P) ADAY",
+      "stream_key": "d4b3873e9d7678e4f0f32ba60483463ac3b5d2fc078cc96f310db7a543498171",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "TV 41 (720p) [Not 24/7]",
+      "stream_key": "47d49089590ec551d1534b5f884c145044ae80ed92752a0a2b29dead4c95d3df",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "TV 52 (720P) ADAY",
+      "stream_key": "174068a60a57dd987deb982cb3e120467b53ca45e249b78a9a41202e87b095e2",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "TV 264 (1080P) ADAY",
+      "stream_key": "86999bc3cb194a4b18be481bce4adde085baa6a44bf3d40d3f03644cd5a08c92",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "URFA NATİK TV (720P) ADAY",
+      "stream_key": "df0cbc4467e0a1369f605855a58d2e0a357c47936af06ad4bf334d60ee25b57b",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "VAN 65 TV ADAY",
+      "stream_key": "1097d3ea7dcf139ac6f899edb7029b05fe05205d4a32bbbaaa0ec76e8f4f6bcc",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "MANAS TV 720P HD",
+      "stream_key": "25ce74d98642ee2b4e7fd09059a81eb0625e36c1221ab0d9cfcdc132135ce396",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "PERSİANA TURKİYE 720P HD",
+      "stream_key": "a607efbc3d033688bf01475a0e313d7f080ffe517aaa83f2f2d6f2efb39fc45e",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    },
+    {
+      "name": "GUNAZ TV 1080P FHD",
+      "stream_key": "a087b12df5a2eefda6438dea9ffcaaa828233526fb8c42cbb201274d76f647a6",
+      "categories": [
+        "📍 YEREL (77)"
+      ]
+    }
+  ],
+  "favorite1_entries": 61,
+  "favorite2_entries": 0,
+  "favorite1_2_overlap": [],
+  "changes_to_playlist": 0,
+  "limits": [
+    "Category entries and stream URLs are not counts of distinct stations or working stations.",
+    "IBO loaded playlist version cannot be observed from GitHub.",
+    "Name/ID comparisons require review before deleting a favorite."
+  ]
+}
