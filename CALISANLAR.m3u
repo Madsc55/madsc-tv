@@ -644,7 +644,7 @@ https://tv-trtmuzik.medya.trt.com.tr/master.m3u8
 https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-name="Ayaz TV" tvg-logo="https://www.ayaztv.com/storage/assets/site_logo.png" group-title="🎧 MÜZİK (32)",AYAZ TV 360P
 https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8
-#EXTINF:-1 tvg-name="Finest TV" tvg-logo="https://i.imgur.com/1uoP10V.png" group-title="🎧 MÜZİK (32)",FİNEST TV KALİTE BELİRSİZ
+#EXTINF:-1 tvg-name="Finest TV" tvg-logo="https://i.imgur.com/1uoP10V.png" group-title="🎧 MÜZİK (32)",FİNEST TV
 https://media.finest.tv/hls/live.m3u8
 
 #EXTINF:-1 tvg-id="AlZahraTVTurkic.tr@SD" tvg-logo="https://raw.githubusercontent.com/Madsc55/madsc-tv/main/logos/yeniler-alzahra.svg" group-title="🕌 DİNİ (16)",Al-Zahra TV Turkic (720p) [Not 24/7]
@@ -1153,7 +1153,7 @@ https://b01c02nl.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee2
 https://live.artidijitalmedya.com/artidijital_urfanatiktv/urfanatiktv/playlist.m3u8
 #EXTINF:-1 tvg-id="Van65TV.tr@SD" tvg-name="Van 65 TV" tvg-logo="https://wsrv.nl/?url=raw.githubusercontent.com%2FMadsc55%2Fmadsc-tv%2Fmain%2Flogos%2Fvan-65-tv.svg&output=png" group-title="📍 YEREL (74)",VAN 65 TV ADAY
 https://live.artidijitalmedya.com/artidijital_van65/van65/playlist.m3u8
-#EXTINF:-1 tvg-name="Finest TV" tvg-logo="https://i.imgur.com/1uoP10V.png" group-title="📍 YEREL (74)",FİNEST TV KALİTE BELİRSİZ
+#EXTINF:-1 tvg-name="Finest TV" tvg-logo="https://i.imgur.com/1uoP10V.png" group-title="📍 YEREL (74)",FİNEST TV
 https://media.finest.tv/hls/live.m3u8
 
 #EXTINF:-1 tvg-id="kanaalkyymvqcjf" tvg-name="ÜLKE TV" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/ulke-tv-tr.png" group-title="🇹🇷 ULUSAL (283)",ÜLKE TV 720P HD
@@ -1305,17 +1305,15 @@ https://tv-trtmuzik.medya.trt.com.tr/master.m3u8
 https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-name="Ayaz TV" tvg-logo="https://www.ayaztv.com/storage/assets/site_logo.png" group-title="🇹🇷 ULUSAL (283)",AYAZ TV 360P
 https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8
-#EXTINF:-1 tvg-name="TRT 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png" group-title="📦 YEDEKLER (7)",TRT 1 1440P QHD
+#EXTINF:-1 tvg-name="TRT 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png" group-title="📦 YEDEKLER (6)",TRT 1 1440P QHD
 https://trt.daioncdn.net/trt-1/master.m3u8?app=web
-#EXTINF:-1 tvg-id="" tvg-name="DHA CANLI" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9a/DHA_logo.png" group-title="📦 YEDEKLER (7)",DHA CANLI 720P HD
+#EXTINF:-1 tvg-id="" tvg-name="DHA CANLI" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9a/DHA_logo.png" group-title="📦 YEDEKLER (6)",DHA CANLI 720P HD
 https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8
-#EXTINF:-1 tvg-name="Persiana Turkiye" tvg-logo="https://www.nettv.live/uploads/allimg/24/1-240326034Q40-L.jpg" group-title="📦 YEDEKLER (7)",PERSİANA TURKİYE 720P HD
+#EXTINF:-1 tvg-name="Persiana Turkiye" tvg-logo="https://www.nettv.live/uploads/allimg/24/1-240326034Q40-L.jpg" group-title="📦 YEDEKLER (6)",PERSİANA TURKİYE 720P HD
 https://turkhls.persiana.live/hls/stream.m3u8
-#EXTINF:-1 tvg-name="APA Tv" tvg-logo="https://commons.wikimedia.org/wiki/Special:FilePath/Apa.az_logo.svg" group-title="📦 YEDEKLER (7)",APA TV 1080P FHD
+#EXTINF:-1 tvg-name="APA Tv" tvg-logo="https://commons.wikimedia.org/wiki/Special:FilePath/Apa.az_logo.svg" group-title="📦 YEDEKLER (6)",APA TV 1080P FHD
 http://stream.apa.tv/apastream/index.m3u8
-#EXTINF:-1 tvg-name="GunAz TV" tvg-logo="https://i.imgur.com/2ZnQazl.png" group-title="📦 YEDEKLER (7)",GUNAZ TV 1080P FHD
+#EXTINF:-1 tvg-name="GunAz TV" tvg-logo="https://i.imgur.com/2ZnQazl.png" group-title="📦 YEDEKLER (6)",GUNAZ TV 1080P FHD
 https://tv.gunaz.tv/hls/live.m3u8
-#EXTINF:-1 tvg-name="Manas TV" tvg-logo="https://i.ibb.co/2Kvcj5Q/manas.jpg" group-title="📦 YEDEKLER (7)",MANAS TV 720P HD
+#EXTINF:-1 tvg-name="Manas TV" tvg-logo="https://i.ibb.co/2Kvcj5Q/manas.jpg" group-title="📦 YEDEKLER (6)",MANAS TV 720P HD
 http://212.42.111.152:8080/hls/manas.m3u8
-#EXTINF:-1 tvg-name="Finest TV" tvg-logo="https://i.imgur.com/1uoP10V.png" group-title="📦 YEDEKLER (7)",FİNEST TV KALİTE BELİRSİZ
-https://media.finest.tv/hls/live.m3u8
