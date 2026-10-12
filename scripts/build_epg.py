@@ -96,6 +96,15 @@ def main():
     window_start=now-timedelta(hours=12)
     window_end=now+timedelta(days=3)
     seen_programmes=set()
+    occupied=defaultdict(list)
+    overlap_skipped=0
+    def parse_xmltv_time(value):
+        dt=datetime.strptime(value[:14],"%Y%m%d%H%M%S")
+        offset=value[15:].strip()
+        if offset and re.fullmatch(r"[+-][0-9]{4}",offset):
+            sign=1 if offset[0]=="+" else -1
+            dt-=timedelta(minutes=sign*(int(offset[1:3])*60+int(offset[3:5])))
+        return dt.replace(tzinfo=timezone.utc)
     for prog in all_programmes:
         source_id=prog.get("channel")
         if source_id not in output_ids:
@@ -113,11 +122,20 @@ def main():
             continue
         if not window_start<=start<=window_end:
             continue
-        for target_id in output_ids[source_id]:
+        try:
+            stop=parse_xmltv_time(prog.get("stop",""))
+            if stop<=start: continue
+        except (ValueError,TypeError):
+            continue
+        for target_id in sorted(output_ids[source_id]):
+            if any(start < b and stop > a for a,b in occupied[target_id]):
+                overlap_skipped+=1
+                continue
             unique=(target_id,prog.get("start"),prog.get("stop"),prog.findtext("title"))
             if unique in seen_programmes:
                 continue
             seen_programmes.add(unique)
+            occupied[target_id].append((start,stop))
             new_prog=ET.Element("programme",{"start":prog.get("start",""),"stop":prog.get("stop",""),"channel":target_id})
             for tag in ("title","sub-title","desc","category"):
                 child=prog.find(tag)
@@ -134,7 +152,7 @@ def main():
     exported_ids={ch.get("id") for ch in result.findall("channel")}
     usable_count=sum(1 for ch in channels if ch["id"] in exported_ids)
     print(f"EPG validation: {epg_path.stat().st_size} bytes; {len(exported_ids)} XMLTV channels; {usable_count} playlist entries with matching IDs")
-    report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"usable_playlist_entries":usable_count,"epg_bytes":epg_path.stat().st_size,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
+    report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"overlap_skipped":overlap_skipped,"usable_playlist_entries":usable_count,"epg_bytes":epg_path.stat().st_size,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
     (OUT/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({k:v for k,v in report.items() if k not in ("unmatched","ambiguous")},ensure_ascii=False,indent=2))
 if __name__=="__main__": main()
