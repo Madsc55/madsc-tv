@@ -41,3 +41,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - **Kalan sekiz iş tek koşu karar tablosu:** `scripts/central_all_remaining_tasks.py` ve `test_central_all_remaining_tasks.py`, `kalan_isler_tek_kosu_karar_tablosu.json`. Kanıt, eksik ve dış bağımlılıkları birlikte gösterir; tamamlanma sertifikası değildir.
 
 - **İzole Git HEAD geri yükleme doğrulaması:** `scripts/central_isolated_git_restore.py` ve `test_central_isolated_git_restore.py`; üç korunan dosyanın Git HEAD sürümünü geçici dizinde geri açar, SHA256 ile doğrular. Harici veya tarihsel yedek kurtarma kanıtı değildir.
+
+- **IBO aday inceleme kuyruğu:** `scripts/central_ibo_review_queue.py`, `test_central_ibo_review_queue.py`; aday kanıtı varsa tekrarsız CSV üretir, IBO onayı ve liste aktarımı yapmaz. Kaynak mutabakatında ham kaynak adı tekrarları da denetlenir.
