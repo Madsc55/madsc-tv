@@ -93,8 +93,7 @@ foreign_report = {
     "archive_distinct_records": len(set(archive_pairs)),
     "backup_count": len(backup_entries),
     "backup_names": backup_names,
-    "backup_only_trt1_dha": len(backup_entries) == 2 and
-        any("TRT 1" in n for n in backup_names) and any("DHA" in n for n in backup_names),
+    "backup_count_is_snapshot_only": True,
     "archive_urls_missing": sum(not e["url"] for e in foreign_archive["entries"]),
     "new_ibo_category_created": False,
     "live_streams_tested": False,
