@@ -27,6 +27,11 @@ jobs:
         run: |
           git fetch origin main
           git reset --hard origin/main
+      - name: Rapor başlangıç sürümünü kaydet
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
       - name: Doğrulama kurallarını test et
         run: python3 -m unittest test_verification_pipeline -v
       - name: Yayın çözümleyicisini kurmadan önce eksik adayları kontrol et
@@ -72,6 +77,11 @@ jobs:
           cp -a madsc_dogrulama "${RUNNER_TEMP}/verification"
           for attempt in $(seq 1 10); do
             git fetch origin main
+            # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
+            if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_dogrulama/; then
+              echo "::error::Rapor klasoru bu calisma sirasinda degisti; eski sonuclarin uzerine yazilmadi. Artifact saklandi."
+              exit 1
+            fi
             git reset --hard origin/main
             mkdir -p madsc_dogrulama
             cp -a "${RUNNER_TEMP}/verification/." madsc_dogrulama/

@@ -16,6 +16,13 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+      - name: Rapor başlangıç sürümünü kaydet
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
       - name: Check weekly additional sources
         if: github.event.schedule == '15 4 * * 1' || github.event_name == 'workflow_dispatch'
         env:
@@ -41,6 +48,11 @@ jobs:
           cp -a madsc_genis_tarama "${RUNNER_TEMP}/source-audit"
           for attempt in 1 2 3 4 5; do
             git fetch origin main
+            # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
+            if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_genis_tarama/; then
+              echo "::error::Rapor klasoru bu calisma sirasinda degisti; eski sonuclarin uzerine yazilmadi. Artifact saklandi."
+              exit 1
+            fi
             git reset --hard origin/main
             git checkout -B source-report origin/main
             mkdir -p madsc_genis_tarama

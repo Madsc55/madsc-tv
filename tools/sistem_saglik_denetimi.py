@@ -30,6 +30,7 @@ def inspect(root=ROOT):
         "SHARED_CONCURRENCY_SAFE": "cancel-in-progress: false ile sıralama bilinçli; uzun kuyrukları izle.",
         "WRITE_WORKFLOW_REVIEW": "Yazma iznini ve tetikleyici güvenliğini incele.",
         "RESET_PUSH_REVIEW": "Reset ve push komutlarının veri kaybı riskini incele.",
+        "RESET_PUSH_GUARDED": "Rapor çakışmasında işlem durdurulur ve artifact korunur; başarısız çalışmaları izle.",
         "MISSING_REPORT": "Raporu üreten otomasyonun son çalışmasını incele.",
         "PENDING_CANDIDATES": "Sonraki aday kontrol partilerini bekle.",
         "NO_READY_CANDIDATES": "Kimlik ve IBO doğrulaması olmadan hazır kabul etme.",
@@ -67,7 +68,10 @@ def inspect(root=ROOT):
         if "contents: write" in raw and "workflow_dispatch:" not in raw and "workflow_run:" not in raw:
             add("WARN", "security", "WRITE_WORKFLOW_REVIEW", path.name)
         if "git reset --hard" in raw and "git push" in raw:
-            add("WARN", "automation", "RESET_PUSH_REVIEW", path.name)
+            if "madsc-rapor-base-sha" in raw and "git diff --quiet" in raw and "Artifact saklandi" in raw:
+                add("INFO", "automation", "RESET_PUSH_GUARDED", path.name)
+            else:
+                add("WARN", "automation", "RESET_PUSH_REVIEW", path.name)
     for group, owners in groups.items():
         if len(owners) > 1:
             names = ", ".join(name for name, _ in owners)

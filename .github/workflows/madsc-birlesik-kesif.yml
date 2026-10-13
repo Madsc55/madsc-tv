@@ -27,6 +27,11 @@ jobs:
         run: |
           git fetch origin main
           git reset --hard origin/main
+      - name: Rapor başlangıç sürümünü kaydet
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
       - name: Yayın kontrol aracını kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Python ortamını hazırla
@@ -70,6 +75,11 @@ jobs:
             git fetch origin main
             # Discovery modifies tracked report files; reset only the runner checkout.
             # A preserved report copy is restored below; remote playlists stay untouched.
+            # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
+            if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_kesif/; then
+              echo "::error::Rapor klasoru bu calisma sirasinda degisti; eski sonuclarin uzerine yazilmadi. Artifact saklandi."
+              exit 1
+            fi
             git reset --hard origin/main
             git clean -fd -- madsc_kesif/
             git checkout -B report-save origin/main

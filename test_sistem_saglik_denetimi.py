@@ -65,6 +65,26 @@ class SistemSaglikTesti(unittest.TestCase):
             self.assertFalse(any(f["code"] == "SHARED_CONCURRENCY_GROUP"
                                  for f in findings))
 
+    def test_reset_push_rapor_cakisma_korumasini_ayirt_et(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github/workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "safe.yml").write_text(
+                "git reset --hard origin/main\\ngit push origin HEAD:main\\n"
+                "madsc-rapor-base-sha\\ngit diff --quiet\\nArtifact saklandi\\n",
+                encoding="utf-8")
+            (workflows / "unsafe.yml").write_text(
+                "git reset --hard origin/main\\ngit push origin HEAD:main\\n",
+                encoding="utf-8")
+            findings = inspect(root)["findings"]
+            self.assertTrue(any(f["code"] == "RESET_PUSH_GUARDED"
+                                and f["detail"] == "safe.yml" and f["severity"] == "INFO"
+                                for f in findings))
+            self.assertTrue(any(f["code"] == "RESET_PUSH_REVIEW"
+                                and f["detail"] == "unsafe.yml" and f["severity"] == "WARN"
+                                for f in findings))
+
     def test_ortak_concurrency_ve_bos_aday_bilgi(self):
         import json
         with tempfile.TemporaryDirectory() as directory:
