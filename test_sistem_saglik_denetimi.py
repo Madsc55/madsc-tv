@@ -57,7 +57,7 @@ class SistemSaglikTesti(unittest.TestCase):
             workflows.mkdir(parents=True)
             for name in ("a.yml", "b.yml"):
                 (workflows / name).write_text(
-                    "concurrency:\\n  group: ortak-grup\\n  cancel-in-progress: false\\n",
+                    "concurrency:\n  group: ortak-grup\n  cancel-in-progress: false\n",
                     encoding="utf-8")
             findings = inspect(root)["findings"]
             self.assertTrue(any(f["code"] == "SHARED_CONCURRENCY_SAFE"
