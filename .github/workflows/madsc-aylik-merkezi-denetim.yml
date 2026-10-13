@@ -1,0 +1,57 @@
+name: MADSC - Ayda Iki Kez Tum Sistem Merkezi Denetim
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 1,15 * *'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: madsc-aylik-merkezi-denetim
+  cancel-in-progress: false
+jobs:
+  tum-sistem:
+    name: GitHub dosya kural rapor ve otomasyon envanteri
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Depoyu salt okunur al
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Tum takip edilen dosyalari ve koruma kurallarini say
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p madsc_merkezi_denetim
+          git ls-files > madsc_merkezi_denetim/takip_edilen_dosyalar.txt
+          git ls-files '.github/workflows/*' > madsc_merkezi_denetim/is_akislari.txt
+          for file in AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u; do
+            test -f "$file" || { echo "::error::Zorunlu dosya eksik: $file"; exit 1; }
+          done
+          sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
+      - name: Mevcut sistem saglik testlerini calistir
+        run: |
+          python3 -m unittest test_sistem_saglik_denetimi -v
+          python3 tools/sistem_saglik_denetimi.py
+      - name: Actions son durumunu raporla
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '{checked_runs: (.workflow_runs|length), failed: [.workflow_runs[]|select(.conclusion=="failure" or .conclusion=="timed_out")|{id,name,conclusion}], active: [.workflow_runs[]|select(.status=="in_progress" or .status=="queued")|{id,name,status}]}' > madsc_merkezi_denetim/actions_durum.json
+          echo "## MADSC - Ayda iki kez merkezi denetim" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Takip edilen dosya: $(wc -l < madsc_merkezi_denetim/takip_edilen_dosyalar.txt)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Workflow: $(wc -l < madsc_merkezi_denetim/is_akislari.txt)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Korunan listelerde otomatik degisiklik yapilmadi." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Bu denetim mevcut tarama/testleri otomatik tetiklemez; kapsam eksikleri sonraki asamada tamamlanacak." >> "$GITHUB_STEP_SUMMARY"
+      - name: Tum denetim raporlarini sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-aylik-merkezi-denetim
+          path: |
+            madsc_merkezi_denetim/
+            madsc_bakim/
+          if-no-files-found: warn
+          retention-days: 30
