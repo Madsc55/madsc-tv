@@ -10,7 +10,7 @@ import sys
 
 PLAYLIST = pathlib.Path("CALISANLAR.m3u")
 INPUT = pathlib.Path("onaylanmis_adaylar.json")
-GROUP = re.compile(r'group-title="(📦 YEDEKLER \\(\\d+\\))"')
+GROUP = re.compile(r'group-title="(📦 YEDEKLER \(\d+\))"')
 URL = re.compile(r'^https?://', re.I)
 
 
@@ -20,7 +20,7 @@ def update(original, candidates):
     backup_indexes = [i for i, s in enumerate(lines) if s.startswith("#EXTINF:") and 'group-title="📦 YEDEKLER (' in s]
     if not backup_indexes:
         raise ValueError("YEDEKLER kategorisi bulunamadı; dosya korunuyor")
-    counts = {int(re.search(r'📦 YEDEKLER \\((\\d+)\\)', lines[i]).group(1)) for i in backup_indexes}
+    counts = {int(re.search(r'📦 YEDEKLER \((\d+)\)', lines[i]).group(1)) for i in backup_indexes}
     if len(counts) != 1 or next(iter(counts)) != len(backup_indexes):
         raise ValueError("YEDEKLER sayısı tutarsız; dosya korunuyor")
     accepted = []
@@ -31,7 +31,7 @@ def update(original, candidates):
         name = str(item.get("name", "")).strip()
         if not URL.match(url) or not name or url in existing:
             continue
-        if any(c in name for c in '\\r\\n') or any(c in url for c in '\\r\\n'):
+        if any(c in name for c in '\r\n') or any(c in url for c in '\r\n'):
             continue
         logo = str(item.get("logo", "")).strip().replace('"', "")
         name = name.replace(",", " ")
@@ -42,12 +42,12 @@ def update(original, candidates):
     old_count = next(iter(counts))
     new_group = f"📦 YEDEKLER ({old_count + len(accepted)})"
     for i in backup_indexes:
-        lines[i] = re.sub(r'group-title="📦 YEDEKLER \\(\\d+\\)"', f'group-title="{new_group}"', lines[i])
+        lines[i] = re.sub(r'group-title="📦 YEDEKLER \(\d+\)"', f'group-title="{new_group}"', lines[i])
     # Kategori dosyanın sonunda bulunmalı; diğer satırların yeri korunur.
     last = backup_indexes[-1]
     if any(s.startswith("#EXTINF:") for s in lines[last + 1:]):
         raise ValueError("YEDEKLER son kategori değil; dosya korunuyor")
-    ending = "\\r\\n" if "\\r\\n" in original else "\\n"
+    ending = "\r\n" if "\r\n" in original else "\n"
     for name, url, logo in accepted:
         lines.append(f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{logo}" group-title="{new_group}",{name}{ending}')
         lines.append(url + ending)
