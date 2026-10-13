@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Depoyu salt okunur indir
         uses: actions/checkout@v4
+      - name: Tüm GitHub Actions YAML dosyalarının sözdizimini doğrula
+        shell: bash
+        run: |
+          set -euo pipefail
+          find .github/workflows -type f \( -name '*.yml' -o -name '*.yaml' \) -print0 | xargs -0 -r -n1 ruby -e 'require "yaml"; YAML.parse_file(ARGV.fetch(0))'
       - name: Denetim kodunun testlerini çalıştır
         run: python3 -m unittest test_sistem_saglik_denetimi -v
       - name: Depodaki dosyaları ve otomasyonları denetle
@@ -43,6 +48,24 @@ jobs:
               out.write("## MADSC - Son 100 Actions çalışması\\n")
               for key in ("failed", "cancelled", "active"):
                   out.write(f"- {key}: {len(report[key])}\\n")
+          PY
+      - name: Sağlık bulgularını GitHub özetinde göster
+        if: always()
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path("madsc_bakim/sistem_saglik_raporu.json")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
+              out.write("\\n## MADSC - Sistem sağlık bulguları\\n")
+              if not p.exists():
+                  out.write("Denetim raporu oluşmadı.\\n")
+              else:
+                  report = json.loads(p.read_text(encoding="utf-8"))
+                  out.write(f"**Hata:** {report['counts']['ERROR']} | **Uyarı:** {report['counts']['WARN']} | **Bilgi:** {report['counts']['INFO']}\\n\\n")
+                  for item in report["findings"][:60]:
+                      out.write(f"- **{item['severity']}** {item['code']}: {item['detail']}\\n")
           PY
       - name: Denetim raporunu sakla
         if: always()
