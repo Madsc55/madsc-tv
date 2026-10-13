@@ -10,7 +10,7 @@ on:
       - '.github/commands/genel-guncelleme.txt'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   kaynak-kesfi:
@@ -67,46 +67,3 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-
-  test-adaylarini-yedekle:
-    name: Teknik testi geçen adayları ayrı test yedeğine kaydet
-    needs: yeni-kanal-tara
-    if: ${{ success() }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - name: Depoyu al
-        uses: actions/checkout@v4
-      - name: Bütün kanal tarama raporlarını indir
-        uses: actions/download-artifact@v4
-        with:
-          pattern: YENILER-KANAL-ADAYLARI-GRUP-*
-          path: indirilen_adaylar
-      - name: Teknik testi geçen benzersiz adayları ayır
-        run: python3 tools/test_adaylarini_yedege_hazirla.py
-      - name: Test yedeğini indirilebilir sakla
-        uses: actions/upload-artifact@v4
-        with:
-          name: OTOMATIK-TEST-YEDEGI
-          path: yedekler/otomatik_test_adaylari/
-          retention-days: 30
-      - name: Yeni test yedeğini korunan listelere dokunmadan kaydet
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p "${RUNNER_TEMP}/aday-yedegi"
-          cp yedekler/otomatik_test_adaylari/* "${RUNNER_TEMP}/aday-yedegi/"
-          for attempt in $(seq 1 5); do
-            git fetch origin main
-            git reset --hard origin/main
-            dest="yedekler/otomatik_test_adaylari/kosum-${GITHUB_RUN_ID}"
-            mkdir -p "$dest"
-            cp "${RUNNER_TEMP}/aday-yedegi/"* "$dest/"
-            git add -- "$dest"
-            if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Save separate automatic tested candidate backup"
-            if git push origin HEAD:main; then exit 0; fi
-          done
-          exit 1
