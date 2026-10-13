@@ -218,8 +218,14 @@ def main():
   if not passed:prev["successful_runs"]=0;prev["last_success"]=None
   prev["channel"]=row["kanal"];prev["url"]=row["url"]
   # Source provenance is not station identity proof.
+  prev.setdefault("source_history", [])
+  if row["kaynak"] not in prev["source_history"]:
+   prev["source_history"].append(row["kaynak"])
   prev["source_id"]=row["kaynak"]
-  prev["source_language_hint"]="tur" if row["kaynak"] in {"iptv-org-TURKCE","dearbulut-TURKCE"} else "UNKNOWN"
+  if row["kaynak"] in {"iptv-org-TURKCE","dearbulut-TURKCE"}:
+   prev["source_language_hint"]="tur"
+  else:
+   prev.setdefault("source_language_hint","UNKNOWN")
   row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "TEKRAR_TEST_BEKLIYOR"
   history[k]=prev
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
@@ -236,7 +242,7 @@ def main():
    quality_rows.append(dict(kanal=row["kanal"],url=row["url"],cozunurluk=row["cozunurluk"],kalite=q,durum=row["durum"],islem="MEVCUT_KANAL_ALTERNATIFI" if name(row["kanal"]) in names else "YENI_KANAL_ADAYI"))
  write("yuksek_kalite_alternatifleri.csv",quality_rows,["kanal","url","cozunurluk","kalite","durum","islem"])
  state.write_text(json.dumps({"history":history},ensure_ascii=False,indent=2))
- summary=dict(yeni_bekleyen_sonraki=max(0,len(untested)-min(limit,len(untested))),zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,kaynak_hedefi=SOURCE_TARGET,kaynak_guncelligi={k:v[0] for k,v in freshness.items()},bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
+ summary=dict(yeni_bekleyen_sonraki=max(0,len(untested)-min(limit,len(untested))),zaman=datetime.datetime.now(datetime.timezone.utc).isoformat(),ana_liste=len(parse(master)),kaynaklar=SOURCES,kaynak_hedefi=SOURCE_TARGET,tanimli_kaynak_sayisi=len(SOURCES),kaynak_hedef_farki=len(SOURCES)-SOURCE_TARGET,taranan_turkce_kaynak_sayisi=len(ordered),kaynak_guncelligi={k:v[0] for k,v in freshness.items()},bulunan=len(found),tekrar=len(duplicates),aday=len(pending),test_edilen=min(limit,len(pending)),teknik_gecen=sum(x["durum"]=="UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" for x in rows),alternatif=len(alternatives),hatalar=errors,notlar="Ana liste degismedi. Farkli gun testleri ve Isvec erisimi bu kosuda dogrulanamaz. Kimlik onayi gerekir.")
  (OUT/"ozet.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2))
  print(json.dumps(summary,ensure_ascii=False))
 if __name__=="__main__":main()
