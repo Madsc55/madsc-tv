@@ -24,7 +24,11 @@ def main():
   groups[group]=groups.get(group,0)+1
  backup=[(meta,url) for meta,url in entries if "YEDEKLER" in meta]
  assert backup,"YEDEKLER is empty"
- assert len(set(urls))==len(urls),"Duplicate normalized stream URLs in playlist"
+ # Same stream may intentionally occur in HEPSI and FAVORILER; never delete it.
+ # Only duplicates within the newly staged YEDEKLER are a blocking error.
+ backup_urls=[key(url) for meta,url in entries if "YEDEKLER" in meta]
+ backup_duplicate_count=len(backup_urls)-len(set(backup_urls))
+ assert backup_duplicate_count==0,"Duplicate normalized stream URLs inside YEDEKLER"
  assert sum(groups.values())==len(entries)
  with Path("madsc_kesif/bulunan_kanal_arsivi.csv").open(encoding="utf-8-sig",newline="") as f:
   archived=list(csv.DictReader(f))
@@ -33,6 +37,8 @@ def main():
  foreign=Path("YABANCI_KANALLAR.m3u").read_text(encoding="utf-8-sig")
  foreign_urls=[key(s.strip()) for s in foreign.splitlines() if s.startswith(("http://","https://"))]
  report={"playlist_channels":len(entries),"backup_channels":len(backup),
+         "cross_category_url_repeats_allowed":len(urls)-len(set(urls)),
+         "backup_duplicate_urls":backup_duplicate_count,
          "other_channels":len(entries)-len(backup),"archive_unique_urls":len(archived_keys),
          "archive_urls_in_backups":len(archived_keys & backup_keys),
          "foreign_archive_urls":len(foreign_urls),
