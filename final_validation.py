@@ -105,6 +105,9 @@ def pending_candidates(manifest, state, results):
     pending = [r for token, r in candidates.items() if token not in completed]
     return sorted(pending, key=turkish_priority)
 
+BATCH_SIZE = 24  # Runner kapanmasi riskini azalt; 200 adaylik uzun tek kosudan kacin.
+MAX_WORKERS = 12  # Eszamanli ffmpeg yukunu sinirla.
+
 def main():
     manifest = json.loads(pathlib.Path('final_validation_manifest.json').read_text())
     (OUT / 'images').mkdir(parents=True, exist_ok=True)
@@ -112,8 +115,8 @@ def main():
     results = json.loads(resultfile.read_text()) if resultfile.exists() else []
     state = json.loads(pathlib.Path('madsc_dogrulama/state.json').read_text())['channels']
     candidates = pending_candidates(manifest, state, results)
-    batch = candidates[:200]
-    with concurrent.futures.ThreadPoolExecutor(max_workers=32) as pool:
+    batch = candidates[:BATCH_SIZE]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         futures = [pool.submit(audit, r, manifest['duration_seconds']) for r in batch]
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
