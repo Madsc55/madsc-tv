@@ -42,7 +42,7 @@ jobs:
         run: python3 -m unittest test_central_workflow_inventory -v
       - name: Mevcut sistem saglik testlerini calistir
         run: |
-          python3 -m unittest test_sistem_saglik_denetimi -v
+          python3 -m unittest discover -s . -p 'test_*.py' -v
           python3 tools/sistem_saglik_denetimi.py
       - name: Actions son durumunu raporla
         env:
