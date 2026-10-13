@@ -201970,12 +201970,2379 @@
           "frames": 900,
           "error": "",
           "time": "2026-10-13T10:15:53.693738+00:00"
+        },
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:24.659289+00:00"
         }
       ],
       "identity": "NOT_VERIFIED",
       "ibo_sweden": "NOT_VERIFIED",
       "source_id": "dearbulut-TURKCE",
       "source_language_hint": "tur"
+    },
+    "https://www.30a-tv.com/InvPit.m3u8": {
+      "channel": "30A Investment Pitch (720p)",
+      "url": "https://www.30a-tv.com/InvPit.m3u8",
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 5.184,
+          "frames": 154,
+          "error": "",
+          "time": "2026-10-13T16:58:49.047509+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://23.239.31.26:8989/amc/index.m3u8": {
+      "channel": "AMC (720p)",
+      "url": "http://23.239.31.26:8989/amc/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1798,
+          "error": "",
+          "time": "2026-10-13T16:55:16.607759+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d24l3uppudokci.cloudfront.net/playlist.m3u8": {
+      "channel": "Always Funny Videos (720p)",
+      "url": "https://d24l3uppudokci.cloudfront.net/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:59.129463+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg02333-pbs-amg02333c9-firetv-us-4249.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "Antiques Road Trip (1080p)",
+      "url": "https://amg02333-pbs-amg02333c9-firetv-us-4249.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:19.133383+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://blacknewschannel-xumo-us.amagi.tv/playlist.m3u8": {
+      "channel": "Black News Channel (1080p)",
+      "url": "https://blacknewschannel-xumo-us.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:35.568898+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://86fdc85a.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctZ2JfQmxvb21iZXJnT3JpZ2luYWxzX0hMUw/playlist.m3u8": {
+      "channel": "Bloomberg Originals (1080p)",
+      "url": "https://86fdc85a.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctZ2JfQmxvb21iZXJnT3JpZ2luYWxzX0hMUw/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 894,
+          "error": "",
+          "time": "2026-10-13T16:55:21.859752+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://66e4bbba.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctZ2JfQmxvb21iZXJnVFZQbHVzX0hMUw/playlist.m3u8": {
+      "channel": "Bloomberg TV (2160p)",
+      "url": "https://66e4bbba.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/TEctZ2JfQmxvb21iZXJnVFZQbHVzX0hMUw/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 1794,
+          "error": "",
+          "time": "2026-10-13T16:55:21.783853+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://pb-xp0ozx9lyqeiv.akamaized.net/BounceXL_US.m3u8": {
+      "channel": "Bounce XL (1080p)",
+      "url": "https://pb-xp0ozx9lyqeiv.akamaized.net/BounceXL_US.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:01.120983+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://english-livebkali.cgtn.com/live/doccgtn.m3u8": {
+      "channel": "CGTN Documentary (1080p)",
+      "url": "https://english-livebkali.cgtn.com/live/doccgtn.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992426,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:19.019762+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01082-cna-amg01082c1-vidaa-gb-7580.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "CNA Originals (1080p)",
+      "url": "https://amg01082-cna-amg01082c1-vidaa-gb-7580.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:13.391954+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://tvsen6.aynaott.com/cnn/index.m3u8": {
+      "channel": "CNN (720p)",
+      "url": "https://tvsen6.aynaott.com/cnn/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.290667,
+          "frames": 515,
+          "error": "",
+          "time": "2026-10-13T16:58:04.535457+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://mumbai-edge.smartplaytv.in/DDSportsHD/index.m3u8": {
+      "channel": "DD Sports (1080p)",
+      "url": "https://mumbai-edge.smartplaytv.in/DDSportsHD/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-13T16:57:36.391960+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/9b91e9007e754db39a8b32c6bfc5b24a/index.m3u8": {
+      "channel": "DD Urdu (480p)",
+      "url": "https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/9b91e9007e754db39a8b32c6bfc5b24a/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:05.979821+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00627-amg00627c21-samsung-gb-3869.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "Deal or No Deal (1080p)",
+      "url": "https://amg00627-amg00627c21-samsung-gb-3869.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-13T16:55:59.553689+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00276-amg00276c11-samsung-gb-3484.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "Dog the Bounty Hunter (1080p)",
+      "url": "https://amg00276-amg00276c11-samsung-gb-3484.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:53.982571+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://drybar-drybarcomedy-1-nz.samsung.wurl.tv/playlist.m3u8": {
+      "channel": "Dry Bar Comedy+ (720p)",
+      "url": "https://drybar-drybarcomedy-1-nz.samsung.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 895,
+          "error": "",
+          "time": "2026-10-13T16:57:15.452172+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://a-cdn.klowdtv.com/live3/euronews_720p/playlist.m3u8": {
+      "channel": "Euronews English (720p)",
+      "url": "https://a-cdn.klowdtv.com/live3/euronews_720p/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 743,
+          "error": "",
+          "time": "2026-10-13T16:55:22.153621+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01074-fueltv-fueltvnz-samsungnz-i8ani.amagi.tv/playlist/amg01074-fueltv-fueltvnz-samsungnz/playlist.m3u8": {
+      "channel": "FUEL TV (1080p)",
+      "url": "https://amg01074-fueltv-fueltvnz-samsungnz-i8ani.amagi.tv/playlist/amg01074-fueltv-fueltvnz-samsungnz/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:11.768131+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://aegis-cloudfront-1.tubi.video/2a9fb8e7-51c2-40d0-9cc0-6eb963199568/playlist.m3u8": {
+      "channel": "Fear Factor (1080p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/2a9fb8e7-51c2-40d0-9cc0-6eb963199568/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:55:33.402017+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://57.128.231.171:8080/253/index.m3u8": {
+      "channel": "Food Network (1080p)",
+      "url": "http://57.128.231.171:8080/253/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 1495,
+          "error": "",
+          "time": "2026-10-13T16:55:19.443919+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00106-amg00106c1-samsung-nz-4151.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "France 24 (1080p)",
+      "url": "https://amg00106-amg00106c1-samsung-nz-4151.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.992,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:55:53.125886+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01753-narrativeentert-greatchristmas-samsunguk-8atls.amagi.tv/playlist/amg01753-narrativeentert-greatchristmas-samsunguk/playlist.m3u8": {
+      "channel": "GREAT! romance (1080p)",
+      "url": "https://amg01753-narrativeentert-greatchristmas-samsunguk-8atls.amagi.tv/playlist/amg01753-narrativeentert-greatchristmas-samsunguk/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:16.809722+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://online.godstands.tv:5443/WebRTCApp/streams/KidsUrdu.m3u8": {
+      "channel": "God Stands Kids Club TV",
+      "url": "https://online.godstands.tv:5443/WebRTCApp/streams/KidsUrdu.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.989,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:46.081511+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://online.godstands.tv:5443/WebRTCApp/streams/PunjabiStreaming.m3u8": {
+      "channel": "God Stands TV",
+      "url": "https://online.godstands.tv:5443/WebRTCApp/streams/PunjabiStreaming.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:52.896914+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amogonetworx-grjngo-3-lu.samsung.wurl.tv/playlist.m3u8": {
+      "channel": "Grjngo Western Movies (720p)",
+      "url": "https://amogonetworx-grjngo-3-lu.samsung.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:29.397892+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-ALMANYA",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-ALMANYA"
+      ]
+    },
+    "https://amg01448-amg01448c16-samsung-in-3495.playouts.now.amagi.tv/ts-ap-s1-n1/playlist/amg01448-samsungindia-historychannelhindi-samsungin/playlist.m3u8": {
+      "channel": "History TV18 (1080p)",
+      "url": "https://amg01448-amg01448c16-samsung-in-3495.playouts.now.amagi.tv/ts-ap-s1-n1/playlist/amg01448-samsungindia-historychannelhindi-samsungin/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998688,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:21.035119+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://aegis-cloudfront-1.tubi.video/9f31e187-3d43-4ed0-81ba-63bd3bc560aa/playlist.m3u8": {
+      "channel": "Homeful (1080p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/9f31e187-3d43-4ed0-81ba-63bd3bc560aa/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:35.281779+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://all3media-homes-under-the-hammer-1-se.samsung.wurl.tv/playlist.m3u8": {
+      "channel": "Homes Under Hammer (720p)",
+      "url": "https://all3media-homes-under-the-hammer-1-se.samsung.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 894,
+          "error": "",
+          "time": "2026-10-13T16:55:40.484078+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://insighttv-samsung-us.amagi.tv/playlist.m3u8": {
+      "channel": "INFAST (1080p)",
+      "url": "https://insighttv-samsung-us.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-13T16:57:19.215513+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00861-amg00861c22-stirr-us-8773.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "INTRAVEL (1080p)",
+      "url": "https://amg00861-amg00861c22-stirr-us-8773.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:10.760585+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ionplus-tablo/playlist.m3u8": {
+      "channel": "ION Plus (1080p)",
+      "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ionplus-tablo/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:46.164022+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00488-foxdigital-livenowbyfox-lgus/playlist.m3u8": {
+      "channel": "LiveNOW from FOX (720p)",
+      "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00488-foxdigital-livenowbyfox-lgus/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:39.890450+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://bantel-cdn1.iptvperu.tv:1936/ZyphraCast/love-nature/chunks.m3u8": {
+      "channel": "Love Nature en Espanol (1080p)",
+      "url": "https://bantel-cdn1.iptvperu.tv:1936/ZyphraCast/love-nature/chunks.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-13T16:56:26.335270+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://mumbai-edge.smartplaytv.in/Moonbug/index.m3u8": {
+      "channel": "Moonbug Kids (1080p)",
+      "url": "https://mumbai-edge.smartplaytv.in/Moonbug/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-13T16:57:36.972519+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://appletree-mytimeuk-rakuten.amagi.tv/playlist.m3u8": {
+      "channel": "MyTime Movie Network (1080p)",
+      "url": "https://appletree-mytimeuk-rakuten.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:30.744509+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00627-banijay-amg00627c14-samsung-nz-2342.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mythbusters-samsungnz/playlist.m3u8": {
+      "channel": "Mythbusters (1080p)",
+      "url": "https://amg00627-banijay-amg00627c14-samsung-nz-2342.playouts.now.amagi.tv/playlist/amg00627-banijayfast-mythbusters-samsungnz/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.984,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:00.470031+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://pb-o6czxr182vtiv.akamaized.net/master.m3u8": {
+      "channel": "NBC News NOW (1080p)",
+      "url": "https://pb-o6czxr182vtiv.akamaized.net/master.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:48.435866+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_sh/master.m3u8": {
+      "channel": "NDR Fernsehen (1080p)",
+      "url": "https://mcdn.ndr.de/ndr/hls/ndr_fs/ndr_sh/master.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.982667,
+          "frames": 1500,
+          "error": "",
+          "time": "2026-10-13T16:57:40.360944+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-ALMANYA",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-ALMANYA"
+      ]
+    },
+    "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=15811": {
+      "channel": "NRBTV (720p)",
+      "url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=15811",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-13T16:58:05.679954+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00090-blueantllc-lovenatureau-samsungnz-r3iaz.amagi.tv/playlist/amg00090-blueantllc-lovenatureau-samsungnz/playlist.m3u8": {
+      "channel": "NatureTime (1080p)",
+      "url": "https://amg00090-blueantllc-lovenatureau-samsungnz-r3iaz.amagi.tv/playlist/amg00090-blueantllc-lovenatureau-samsungnz/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:55:45.106202+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://isar-tv.iptv-playoutcenter.de/isar-tv/isar-tv.stream_1/playlist.m3u8": {
+      "channel": "Niederbayern TV Landshut (1080p)",
+      "url": "https://isar-tv.iptv-playoutcenter.de/isar-tv/isar-tv.stream_1/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.991667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:25.133973+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-ALMANYA",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-ALMANYA"
+      ]
+    },
+    "https://nosey-intl-1-samsungau.amagi.tv/playlist.m3u8": {
+      "channel": "Nosey (1080p)",
+      "url": "https://nosey-intl-1-samsungau.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:38.104110+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://samsunguk-lightning-now80s-samsunguk-n908q.amagi.tv/playlist/samsunguk-lightning-now80s-samsunguk/playlist.m3u8": {
+      "channel": "Now 80s (1080p)",
+      "url": "https://samsunguk-lightning-now80s-samsunguk-n908q.amagi.tv/playlist/samsunguk-lightning-now80s-samsunguk/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:58:00.637264+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01076-amg01076c19-samsung-gb-6683.playouts.now.amagi.tv/playlist/amg01076-lightning-now90s00s-samsunggb/playlist.m3u8": {
+      "channel": "Now 90s00s (1080p)",
+      "url": "https://amg01076-amg01076c19-samsung-gb-6683.playouts.now.amagi.tv/playlist/amg01076-lightning-now90s00s-samsunggb/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:11.863892+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-stendal_high/playlist.m3u8": {
+      "channel": "OK Stendal (1080p)",
+      "url": "http://58bd5b7a98e04.streamlock.net/medienasa-live/ok-stendal_high/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:55:18.451735+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-ALMANYA",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-ALMANYA"
+      ]
+    },
+    "https://amg00353-amg00353c17-xumo-us-2554.playouts.now.amagi.tv/lionsgate-otspr-xumo/playlist.m3u8": {
+      "channel": "OuterSphere (1080p)",
+      "url": "https://amg00353-amg00353c17-xumo-us-2554.playouts.now.amagi.tv/lionsgate-otspr-xumo/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:57.572841+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://pbs.lls.cdn.pbs.org/est/index.m3u8": {
+      "channel": "PBS (1080p)",
+      "url": "https://pbs.lls.cdn.pbs.org/est/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:00.723243+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://jukin-peopleareawesome-2-no.samsung.wurl.tv/playlist.m3u8": {
+      "channel": "People Are Awesome (720p)",
+      "url": "https://jukin-peopleareawesome-2-no.samsung.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.987333,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-13T16:57:20.369591+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://linear-205.frequency.stream/dist/xumo/205/hls/master/playlist.m3u8": {
+      "channel": "PursuitUP (1080p)",
+      "url": "https://linear-205.frequency.stream/dist/xumo/205/hls/master/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:31.228102+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://stream.smotrim.ru/hls/planeta_rtr_usa/playlist.m3u8?entity=channel&id=513&sign=3ac5d8e2db71ef7fc3d4becbff7512d8": {
+      "channel": "RTR-Planeta (720p)",
+      "url": "https://stream.smotrim.ru/hls/planeta_rtr_usa/playlist.m3u8?entity=channel&id=513&sign=3ac5d8e2db71ef7fc3d4becbff7512d8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994208,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:58:12.950617+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://284824cf70404fdfb6ddf9349009c710.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6066/master.m3u8": {
+      "channel": "Rakuten TV Action Movies (1080p)",
+      "url": "https://284824cf70404fdfb6ddf9349009c710.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6066/master.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-13T16:55:15.204674+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://758ee983d61e400381dea6fa8154f4e0.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6227/master.m3u8": {
+      "channel": "Rakuten TV Family Movies (1080p)",
+      "url": "https://758ee983d61e400381dea6fa8154f4e0.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6227/master.m3u8",
+      "checks": [
+        {
+          "passed": false,
+          "seconds": 0.0,
+          "frames": 0,
+          "error": "DECODE_ERROR",
+          "time": "2026-10-13T16:54:55.861501+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://pb-v4mil672yaqlk.akamaized.net/Salem_News_Channel.m3u8": {
+      "channel": "Salem News Channel (1080p)",
+      "url": "https://pb-v4mil672yaqlk.akamaized.net/Salem_News_Channel.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:55.890747+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://cdn-shop-lc-01.akamaized.net/Content/DASH_DASH/Live/channel(ott)/master.mpd": {
+      "channel": "Shop LC (1080p)",
+      "url": "https://cdn-shop-lc-01.akamaized.net/Content/DASH_DASH/Live/channel(ott)/master.mpd",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 780,
+          "error": "",
+          "time": "2026-10-13T16:56:30.693191+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://rightsboosterltd-scl-2-eu.rakuten.wurl.tv/playlist.m3u8": {
+      "channel": "Strongman (720p)",
+      "url": "https://rightsboosterltd-scl-2-eu.rakuten.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 897,
+          "error": "",
+          "time": "2026-10-13T16:57:56.920400+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://linear-253.frequency.stream/dist/stirr/253/hls/master/playlist.m3u8": {
+      "channel": "Swerve Combat (1080p)",
+      "url": "https://linear-253.frequency.stream/dist/stirr/253/hls/master/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:29.823114+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://aegis-cloudfront-1.tubi.video/57c1fa3c-566b-4998-b6de-d6de67031d99/index.m3u8": {
+      "channel": "TMZ (720p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/57c1fa3c-566b-4998-b6de-d6de67031d99/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:34.496671+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://turnerlive.warnermediacdn.com/hls/live/2023170/tntwest/slate/VIDEO_0_3564000.m3u8": {
+      "channel": "TNT (720p)",
+      "url": "https://turnerlive.warnermediacdn.com/hls/live/2023170/tntwest/slate/VIDEO_0_3564000.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.999333,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:11.745672+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d6ef3usc6d9cl.cloudfront.net/Tastemade_Travel.m3u8": {
+      "channel": "Tastemade Travel (1080p)",
+      "url": "https://d6ef3usc6d9cl.cloudfront.net/Tastemade_Travel.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:09.076033+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01775-amg01775c1-amgplt0002.playout.now3.amagi.tv/playlist/amg01775-amg01775c1-amgplt0002/playlist.m3u8": {
+      "channel": "Terra Mater WILD (1080p)",
+      "url": "https://amg01775-amg01775c1-amgplt0002.playout.now3.amagi.tv/playlist/amg01775-amg01775c1-amgplt0002/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:15.906306+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-ALMANYA",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-ALMANYA"
+      ]
+    },
+    "https://pb-7dne0wn288z2f.akamaized.net/The_First.m3u8": {
+      "channel": "The First TV (1080p)",
+      "url": "https://pb-7dne0wn288z2f.akamaized.net/The_First.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:43.902092+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01753-narrativeuk-amg01753c1-rakuten-uk-2339.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg01753-narrativeuk-tinypop-rakutenuk/cb7d3e4f7b726f8c9999376cd9f547f3d1006681563ad7316cad5e9420c91853d7b9f7c0e74feb690dbd7ba33e40340d0136d41cc07c11dfa32bfb086a384837c293a20287dd4755a2a55e793acc190e39ee0f15ce24562999fb0c52d468e137555aa82e6b553982f25bad7752c5810a8a6f5fd2ef88376635455e9a5943e5b24aa0ade75a44df64a9ac14489c2f58e68314c8c915ee84dc469745d722f247999aa482db16888cab43f803f10b1a4c3078988d709dce62bfdee82f53d8227a431a04b5a696b3186ad6450e08fafbcef267f942cbc470d13064ec549e1fd136df3af071cd8e4fa4be84db475730a7c164753eb0e0d2ef915624b864a1ea83af72788ac913794af66ed730393d9cfcdf1b96b167fcc672d3e23c456f99c211cbc9e5d2b6e7df10e64fbac6f08b025242621d079462b59369cf21af1ec2aa42780e1d1ed8f03bc582ca613467598f835beb1f16ada9e8e9be5f61b80a715bec73e656047ec731780e81479b8f3736f54c7884312ec44a21967dffb722e1a2d5f13932b1aca1289b3ab8ed5288b668d16c384a3da1e63a60464373c4eb68190f75c24be3c6cbe6727b648695c8f09a125276381341338af2f74f889acf3b1829d4412a12187a7d8405dd7ccb05474e3adf44afc6667581151e29e3b1365e5f539bc9ba84f5bfa023b376c1cafb3637611909cb32013551d0b9834df8365f41795c940a634caf0e5f5198f3a381b0a14c9fc636c050631070fae007480d2035094ecdc23b840db1c745f4cd9d0f95a2d943118771fa07479b9d8a39febf8493185bc6fd064f3deab957c4773ef813d13d81d175e7bd5a0219303221a8e973da719cedb3e471e346c24e076dd57cbe8aeab0d3594fe290584155633146260526767dd2bdd4601344e9b231943b8c8f45bb4d50697b2db283044db9f87818a3216770a0d2bfe1dfda0f11d36be665c86706995a042af3c334e6d9c89997866b473fcca5ae5e84b59191c9a4a34c191d652392d550472d9d4c9e8d03f2921c6cffb689f0d46a9b709046d1f5b521e972b2cab71bba9593eaed39005b580d6ea39d8a15dfaf3542bf6bc9722e179299e1fa718967de6dc2887ed18b3e3dbe394f53f0f8eb03e92899c41b0fc9a4677fd25513e0c1de073de9058429035cd0ecb7363cece22ec76cbc94d5386daf1e19c5667f408d32c3a69e484ec09d322170cc2a49a55a87dbeb447a27ada651032108383f58e06c4f09e1075b9d4ba1c5e5b66301af20ab2c1e96708ee074838329c7d1f5d2fefc1d448ed63f37d02ec6289801e7f8a6da1a8672508b63b23b6583fef9dfe9cdee96eefc3f7817bf65b828df54bbef80b057272b58fb2d1a6b0add3ee22a0072b5e574eb866e45a7d9dc35e2277164093511ea3898b730696002a8c75cbcfe4369486b11c9e227963295642aa57e569f3b4e3b2e267b6083b1ec3ad920db5690c57821e2a4968307c68d1effae81cf9f6803e373076f69b894aea0f16032ddb5abb0044da0ca449431543e0aa0fb836618e3e42301d987ac559a9d528e39172b4ef3a98f13ee5ea313cb7e7efb1af0de6c4cecac3d151aa41eb7ec526087079970759616fd0d7eda126a534a39b87ac769146c5b8917e7f7ae5228019600d40f1246dadde98a983d5e1c01531119617d12db4832a26b4321f55761f99099c29f859e1d1131e35db3db838b4a498386a499875db2d787fce6b7011d1aad370a1ff20e409172cb1815d2b252bd78869297865f07ba8275a03f85e655767210e98b316b192c68938740c15624de0dffda8af0c46ac3cdf237306e7e770a42d36f866463460de97dbec4193cf4ff9e6b0ad08ff2a3e4cfb38553e2a0f2509a9a446ad5fab530f0ebb436f55d0655850b571607b9b0505b39cc20a9ebd7e94303a22e954d582dece7fd3bb1b7147e539661b460ab772f53856e0168710b8bc55d8adcc55a7a2515490cedd4638a5e08a5742301c093438adf8f06c10090c0afff406a1c7134f87436233582496c5105fcb9f2c31c3be406f02b65a6d9b99e1a54698a9b58959d3e748194b800c871ec75ef72ff2c461c7dc7777d719d3e240a2d7b2018a94921e59aa6ecb4348c2dfc7b4cc800a57d37ba92021b82df7d8e7d7d539fd21441af67a13fa6998850e6786ee58eebcc0a/27/1920x1080_5903040/index.m3u8": {
+      "channel": "Tiny Pop (1080p)",
+      "url": "https://amg01753-narrativeuk-amg01753c1-rakuten-uk-2339.playouts.now.amagi.tv/ts-us-e2-n2/playlist/amg01753-narrativeuk-tinypop-rakutenuk/cb7d3e4f7b726f8c9999376cd9f547f3d1006681563ad7316cad5e9420c91853d7b9f7c0e74feb690dbd7ba33e40340d0136d41cc07c11dfa32bfb086a384837c293a20287dd4755a2a55e793acc190e39ee0f15ce24562999fb0c52d468e137555aa82e6b553982f25bad7752c5810a8a6f5fd2ef88376635455e9a5943e5b24aa0ade75a44df64a9ac14489c2f58e68314c8c915ee84dc469745d722f247999aa482db16888cab43f803f10b1a4c3078988d709dce62bfdee82f53d8227a431a04b5a696b3186ad6450e08fafbcef267f942cbc470d13064ec549e1fd136df3af071cd8e4fa4be84db475730a7c164753eb0e0d2ef915624b864a1ea83af72788ac913794af66ed730393d9cfcdf1b96b167fcc672d3e23c456f99c211cbc9e5d2b6e7df10e64fbac6f08b025242621d079462b59369cf21af1ec2aa42780e1d1ed8f03bc582ca613467598f835beb1f16ada9e8e9be5f61b80a715bec73e656047ec731780e81479b8f3736f54c7884312ec44a21967dffb722e1a2d5f13932b1aca1289b3ab8ed5288b668d16c384a3da1e63a60464373c4eb68190f75c24be3c6cbe6727b648695c8f09a125276381341338af2f74f889acf3b1829d4412a12187a7d8405dd7ccb05474e3adf44afc6667581151e29e3b1365e5f539bc9ba84f5bfa023b376c1cafb3637611909cb32013551d0b9834df8365f41795c940a634caf0e5f5198f3a381b0a14c9fc636c050631070fae007480d2035094ecdc23b840db1c745f4cd9d0f95a2d943118771fa07479b9d8a39febf8493185bc6fd064f3deab957c4773ef813d13d81d175e7bd5a0219303221a8e973da719cedb3e471e346c24e076dd57cbe8aeab0d3594fe290584155633146260526767dd2bdd4601344e9b231943b8c8f45bb4d50697b2db283044db9f87818a3216770a0d2bfe1dfda0f11d36be665c86706995a042af3c334e6d9c89997866b473fcca5ae5e84b59191c9a4a34c191d652392d550472d9d4c9e8d03f2921c6cffb689f0d46a9b709046d1f5b521e972b2cab71bba9593eaed39005b580d6ea39d8a15dfaf3542bf6bc9722e179299e1fa718967de6dc2887ed18b3e3dbe394f53f0f8eb03e92899c41b0fc9a4677fd25513e0c1de073de9058429035cd0ecb7363cece22ec76cbc94d5386daf1e19c5667f408d32c3a69e484ec09d322170cc2a49a55a87dbeb447a27ada651032108383f58e06c4f09e1075b9d4ba1c5e5b66301af20ab2c1e96708ee074838329c7d1f5d2fefc1d448ed63f37d02ec6289801e7f8a6da1a8672508b63b23b6583fef9dfe9cdee96eefc3f7817bf65b828df54bbef80b057272b58fb2d1a6b0add3ee22a0072b5e574eb866e45a7d9dc35e2277164093511ea3898b730696002a8c75cbcfe4369486b11c9e227963295642aa57e569f3b4e3b2e267b6083b1ec3ad920db5690c57821e2a4968307c68d1effae81cf9f6803e373076f69b894aea0f16032ddb5abb0044da0ca449431543e0aa0fb836618e3e42301d987ac559a9d528e39172b4ef3a98f13ee5ea313cb7e7efb1af0de6c4cecac3d151aa41eb7ec526087079970759616fd0d7eda126a534a39b87ac769146c5b8917e7f7ae5228019600d40f1246dadde98a983d5e1c01531119617d12db4832a26b4321f55761f99099c29f859e1d1131e35db3db838b4a498386a499875db2d787fce6b7011d1aad370a1ff20e409172cb1815d2b252bd78869297865f07ba8275a03f85e655767210e98b316b192c68938740c15624de0dffda8af0c46ac3cdf237306e7e770a42d36f866463460de97dbec4193cf4ff9e6b0ad08ff2a3e4cfb38553e2a0f2509a9a446ad5fab530f0ebb436f55d0655850b571607b9b0505b39cc20a9ebd7e94303a22e954d582dece7fd3bb1b7147e539661b460ab772f53856e0168710b8bc55d8adcc55a7a2515490cedd4638a5e08a5742301c093438adf8f06c10090c0afff406a1c7134f87436233582496c5105fcb9f2c31c3be406f02b65a6d9b99e1a54698a9b58959d3e748194b800c871ec75ef72ff2c461c7dc7777d719d3e240a2d7b2018a94921e59aa6ecb4348c2dfc7b4cc800a57d37ba92021b82df7d8e7d7d539fd21441af67a13fa6998850e6786ee58eebcc0a/27/1920x1080_5903040/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:18.161083+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://aegis-cloudfront-1.tubi.video/c2e3094d-ad56-4c5f-9655-cd80df71fbab/playlist.m3u8": {
+      "channel": "True Crime Network (720p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/c2e3094d-ad56-4c5f-9655-cd80df71fbab/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:41.586083+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://streaming-live-fcdn.api.prd.univisionnow.com/kftr/kftr.isml/hls/kftr.m3u8": {
+      "channel": "UniMas (1080p)",
+      "url": "https://streaming-live-fcdn.api.prd.univisionnow.com/kftr/kftr.isml/hls/kftr.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:12.022597+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://streaming-live-fcdn.api.prd.univisionnow.com/wltv/wltv.isml/hls/wltv.m3u8": {
+      "channel": "Univision (1080p)",
+      "url": "https://streaming-live-fcdn.api.prd.univisionnow.com/wltv/wltv.isml/hls/wltv.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:01.787185+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d36nnn435goed2.cloudfront.net/WipeoutXtraPoweredbyBanijay_GB.m3u8": {
+      "channel": "Wipeout Xtra (1080p)",
+      "url": "https://d36nnn435goed2.cloudfront.net/WipeoutXtraPoweredbyBanijay_GB.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:04.464615+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d2e00kr7m9coe4.cloudfront.net/scheduler/scheduleMaster/406.m3u8": {
+      "channel": "World Poker Tour (1080p)",
+      "url": "https://d2e00kr7m9coe4.cloudfront.net/scheduler/scheduleMaster/406.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-13T16:56:58.924975+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d726x48n2pd5h.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-skxr1pazhltvp/XITE_Hits.m3u8": {
+      "channel": "XITE Hits (1080p)",
+      "url": "https://d726x48n2pd5h.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-skxr1pazhltvp/XITE_Hits.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.978667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:10.304215+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d1ewctnvcwvvvu.cloudfront.net/playlist.m3u8": {
+      "channel": "Yahoo! Finance (1080p)",
+      "url": "https://d1ewctnvcwvvvu.cloudfront.net/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998229,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:50.537428+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://younghollywood-rakuten-samsung.amagi.tv/playlist.m3u8": {
+      "channel": "Young Hollywood (1080p)",
+      "url": "https://younghollywood-rakuten-samsung.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:20.683331+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8": {
+      "channel": "ABP News (1080p)",
+      "url": "https://d1rc86nwwc9fag.cloudfront.net/vglive-sk-472500/abpnews/master.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:54.296073+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://c.mjh.nz/abc-nt.m3u8": {
+      "channel": "ABC TV (720p)",
+      "url": "https://c.mjh.nz/abc-nt.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976961,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-13T16:56:41.993899+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d1gldweznovt26.cloudfront.net/Accuweather.m3u8": {
+      "channel": "AccuWeather NOW (1080p)",
+      "url": "https://d1gldweznovt26.cloudfront.net/Accuweather.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-13T16:56:53.347201+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://live-hls-apps-aja-v3-fa.getaj.net/AJA/index.m3u8": {
+      "channel": "Al Jazeera (1080p)",
+      "url": "https://live-hls-apps-aja-v3-fa.getaj.net/AJA/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.998583,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:29.437118+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://bbc-antiquesroadshowuk-1-us.roku.wurl.tv/playlist.m3u8": {
+      "channel": "Antiques Roadshow UK (1080p)",
+      "url": "https://bbc-antiquesroadshowuk-1-us.roku.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 899,
+          "error": "",
+          "time": "2026-10-13T16:56:31.942436+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://cmc-ono.amagi.tv/playlist.m3u8": {
+      "channel": "California Music Channel (1080p)",
+      "url": "https://cmc-ono.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:51.569387+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://57.128.231.171:8080/293/index.m3u8": {
+      "channel": "Cartoon Network CEE (1080p)",
+      "url": "http://57.128.231.171:8080/293/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.995,
+          "frames": 1495,
+          "error": "",
+          "time": "2026-10-13T16:55:13.930739+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://media.smc-host.com:1935/cycnow.com/cyc2/playlist.m3u8": {
+      "channel": "Christian Youth Channel CYC (1080p)",
+      "url": "http://media.smc-host.com:1935/cycnow.com/cyc2/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:06.034948+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://circle-samsung.amagi.tv/playlist.m3u8": {
+      "channel": "Circle (1080p)",
+      "url": "https://circle-samsung.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:45.188449+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://content.uplynk.com/channel/6c0bd0f94b1d4526a98676e9699a10ef.m3u8": {
+      "channel": "Court TV (1080p)",
+      "url": "https://content.uplynk.com/channel/6c0bd0f94b1d4526a98676e9699a10ef.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-13T16:56:57.459341+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d2obyvq5go60aw.cloudfront.net/DraftKings_Network.m3u8": {
+      "channel": "DraftKings Network (1080p)",
+      "url": "https://d2obyvq5go60aw.cloudfront.net/DraftKings_Network.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:00.676366+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://pb-mfmqu5e0fq1lb.akamaized.net/Duck_Dynasty.m3u8": {
+      "channel": "Duck Dynasty (1080p)",
+      "url": "https://pb-mfmqu5e0fq1lb.akamaized.net/Duck_Dynasty.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:48.811168+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://pb-6csswagmy4nat.akamaized.net/Ebony_TV_by_Lionsgate.m3u8": {
+      "channel": "Ebony TV by Lionsgate (1080p)",
+      "url": "https://pb-6csswagmy4nat.akamaized.net/Ebony_TV_by_Lionsgate.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:50.319291+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00488-foxdigital-kriv-lgus/playlist.m3u8": {
+      "channel": "Fox (1080p)",
+      "url": "https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg00488-foxdigital-kriv-lgus/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:34.596065+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg01753-narrativeuk-amg01753c3-lg-gb-1833.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-greatmovies-lggb/playlist.m3u8": {
+      "channel": "GREAT! movies (1080p)",
+      "url": "https://amg01753-narrativeuk-amg01753c3-lg-gb-1833.playouts.now.amagi.tv/playlist/amg01753-narrativeuk-greatmovies-lggb/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 749,
+          "error": "",
+          "time": "2026-10-13T16:56:17.778231+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://563f72af.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0d1c3RvVFZfSExT/playlist.m3u8": {
+      "channel": "Gusto TV (1080p)",
+      "url": "https://563f72af.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWV1X0d1c3RvVFZfSExT/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:20.326926+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://all3media-homes-under-the-hammer-1-dk.samsung.wurl.tv/playlist.m3u8": {
+      "channel": "Homes Under Hammer (720p)",
+      "url": "https://all3media-homes-under-the-hammer-1-dk.samsung.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 894,
+          "error": "",
+          "time": "2026-10-13T16:55:39.059874+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://uni10rtmp.tulix.tv/iipctv/iipctv.smil/playlist.m3u8": {
+      "channel": "IIPC TV (480p)",
+      "url": "https://uni10rtmp.tulix.tv/iipctv/iipctv.smil/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:07.608839+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00861-amg00861c10-rakuten-uk-3152.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "INTRAVEL (1080p)",
+      "url": "https://amg00861-amg00861c10-rakuten-uk-3152.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:04.567954+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-kartoonchannel-samsungnz/playlist.m3u8": {
+      "channel": "Kartoon Channel! (1080p)",
+      "url": "https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-kartoonchannel-samsungnz/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.993333,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:56:40.047929+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://45.84.187.172:3001/udp/239.10.10.76:5000": {
+      "channel": "Mezzo Live",
+      "url": "http://45.84.187.172:3001/udp/239.10.10.76:5000",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.976,
+          "frames": 724,
+          "error": "",
+          "time": "2026-10-13T16:55:25.809689+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d18l78mi5ujmqr.cloudfront.net/playlist.m3u8": {
+      "channel": "Midnight Pulp (1080p)",
+      "url": "https://d18l78mi5ujmqr.cloudfront.net/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:56.001598+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://all3media-midsomer-1-us.roku.wurl.tv/playlist.m3u8": {
+      "channel": "Midsomer Murders (1080p)",
+      "url": "https://all3media-midsomer-1-us.roku.wurl.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:40.562365+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://dq2a9ghraf7sw.cloudfront.net/Moonbug.m3u8": {
+      "channel": "Moonbug Kids (1080p)",
+      "url": "https://dq2a9ghraf7sw.cloudfront.net/Moonbug.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.986688,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:57:14.980919+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00353-amg00353c32-samsung-nz-3588.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "MovieSphere (1080p)",
+      "url": "https://amg00353-amg00353c32-samsung-nz-3588.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:59.245866+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg02784-amg02784c2-amgplt0002.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg02784-amg02784c2-amgplt0002/playlist.m3u8": {
+      "channel": "Nolly Africa (1080p)",
+      "url": "https://amg02784-amg02784c2-amgplt0002.playout.now3.amagi.tv/ts-eu-w1-n2/playlist/amg02784-amg02784c2-amgplt0002/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:23.637148+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://a-cdn.herringnetwork.com/affiliate/oane/playlist.m3u8": {
+      "channel": "OAN Plus (1080p)",
+      "url": "https://a-cdn.herringnetwork.com/affiliate/oane/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:15.333774+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg02333-pbs-amg02333c11-firetv-us-4242.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "PBS Nature (1080p)",
+      "url": "https://amg02333-pbs-amg02333c11-firetv-us-4242.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:18.779436+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://linear-205.frequency.stream/dist/glewedtv/205/hls/master/playlist.m3u8": {
+      "channel": "PursuitUP (1080p)",
+      "url": "https://linear-205.frequency.stream/dist/glewedtv/205/hls/master/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:24.848595+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://af230031eeac45f3b78d4f8a13265105.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6209/master.m3u8": {
+      "channel": "Rakuten TV Family Movies (1080p)",
+      "url": "https://af230031eeac45f3b78d4f8a13265105.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6209/master.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-13T16:55:40.290518+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://ff335120300e4742a2b135ee9a9e7df8.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5983/master.m3u8": {
+      "channel": "Rakuten TV Top Movies (1080p)",
+      "url": "https://ff335120300e4742a2b135ee9a9e7df8.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-5983/master.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 748,
+          "error": "",
+          "time": "2026-10-13T16:57:24.858723+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://db34cc6127ac459db55cab5f97cd66b9.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-680-WORBAUENFAST-WHALETVPLUS/680/whaletvplus/hls/master/playlist.m3u8": {
+      "channel": "Red Bull TV (1080p)",
+      "url": "https://db34cc6127ac459db55cab5f97cd66b9.mediatailor.us-west-2.amazonaws.com/v1/master/ba62fe743df0fe93366eba3a257d792884136c7f/LINEAR-680-WORBAUENFAST-WHALETVPLUS/680/whaletvplus/hls/master/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:14.136462+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00453-reuters-amg00453c1-samsung-gb-2113.playouts.now.amagi.tv/playlist/amg00453-reuters-reuters-samsunggb/playlist.m3u8": {
+      "channel": "Reuters TV (1080p)",
+      "url": "https://amg00453-reuters-amg00453c1-samsung-gb-2113.playouts.now.amagi.tv/playlist/amg00453-reuters-reuters-samsunggb/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-13T16:56:00.301693+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master_720.m3u8": {
+      "channel": "Telemundo (1080p)",
+      "url": "https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master_720.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:37.411461+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "http://200.62.239.170:830/play/a07n/index.m3u8": {
+      "channel": "Tooncast (1080p)",
+      "url": "http://200.62.239.170:830/play/a07n/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 853,
+          "error": "",
+          "time": "2026-10-13T16:55:22.385904+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00376-magellan-amg00376c12-samsung-au-1725.playouts.now.amagi.tv/playlist/amg00376-magellantv-truecrimenowaunzin-samsungau/playlist.m3u8": {
+      "channel": "True Crime Now (1080p)",
+      "url": "https://amg00376-magellan-amg00376c12-samsung-au-1725.playouts.now.amagi.tv/playlist/amg00376-magellantv-truecrimenowaunzin-samsungau/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-13T16:55:59.294470+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://usatodaynews-samsungus-tsv2-ghkcu.amagi.tv/playlist.m3u8": {
+      "channel": "USA TODAY (1080p)",
+      "url": "https://usatodaynews-samsungus-tsv2-ghkcu.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:13.964348+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://streaming-live-fcdn.api.prd.univisionnow.com/wfut/wfut.isml/hls/wfut.m3u8": {
+      "channel": "UniMas (1080p)",
+      "url": "https://streaming-live-fcdn.api.prd.univisionnow.com/wfut/wfut.isml/hls/wfut.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:07.081004+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00056-amg00056c6-rakuten-uk-3235.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "Vevo Pop (1080p)",
+      "url": "https://amg00056-amg00056c6-rakuten-uk-3235.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:51.348889+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8": {
+      "channel": "WION (1080p)",
+      "url": "https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.988,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:13.122058+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://www-on-freecast.b-cdn.net/WWW-on-Freecast/index.m3u8": {
+      "channel": "Wine Watches & Whiskey (1080p)",
+      "url": "https://www-on-freecast.b-cdn.net/WWW-on-Freecast/index.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 898,
+          "error": "",
+          "time": "2026-10-13T16:58:19.428548+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://aegis-cloudfront-1.tubi.video/e0a81cae-d483-46f9-aaa1-d0b87faa13cf/playlist.m3u8": {
+      "channel": "Wipeout Xtra (1080p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/e0a81cae-d483-46f9-aaa1-d0b87faa13cf/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.994667,
+          "frames": 750,
+          "error": "",
+          "time": "2026-10-13T16:55:40.670300+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://xplore-vizio.amagi.tv/playlist.m3u8": {
+      "channel": "Xplore TV (1080p)",
+      "url": "https://xplore-vizio.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:58:20.091487+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amg00119-amg00119c1-firetv-us-4205.playouts.now.amagi.tv/playlist.m3u8": {
+      "channel": "Yahoo! Finance (1080p)",
+      "url": "https://amg00119-amg00119c1-firetv-us-4205.playouts.now.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:55:53.246310+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://bein-beinxtrasports-firetv.amagi.tv/playlist.m3u8": {
+      "channel": "beIN SPORTS XTRA (1080p)",
+      "url": "https://bein-beinxtrasports-firetv.amagi.tv/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:31.997363+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://amdlive-ch03-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8": {
+      "channel": "Arirang TV (1080p)",
+      "url": "https://amdlive-ch03-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 720,
+          "error": "",
+          "time": "2026-10-13T16:55:52.171653+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://d1ak5jijks54h1.cloudfront.net/Haunt_TV.m3u8": {
+      "channel": "HauntTV (1080p)",
+      "url": "https://d1ak5jijks54h1.cloudfront.net/Haunt_TV.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:56:56.728975+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
+    },
+    "https://rakutenaa-blueskyent-lovepetsemea-rakuten-ikc4q.amagi.tv/playlist/rakutenAA-blueskyent-lovepetsemea-rakuten/playlist.m3u8": {
+      "channel": "Love Pets (1080p)",
+      "url": "https://rakutenaa-blueskyent-lovepetsemea-rakuten-ikc4q.amagi.tv/playlist/rakutenAA-blueskyent-lovepetsemea-rakuten/playlist.m3u8",
+      "checks": [
+        {
+          "passed": true,
+          "seconds": 29.996633,
+          "frames": 900,
+          "error": "",
+          "time": "2026-10-13T16:57:56.522740+00:00"
+        }
+      ],
+      "identity": "NOT_VERIFIED",
+      "ibo_sweden": "NOT_VERIFIED",
+      "source_id": "dearbulut-language-eng",
+      "source_language_hint": "FOREIGN_SOURCE_UNVERIFIED",
+      "source_history": [
+        "dearbulut-language-eng"
+      ]
     }
   }
 }
