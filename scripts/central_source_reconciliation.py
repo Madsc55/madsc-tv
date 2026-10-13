@@ -29,6 +29,14 @@ for name, url in sources.items():
     normalized = url.strip().rstrip("/")
     by_url[normalized].append(name)
 duplicate_urls = [{"url": url, "names": names} for url, names in sorted(by_url.items()) if len(names) > 1]
+# Ayni URL birden cok isimle tanimlandiysa, hedef farki icin guvenli inceleme adayi.
+# Bu bir silme karari degildir; isimler ve aktif kullanim bagimsiz dogrulanmalidir.
+review_candidates = [
+    {"endpoint": row["url"], "names": row["names"], "redundant_definitions": len(row["names"]) - 1,
+     "decision": "MANUEL_INCELEME_GEREKLI"}
+    for row in duplicate_urls
+]
+reviewable_surplus = sum(row["redundant_definitions"] for row in review_candidates)
 invalid = [{"name": name, "url": url} for name, url in sources.items()
            if urlsplit(url).scheme not in ("http", "https") or not urlsplit(url).netloc]
 report = {"defined": len(sources), "target": target, "difference": len(sources) - target,
@@ -36,6 +44,10 @@ report = {"defined": len(sources), "target": target, "difference": len(sources) 
           "action_required": ("Tanimlar hedefi asiyor; kaynaklari silmeden once canli erisim ve kaynak secimi incelenmeli."
                               if len(sources) > target else "Tanim sayisi hedefe esit veya dusuk; canli erisim ayrica dogrulanmali."),
           "unique_endpoint_count": len(by_url), "duplicate_endpoints": duplicate_urls,
+          "duplicate_endpoint_review_candidates": review_candidates,
+          "duplicate_endpoint_definition_surplus": reviewable_surplus,
+          "target_gap_explainable_by_exact_endpoint_duplicates": bool(len(sources) > target and reviewable_surplus >= len(sources) - target),
+          "safe_next_step": "Tekrarli URL tanimlarini kullanan is akislari incelenmeli; otomatik silme veya hedef sayisi degisikligi yapilmaz.",
           "duplicate_source_names": duplicate_names,
           "raw_source_entry_count": len(source_keys),
           "overwritten_source_definitions": len(source_keys) - len(sources),
