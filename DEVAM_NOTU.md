@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Toplu aday kaybi onleme ve kaynak sayim duzeltmesi
+Merkezi #38399633946, dokumantasyon #38399633933, saglik #38399633905 SUCCESS dogrulandi. Gercek aday kuyrugu hatasi duzeltildi: SHA256 kimligi olmayan ayni adli farkli adaylar once yanlislikla tek kayda indirilebiliyordu; artik yalniz dolu hash + ad ayniysa tekrarlari ayiklar. Kaynak mutabakatinda tekrarlanan kaynak isimleri O(n) sayilir ve ezilen ham tanim sayisi ayri raporlanir. Iki regresyon testi eklendi; mevcut tek merkezi workflow bunlari unittest discover ile calistirir. IBO cihaz onayi, canli kaynak testi, harici yedek ve 155 hedefi otomatik degistirilmedi. Playlist ve yedekler korunur. Yeni Actions sonucunu kontrol et.
+
 ## 13 Ekim 2026 — Toplu gerçek hata düzeltmesi: Python syntax kapısı
 Merkezi #38399244580, dokumantasyon #38399244524 ve saglik #38399244523 SUCCESS dogrulandi. Ancak `scripts/central_short_status.py` icinde f-string ayni tirnak kullanimi Python 3.11/onceki surumlerde SyntaxError olusturabilir. Bu somut hata duzeltildi; merkezi denetime git ile izlenen tum Python dosyalarini ast.parse ile calistirmadan once kontrol eden yeni tek kosu kapisi eklendi. Bu kapinin gecmesi gercek yayin, IBO, harici yedek veya kaynak erisimi dogrulamasi degildir. Korunan listeler, yedekler, cron ve Rule 24 degismedi. Yeni Actions sonucunu dogrula.
 
