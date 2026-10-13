@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Acik gorev ve eksik kanit ayristirmasi
+Merkezi #38397245525, saglik #38397245567, dokumantasyon #38397245447 SUCCESS dogrulandi. `scripts/central_open_gaps.py` sekiz gorev raporundaki eksikleri ve tek yonetim ozetindeki eksik/bozuk kanitlari `acik_isler_ve_eksik_kanitlar.json` dosyasinda ayri raporlar. Raporun varligi gercek tamamlanma sayilmaz; IBO onayi otomatik verilmez. Test ve merkezi Actions'a eklendi. Kullanici talebi uyarinca bu gelisme not edildi. Playlist, yedek, cron degismedi. Yeni Actions sonucu dogrulanmali. Bir sonraki gercek eksik: interaktif IBO onay paneli, bagimsiz geri yukleme, 156/155 farkini veriyle gidermek; bunlar yapildi diye iddia edilmez.
+
 ## 13 Ekim 2026 — Kisa okunabilir durum ozeti
 Merkezi #38396974312, saglik #38396974280, dokumantasyon #38396974425 SUCCESS dogrulandi. `scripts/central_short_status.py` son 100 Actions ornegindeki basari/basarisizlik, sekiz gorev eksikleri ve hatali job/step kanitini `madsc_merkezi_denetim/madsc_kisa_durum_ozeti.md` dosyasinda ozetler. Unittest ve mevcut merkezi denetime eklendi. Bu rapor mevcut ayin 1/15 kosusunda ve ilgili push/manual kosularinda uretilir; GUNLUK ZAMANLAMA EKLENMEDI, cron degistirilmedi. Kullanici onayi olmadan zamanlama degistirme. Korunan listeler, yedekler ve IBO onaylari aynen korunur. Yeni Actions run sonucunu dogrula.
 

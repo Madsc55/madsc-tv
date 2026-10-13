@@ -35,3 +35,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - **Tek merkezi yönetim özeti:** `scripts/central_management_summary.py`, `test_central_management_summary.py`; yedi mevcut kanıt raporunu tek JSON içinde birleştirir, eksikleri açık gösterir. Canlı panel veya IBO onayı değildir.
 
 - **Kısa durum özeti:** `scripts/central_short_status.py`, `test_central_short_status.py`; merkezi Actions artifact içinde `madsc_kisa_durum_ozeti.md` üretir. Günlük cron eklenmemiştir; mevcut zamanlama korunur.
+
+- **Açık işler ve eksik kanıtlar:** `scripts/central_open_gaps.py`, `test_central_open_gaps.py`; merkezi Actions artifact içinde `acik_isler_ve_eksik_kanitlar.json` üretir. Rapor bulunması işi bitmiş saymaz.
