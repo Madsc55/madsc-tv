@@ -9,6 +9,9 @@ on:
       - 'aday_oncelik_raporu.py'
       - 'akilli_tekrar_test_takvimi.py'
       - 'altinci_aday_tekrar_test.py'
+      - 'gelismis_medya_testi.py'
+      - 'aday_bekletme.py'
+      - 'yeni_kanal_tara.py'
 permissions:
   contents: read
 concurrency:
