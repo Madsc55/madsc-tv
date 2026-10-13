@@ -30,10 +30,10 @@ class SistemSaglikTesti(unittest.TestCase):
             workflows = root / ".github/workflows"
             workflows.mkdir(parents=True)
             (workflows / "missing.yml").write_text(
-                "name: Eksik izin\\non: push\\njobs:\\n  test:\\n    runs-on: ubuntu-latest\\n",
+                "name: Eksik izin\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n",
                 encoding="utf-8")
             (workflows / "safe.yml").write_text(
-                "name: Guvenli\\npermissions:\\n  contents: read\\n",
+                "name: Guvenli\npermissions:\n  contents: read\n",
                 encoding="utf-8")
             findings = inspect(root)["findings"]
             names = {x["detail"] for x in findings
