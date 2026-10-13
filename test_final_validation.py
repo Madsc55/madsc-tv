@@ -61,6 +61,17 @@ class TurkishPriorityTests(unittest.TestCase):
         self.assertEqual(selected[0]['source_id'], 'dearbulut-TURKCE')
         self.assertEqual(selected[0]['source_language_hint'], 'tur')
 
+    def test_multiple_source_origins_survive_final_queue(self):
+        record = dict(channel='Kanal', url='https://example.org/multi',
+                      checks=[{'passed': True}]*3,
+                      source_id='iptv-org-TR',
+                      source_language_hint='tur',
+                      source_history=['iptv-org-TR', 'dearbulut-TR'])
+        selected = pending_candidates({'candidates': []}, {'one': record}, [])
+        self.assertEqual(selected[0]['source_history'],
+                         ['iptv-org-TR', 'dearbulut-TR'])
+        self.assertEqual(selected[0]['source_id'], 'iptv-org-TR')
+
     def test_turkish_candidates_first_and_completed_not_repeated(self):
         rows = [
             dict(url='https://example.org/foreign', label='BBC Earth', reason='wide'),
