@@ -1,0 +1,24 @@
+name: MADSC - YEDEKLER 399 Sonrasi Yabanci Arsiv
+on:
+  push:
+    paths:
+      - '.github/workflows/madsc-ibo-530-archive.yml'
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - run: python3 scripts/archive_backups_399_onward.py
+      - run: |
+          set -euo pipefail
+          git diff --exit-code -- YABANCI_KANALLAR.m3u
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CALISANLAR.m3u madsc_kesif/ibo_530_399_sonrasi_yabanci_arsiv.m3u madsc_kesif/ibo_530_399_sonrasi_rapor.json
+          git commit -m "Archive foreign backups positions 399-530; retain first 398"
+          git push origin HEAD:main
