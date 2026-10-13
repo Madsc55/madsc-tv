@@ -1,4 +1,4 @@
-name: Automatically fill missing channel logos
+name: Eksik Kanal Logolari Guvenli Hazirlik
 on:
   schedule:
     - cron: '23 5,17 * * *'
@@ -32,15 +32,28 @@ jobs:
           name: logo-visual-evidence
           path: logo_deneme/visual_frames/
           if-no-files-found: ignore
-      - name: Save PNG artwork and logo-only playlist changes
+      - name: Korunan kanal listesi degisikliklerini engelle
+        shell: bash
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add CALISANLAR.m3u logo_deneme/ozet.json logo_deneme/rapor.json
-          git add logo_deneme/visual_review.json
-          if [ -d logos/auto ]; then git add logos/auto; fi
-          if [ -f logo_deneme/png_automation.json ]; then git add logo_deneme/png_automation.json; fi
-          if ! git diff --cached --quiet; then
-            git commit -m 'Automatically cache playlist artwork as PNG and audit logos'
-            git push
+          set -euo pipefail
+          if ! git diff --quiet -- CALISANLAR.m3u; then
+            echo "::warning::CALISANLAR.m3u degisikligi tespit edildi; ana listeye kaydedilmeyecek."
+            git restore -- CALISANLAR.m3u
           fi
+          if ! git diff --cached --quiet -- CALISANLAR.m3u; then
+            echo "::error::Korunan kanal listesi stage alaninda degistirilmis."
+            exit 1
+          fi
+      - name: Logo calismasi sonucunu guvenli artifact olarak sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logo-hazirlik-ve-inceleme
+          path: |
+            logos/auto/
+            logo_deneme/ozet.json
+            logo_deneme/rapor.json
+            logo_deneme/visual_review.json
+            logo_deneme/png_automation.json
+          if-no-files-found: warn
+          retention-days: 30

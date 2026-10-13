@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Logo otomasyonu kirmizi test duzeltmesi ve ana liste korumasi
+Logo run #38399784760 FAILURE, `Save PNG artwork and logo-only playlist changes` adimi #10. Bu adim `CALISANLAR.m3u` dahil dogrudan `git push` yapiyordu; kullanici koruma kurallariyla celisiyor ve kaydetme hatasi olusturdu. Otomatik git push/stage kaldirildi; logo hazirlik ve inceleme dosyalari 30 gun artifact olarak saklanir; ana listeye dokunan working tree degisikligi restore edilir; stage'de korunan dosya varsa is fail olur. Cron ayni kalir. Bu degisiklik logolari ana listeye eklemez; logo incelemesi ve kullanici onayi gerekir. Yeni workflow testinin sonucunu dogrula.
+
 ## 13 Ekim 2026 — Toplu aday kaybi onleme ve kaynak sayim duzeltmesi
 Merkezi #38399633946, dokumantasyon #38399633933, saglik #38399633905 SUCCESS dogrulandi. Gercek aday kuyrugu hatasi duzeltildi: SHA256 kimligi olmayan ayni adli farkli adaylar once yanlislikla tek kayda indirilebiliyordu; artik yalniz dolu hash + ad ayniysa tekrarlari ayiklar. Kaynak mutabakatinda tekrarlanan kaynak isimleri O(n) sayilir ve ezilen ham tanim sayisi ayri raporlanir. Iki regresyon testi eklendi; mevcut tek merkezi workflow bunlari unittest discover ile calistirir. IBO cihaz onayi, canli kaynak testi, harici yedek ve 155 hedefi otomatik degistirilmedi. Playlist ve yedekler korunur. Yeni Actions sonucunu kontrol et.
 
