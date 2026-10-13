@@ -30,6 +30,8 @@ jobs:
             test -f "$file" || { echo "::error::Zorunlu dosya eksik: $file"; exit 1; }
           done
           sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
+      - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
+        run: python3 scripts/central_workflow_inventory.py
       - name: Mevcut sistem saglik testlerini calistir
         run: |
           python3 -m unittest test_sistem_saglik_denetimi -v
