@@ -5,6 +5,15 @@ from tools.sistem_saglik_denetimi import inspect
 
 
 class SistemSaglikTesti(unittest.TestCase):
+    def test_oncelik_ve_guvenli_yonlendirme(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / ".github/workflows").mkdir(parents=True)
+            report = inspect(root)
+            self.assertEqual(report["findings"][0]["severity"], "ERROR")
+            self.assertTrue(all(item["next_action"] for item in report["findings"]))
+            self.assertEqual(report["mode"], "READ_ONLY")
+
     def test_salt_okunur_ve_eksik_dosya(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
