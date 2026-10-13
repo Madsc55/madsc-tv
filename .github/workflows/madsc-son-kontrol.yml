@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows:
-      - 'MADSC - Uc Asamali Aday Dogrulama'
+      - 'MADSC - Üç Aşamalı Aday Doğrulama'
     types: [completed]
   push:
     paths:
@@ -20,7 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - name: Depo dosyalarını al
+        uses: actions/checkout@v4
+      - name: 24. kural - ardışık hata güvenlik kontrolü
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/workflow_failure_gate.py
       - name: Load current code and frozen priority batch
         run: |
           git fetch origin main
