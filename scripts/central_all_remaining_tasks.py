@@ -103,6 +103,8 @@ foreign_report = {
     "backup_names": backup_names,
     "backup_count_is_snapshot_only": True,
     "archive_urls_missing": sum(not e["url"] for e in foreign_archive["entries"]),
+    "archive_duplicate_records": foreign_archive["count"] - len(set(archive_pairs)),
+    "main_playlist_present": main_playlist["present"],
     "new_ibo_category_created": False,
     "live_streams_tested": False,
     "note": "Arsiv kanal kimligi, ulke ve canlilik kaniti degildir; orijinal metadata korunur."
@@ -127,6 +129,8 @@ except (OSError, ValueError):
                ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 if not foreign_report["archive_present"] or foreign_report["archive_urls_missing"]:
     raise SystemExit("Yabanci kanal arsivi eksik veya URL kaydi bos.")
+if not foreign_report["main_playlist_present"]:
+    raise SystemExit("Ana kanal listesi bulunamadi; korunan dosya degistirilmedi.")
 # Korunan yedekler icin sabit sayi/isim varsayimi yapma; yalnizca salt okunur raporla.
 # Gercek liste icerigi degistirilmez.
 print("Yabanci arsiv, yedekler ve birikimli aday ozeti tek merkezi denetimde kontrol edildi.")
