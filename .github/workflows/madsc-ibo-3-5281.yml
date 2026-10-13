@@ -1,0 +1,28 @@
+name: MADSC - IBO 3-5281 Kanal Ayirma
+on:
+  push:
+    paths:
+      - '.github/workflows/madsc-ibo-3-5281.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: En guncel liste
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Kullanici sesli kanal kararlarini uygula
+        run: python3 scripts/apply_ibo_3_5281.py
+      - name: Arsivi ve listeyi kaydet
+        run: |
+          set -euo pipefail
+          git diff --exit-code -- YABANCI_KANALLAR.m3u
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CALISANLAR.m3u madsc_kesif/ibo_3_5281_ayrilanlar.m3u madsc_kesif/ibo_3_5281_kararlar.csv madsc_kesif/ibo_3_5281_rapor.json
+          git commit -m "Archive user-identified foreign backups positions 3-5281"
+          git push origin HEAD:main
