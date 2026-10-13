@@ -15,6 +15,10 @@ SOURCES = {
     "korunan_dosyalar_yedek": "yedek_ve_korunan_dosyalar_kanit.json",
     "logo_epg_kimlik": "logo_epg_kimlik_gecmis_tek_rapor.json",
     "otomasyon_durumu": "is_akisi_son_durum_siniflandirma.json",
+    "kalan_isler": "kalan_isler_tek_kosu_karar_tablosu.json",
+    "yabanci_arsiv_koruma": "yabanci_arsiv_koruma_denetimi.json",
+    "kesif_kaynaklari": "kesif_ve_yabanci_kaynak_toplu_ozet.json",
+    "son_kontrol": "son_kontrol_birikimli_ozet.json",
 }
 
 def build(folder):
