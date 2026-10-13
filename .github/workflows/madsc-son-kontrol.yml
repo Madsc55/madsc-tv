@@ -77,18 +77,14 @@ jobs:
         if: success()
         run: echo 'Adaylar raporda bekletildi; kullanici onayi olmadan CALISANLAR.m3u degistirilmez.'
 
-      - name: Kalan son kontrolleri otomatik sürdür
+      - name: Kalan son kontrolleri raporla; zincirleme tetikleme yapma
         if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
         run: |
-          set -euo pipefail
-          remaining=$(python3 -c 'import json; print(json.load(open("madsc_son_kontrol/summary.json"))["remaining"])')
-          echo "Remaining unreviewed final-check candidates: $remaining"
-          if [ "$remaining" -gt 0 ]; then
-            gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-son-kontrol.yml/dispatches" -f ref=main
-            echo "Next bounded final-check batch queued."
-          else
-            echo "All currently eligible final checks completed."
-          fi
+          python3 - <<'PY'
+          import json
+          with open("madsc_son_kontrol/summary.json", encoding="utf-8") as f:
+              report=json.load(f)
+          remaining=int(report["remaining"])
+          print("Kalan aday:",remaining)
+          print("Yeni workflow_dispatch acilmadi. Sonraki zamanlanmis calisma kaldigi yerden devam eder.")
+          PY
