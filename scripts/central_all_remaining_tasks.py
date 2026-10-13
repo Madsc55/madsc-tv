@@ -41,9 +41,11 @@ def assemble(source, duplicate, backups, identity, failures, tasks):
     add(3, "Yedek geri yukleme", "GERI_YUKLEME_BU_KOSUDA_YOK",
         {"protected_missing": backups.get("protected_missing") if isinstance(backups, dict) else None},
         "Bagimsiz kopya ve izole geri yukleme kanitini dogrula.", "HARICI_YEDEK_ERISIMI")
-    add(4, "Logo EPG kanal kimligi", "CIHAZ_ONAYI_YOK",
-        {"report_present": isinstance(identity, dict)},
-        "IBO Isvec cihazinda goruntu ve EPG dogrula.", "KULLANICI_CIHAZI")
+    add(4, "Logo EPG kanal kimligi", "KIMLIK_KANITI_BEKLIYOR_CIHAZ_TESTI_KAPSAM_DISI",
+        {"report_present": isinstance(identity, dict), "ibo_device_retest": False,
+         "ibo_user_field_observation": "740 yabanci kanal IBO icinde goruldu ve denendi; her URL tek tek onayli sayilmaz",
+         "technical_false_negative_possible": True},
+        "Kanal kimligi ve logo EPG eslesmesini cihaz testi istemeden eldeki kanitlarla incele.", "KANAL_KIMLIK_KANITI")
     add(5, "Actions hata analizi", "IS_ADIM_KANITI_VAR" if isinstance(failures, dict) else "KANIT_YOK",
         {"failed_runs_in_sample": failures.get("failed_runs_in_sample") if isinstance(failures, dict) else None},
         "Gercek kok neden icin ilgili loglari incele.", "GITHUB_LOG")
@@ -58,7 +60,7 @@ def assemble(source, duplicate, backups, identity, failures, tasks):
             "all_done": False, "requires_user_or_external_evidence": [x["id"] for x in jobs if x["dependency"] in
             ("HARICI_YEDEK_ERISIMI", "KULLANICI_CIHAZI", "KULLANICI_ONAYI", "CRON_ONAYI")],
             "safety": "Kanal listesi, yedek, cron, onay, kesif ve test esikleri degistirilmedi.",
-            "limitations": "Tek kosu kalan islerin kanitini ve bagimliliklarini toplar; eksik cihaz, lisans, harici yedek veya gercek testleri bitmis saymaz."}
+            "limitations": "Tek kosu kalan islerin kanitini ve bagimliliklarini toplar; cihaz testi kapsam disidir. Teknik fail IBO fail demek degildir; eksik kimlik, lisans, harici yedek veya gercek testleri bitmis saymaz."}
 
 result = assemble(load("kaynak_hedef_mutabakati.json"), load("tekrar_test_analizi.json"),
                   load("yedek_ve_korunan_dosyalar_kanit.json"),
@@ -112,7 +114,9 @@ except (OSError, ValueError):
                 "ready_for_playlist": last_summary.get("ready_for_playlist"),
                 "status_counts": last_summary.get("status_counts", {}),
                 "snapshot_only": True,
-                "device_approval_not_inferred": True},
+                "device_approval_not_inferred": True,
+                "ibo_device_retest_out_of_scope": True,
+                "technical_failure_does_not_prove_ibo_failure": True},
                ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 if not foreign_report["backup_only_trt1_dha"] or foreign_report["archive_count"] != 740 or foreign_report["archive_urls_missing"]:
     raise SystemExit("Yabanci kanal arsivi veya korunan yedekler beklenen durumda degil.")
@@ -151,7 +155,9 @@ for item in foreign_archive["entries"]:
     })
 (OUT / "yabanci_kanal_adaylari.json").write_text(
     json.dumps({"count": len(archive_candidates), "channels": archive_candidates,
-                "not_a_playlist": True, "not_ibo_approved": True},
+                "not_a_playlist": True, "per_channel_ibo_approval_not_inferred": True,
+                "user_confirmed_ibo_field_testing": True,
+                "technical_failure_does_not_prove_ibo_failure": True},
                ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 discovery_report = {
     "source_report_is_snapshot": True,
