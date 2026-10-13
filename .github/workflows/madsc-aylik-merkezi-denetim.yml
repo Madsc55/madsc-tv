@@ -9,6 +9,8 @@ on:
       - 'scripts/central_run_status.py'
       - 'scripts/central_failure_stage_report.py'
       - 'scripts/central_backup_evidence.py'
+      - 'scripts/central_isolated_git_restore.py'
+      - 'test_central_isolated_git_restore.py'
       - 'scripts/central_identity_epg_logo_audit.py'
       - 'scripts/central_management_summary.py'
       - 'scripts/central_short_status.py'
@@ -63,6 +65,8 @@ jobs:
         run: python3 scripts/central_workflow_inventory.py
       - name: Logo EPG kimlik ve test gecmisini birlestir
         run: python3 scripts/central_identity_epg_logo_audit.py
+      - name: Korunan Git dosyalarini gecici dizinde geri yukleyip dogrula
+        run: python3 scripts/central_isolated_git_restore.py
       - name: Korunan dosya ve yedek kanitlarini denetle
         run: python3 scripts/central_backup_evidence.py
       - name: Gecmis test tekrarlarini tek raporda olc
