@@ -64,7 +64,7 @@ jobs:
           done
           exit 1
 
-      - name: Continue remaining final checks automatically
+      - name: Kalan son kontrolleri otomatik sürdür
         if: success()
         env:
           GH_TOKEN: ${{ github.token }}
