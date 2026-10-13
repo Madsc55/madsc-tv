@@ -23,10 +23,13 @@ def prepare(raw):
             continue
         digest = str(item.get("stream_sha256") or "").strip()
         channel = str(item.get("channel") or "").strip()
-        key = (digest, channel)
-        if key in seen:
+        # Kimlik kaniti olmayan farkli adaylari tek kayda indirme.
+        # Yalniz dolu SHA256 ile ayni kanal tekrarlarini ayikla.
+        key = (digest, channel) if digest else None
+        if key is not None and key in seen:
             continue
-        seen.add(key)
+        if key is not None:
+            seen.add(key)
         rows.append({
             "channel": channel, "stream_sha256": digest,
             "channel_id": str(item.get("channel_id") or ""),
