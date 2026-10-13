@@ -12,6 +12,22 @@ class ContinuityEvidenceTests(unittest.TestCase):
         self.assertFalse(assess(1, 'frame=9000\nout_time_us=300000000\n', 300)['passed'])
         self.assertTrue(assess(0, 'frame=9000\nout_time_us=300000000\n', 300)['passed'])
 
+class EvidenceSeparationTests(unittest.TestCase):
+    def test_final_review_defaults_never_certify_identity_or_rights(self):
+        from unittest.mock import patch
+        import subprocess
+        from final_validation import audit
+        candidate = {'url': 'https://example.org/live', 'label': 'Test', 'reason': 'test'}
+        with patch('final_validation.subprocess.run',
+                   side_effect=subprocess.TimeoutExpired(['ffprobe'], 35)):
+            result = audit(candidate, 300)
+        self.assertEqual(result['license_status'], 'NOT_VERIFIED')
+        self.assertEqual(result['source_rights_review'], 'REQUIRED')
+        self.assertEqual(result['station_identity_evidence'], 'NOT_VERIFIED')
+        self.assertEqual(result['logo_identity_evidence'], 'NOT_VERIFIED')
+        self.assertEqual(result['epg_device_evidence'], 'NOT_VERIFIED')
+        self.assertEqual(result['ibo_sweden'], 'NOT_VERIFIED')
+
 class ResumeTests(unittest.TestCase):
     def test_terminal_outcomes_are_not_retested(self):
         rows=[dict(url='https://example.org/'+str(i),label=str(i),reason='priority') for i in range(4)]
