@@ -12,6 +12,8 @@ on:
       - 'scripts/central_identity_epg_logo_audit.py'
       - 'scripts/central_management_summary.py'
       - 'scripts/central_short_status.py'
+      - 'scripts/central_open_gaps.py'
+      - 'test_central_open_gaps.py'
       - 'test_central_short_status.py'
       - 'test_central_management_summary.py'
       - 'test_central_identity_epg_logo_audit.py'
@@ -111,6 +113,7 @@ jobs:
           python3 scripts/central_failure_stage_report.py
           python3 scripts/central_management_summary.py
           python3 scripts/central_short_status.py
+          python3 scripts/central_open_gaps.py
           echo "## MADSC - Ayda iki kez merkezi denetim" >> "$GITHUB_STEP_SUMMARY"
           echo "- Takip edilen dosya: $(wc -l < madsc_merkezi_denetim/takip_edilen_dosyalar.txt)" >> "$GITHUB_STEP_SUMMARY"
           echo "- Workflow: $(wc -l < madsc_merkezi_denetim/is_akislari.txt)" >> "$GITHUB_STEP_SUMMARY"
