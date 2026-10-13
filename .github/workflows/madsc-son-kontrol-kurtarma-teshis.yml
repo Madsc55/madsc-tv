@@ -1,0 +1,44 @@
+name: MADSC - Son Kontrol Kurtarma Teshisi
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/madsc-son-kontrol-kurtarma-teshis.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  teshis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Son kontrol unit testleri
+        run: python3 -m unittest test_final_validation -v
+      - name: Kayitli aday kuyrugu ve rapor sagligi
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('madsc_son_kontrol/summary.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          print('Previously recorded remaining:',d.get('remaining'))
+          print('Previously recorded completed:',d.get('completed'))
+          print('Report time:',d.get('checked_utc'))
+          assert Path('madsc_son_kontrol/results.json').exists()
+          print('Reports preserved; no streaming probes or playlist changes.')
+          PY
+      - name: Guvenlik kilidi inceleme
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,urllib.request
+          repo=os.environ['GITHUB_REPOSITORY']
+          url=f'https://api.github.com/repos/{repo}/actions/workflows/madsc-son-kontrol.yml/runs?per_page=20'
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req,timeout=25) as f:runs=json.load(f)['workflow_runs']
+          for run in runs[:12]:
+            print(run['id'],run['event'],run['status'],run.get('conclusion'))
+          print('Diagnosis only. No safety gate bypass and no test chain dispatch.')
+          PY
