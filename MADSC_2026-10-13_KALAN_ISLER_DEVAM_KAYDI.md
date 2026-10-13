@@ -65,3 +65,10 @@ Bu not DEVAM_NOTU.md ve SEKIZ_GOREV_TOPLU_DENETIM.md ile birlikte okunur. Raporl
 - madsc_son_kontrol/summary.json son bilinen zaman 2026-10-13T09:22:28Z, remaining=3082, selected=3175, completed=3175, ready_for_playlist=0; rapor tarihi eski ve sayilar tekrar dogrulanmadan guncel diye sunulmamali.
 - KALAN: son kontrol zincirinin onceki gercek basarisizliklarini analiz et; sadece kontrollu manuel kurtarma calismasiyla (workflow_dispatch, mevcut guvenlik kodunda izinli) yeniden baslat; test raporlarini ve kalan kuyrugu dogrula; kullanicinin IBO geri bildirimlerini URL bazinda kalici kaydet ve YEDEKLER'den ancak kullanici talimatiyla tasima/silme yap; 11599 aday icin IBO oynatici performansi kullanici tarafindan dogrulanmali.
 - Koruma: HEPSI/FAVORILER/YENILER/ULUSAL ve diger eski kategorilerin kanal adi, sirasi, URL, logo, ID ve grup bilgisi degistirilmez. IBO testi sadece kullaniciya aittir.
+
+## 2026-10-13 - Tekrarlayan workflow zincirini kalici olarak azaltma
+- Kullanici istegi: her seferinde yeni workflow acip birbirini tetiklemek yerine merkezi, tutarli, tekrarsiz ve toplu is akisi.
+- .github/workflows/madsc-son-kontrol.yml son adiminda kendini tekrar workflow_dispatch ile baslatan otomatik zincir kaldirildi (a79c319). Gunluk planli kontrol ve kullanici tarafindan manuel kurtarma imkani duruyor.
+- Her basarili batch sonunda kalan sayi yalniz raporlanir. final_validation.py daha once son kontrol sonucu kaydedilmis adaylari yeniden test etmez. Devre kesici / 24. kural guvenlik kilidi korunur.
+- #38429767606 kurtarma teshisi SUCCESS, fakat bu son kontrolun kilidinin kalktigi veya bekleyen adaylarin test edildigi anlamina gelmez.
+- Acik konu: son kontrolu manuel kurtarma modunda guvenli baslatip gercek sonucunu izlemek; gunluk otomasyonun ilerlemesini takip etmek; kullanicinin IBO gozlemleriyle arsiv siniflandirmasi yapmak.
