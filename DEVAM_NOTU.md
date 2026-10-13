@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Korunan dosya ve yedek kanit raporu
+Merkezi #38396019288, saglik #38396019340, dokumantasyon #38396019403 SUCCESS dogrulandi. `scripts/central_backup_evidence.py` korunan dosyalarin varligini, boyutunu, SHA256 parmak izlerini ve depoda izlenen yedek adli dosyalari tek salt okunur rapora alir. Geri yukleme bu kosuda gercekten denenmedigi, GitHub disi kopya ve branch protection kanitlanmadigi acikca yazilir; bunlar basarili diye gosterilmez. Test ve merkezi workflow'a baglandi. Korunan listeler, arsivler ve cron degismedi. Yeni Actions run sonucunu dogrula.
+
 ## 13 Ekim 2026 — Basarisiz otomasyonlarin is/adim raporu
 Merkezi #38395674647, saglik #38395674715, dokumantasyon #38395674569 SUCCESS dogrulandi. Tek merkezi denetim son 100 kosudaki en fazla 20 basarisiz run icin GitHub Actions jobs API'sinden job/step sonucunu toplar; `scripts/central_failure_stage_report.py` hata asamasini ve kanit alinip alinmadigini ayri JSON raporlar. Loglar okunmadigindan kok neden uydurulmaz, 20/100 ornek siniri aciktir. Test ve workflow'a baglandi. Korunan listeler, cron ve guvenlik kapisi degismez. Yeni gercek Actions sonucu dogrulanmali.
 
