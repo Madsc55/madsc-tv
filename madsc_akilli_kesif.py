@@ -233,9 +233,15 @@ def main():
    prev["source_language_hint"]="FOREIGN_SOURCE_UNVERIFIED"
   else:
    prev.setdefault("source_language_hint","UNKNOWN")
-  row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "TEKRAR_TEST_BEKLIYOR"
+  # ffprobe basarisizligi IBO/alternatif oynaticida acilmayacagi anlamina gelmez.
+  # Bu otomasyon IBO testi yapmaz; basarisizlari kesin calismiyor saymaz.
+  row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "FFPROBE_GECMEDI_PLAYER_UYUMLULUGU_BELIRSIZ"
   history[k]=prev
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
+ write("player_uyumlulugu_belirsiz.csv",
+       [dict(kanal=row["kanal"],url=row["url"],kaynak=row["kaynak"],durum=row["durum"],notlar="ffprobe sonucu IBO oynatma kaniti veya kesin basarisizlik degildir; cihaz testi bu otomasyonda yapilmaz")
+        for row in rows if row["durum"]=="FFPROBE_GECMEDI_PLAYER_UYUMLULUGU_BELIRSIZ"],
+       ["kanal","url","kaynak","durum","notlar"])
  # High-resolution alternatives are only reported, never inserted into playlists.
  def quality(res):
   try:w,h=map(int,res.split("x"))
