@@ -83,8 +83,8 @@ jobs:
             # A preserved report copy is restored below; remote playlists stay untouched.
             # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
             if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_kesif/; then
-              echo "::error::Rapor klasoru bu calisma sirasinda degisti; eski sonuclarin uzerine yazilmadi. Artifact saklandi."
-              exit 1
+              echo "::warning::Rapor klasoru eszamanli degisti. GitHub uzerindeki yeni raporlar korundu; bu calismanin raporlari artifact icinde saklandi. Yeniden kanal testi baslatilmadi."
+              exit 0
             fi
             git reset --hard origin/main
             git clean -fd -- madsc_kesif/
@@ -106,18 +106,8 @@ jobs:
           done
           echo "Raporlar GitHub'a kaydedilemedi; artifact arsivinde korunuyor"
           exit 1
-      - name: Yeni aday varsa sonraki test turunu hemen başlat
+      - name: Tekrar test baslatmadan sonucu bildir
         if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          set -euo pipefail
-          remaining=$(python3 -c 'import json; print(json.load(open("madsc_kesif/ozet.json")).get("yeni_bekleyen_sonraki",0))')
-          echo "Henuz test edilmemis aday: $remaining"
-          if [ "$remaining" -gt 0 ]; then
-            gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-birlesik-kesif.yml/dispatches" -f ref=main
-            echo "Siradaki test turu tetiklendi."
-          else
-            echo "Yeni aday kalmadi; gereksiz test turu baslatilmadi."
-          fi
+          echo "Bu kesif calismasi yeni test turu tetiklemez; sonraki kesif zamanlanmis gunde bir kez calisir."
