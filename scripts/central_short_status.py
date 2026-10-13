@@ -38,7 +38,7 @@ def render(workflows, tasks, errors):
         lines.append(f"- {label}: {counts.get(key, 'BILINMIYOR')}")
     lines.extend(["", "## Gorevler"])
     if task_list:
-        lines.append(f"- Takip gerektiren: {sum(bool(x.get("eksikler")) for x in task_list if isinstance(x, dict))} / {len(task_list)}")
+        lines.append(f"- Takip gerektiren: {sum(bool(x.get('eksikler')) for x in task_list if isinstance(x, dict))} / {len(task_list)}")
     else:
         lines.append("- Gorev kaniti: BULUNAMADI")
     lines.extend(["", "## Basarisiz kosu asamalari"])
