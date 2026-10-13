@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/madsc-toplu-butunluk.yml'
+      - 'scripts/bulk_integrity_gate.py'
 permissions:
   contents: read
 jobs:
