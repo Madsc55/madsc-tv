@@ -27,6 +27,8 @@ def audit(candidate, duration):
     token = hashlib.sha256(url.encode()).hexdigest()[:20]
     result = {'candidate_id': token, 'label': candidate['label'],
               'selection_reason': candidate['reason'],
+              'source_id': candidate.get('source_id', ''),
+              'source_language_hint': candidate.get('source_language_hint', 'UNKNOWN'),
               'checked_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
               'station_identity': 'REVIEW_REQUIRED', 'ibo_sweden': 'NOT_VERIFIED'}
     try:
@@ -69,9 +71,12 @@ def audit(candidate, duration):
 def turkish_priority(candidate):
     """Only explicit Turkish identity metadata earns first priority; names alone are unsafe."""
     country = str(candidate.get('country', '')).lower()
+    language = str(candidate.get('source_language_hint', '')).lower()
     source_id = str(candidate.get('source_id', '')).lower()
     label = str(candidate.get('label', '')).casefold()
-    if country == 'tr' or '.tr@' in source_id or 'türk' in label or 'turk' in label:
+    if country == 'tr' or language == 'tur' or source_id in ('iptv-org-tr', 'iptv-org-turkiye', 'dearbulut-tr', 'iptv-org-turkce', 'dearbulut-turkce'):
+        return 0
+    if 'türk' in label or 'turk' in label:
         return 0
     if country in ('az', 'cy', 'tm'):
         return 1
@@ -88,7 +93,9 @@ def pending_candidates(manifest, state, results):
             continue
         token = hashlib.sha256(record['url'].encode()).hexdigest()[:20]
         candidates.setdefault(token, {'url': record['url'], 'label': record['channel'],
-            'reason': 'Three separate decode passes; identity and device still unverified'})
+            'reason': 'Three separate decode passes; identity and device still unverified',
+            'source_id': record.get('source_id', ''),
+            'source_language_hint': record.get('source_language_hint', 'UNKNOWN')})
     pending = [r for token, r in candidates.items() if token not in completed]
     return sorted(pending, key=turkish_priority)
 
