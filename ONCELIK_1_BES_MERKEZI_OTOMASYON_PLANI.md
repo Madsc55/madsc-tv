@@ -36,3 +36,33 @@ Kullanici mevcut sistemin her degisiklikte onlarca test uretmesinden ve uzun sur
 
 ## Mevcut tespit
 13 Ekim 2026 tarihinde .github/workflows altinda 89 dosya goruldu. Ayin 1 ve 15'inde calisan `madsc-aylik-merkezi-denetim.yml` zaten mevcut; onu yeniden kullanmak oncelikli. Bu not yeni otomasyon baslatmaz veya mevcutlari kapatmaz.
+
+
+## 13 Ekim 2026 — Son görüşmede netleşen çalışma düzeni (öncelikli ek not)
+Kullanıcı bu düzenin de kaydedilmesini ve sonraki çalışmada buradan devam edilmesini istedi.
+
+### Hedef beş ana sistem ve önerilen takvim
+1. **Güvenlik ve sistem sağlığı:** Kodlar, izinler, GitHub Actions, dosyalar, korunan kategoriler; haftalık kapsamlı kontrol.
+2. **Birleşik kanal keşfi:** Listede olmayan ücretsiz Türk TV kanalları, resmî/yasal internet kaynakları, tekrar ayıklama; **günde bir kez**.
+3. **Birleşik kanal kalite testleri:** Yayın bağlantısı, logo, EPG, kalite, alternatifler; haftalık toplu kontrol.
+4. **Arşiv ve liste bütünlüğü:** Çalışanlar, çalışmayanlar, yabancılar, yedekler, arşivler, sayılar ve geri yükleme; 15 günde bir kapsamlı kontrol.
+5. **Merkezi yönetim ve yapılacaklar:** Tamamlanan işler, yapılmayan işler, başarısız koşular, kalan eksikler, tek sonuç raporu; aylık özet.
+
+Takvimler hedef taslaktır; aynı kapsamı farklı sıklıklarla iki kez çalıştırmayacak şekilde tüm tetikleyiciler incelendikten sonra kesinleştirilecek. Kanal keşfi günlük kalsın; kapsamlı sistem denetimleri gereksiz yere her gün tekrarlanmasın. Kullanıcı onaylı liste değişiklikleri yapılırken kısa güvenlik kontrolü değişikliğin içinde **bir kez** çalışsın.
+
+### Uygulama sırası ve kayıt tutma
+- Önce bütün workflow dosyalarının gerçek envanteri: neyi çalıştırıyor, ne zaman, neyi değiştiriyor, bağımlılıkları, geçmiş hataları ve gereksiz tekrarları.
+- Sonra beş ana sistem altında ortak adımlar, tek rapor, iş durumu: **YAPILDI / YAPILMADI / HATALI / BEKLİYOR**.
+- Mevcut güvenlik kuralları ve yedekleri koru; hiçbir korunan listeyi veya kanalı kullanıcı onayı olmadan değiştirme.
+- Eski otomasyonları ancak eşdeğer işlevleri yeni sistemde doğrulandıktan sonra kademeli ve geri alınabilir şekilde kapat.
+- Her yeni kanal/özellik için ayrı workflow oluşturmak yerine mevcut beş ana otomasyonun uygun adımını kullan.
+- Kullanıcıya yalnızca kısa, somut sonuçları ve gerçek kalan işleri bildir; başarıyı doğrulamadan tamamlandı deme.
+
+### Şu ana kadarki uygulama durumu
+- GitHub'da `.github/workflows/madsc-birlesik-kesif.yml` keşif zamanlaması `0 6,18 * * *` yerine `0 6 * * *` olarak güncellendi (commit `b7896f195f44f3cf59da3f3855a5c1cdcb678288`).
+- `.github/workflows/iptv-test.yml` için haftalık zamanlamaya geçiş denemesi güvenlik kontrolü tarafından engellendi; **değişiklik yapılmadı**.
+- 89 workflow ilk sayımdı; sonradan yeni workflow eklenmiş olabilir, canlı envanterden güncel sayı tekrar doğrulanmalı.
+- **Beş otomasyona birleştirme henüz yapılmadı.** Bu not uygulanmış değişiklik gibi gösterilmemeli.
+
+### Kullanıcının ana amacı
+'Kafamız karışmasın; ne yaptık, ne yapmadık, ne çalışıyor, ne eksik tek yerden belli olsun. Günlük arama bir kere çalışsın, gereksiz tekrar testleri olmasın. Kısa ve öz ilerleyelim.'
