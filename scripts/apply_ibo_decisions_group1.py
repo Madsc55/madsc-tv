@@ -8,7 +8,7 @@ REPORT=D/"ibo_kullanici_kararlari_20261013_grup1.json"
 CSV=D/"ibo_kullanici_kararlari_20261013_grup1.csv"
 ARCH=D/"ibo_yedeklerden_ayrilanlar_20261013_grup1.m3u"
 BAD=set(range(6,9))|set(range(11,43))|{104}
-FOREIGN=set(range(43,240))
+FOREIGN=set(range(43,240))-{104}
 REMOVE=BAD|FOREIGN
 def entries(lines):
  for i,m in enumerate(lines[:-1]):
@@ -19,14 +19,17 @@ def main():
  lines=raw.splitlines(keepends=True)
  all_entries=list(entries(lines))
  backup=[(i,m,u) for i,m,u in all_entries if 'group-title="📦 YEDEKLER' in m]
+ if (D/"ibo_ilk_239_ayirma_raporu.json").exists():
+  print("Corrected group 1 already applied by successful workflow; no duplicate changes")
+  return
  if len(backup)!=11599:raise RuntimeError(f"Expected 11599 original backups; found {len(backup)}. Refuse to alter positions.")
- if len(REMOVE)!=233 or len(BAD)!=36 or len(FOREIGN)!=197 or BAD&FOREIGN:raise RuntimeError("Invalid decision ranges")
+ if len(REMOVE)!=232 or len(BAD)!=36 or len(FOREIGN)!=196 or BAD&FOREIGN:raise RuntimeError("Invalid decision ranges")
  removed=[];drop=set()
  for n,(i,m,u) in enumerate(backup,1):
   if n in REMOVE:
    removed.append((n,m,u,"TURK_CALISMIYOR" if n in BAD else "YABANCI_KULLANICI_TESPITI"))
    drop.update((i,i+1))
- if len(removed)!=233:raise RuntimeError("Missing expected entries")
+ if len(removed)!=232:raise RuntimeError("Missing expected entries")
  kept=len(backup)-len(removed)
  out=[]
  for i,line in enumerate(lines):
