@@ -117,3 +117,58 @@ except (OSError, ValueError):
 if not foreign_report["backup_only_trt1_dha"] or foreign_report["archive_count"] != 740 or foreign_report["archive_urls_missing"]:
     raise SystemExit("Yabanci kanal arsivi veya korunan yedekler beklenen durumda degil.")
 print("Yabanci arsiv, yedekler ve birikimli aday ozeti tek merkezi denetimde kontrol edildi.")
+
+# Tek pakette kesif kaynaklari, bos aday kuyrugu ve yabanci arsiv
+# adaylarini ayristir. Salt okunur: hicbir akisa baglanmaz.
+import csv
+from urllib.parse import urlsplit
+
+def csv_rows(path):
+    if not path.is_file():
+        return []
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+access_rows = csv_rows(ROOT / "madsc_kesif" / "kaynak_erisim_raporu.csv")
+candidate_rows = csv_rows(ROOT / "madsc_kesif" / "adaylar.csv")
+alternative_rows = csv_rows(ROOT / "madsc_kesif" / "alternatifler.csv")
+unreachable = [{"source": row.get("kaynak"), "error": row.get("hata")}
+               for row in access_rows if row.get("durum") != "ERISILDI"]
+# Etiket yalniz arsivden gelen adayin sinifidir; gercek ulke/dil iddiasi degil.
+archive_candidates = []
+for item in foreign_archive["entries"]:
+    url = item["url"]
+    parsed = urlsplit(url)
+    archive_candidates.append({
+        "channel": item["meta"].rsplit(",", 1)[-1],
+        "origin": "YABANCI_KANALLAR.m3u",
+        "classification": "YABANCI_ADAY_ARSIVI",
+        "stream_url": url,
+        "host": parsed.hostname or "",
+        "url_scheme_valid": parsed.scheme in ("http", "https") and bool(parsed.netloc),
+        "technical_test": "BU_KOSUDA_YAPILMADI",
+        "identity": "DOGRULANMADI"
+    })
+(OUT / "yabanci_kanal_adaylari.json").write_text(
+    json.dumps({"count": len(archive_candidates), "channels": archive_candidates,
+                "not_a_playlist": True, "not_ibo_approved": True},
+               ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+discovery_report = {
+    "source_report_is_snapshot": True,
+    "sources_in_access_report": len(access_rows),
+    "accessible_in_snapshot": sum(row.get("durum") == "ERISILDI" for row in access_rows),
+    "unreachable_in_snapshot": unreachable,
+    "candidate_queue_count": len(candidate_rows),
+    "alternative_queue_count": len(alternative_rows),
+    "candidate_queue_empty": not candidate_rows,
+    "foreign_archive_candidate_count": len(archive_candidates),
+    "foreign_archive_invalid_url_count": sum(not x["url_scheme_valid"] for x in archive_candidates),
+    "next_action": "Bos aday kuyruğu ile tarihsel son kontrol birbirine karistirilmadan kaynak ve tekrar filtreleri incelenmeli.",
+    "live_sources_rechecked": False,
+    "live_streams_rechecked": False
+}
+(OUT / "kesif_ve_yabanci_kaynak_toplu_ozet.json").write_text(
+    json.dumps(discovery_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+if discovery_report["foreign_archive_invalid_url_count"]:
+    raise SystemExit("Yabanci arsivde gecersiz URL semasi bulundu.")
+print("Kaynak, aday, alternatif ve 740 arsiv kaydi tek merkezi denetimde siniflandirildi.")
