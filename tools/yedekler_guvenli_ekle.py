@@ -27,7 +27,7 @@ def update(original, candidates):
     for item in candidates:
         if not isinstance(item, dict):
             continue
-        if item.get("three_stage_passed") is not True or item.get("identity_verified") is not True:
+        if item.get("three_stage_passed") is not True or not (item.get("identity_verified") is True or item.get("technical_staging") is True):
             continue
         url = str(item.get("url", "")).strip()
         name = str(item.get("name", "")).strip()
