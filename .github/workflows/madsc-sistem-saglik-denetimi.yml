@@ -49,7 +49,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: madsc-sistem-saglik-raporu
-          path: |\n            madsc_bakim/sistem_saglik_raporu.json\n            madsc_bakim/actions_durum_raporu.json
+          path: |
+            madsc_bakim/sistem_saglik_raporu.json
+            madsc_bakim/actions_durum_raporu.json
           if-no-files-found: warn
       - name: Kritik sorun varsa testi başarısız say
         if: steps.audit.outcome == 'failure'
