@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Merkezi tekrar test geçmişi analizi
+Önceki merkezi #38395289017, sağlık #38395288846, dokümantasyon #38395288914 SUCCESS doğrulandı. Keşif kodunda geçmişi bulunan URL'leri tekrar denemeden önce test edilmemişleri seçen mekanizma zaten mevcut; onu bozup yeniden yazmadık. `scripts/central_duplicate_test_audit.py` var olan `madsc_kesif/gecmis.json` üzerinden tekrar sayısı ve geçmişin bozuk kayıtlarını salt okunur raporlar. Test ve merkezi Actions'a bağlandı. Bu aşama tekrar oranını ölçer; tek başına yeni hız optimizasyonu veya bütün tekrarların kaldırılması değildir. Korunan listeler/cron değişmedi. Gerçek Actions run sonucu kontrol edilmeli.
+
 ## 13 Ekim 2026 — Sekiz görev sonrası gerçek kaynak mutabakatı
 Merkezi sekiz görev #38394621725, genel sağlık #38394621827, dokümantasyon #38394621851 SUCCESS API ile doğrulandı. Statik dosya adı sayımı yerine `madsc_akilli_kesif.py` içindeki gerçek `SOURCES` ve `SOURCE_TARGET` tanımlarını AST ile ayrıştıran `scripts/central_source_reconciliation.py` eklendi. Benzersiz URL, tam kaynak listesi, birebir URL tekrarları ve hedef farkı merkezi artifact'ta raporlanır. Bu kaynakların canlı erişimini test etmez, 155 hedefini otomatik değiştirmez ve kaynağı silmez. Tek merkezi Actions koşusuna bağlandı, unittest eklendi. Yeni run sonucu ayrıca doğrulanmalı.
 
