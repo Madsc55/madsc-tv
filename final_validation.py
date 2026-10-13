@@ -29,6 +29,11 @@ def audit(candidate, duration):
               'selection_reason': candidate['reason'],
               'source_id': candidate.get('source_id', ''),
               'source_language_hint': candidate.get('source_language_hint', 'UNKNOWN'),
+              'license_status': 'NOT_VERIFIED',
+              'source_rights_review': 'REQUIRED',
+              'station_identity_evidence': 'NOT_VERIFIED',
+              'logo_identity_evidence': 'NOT_VERIFIED',
+              'epg_device_evidence': 'NOT_VERIFIED',
               'checked_utc': dt.datetime.now(dt.timezone.utc).isoformat(),
               'station_identity': 'REVIEW_REQUIRED', 'ibo_sweden': 'NOT_VERIFIED'}
     try:
@@ -95,7 +100,8 @@ def pending_candidates(manifest, state, results):
         candidates.setdefault(token, {'url': record['url'], 'label': record['channel'],
             'reason': 'Three separate decode passes; identity and device still unverified',
             'source_id': record.get('source_id', ''),
-            'source_language_hint': record.get('source_language_hint', 'UNKNOWN')})
+            'source_language_hint': record.get('source_language_hint', 'UNKNOWN'),
+            'source_history': record.get('source_history', [])})
     pending = [r for token, r in candidates.items() if token not in completed]
     return sorted(pending, key=turkish_priority)
 
