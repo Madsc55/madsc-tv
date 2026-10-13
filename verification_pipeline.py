@@ -51,12 +51,21 @@ def main():
                 state['channels'].setdefault(identity, {
                     'channel': candidate['name'], 'url': url, 'checks': [],
                     'identity': 'NOT_VERIFIED', 'ibo_sweden': 'NOT_VERIFIED',
-                    'source': candidate['source'], 'origin': 'WIDE_SOURCE_SCAN'})
+                    'source': candidate['source'], 'source_id': candidate['source'], 'origin': 'WIDE_SOURCE_SCAN'})
     for identity, candidate in history.items():
         if candidate.get('successful_runs', 0) > 0:
             state['channels'].setdefault(identity, {'channel': candidate['channel'],
                 'url': candidate['url'], 'checks': [], 'identity': 'NOT_VERIFIED',
-                'ibo_sweden': 'NOT_VERIFIED'})
+                'ibo_sweden': 'NOT_VERIFIED',
+                'source_id': candidate.get('source_id', candidate.get('source', '')),
+                'source_language_hint': candidate.get('source_language_hint', 'UNKNOWN')})
+    # Fill missing provenance only; never overwrite historical checks or user verdicts.
+    for identity, candidate in history.items():
+        if identity in state['channels']:
+            record = state['channels'][identity]
+            for field in ('source_id', 'source_language_hint'):
+                if not record.get(field) and candidate.get(field):
+                    record[field] = candidate[field]
     now = dt.datetime.now(dt.timezone.utc)
     due = sorted((k for k, v in state['channels'].items() if eligible(v, now)),
                  key=lambda k: (len(state['channels'][k]['checks']), k))[:240]
