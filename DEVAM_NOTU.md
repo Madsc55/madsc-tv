@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Kullanıcı isteği: altı konuyu tek koşuda denetle
+Mevcut merkezi workflow genişletildi: `scripts/central_six_area_audit.py` altı plan başlığını aynı artifact altında salt okunur JSON raporda toplar. Bu altı sorunun otomatik düzeltildiği veya IBO cihaz testinin yapıldığı anlamına gelmez; özellikle 156/155 uyuşmazlığı gerçek veri kaynağıyla daha sonra incelenecek. Mevcut bağımsız günlük otomasyonlar ve playlist/yedekler korunur. Tek koşunun süresi garanti edilmez. Gerçek Actions run sonucu doğrulanmalı.
+
 ## 13 Ekim 2026 — Merkezi otomasyon son durum sınıflandırması
 PR #48 sonrası merkezi run #38392329904, sağlık #38392329911, dokümantasyon #38392330006 SUCCESS doğrulandı. Bir sonraki paket: kayıtlı GitHub workflowlarının son 100 koşudaki en güncel sonucunu başarılı/başarısız/devam ediyor/diğer/son 100 koşuda görünmüyor olarak sınıflandıran scripts/central_run_status.py ve unittest; merkezi workflow'a bağlandı. Son 100 koşuda görünmeyen bir işin bozuk veya çalışmadığı sonucuna varılmaz. Hiçbir kanal listesi, EPG, cron veya yedek değiştirilmedi. Yeni gerçek Actions run sonucunu ayrıca doğrula.
 
