@@ -20,7 +20,11 @@ def read(filename):
 def render(workflows, tasks, errors):
     counts = workflows.get("classifications", {}) if isinstance(workflows, dict) else {}
     task_list = tasks.get("tasks", []) if isinstance(tasks, dict) else []
+    if not isinstance(task_list, list):
+        task_list = []
     error_runs = errors.get("runs", []) if isinstance(errors, dict) else []
+    if not isinstance(error_runs, list):
+        error_runs = []
     lines = [
         "# MADSC - Kisa Durum Ozeti",
         "",
@@ -34,7 +38,7 @@ def render(workflows, tasks, errors):
         lines.append(f"- {label}: {counts.get(key, 'BILINMIYOR')}")
     lines.extend(["", "## Gorevler"])
     if task_list:
-        lines.append(f"- Takip gerektiren: {sum(bool(x.get('eksikler')) for x in task_list)} / {len(task_list)}")
+        lines.append(f"- Takip gerektiren: {sum(bool(x.get("eksikler")) for x in task_list if isinstance(x, dict))} / {len(task_list)}")
     else:
         lines.append("- Gorev kaniti: BULUNAMADI")
     lines.extend(["", "## Basarisiz kosu asamalari"])

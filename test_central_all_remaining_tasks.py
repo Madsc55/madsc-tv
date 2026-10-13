@@ -11,6 +11,10 @@ class TopluKalanIsTesti(unittest.TestCase):
         self.assertEqual(result["jobs"][1]["evidence"]["excess_test_runs"],3)
         self.assertEqual(result["jobs"][5]["status"],"ONAY_BEKLIYOR")
         self.assertIn(6,result["requires_user_or_external_evidence"])
+    def test_olcum_dosyasi_var_sayi_yoksa_olcum_sayilmaz(self):
+        result = assemble({}, {"status": "OK"}, {}, {}, {}, {})
+        self.assertEqual(result["jobs"][1]["status"], "GECMIS_KANITI_YOK")
+
     def test_eksik_kanit_basarili_sayilmaz(self):
         result = assemble(None,None,None,None,None,None)
         self.assertEqual(result["jobs"][0]["status"],"KANIT_YOK")

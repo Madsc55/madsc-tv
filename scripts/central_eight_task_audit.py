@@ -27,7 +27,7 @@ records = [
          ["URL bazli tekrar/test maliyeti olculmeden optimizasyon tamamlanmis sayilmaz."]),
     task(3, "156 kaynak 155 hedef mutabakati",
          present("madsc_akilli_kesif.py"),
-         ["Gercek kaynak ve hedef kayitlari tek tek eslestirilmedi; 156/155 farki acik."]),
+         ["Kaynak/hedef gercek AST mutabakat raporunda olculur; fark sifirlanmadikca acik kalir."]),
     task(4, "Butun dosyalar otomasyonlar ve yedekler",
          {"workflow_count": len(workflows), "python_test_count": len(tests),
           "protected_files": present(*protected),
