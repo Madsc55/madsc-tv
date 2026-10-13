@@ -61,6 +61,29 @@ jobs:
           done
           exit 1
 
+      - name: Doğrulanmış adayları yalnızca YEDEKLER kategorisine aktar
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/son_kontrol_yedekler_aktar.py
+          if git diff --quiet -- CALISANLAR.m3u; then
+            echo "Kimliği doğrulanmış yeni aday yok; liste korunuyor."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in $(seq 1 10); do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 tools/yedekler_guvenli_ekle.py
+            git add -- CALISANLAR.m3u
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Append verified candidates to YEDEKLER only"
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          exit 1
+
       - name: Kalan son kontrolleri otomatik sürdür
         if: success()
         env:
