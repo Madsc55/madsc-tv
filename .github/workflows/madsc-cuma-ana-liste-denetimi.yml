@@ -1,0 +1,32 @@
+name: MADSC - Cuma Ana Kanal ve EPG Denetimi
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 5'
+permissions:
+  contents: read
+concurrency:
+  group: madsc-cuma-ana-kanal-denetimi
+  cancel-in-progress: false
+jobs:
+  ana-liste:
+    name: Ana listedeki yayınları ve EPG kayıtlarını denetle
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Ana listeyi salt okunur al
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Yayın denetim araçlarını kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Kanal bağlantılarını ve EPG kayıtlarını kontrol et
+        run: python3 tools/haftalik_ana_liste_denetimi.py
+      - name: Denetim raporunu indirilebilir sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CUMA-ANA-KANAL-EPG-DENETIMI
+          path: madsc_ana_liste_denetimi/rapor.json
+          if-no-files-found: warn
+          retention-days: 30
