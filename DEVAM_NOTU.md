@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Merkezi otomasyon son durum sınıflandırması
+PR #48 sonrası merkezi run #38392329904, sağlık #38392329911, dokümantasyon #38392330006 SUCCESS doğrulandı. Bir sonraki paket: kayıtlı GitHub workflowlarının son 100 koşudaki en güncel sonucunu başarılı/başarısız/devam ediyor/diğer/son 100 koşuda görünmüyor olarak sınıflandıran scripts/central_run_status.py ve unittest; merkezi workflow'a bağlandı. Son 100 koşuda görünmeyen bir işin bozuk veya çalışmadığı sonucuna varılmaz. Hiçbir kanal listesi, EPG, cron veya yedek değiştirilmedi. Yeni gerçek Actions run sonucunu ayrıca doğrula.
+
 ## 13 Ekim 2026 — Merkezi test #38392076457 SUCCESS; bağımsız Actions durumlarını toplu raporlama
 Kullanıcı tekrar onay beklemeden planlı işleri yürütmemizi istedi. PR #47 sonrası main b89232a9 üzerinde merkezi test #38392076457, sağlık #38392076564, dokümantasyon #38392076621 SUCCESS olarak API'den doğrulandı. Merkezi workflow raporu artık GitHub'ın kayıtlı workflow listesi (ad, path, state) ve son 100 koşusunu (workflow_id, status, conclusion, run_id, tarih, bağlantı) ayrı artifact dosyalarında saklar. Bu bağımsız workflowları yeniden çalıştırmaz, yalnız geçmiş sonuçlarını toplar; 100 koşu sınırı nedeniyle eski/seyrek çalışan işlerin başarı durumu çıkarılamayabilir. Mevcut cron ve korunan listeler değişmez. Yeni run ayrıca doğrulanmalı.
 
