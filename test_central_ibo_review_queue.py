@@ -13,6 +13,11 @@ class IboIncelemeKuyruguTesti(unittest.TestCase):
         self.assertTrue(all(x["ready_for_playlist"]=="HAYIR" for x in rows))
         self.assertTrue(all(x["user_decision"]=="ONAY_BEKLIYOR" for x in rows))
         self.assertTrue(all(x["sweden_ibo_status"]=="NOT_DEVICE_VERIFIED" for x in rows))
+    def test_sha_olmadan_ayni_adli_farkli_adaylar_korunur(self):
+        rows,status=prepare({"candidate_results":[{"channel":"TRT"},{"channel":"TRT"}]})
+        self.assertEqual(len(rows),2)
+        self.assertEqual(status,"ADAY_LISTESI_OKUNDU")
+
     def test_eksik_kanit_uydurulmaz(self):
         self.assertEqual(prepare(None),([],"KAYNAK_KANITI_YOK"))
 
