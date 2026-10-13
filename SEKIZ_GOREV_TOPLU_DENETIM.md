@@ -15,3 +15,11 @@ Bu dosya bir tamamlama sertifikası değildir. Kullanıcı yeni kanal testlerini
 
 ## Tek teslim kuralı
 Geliştirme tek PR'da birleştirilir; her aşamanın gerçek Actions sonucu kaydedilir. Teknik başarı veya rapor oluşturulması **kullanıcının IBO Player cihazında çalışıyor** ya da **ana listeye eklemeye hazır** anlamına gelmez.
+
+## 13 Ekim — doğrulanmış yeni durum
+
+- Genel sistem sağlık ve güvenlik denetimi **#38343031174 ve #38343045889 SUCCESS**. 19 - Bütünleşik Güvenli Kontrol **#38343031177 ve #38343045881 SUCCESS**. Bu sonuçlar tanımlı otomatik testler içindir; tüm sistemin risksiz olduğunu kanıtlamaz.
+- PR #35 ile teknik testten ayrı kimlik, lisans, logo ve İsveç IBO/EPG kanıt durumları eklendi. PR #36 ile çoklu kaynak geçmişinin final kuyruğunda korunmasına regresyon testi eklendi. PR #37-#40 ile workflow izin taraması ve test hataları düzeltildi.
+- GitHub `main` branch protection API sorgusu **403 Resource not accessible by integration** döndürdü. Koruma ayarlarının etkinliği doğrulanamadı; **korunuyor** diye raporlanmamalı. Bu ayarları değiştirme izni de yok.
+- GitHub Actions genel denetimi tüm dosyaların tüm içeriğini güvenlik açısından sertifikalandırmaz; mevcut kod, workflow, rapor ve liste bütünlüğü kontrollerini çalıştırır.
+- Kullanıcı ertelediği GitHub dışı yedekleme ve cihaz/secrets aktarımı daha sonra ayrıca ele alınacak. Kimlik, hak sahipliği, logo ve İsveç IBO gerçek cihaz onayı eksik olduğu sürece otomatik listeye ekleme yok.
