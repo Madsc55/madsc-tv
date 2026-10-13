@@ -39,6 +39,22 @@ def inspect(root=ROOT):
             add("INFO", "automation", "CANCEL_ON_NEW_RUN", path.name)
         if "workflow_dispatch:" in raw and "schedule:" in raw:
             add("INFO", "automation", "MANUAL_AND_SCHEDULED", path.name)
+    # Same concurrency group across distinct workflows can cause unexpected cancellations.
+    groups = {}
+    for path in workflows:
+        raw = path.read_text(encoding="utf-8")
+        match = re.search(r"(?m)^\\s*group:\\s*([A-Za-z0-9_.-]+)\\s*$", raw)
+        if match:
+            groups.setdefault(match.group(1), []).append(path.name)
+        if re.search(r"(?m)^\\s*permissions:\\s*write-all\\s*$", raw):
+            add("ERROR", "security", "BROAD_PERMISSIONS", path.name)
+        if "contents: write" in raw and "workflow_dispatch:" not in raw and "workflow_run:" not in raw:
+            add("WARN", "security", "WRITE_WORKFLOW_REVIEW", path.name)
+        if "git reset --hard" in raw and "git push" in raw:
+            add("WARN", "automation", "RESET_PUSH_REVIEW", path.name)
+    for group, owners in groups.items():
+        if len(owners) > 1:
+            add("WARN", "automation", "SHARED_CONCURRENCY_GROUP", f"{group}: {', '.join(owners)}")
     for path in sorted(root.glob("*.py")) + sorted((root / "tools").glob("*.py")) + sorted((root / "scripts").glob("*.py")):
         try:
             ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
@@ -63,12 +79,23 @@ def inspect(root=ROOT):
             add("INFO", "pipeline", "PENDING_CANDIDATES", str(summary["remaining"]))
         if summary.get("ready_for_playlist", 0) == 0:
             add("INFO", "pipeline", "NO_READY_CANDIDATES", "Teknik geçiş gerçek kimlik/IBO onayı değildir")
+    if isinstance(results, list):
+        tokens = [row.get("candidate_id") for row in results if isinstance(row, dict)]
+        if len(tokens) != len(set(tokens)):
+            add("ERROR", "pipeline", "DUPLICATE_CANDIDATE_IDS", "Son kontrol kayıtlarında tekrar eden aday kimliği")
+        if len(tokens) != len(results):
+            add("ERROR", "pipeline", "MALFORMED_RESULT", "Son kontrol kaydında aday kimliği eksik")
+    join = snapshots.get("madsc_kesif/candidate_epg_logo_join.json")
+    if isinstance(join, dict) and join.get("source_candidates") == 0:
+        add("WARN", "integration", "EMPTY_CANDIDATE_JOIN", "Logo/EPG birleşik raporunda yeni aday yok")
     playlist = root / "CALISANLAR.m3u"
     if playlist.is_file():
         content = playlist.read_text(encoding="utf-8-sig")
         if not content.startswith("#EXTM3U"):
             add("ERROR", "playlist", "BAD_M3U_HEADER", "CALISANLAR.m3u")
         backups = re.findall(r'group-title="📦 YEDEKLER \((\d+)\)"', content)
+        if backups and len(backups) != int(backups[0]):
+            add("ERROR", "playlist", "BACKUP_COUNT_MISMATCH", f"etiket={backups[0]} kayıt={len(backups)}")
         if backups and len(set(backups)) != 1:
             add("ERROR", "playlist", "BACKUP_COUNT_LABELS", str(sorted(set(backups))))
     return {"generated_utc": datetime.now(timezone.utc).isoformat(),
