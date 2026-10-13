@@ -1,5 +1,8 @@
 name: MADSC - Tamamlanan Aday Son Kontrol
 on:
+  push:
+    paths:
+      - '.github/workflows/madsc-son-kontrol.yml'
   workflow_dispatch:
   schedule:
     - cron: '10 6 * * *'
