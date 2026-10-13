@@ -41,5 +41,19 @@ class SistemSaglikTesti(unittest.TestCase):
             self.assertIn("DUPLICATE_CANDIDATE_IDS", codes)
             self.assertIn("EMPTY_CANDIDATE_JOIN", codes)
 
+    def test_ortak_concurrency_ve_bos_aday_bilgi(self):
+        import json
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github/workflows"
+            workflows.mkdir(parents=True)
+            for name in ("a.yml", "b.yml"):
+                (workflows / name).write_text("concurrency:\\n  group: ortak-grup\\n", encoding="utf-8")
+            (root / "madsc_kesif").mkdir()
+            (root / "madsc_kesif/candidate_epg_logo_join.json").write_text(json.dumps({"source_candidates": 0}))
+            findings = inspect(root)["findings"]
+            self.assertTrue(any(f["code"] == "SHARED_CONCURRENCY_GROUP" for f in findings))
+            self.assertTrue(any(f["code"] == "EMPTY_CANDIDATE_JOIN" and f["severity"] == "INFO" for f in findings))
+
 if __name__ == "__main__":
     unittest.main()
