@@ -1,10 +1,5 @@
 name: MADSC - Tamamlanan Aday Son Kontrol
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'final_validation.py'
-      - '.github/workflows/madsc-son-kontrol.yml'
   workflow_dispatch:
   workflow_run:
     workflows:
@@ -14,7 +9,7 @@ permissions:
   contents: write
   actions: write
 concurrency:
-  group: madsc-son-kontrol
+  group: madsc-son-kontrol-${{ github.event_name == 'workflow_dispatch' && 'batch' || github.event_name == 'workflow_run' && 'validation' || github.run_id }}
   cancel-in-progress: false
 jobs:
   continuity:
