@@ -1,0 +1,20 @@
+name: MADSC - YEDEKLER Teknik Aktarım Testi
+on:
+  push:
+    paths:
+      - 'tools/yedekler_guvenli_ekle.py'
+      - 'tools/son_kontrol_yedekler_aktar.py'
+      - 'test_yedekler_teknik_aktar.py'
+      - '.github/workflows/madsc-yedekler-aktarim-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    name: YEDEKLER koruma testleri
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+      - name: Güvenli aktarım testlerini çalıştır
+        run: python3 -m unittest test_yedekler_teknik_aktar -v
