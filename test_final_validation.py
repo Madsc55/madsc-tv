@@ -25,6 +25,26 @@ class ResumeTests(unittest.TestCase):
         self.assertEqual(selected[0]['url'],'https://example.org/3')
 
 class TurkishPriorityTests(unittest.TestCase):
+    def test_explicit_turkish_source_before_ambiguous_name(self):
+        rows = [
+            dict(url='https://example.org/one', label='ATV', reason='ambiguous'),
+            dict(url='https://example.org/two', label='Kanal X', source_id='iptv-org-TR', reason='Turkish source'),
+            dict(url='https://example.org/three', label='Station Y', source_language_hint='tur', reason='Turkish language source'),
+            dict(url='https://example.org/four', label='Channel Z', country='az', reason='Azerbaijan'),
+        ]
+        selected = pending_candidates({'candidates': rows}, {}, [])
+        self.assertEqual([x['url'] for x in selected[:2]],
+                         ['https://example.org/two', 'https://example.org/three'])
+        self.assertEqual(selected[2]['country'], 'az')
+
+    def test_source_provenance_survives_state_to_final_review(self):
+        record = dict(channel='Turkce Kanal', url='https://example.org/live',
+                      checks=[{'passed': True}]*3, source_id='dearbulut-TURKCE',
+                      source_language_hint='tur')
+        selected = pending_candidates({'candidates': []}, {'key': record}, [])
+        self.assertEqual(selected[0]['source_id'], 'dearbulut-TURKCE')
+        self.assertEqual(selected[0]['source_language_hint'], 'tur')
+
     def test_turkish_candidates_first_and_completed_not_repeated(self):
         rows = [
             dict(url='https://example.org/foreign', label='BBC Earth', reason='wide'),
