@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Merkezi denetim: ortak concurrency ve UTC saat riski
+Kullanıcı önceki testin bittiğini belirterek sıradaki geliştirmeye geçme onayı verdi. scripts/central_workflow_inventory.py mevcut otomasyon haritasını ortak concurrency grup ifadeleri ve aynı UTC saat/dakikada planlanmış işler için salt okunur raporla genişletir. Bu bir risk ön analizidir: farklı günler kesin çakışma sayılmaz, dinamik grup ifadeleri statik metin olarak incelenir. Hiçbir cron, keşif, EPG, yedek veya korunan playlist değiştirilmedi. Yeni kodun Actions PASS kanıtı ayrıca doğrulanmalı.
+
 ## 13 Ekim 2026 — Merkezi otomasyon çakışma ön analizi
 Kullanıcı önceki testlerin başarılı olduğunu bildirdi ve sıradaki geliştirmeyi onayladı. Genel sağlık ve dokümantasyon run'ları son kontrolde SUCCESS; merkezi 1/15 workflow'unun bağımsız çalışma kanıtı bunlardan ayrı tutulmalı. Mevcut scripts/central_workflow_inventory.py genişletilerek aynı cron ifadesini paylaşan workflow grupları ve zamanlanmış contents:write yetkili workflowlar salt okunur raporlanır. Bu kesin çakışma ispatı değil, inceleme önceliğidir. Hiçbir cron, kanal listesi, yedek, EPG veya otomatik keşif değiştirilmedi. Yeni değişikliğin gerçek Actions sonucu doğrulanmadan PASS ilan etme.
 
