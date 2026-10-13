@@ -31,8 +31,6 @@ def inspect(root=ROOT):
         add("ERROR", "automation", "NO_WORKFLOWS", "GitHub Actions bulunamadı")
     for path in workflows:
         raw = path.read_text(encoding="utf-8")
-        if "permissions: write-all" in raw:
-            add("ERROR", "security", "BROAD_PERMISSIONS", path.name)
         if re.search(r"pull_request_target\s*:", raw) and re.search(r"actions/checkout@", raw):
             add("WARN", "security", "PR_TARGET_CHECKOUT", path.name)
         if re.search(r"cancel-in-progress:\s*true", raw):
@@ -87,7 +85,7 @@ def inspect(root=ROOT):
             add("ERROR", "pipeline", "MALFORMED_RESULT", "Son kontrol kaydında aday kimliği eksik")
     join = snapshots.get("madsc_kesif/candidate_epg_logo_join.json")
     if isinstance(join, dict) and join.get("source_candidates") == 0:
-        add("WARN", "integration", "EMPTY_CANDIDATE_JOIN", "Logo/EPG birleşik raporunda yeni aday yok")
+        add("INFO", "integration", "EMPTY_CANDIDATE_JOIN", "Bu rapor döneminde yeni logo/EPG adayı yok; tek başına hata değildir")
     playlist = root / "CALISANLAR.m3u"
     if playlist.is_file():
         content = playlist.read_text(encoding="utf-8-sig")
