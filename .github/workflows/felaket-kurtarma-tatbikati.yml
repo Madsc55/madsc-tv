@@ -1,6 +1,8 @@
 name: "Felaket Kurtarma - Ana Liste Geri Donus Tatbikati"
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '40 5 * * *'
   push:
     paths:
       - ".github/workflows/felaket-kurtarma-tatbikati.yml"
@@ -16,9 +18,9 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
-      - name: Simulate corruption and recover protected playlists from Git snapshot
+      - name: Korunan listelerin gecici ortamda felaket kurtarma testini yap
         run: python3 scripts/disaster_recovery_dry_run.py
-      - name: Archive disaster recovery report
+      - name: Felaket kurtarma test raporunu arsivle
         if: always()
         uses: actions/upload-artifact@v4
         with:
