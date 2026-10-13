@@ -78,10 +78,10 @@ def inspect_m3u(path):
     entries = []
     for i, line in enumerate(lines):
         if line.startswith("#EXTINF:"):
-            # IPTV dosyalarinda EXTINF ile URL arasinda opsiyon satirlari olabilir.
+            # EXTINF sonrasi IPTV seceneklerini atla; sonraki kanala gecme.
             url = ""
-            for candidate in lines[i + 1:]:
-                candidate = candidate.strip()
+            for j in range(i + 1, len(lines)):
+                candidate = lines[j].strip()
                 if candidate.startswith("#EXTINF:"):
                     break
                 if candidate and not candidate.startswith("#"):
