@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Kisa okunabilir durum ozeti
+Merkezi #38396974312, saglik #38396974280, dokumantasyon #38396974425 SUCCESS dogrulandi. `scripts/central_short_status.py` son 100 Actions ornegindeki basari/basarisizlik, sekiz gorev eksikleri ve hatali job/step kanitini `madsc_merkezi_denetim/madsc_kisa_durum_ozeti.md` dosyasinda ozetler. Unittest ve mevcut merkezi denetime eklendi. Bu rapor mevcut ayin 1/15 kosusunda ve ilgili push/manual kosularinda uretilir; GUNLUK ZAMANLAMA EKLENMEDI, cron degistirilmedi. Kullanici onayi olmadan zamanlama degistirme. Korunan listeler, yedekler ve IBO onaylari aynen korunur. Yeni Actions run sonucunu dogrula.
+
 ## 13 Ekim 2026 — Tek MADSC yonetim ozeti
 Merkezi #38396685683, saglik #38396686137, dokumantasyon #38396685724 SUCCESS dogrulandi. `scripts/central_management_summary.py` yedi merkezi kanit raporunu `madsc_merkezi_denetim/madsc_tek_yonetim_ozeti.json` icinde toplar. Eksik ve bozuk JSON raporlar ayri durumla gosterilir; eksik kanit basari sayilmaz. Tek merkezi Actions kosusuna ve unittest'e baglandi. Bu salt okunur rapordur; canli interaktif yonetim paneli veya kullanici IBO onay arayuzu degildir. Siradaki is gunluk kisa ozetin mevcut otomasyon takvimine etkisini degerlendirmek; kullanici izni olmadan cron degistirme. Korunan listeler ve yedekler degismedi. Yeni Actions sonucunu dogrula.
 
