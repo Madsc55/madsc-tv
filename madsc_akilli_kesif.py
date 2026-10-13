@@ -135,17 +135,20 @@ def main():
    channels=parse(body)
    return src,channels,"" if body.lstrip().startswith("#EXTM3U") else "M3U_BASLIGI_YOK"
   except Exception as e:return src,[],str(e)[:120]
- # Daily discovery: retain all 155 configured sources for audit, but do not
- # ingest global/country-foreign feeds into the Turkish candidate pipeline.
+ # Daily discovery: retain all configured sources for audit. A bounded set
+ # of foreign feeds is eligible for candidate review, never direct playlist insertion.
  # Diaspora stations may be hosted abroad; source hostname is not station identity.
  def turkish_feed(src):
-  # Restrict automatic discovery to explicitly Turkish/Turkiye feeds.
-  # Other sources remain configured for future separately approved scans.
+  # Turkish feeds plus three approved foreign candidate feeds. Other sources
+  # remain configured, but are not automatically ingested.
   return src in {
    "iptv-turk-tr-EK-KAYNAK", "iptv-org-TR", "iptv-org-TURKIYE",
    "iptv-org-TURKCE", "omerdenizhan-TR", "ilyswch-TR",
    "itasli-TR", "gkhncksn-TR", "Lunedor-TR",
-   "dearbulut-TR", "dearbulut-TURKCE"
+   "dearbulut-TR", "dearbulut-TURKCE",
+   # Ayrik yabanci aday kesfi: kaynak ulkesi kimlik kaniti degildir.
+   "dearbulut-ISVEC", "dearbulut-ALMANYA",
+   "dearbulut-language-eng"
   }
  ordered=sorted(((k,v) for k,v in SOURCES.items() if turkish_feed(k)),key=lambda item:freshness[item[0]][2])
  with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:
@@ -226,6 +229,8 @@ def main():
    prev["source_id"]=row["kaynak"]
   if row["kaynak"] in {"iptv-org-TURKCE","dearbulut-TURKCE"}:
    prev["source_language_hint"]="tur"
+  elif row["kaynak"] in {"dearbulut-ISVEC","dearbulut-ALMANYA","dearbulut-language-eng"}:
+   prev["source_language_hint"]="FOREIGN_SOURCE_UNVERIFIED"
   else:
    prev.setdefault("source_language_hint","UNKNOWN")
   row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "TEKRAR_TEST_BEKLIYOR"
