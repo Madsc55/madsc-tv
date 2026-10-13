@@ -87,8 +87,8 @@ def main():
     results = json.loads(resultfile.read_text()) if resultfile.exists() else []
     state = json.loads(pathlib.Path('madsc_dogrulama/state.json').read_text())['channels']
     candidates = pending_candidates(manifest, state, results)
-    batch = candidates[:96]
-    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as pool:
+    batch = candidates[:200]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=32) as pool:
         futures = [pool.submit(audit, r, manifest['duration_seconds']) for r in batch]
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
