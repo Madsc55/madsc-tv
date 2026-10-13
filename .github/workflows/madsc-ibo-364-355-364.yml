@@ -1,0 +1,24 @@
+name: MADSC - YEDEKLER 355-364 Yabanci Arsiv
+on:
+  push:
+    paths:
+      - '.github/workflows/madsc-ibo-364-355-364.yml'
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - run: python3 scripts/archive_backups_355_364.py
+      - run: |
+          set -euo pipefail
+          git diff --exit-code -- YABANCI_KANALLAR.m3u
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CALISANLAR.m3u madsc_kesif/ibo_364_355_364_yabanci_arsiv.m3u madsc_kesif/ibo_364_355_364_rapor.json
+          git commit -m "Archive user-identified foreign backups 355-364"
+          git push origin HEAD:main
