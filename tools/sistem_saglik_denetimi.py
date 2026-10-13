@@ -19,8 +19,24 @@ REPORTS = ("madsc_dogrulama/summary.json", "madsc_son_kontrol/summary.json",
 
 def inspect(root=ROOT):
     findings = []
+    actions = {
+        "MISSING_FILE": "Eksik dosyayı araştır; otomatik geri yükleme yapma.",
+        "BROAD_PERMISSIONS": "Actions izinlerini gereken en dar kapsamla sınırla.",
+        "PYTHON_SYNTAX": "Dosyanın sözdizimini düzeltip test et.",
+        "INVALID_JSON": "Rapor üreticisini ve son başarılı çalışmayı incele.",
+        "COUNT_MISMATCH": "Özet ile sonuçların aynı çalışmaya ait olduğunu doğrula.",
+        "DUPLICATE_CANDIDATE_IDS": "Tekrar eden adayları araştır; geçmişi silme.",
+        "SHARED_CONCURRENCY_GROUP": "Ortak grubun bilinçli paylaşıldığını doğrula.",
+        "WRITE_WORKFLOW_REVIEW": "Yazma iznini ve tetikleyici güvenliğini incele.",
+        "RESET_PUSH_REVIEW": "Reset ve push komutlarının veri kaybı riskini incele.",
+        "MISSING_REPORT": "Raporu üreten otomasyonun son çalışmasını incele.",
+        "PENDING_CANDIDATES": "Sonraki aday kontrol partilerini bekle.",
+        "NO_READY_CANDIDATES": "Kimlik ve IBO doğrulaması olmadan hazır kabul etme.",
+        "EMPTY_CANDIDATE_JOIN": "Yeni aday yoksa işlem gerekmez; keşif sonuçlarını izle.",
+    }
     def add(level, category, code, detail):
-        findings.append({"severity": level, "category": category, "code": code, "detail": detail})
+        findings.append({"severity": level, "category": category, "code": code,
+                         "detail": detail, "next_action": actions.get(code, "Bulguyu incele; korunan verileri değiştirme.")})
 
     for path in CRITICAL + PIPELINE:
         if not (root / path).is_file():
@@ -97,6 +113,7 @@ def inspect(root=ROOT):
             add("ERROR", "playlist", "BACKUP_COUNT_MISMATCH", f"etiket={backups[0]} kayıt={len(backups)}")
         if backups and len(set(backups)) != 1:
             add("ERROR", "playlist", "BACKUP_COUNT_LABELS", str(sorted(set(backups))))
+    findings.sort(key=lambda f: ({"ERROR": 0, "WARN": 1, "INFO": 2}[f["severity"]], f["code"], f["detail"]))
     return {"generated_utc": datetime.now(timezone.utc).isoformat(),
             "mode": "READ_ONLY", "workflows_scanned": len(workflows),
             "findings": findings,
