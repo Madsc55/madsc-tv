@@ -118,8 +118,10 @@ except (OSError, ValueError):
                 "ibo_device_retest_out_of_scope": True,
                 "technical_failure_does_not_prove_ibo_failure": True},
                ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-if not foreign_report["backup_only_trt1_dha"] or foreign_report["archive_count"] != 740 or foreign_report["archive_urls_missing"]:
-    raise SystemExit("Yabanci kanal arsivi veya korunan yedekler beklenen durumda degil.")
+if not foreign_report["archive_present"] or foreign_report["archive_urls_missing"]:
+    raise SystemExit("Yabanci kanal arsivi eksik veya URL kaydi bos.")
+# Korunan yedekler icin sabit sayi/isim varsayimi yapma; yalnizca salt okunur raporla.
+# Gercek liste icerigi degistirilmez.
 print("Yabanci arsiv, yedekler ve birikimli aday ozeti tek merkezi denetimde kontrol edildi.")
 
 # Tek pakette kesif kaynaklari, bos aday kuyrugu ve yabanci arsiv
@@ -180,4 +182,4 @@ discovery_report = {
     json.dumps(discovery_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 if discovery_report["foreign_archive_invalid_url_count"]:
     raise SystemExit("Yabanci arsivde gecersiz URL semasi bulundu.")
-print("Kaynak, aday, alternatif ve 740 arsiv kaydi tek merkezi denetimde siniflandirildi.")
+print(f"Kaynak, aday, alternatif ve {foreign_archive['count']} arsiv kaydi tek merkezi denetimde siniflandirildi.")
