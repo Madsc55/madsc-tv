@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Logo EPG kimlik ve gecmis tek merkezi rapor
+Merkezi #38396343491, saglik #38396343437, dokumantasyon #38396343586 SUCCESS dogrulandi. Kullanici not almayi ozellikle hatirlatti. `scripts/central_identity_epg_logo_audit.py` final sureklilik ozeti, kesif gecmisi, aday logo hazirligi ve EPG eslestirme kanitlarini var/yok durumlariyla tek merkezi JSON rapora alir. Teknik test veya XMLTV/PNG varligi kimlik, yayin hakki ya da Isvec IBO kullanici onayi sayilmaz; otomatik playlist onayi yok. Unittest ve mevcut merkezi workflow'a eklendi. Gercek cihaz testi yapilmadi. Yeni Actions sonucu kontrol edilmeli; sonra tek yonetim raporu/panel ve gunluk ozet konularina gecilecek. Korunan listeler, yedekler, cron degismedi.
+
 ## 13 Ekim 2026 — Korunan dosya ve yedek kanit raporu
 Merkezi #38396019288, saglik #38396019340, dokumantasyon #38396019403 SUCCESS dogrulandi. `scripts/central_backup_evidence.py` korunan dosyalarin varligini, boyutunu, SHA256 parmak izlerini ve depoda izlenen yedek adli dosyalari tek salt okunur rapora alir. Geri yukleme bu kosuda gercekten denenmedigi, GitHub disi kopya ve branch protection kanitlanmadigi acikca yazilir; bunlar basarili diye gosterilmez. Test ve merkezi workflow'a baglandi. Korunan listeler, arsivler ve cron degismedi. Yeni Actions run sonucunu dogrula.
 

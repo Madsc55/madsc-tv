@@ -29,3 +29,5 @@ Güncelleme: 13 Ekim 2026. **Bu dosya bir özellik icat etmez; mevcut kod/iş ak
 
 ## Önemli
 Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecekteki kod değişikliklerini teknik olarak bloke eden bir güvenlik mekanizması değildir. Değişiklik öncesi kontrol ve Actions kanıtı zorunlu çalışma prosedürüdür.
+
+- **Merkezi logo/EPG/kimlik/geçmiş kanıt raporu:** `scripts/central_identity_epg_logo_audit.py` ve `test_central_identity_epg_logo_audit.py`; mevcut merkezi Actions testine bağlıdır. IBO cihaz onayı vermez, korunan listeleri değiştirmez.

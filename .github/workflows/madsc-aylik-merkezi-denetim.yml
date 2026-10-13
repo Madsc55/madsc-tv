@@ -9,6 +9,8 @@ on:
       - 'scripts/central_run_status.py'
       - 'scripts/central_failure_stage_report.py'
       - 'scripts/central_backup_evidence.py'
+      - 'scripts/central_identity_epg_logo_audit.py'
+      - 'test_central_identity_epg_logo_audit.py'
       - 'test_central_backup_evidence.py'
       - 'test_central_failure_stage_report.py'
       - 'scripts/central_six_area_audit.py'
@@ -51,6 +53,8 @@ jobs:
           sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
+      - name: Logo EPG kimlik ve test gecmisini birlestir
+        run: python3 scripts/central_identity_epg_logo_audit.py
       - name: Korunan dosya ve yedek kanitlarini denetle
         run: python3 scripts/central_backup_evidence.py
       - name: Gecmis test tekrarlarini tek raporda olc
