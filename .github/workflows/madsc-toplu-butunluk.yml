@@ -1,0 +1,23 @@
+name: MADSC - Toplu Arsiv ve Yedek Butunluk Kontrolu
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/madsc-toplu-butunluk.yml'
+permissions:
+  contents: read
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tek seferde arşiv, tekrar ve YEDEKLER bütünlük kontrolü
+        run: python3 scripts/bulk_integrity_gate.py
+      - name: Sonuçları sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-toplu-butunluk-sonuclari
+          path: madsc_kesif/toplu_butunluk_kontrol.json
+          if-no-files-found: ignore
