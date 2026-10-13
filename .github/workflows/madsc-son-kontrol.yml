@@ -26,23 +26,24 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 tools/workflow_failure_gate.py
-      - name: Load current code and frozen priority batch
+      - name: Güncel kodu ve sabit aday grubunu yükle
         run: |
           git fetch origin main
           git reset --hard origin/main
-      - name: Test evidence rules
+      - name: Test kanıtı kurallarını doğrula
         run: python3 -m unittest test_final_validation -v
-      - name: Install decoder
+      - name: Yayın çözümleyicisini kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Five minute video audio continuity and image evidence
+      - name: Beş dakikalık görüntü ses sürekliliğini doğrula
         run: python3 final_validation.py
-      - uses: actions/upload-artifact@v4
+      - name: Test çıktılarını arşivle
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: madsc-son-kontrol-goruntuler
           path: madsc_son_kontrol/
           retention-days: 30
-      - name: Save separate reports only
+      - name: Yalnızca ayrı test raporlarını kaydet
         shell: bash
         run: |
           set -euo pipefail
