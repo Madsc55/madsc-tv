@@ -49,7 +49,20 @@ def build(folder):
         "evidence_complete": not missing,
         "ibo_device_verification": "NOT_VERIFIED",
     }
+    blockers = []
+    if source_data.get("difference") not in (None, 0):
+        blockers.append({"code": "SOURCE_TARGET_MISMATCH", "status": "INCELEME_GEREKLI",
+                         "evidence": SOURCES["kaynak_mutabakati"]})
+    if repeat_data.get("invalid_history_records", 0) and isinstance(repeat_data.get("invalid_history_records"), int):
+        blockers.append({"code": "INVALID_TEST_HISTORY", "status": "INCELEME_GEREKLI",
+                         "evidence": SOURCES["tekrar_test"]})
+    if missing:
+        blockers.append({"code": "MISSING_AUDIT_EVIDENCE", "status": "KANIT_EKSIK",
+                         "sections": missing})
+    blockers.append({"code": "IBO_DEVICE_VERIFICATION", "status": "KAPSAM_DISI",
+                     "note": "Kullanici talebi geregi cihaz testi yapilmaz."})
     return {
+        "open_blockers": blockers,
         "key_indicators": indicators,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "section_count": len(sections),
