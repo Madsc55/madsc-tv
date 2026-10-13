@@ -15,7 +15,12 @@ count=len(backup)
 out=[]
 for line in lines:
  if line.startswith("#EXTINF") and pattern.search(line):
-  line=pattern.sub(lambda m:'group-title="'+re.sub(r'\\s*\\(\\d+\\)\\s*$','',m.group(1)).rstrip()+f' ({count})"',line,count=1)
+  line=pattern.sub(lambda m:'group-title="'+re.sub(r'\s*\(\d+\)\s*,'',m.group(1)).rstrip()+f' ({count})"',line,count=1)
+ out.append(line)
+if sum(bool(pattern.search(x)) for x in out if x.startswith("#EXTINF"))!=count:raise RuntimeError("Count mismatch")
+p.write_text("".join(out),encoding="utf-8")
+print(f"YEDEKLER actual channels: {count}; display label updated")
+,'',m.group(1)).rstrip()+f' ({count})"',line,count=1)
  out.append(line)
 if sum(bool(pattern.search(x)) for x in out if x.startswith("#EXTINF"))!=count:raise RuntimeError("Count mismatch")
 p.write_text("".join(out),encoding="utf-8")
