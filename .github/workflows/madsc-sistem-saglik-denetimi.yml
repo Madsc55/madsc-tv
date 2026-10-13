@@ -5,7 +5,7 @@ on:
     - cron: '17 5 * * *'
   push:
     paths:
-      - 'tools/sistem_saglik_denetimi.py'
+      - 'tools/sistem_saglik_denetimi.py'\n      - '.github/workflows/**'\n      - 'final_validation.py'\n      - 'tools/son_kontrol_yedekler_aktar.py'
       - 'test_sistem_saglik_denetimi.py'
       - '.github/workflows/madsc-sistem-saglik-denetimi.yml'
 permissions:
@@ -24,12 +24,29 @@ jobs:
         id: audit
         continue-on-error: true
         run: python3 tools/sistem_saglik_denetimi.py
+      - name: Gerçek Actions çalışma durumlarını salt okunur denetle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p madsc_bakim
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '{checked_runs: (.workflow_runs | length), failed: [.workflow_runs[] | select(.conclusion == "failure" or .conclusion == "timed_out") | {id, name, conclusion, html_url}], cancelled: [.workflow_runs[] | select(.conclusion == "cancelled") | {id, name, html_url}], active: [.workflow_runs[] | select(.status == "in_progress" or .status == "queued") | {id, name, status, html_url}]}' > madsc_bakim/actions_durum_raporu.json
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads(Path("madsc_bakim/actions_durum_raporu.json").read_text())
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as out:
+              out.write("## MADSC - Son 100 Actions çalışması\\n")
+              for key in ("failed", "cancelled", "active"):
+                  out.write(f"- {key}: {len(report[key])}\\n")
+          PY
       - name: Denetim raporunu sakla
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: madsc-sistem-saglik-raporu
-          path: madsc_bakim/sistem_saglik_raporu.json
+          path: |\n            madsc_bakim/sistem_saglik_raporu.json\n            madsc_bakim/actions_durum_raporu.json
           if-no-files-found: warn
       - name: Kritik sorun varsa testi başarısız say
         if: steps.audit.outcome == 'failure'
