@@ -6,7 +6,10 @@ olan, inceleme olayı bulunmayan akışları TEST etiketiyle ekler.
 import hashlib
 import json
 import pathlib
-from yedekler_guvenli_ekle import update
+try:
+    from .yedekler_guvenli_ekle import update
+except ImportError:
+    from yedekler_guvenli_ekle import update
 
 RESULTS = pathlib.Path("madsc_son_kontrol/results.json")
 STATE = pathlib.Path("madsc_dogrulama/state.json")
