@@ -52,6 +52,7 @@ jobs:
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '{checked_runs: (.workflow_runs|length), failed: [.workflow_runs[]|select(.conclusion=="failure" or .conclusion=="timed_out")|{id,name,conclusion}], active: [.workflow_runs[]|select(.status=="in_progress" or .status=="queued")|{id,name,status}]}' > madsc_merkezi_denetim/actions_durum.json
           gh api --paginate "repos/${GITHUB_REPOSITORY}/actions/workflows?per_page=100" --jq '.workflows[] | {id,name,path,state}' > madsc_merkezi_denetim/github_workflow_durumlari.jsonl
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '[.workflow_runs[] | {workflow_id,name,status,conclusion,run_id:.id,created_at,html_url}]' > madsc_merkezi_denetim/son_100_kosu.json
+          python3 scripts/central_run_status.py
           echo "## MADSC - Ayda iki kez merkezi denetim" >> "$GITHUB_STEP_SUMMARY"
           echo "- Takip edilen dosya: $(wc -l < madsc_merkezi_denetim/takip_edilen_dosyalar.txt)" >> "$GITHUB_STEP_SUMMARY"
           echo "- Workflow: $(wc -l < madsc_merkezi_denetim/is_akislari.txt)" >> "$GITHUB_STEP_SUMMARY"
