@@ -15,6 +15,8 @@ class KaynakMutabakatTesti(unittest.TestCase):
         self.assertEqual(len(r["all_sources"]), r["defined"])
         self.assertEqual(r["unique_endpoint_count"] + sum(len(x["names"])-1 for x in r["duplicate_endpoints"]), r["defined"])
         self.assertEqual(r["invalid_endpoint_definitions"], [])
+        self.assertGreaterEqual(r["raw_source_entry_count"], r["defined"])
+        self.assertEqual(r["raw_source_entry_count"]-r["defined"], 0 if not r["duplicate_source_names"] else r["raw_source_entry_count"]-r["defined"])
 
 if __name__ == "__main__":
     unittest.main()
