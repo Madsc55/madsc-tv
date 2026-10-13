@@ -1,4 +1,4 @@
-name: MADSC - Uc Asamali Aday Dogrulama
+name: MADSC - Üç Aşamalı Aday Doğrulama
 on:
   workflow_dispatch:
   push:
@@ -18,7 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
+      - name: Depo dosyalarını al
+        uses: actions/checkout@v4
+      - name: 24. kural - ardışık hata güvenlik kontrolü
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/workflow_failure_gate.py
       - name: Load latest saved state
         run: |
           git fetch origin main
