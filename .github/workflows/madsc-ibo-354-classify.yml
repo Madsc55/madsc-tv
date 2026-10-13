@@ -1,0 +1,22 @@
+name: MADSC - YEDEKLER 354 Kullanici Siniflandirma
+on:
+  push:
+    paths:
+      - '.github/workflows/madsc-ibo-354-classify.yml'
+permissions:
+  contents: write
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply user classifications once
+        run: python3 scripts/archive_backups_354_classified.py
+      - name: Save archives and playlist
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CALISANLAR.m3u madsc_kesif/ibo_354_3_334_turk_calismaz_arsiv.m3u madsc_kesif/ibo_354_335_354_yabanci_arsiv.m3u madsc_kesif/ibo_354_iki_kategori_rapor.json
+          git commit -m "Archive user-classified nonworking Turkish and foreign backups"
+          git push origin HEAD:main
