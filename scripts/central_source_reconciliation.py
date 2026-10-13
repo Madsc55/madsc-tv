@@ -15,6 +15,11 @@ for node in source.body:
             if isinstance(target, ast.Name) and target.id in ("SOURCES", "SOURCE_TARGET"):
                 assignments[target.id] = ast.literal_eval(node.value)
 sources = assignments["SOURCES"]
+# AST sozluk anahtarlarini incele: Python yinelenen isimleri sessizce ezer.
+source_nodes = [node.value for node in source.body if isinstance(node, ast.Assign)
+                and any(isinstance(t, ast.Name) and t.id == "SOURCES" for t in node.targets)]
+source_keys = [ast.literal_eval(key) for key in source_nodes[-1].keys] if source_nodes and isinstance(source_nodes[-1], ast.Dict) else []
+duplicate_names = sorted({name for name in source_keys if source_keys.count(name) > 1})
 target = assignments["SOURCE_TARGET"]
 by_url = defaultdict(list)
 for name, url in sources.items():
@@ -28,6 +33,8 @@ report = {"defined": len(sources), "target": target, "difference": len(sources) 
           "action_required": ("Tanimlar hedefi asiyor; kaynaklari silmeden once canli erisim ve kaynak secimi incelenmeli."
                               if len(sources) > target else "Tanim sayisi hedefe esit veya dusuk; canli erisim ayrica dogrulanmali."),
           "unique_endpoint_count": len(by_url), "duplicate_endpoints": duplicate_urls,
+          "duplicate_source_names": duplicate_names,
+          "raw_source_entry_count": len(source_keys),
           "invalid_endpoint_definitions": invalid,
           "all_sources": [{"name": name, "url": url} for name, url in sorted(sources.items())],
           "conclusion": "TANIM_FAZLASI" if len(sources) > target else
