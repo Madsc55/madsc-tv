@@ -12479,5 +12479,1076 @@
     },
     "status": "TECHNICAL_PASS_IDENTITY_PENDING",
     "image_evidence": "madsc_son_kontrol/images/8ba09786771f6cea10cf.jpg"
+  },
+  {
+    "candidate_id": "8818eb2f0c11c8218dd4",
+    "label": "Afarin Baxcha (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.161491+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8818eb2f0c11c8218dd4.jpg"
+  },
+  {
+    "candidate_id": "50cb6cadbbaa8dc33771",
+    "label": "Adventure TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.159358+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989,
+      "decoded_frames": 14995
+    },
+    "review_events": {
+      "freeze": 2,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/50cb6cadbbaa8dc33771.jpg"
+  },
+  {
+    "candidate_id": "8aa59f2b856bf2c68d7b",
+    "label": "Adult Swim Latin America (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.158369+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978667,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 1,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/8aa59f2b856bf2c68d7b.jpg"
+  },
+  {
+    "candidate_id": "808c29df6996266e47ef",
+    "label": "Adventure Earth (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.158939+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8986
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/808c29df6996266e47ef.jpg"
+  },
+  {
+    "candidate_id": "87daa82f5446e3c0321f",
+    "label": "Aeolos TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.160592+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/87daa82f5446e3c0321f.jpg"
+  },
+  {
+    "candidate_id": "87f19b843f5c27a5a679",
+    "label": "Afghanistan International (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.162345+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/87f19b843f5c27a5a679.jpg"
+  },
+  {
+    "candidate_id": "4796f1c3cb71c43c4f45",
+    "label": "Afarin TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.161893+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.981,
+      "decoded_frames": 15000
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4796f1c3cb71c43c4f45.jpg"
+  },
+  {
+    "candidate_id": "09e9b0e51889b9144545",
+    "label": "Adhyatm TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:11:13.158118+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992333,
+      "decoded_frames": 15000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/09e9b0e51889b9144545.jpg"
+  },
+  {
+    "candidate_id": "1c9dcf2f77d3936682bf",
+    "label": "Afro Magic Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:14.058955+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 54.04,
+      "decoded_frames": 1339
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "22afc55b45bbd9c5335d",
+    "label": "AfroLandTV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:18.176307+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/22afc55b45bbd9c5335d.jpg"
+  },
+  {
+    "candidate_id": "e19a520dbda159ce72cd",
+    "label": "Africa 24 English (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:07.635509+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/e19a520dbda159ce72cd.jpg"
+  },
+  {
+    "candidate_id": "8bcc17735bf47a533a36",
+    "label": "Aflam (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:04.650239+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 832,
+        "height": 468,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 256,
+        "height": 144,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8bcc17735bf47a533a36.jpg"
+  },
+  {
+    "candidate_id": "ee5ad5f8cb3d9e192e7a",
+    "label": "Africa 24 Sport (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:10.726853+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ee5ad5f8cb3d9e192e7a.jpg"
+  },
+  {
+    "candidate_id": "0d5c22e1163966c2077a",
+    "label": "Africa 24 (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:05.807997+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0d5c22e1163966c2077a.jpg"
+  },
+  {
+    "candidate_id": "d16d32077dbb70df6613",
+    "label": "Africanews French (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:16:12.620617+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 428,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986604,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d16d32077dbb70df6613.jpg"
+  },
+  {
+    "candidate_id": "bd9b8a2052ca66656204",
+    "label": "Aflak TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:15:57.461378+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/bd9b8a2052ca66656204.jpg"
+  },
+  {
+    "candidate_id": "1bb53f1f31a29246017c",
+    "label": "Afroculture TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:17:04.296022+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7199
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1bb53f1f31a29246017c.jpg"
+  },
+  {
+    "candidate_id": "67ff94016b6c22c583e6",
+    "label": "Agape TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:05.319267+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 2,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/67ff94016b6c22c583e6.jpg"
+  },
+  {
+    "candidate_id": "d6be0ec06eff8d333a24",
+    "label": "Aghapy TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:12.743275+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d6be0ec06eff8d333a24.jpg"
+  },
+  {
+    "candidate_id": "0ef67308040f18fcf76b",
+    "label": "Agro TV (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:21.360700+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 1
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0ef67308040f18fcf76b.jpg"
+  },
+  {
+    "candidate_id": "bc6490da656658890a99",
+    "label": "Agro TV (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:17.269146+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/bc6490da656658890a99.jpg"
+  },
+  {
+    "candidate_id": "98c49489663e7a2c0f1a",
+    "label": "Aghani Aghani TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:11.691723+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/98c49489663e7a2c0f1a.jpg"
+  },
+  {
+    "candidate_id": "10cce0407ddbe13c0d98",
+    "label": "Agro TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:15.256800+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978813,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/10cce0407ddbe13c0d98.jpg"
+  },
+  {
+    "candidate_id": "009ac246b660850f413b",
+    "label": "AgroCanal (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:21:23.483138+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/009ac246b660850f413b.jpg"
   }
 ]
