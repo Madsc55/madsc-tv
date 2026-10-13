@@ -6,7 +6,6 @@ on:
   push:
     paths:
       - 'tools/sistem_saglik_denetimi.py'
-      - '.github/workflows/**'
       - 'final_validation.py'
       - 'tools/son_kontrol_yedekler_aktar.py'
       - 'test_sistem_saglik_denetimi.py'
