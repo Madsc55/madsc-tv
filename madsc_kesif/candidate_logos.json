@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-13T00:29:55.114526+00:00",
+  "checked_utc": "2026-10-13T03:24:39.412031+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -3284,6 +3284,16 @@
       "conversion": "png_ready",
       "png_file": "madsc_kesif/candidate_pngs/80c64f3e42a06529b66e2d5d.png",
       "png_sha256": "58e222d9c789460428eac50c52e79aba068c1969cadd75c48e192de0bc37e0e1"
+    },
+    {
+      "channel": "Love Nature (2160p)",
+      "stream_sha256": "807fe9db71f34d298a396d73b024e2facb65924ae19c8b6e4fbb812013aa9dc8",
+      "channel_id": "LoveNature.ca",
+      "source": "dearbulut-TURKCE",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
     }
   ],
   "limits": "Source artwork and PNG decoding do not prove station identity. No playlist writes or automatic approvals."

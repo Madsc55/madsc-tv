@@ -1,7 +1,20 @@
 {
-  "checked_utc": "2026-10-13T00:29:55.174219+00:00",
-  "source_candidates": 0,
-  "candidate_results": [],
+  "checked_utc": "2026-10-13T03:24:39.475818+00:00",
+  "source_candidates": 1,
+  "candidate_results": [
+    {
+      "channel": "Love Nature (2160p)",
+      "stream_sha256": "807fe9db71f34d298a396d73b024e2facb65924ae19c8b6e4fbb812013aa9dc8",
+      "channel_id": "LoveNature.ca",
+      "epg_pilot_status": "NOT_IN_FIVE_CHANNEL_PILOT",
+      "logo_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "logo_visual_match": "NOT_VERIFIED",
+      "broadcast_status": "SEE_EXISTING_DISCOVERY_AND_CONTINUITY_REPORTS",
+      "sweden_ibo_status": "NOT_DEVICE_VERIFIED",
+      "playlist_approved": false,
+      "ready_for_playlist": false
+    }
+  ],
   "pilot_epg_channels": 5,
   "notes": [
     "Five-channel XMLTV pilot is not full production EPG coverage.",
