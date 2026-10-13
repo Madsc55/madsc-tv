@@ -105,8 +105,8 @@ def pending_candidates(manifest, state, results):
     pending = [r for token, r in candidates.items() if token not in completed]
     return sorted(pending, key=turkish_priority)
 
-BATCH_SIZE = 24  # Runner kapanmasi riskini azalt; 200 adaylik uzun tek kosudan kacin.
-MAX_WORKERS = 12  # Eszamanli ffmpeg yukunu sinirla.
+BATCH_SIZE = 125  # Kullanici onayli dengeli grup: onceki 200 adaydan daha kisa.
+MAX_WORKERS = 24  # Kullanici onayli paralel islem sayisi.
 
 def main():
     manifest = json.loads(pathlib.Path('final_validation_manifest.json').read_text())
