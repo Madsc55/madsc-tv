@@ -26,7 +26,8 @@ def inspect(root=ROOT):
         "INVALID_JSON": "Rapor üreticisini ve son başarılı çalışmayı incele.",
         "COUNT_MISMATCH": "Özet ile sonuçların aynı çalışmaya ait olduğunu doğrula.",
         "DUPLICATE_CANDIDATE_IDS": "Tekrar eden adayları araştır; geçmişi silme.",
-        "SHARED_CONCURRENCY_GROUP": "Ortak grubun bilinçli paylaşıldığını doğrula.",
+        "SHARED_CONCURRENCY_GROUP": "Grup farklı workflowları sıraya alıyor; iptal ayarını ve gecikmeyi izle.",
+        "SHARED_CONCURRENCY_SAFE": "cancel-in-progress: false ile sıralama bilinçli; uzun kuyrukları izle.",
         "WRITE_WORKFLOW_REVIEW": "Yazma iznini ve tetikleyici güvenliğini incele.",
         "RESET_PUSH_REVIEW": "Reset ve push komutlarının veri kaybı riskini incele.",
         "MISSING_REPORT": "Raporu üreten otomasyonun son çalışmasını incele.",
@@ -60,7 +61,7 @@ def inspect(root=ROOT):
         for line in raw.splitlines():
             match = re.fullmatch(r"group:\s*([A-Za-z0-9_.-]+)", line.strip())
             if match:
-                groups.setdefault(match.group(1), []).append(path.name)
+                groups.setdefault(match.group(1), []).append((path.name, "cancel-in-progress: false" in raw))
         if re.search(r"(?m)^\s*permissions:\s*write-all\s*$", raw):
             add("ERROR", "security", "BROAD_PERMISSIONS", path.name)
         if "contents: write" in raw and "workflow_dispatch:" not in raw and "workflow_run:" not in raw:
@@ -69,7 +70,11 @@ def inspect(root=ROOT):
             add("WARN", "automation", "RESET_PUSH_REVIEW", path.name)
     for group, owners in groups.items():
         if len(owners) > 1:
-            add("WARN", "automation", "SHARED_CONCURRENCY_GROUP", f"{group}: {', '.join(owners)}")
+            names = ", ".join(name for name, _ in owners)
+            if all(safe for _, safe in owners):
+                add("INFO", "automation", "SHARED_CONCURRENCY_SAFE", f"{group}: {names}; iptal kapalı, sıralama amaçlı")
+            else:
+                add("WARN", "automation", "SHARED_CONCURRENCY_GROUP", f"{group}: {names}; iptal riski incelenmeli")
     for path in sorted(root.glob("*.py")) + sorted((root / "tools").glob("*.py")) + sorted((root / "scripts").glob("*.py")):
         try:
             ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
