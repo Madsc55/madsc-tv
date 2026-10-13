@@ -63,6 +63,11 @@ def main():
     for identity, candidate in history.items():
         if identity in state['channels']:
             record = state['channels'][identity]
+            if candidate.get('source_history'):
+                previous = record.setdefault('source_history', [])
+                for source in candidate['source_history']:
+                    if source not in previous:
+                        previous.append(source)
             for field in ('source_id', 'source_language_hint'):
                 if not record.get(field) and candidate.get(field):
                     record[field] = candidate[field]
