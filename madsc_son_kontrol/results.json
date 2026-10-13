@@ -16178,5 +16178,1063 @@
     },
     "status": "TECHNICAL_PASS_IDENTITY_PENDING",
     "image_evidence": "madsc_son_kontrol/images/6db8130780f1c4baad5c.jpg"
+  },
+  {
+    "candidate_id": "d2682de3dcc6b05792d8",
+    "label": "Al Sharqiya News (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.323987+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 90.1,
+      "decoded_frames": 2704
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "1c885224faea422b81aa",
+    "label": "Al Yaum TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.325273+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998646,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/1c885224faea422b81aa.jpg"
+  },
+  {
+    "candidate_id": "f84be5c213c85e869764",
+    "label": "Al Sharqiya (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.323454+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "475/12"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.976,
+      "decoded_frames": 7496
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f84be5c213c85e869764.jpg"
+  },
+  {
+    "candidate_id": "0b1dfb978dd4df323571",
+    "label": "Al Wilayah (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.324228+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0b1dfb978dd4df323571.jpg"
+  },
+  {
+    "candidate_id": "af3f76d347fea794ec24",
+    "label": "Al Wousta TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.324418+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/af3f76d347fea794ec24.jpg"
+  },
+  {
+    "candidate_id": "f1a02448bbfc8f451aff",
+    "label": "Al Sharqiya Min Kabla (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.323610+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/f1a02448bbfc8f451aff.jpg"
+  },
+  {
+    "candidate_id": "0f8cf45668a66cd21855",
+    "label": "Al Wafa Tarim (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.324092+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0f8cf45668a66cd21855.jpg"
+  },
+  {
+    "candidate_id": "d8546f9744a417eda614",
+    "label": "Al-Bahjah TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T00:58:49.327600+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 14823
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d8546f9744a417eda614.jpg"
+  },
+  {
+    "candidate_id": "eaa7278f225dca098e28",
+    "label": "Al-Jawadain TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:00:08.524954+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/eaa7278f225dca098e28.jpg"
+  },
+  {
+    "candidate_id": "40a07d9c063278e2b4a0",
+    "label": "Al-Sahat TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:03:38.063029+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/40a07d9c063278e2b4a0.jpg"
+  },
+  {
+    "candidate_id": "6aa8febe731095a880d1",
+    "label": "Alacanti TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:03:43.461839+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6aa8febe731095a880d1.jpg"
+  },
+  {
+    "candidate_id": "15589eb6717594885e28",
+    "label": "Alankar TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:03:44.746647+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.983333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/15589eb6717594885e28.jpg"
+  },
+  {
+    "candidate_id": "5f4a194b631114e384d9",
+    "label": "Alarabiya (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:03:53.613284+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.976,
+      "decoded_frames": 7492
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/5f4a194b631114e384d9.jpg"
+  },
+  {
+    "candidate_id": "495ed8e2f7545458159b",
+    "label": "Al-Manar (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:03:31.206927+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 256,
+        "height": 144,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/495ed8e2f7545458159b.jpg"
+  },
+  {
+    "candidate_id": "6b8d91182a219d52d611",
+    "label": "Al-Souriya TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:03:40.934672+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 832,
+        "height": 468,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6b8d91182a219d52d611.jpg"
+  },
+  {
+    "candidate_id": "d4709dda1607ef78e262",
+    "label": "Alawla TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:04:03.393853+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.990333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d4709dda1607ef78e262.jpg"
+  },
+  {
+    "candidate_id": "fdae0055fbe7f22318ce",
+    "label": "Alb UK TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:05:05.888460+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/fdae0055fbe7f22318ce.jpg"
+  },
+  {
+    "candidate_id": "84972ee8c5dc50f80d90",
+    "label": "AlbKanale Music TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:08:12.232236+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.995737,
+      "decoded_frames": 7501
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/84972ee8c5dc50f80d90.jpg"
+  },
+  {
+    "candidate_id": "3e7ce5ad93106d7fd187",
+    "label": "Alcance TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:08:50.374702+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7197
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3e7ce5ad93106d7fd187.jpg"
+  },
+  {
+    "candidate_id": "8f87f7500ba7beae0b94",
+    "label": "Alcarria TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:08:54.320394+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 14993
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8f87f7500ba7beae0b94.jpg"
+  },
+  {
+    "candidate_id": "71c91d923d17d9cc0de2",
+    "label": "Alcarrizos TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:08:58.573894+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.983333,
+      "decoded_frames": 8692
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/71c91d923d17d9cc0de2.jpg"
+  },
+  {
+    "candidate_id": "645059c81ea546a7c3f1",
+    "label": "Alcance FM PLAY TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:08:48.953182+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988833,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/645059c81ea546a7c3f1.jpg"
+  },
+  {
+    "candidate_id": "371363f545fc277a4231",
+    "label": "Alborz TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:08:40.210430+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8997
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/371363f545fc277a4231.jpg"
+  },
+  {
+    "candidate_id": "d8193c56bf7f992f6d87",
+    "label": "Alegre TV RD (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "checked_utc": "2026-10-13T01:09:16.792046+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d8193c56bf7f992f6d87.jpg"
   }
 ]
