@@ -1,3 +1,13 @@
+## 13 Ekim 2026 — Kullanıcı isteği: Uygulama değerlendirmesini kalıcı not al (henüz uygulama yapma)
+156 kaynak envanteri denetiminden **önce** kullanıcı MADSC TV uygulamasının neyi eksik/fazla yaptığını sordu; ardından "Not al not" diyerek değerlendirmeyi kaydetmemizi istedi. **Bu maddeler onaylanmış geliştirme veya tamamlanmış iş değildir; öneri/backlog olarak kaydedildi.**
+1. Tek yönetim paneli: çalışan/çalışmayan/test bekleyen/IBO onaylı adaylar ve Actions durumu tek yerde.
+2. Gerçekten hazır kanal ayrımı: teknik FFmpeg geçişi ≠ yayıncı kimliği ≠ İsveç IBO cihazında kullanıcı onayı; onay olmadan listeye ekleme yok.
+3. Korunan ana liste, YENILER, favoriler, yedekler ve sıralama için yalnız prosedürel değil teknik değişiklik/onay engeli.
+4. Tekrar eden URL/test/Actions yükünü azalt; yeni ve değişen kaynakları önceliklendir; eski karar ve test geçmişini koru.
+5. IBO özel doğrulama: İsveç oynatma, doğru logo, HD/FHD gerçek çözünürlük ve EPG ayrı; mevcut EPG altyapısını yeniden yazma.
+6. Tek, kısa günlük sonuç raporu: yeni, düzeltilen, başarısız ve kullanıcı onayı bekleyenler.
+Ek sadeleştirme: tekrar eden testleri/workflowları ve teknik başarı etiketlerini envanterle karşılaştır; başarılı işleri körlemesine silme. Öncelik önerisi: yönetim paneli + güvenli onay kapısı, ardından mevcut testleri sadeleştirme, sonra 156 kaynak denetimi. **Kullanıcı henüz bu sırayı geliştirmeye başlama onayı vermedi; yalnız not istedi.** AGENTS.md ve OZELLIK_ENVANTERI.md tekrar-önleme kuralları geçerli. Ana liste, YENILER, favoriler ve yedeklere dokunma.
+
 ## 13 Ekim 2026 — Sekiz görev geliştirmesi PR #35
 Kullanıcı sekiz görevi kanal test sonuçlarını beklemeden bitirmeyi istedi. PR #35 merge `8a7e5a1afb1cb9c2d33f164275a402c81095d1d1`: `final_validation.py` son kontrol sonuçlarında `license_status=NOT_VERIFIED`, `source_rights_review=REQUIRED`, `station_identity_evidence=NOT_VERIFIED`, `logo_identity_evidence=NOT_VERIFIED`, `epg_device_evidence=NOT_VERIFIED` alanlarını ayrı izler; state `source_history` final adayına taşınır. `test_final_validation.py` içinde kanıt ayrımı regresyon testi eklendi. Yeni testin PASS sonucu henüz görülmedi; sağlık run #38342271874 IN_PROGRESS. Keşif run #38342135063 SUCCESS, devam keşfi #38342145171 IN_PROGRESS; son kontrol #38342088291 IN_PROGRESS. Kullanıcı onayı olmadan ana liste/YENILER/favoriler/yedekler değiştirilmedi. Bu değişiklik lisans, gerçek kimlik veya IBO onayı sağlamaz; sekiz görevin tümü henüz kapanmadı.
 
