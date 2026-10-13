@@ -19,6 +19,9 @@ def digest(data):
 def main():
     paths = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
     paths = sorted(p for p in paths if p)
+    settings = pathlib.Path("MADSC-SISTEM-AYAR-ENVANTERI.json")
+    if settings.is_file():
+        paths.append(settings.name)
     if not paths:
         raise RuntimeError("Takip edilen dosya yok")
     manifest = {}
