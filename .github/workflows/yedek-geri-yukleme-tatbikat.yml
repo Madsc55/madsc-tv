@@ -1,6 +1,8 @@
 name: "Yedek Geri Yukleme - Guvenli Tatbikat"
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '50 5 * * 1'
   push:
     paths:
       - ".github/workflows/yedek-geri-yukleme-tatbikat.yml"
@@ -15,9 +17,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Restore backups into isolated temporary directory and verify
+      - name: Yedekleri gecici dizine geri yukleyerek dogrula
         run: python3 scripts/restore_dry_run.py
-      - name: Save verified restore report
+      - name: Yedek geri yukleme raporunu sakla
         if: always()
         uses: actions/upload-artifact@v4
         with:
