@@ -1,6 +1,12 @@
 name: MADSC - Ayda Iki Kez Tum Sistem Merkezi Denetim
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/central_workflow_inventory.py'
+      - 'test_central_workflow_inventory.py'
+      - '.github/workflows/madsc-aylik-merkezi-denetim.yml'
   schedule:
     - cron: '0 7 1,15 * *'
 permissions:
