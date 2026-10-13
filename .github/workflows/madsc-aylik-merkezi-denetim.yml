@@ -10,6 +10,8 @@ on:
       - 'scripts/central_six_area_audit.py'
       - 'scripts/central_eight_task_audit.py'
       - 'scripts/central_source_reconciliation.py'
+      - 'scripts/central_duplicate_test_audit.py'
+      - 'test_central_duplicate_test_audit.py'
       - 'test_central_source_reconciliation.py'
       - 'test_central_eight_task_audit.py'
       - 'test_central_run_status.py'
@@ -45,6 +47,8 @@ jobs:
           sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
+      - name: Gecmis test tekrarlarini tek raporda olc
+        run: python3 scripts/central_duplicate_test_audit.py
       - name: Kaynak ve hedef farkini gercek tanimlardan denetle
         run: python3 scripts/central_source_reconciliation.py
       - name: Sekiz gorevi tek raporda denetle
