@@ -65,7 +65,7 @@ jobs:
                   report = json.loads(p.read_text(encoding="utf-8"))
                   out.write(f"**Hata:** {report['counts']['ERROR']} | **Uyarı:** {report['counts']['WARN']} | **Bilgi:** {report['counts']['INFO']}\n\n")
                   for item in report["findings"][:60]:
-                      out.write(f"- **{item['severity']}** {item['code']}: {item['detail']}\n")
+                      out.write(f"- **{item['severity']}** {item['code']}: {item['detail']} — {item.get('next_action', 'İncele')}\n")
           PY
       - name: Denetim raporunu sakla
         if: always()
