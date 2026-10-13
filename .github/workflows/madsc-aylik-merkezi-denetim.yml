@@ -7,6 +7,7 @@ on:
       - 'scripts/central_workflow_inventory.py'
       - 'test_central_workflow_inventory.py'
       - 'scripts/central_run_status.py'
+      - 'scripts/central_six_area_audit.py'
       - 'test_central_run_status.py'
       - '.github/workflows/madsc-aylik-merkezi-denetim.yml'
   schedule:
@@ -40,6 +41,8 @@ jobs:
           sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
+      - name: Alti plan basligini tek raporda denetle
+        run: python3 scripts/central_six_area_audit.py
       - name: Merkezi otomasyon risk raporunu test et
         run: python3 -m unittest test_central_workflow_inventory -v
       - name: Mevcut sistem saglik testlerini calistir

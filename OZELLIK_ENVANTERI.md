@@ -13,6 +13,7 @@ Güncelleme: 13 Ekim 2026. **Bu dosya bir özellik icat etmez; mevcut kod/iş ak
 | Logo/EPG kalite uyarıları | `tools/logo_epg_audit.py`, `.github/workflows/test-15-logo-epg.yml` | Eksik logo/kimlik ve şüpheli URL uyarıları |
 | Aday son kontrol | `.github/workflows/madsc-son-kontrol.yml` | Teknik başarı ile cihaz/kanal kimlik onayı ayrıdır |
 | Ayda iki kez merkezi otomasyon denetimi | `.github/workflows/madsc-aylik-merkezi-denetim.yml`, `scripts/central_workflow_inventory.py`, `test_central_workflow_inventory.py` | 1/15 UTC 07:00; cron, concurrency, izin, kategori ve risk raporları; kod değişince main push testi. Salt okunur; tam orkestrasyon değildir, gerçek Actions sonucu ayrıca gerekir. |
+| Altı konu tek merkezi rapor | `scripts/central_six_area_audit.py`, `.github/workflows/madsc-aylik-merkezi-denetim.yml` | Tek Actions koşusunda altı alanın salt okunur kanıt ve eksiklerini toplar; sorunları otomatik çözmez, IBO cihaz testi değildir. |
 | Korunan listeler | `AGENTS.md`, `GUVENLIK_KURALLARI.md` | Ana liste, YENİLER, HEPSİ, favoriler, yedekler izinsiz değişmez |
 
 ## Her yeni işten ÖNCE zorunlu karar
