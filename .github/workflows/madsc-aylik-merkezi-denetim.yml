@@ -7,6 +7,8 @@ on:
       - 'scripts/central_workflow_inventory.py'
       - 'test_central_workflow_inventory.py'
       - 'scripts/central_run_status.py'
+      - 'scripts/central_failure_stage_report.py'
+      - 'test_central_failure_stage_report.py'
       - 'scripts/central_six_area_audit.py'
       - 'scripts/central_eight_task_audit.py'
       - 'scripts/central_source_reconciliation.py'
@@ -70,6 +72,31 @@ jobs:
           gh api --paginate "repos/${GITHUB_REPOSITORY}/actions/workflows?per_page=100" --jq '.workflows[] | {id,name,path,state}' > madsc_merkezi_denetim/github_workflow_durumlari.jsonl
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '[.workflow_runs[] | {workflow_id,name,status,conclusion,run_id:.id,created_at,html_url}]' > madsc_merkezi_denetim/son_100_kosu.json
           python3 scripts/central_run_status.py
+          python3 - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          folder = Path('madsc_merkezi_denetim')
+          runs = json.loads((folder / 'son_100_kosu.json').read_text())
+          failed = [r for r in runs if r.get('conclusion') in ('failure', 'timed_out', 'startup_failure', 'action_required')]
+          evidence = []
+          for run in failed[:20]:
+              rid = run.get('run_id')
+              cmd = ['gh', 'api', f'repos/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{rid}/jobs?per_page=100']
+              result = subprocess.run(cmd, capture_output=True, text=True, timeout=25)
+              if result.returncode:
+                  evidence.append({'run_id': rid, 'status': 'API_HATASI', 'jobs': []})
+                  continue
+              try:
+                  data = json.loads(result.stdout)
+                  jobs = [{'name': j.get('name'), 'conclusion': j.get('conclusion'),
+                           'steps': [{'name': st.get('name'), 'conclusion': st.get('conclusion')} for st in j.get('steps', [])]}
+                          for j in data.get('jobs', [])]
+                  evidence.append({'run_id': rid, 'status': 'ALINDI', 'jobs': jobs})
+              except (ValueError, TypeError):
+                  evidence.append({'run_id': rid, 'status': 'YANIT_HATASI', 'jobs': []})
+          (folder / 'basarisiz_kosu_isleri.json').write_text(json.dumps(evidence, ensure_ascii=False, indent=2))
+          PY
+          python3 scripts/central_failure_stage_report.py
           echo "## MADSC - Ayda iki kez merkezi denetim" >> "$GITHUB_STEP_SUMMARY"
           echo "- Takip edilen dosya: $(wc -l < madsc_merkezi_denetim/takip_edilen_dosyalar.txt)" >> "$GITHUB_STEP_SUMMARY"
           echo "- Workflow: $(wc -l < madsc_merkezi_denetim/is_akislari.txt)" >> "$GITHUB_STEP_SUMMARY"
