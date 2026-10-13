@@ -43,7 +43,14 @@ def inspect(history):
             records.append({"url_key": key, "runs": runs,
                             "last_test": entry.get("last_test", ""),
                             "channel": entry.get("channel", "")})
-    return {"historical_entries": len(history), "tested_urls": tested,
+    review_queue = [
+        {"url_key": row["url_key"], "recorded_runs": row["runs"],
+         "excess_runs": row["runs"] - 1, "review_status": "GECMIS_TEKRARI_INCELENECEK"}
+        for row in sorted(records, key=lambda row: (-row["runs"], row["url_key"]))[:100]
+    ]
+    return {"review_queue": review_queue,
+            "review_queue_truncated": repeated > len(review_queue),
+            "historical_entries": len(history), "tested_urls": tested,
             "urls_tested_more_than_once": repeated,
             "excess_test_runs": sum(row["runs"] - 1 for row in records),
             "invalid_history_records": missing,
