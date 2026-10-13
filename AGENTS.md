@@ -15,5 +15,8 @@ Her yeni sohbette işleme başlamadan DEVAM_NOTU.md içindeki SOHBET DEVRİ böl
 ## Özellik tekrarı önleme — zorunlu ön kontrol
 Yeni özellik önerilmeden, yeni script/workflow eklenmeden veya mevcut iş yeniden yazılmadan **OZELLIK_ENVANTERI.md** okunur; mevcut kod, ilgili iş akışı ve son gerçek Actions sonucu incelenir. Mevcut ve başarılı işi tekrar kurma. Eksikse yalnız eksik parçasını geliştir. Pilot EPG ile tam EPG'yi, kod testini gerçek cihaz testini birbirine karıştırma. İş bitince envanterin durumunu ve DEVAM_NOTU.md kanıtlarını güncelle. Bu kural korunan dosyaları değiştirme izni vermez.
 
-## Kural 25: Degisiklik sonrasi test
-Her yeni degisiklikten sonra ilgili GitHub Actions testi tetiklenir. Gercek run kimligi ve sonuc dogrulanmadan basarili denmez. Korunan listeler izinsiz degistirilmez.
+## Kural 25: Değişiklik sonrası test
+Her yeni değişiklikten sonra ilgili GitHub Actions testi tetiklenir. Gerçek run kimliği ve sonucu doğrulanmadan başarılı denmez. Korunan listeler izinsiz değiştirilmez.
+
+## Kural 26: Test adları Türkçe
+Bundan sonra eklenen veya düzenlenen GitHub Actions testlerinin kullanıcıya görünen workflow, iş (job) ve adım (step) adları Türkçe yazılır. Mevcut çalışan teknik dosya yolları, script adları, test fonksiyonları ve GitHub Actions anahtarları yalnız çeviri amacıyla değiştirilmez. Var olan testler yalnızca gerekli değişiklik yapıldığında Türkçeleştirilir; sırf isim değiştirmek için başarılı otomasyonlar yeniden kurulmaz. Her isim değişikliği Kural 25 kapsamında doğrulanır.
