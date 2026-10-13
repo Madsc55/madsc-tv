@@ -37,3 +37,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - **Kısa durum özeti:** `scripts/central_short_status.py`, `test_central_short_status.py`; merkezi Actions artifact içinde `madsc_kisa_durum_ozeti.md` üretir. Günlük cron eklenmemiştir; mevcut zamanlama korunur.
 
 - **Açık işler ve eksik kanıtlar:** `scripts/central_open_gaps.py`, `test_central_open_gaps.py`; merkezi Actions artifact içinde `acik_isler_ve_eksik_kanitlar.json` üretir. Rapor bulunması işi bitmiş saymaz.
+
+- **Kalan sekiz iş tek koşu karar tablosu:** `scripts/central_all_remaining_tasks.py` ve `test_central_all_remaining_tasks.py`, `kalan_isler_tek_kosu_karar_tablosu.json`. Kanıt, eksik ve dış bağımlılıkları birlikte gösterir; tamamlanma sertifikası değildir.
