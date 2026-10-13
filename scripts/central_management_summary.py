@@ -34,7 +34,23 @@ def build(folder):
         except (ValueError, UnicodeError):
             sections[key] = {"status": "GECERSIZ_RAPOR", "file": filename}
     missing = [key for key, row in sections.items() if row["status"] != "RAPOR_VAR"]
+    # Kritik sinyalleri buyuk raporu acmadan gorunur kil; veri yoksa sifir varsayma.
+    source_data = sections["kaynak_mutabakati"].get("data", {})
+    repeat_data = sections["tekrar_test"].get("data", {})
+    indicators = {
+        "source_defined": source_data.get("defined"),
+        "source_target": source_data.get("target"),
+        "source_target_difference": source_data.get("difference"),
+        "duplicate_source_endpoints": len(source_data["duplicate_endpoints"]) if isinstance(source_data.get("duplicate_endpoints"), list) else None,
+        "historical_tested_urls": repeat_data.get("tested_urls"),
+        "historical_repeated_urls": repeat_data.get("urls_tested_more_than_once"),
+        "historical_repeat_rate": repeat_data.get("repeat_rate_among_tested_urls"),
+        "invalid_history_records": repeat_data.get("invalid_history_records"),
+        "evidence_complete": not missing,
+        "ibo_device_verification": "NOT_VERIFIED",
+    }
     return {
+        "key_indicators": indicators,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "section_count": len(sections),
         "missing_evidence": missing,
