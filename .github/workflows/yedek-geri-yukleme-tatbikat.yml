@@ -1,8 +1,6 @@
 name: "Yedek Geri Yukleme - Guvenli Tatbikat"
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '50 5 * * 1'
   push:
     paths:
       - ".github/workflows/yedek-geri-yukleme-tatbikat.yml"

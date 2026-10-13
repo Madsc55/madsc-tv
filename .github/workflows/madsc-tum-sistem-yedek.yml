@@ -1,0 +1,35 @@
+name: MADSC - Tek Merkez Tum Sistem Yedek ve Kurtarma
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '40 5 * * *'
+  push:
+    paths:
+      - '.github/workflows/madsc-tum-sistem-yedek.yml'
+      - 'scripts/full_system_backup.py'
+permissions:
+  contents: read
+concurrency:
+  group: madsc-tum-sistem-yedek
+  cancel-in-progress: false
+jobs:
+  tam-yedek:
+    name: Tum sistemi yedekle ve gecici ortamda geri yuklemeyi dogrula
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Depodaki tum takip edilen dosyalari al
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Tek arsiv olustur ve geri yuklemeyi dogrula
+        run: python3 scripts/full_system_backup.py
+      - name: Tum sistem yedegini ve kontrol raporunu sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: MADSC-TUM-SISTEM-YEDEK
+          path: |
+            MADSC-TUM-SISTEM-YEDEK.tar.gz
+            MADSC-TUM-SISTEM-YEDEK-RAPORU.json
+          if-no-files-found: error
+          retention-days: 30
