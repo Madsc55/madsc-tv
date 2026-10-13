@@ -1,0 +1,32 @@
+name: MADSC - Turk Kanallari Yeniden Tespit
+on:
+  push:
+    paths:
+      - '.github/workflows/madsc-turk-kanal-geri-sec.yml'
+permissions:
+  contents: write
+concurrency:
+  group: madsc-turk-kanal-geri-sec
+  cancel-in-progress: false
+jobs:
+  siniflandir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: En guncel main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Turkiye ulke kaynaklariyla Turk kanallarini ayir
+        run: python3 scripts/recover_turkish_backups.py
+      - name: Korunmus arsivleri ve raporlari kontrol ederek kaydet
+        run: |
+          set -euo pipefail
+          git diff --exit-code -- YABANCI_KANALLAR.m3u madsc_kesif/yedeklerden_ayrilanlar_20261013T170042Z.m3u
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CALISANLAR.m3u madsc_kesif/yedek_ulke_inceleme.csv madsc_kesif/yedek_turk_yeniden_inceleme_raporu.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Restore country-confirmed Turkish channels from preserved backup snapshot"
+          git push origin HEAD:main
