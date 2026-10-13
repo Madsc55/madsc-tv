@@ -96,3 +96,10 @@ Bu not DEVAM_NOTU.md ve SEKIZ_GOREV_TOPLU_DENETIM.md ile birlikte okunur. Raporl
 - madsc_kesif/yedek_11599_geri_yukleme_raporu.json GitHub'da dogrulandi: before_backup=42, restored=11557, after_backup=11599, protected_categories=UNCHANGED, ibo_playback=NOT_TESTED.
 - 11557 geri yuklenen kanalin hepsi Turk degildir; yabanci ve belirsiz adaylar kullanicinin siniflandirma istegiyle YEDEKLER'de yeniden gorunur. Kayip olmadan arşivleri korunur.
 - Kullanici IBO sonucunu verdikce URL bazinda siniflandir, kullanici teyidini kaybetme. Kategori tasima veya silme sadece acik talimatla yapilir.
+
+## 2026-10-13 - Kullanici sesli secimi 3-5281
+- Kullanici 11367 kanallik GUNCEL YEDEKLER siralamasinda 3-5281 dahil araligi tek tek inceledi. Sozlu secilen Turk numaralari: 8,9,11,21-25,155-162,2370,2374,3362,3363,3570,3571,3665,5271-5274. 26 ve 165 acikca geri cekildi.
+- scripts/apply_ibo_3_5281.py ve workflow madsc-ibo-3-5281.yml ile run #38442355557 baslatildi. Rapor madsc_kesif/ibo_3_5281_rapor.json olustu: 27 Turk kanal YEDEKLER'de tutuldu, 5252 kullanicinin yabanci olarak belirledigi kanal kayipsiz madsc_kesif/ibo_3_5281_ayrilanlar.m3u arsivine alindi. Yeni YEDEKLER toplam 6115. 1-2 ve eski 5282 sonrasi degismedi.
+- 2370 ve 2374 calisiyor; 3362,3363,3570,3571,3665 calismiyor. Diger Turk kanallarin calisma durumu belirtilmedi. Yabancilarin calisma durumu belirtilmedi.
+- Ses kaydinda '2280 Elektrik...' ifadesi belirsizdi ve Turk kanali olarak acikca belirtilmedi; bu nedenle 2280 secili 27 icine alinmadi; arsivde geri getirilebilir. Gerekirse kullanicinin net talimatina gore geri al.
+- Sonraki numaralar icin YENI 6115 siralamasi ile ESKI 11367 siralamasi karistirilmamali.
