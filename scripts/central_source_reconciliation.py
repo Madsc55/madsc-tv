@@ -39,11 +39,27 @@ review_candidates = [
 reviewable_surplus = sum(row["redundant_definitions"] for row in review_candidates)
 invalid = [{"name": name, "url": url} for name, url in sources.items()
            if urlsplit(url).scheme not in ("http", "https") or not urlsplit(url).netloc]
+# Hedef farkini tek basina kopya kaynaklara baglama; karar icin somut kanit ayir.
+gap = len(sources) - target
+gap_diagnosis = {
+    "gap": gap,
+    "exact_url_duplicate_surplus": reviewable_surplus,
+    "duplicate_name_overwrites": len(source_keys) - len(sources),
+    "invalid_url_definitions": len(invalid),
+    "explanation": (
+        "AYNI_URL_FAZLASI_FARKI_ACIKLAYABILIR_AMA_SILME_ONAYI_DEGIL"
+        if gap > 0 and reviewable_surplus >= gap
+        else "FARK_TEK_BASINA_URL_TEKRARIYLA_ACIKLANAMIYOR"
+        if gap > 0 else "HEDEF_FARKI_YOK_VEYA_EKSIK"
+    ),
+    "next_action": "Kaynak tanimlarinin kullanimi ve canli erisimi dogrulanmadan hedef degistirilmez.",
+}
 report = {"defined": len(sources), "target": target, "difference": len(sources) - target,
           "target_is_declared_config_not_verified_active_feed_count": True,
           "action_required": ("Tanimlar hedefi asiyor; kaynaklari silmeden once canli erisim ve kaynak secimi incelenmeli."
                               if len(sources) > target else "Tanim sayisi hedefe esit veya dusuk; canli erisim ayrica dogrulanmali."),
           "unique_endpoint_count": len(by_url), "duplicate_endpoints": duplicate_urls,
+          "gap_diagnosis": gap_diagnosis,
           "duplicate_endpoint_review_candidates": review_candidates,
           "duplicate_endpoint_definition_surplus": reviewable_surplus,
           "target_gap_explainable_by_exact_endpoint_duplicates": bool(len(sources) > target and reviewable_surplus >= len(sources) - target),
