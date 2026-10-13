@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'madsc_akilli_kesif.py'
+      - 'scripts/discovery_archive.py'
   workflow_dispatch:
   schedule:
     - cron: '0 6,18 * * *'
@@ -40,8 +41,12 @@ jobs:
           python-version: '3.12'
       - name: Görüntü işleme araçlarını kur
         run: python -m pip install Pillow cairosvg
+      - name: Kalici arsivdeki URLleri tekrar testten koru
+        run: python3 scripts/discovery_archive.py before
       - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
         run: python3 madsc_akilli_kesif.py
+      - name: Bulunan tum adaylari kalici arsive kaydet
+        run: python3 scripts/discovery_archive.py after
       - name: Aday logolarını ayrı PNG incelemesine hazırla
         run: |
           python scripts/candidate_logo_report.py
