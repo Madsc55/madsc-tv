@@ -29,18 +29,21 @@ jobs:
           git reset --hard origin/main
       - name: Yayın kontrol aracını kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - uses: actions/setup-python@v5
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install Pillow cairosvg
+      - name: Görüntü işleme araçlarını kur
+        run: python -m pip install Pillow cairosvg
       - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
         run: python3 madsc_akilli_kesif.py
       - name: Aday logolarını ayrı PNG incelemesine hazırla
         run: |
           python scripts/candidate_logo_report.py
-      - name: Aday yayin-logo-EPG kanitlarini tek raporda birlestir
+      - name: Aday yayın logo ve EPG kanıtlarını tek raporda birleştir
         run: python3 scripts/candidate_epg_logo_join.py
-      - uses: actions/upload-artifact@v4
+      - name: Test çıktılarını arşivle
+        uses: actions/upload-artifact@v4
         with:
           name: candidate-logo-pngs
           path: madsc_kesif/candidate_pngs/
