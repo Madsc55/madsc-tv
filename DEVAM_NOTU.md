@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Sekiz iş tek merkezi koşuya alındı (kapsam, henüz tamamlanma değil)
+Kullanıcı sekiz kalan işin ayrı ayrı test edilmesi yerine tek merkezi Actions koşusunda denetlenmesini ve sisteme eklenmesini istedi. `scripts/central_eight_task_audit.py` sekiz başlığın her biri için mevcut kod kanıtı, eksikler, tek JSON rapor ve güvenlik sınırları üretir. `test_central_eight_task_audit.py` rapor sözleşmesini ve eksiklerin başarı diye gösterilmemesini doğrular. Mevcut 1/15 merkezi workflow'u ve ilgili push tetikleyicisine bağlandı. **Bu, sekiz eksik işin otomatik tamamlanması değil; toplu ölçüm ve açık iş listesidir.** Özellikle 156/155 farkı, IBO gerçek cihaz kanıtı, bağımsız yedek ve canlı yönetim paneli hâlâ eksik. Mevcut cron, playlist ve yedekler değiştirilmedi. Gerçek Actions run sonucu doğrulanmalı.
+
 ## 13 Ekim 2026 — Kullanıcı düzeltmesi: son kontrol 125 aday / 24 paralel işlem
 Önceki PR #51'deki 24 aday / 12 worker ayarı kullanıcıya göre gereğinden yavaştı. Kullanıcı 200 yerine 125 ve 32 yerine 23–25 arası paralellik istedi; 125 aday / 24 worker olarak uygulandı. Beş dakikalık kanıt testi ve Kural 24 güvenlik kapısı korunur; son iki başarısız runner shutdown koşusu bu ayar değişikliğiyle geçmişten silinmez. Mevcut test sonuçları tekrar çalıştırılmaz; korunan listeler değişmez. Yeni Actions başarısı ayrıca doğrulanmalı.
 
