@@ -1,6 +1,8 @@
 name: MADSC - Tamamlanan Aday Son Kontrol
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '10 6 * * *'
   workflow_run:
     workflows:
       - 'MADSC - Üç Aşamalı Aday Doğrulama'
