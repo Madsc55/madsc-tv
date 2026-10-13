@@ -28,3 +28,22 @@ out.mkdir(exist_ok=True)
                 "workflows": items, "note": "Statik envanterdir; etkinlik, başarı ve çakışma kanıtı değildir."},
                ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"{len(items)} workflow envantere alındı; hiçbiri değiştirilmedi veya tetiklenmedi.")
+
+# Sadece olasi cakismalari raporla; zamanlama degistirme.
+from collections import defaultdict
+
+cron_groups = defaultdict(list)
+for item in items:
+    for cron in item["schedule_utc"]:
+        cron_groups[cron].append(item["file"])
+same_cron = [{"cron": cron, "workflows": names} for cron, names in sorted(cron_groups.items()) if len(names) > 1]
+write_scheduled = [x["file"] for x in items if x["writes_contents"] and x["schedule_utc"]]
+analysis = {
+    "identical_cron_groups": same_cron,
+    "scheduled_write_workflows": write_scheduled,
+    "manual_review_required": True,
+    "note": "Ayni cron kesin cakisma degildir; farkli cronlar da cakisma yaratabilir. Statik on inceleme.",
+}
+(out / "otomasyon_cakisma_on_analizi.json").write_text(
+    json.dumps(analysis, ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"{len(same_cron)} ayni cron grubu ve {len(write_scheduled)} zamanlanmis yazma izinli workflow belirlendi.")
