@@ -24,13 +24,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 tools/workflow_failure_gate.py
-      - name: Load latest saved state
+      - name: En son kayıtlı durumu yükle
         run: |
           git fetch origin main
           git reset --hard origin/main
-      - name: Validate verification rules
+      - name: Doğrulama kurallarını test et
         run: python3 -m unittest test_verification_pipeline -v
-      - name: Check unfinished candidates before installing decoder
+      - name: Yayın çözümleyicisini kurmadan önce eksik adayları kontrol et
         id: pending
         run: |
           python3 - <<'PYCODE'
@@ -50,13 +50,14 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write(f'due={due}\n')
           PYCODE
-      - name: Install decoder
+      - name: Yayın çözümleyicisini kur
         if: steps.pending.outputs.due != '0'
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Decode due candidates
         if: steps.pending.outputs.due != '0'
         run: python3 verification_pipeline.py
-      - uses: actions/upload-artifact@v4
+      - name: Test çıktılarını arşivle
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: madsc-uc-asama
