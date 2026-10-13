@@ -53,7 +53,7 @@ jobs:
       - name: Yayın çözümleyicisini kur
         if: steps.pending.outputs.due != '0'
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Decode due candidates
+      - name: Sırası gelen adayların yayınlarını doğrula
         if: steps.pending.outputs.due != '0'
         run: python3 verification_pipeline.py
       - name: Test çıktılarını arşivle
@@ -63,7 +63,7 @@ jobs:
           name: madsc-uc-asama
           path: madsc_dogrulama/
           retention-days: 30
-      - name: Save verification state only
+      - name: Yalnızca doğrulama durumunu kaydet
         if: steps.pending.outputs.due != '0'
         shell: bash
         run: |
@@ -82,7 +82,7 @@ jobs:
             if git push origin HEAD:main; then exit 0; fi
           done
           exit 1
-      - name: Continue due candidates without waiting
+      - name: Bekleyen adayların testine otomatik devam et
         if: steps.pending.outputs.due != '0'
         env:
           GH_TOKEN: ${{ github.token }}
