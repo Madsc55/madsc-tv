@@ -68,3 +68,54 @@ same_clock = [{"utc": f"{hour:02d}:{minute:02d}", "workflows": names}
                 "note": "Farkli gunlerdeki cronlar ayni saate denk gelebilir; bu sadece on incelemedir. Dinamik grup ifadeleri birebir eslesme kaniti degildir.",
                 "changes_applied": False}, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"{len(shared_groups)} ortak concurrency ifadesi ve {len(same_clock)} ortak UTC saat grubu raporlandi.")
+
+# Toplu risk siralamasi ve mevcut islerin bagimlilik/koruma siniflandirmasi.
+def classify(item):
+    name = (item["file"] + " " + item["name"]).lower()
+    if any(k in name for k in ("yedek", "kurtarma", "backup")):
+        return "YEDEK_VE_KURTARMA"
+    if any(k in name for k in ("saglik", "sağlık", "guvenlik", "güvenlik", "safety", "protected", "write-gate", "rule24")):
+        return "GUVENLIK"
+    if "epg" in name:
+        return "EPG"
+    if "logo" in name or "png" in name:
+        return "LOGO"
+    if any(k in name for k in ("kesif", "keşif", "tarama", "kaynak", "discovery")):
+        return "KESIF"
+    if any(k in name for k in ("dogrulama", "doğrulama", "son-kontrol", "test", "aday")):
+        return "ADAY_TEST"
+    return "DIGER"
+
+priority = []
+for item in items:
+    category = classify(item)
+    reasons = []
+    if item["writes_contents"] and item["schedule_utc"]:
+        reasons.append("ZAMANLANMIS_YAZMA_YETKISI")
+    if item["concurrency_group"] and any(
+        len(names) > 1 and item["file"] in names for names in concurrency_groups.values()
+    ):
+        reasons.append("ORTAK_CONCURRENCY_IFADESI")
+    if any(item["file"] in x["workflows"] for x in same_cron):
+        reasons.append("AYNI_CRON_IFADESI")
+    if item["writes_contents"] and not item["has_concurrency"]:
+        reasons.append("YAZMA_IZNI_CONCURRENCY_YOK")
+    level = "YUKSEK" if ("ZAMANLANMIS_YAZMA_YETKISI" in reasons and len(reasons) > 1) else (
+        "ORTA" if reasons else "BILGI")
+    priority.append({"file": item["file"], "category": category, "risk": level, "reasons": reasons,
+                     "review_only": True})
+priority.sort(key=lambda x: ({"YUKSEK": 0, "ORTA": 1, "BILGI": 2}[x["risk"]], x["file"]))
+critical = [x for x in priority if x["category"] in ("YEDEK_VE_KURTARMA", "GUVENLIK", "EPG", "KESIF")]
+(out / "merkezi_oncelik_ve_koruma_raporu.json").write_text(json.dumps({
+    "workflows_checked": len(priority),
+    "high_risk": sum(x["risk"] == "YUKSEK" for x in priority),
+    "medium_risk": sum(x["risk"] == "ORTA" for x in priority),
+    "critical_existing_workflows": critical,
+    "all_workflows": priority,
+    "safety": {"protected_playlists_modified": False, "schedules_modified": False,
+               "workflows_triggered": False},
+    "limitations": ["Statik kod incelemesi; gercek eszamanlilik veya lisans/IBO testi degildir.",
+                    "Workflow isimlerinden kategori tahmini yapilir; elle inceleme gerekir.",
+                    "Mevcut kesif, EPG, yedek ve guvenlik otomasyonlari kapatilmaz."]
+}, ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"Merkezi oncelik raporu: {len(priority)} is akisi, {sum(x['risk']=='YUKSEK' for x in priority)} yuksek on inceleme.")

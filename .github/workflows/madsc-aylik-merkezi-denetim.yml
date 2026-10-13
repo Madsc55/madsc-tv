@@ -1,6 +1,12 @@
 name: MADSC - Ayda Iki Kez Tum Sistem Merkezi Denetim
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/central_workflow_inventory.py'
+      - 'test_central_workflow_inventory.py'
+      - '.github/workflows/madsc-aylik-merkezi-denetim.yml'
   schedule:
     - cron: '0 7 1,15 * *'
 permissions:
@@ -32,6 +38,8 @@ jobs:
           sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
+      - name: Merkezi otomasyon risk raporunu test et
+        run: python3 -m unittest test_central_workflow_inventory -v
       - name: Mevcut sistem saglik testlerini calistir
         run: |
           python3 -m unittest test_sistem_saglik_denetimi -v
