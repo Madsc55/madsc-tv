@@ -67,7 +67,7 @@ def probe(entry):
  if not url.startswith(("http://","https://")):return (label,name,"GECERSIZ_URL","","","",url,source)
  try:
   p=subprocess.run(["ffprobe","-v","error","-rw_timeout","10000000","-analyzeduration","2500000","-probesize","1500000","-show_entries","stream=codec_type,codec_name,width,height","-of","json",url],capture_output=True,text=True,timeout=18)
-  if p.returncode:return (label,name,"DOGRULANAMADI","","","",(p.stderr or "")[:160],url,source)
+  if p.returncode:return (label,name,"DOGRULANAMADI","","",(p.stderr or "")[:160],url,source)
   streams=json.loads(p.stdout).get("streams",[])
   video=next((x for x in streams if x.get("codec_type")=="video"),None)
   audio=next((x for x in streams if x.get("codec_type")=="audio"),None)

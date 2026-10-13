@@ -33,6 +33,8 @@ on:
       - 'test_central_source_reconciliation.py'
       - 'test_central_eight_task_audit.py'
       - 'test_central_run_status.py'
+      - 'scripts/oncelikli_kanal_dogrula.py'
+      - 'test_oncelikli_kanal_dogrula.py'
       - '.github/workflows/madsc-aylik-merkezi-denetim.yml'
   schedule:
     - cron: '0 7 1 * *'

@@ -43,3 +43,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - **İzole Git HEAD geri yükleme doğrulaması:** `scripts/central_isolated_git_restore.py` ve `test_central_isolated_git_restore.py`; üç korunan dosyanın Git HEAD sürümünü geçici dizinde geri açar, SHA256 ile doğrular. Harici veya tarihsel yedek kurtarma kanıtı değildir.
 
 - **IBO aday inceleme kuyruğu:** `scripts/central_ibo_review_queue.py`, `test_central_ibo_review_queue.py`; aday kanıtı varsa tekrarsız CSV üretir, IBO onayı ve liste aktarımı yapmaz. Kaynak mutabakatında ham kaynak adı tekrarları da denetlenir.
+
+- **Öncelikli yayın teknik raporu CSV bütünlüğü:** `scripts/oncelikli_kanal_dogrula.py`, `test_oncelikli_kanal_dogrula.py`; ffprobe başarısızlığında sekiz sütun korunur ve hata metni `HATA` alanına yazılır. Merkezi test bu iki dosya değişince çalışır; teknik sonuç cihaz/kimlik onayı değildir.
