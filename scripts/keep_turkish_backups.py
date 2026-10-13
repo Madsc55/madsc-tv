@@ -53,7 +53,7 @@ def main():
  snapshot.write_text("#EXTM3U\n"+"".join(meta+url+"\n" for _,meta,url in removed),encoding="utf-8")
  count=len(kept)
  drop={i for i,_,_ in removed}
- drop.update(i+1 for i in drop)
+ drop.update({i+1 for i in drop})
  updated=[]
  for i,line in enumerate(lines):
   if i in drop:continue
