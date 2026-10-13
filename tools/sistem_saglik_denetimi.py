@@ -67,7 +67,7 @@ def inspect(root=ROOT):
                 groups.setdefault(match.group(1), []).append((path.name, "cancel-in-progress: false" in raw))
         if not re.search(r"(?m)^permissions:\s*(?:\S|$)", raw):
             add("WARN", "security", "MISSING_EXPLICIT_PERMISSIONS", path.name)
-        if re.search(r"(?m)^\\s*permissions:\\s*write-all\\s*$", raw):
+        if re.search(r"(?m)^\s*permissions:\s*write-all\s*$", raw):
             add("ERROR", "security", "BROAD_PERMISSIONS", path.name)
         if "contents: write" in raw and "workflow_dispatch:" not in raw and "workflow_run:" not in raw:
             add("WARN", "security", "WRITE_WORKFLOW_REVIEW", path.name)
