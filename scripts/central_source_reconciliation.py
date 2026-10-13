@@ -24,6 +24,9 @@ duplicate_urls = [{"url": url, "names": names} for url, names in sorted(by_url.i
 invalid = [{"name": name, "url": url} for name, url in sources.items()
            if urlsplit(url).scheme not in ("http", "https") or not urlsplit(url).netloc]
 report = {"defined": len(sources), "target": target, "difference": len(sources) - target,
+          "target_is_declared_config_not_verified_active_feed_count": True,
+          "action_required": ("Tanimlar hedefi asiyor; kaynaklari silmeden once canli erisim ve kaynak secimi incelenmeli."
+                              if len(sources) > target else "Tanim sayisi hedefe esit veya dusuk; canli erisim ayrica dogrulanmali."),
           "unique_endpoint_count": len(by_url), "duplicate_endpoints": duplicate_urls,
           "invalid_endpoint_definitions": invalid,
           "all_sources": [{"name": name, "url": url} for name, url in sorted(sources.items())],
