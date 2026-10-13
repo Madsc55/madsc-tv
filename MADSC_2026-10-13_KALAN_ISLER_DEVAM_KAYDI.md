@@ -31,3 +31,9 @@ Bu not DEVAM_NOTU.md ve SEKIZ_GOREV_TOPLU_DENETIM.md ile birlikte okunur. Raporl
 - Kullanici onayi olmadan ana liste/YENILER/favori/yedek degistirmek.
 - Bos yeni aday kuyrugunu butun eski testlerin bittigi seklinde yorumlamak.
 - Teknik gecis veya yesil Actions sonucunu cihazda calisiyor ya da lisansli diye sunmak.
+
+## Kritik kullanici dogrulamasi — IBO oynatma korunacak
+- Kullanici, teknik testten gecen kanallarin bir kisminin IBO Player'da gercekten calistigini teyit etti. Bu gozlem kaybolmamalidir.
+- Ayrica ffprobe/teknik testten gecemeyen bazi yayinlarin da IBO'da calistigi daha once gozlemlendi. Teknik hata = IBO'da calismiyor sonucuna varilmaz.
+- IBO'da kullanicinin calisiyor dedigi belirli kanallar, kanala ait dogrulanmis eslesme varsa ayri KULLANICI_IBO_CALISIYOR kaydi olarak korunur. Hangi URL'lerin onaylandigi bilinmeden tum teknik gecisler IBO onayli sayilmaz.
+- Otomatik testler, kullanici onayli oynatma sonucunu ezemez; kanal veya URL silinmez. Cihaz testlerini asistan yeniden yapmaz.
