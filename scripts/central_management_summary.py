@@ -49,6 +49,16 @@ def build(folder):
         "evidence_complete": not missing,
         "ibo_device_verification": "NOT_VERIFIED",
     }
+    # Raporun varligi gorevin tamamlandigini tek basina kanitlamaz.
+    evidence_assessment = {}
+    for key, section in sections.items():
+        if section["status"] != "RAPOR_VAR":
+            evidence_assessment[key] = "KANIT_EKSIK"
+        elif key == "kaynak_mutabakati":
+            difference = section["data"].get("difference")
+            evidence_assessment[key] = "HEDEF_FARKI_VAR" if isinstance(difference, int) and difference != 0 else "CANLI_DOGRULAMA_BEKLIYOR"
+        else:
+            evidence_assessment[key] = "RAPOR_VAR_TAMAMLANMA_DOGRULANMADI"
     blockers = []
     if source_data.get("difference") not in (None, 0):
         blockers.append({"code": "SOURCE_TARGET_MISMATCH", "status": "INCELEME_GEREKLI",
@@ -62,6 +72,7 @@ def build(folder):
     blockers.append({"code": "IBO_DEVICE_VERIFICATION", "status": "KAPSAM_DISI",
                      "note": "Kullanici talebi geregi cihaz testi yapilmaz."})
     return {
+        "evidence_assessment": evidence_assessment,
         "open_blockers": blockers,
         "key_indicators": indicators,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
