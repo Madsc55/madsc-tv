@@ -5,7 +5,10 @@ on:
     - cron: '17 5 * * *'
   push:
     paths:
-      - 'tools/sistem_saglik_denetimi.py'\n      - '.github/workflows/**'\n      - 'final_validation.py'\n      - 'tools/son_kontrol_yedekler_aktar.py'
+      - 'tools/sistem_saglik_denetimi.py'
+      - '.github/workflows/**'
+      - 'final_validation.py'
+      - 'tools/son_kontrol_yedekler_aktar.py'
       - 'test_sistem_saglik_denetimi.py'
       - '.github/workflows/madsc-sistem-saglik-denetimi.yml'
 permissions:
