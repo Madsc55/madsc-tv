@@ -66,6 +66,17 @@ def audit(candidate, duration):
         result['status'] = 'PROBE_OR_DECODER_ERROR'
     return result
 
+def turkish_priority(candidate):
+    """Only explicit Turkish identity metadata earns first priority; names alone are unsafe."""
+    country = str(candidate.get('country', '')).lower()
+    source_id = str(candidate.get('source_id', '')).lower()
+    label = str(candidate.get('label', '')).casefold()
+    if country == 'tr' or '.tr@' in source_id or 'türk' in label or 'turk' in label:
+        return 0
+    if country in ('az', 'cy', 'tm'):
+        return 1
+    return 2
+
 def pending_candidates(manifest, state, results):
     """Never repeat a recorded final check, including failures or timeouts."""
     completed = {r['candidate_id'] for r in results}
@@ -78,7 +89,8 @@ def pending_candidates(manifest, state, results):
         token = hashlib.sha256(record['url'].encode()).hexdigest()[:20]
         candidates.setdefault(token, {'url': record['url'], 'label': record['channel'],
             'reason': 'Three separate decode passes; identity and device still unverified'})
-    return [r for token, r in candidates.items() if token not in completed]
+    pending = [r for token, r in candidates.items() if token not in completed]
+    return sorted(pending, key=turkish_priority)
 
 def main():
     manifest = json.loads(pathlib.Path('final_validation_manifest.json').read_text())

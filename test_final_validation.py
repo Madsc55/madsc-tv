@@ -24,5 +24,20 @@ class ResumeTests(unittest.TestCase):
         self.assertEqual(len(selected),1)
         self.assertEqual(selected[0]['url'],'https://example.org/3')
 
+class TurkishPriorityTests(unittest.TestCase):
+    def test_turkish_candidates_first_and_completed_not_repeated(self):
+        rows = [
+            dict(url='https://example.org/foreign', label='BBC Earth', reason='wide'),
+            dict(url='https://example.org/az', label='Az TV', country='az', reason='wide'),
+            dict(url='https://example.org/tr', label='TRT 1', country='tr', reason='wide'),
+            dict(url='https://example.org/ambiguous', label='ATV', reason='name only'),
+            dict(url='https://example.org/turk', label='SAT 7 TÜRK', reason='wide'),
+        ]
+        old = [{'candidate_id': hashlib.sha256(rows[4]['url'].encode()).hexdigest()[:20]}]
+        selected = pending_candidates({'candidates': rows}, {}, old)
+        self.assertEqual([r['label'] for r in selected],
+                         ['TRT 1', 'Az TV', 'BBC Earth', 'ATV'])
+        self.assertEqual(len(selected), 4)
+
 if __name__ == '__main__':
     unittest.main()
