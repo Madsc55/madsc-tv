@@ -37,3 +37,11 @@ Bu not DEVAM_NOTU.md ve SEKIZ_GOREV_TOPLU_DENETIM.md ile birlikte okunur. Raporl
 - Ayrica ffprobe/teknik testten gecemeyen bazi yayinlarin da IBO'da calistigi daha once gozlemlendi. Teknik hata = IBO'da calismiyor sonucuna varilmaz.
 - IBO'da kullanicinin calisiyor dedigi belirli kanallar, kanala ait dogrulanmis eslesme varsa ayri KULLANICI_IBO_CALISIYOR kaydi olarak korunur. Hangi URL'lerin onaylandigi bilinmeden tum teknik gecisler IBO onayli sayilmaz.
 - Otomatik testler, kullanici onayli oynatma sonucunu ezemez; kanal veya URL silinmez. Cihaz testlerini asistan yeniden yapmaz.
+
+## Kullanici duzeltmesi — 740 yabanci kanal ve teknik false-negative (13 Ekim)
+- Kullanici acikca bildirdi: sistem teknik testlerinden gecemeyen kanallarin cogu IBO Player'da oynuyor. Bu, teknik testlerin IBO uyumlulugunu eksik olctugune dair saha gozlemidir; tum teknik basarisizlar kesin bozuk sayilamaz.
+- Somut ornek: 740 yabanci kanal bir donem IBO'da gorunur hale getirildi ve kullanici tarafindan denendi; bu deneme toplu bir IBO gozlemidir. Her 740 URL'nin ayri ayri basarili oldugu veya bugun canli oldugu iddia edilmez.
+- 740 kanal daha sonra kullanici istegiyle YABANCI_KANALLAR.m3u arsivine tasindi. Arsivde olmalari yayinlarin calismadigi anlamina gelmez.
+- ffprobe fail, timeout veya continuity fail sonucunu KESIN_CALISMIYOR etiketine donusturme. IBO'da calistigi kullanici tarafindan kanitlanan kanal URL eslesmelerini oncelikle koru, gecmisi ezme.
+- Yeni otomatik tarama/temizlik, 740 arsiv kanalini veya kullanici onayli oynayan kanallari teknik sonuc nedeniyle silmemeli; kullanici izni olmadan ana listeye/YEDEKLER/YENILER'e yeniden eklememeli.
+- Teknik test raporunda IBO false-negative riski ayrica gorunmeli; cihaz testi asistan tarafindan yapilmayacak.
