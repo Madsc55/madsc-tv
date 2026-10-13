@@ -35,7 +35,7 @@ def assemble(source, duplicate, backups, identity, failures, tasks):
     else:
         add(1, "Kaynak hedef mutabakati", "KANIT_YOK", {}, "Kaynak denetimini yeniden calistir.", "RAPOR")
     add(2, "Tekrar test optimizasyonu",
-        "OLCUM_VAR_KESIN_OPTIMIZASYON_YOK" if isinstance(duplicate, dict) and duplicate.get("status") != "GECMIS_DOSYASI_YOK" else "GECMIS_KANITI_YOK",
+        "OLCUM_VAR_KESIN_OPTIMIZASYON_YOK" if isinstance(duplicate, dict) and duplicate.get("status") != "GECMIS_DOSYASI_YOK" and isinstance(duplicate.get("excess_test_runs"), int) else "GECMIS_KANITI_YOK",
         {"excess_test_runs": duplicate.get("excess_test_runs") if isinstance(duplicate, dict) else None},
         "Gercek gecmisle tekrar maliyetini dogrula; test guvenlik kurallarini bozma.", "GECMIS")
     add(3, "Yedek geri yukleme", "GERI_YUKLEME_BU_KOSUDA_YOK",
