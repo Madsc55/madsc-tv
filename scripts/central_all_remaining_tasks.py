@@ -78,7 +78,15 @@ def inspect_m3u(path):
     entries = []
     for i, line in enumerate(lines):
         if line.startswith("#EXTINF:"):
-            url = lines[i + 1].strip() if i + 1 < len(lines) else ""
+            # IPTV dosyalarinda EXTINF ile URL arasinda opsiyon satirlari olabilir.
+            url = ""
+            for candidate in lines[i + 1:]:
+                candidate = candidate.strip()
+                if candidate.startswith("#EXTINF:"):
+                    break
+                if candidate and not candidate.startswith("#"):
+                    url = candidate
+                    break
             entries.append({"meta": line, "url": url})
     return {"present": True, "count": len(entries), "entries": entries}
 
@@ -160,6 +168,7 @@ for item in foreign_archive["entries"]:
                 "user_confirmed_ibo_field_testing": True,
                 "technical_failure_does_not_prove_ibo_failure": True},
                ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+main_urls = {e["url"].strip() for e in main_playlist["entries"]}
 discovery_report = {
     "source_report_is_snapshot": True,
     "sources_in_access_report": len(access_rows),
@@ -172,7 +181,7 @@ discovery_report = {
     "foreign_archive_invalid_url_count": sum(not x["url_scheme_valid"] for x in archive_candidates),
     "foreign_archive_unique_urls": len({x["stream_url"].strip() for x in archive_candidates}),
     "foreign_archive_duplicate_url_count": len(archive_candidates) - len({x["stream_url"].strip() for x in archive_candidates}),
-    "foreign_archive_urls_also_in_main": sum(x["stream_url"].strip() in {e["url"].strip() for e in main_playlist["entries"]} for x in archive_candidates),
+    "foreign_archive_urls_also_in_main": sum(x["stream_url"].strip() in main_urls for x in archive_candidates),
     "next_action": "Bos aday kuyruğu ile tarihsel son kontrol birbirine karistirilmadan kaynak ve tekrar filtreleri incelenmeli.",
     "live_sources_rechecked": False,
     "live_streams_rechecked": False
