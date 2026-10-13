@@ -22,6 +22,8 @@ def inspect(root=ROOT):
     actions = {
         "MISSING_FILE": "Eksik dosyayı araştır; otomatik geri yükleme yapma.",
         "BROAD_PERMISSIONS": "Actions izinlerini gereken en dar kapsamla sınırla.",
+        "MISSING_EXPLICIT_PERMISSIONS": "Workflow için açık ve en az ayrıcalıklı permissions tanımla.",
+        "WRITE_ALL_SCOPE": "Geniş yazma iznini kaldır; yalnız gereken alanları tanımla.",
         "PYTHON_SYNTAX": "Dosyanın sözdizimini düzeltip test et.",
         "INVALID_JSON": "Rapor üreticisini ve son başarılı çalışmayı incele.",
         "COUNT_MISMATCH": "Özet ile sonuçların aynı çalışmaya ait olduğunu doğrula.",
@@ -63,7 +65,9 @@ def inspect(root=ROOT):
             match = re.fullmatch(r"group:\s*([A-Za-z0-9_.-]+)", line.strip())
             if match:
                 groups.setdefault(match.group(1), []).append((path.name, "cancel-in-progress: false" in raw))
-        if re.search(r"(?m)^\s*permissions:\s*write-all\s*$", raw):
+        if not re.search(r"(?m)^permissions:\\s*(?:\\S|$)", raw):
+            add("WARN", "security", "MISSING_EXPLICIT_PERMISSIONS", path.name)
+        if re.search(r"(?m)^\\s*permissions:\\s*write-all\\s*$", raw):
             add("ERROR", "security", "BROAD_PERMISSIONS", path.name)
         if "contents: write" in raw and "workflow_dispatch:" not in raw and "workflow_run:" not in raw:
             add("WARN", "security", "WRITE_WORKFLOW_REVIEW", path.name)
