@@ -23,7 +23,7 @@ def main():
  out=[]
  for i,line in enumerate(lines):
   if i in drop:continue
-  if 'group-title="📦 YEDEKLER' in line:line=re.sub(r'group-title="📦 YEDEKLER \\(\\d+\\)"',f'group-title="📦 YEDEKLER ({count})"',line)
+  if 'group-title="📦 YEDEKLER' in line:line=re.sub(r'group-title="📦 YEDEKLER \(\d+\)"',f'group-title="📦 YEDEKLER ({count})"',line)
   out.append(line)
  after=list(entries(out))
  protected=lambda es:[(m,u) for _,m,u in es if 'group-title="📦 YEDEKLER' not in m]
