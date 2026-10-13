@@ -186,6 +186,10 @@ discovery_report = {
     "foreign_archive_unique_urls": len({x["stream_url"].strip() for x in archive_candidates}),
     "foreign_archive_duplicate_url_count": len(archive_candidates) - len({x["stream_url"].strip() for x in archive_candidates}),
     "foreign_archive_urls_also_in_main": sum(x["stream_url"].strip() in main_urls for x in archive_candidates),
+    "main_playlist_count": main_playlist["count"],
+    "main_playlist_duplicate_urls": main_playlist["count"] - len(main_urls),
+    "foreign_archive_missing_url_count": foreign_report["archive_urls_missing"],
+    "foreign_archive_duplicate_records": foreign_report["archive_duplicate_records"],
     "next_action": "Bos aday kuyruğu ile tarihsel son kontrol birbirine karistirilmadan kaynak ve tekrar filtreleri incelenmeli.",
     "live_sources_rechecked": False,
     "live_streams_rechecked": False
