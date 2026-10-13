@@ -1,3 +1,6 @@
+## 13 Ekim 2026 — Basarisiz otomasyonlarin is/adim raporu
+Merkezi #38395674647, saglik #38395674715, dokumantasyon #38395674569 SUCCESS dogrulandi. Tek merkezi denetim son 100 kosudaki en fazla 20 basarisiz run icin GitHub Actions jobs API'sinden job/step sonucunu toplar; `scripts/central_failure_stage_report.py` hata asamasini ve kanit alinip alinmadigini ayri JSON raporlar. Loglar okunmadigindan kok neden uydurulmaz, 20/100 ornek siniri aciktir. Test ve workflow'a baglandi. Korunan listeler, cron ve guvenlik kapisi degismez. Yeni gercek Actions sonucu dogrulanmali.
+
 ## 13 Ekim 2026 — Merkezi tekrar test geçmişi analizi
 Önceki merkezi #38395289017, sağlık #38395288846, dokümantasyon #38395288914 SUCCESS doğrulandı. Keşif kodunda geçmişi bulunan URL'leri tekrar denemeden önce test edilmemişleri seçen mekanizma zaten mevcut; onu bozup yeniden yazmadık. `scripts/central_duplicate_test_audit.py` var olan `madsc_kesif/gecmis.json` üzerinden tekrar sayısı ve geçmişin bozuk kayıtlarını salt okunur raporlar. Test ve merkezi Actions'a bağlandı. Bu aşama tekrar oranını ölçer; tek başına yeni hız optimizasyonu veya bütün tekrarların kaldırılması değildir. Korunan listeler/cron değişmedi. Gerçek Actions run sonucu kontrol edilmeli.
 
