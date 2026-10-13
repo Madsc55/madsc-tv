@@ -89,3 +89,10 @@ Bu not DEVAM_NOTU.md ve SEKIZ_GOREV_TOPLU_DENETIM.md ile birlikte okunur. Raporl
 - Ayrilan 11557 kanal kayipsiz olarak madsc_kesif/yedeklerden_ayrilanlar_20261013T170042Z.m3u dosyasinda saklandi. YABANCI_KANALLAR.m3u degistirilmedi. Diger kategori kayitlari ve sirasi korunmasi kod tarafindan dogrulandi.
 - Dikkat: YEDEKLER'de kalan 42 kanalin kimligi kaynak/isim ipuclarina dayali adaydir; hepsinin Turkiye kanali oldugu veya IBO'da calistigi tek tek kanitlanmis degildir. 10817 belirsiz arasinda Turk kanali olabilir. Kayipsiz arsivden gelecekte kimlik dogrulamasiyla geri alinabilir; kullanici onayi olmadan toplu geri ekleme yapilmaz.
 - Tek seferlik push tetiklemesi sonraki commitlerde yeniden calismaz. Son kontrol teknik run #38430737866 SUCCESS; ardindan yeni son kontrol run #38434936603 baslamis ve bu kayit aninda IN_PROGRESS idi.
+
+## 2026-10-13 - Kullanici istegiyle 11599 YEDEKLER tam geri yuklendi
+- Kullanici, tum 11599 aday kanalin YEDEKLER'e geri verilmesini, IBO'da kendisinin tek tek Turk/yabanci/calisiyor/calisimiyor olarak bildirmesini istedi.
+- scripts/restore_all_11599_backups.py ve .github/workflows/madsc-11599-yedek-geri-yukle.yml olusturuldu. Run #38435960199.
+- madsc_kesif/yedek_11599_geri_yukleme_raporu.json GitHub'da dogrulandi: before_backup=42, restored=11557, after_backup=11599, protected_categories=UNCHANGED, ibo_playback=NOT_TESTED.
+- 11557 geri yuklenen kanalin hepsi Turk degildir; yabanci ve belirsiz adaylar kullanicinin siniflandirma istegiyle YEDEKLER'de yeniden gorunur. Kayip olmadan arşivleri korunur.
+- Kullanici IBO sonucunu verdikce URL bazinda siniflandir, kullanici teyidini kaybetme. Kategori tasima veya silme sadece acik talimatla yapilir.
