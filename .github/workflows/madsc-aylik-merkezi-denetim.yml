@@ -6,6 +6,8 @@ on:
     paths:
       - 'scripts/central_workflow_inventory.py'
       - 'test_central_workflow_inventory.py'
+      - 'scripts/central_run_status.py'
+      - 'test_central_run_status.py'
       - '.github/workflows/madsc-aylik-merkezi-denetim.yml'
   schedule:
     - cron: '0 7 1,15 * *'
