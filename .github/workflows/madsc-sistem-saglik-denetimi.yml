@@ -1,0 +1,38 @@
+name: MADSC - Genel Sistem Sağlık ve Güvenlik Denetimi
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
+  push:
+    paths:
+      - 'tools/sistem_saglik_denetimi.py'
+      - 'test_sistem_saglik_denetimi.py'
+      - '.github/workflows/madsc-sistem-saglik-denetimi.yml'
+permissions:
+  contents: read
+jobs:
+  sistem-denetimi:
+    name: Dosya otomasyon güvenlik ve bütünlük testi
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
+      - name: Denetim kodunun testlerini çalıştır
+        run: python3 -m unittest test_sistem_saglik_denetimi -v
+      - name: Depodaki dosyaları ve otomasyonları denetle
+        id: audit
+        continue-on-error: true
+        run: python3 tools/sistem_saglik_denetimi.py
+      - name: Denetim raporunu sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-sistem-saglik-raporu
+          path: madsc_bakim/sistem_saglik_raporu.json
+          if-no-files-found: warn
+      - name: Kritik sorun varsa testi başarısız say
+        if: steps.audit.outcome == 'failure'
+        run: |
+          echo "::error::Sistem sağlık denetimi kritik hata buldu. Raporu indirip inceleyin."
+          exit 1
