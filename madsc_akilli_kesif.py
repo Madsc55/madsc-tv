@@ -217,6 +217,9 @@ def main():
   if passed and distinct:prev["last_success"]=now
   if not passed:prev["successful_runs"]=0;prev["last_success"]=None
   prev["channel"]=row["kanal"];prev["url"]=row["url"]
+  # Source provenance is not station identity proof.
+  prev["source_id"]=row["kaynak"]
+  prev["source_language_hint"]="tur" if row["kaynak"] in {"iptv-org-TURKCE","dearbulut-TURKCE"} else "UNKNOWN"
   row["durum"]=("UC_AYRI_ZAMAN_TESTI_GECTI_ONAY_BEKLIYOR" if prev["successful_runs"]>=3 else "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR") if passed else "TEKRAR_TEST_BEKLIYOR"
   history[k]=prev
  write("adaylar.csv",rows,["kanal","url","kaynak","durum","puan","video","ses","cozunurluk","logo","ulke","test1","test2"])
