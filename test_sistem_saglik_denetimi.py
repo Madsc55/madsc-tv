@@ -24,6 +24,23 @@ class SistemSaglikTesti(unittest.TestCase):
             self.assertTrue(any(f["code"] == "MISSING_FILE" for f in report["findings"]))
             self.assertFalse((root / "madsc_bakim").exists())
 
+    def test_acik_izin_tanimlanmamis_workflow_uyarisi(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github/workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "missing.yml").write_text(
+                "name: Eksik izin\\non: push\\njobs:\\n  test:\\n    runs-on: ubuntu-latest\\n",
+                encoding="utf-8")
+            (workflows / "safe.yml").write_text(
+                "name: Guvenli\\npermissions:\\n  contents: read\\n",
+                encoding="utf-8")
+            findings = inspect(root)["findings"]
+            names = {x["detail"] for x in findings
+                     if x["code"] == "MISSING_EXPLICIT_PERMISSIONS"}
+            self.assertIn("missing.yml", names)
+            self.assertNotIn("safe.yml", names)
+
     def test_tehlikeli_izin_ve_kod_hatasi(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
