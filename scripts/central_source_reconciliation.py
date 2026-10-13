@@ -54,12 +54,36 @@ gap_diagnosis = {
     ),
     "next_action": "Kaynak tanimlarinin kullanimi ve canli erisimi dogrulanmadan hedef degistirilmez.",
 }
+# Kesifte otomatik secilen kaynaklar koddan okunur; isim listesi canli erisim kaniti degildir.
+active_names = []
+for node in ast.walk(source):
+    if isinstance(node, ast.FunctionDef) and node.name == "turkish_feed":
+        for child in ast.walk(node):
+            if isinstance(child, ast.Compare) and any(isinstance(op, ast.In) for op in child.ops):
+                for candidate in child.comparators:
+                    if isinstance(candidate, (ast.Set, ast.Tuple, ast.List)):
+                        try:
+                            values = ast.literal_eval(candidate)
+                            if all(isinstance(value, str) for value in values):
+                                active_names = sorted(set(values))
+                        except (ValueError, TypeError):
+                            pass
+configured_active = sorted(set(active_names) & set(sources))
+unconfigured_active = sorted(set(active_names) - set(sources))
+inactive_configured = sorted(set(sources) - set(active_names))
 report = {"defined": len(sources), "target": target, "difference": len(sources) - target,
           "target_is_declared_config_not_verified_active_feed_count": True,
           "action_required": ("Tanimlar hedefi asiyor; kaynaklari silmeden once canli erisim ve kaynak secimi incelenmeli."
                               if len(sources) > target else "Tanim sayisi hedefe esit veya dusuk; canli erisim ayrica dogrulanmali."),
           "unique_endpoint_count": len(by_url), "duplicate_endpoints": duplicate_urls,
           "gap_diagnosis": gap_diagnosis,
+          "automatic_discovery_selection": {"selection_found_in_code": bool(active_names),
+              "selected_configured_count": len(configured_active),
+              "selected_configured_names": configured_active,
+              "selected_missing_from_definitions": unconfigured_active,
+              "configured_but_not_auto_selected_count": len(inactive_configured),
+              "configured_but_not_auto_selected_names": inactive_configured,
+              "limitations": "Statik kod secimi; gercek HTTP erisimi veya calisan yayin kaniti degildir."},
           "duplicate_endpoint_review_candidates": review_candidates,
           "duplicate_endpoint_definition_surplus": reviewable_surplus,
           "target_gap_explainable_by_exact_endpoint_duplicates": bool(len(sources) > target and reviewable_surplus >= len(sources) - target),
