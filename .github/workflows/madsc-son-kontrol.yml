@@ -5,9 +5,6 @@ on:
     workflows:
       - 'MADSC - Üç Aşamalı Aday Doğrulama'
     types: [completed]
-  push:
-    paths:
-      - '.github/workflows/madsc-son-kontrol.yml'
 permissions:
   contents: write
   actions: write
