@@ -25,6 +25,8 @@ def update(original, candidates):
         raise ValueError("YEDEKLER sayısı tutarsız; dosya korunuyor")
     accepted = []
     for item in candidates:
+        if not isinstance(item, dict):
+            continue
         if item.get("three_stage_passed") is not True or item.get("identity_verified") is not True:
             continue
         url = str(item.get("url", "")).strip()
