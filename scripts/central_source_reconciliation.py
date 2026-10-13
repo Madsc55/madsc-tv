@@ -19,7 +19,10 @@ sources = assignments["SOURCES"]
 source_nodes = [node.value for node in source.body if isinstance(node, ast.Assign)
                 and any(isinstance(t, ast.Name) and t.id == "SOURCES" for t in node.targets)]
 source_keys = [ast.literal_eval(key) for key in source_nodes[-1].keys] if source_nodes and isinstance(source_nodes[-1], ast.Dict) else []
-duplicate_names = sorted({name for name in source_keys if source_keys.count(name) > 1})
+name_counts = defaultdict(int)
+for name in source_keys:
+    name_counts[name] += 1
+duplicate_names = sorted(name for name, count in name_counts.items() if count > 1)
 target = assignments["SOURCE_TARGET"]
 by_url = defaultdict(list)
 for name, url in sources.items():
@@ -35,6 +38,7 @@ report = {"defined": len(sources), "target": target, "difference": len(sources) 
           "unique_endpoint_count": len(by_url), "duplicate_endpoints": duplicate_urls,
           "duplicate_source_names": duplicate_names,
           "raw_source_entry_count": len(source_keys),
+          "overwritten_source_definitions": len(source_keys) - len(sources),
           "invalid_endpoint_definitions": invalid,
           "all_sources": [{"name": name, "url": url} for name, url in sorted(sources.items())],
           "conclusion": "TANIM_FAZLASI" if len(sources) > target else
