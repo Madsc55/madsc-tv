@@ -1,8 +1,6 @@
 name: Birlesik Aday Onay Raporu
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '45 6,18 * * *'
   push:
     paths:
       - 'scripts/birlesik_aday_raporu.py'

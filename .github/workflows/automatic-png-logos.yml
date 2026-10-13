@@ -1,7 +1,5 @@
 name: Eksik Kanal Logolari Guvenli Hazirlik
 on:
-  schedule:
-    - cron: '23 5,17 * * *'
   workflow_dispatch:
   push:
     paths:

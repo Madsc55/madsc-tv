@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - 'verification_pipeline.py'
-  schedule:
-    - cron: '17 * * * *'
 permissions:
   contents: write
   actions: write

@@ -1,8 +1,6 @@
 name: Kanal Kararlilik Takibi
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '17 6,18 * * *'
   push:
     paths:
       - 'scripts/kanal_kararlilik_takip.py'

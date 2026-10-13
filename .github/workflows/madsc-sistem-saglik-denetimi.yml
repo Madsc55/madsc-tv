@@ -2,7 +2,7 @@ name: MADSC - Genel Sistem Sağlık ve Güvenlik Denetimi
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 5 * * *'
+    - cron: '17 5 * * 1'
   push:
     paths:
       - 'tools/sistem_saglik_denetimi.py'

@@ -9,8 +9,6 @@ on:
       - 'aday_oncelik_raporu.py'
       - 'akilli_tekrar_test_takvimi.py'
       - 'altinci_aday_tekrar_test.py'
-  schedule:
-    - cron: '25 5 * * *'
 permissions:
   contents: read
 concurrency:

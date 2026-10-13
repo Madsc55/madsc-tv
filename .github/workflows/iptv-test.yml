@@ -3,7 +3,7 @@ name: IPTV Salt Okunur Kanal Testi
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 6,18 * * *'
+    - cron: '30 6 * * 3'
   push:
     branches: [main]
     paths:

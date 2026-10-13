@@ -7,10 +7,6 @@ on:
       - "tools/eksik_turk_kanal_takibi.py"
       - "tools/guncel_test_durum_ozeti.py"
   workflow_dispatch:
-  schedule:
-    - cron: "40 6,18 * * *"
-    - cron: "10 5 * * 1"
-    - cron: "10 5 1 * *"
 permissions:
   contents: read
 jobs:
