@@ -221,7 +221,9 @@ def main():
   prev.setdefault("source_history", [])
   if row["kaynak"] not in prev["source_history"]:
    prev["source_history"].append(row["kaynak"])
-  prev["source_id"]=row["kaynak"]
+  # A retry label is not the original feed. Preserve provenance across retries.
+  if row["kaynak"]!="GECMIS_BASARISIZ_YENIDEN_TEST":
+   prev["source_id"]=row["kaynak"]
   if row["kaynak"] in {"iptv-org-TURKCE","dearbulut-TURKCE"}:
    prev["source_language_hint"]="tur"
   else:
