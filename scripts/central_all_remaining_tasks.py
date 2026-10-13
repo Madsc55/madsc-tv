@@ -163,6 +163,9 @@ discovery_report = {
     "candidate_queue_empty": not candidate_rows,
     "foreign_archive_candidate_count": len(archive_candidates),
     "foreign_archive_invalid_url_count": sum(not x["url_scheme_valid"] for x in archive_candidates),
+    "foreign_archive_unique_urls": len({x["stream_url"].strip() for x in archive_candidates}),
+    "foreign_archive_duplicate_url_count": len(archive_candidates) - len({x["stream_url"].strip() for x in archive_candidates}),
+    "foreign_archive_urls_also_in_main": sum(x["stream_url"].strip() in {e["url"].strip() for e in main_playlist["entries"]} for x in archive_candidates),
     "next_action": "Bos aday kuyruğu ile tarihsel son kontrol birbirine karistirilmadan kaynak ve tekrar filtreleri incelenmeli.",
     "live_sources_rechecked": False,
     "live_streams_rechecked": False
