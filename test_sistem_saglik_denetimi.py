@@ -48,7 +48,7 @@ class SistemSaglikTesti(unittest.TestCase):
             workflows = root / ".github/workflows"
             workflows.mkdir(parents=True)
             for name in ("a.yml", "b.yml"):
-                (workflows / name).write_text("concurrency:\\n  group: ortak-grup\\n", encoding="utf-8")
+                (workflows / name).write_text("concurrency:\n  group: ortak-grup\n", encoding="utf-8")
             (root / "madsc_kesif").mkdir()
             (root / "madsc_kesif/candidate_epg_logo_join.json").write_text(json.dumps({"source_candidates": 0}))
             findings = inspect(root)["findings"]
