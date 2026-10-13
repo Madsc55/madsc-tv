@@ -45,9 +45,9 @@ jobs:
           from pathlib import Path
           report = json.loads(Path("madsc_bakim/actions_durum_raporu.json").read_text())
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as out:
-              out.write("## MADSC - Son 100 Actions çalışması\\n")
+              out.write("## MADSC - Son 100 Actions çalışması\n")
               for key in ("failed", "cancelled", "active"):
-                  out.write(f"- {key}: {len(report[key])}\\n")
+                  out.write(f"- {key}: {len(report[key])}\n")
           PY
       - name: Sağlık bulgularını GitHub özetinde göster
         if: always()
@@ -58,14 +58,14 @@ jobs:
           from pathlib import Path
           p = Path("madsc_bakim/sistem_saglik_raporu.json")
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
-              out.write("\\n## MADSC - Sistem sağlık bulguları\\n")
+              out.write("\n## MADSC - Sistem sağlık bulguları\n")
               if not p.exists():
-                  out.write("Denetim raporu oluşmadı.\\n")
+                  out.write("Denetim raporu oluşmadı.\n")
               else:
                   report = json.loads(p.read_text(encoding="utf-8"))
-                  out.write(f"**Hata:** {report['counts']['ERROR']} | **Uyarı:** {report['counts']['WARN']} | **Bilgi:** {report['counts']['INFO']}\\n\\n")
+                  out.write(f"**Hata:** {report['counts']['ERROR']} | **Uyarı:** {report['counts']['WARN']} | **Bilgi:** {report['counts']['INFO']}\n\n")
                   for item in report["findings"][:60]:
-                      out.write(f"- **{item['severity']}** {item['code']}: {item['detail']}\\n")
+                      out.write(f"- **{item['severity']}** {item['code']}: {item['detail']}\n")
           PY
       - name: Denetim raporunu sakla
         if: always()
