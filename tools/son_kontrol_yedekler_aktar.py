@@ -4,7 +4,7 @@ Kimlik veya cihaz onayı yoksa otomatik olarak boş aday listesi üretir.
 """
 import json
 import pathlib
-from tools.yedekler_guvenli_ekle import update
+from yedekler_guvenli_ekle import update
 
 RESULTS = pathlib.Path("madsc_son_kontrol/results.json")
 PLAYLIST = pathlib.Path("CALISANLAR.m3u")
