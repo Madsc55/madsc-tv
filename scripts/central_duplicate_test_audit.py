@@ -13,19 +13,29 @@ def inspect(history):
     tested = 0
     repeated = 0
     missing = 0
+    invalid_examples = []
+    zero_run_records = 0
     for key, entry in history.items():
         if not isinstance(entry, dict):
             missing += 1
+            if len(invalid_examples) < 30:
+                invalid_examples.append({"url_key": key, "reason": "NOT_OBJECT"})
             continue
         runs = entry.get("runs", 0)
         try:
             runs = int(runs)
         except (ValueError, TypeError):
             missing += 1
+            if len(invalid_examples) < 30:
+                invalid_examples.append({"url_key": key, "reason": "INVALID_RUN_COUNT"})
             continue
         if runs < 0:
             missing += 1
+            if len(invalid_examples) < 30:
+                invalid_examples.append({"url_key": key, "reason": "NEGATIVE_RUN_COUNT"})
             continue
+        if runs == 0:
+            zero_run_records += 1
         if runs:
             tested += 1
         if runs > 1:
@@ -37,6 +47,10 @@ def inspect(history):
             "urls_tested_more_than_once": repeated,
             "excess_test_runs": sum(row["runs"] - 1 for row in records),
             "invalid_history_records": missing,
+            "invalid_examples": invalid_examples,
+            "zero_run_records": zero_run_records,
+            "repeat_rate_among_tested_urls": round(repeated / tested, 4) if tested else None,
+            "total_recorded_test_runs": tested + sum(row["runs"] - 1 for row in records),
             "repeated_examples": sorted(records, key=lambda row: -row["runs"])[:30]}
 
 if history_path.is_file():
