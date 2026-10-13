@@ -65,7 +65,7 @@ def inspect(root=ROOT):
             match = re.fullmatch(r"group:\s*([A-Za-z0-9_.-]+)", line.strip())
             if match:
                 groups.setdefault(match.group(1), []).append((path.name, "cancel-in-progress: false" in raw))
-        if not re.search(r"(?m)^permissions:\\s*(?:\\S|$)", raw):
+        if not re.search(r"(?m)^permissions:\s*(?:\S|$)", raw):
             add("WARN", "security", "MISSING_EXPLICIT_PERMISSIONS", path.name)
         if re.search(r"(?m)^\\s*permissions:\\s*write-all\\s*$", raw):
             add("ERROR", "security", "BROAD_PERMISSIONS", path.name)
