@@ -9,7 +9,7 @@ permissions:
   contents: write
   actions: write
 concurrency:
-  group: madsc-son-kontrol-${{ github.event_name == 'workflow_dispatch' && 'batch' || github.event_name == 'workflow_run' && 'validation' || github.run_id }}
+  group: madsc-son-kontrol
   cancel-in-progress: false
 jobs:
   continuity:
