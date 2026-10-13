@@ -90,7 +90,7 @@ jobs:
           done
           echo "Raporlar GitHub'a kaydedilemedi; artifact arsivinde korunuyor"
           exit 1
-      - name: Yeni aday varsa sonraki test turunu hemen baslat
+      - name: Yeni aday varsa sonraki test turunu hemen başlat
         if: success()
         env:
           GH_TOKEN: ${{ github.token }}
