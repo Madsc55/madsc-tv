@@ -45,3 +45,11 @@ Bu not DEVAM_NOTU.md ve SEKIZ_GOREV_TOPLU_DENETIM.md ile birlikte okunur. Raporl
 - ffprobe fail, timeout veya continuity fail sonucunu KESIN_CALISMIYOR etiketine donusturme. IBO'da calistigi kullanici tarafindan kanitlanan kanal URL eslesmelerini oncelikle koru, gecmisi ezme.
 - Yeni otomatik tarama/temizlik, 740 arsiv kanalini veya kullanici onayli oynayan kanallari teknik sonuc nedeniyle silmemeli; kullanici izni olmadan ana listeye/YEDEKLER/YENILER'e yeniden eklememeli.
 - Teknik test raporunda IBO false-negative riski ayrica gorunmeli; cihaz testi asistan tarafindan yapilmayacak.
+
+## Kullanici onayli yabanci/Turk kanal is akisi
+- YABANCI: Bulunan yabanci adaylar, teknik gecis veya basarisizlik fark etmeksizin ayri arsivde saklanir. IBO kullanici testine hazirlamak icin YEDEKLER'e otomatik tasinmaz; kullanici yabanci kanallari tek tek test etmeyecek. Yabanci kanal tespiti yalniz kaynak ulkesine gore kesinlestirilmez; belirsizler siniflandirma bekler.
+- TURK: Yalniz ana listede bulunmayan yeni Turk kanallari sistem teknik testlerine alinir. Teknik testten gecen ve kanal kimligi yeterince dogrulanan adaylar kullanici IBO testine uygun YEDEKLER taslagi olarak hazirlanir. YEDEKLER'e fiili ekleme icin kullanici onayi gerekir.
+- Kullanici IBO'da calisiyor derse CALISIYOR, calismiyor derse CALISMIYOR olarak ayri kullanici sonucu tutulur. Otomatik ffprobe bu sonucu ezmez.
+- Teknik testten gecemeyen Turk adaylar silinmez, ayrik inceleme arsivinde kalir; kullanici IBO testine otomatik gonderilmez.
+- Tum bulunan liste disi farkli URL'ler arsivlenmeli, ayni URL yeniden arama/teste sokulmamali; yeni URL alternatifi ayri tutulmali. Arama motorunun kaynaklari yeniden okumasiyla ayni URL'yi yeniden test etmek birbirinden farklidir.
+- Bu bolum is akisi karari kaydidir; uygulama kodunun tam olarak bu sekilde calistigi iddia edilmez.
