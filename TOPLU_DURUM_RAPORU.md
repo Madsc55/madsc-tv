@@ -161,3 +161,12 @@ Kullanici #111 (235add8) merkezi testinin yesil oldugunu ekran goruntusuyle dogr
 ## 14 Ekim - Kullanici cihaz kaniti: ana PNG logolari calisiyor, EPG gorunmuyor
 
 Kullanici ana listedeki PNG logolarin cihazinda dogru calistigini bildirdi: ANA_LISTE_PNG_LOGO=KULLANICI_DOGRULADI_KORU. Ana listedeki mevcut logolar eksik/bozuk olarak etiketlenmeyecek, degistirilmeyecek. Yeni aday kanallarin logo eksikleri ayridir. Kullanici ana listede EPG gorunmedigini, baska uygulamada EPG verisi bulundugunu bildirdi: ANA_LISTE_EPG=CIHAZDA_GORUNMUYOR_ACIK. Depodaki epg/report.json kaydinda 1039 playlist girisi, 730 eslesme, 309 eslesmeyen, 583 kullanilabilir giris ve 23702 program var; bunlar XMLTV uretim kaniti olup IBO cihazinda EPG gorunme kaniti degildir. EPG XML URL erisimi, playlistin tvg-id degerleri ile XMLTV channel id eslesmesi, kaynakta gercek programme verisi ve IBO Player EPG URL/yenileme ayarlari tek seferde incelenmeli. Korunan ana liste ve calisan logolar degistirilmeden once kanit toplanmali.
+
+
+## 14 Ekim - EPG EN SONA; YEDEK, ARSIV VE KANAL KESFI ONCELIK
+
+Kullanici EPG calismasini simdilik durdurup daha sonra yapilacaklar listesinin sonuna eklemeyi istedi. EPG, IBO Player ana listesinde gorunmuyor: ACIK_ERTELENDI. Ana listedeki PNG logolar kullaniciya gore calisiyor: KORU. EPG icin yeni islem yapilmayacak.
+
+Yeni oncelik: 1) yedek ve tarihsel geri yukleme kaniti; 2) kalici kesif arsivi ve gecmis testler; 3) yeni kanal kesfi, aday ve alternatif URLlerinin teknik testleri; 4) tekrar ayiklama ve yalniz yeni adaylarin eksik logolari; 5) kullanici onayindan sonra liste islemleri. CALISANLAR.m3u, YENILER, favoriler, yabanci arsiv ve korunan yedeklere onaysiz dokunulmayacak.
+
+Kod incelemesi: madsc-birlesik-kesif.yml gunluk veya elle baslatilabilir; scripts/discovery_archive.py once/sonra adimlariyla madsc_kesif/gecmis.json ve bulunan_kanal_arsivi.csv kayitlarini kullanir. Eksik veya gecersiz tarihsel kayitlarda arsiv betigi hata vererek sessiz kaybi onler. Gercek tarama raporu ve geri yukleme kaniti gorulmeden bes sistem tamam denmeyecek. Yeni workflow acilmadi. Bu not onceki EPG onceligini gecersiz kilar.
