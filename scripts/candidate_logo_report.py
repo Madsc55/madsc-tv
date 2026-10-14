@@ -4,10 +4,7 @@ import json
 import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
-try:
-    from .automatic_png_logos import convert, ROOT
-except ImportError:
-    from automatic_png_logos import convert, ROOT
+ROOT = Path(__file__).resolve().parents[1]
 
 
 PUBLIC_IMAGE_HOSTS = {'raw.githubusercontent.com', 'upload.wikimedia.org',
@@ -22,7 +19,10 @@ def public_artwork_url(url):
     except ValueError:
         return False
 
-def prepare(candidates, previous, converter=convert, limit=240):
+def prepare(candidates, previous, converter=None, limit=240):
+    if converter is None:
+        from scripts.automatic_png_logos import convert
+        converter = convert
     saved = {r['stream_sha256']: r for r in previous}
     used = 0
     for candidate in candidates:

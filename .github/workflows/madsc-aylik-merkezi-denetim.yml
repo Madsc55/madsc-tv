@@ -94,7 +94,7 @@ jobs:
           head -n 1 CALISANLAR.m3u | grep -q '#EXTM3U'
       - name: Kritik merkezi rapor dosyalarinin sozdizimini onceden dogrula
         run: |
-          python3 -m py_compile scripts/central_consolidation_audit.py scripts/central_protected_write_gate.py
+          python3 -m py_compile scripts/central_consolidation_audit.py scripts/central_protected_write_gate.py scripts/candidate_logo_report.py scripts/candidate_logo_missing_report.py
       - name: Korunan liste yazma kapisini merkezi kosuda denetle
         run: |
           python3 -m pip install pyyaml

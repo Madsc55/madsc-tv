@@ -1,7 +1,14 @@
 import unittest
+import subprocess
+import sys
 from scripts.candidate_logo_missing_report import build
 
 class YeniAdayLogoTesti(unittest.TestCase):
+    def test_merkezi_logo_raporu_modul_olarak_acilir(self):
+        result = subprocess.run([sys.executable, "-m", "scripts.candidate_logo_missing_report"],
+                                capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_eksik_logo_ve_kimlik_onayi(self):
         candidates = [
             {"channel": "Test TV", "stream_sha256": "a", "logo_url": "", "source": "kaynak"},
