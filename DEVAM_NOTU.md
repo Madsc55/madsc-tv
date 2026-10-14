@@ -1,3 +1,11 @@
+## 14 Ekim 2026 — #123 UYUMSUZLUK / TEK PAKET DUZELTME
+- Kullanici ekrani: merkezi denetim #123, 126 test, 3 failure, 26 saniye. Ekran sonu yalniz toplam hata sayisini gosteriyor; tek tek traceback gorulmedi.
+- Kod incelemesinde not dosyalarinin push listesinden bilerek kaldirilmasina ragmen eski beklentilerin kaldigi goruldu: test_tek_merkez_tetikleme.py, test_toplu_durum_raporu.py, test_central_consolidation_audit.py.
+- Bu uc test, yeni kural uyarinca guncellendi: DEVAM_NOTU.md ve TOPLU_DURUM_RAPORU.md not degisiklikleri agir merkezi push baslatmaz, ama merkezi denetimde dosya varligi ve SHA256 kontrolu korunur. Merkezi kod/playlist/guvenlik push kontrolleri devam eder.
+- #123'un uc hatasinin tam traceback kaniti mevcut degil; degisiklikten sonra tek merkezi CI sonucu dogrulanmadan kesin duzeldi denmeyecek.
+- SONRAKI SIRA: (1) #124 vb. tek test sonucunu dogrula; (2) 92 workflow'un zamanlama/push/workflow_run envanterini kesinlestir; (3) 1/15 bakimini birlestir; (4) yedek artifact ve izole/harici geri yukleme kaniti; (5) 75 aday teknik tekrar, Turkce/yabanci ve logo kimlik; (6) EPG en son. Yeni kanal testi veya gereksiz Actions tetigi baslatma.
+- Korunan CALISANLAR.m3u, HEPSI, YENILER, favoriler, PNG logolar, yedek ve arsiv dokunulmaz.
+
 
 
 ## 14 Ekim 2026 — TOPLU DEGİSİKLİK PRENSİBİ

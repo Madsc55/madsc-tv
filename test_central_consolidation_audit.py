@@ -28,12 +28,23 @@ class TopluMerkezTesti(unittest.TestCase):
             "Yeni analiz": ["scripts/yeni_analiz.py"],
             "Ana liste yayın kodu": ["scripts/ana_liste_saglik.py"],
             "Ana liste sağlık workflow": [".github/workflows/madsc-ana-liste-saglik.yml"],
-            "Toplu rapor": ["TOPLU_DURUM_RAPORU.md"],
+            "Merkezi denetim kodu": ["scripts/central_workflow_inventory.py"],
         }
         report = analyze(flows, scenarios)
         for case in report["senaryolar"]:
             self.assertEqual(case["push_is_akislari"],
                              ["madsc-aylik-merkezi-denetim.yml"], case["islem"])
+
+    def test_not_degisikligi_agir_merkezi_push_baslatmaz(self):
+        root = Path(".github/workflows")
+        flows = {p.name: p.read_text(encoding="utf-8") for p in root.glob("*.y*ml")}
+        report = analyze(flows, {"Not": ["DEVAM_NOTU.md"],
+                                 "Toplu rapor": ["TOPLU_DURUM_RAPORU.md"]})
+        for case in report["senaryolar"]:
+            self.assertEqual(case["push_is_akislari"], [], case["islem"])
+        central = flows["madsc-aylik-merkezi-denetim.yml"]
+        for name in ("DEVAM_NOTU.md", "TOPLU_DURUM_RAPORU.md"):
+            self.assertIn("test -s " + name, central)
 
     def test_dokuman_push_yok(self):
         raw = Path(".github/workflows/madsc-documentation-check.yml").read_text()

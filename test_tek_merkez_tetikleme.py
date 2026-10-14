@@ -78,8 +78,13 @@ class TekMerkezKuralTesti(unittest.TestCase):
 
     def test_merkez_dokuman_ve_kanal_kontrolu(self):
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
-        for name in ("AGENTS.md", "DEVAM_NOTU.md", "CALISANLAR.m3u", "GUVENLIK_KURALLARI.md"):
+        for name in ("AGENTS.md", "CALISANLAR.m3u", "GUVENLIK_KURALLARI.md"):
             self.assertIn("'"+name+"'", central)
+        # Notlar push tetiklemez, fakat merkezi denetimde zorunlu ve SHA256 kapsamindadir.
+        for name in ("DEVAM_NOTU.md", "TOPLU_DURUM_RAPORU.md"):
+            self.assertNotIn("      - '"+name+"'", central)
+            self.assertIn("test -s "+name, central)
+            self.assertIn("sha256sum AGENTS.md DEVAM_NOTU.md TOPLU_DURUM_RAPORU.md", central)
         self.assertIn("Proje kayitlari ve dokumantasyonu merkezi kontrolde dogrula", central)
         self.assertIn("  contents: read", central)
 

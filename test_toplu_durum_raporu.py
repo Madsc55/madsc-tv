@@ -14,7 +14,8 @@ class TopluDurumRaporuTesti(unittest.TestCase):
         self.assertIn("yeni bulunan adaylara", report)
     def test_merkez_raporu_izler(self):
         flow = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
-        self.assertIn("'TOPLU_DURUM_RAPORU.md'", flow)
+        self.assertNotIn("      - 'TOPLU_DURUM_RAPORU.md'", flow)
+        self.assertNotIn("      - 'DEVAM_NOTU.md'", flow)
         self.assertIn("test -s TOPLU_DURUM_RAPORU.md", flow)
         self.assertIn("sha256sum AGENTS.md DEVAM_NOTU.md TOPLU_DURUM_RAPORU.md", flow)
 
