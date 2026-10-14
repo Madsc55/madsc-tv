@@ -25,3 +25,19 @@ PR #71 ancak 92/92 görev davranışsal eşdeğerlik, eski üretim tetik ve yazm
 - #15 koşusunda ilk dört kategori yeşil, beşinci kategoride yanlış negatif `needs` hatası kullanıcı ekranında doğrulandı.
 - `needs` düzeltmesi kodda mevcut; son canlı koşunun başarısı burada doğrulanmış değildir.
 - Kalan işlerin tek bir CI koşusunda *tamamlandığı* iddia edilmez; tek CI koşusu yalnız denetimi toplulaştırır.
+
+## Sonraki toplu entegrasyon paketi (15 Ekim)
+Bu paket mevcut kabul kosusu beklenirken hazirlanir. Her adimdan sonra kullanicidan test istenmez.
+
+1. Canli uretim zinciri: EPG-Pages workflow_run, dokuz cron, push, yazma izinleri, artifact, secrets ve bagimliliklarin eski-yeni esdegerligi.
+2. Guvenlik: 18 gorev ve 26 kural, yazma kapisi, korunan dosyalar ve yetki regresyonu.
+3. Kesif: 75 aday, 4 alternatif, tekrar eleme, farkli saatlerde tekrar deneme ve gunde iki kesif tetigi; playlist'e yazma yok.
+4. Kanal testleri: ffprobe/yayin, logo, kalite, EPG ve Pages yayin kaniti; IBO cihaz kabulunu ayrica koru.
+5. Arsiv: izole geri yukleme, harici yedek kaniti, korunan backup'lara yazmadan geri donus provasi.
+6. Genel bakim: dort kategori, 92 gorev esdegerlik matrisi ve cift tetik denetimini tek kabulde birlestir.
+7. Tek toplu kabul: girdi, cikti, yan etki, izin ve tetik esdegerligi; ardindan 5/5 CI ve canli zincir kanitlari.
+
+Her eski workflow icin yeni kategori sahibi, somut kod karsiligi, test veya canli kanit, rollback ve eksik gereksinimler yazilmadan durum BLOCKED kalir.
+Betik ismi eslesmesi, yesil denetim veya bes kategoriye etiketleme eski gorevin tasindigini kanitlamaz.
+EPG-Pages, harici restore ve IBO kabul kaniti olmadan PR birlestirilmez; eski workflow kapatilmaz.
+Sonuc kullaniciya tek raporda: tasinan islev, eksikler, toplu test ve canli kabul gereksinimleri.
