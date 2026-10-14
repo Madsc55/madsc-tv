@@ -137,7 +137,7 @@ def main():
             lines.append("- " + case["islem"] + ": " + ", ".join(case["push_is_akislari"]))
     lines.extend(["", "## Beş aşama genel kabul", "- Durum: HENUZ_ONAYLANMADI"])
     for item in result["kriterler"]:
-        lines.append(f"- {item[\'alan\']}: {item[\'durum\']}")
+        lines.append("- {}: {}".format(item["alan"], item["durum"]))
     lines.extend(["",
                   "- Kabul için gerçek yayın, geçmiş, güvenlik ve IBO cihaz kanıtları gereklidir.",
                   "- Hiçbir kanal otomatik değiştirilmedi."])

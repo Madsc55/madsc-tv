@@ -28,6 +28,11 @@ class TopluMerkezTesti(unittest.TestCase):
         self.assertEqual(result["senaryolar"][0]["ayri_kosu_sayisi"], 0)
         self.assertEqual(result["senaryolar"][1]["ayri_kosu_sayisi"], 1)
 
+    def test_merkezi_rapor_sozdizimi(self):
+        import ast
+        source = Path("scripts/central_consolidation_audit.py").read_text(encoding="utf-8")
+        ast.parse(source)
+
     def test_korunan_kapi_ve_tekrar_kanitlari_kabulde(self):
         import json
         with tempfile.TemporaryDirectory() as tmp:

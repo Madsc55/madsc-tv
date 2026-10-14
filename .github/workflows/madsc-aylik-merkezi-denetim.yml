@@ -90,6 +90,9 @@ jobs:
           grep -q 'Kural 25' AGENTS.md
           grep -q 'build_epg.py' OZELLIK_ENVANTERI.md
           head -n 1 CALISANLAR.m3u | grep -q '#EXTM3U'
+      - name: Kritik merkezi rapor dosyalarinin sozdizimini onceden dogrula
+        run: |
+          python3 -m py_compile scripts/central_consolidation_audit.py scripts/central_protected_write_gate.py
       - name: Korunan liste yazma kapisini merkezi kosuda denetle
         run: |
           python3 -m pip install pyyaml
