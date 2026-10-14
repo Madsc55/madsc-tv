@@ -13,7 +13,40 @@ concurrency:
   group: madsc-genel-bakim-tek-kosu
   cancel-in-progress: false
 jobs:
+  kademe-1-guvenlik:
+    name: 1 - Guvenlik tek toplu kosu
+    if: github.event_name == 'workflow_dispatch'
+    uses: ./.github/workflows/madsc-01-guvenlik.yml
+    permissions:
+      contents: read
+      actions: read
+  kademe-2-kesif:
+    name: 2 - Kesif tek toplu kosu
+    needs: kademe-1-guvenlik
+    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    uses: ./.github/workflows/madsc-02-kesif.yml
+    permissions:
+      contents: read
+      actions: read
+  kademe-3-kanal-test:
+    name: 3 - Kanal testleri tek toplu kosu
+    needs: kademe-2-kesif
+    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    uses: ./.github/workflows/madsc-03-kanal-test.yml
+    permissions:
+      contents: read
+      actions: read
+  kademe-4-arsiv-yedek:
+    name: 4 - Arsiv ve yedek tek toplu kosu
+    needs: kademe-3-kanal-test
+    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    uses: ./.github/workflows/madsc-04-arsiv-yedek.yml
+    permissions:
+      contents: read
+      actions: read
   genel-bakim:
+    needs: kademe-4-arsiv-yedek
+    if: ${{ always() }}
     name: MADSC 05 - Genel Bakim Toplu - tek kosuda butun denetimler
     runs-on: ubuntu-latest
     timeout-minutes: 60
