@@ -18,6 +18,22 @@ class TekMerkezKuralTesti(unittest.TestCase):
         self.assertIn("  contents: read", logo)
         self.assertIn("Korunan kanal listesi degisikliklerini engelle", logo)
 
+    def test_epg_tek_uretim_tek_yayin_tetiklemesi(self):
+        daily = (ROOT / ".github/workflows/epg-gunluk.yml").read_text()
+        pages = (ROOT / ".github/workflows/epg-pages.yml").read_text()
+        central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
+        self.assertNotIn("\n  push:", daily)
+        self.assertIn("    - cron: '25 3 * * *'", daily)
+        self.assertIn("  workflow_dispatch:", daily)
+        self.assertNotIn("\n  push:", pages)
+        self.assertIn("  workflow_run:", pages)
+        self.assertIn("workflows: ['EPG Günlük Güncelleme']", pages)
+        self.assertIn("github.event.workflow_run.conclusion == 'success'", pages)
+        self.assertIn("  workflow_dispatch:", pages)
+        for path in ("scripts/build_epg.py", "scripts/build_ibo_epg_test.py",
+                     ".github/workflows/epg-gunluk.yml", ".github/workflows/epg-pages.yml"):
+            self.assertIn("'" + path + "'", central)
+
     def test_kesif_kod_degisikligi_ayri_yayin_taramasi_baslatmaz(self):
         workflow = (ROOT / ".github/workflows/madsc-birlesik-kesif.yml").read_text()
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()

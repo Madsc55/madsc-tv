@@ -1,11 +1,5 @@
 name: Publish EPG to GitHub Pages
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'epg/madsc-epg.xml'
-      - 'epg/ibo-test-epg.xml'
-      - '.github/workflows/epg-pages.yml'
   workflow_dispatch:
   workflow_run:
     workflows: ['EPG Günlük Güncelleme']
