@@ -112,6 +112,10 @@ jobs:
           assert audit["migration_blocked_count"] == 92, "Unsafe legacy retirement"
           assert "legacy_workflows_with_missing_script_file" in audit, "Missing legacy script check not run"
           assert audit["legacy_workflows_with_missing_script_file"] >= 0
+          assert audit["behavioral_parity_verified_count"] == 0, "Unverified parity must never be marked complete"
+          assert len(audit["items"]) == 92, "Missing detailed legacy evidence"
+          assert all(not item["behavioral_parity_verified"] for item in audit["items"]), "Unproven parity accepted"
+          assert all("missing_legacy_script_files" in item for item in audit["items"]), "Missing script file evidence absent"
           assert len({x["file"] for x in priorities["ordered_workflows"]}) == 92
           assert all(x["gaps"] for x in priorities["ordered_workflows"]), "Missing migration gap evidence"
           assert all(x["priority"] in ("HIGH", "NORMAL") for x in priorities["ordered_workflows"])
