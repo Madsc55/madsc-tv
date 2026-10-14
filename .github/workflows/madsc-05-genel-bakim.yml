@@ -217,7 +217,7 @@ jobs:
           result = {"audit_steps": audits, "categories": categories}
           folder = Path("madsc_merkezi_denetim")
           folder.mkdir(exist_ok=True)
-          (folder / "toplu_test_sonuc_ozeti.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+          (folder / "toplu_test_sonuc_ozeti.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
           print(json.dumps(result, indent=2, ensure_ascii=False))
           PY
       - name: Toplu test hata kapisi
