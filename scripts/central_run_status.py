@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """Actions durumunu salt okunur siniflandir; eksik kaniti basari sayma."""
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 folder = Path("madsc_merkezi_denetim")
 workflows = [json.loads(line) for line in (folder / "github_workflow_durumlari.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
 runs = json.loads((folder / "son_100_kosu.json").read_text(encoding="utf-8"))
+current_run_id = os.environ.get("GITHUB_RUN_ID")
 latest = {}
 for run in sorted(runs, key=lambda x: x.get("created_at") or "", reverse=True):
+    # Bu kosu henuz tamamlanmadigi icin kendi sonucunu rapora katma.
+    if current_run_id and str(run.get("run_id")) == current_run_id:
+        continue
     key = run.get("workflow_id")
     if key is not None and key not in latest:
         latest[key] = run
@@ -28,7 +33,8 @@ for flow in workflows:
     rows.append({"name": flow["name"], "path": flow["path"], "workflow_state": flow["state"],
                  "classification": status, "last_run": last,
                  "note": "Son 100 kosu disinda kalan islerin durumu bilinmiyor." if not last else ""})
-result = {"generated_at_utc": datetime.now(timezone.utc).isoformat(), "sample_size": len(runs),
+result = {"current_run_excluded": current_run_id is not None,
+          "generated_at_utc": datetime.now(timezone.utc).isoformat(), "sample_size": len(runs),
           "workflow_count": len(rows), "classifications": {
               name: sum(x["classification"] == name for x in rows)
               for name in ("BASARILI", "BASARISIZ", "DEVAM_EDIYOR", "DIGER_SONUC", "SON_100_KOSUDA_YOK")},
