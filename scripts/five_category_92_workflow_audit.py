@@ -186,7 +186,7 @@ def main():
             ],
         }
     (out / "bes_kategori_toplu_eksik_is_kuyrugu.json").write_text(
-        json.dumps(queues, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+        json.dumps(queues, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = ["# MADSC — 92 Otomasyon Görev ve Kategori Haritası", "",
              f"İncelenen iş akışı: **{report['total']}** (statik kaynak kod incelemesi)", "",
              "| Kategori | Birincil workflow sayısı |", "|---|---:|"]
