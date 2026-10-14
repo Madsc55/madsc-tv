@@ -30,6 +30,10 @@ jobs:
           set -euo pipefail
           python3 scripts/central_identity_epg_logo_audit.py
           python3 scripts/central_main_playlist_run_evidence.py
+      - name: Yayin testi icin ffmpeg aracini kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Ana listeyi salt okunur 50 kanallik partide kontrol et
+        run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
       - name: Kategoriye ait tum regresyon testleri
         run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence -v
       - name: Korunan dosyalar degismedi
