@@ -1,23 +1,45 @@
-name: MADSC 01 - Guvenlik
+name: MADSC 01 - Guvenlik Toplu
 on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
+concurrency:
+  group: madsc-guvenlik-tek-kosu
+  cancel-in-progress: false
 jobs:
-  security-audit:
+  guvenlik:
+    name: MADSC 01 - Guvenlik Toplu - tek kosuda butun denetimler
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install PyYAML
-      - run: python3 scripts/central_protected_write_gate.py
-      - run: python3 -m unittest test_central_protected_write_gate -v
+      - run: python3 -m pip install PyYAML
+      - name: Korunan dosyalarin baslangic ozeti
+        run: |
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Kategoriye ait tum rapor kontrolleri
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/central_protected_write_gate.py
+          python3 scripts/central_consolidation_audit.py
+      - name: Kategoriye ait tum regresyon testleri
+        run: python3 -m unittest test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory -v
+      - name: Korunan dosyalar degismedi
+        if: always()
+        run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: madsc-01-guvenlik
+          name: madsc-guvenlik-tek-kosu-rapor
           path: madsc_merkezi_denetim/
           if-no-files-found: warn
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.
