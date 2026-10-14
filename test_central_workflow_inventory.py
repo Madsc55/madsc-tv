@@ -27,6 +27,19 @@ class MerkeziDenetimTesti(unittest.TestCase):
         self.assertGreater(inv["workflow_count"], 0)
         self.assertEqual(len({x["file"] for x in risk["all_workflows"]}), inv["workflow_count"])
 
+    def test_bes_asama_tam_kapsam_ve_takvim(self):
+        report = json.loads((OUT / "bes_asama_tum_workflow_eslestirmesi.json").read_text(encoding="utf-8"))
+        inv = json.loads((OUT / "otomasyon_haritasi.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(report["stages"]), 5)
+        mapped = [name for stage in report["stages"] for name in stage["workflows"]]
+        self.assertEqual(len(mapped), report["workflow_count"])
+        self.assertEqual(len(set(mapped)), len(mapped))
+        self.assertEqual(set(mapped), {item["file"] for item in inv["workflows"]})
+        self.assertFalse(report["complete_historical_coverage_verified"])
+        central = next(item for item in inv["workflows"]
+                       if item["file"] == "madsc-aylik-merkezi-denetim.yml")
+        self.assertEqual(central["schedule_utc"], ["0 7 1,15 * *"])
+
     def test_koruma_ve_rapor_sozlesmesi(self):
         report = json.loads((OUT / "merkezi_oncelik_ve_koruma_raporu.json").read_text(encoding="utf-8"))
         self.assertEqual(report["safety"], {
