@@ -95,11 +95,15 @@ def build(folder, discovery_folder=None):
         problems.append({"tur": "TARIHSEL_YEDEK", "aciklama": "Önceki sürümden geri yükleme doğrulanmadı"})
     if backup_external != "DOGRULANDI":
         problems.append({"tur": "HARICI_KOPYA", "aciklama": "GitHub dışı bağımsız kopya doğrulanmadı"})
+    if backup_status != "TAM_DOGRULANDI":
+        problems.append({"tur": "YEDEK_GENEL_KABUL", "aciklama": "Tarihsel geri yukleme ve bagimsiz kopya dahil tam kanit yok"})
+    if logo_status != "ADAY_LOGO_KANITI_VAR_KIMLIK_ONAYSIZ":
+        problems.append({"tur": "ADAY_LOGO_KANIT_KAPISI", "aciklama": logo_status})
     problems.append({"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"})
     groups = {
-        "GUVENLIK_YEDEK": {"RAPOR_EKSIK", "YEDEK_GERI_YUKLEME", "TARIHSEL_YEDEK", "HARICI_KOPYA"},
+        "GUVENLIK_YEDEK": {"RAPOR_EKSIK", "YEDEK_GERI_YUKLEME", "TARIHSEL_YEDEK", "HARICI_KOPYA", "YEDEK_GENEL_KABUL"},
         "KANAL_KESIF": {"KANAL_KOSU_KANITI", "YAYIN_ADRESI_EKSIK", "ANA_LISTE_TEKRAR_ADAYI", "KESIF_SAYIM_KANITI_YOK"},
-        "LOGO_EPG": {"KIMLIK_KAYNAGI_EKSIK", "KIMLIK_KAYNAK_LISTESI_YOK", "ADAY_LOGO_INCELEME", "LOGO_RAPORU_HATALI"},
+        "LOGO_EPG": {"KIMLIK_KAYNAGI_EKSIK", "KIMLIK_KAYNAK_LISTESI_YOK", "ADAY_LOGO_INCELEME", "LOGO_RAPORU_HATALI", "ADAY_LOGO_KANIT_KAPISI"},
         "OTOMASYON": {"GEREKSIZ_TEKRAR", "MERKEZ_TETIKLEME_EKSIK", "MERKEZ_DISI_TETIKLEME"},
         "KABUL": {"KALAN_IS", "CIHAZ_ONAYI"},
     }

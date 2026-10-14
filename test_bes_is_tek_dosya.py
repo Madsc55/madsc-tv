@@ -64,6 +64,7 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         self.assertEqual(len(groups), 5)
         self.assertEqual(sum(groups.values()), report["acik_is_sayisi"])
         self.assertGreater(groups["GUVENLIK_YEDEK"], 0)
+        self.assertTrue(any(x["tur"] == "YEDEK_GENEL_KABUL" for x in report["acik_isler"]))
         self.assertGreater(groups["KANAL_KESIF"], 0)
         self.assertGreater(groups["LOGO_EPG"], 0)
         self.assertGreater(groups["OTOMASYON"], 0)

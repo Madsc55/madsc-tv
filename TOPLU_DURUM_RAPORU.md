@@ -146,3 +146,8 @@ Kullanici onceki bes-is entegrasyon testinin yesil oldugunu bildirdi. Merkezi te
 ## 14 Ekim - Tek toplu test: tekrar adaylari ve eksik kesif kaniti
 
 Kullanicinin bildirdigi yesil test sonrasi ana listede mevcut URL adaylari ve eksik aday/alternatif sayim kanitlari tek ekran acik is listesine baglandi. Mevcut bes-is test dosyasina regresyon eklendi. Kanal silinmedi, eklenmedi, yeni workflow acilmadi. Canli IBO testi yapilmadi. Yeni Actions sonucu bekleniyor.
+
+
+## 14 Ekim 14:43 - Merkezi #110 yesil; bes sistemin kalan gercek kabul kapilari
+
+Kullanici ekran goruntusuyle merkezi #110 (commit 3e9c34b, 27 sn) yesil sonucunu bildirdi; #108 ve #109 da yesil. Bunlar merkezi kod denetiminin basarisidir; canli yayin/IBO kabul kaniti degildir. Tek rapora tam yedek kabulunun eksikligi ve aday logo kaniti gecersiz/eksikligi icin ek acik is kapilari konuldu; bes sistemin eksiklerini bitmis gostermeden takip ediyoruz. Korunan playlist ve yedekler degistirilmedi. Sonraki adim gercek CI artefaktlari, tarihsel ve harici yedek kaniti, IBO ve EPG cihaz kanitlarini tamamlamaktir. Bu degisiklik yeni tek merkezi test kosusunu tetikler; sonucu ayrica dogrulanmalidir.
