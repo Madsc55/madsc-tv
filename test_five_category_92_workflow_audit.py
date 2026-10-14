@@ -49,6 +49,25 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertTrue(all(x["possible_replacement_workflows"] for x in result["items"]))
             self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
 
+    def test_missing_script_files_are_reported_without_authorizing_migration(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (root / "scripts").mkdir()
+            (root / "scripts" / "present.py").write_text("print('ok')\n")
+            for n in range(92):
+                script = "scripts/present.py" if n < 60 else "scripts/absent.py"
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    f"name: Legacy\non:\n  workflow_dispatch:\njobs:\n  check:\n    steps:\n      - run: python3 {script}\n")
+            for n, name in enumerate(("guvenlik", "kesif", "kanal-test", "arsiv-yedek", "genel-bakim"), 1):
+                (folder / f"madsc-0{n}-{name}.yml").write_text(
+                    "name: New\njobs:\n  check:\n    steps:\n      - run: python3 scripts/present.py\n")
+            result = inspect(root)
+            self.assertEqual(result["legacy_workflows_with_missing_script_file"], 32)
+            self.assertEqual(result["migration_gap_reason_counts"]["MISSING_LEGACY_SCRIPT_FILE"], 32)
+            self.assertEqual(result["migration_blocked_count"], 92)
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
