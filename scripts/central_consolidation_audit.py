@@ -115,6 +115,35 @@ def acceptance(folder):
     return {"genel_kabul": "HENUZ_ONAYLANMADI", "kriterler": criteria,
             "aciklama": "Yeşil Actions testi, tüm IPTV sisteminin çalıştığına veya kullanıcının cihazda onayladığına eşit değildir."}
 
+
+def pending_tasks(acceptance_report):
+    """Kabul ölçütlerini kanıt dosyasıyla birlikte tek, uygulanabilir sıraya koy."""
+    tasks = []
+    for index, item in enumerate(acceptance_report["kriterler"], start=1):
+        status = item["durum"]
+        if status == "STATIK_KONTROL_TEMIZ_KAPSAM_ONAYSIZ":
+            action = "Gerçek GitHub Actions koşularında tek değişiklik/tek push hedefini doğrula."
+        elif status == "TEKRARLI_PUSH_VAR":
+            action = "Çakışan workflow dosyalarını incele; kontrolleri koruyarak push tetikleyicilerini birleştir."
+        elif "KULLANICI_ONAYI" in status:
+            action = "Kullanıcının IBO Player üzerindeki gerçek yayın testini ve onayını kaydet."
+        elif "CANLI" in item["alan"].upper() or "yayın" in item["alan"].lower():
+            action = "Ana listedeki tüm kanalların döngüsel yayın kanıtlarını tamamla ve karşılaştır."
+        elif "Korunan" in item["alan"]:
+            action = "Yazma yetkisi olan workflow dosyalarını ve koruma onay kapılarını elle gözden geçir."
+        elif "envanter" in item["alan"]:
+            action = "Beş aşama envanterinde eşleşmeyen workflow ve görevleri doğrula."
+        elif "geçmişi" in item["alan"]:
+            action = "Son 100 koşu ile daha eski başarısız testlerin arşiv kanıtlarını karşılaştır."
+        else:
+            action = "18 geliştirme ve 26 koruma kuralının uçtan uca kabul kanıtlarını tamamla."
+        tasks.append({"sira": index, "alan": item["alan"], "durum": status,
+                      "kanit": item["kanit"], "sonraki_is": action,
+                      "tamamlandi": False})
+    return {"genel_durum": acceptance_report["genel_kabul"],
+            "bekleyen_is_sayisi": len(tasks), "isler": tasks,
+            "not": "Bu liste kabul kapısındaki açık kanıtları gösterir; yeşil Actions tüm IPTV kanallarının çalıştığı anlamına gelmez."}
+
 def main():
     workflows = {p.name: p.read_text(encoding="utf-8") for p in
                  (ROOT / ".github/workflows").glob("*.y*ml")}
@@ -125,6 +154,9 @@ def main():
     result = acceptance(OUT)
     (OUT / "bes_asama_kabul_kapisi.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    todo = pending_tasks(result)
+    (OUT / "bes_asama_bekleyen_isler.json").write_text(
+        json.dumps(todo, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = ["## Tek işlem / çoklu test denetimi",
              f"- İncelenen workflow: {overlap['incelenen_is_akisi']}",
              f"- Birden fazla push açabilecek senaryo: {len(overlap['tekrarli_senaryolar'])}",
@@ -138,6 +170,10 @@ def main():
     lines.extend(["", "## Beş aşama genel kabul", "- Durum: HENUZ_ONAYLANMADI"])
     for item in result["kriterler"]:
         lines.append("- {}: {}".format(item["alan"], item["durum"]))
+    lines.extend(["", "## Kalan işler ve kabul kanıtları",
+                  "- Açık kabul maddesi: {}".format(todo["bekleyen_is_sayisi"])])
+    for task in todo["isler"]:
+        lines.append("- {}. {}: {}".format(task["sira"], task["alan"], task["sonraki_is"]))
     lines.extend(["",
                   "- Kabul için gerçek yayın, geçmiş, güvenlik ve IBO cihaz kanıtları gereklidir.",
                   "- Hiçbir kanal otomatik değiştirilmedi."])

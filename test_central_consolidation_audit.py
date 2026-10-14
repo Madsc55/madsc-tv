@@ -1,7 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.central_consolidation_audit import analyze, acceptance, push_rules
+from scripts.central_consolidation_audit import analyze, acceptance, pending_tasks, push_rules
 
 class TopluMerkezTesti(unittest.TestCase):
     def test_dokuman_push_yok(self):
@@ -47,6 +47,16 @@ class TopluMerkezTesti(unittest.TestCase):
                          "DENETIM_VAR_MANUEL_INCELEME_GEREKLI")
         self.assertEqual(statuses["Tek işlem / tek merkezi push hedefi"], "TEKRARLI_PUSH_VAR")
         self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
+
+    def test_kalan_isler_kanitli_ve_onaysizdir(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            report = acceptance(Path(tmp))
+        todo = pending_tasks(report)
+        self.assertEqual(todo["genel_durum"], "HENUZ_ONAYLANMADI")
+        self.assertEqual(todo["bekleyen_is_sayisi"], len(report["kriterler"]))
+        self.assertTrue(all(not item["tamamlandi"] and item["kanit"] and item["sonraki_is"]
+                            for item in todo["isler"]))
+        self.assertTrue(any("IBO Player" in item["alan"] for item in todo["isler"]))
 
     def test_kabul_kanitsiz_asla_tamamlanmaz(self):
         with tempfile.TemporaryDirectory() as tmp:
