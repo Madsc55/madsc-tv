@@ -116,6 +116,8 @@ jobs:
           assert len(audit["items"]) == 92, "Missing detailed legacy evidence"
           assert all(not item["behavioral_parity_verified"] for item in audit["items"]), "Unproven parity accepted"
           assert all("missing_legacy_script_files" in item for item in audit["items"]), "Missing script file evidence absent"
+          assert all(item["migration_gap_reasons"] for item in audit["items"]), "A legacy workflow has no review reason"
+          assert sum(audit["integration_evidence_counts"].values()) == 92, "Evidence classification lost workflows"
           assert len({x["file"] for x in priorities["ordered_workflows"]}) == 92
           assert all(x["gaps"] for x in priorities["ordered_workflows"]), "Missing migration gap evidence"
           assert all(x["priority"] in ("HIGH", "NORMAL") for x in priorities["ordered_workflows"])
