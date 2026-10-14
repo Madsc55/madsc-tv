@@ -19,9 +19,16 @@ class YeniAdayLogoTesti(unittest.TestCase):
                             for r in result["candidates"]))
         self.assertFalse(result["main_playlist_modified"])
 
+    def test_kaynak_guvenligi(self):
+        rows = build([{"channel":"A","stream_sha256":"1","logo_url":""},
+                      {"channel":"A","stream_sha256":"2","logo_url":"http://local/logo.png"},
+                      {"channel":"A","stream_sha256":"3","logo_url":"https://raw.githubusercontent.com/a/logo.png"}], [])
+        self.assertEqual(len(rows["candidates"][0]["same_name_source_suggestions"]), 1)
+        self.assertEqual(rows["candidates"][1]["category"], "LOGO_KAYNAGI_GUVENLIK_INCELEMESI")
+
     def test_ayni_isim_farkli_logo_otomatik_onaylanmaz(self):
         rows = build([{"channel": "A", "stream_sha256": "1", "logo_url": ""},
-                      {"channel": "A", "stream_sha256": "2", "logo_url": "https://a/logo.png"}], [])
+                      {"channel": "A", "stream_sha256": "2", "logo_url": "https://raw.githubusercontent.com/a/logo.png"}], [])
         self.assertEqual(len(rows["candidates"][0]["same_name_source_suggestions"]), 1)
         self.assertFalse(rows["candidates"][0]["playlist_approved"])
 
