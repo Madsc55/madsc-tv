@@ -19,6 +19,17 @@ class MigrationAuditTests(unittest.TestCase):
             self.assertEqual(report["unresolved_dispatch_targets"],[{"source":"one.yml","target":"missing.yml"}])
             self.assertFalse(report["migration_complete"])
 
+    def test_five_files_without_parity_not_success(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            w = root / ".github" / "workflows"
+            w.mkdir(parents=True)
+            for i in range(5):
+                (w / f"workflow-{i}.yml").write_text("name: Placeholder\\non:\\n  workflow_dispatch:\\n")
+            report = inspect(root)
+            self.assertEqual(report["workflow_count"], 5)
+            self.assertFalse(report["migration_complete"])
+
     def test_empty_repository_not_success(self):
         with tempfile.TemporaryDirectory() as d:
             report=inspect(Path(d))
