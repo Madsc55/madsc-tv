@@ -15,7 +15,7 @@ concurrency:
 jobs:
   kademe-1-guvenlik:
     name: 1 - Guvenlik tek toplu kosu
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[madsc-full-batch]')
     uses: ./.github/workflows/madsc-01-guvenlik.yml
     permissions:
       contents: read
@@ -23,7 +23,7 @@ jobs:
   kademe-2-kesif:
     name: 2 - Kesif tek toplu kosu
     needs: kademe-1-guvenlik
-    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    if: ${{ always() && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[madsc-full-batch]')) }}
     uses: ./.github/workflows/madsc-02-kesif.yml
     permissions:
       contents: read
@@ -31,7 +31,7 @@ jobs:
   kademe-3-kanal-test:
     name: 3 - Kanal testleri tek toplu kosu
     needs: kademe-2-kesif
-    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    if: ${{ always() && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[madsc-full-batch]')) }}
     uses: ./.github/workflows/madsc-03-kanal-test.yml
     permissions:
       contents: read
@@ -39,7 +39,7 @@ jobs:
   kademe-4-arsiv-yedek:
     name: 4 - Arsiv ve yedek tek toplu kosu
     needs: kademe-3-kanal-test
-    if: ${{ always() && github.event_name == 'workflow_dispatch' }}
+    if: ${{ always() && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[madsc-full-batch]')) }}
     uses: ./.github/workflows/madsc-04-arsiv-yedek.yml
     permissions:
       contents: read
