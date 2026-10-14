@@ -39,15 +39,20 @@ def assemble(source, duplicate, backups, identity, failures, tasks):
         {"excess_test_runs": duplicate.get("excess_test_runs") if isinstance(duplicate, dict) else None},
         "Gercek gecmisle tekrar maliyetini dogrula; test guvenlik kurallarini bozma.", "GECMIS")
     restore_state = backups.get("restore_test") if isinstance(backups, dict) else None
+    historical = backups.get("historical_recovery_verified") is True if isinstance(backups, dict) else False
+    external = backups.get("off_github_copy") == "DOGRULANDI" if isinstance(backups, dict) else False
+    full_backup = restore_state == "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI" and historical and external
     add(3, "Yedek geri yukleme",
+        "YEDEK_KANITLARI_DOGRULANDI" if full_backup else
         "GIT_HEAD_IZOLE_ESLESME_VAR_HARICI_YEDEK_DOGRULANMADI" if restore_state == "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI" else "GERI_YUKLEME_KANITI_EKSIK",
         {"protected_missing": backups.get("protected_missing") if isinstance(backups, dict) else None,
          "restore_test": restore_state,
-         "historical_recovery_verified": False},
+         "historical_recovery_verified": historical,
+         "off_github_copy_verified": external},
         "Bagimsiz kopya ve izole geri yukleme kanitini dogrula.", "HARICI_YEDEK_ERISIMI")
     add(4, "Logo EPG kanal kimligi", "KIMLIK_KANITI_BEKLIYOR_CIHAZ_TESTI_KAPSAM_DISI",
         {"report_present": isinstance(identity, dict), "ibo_device_retest": False,
-         "ibo_user_field_observation": "740 yabanci kanal IBO icinde goruldu ve denendi; her URL tek tek onayli sayilmaz",
+         "ibo_user_field_observation": "Kullanıcı cihazında doğrulanmış tekil kanal kanıtı bu raporda yok",
          "technical_false_negative_possible": True},
         "Kanal kimligi ve logo EPG eslesmesini cihaz testi istemeden eldeki kanitlarla incele.", "KANAL_KIMLIK_KANITI")
     add(5, "Actions hata analizi", "IS_ADIM_KANITI_VAR" if isinstance(failures, dict) else "KANIT_YOK",

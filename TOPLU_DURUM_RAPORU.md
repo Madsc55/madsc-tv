@@ -82,3 +82,8 @@ Merkezi #95 kullanıcı ekranında yeşil. Ana liste sağlık koşusu ile kanal 
 ## 14 Ekim — Tek ekran açık işlerde yanlış tekrarlar giderildi
 
 Kullanıcının ekranında merkezi #96, otomatik devam #33 ve birleşik keşif #109 yeşil. Toplu raporun yedek kontrolünde bağımsız kopya ve geri yükleme maddeleri zaten ayrı kanıt olarak kontrol edilirken koşulsuz ikinci bir `HARICI_YEDEK` maddesi ekleniyordu; bu mükerrer açık iş kaldırıldı. Logo/EPG kaynak dökümü boş olduğunda eksik kanıtın görünmeden kaybolması önlendi. İlgili regresyon testi eklendi. Bu işlem gerçek cihaz/EPG ve yedek kanıtı yerine geçmez; korunan listeler değiştirilmez.
+
+
+## 14 Ekim — Sekiz kalan görevde sabit yedek sonucu kaldırıldı
+
+Kullanıcı merkezi testlerin yeşil olduğunu bildirdi. Sekiz görevlik merkezi karar tablosunda tarihsel yedek kanıtı koşulsuz `False` gösteriliyordu; artık gerçek `historical_recovery_verified`, `off_github_copy` ve izole geri yükleme durumuna göre raporlanır. Üçü doğrulanmadıkça tamamlandı denmez. Ayrıca cihaz bazlı kanıt olmadan sabit yabancı kanal sayısı veya toplu IBO onayı iddiası kaldırıldı. Yeni regresyon testi eklendi. Korunan kanal ve yedek dosyalarına dokunulmadı. Yeni merkezi koşu sonucu bekleniyor.

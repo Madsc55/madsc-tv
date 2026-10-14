@@ -20,6 +20,16 @@ class TopluKalanIsTesti(unittest.TestCase):
         self.assertFalse(result["jobs"][2]["evidence"]["historical_recovery_verified"])
         self.assertFalse(result["all_done"])
 
+    def test_tam_yedek_kaniti_eski_sabit_eksik_durumunu_kaldirir(self):
+        result = assemble(None, None, {
+            "restore_test": "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI",
+            "historical_recovery_verified": True,
+            "off_github_copy": "DOGRULANDI"}, None, None, None)
+        self.assertEqual(result["jobs"][2]["status"], "YEDEK_KANITLARI_DOGRULANDI")
+        self.assertTrue(result["jobs"][2]["evidence"]["historical_recovery_verified"])
+        self.assertTrue(result["jobs"][2]["evidence"]["off_github_copy_verified"])
+        self.assertFalse(result["all_done"])
+
     def test_olcum_dosyasi_var_sayi_yoksa_olcum_sayilmaz(self):
         result = assemble({}, {"status": "OK"}, {}, {}, {}, {})
         self.assertEqual(result["jobs"][1]["status"], "GECMIS_KANITI_YOK")
