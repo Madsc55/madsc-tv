@@ -1,0 +1,21 @@
+name: MADSC 04 - Arsiv ve Yedek
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archive-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/central_backup_evidence.py
+      - run: python3 -m unittest test_central_backup_evidence -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-04-arsiv
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
