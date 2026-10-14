@@ -1,0 +1,23 @@
+name: MADSC 01 - Guvenlik
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install PyYAML
+      - run: python3 scripts/central_protected_write_gate.py
+      - run: python3 -m unittest test_central_protected_write_gate -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-01-guvenlik
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
