@@ -40,6 +40,42 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         self.assertIn("contents: read", self.workflow)
         self.assertIn("persist-credentials: false", self.workflow)
 
+    def test_06_bes_is_gercek_rapor_entegrasyonu(self):
+        """Tek kosuda bes bolumun acik kanitlari kaybolmadan raporlanir."""
+        import json
+        import tempfile
+        from scripts.central_single_screen_report import build, markdown
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            discovery = folder / "kesif"
+            discovery.mkdir()
+            (folder / "kesif_ve_yabanci_kaynak_toplu_ozet.json").write_text(
+                json.dumps({"candidate_queue_count": 3, "alternative_queue_count": 2,
+                            "candidate_queue_missing_url": 1,
+                            "alternative_queue_missing_url": 1}), encoding="utf-8")
+            (folder / "tek_islem_coklu_push_analizi.json").write_text(
+                json.dumps({"tekrarli_senaryolar": ["ornek tekrar"],
+                            "merkezi_denetime_ulasamayan_senaryolar": []}), encoding="utf-8")
+            (discovery / "candidate_logo_missing_report.json").write_text(
+                json.dumps({"total_candidates": 3,
+                            "category_counts": {"LOGO_KAYNAGI_YOK": 2}}), encoding="utf-8")
+            report = build(folder, discovery)
+        groups = {row["alan"]: row["acik"] for row in report["toplu_alan_ozeti"]}
+        self.assertEqual(len(groups), 5)
+        self.assertEqual(sum(groups.values()), report["acik_is_sayisi"])
+        self.assertGreater(groups["GUVENLIK_YEDEK"], 0)
+        self.assertGreater(groups["KANAL_KESIF"], 0)
+        self.assertGreater(groups["LOGO_EPG"], 0)
+        self.assertGreater(groups["OTOMASYON"], 0)
+        self.assertGreater(groups["KABUL"], 0)
+        self.assertEqual(report["aday_ve_alternatif"]["candidate_queue_missing_url"], 1)
+        self.assertEqual(report["aday_ve_alternatif"]["alternative_queue_count"], 2)
+        self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
+        output = markdown(report)
+        for group in groups:
+            self.assertIn(group, output)
+        self.assertIn("IBO Player", output)
+
     def test_05_tek_rapor_ve_genel_kabul(self):
         self.assertIn("scripts/central_single_screen_report.py", self.workflow)
         self.assertIn("TEK_EKRAN_TOPLU_SONUC.md", self.workflow)
