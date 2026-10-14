@@ -1,8 +1,9 @@
 """Bulk coverage audit regression: 92 old workflows, five new categories."""
+import csv
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.five_category_92_workflow_audit import inspect
+from scripts.five_category_92_workflow_audit import inspect, main
 
 
 class BulkCoverageTests(unittest.TestCase):
@@ -24,6 +25,22 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(result["legacy_workflows_with_no_shared_script"], 42)
             self.assertEqual(result["behavioral_parity_verified_count"], 0)
             self.assertEqual(len(result["items"]), 92)
+            self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
+
+    def test_review_rows_remain_blocked_without_behavior_evidence(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d) / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    "name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  test:\\n    steps:\\n      - run: python3 scripts/legacy.py\\n")
+            for n, name in enumerate(("guvenlik", "kesif", "kanal-test", "arsiv-yedek", "genel-bakim"), 1):
+                (folder / f"madsc-0{n}-{name}.yml").write_text(
+                    "name: New\\njobs:\\n  test:\\n    steps:\\n      - run: python3 scripts/legacy.py\\n")
+            result = inspect(Path(d))
+            self.assertEqual(result["migration_blocked_count"], 92)
+            self.assertTrue(all(x["migration_decision"] == "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE" for x in result["items"]))
+            self.assertTrue(all(x["possible_replacement_workflows"] for x in result["items"]))
             self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
 
     def test_missing_legacy_workflow_fails_closed(self):
