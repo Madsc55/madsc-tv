@@ -26,6 +26,8 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(result["behavioral_parity_verified_count"], 0)
             self.assertEqual(result["integration_evidence_counts"]["SCRIPT_NAMES_MATCH_ONLY"], 50)
             self.assertEqual(result["integration_evidence_counts"]["PARTIAL_OR_MISSING_SCRIPT_COVERAGE"], 42)
+            self.assertEqual(result["migration_gap_reason_counts"]["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"], 92)
+            self.assertEqual(result["migration_gap_reason_counts"]["UNMATCHED_SCRIPT_ENTRYPOINTS"], 42)
             self.assertEqual(len(result["items"]), 92)
             self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
 
