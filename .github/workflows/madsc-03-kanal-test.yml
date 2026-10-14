@@ -31,6 +31,22 @@ jobs:
           set -euo pipefail
           python3 scripts/central_identity_epg_logo_audit.py
           python3 scripts/central_main_playlist_run_evidence.py
+      - name: EPG ve Pages yayin baglantisi salt okunur kabul kontrolu
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          folder = Path(".github/workflows")
+          old = [p for p in folder.glob("*.yml") if not p.name.startswith("madsc-0")]
+          epg = [(p.name, p.read_text(encoding="utf-8")) for p in old if "epg" in p.name.lower() or "pages" in p.name.lower()]
+          assert epg, "No legacy EPG or Pages workflow found"
+          print("Legacy EPG/Pages workflow sources:", [name for name, _ in epg])
+          for name, raw in epg:
+              print(name, "workflow_run=", "workflow_run:" in raw, "deploy=", "deploy-pages" in raw,
+                    "write=", "contents: write" in raw, "cron=", "cron:" in raw)
+          print("Read-only shadow check; live Pages publication and IBO playback not verified.")
+          PY
       - name: Yayin testi icin ffmpeg aracini kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Ana listeyi salt okunur 50 kanallik partide kontrol et
