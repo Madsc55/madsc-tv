@@ -56,6 +56,24 @@ def inspect(root=ROOT):
         })
     if len(items) != 92:
         raise SystemExit(f"Legacy inventory mismatch: expected 92, found {len(items)}; review before migration")
+    category_paths = sorted(path for path in folder.glob("*.y*ml")
+                            if any(path.name.startswith(prefix) for prefix in new_category_files))
+    new_commands = {}
+    for category_path in category_paths:
+        category_raw = category_path.read_text(encoding="utf-8")
+        new_commands[category_path.name] = set(re.findall(
+            r"(?:(?:python3?|bash|sh)\s+(?:-m\s+\w+\s+)?)([\w./-]+\.(?:py|sh))",
+            category_raw))
+    for item in items:
+        item["shared_script_entrypoints"] = sorted(
+            cmd for cmd in item["commands"]
+            if any(cmd in scripts for scripts in new_commands.values()))
+        item["unmatched_script_entrypoints"] = sorted(
+            set(item["commands"]) - set(item["shared_script_entrypoints"]))
+        item["possible_replacement_workflows"] = sorted(
+            name for name, scripts in new_commands.items()
+            if set(item["commands"]) & scripts)
+        item["behavioral_parity_verified"] = False
     counts = Counter(x["primary_category"] for x in items)
     risks = [x["file"] for x in items if x["contents_write"] and (x["cron_utc"] or x["push"] or x["workflow_run"])]
     return {
@@ -64,6 +82,9 @@ def inspect(root=ROOT):
         "cron_entries": sum(len(x["cron_utc"]) for x in items),
         "push": sum(x["push"] for x in items), "workflow_run": sum(x["workflow_run"] for x in items),
         "manual": sum(x["manual"] for x in items), "write_enabled_with_auto_trigger": risks,
+        "legacy_workflows_with_unmatched_scripts": sum(bool(x["unmatched_script_entrypoints"]) for x in items),
+        "legacy_workflows_with_no_shared_script": sum(not x["shared_script_entrypoints"] for x in items),
+        "behavioral_parity_verified_count": 0,
         "items": items,
         "limitations": [
             "Classification is preliminary, based on filename and commands; manual review of behavior is mandatory.",
@@ -90,6 +111,13 @@ def main():
                             (["push"] if x["push"] else []) + (["workflow_run"] if x["workflow_run"] else []) +
                             (["manual"] if x["manual"] else [])) or "other"
         lines.append(f"| `{x['file']}` | {CATEGORIES[x['primary_category']][0]} | {', '.join(CATEGORIES[n][0] for n in x['related_categories'])} | {triggers} | {', '.join(x['commands'][:4]) or 'YAML adımları'} |")
+    lines += ["", "## 92 eski workflow icin dogrudan betik karsilastirmasi", "",
+              "| Eski workflow | Yeni workflow adaylari | Eslesmeyen betikler |",
+              "|---|---|---|"]
+    for item in report["items"]:
+        replacements = ", ".join(item["possible_replacement_workflows"]) or "YOK"
+        missing = ", ".join(item["unmatched_script_entrypoints"]) or "-"
+        lines.append(f"| `{item['file']}` | {replacements} | {missing} |")
     lines += ["", "## Geçiş kararı", "",
               "Bu liste otomatik **ön sınıflandırmadır**. Her iş akışının gerçek etkisi, izinleri, yazdığı dosyalar, çıktıları ve bağımlılıkları ayrıca doğrulanmadan eski tetik kapatılmaz.",
               "Mevcut yayın/EPG/Pages/yedek zinciri korunur. Kullanıcı onayı olmadan playlist, logo veya arşiv değişmez.", ""]
