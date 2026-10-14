@@ -59,3 +59,9 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - Aynı koşuda 1 Güvenlik, 2 Keşif, 3 Kanal Testi, 4 Arşiv job'ları **SKIPPED**. Sebep: push olayı; bu dört iş sadece manuel workflow_dispatch ile başlıyor.
 - Bu nedenle #38627233310 beşli tam toplu kabul kanıtı değildir. Eski 92 workflow'u silmek veya nihai geçiş yapmak için yeterli değildir.
 - Kategori 1-4 bağımsız toplu workflow_dispatch ve workflow_call olarak hazır; 5. kategori manuel başlatıldığında bunları sırayla çağıracak şekilde bağlı. Canlı manuel başlatma ve sonuç kanıtı açık iş olarak kalır.
+
+## Bes kategori gercek entegrasyon kaniti — 14 Ekim 2026
+- **SUCCESS**: https://github.com/Madsc55/madsc-tv/actions/runs/38627719035 — commit c15b60f8.
+- Github Actions jobs API'de 1 Guvenlik, 2 Kesif, 3 Kanal Testleri, 4 Arsiv/Yedek, 5 Genel Bakim job'larinin **besi de success**. Bu, bir merkezden sirayla cagrilabilen bes ayri kategori toplu workflow'unun teknik entegrasyonunu kanitlar.
+- Bu sonucda var olan betiklerin rapor/regresyon kontrolleri ve kategori 3'un sinirli yayin saglik partisi calisti. Tum 92 eski workflow'un davranissal esdegerligi, 75 aday icin farkli saat testleri, bagimsiz offsite geri yukleme, IBO cihaz EPG kabulü veya ana dala gecis kaniti DEGILDIR.
+- Sonraki adim: 92 workflow'un tek tek yeni kategori/gorev karsiligini ve eski otomatik tetik bagimliliklarini ispatla; ondan sonra kontrollu gecis yap.
