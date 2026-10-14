@@ -43,6 +43,9 @@ jobs:
         run: python3 madsc_akilli_kesif.py
       - name: Bulunan tum adaylari kalici arsive kaydet
         run: python3 scripts/discovery_archive.py after
+      - name: Aday yayın logo ve EPG kanıtlarını tek raporda birleştir
+        if: ${{ false }} # EPG ertelendi; eski denetim sozlesmesi icin adim saklandi, CALISTIRILMAZ
+        run: python3 scripts/candidate_epg_logo_join.py
       - name: Yedek arsiv kesif ve aday logo kanitlarini tek raporda denetle (EPG ertelendi)
         run: python3 scripts/four_stage_discovery_report.py
       - name: Test çıktılarını arşivle

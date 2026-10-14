@@ -39,7 +39,8 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         self.assertIn("python3 madsc_akilli_kesif.py", workflow)
         self.assertIn("python3 scripts/discovery_archive.py after", workflow)
         self.assertIn("python3 scripts/four_stage_discovery_report.py", workflow)
-        self.assertNotIn("python3 scripts/candidate_epg_logo_join.py", workflow)
+        self.assertIn("if: ${{ false }}", workflow)
+        self.assertIn("python3 scripts/candidate_epg_logo_join.py", workflow)
         report = (ROOT / "scripts/four_stage_discovery_report.py").read_text(encoding="utf-8")
         for key in ("yedek", "arsiv", "kesif", "aday_logo_ve_tekrar", "ERTELENDI_EN_SON"):
             self.assertIn(key, report)

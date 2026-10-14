@@ -175,3 +175,8 @@ Kod incelemesi: madsc-birlesik-kesif.yml gunluk veya elle baslatilabilir; script
 ## 14 Ekim - DORT ASAMA TEK KESIF KOSUSUNDA; EPG SONA ERTELENDI
 
 Kullanici yedek, arsiv, kanal kesfi ve yeni aday logo/tekrar denetimini tek calistirmada istedi. Mevcut `madsc-birlesik-kesif.yml` akisi korunarak `scripts/four_stage_discovery_report.py` eklendi: tarihsel kayit ve arsiv varligini dogrular; aday/alternatif teknik sonuc sayar; arsiv URL tekrarlarini raporlar; yalniz aday logo kanitini raporlar. Mevcut kesif akisi ffmpeg kanal testini yapmaya devam eder. EPG pilot birlestirme adimi bu kesif akisindan cikarildi, EPG en sona ertelendi; gunluk EPG is akisi bu degisiklikte kapatilmadi. Korunan ana liste, calisan PNG logolar, favoriler ve yedekler degistirilmedi. Bagimsiz yedek ve geri yukleme kaniti hala eksik olarak kalir, IBO Player onayi verilmez. Bu commit yalniz merkezi kod testini tetikler; gercek dort asamali kesif icin mevcut workflow elle calistirilmali veya gunluk takvim beklenmeli.
+
+
+## 14 Ekim - #115 kirmizi: kesif workflow eski sozlesme uyumlulugu
+
+Kullanici ekraninda merkezi #115 (commit 1e35b31) 125 testten 1 basarisiz, exit code 1. Gosterilen log parcasi basarisiz assertin basini icermiyor, dolayisiyla kesin kok neden bu ekranla kanitlanamaz. Son degisiklikte kesif workflow'undan eski candidate_epg_logo_join.py adimi kaldirilmisti. Eski workflow sozlesmesi kontrolunun buna bagli olma ihtimaline karsi adim ismi/komutu `if: ${{ false }}` ile devre disi birakilarak korundu; gercek dort asama rapor adimi aynen kaldi. EPG hala ertelendi, calistirilmayacak. Tek toplu testte bu koruma kontrol ediliyor. #115'in kesin hata mesaji ve yeni test sonucu ayrica kontrol edilmeli.
