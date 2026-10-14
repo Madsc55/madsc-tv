@@ -18,6 +18,15 @@ class TekMerkezKuralTesti(unittest.TestCase):
         self.assertIn("  contents: read", logo)
         self.assertIn("Korunan kanal listesi degisikliklerini engelle", logo)
 
+    def test_yeni_aday_png_tek_kesif_turunda_hazirlanir(self):
+        workflow = (ROOT / ".github/workflows/madsc-birlesik-kesif.yml").read_text()
+        discovery = (ROOT / "madsc_akilli_kesif.py").read_text()
+        self.assertIn("python3 madsc_akilli_kesif.py", workflow)
+        self.assertNotIn("python -m scripts.candidate_logo_report", workflow)
+        self.assertIn("prepare_candidate_artwork(artwork,previous,limit=40)", discovery)
+        self.assertIn('candidate_logo_missing_report.json', discovery)
+        self.assertIn("Aday yayın logo ve EPG kanıtlarını tek raporda birleştir", workflow)
+
     def test_korunan_yazma_kapisi_merkezde(self):
         gate = (ROOT / ".github/workflows/test-31-protected-write-gate.yml").read_text()
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()

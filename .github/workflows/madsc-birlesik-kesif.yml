@@ -48,9 +48,6 @@ jobs:
         run: python3 madsc_akilli_kesif.py
       - name: Bulunan tum adaylari kalici arsive kaydet
         run: python3 scripts/discovery_archive.py after
-      - name: Aday logolarını ayrı PNG incelemesine hazırla
-        run: |
-          python -m scripts.candidate_logo_report
       - name: Aday yayın logo ve EPG kanıtlarını tek raporda birleştir
         run: python3 scripts/candidate_epg_logo_join.py
       - name: Test çıktılarını arşivle
