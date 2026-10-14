@@ -34,7 +34,10 @@ def classify(filename, commands):
 def inspect(root=ROOT):
     folder = root / ".github" / "workflows"
     items = []
+    new_category_files = {f"madsc-0{n}-" for n in range(1, 6)}
     for path in sorted(folder.glob("*.y*ml")):
+        if any(path.name.startswith(prefix) for prefix in new_category_files):
+            continue  # Five new category workflows are not among the original 92.
         raw = path.read_text(encoding="utf-8")
         commands = list(dict.fromkeys(re.findall(r"(?:(?:python3?|bash|sh)\s+(?:-m\s+\w+\s+)?)([\w./-]+\.(?:py|sh))", raw)))
         uses = list(dict.fromkeys(re.findall(r"^\s+-?\s*uses:\s*([^\s#]+)", raw, re.M)))
@@ -51,6 +54,8 @@ def inspect(root=ROOT):
             "commands": commands, "actions": uses, "output_hints": outputs,
             "requires_manual_behavior_review": True,
         })
+    if len(items) != 92:
+        raise SystemExit(f"Legacy inventory mismatch: expected 92, found {len(items)}; review before migration")
     counts = Counter(x["primary_category"] for x in items)
     risks = [x["file"] for x in items if x["contents_write"] and (x["cron_utc"] or x["push"] or x["workflow_run"])]
     return {
