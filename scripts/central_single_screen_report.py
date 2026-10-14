@@ -27,7 +27,7 @@ def build(folder, discovery_folder=None):
     stages = []
     missing = []
     for stage, names in FILES.items():
-        absent = [name for name in names if read(folder, name) is None]
+        absent = [name for name in names if not isinstance(read(folder, name), dict)]
         missing.extend(absent)
         stages.append({"asama": stage, "eksik": absent,
                        "durum": "KANIT_EKSIK" if absent else "RAPOR_VAR_CIHAZ_KABULU_AYRI"})
@@ -69,6 +69,7 @@ def build(folder, discovery_folder=None):
                 problems.append({"tur": "ADAY_LOGO_INCELEME", "aciklama": "{}: {} aday".format(category, count)})
     problems += [{"tur": "GEREKSIZ_TEKRAR", "aciklama": name} for name in push.get("tekrarli_senaryolar", [])]
     problems += [{"tur": "MERKEZ_TETIKLEME_EKSIK", "aciklama": name} for name in push.get("merkezi_denetime_ulasamayan_senaryolar", [])]
+    problems += [{"tur": "MERKEZ_DISI_TETIKLEME", "aciklama": name} for name in push.get("tek_kosu_ama_merkez_disinda", [])]
     verified_states = ("TAMAMLANDI", "ONAYLANDI", "YEDEK_KANITLARI_DOGRULANDI")
     problems += [{"tur": "KALAN_IS", "aciklama": str(item.get("name", "?")) + ": " + str(item.get("status", "?"))}
                  for item in jobs.get("jobs", []) if isinstance(item, dict) and item.get("status") not in verified_states]
@@ -83,7 +84,7 @@ def build(folder, discovery_folder=None):
         "GUVENLIK_YEDEK": {"RAPOR_EKSIK", "YEDEK_GERI_YUKLEME", "TARIHSEL_YEDEK", "HARICI_KOPYA"},
         "KANAL_KESIF": {"KANAL_KOSU_KANITI"},
         "LOGO_EPG": {"KIMLIK_KAYNAGI_EKSIK", "KIMLIK_KAYNAK_LISTESI_YOK", "ADAY_LOGO_INCELEME", "LOGO_RAPORU_HATALI"},
-        "OTOMASYON": {"GEREKSIZ_TEKRAR", "MERKEZ_TETIKLEME_EKSIK"},
+        "OTOMASYON": {"GEREKSIZ_TEKRAR", "MERKEZ_TETIKLEME_EKSIK", "MERKEZ_DISI_TETIKLEME"},
         "KABUL": {"KALAN_IS", "CIHAZ_ONAYI"},
     }
     by_group = {name: [] for name in groups}

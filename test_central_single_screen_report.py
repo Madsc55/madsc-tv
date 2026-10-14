@@ -90,6 +90,19 @@ class TekEkranTopluTest(unittest.TestCase):
         self.assertEqual(result["genel_kabul"], "HENUZ_ONAYLANMADI")
         self.assertEqual(result["kanal_kosusu"], "KOSU_KANITI_YOK")
 
+    def test_gecersiz_rapor_ve_merkez_disi_tetikleme(self):
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            (folder / "protected-write-gate-report.json").write_text(json.dumps(["gecersiz"]))
+            (folder / "tek_islem_coklu_push_analizi.json").write_text(json.dumps({
+                "tek_kosu_ama_merkez_disinda": ["Korunan liste"]}))
+            result = build(folder, folder / "olmayan_kesif")
+        self.assertTrue(any("protected-write-gate-report.json" in row["eksik"]
+                            for row in result["bes_asama"]))
+        self.assertTrue(any(item["tur"] == "MERKEZ_DISI_TETIKLEME"
+                            for item in result["acik_isler"]))
+
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
         self.assertNotIn("CALISANLAR.m3u", source)

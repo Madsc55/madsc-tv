@@ -111,3 +111,8 @@ Kullanicinin ekraninda #101 (88afd6d) yesil ve 28 saniyede tamamlanmis. #100 onc
 ## 14 Ekim - #102 sonrasi toplu kanit dayanıkliligi
 
 #102 merkezi test kullanici ekraninda yesil. Kanal sagligi, logo/EPG, yedek, kalan is ve push kanitlari beklenmedik JSON dizi tipinde geldiginde merkezi raporun cokmesini engelleyen guvenli tip kontrolu ve tek regresyon testi eklendi. Bozuk kanit kabul onayi sayilmaz. Korunan playlist ve yedekler degistirilmedi. Yeni test sonucu bekleniyor.
+
+
+## 14 Ekim - #103 sonrasi toplu kanit kontrolu
+
+Kullanici #103 testini yesil gosterdi. Bes asamada gecersiz JSON dizi tipindeki rapor artik var kabul edilmiyor; merkezi tetikleme raporunda merkez disi tek kosu acik madde olarak siniflandiriliyor. Bir regresyon testi eklendi. Ana liste, logo ve yedekler degistirilmedi. Yeni merkezi test sonucu bekleniyor.
