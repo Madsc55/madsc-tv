@@ -80,6 +80,16 @@ class TekEkranTopluTest(unittest.TestCase):
         for area in result["toplu_alan_ozeti"]:
             self.assertIn("| {} | {} |".format(area["alan"], area["acik"]), output)
 
+    def test_bozuk_kanit_json_turleri_cokertmez(self):
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            for name in ("tek_islem_coklu_push_analizi.json", "kalan_isler_tek_kosu_karar_tablosu.json", "yedek_ve_korunan_dosyalar_kanit.json", "logo_epg_kimlik_gecmis_tek_rapor.json", "ana_liste_saglik_kosu_kaniti.json"):
+                (folder / name).write_text(json.dumps(["yanlis tur"]))
+            result = build(folder, folder / "olmayan_kesif")
+        self.assertEqual(result["genel_kabul"], "HENUZ_ONAYLANMADI")
+        self.assertEqual(result["kanal_kosusu"], "KOSU_KANITI_YOK")
+
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
         self.assertNotIn("CALISANLAR.m3u", source)

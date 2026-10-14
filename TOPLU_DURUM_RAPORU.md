@@ -106,3 +106,8 @@ Kullanıcı #100 koşusunda 114 testten birinin başarısız olduğunu gösterdi
 ## 14 Ekim - Merkezi #101 sonrasi toplu is sirasi
 
 Kullanicinin ekraninda #101 (88afd6d) yesil ve 28 saniyede tamamlanmis. #100 onceki surumun hatali kosusudur. Sonraki tek paket: kesif adaylari ve yayin kanitlari; yeni aday logo ve EPG kimlik kontrolleri; tarihsel ve harici yedek kanitlari; otomasyon tekrar envanteri; bes asamali nihai kabul. Yeni ayri workflow acilmadan tek merkezde raporlanacak. Yesil CI sonucu cihaz onayi degildir. Korunan listeler ve yedekler degistirilmeyecek.
+
+
+## 14 Ekim - #102 sonrasi toplu kanit dayanıkliligi
+
+#102 merkezi test kullanici ekraninda yesil. Kanal sagligi, logo/EPG, yedek, kalan is ve push kanitlari beklenmedik JSON dizi tipinde geldiginde merkezi raporun cokmesini engelleyen guvenli tip kontrolu ve tek regresyon testi eklendi. Bozuk kanit kabul onayi sayilmaz. Korunan playlist ve yedekler degistirilmedi. Yeni test sonucu bekleniyor.

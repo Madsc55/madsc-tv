@@ -38,10 +38,15 @@ def build(folder, discovery_folder=None):
                 row["eksik"].append("madsc_kesif/candidate_logo_missing_report.json")
                 row["durum"] = "KANIT_EKSIK"
     push = read(folder, "tek_islem_coklu_push_analizi.json") or {}
+    push = push if isinstance(push, dict) else {}
     jobs = read(folder, "kalan_isler_tek_kosu_karar_tablosu.json") or {}
+    jobs = jobs if isinstance(jobs, dict) else {}
     backup = read(folder, "yedek_ve_korunan_dosyalar_kanit.json") or {}
+    backup = backup if isinstance(backup, dict) else {}
     identity = read(folder, "logo_epg_kimlik_gecmis_tek_rapor.json") or {}
+    identity = identity if isinstance(identity, dict) else {}
     channel = read(folder, "ana_liste_saglik_kosu_kaniti.json") or {}
+    channel = channel if isinstance(channel, dict) else {}
     sources = identity.get("evidence", {})
     sources = sources if isinstance(sources, dict) else {}
     missing_sources = [key for key, item in sources.items() if not isinstance(item, dict) or item.get("available") is not True]
