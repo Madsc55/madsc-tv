@@ -53,3 +53,9 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - GitHub jobs API'de rapor kontrolleri, regresyon testleri, korunan dosya SHA256 kontrolu ve artifact yukleme adimlari ayri ayri **SUCCESS**.
 - Bir onceki iki kategori-5 run'i da basarili (#38620022983, #38619953358).
 - Bu yalniz kategori 5 icin CI kanitidir; kategori 1-4 canli testleri, 92 workflow islev esdegerligi, IBO EPG, harici restore ve 75 aday henuz tamamlandi sayilmaz.
+
+## Yeni canli CI sonucu — 14 Ekim 2026
+- GitHub Actions #38627233310 (commit 554cf2d6) **SUCCESS**; genel bakım job'u başarılı.
+- Aynı koşuda 1 Güvenlik, 2 Keşif, 3 Kanal Testi, 4 Arşiv job'ları **SKIPPED**. Sebep: push olayı; bu dört iş sadece manuel workflow_dispatch ile başlıyor.
+- Bu nedenle #38627233310 beşli tam toplu kabul kanıtı değildir. Eski 92 workflow'u silmek veya nihai geçiş yapmak için yeterli değildir.
+- Kategori 1-4 bağımsız toplu workflow_dispatch ve workflow_call olarak hazır; 5. kategori manuel başlatıldığında bunları sırayla çağıracak şekilde bağlı. Canlı manuel başlatma ve sonuç kanıtı açık iş olarak kalır.
