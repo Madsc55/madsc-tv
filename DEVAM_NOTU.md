@@ -1,3 +1,9 @@
+## 14 Ekim 2026 — #125 TEK HATA / TEST VERISI KOK NEDENI
+- Kullanici ekraninda #125 (02d9f79) kirmizi: 128 test, 1 hata, 30 saniye. Goruntude tam traceback yok.
+- Yeni eklenen test_raporda_bilerek_tetiklenmeyen_notlar_hata_sayilmaz testindeki sahte YAML, Python icinde literal \\n karakterleriyle yazilmis; gercek satir sonu olmadigindan push_rules eslesmiyordu. Bu test verisi gercek yeni satirlara duzeltildi.
+- Merkezi denetim kodu, kanal listeleri, otomasyon zamanlari ve PNG logolar degistirilmedi. Bir sonraki merkezi CI yesil gorulmeden tamamlandi denmez.
+- Kalan isler: workflow sayisi/yuku; 1 ve 15 yedek/restore; gunde iki kez tek kanal+logo kesfi; teknik tekrar testi; IBO onayi; EPG en son.
+
 ## 14 Ekim 2026 — #124 YESIL / TOPLU IZLEME DUZELTMESI
 - Kullanici ekraninda #124, 6a22b44 commit, 25 saniye, YESIL. #123 kirmizi, #124 yesil.
 - Merkezi tek-islem raporunda DEVAM_NOTU ve TOPLU_DURUM_RAPORU degisikliklerinin bilerek push tetiklememesi artik "eksik merkezi tetik" degil, ayri istisna kategorisi olarak raporlanir. Diger push eksikleri gizlenmez.
