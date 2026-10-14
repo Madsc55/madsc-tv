@@ -83,6 +83,8 @@ jobs:
           python3 scripts/central_single_screen_report.py
       - name: Kategoriye ait tum regresyon testleri
         run: python3 -m unittest test_five_system_migration_audit test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report -v
+      - name: Esdegerlik kapisi regresyon testleri
+        run: python3 -m unittest test_five_system_migration_audit -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
