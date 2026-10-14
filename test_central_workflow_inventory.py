@@ -62,6 +62,18 @@ class MerkeziDenetimTesti(unittest.TestCase):
         security = next(row for row in report["stages"] if row["number"] == 1)
         self.assertNotIn("madsc-ana-liste-saglik.yml", security["workflows"])
 
+    def test_yedek_epg_logo_dogru_kategoride(self):
+        report = json.loads((OUT / "bes_asama_tum_workflow_eslestirmesi.json").read_text(encoding="utf-8"))
+        stages = {row["number"]: set(row["workflows"]) for row in report["stages"]}
+        inv = json.loads((OUT / "merkezi_oncelik_ve_koruma_raporu.json").read_text(encoding="utf-8"))
+        for item in inv["all_workflows"]:
+            if item["category"] == "YEDEK_VE_KURTARMA":
+                self.assertIn(item["file"], stages[4])
+                self.assertNotIn(item["file"], stages[1])
+            if item["category"] in ("EPG", "LOGO"):
+                self.assertIn(item["file"], stages[3])
+                self.assertNotIn(item["file"], stages[4])
+
     def test_koruma_ve_rapor_sozlesmesi(self):
         report = json.loads((OUT / "merkezi_oncelik_ve_koruma_raporu.json").read_text(encoding="utf-8"))
         self.assertEqual(report["safety"], {
