@@ -52,7 +52,7 @@ class BesIsTekDosyaTesti(unittest.TestCase):
             (folder / "kesif_ve_yabanci_kaynak_toplu_ozet.json").write_text(
                 json.dumps({"candidate_queue_count": 3, "alternative_queue_count": 2,
                             "candidate_queue_missing_url": 1,
-                            "alternative_queue_missing_url": 1}), encoding="utf-8")
+                            "alternative_queue_missing_url": 1, "candidate_urls_already_in_main": 2, "alternative_urls_already_in_main": 1}), encoding="utf-8")
             (folder / "tek_islem_coklu_push_analizi.json").write_text(
                 json.dumps({"tekrarli_senaryolar": ["ornek tekrar"],
                             "merkezi_denetime_ulasamayan_senaryolar": []}), encoding="utf-8")
@@ -73,6 +73,8 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         missing_urls = [item for item in report["acik_isler"]
                         if item["tur"] == "YAYIN_ADRESI_EKSIK"]
         self.assertEqual(len(missing_urls), 2)
+        duplicates = [x for x in report["acik_isler"] if x["tur"] == "ANA_LISTE_TEKRAR_ADAYI"]
+        self.assertEqual(len(duplicates), 2)
         self.assertGreaterEqual(groups["KANAL_KESIF"], 3)
 
         self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")

@@ -65,6 +65,13 @@ def build(folder, discovery_folder=None):
             problems.append({"tur": "YAYIN_ADRESI_EKSIK",
                              "aciklama": "{} kuyrugunda {} eksik URL".format(label, count)})
 
+    for kind, label in (("candidate_urls_already_in_main", "Aday"), ("alternative_urls_already_in_main", "Alternatif")):
+        count = discovery.get(kind)
+        if type(count) is int and count > 0:
+            problems.append({"tur": "ANA_LISTE_TEKRAR_ADAYI", "aciklama": "{} kuyrugunda ana listede mevcut {} URL".format(label, count)})
+    for kind in ("candidate_queue_count", "alternative_queue_count"):
+        if type(discovery.get(kind)) is not int:
+            problems.append({"tur": "KESIF_SAYIM_KANITI_YOK", "aciklama": kind})
     problems += [{"tur": "KIMLIK_KAYNAGI_EKSIK", "aciklama": name} for name in missing_sources]
     if not sources:
         problems.append({"tur": "KIMLIK_KAYNAK_LISTESI_YOK", "aciklama": "Logo/EPG kaynak dökümü boş veya bulunamadı"})
@@ -91,7 +98,7 @@ def build(folder, discovery_folder=None):
     problems.append({"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"})
     groups = {
         "GUVENLIK_YEDEK": {"RAPOR_EKSIK", "YEDEK_GERI_YUKLEME", "TARIHSEL_YEDEK", "HARICI_KOPYA"},
-        "KANAL_KESIF": {"KANAL_KOSU_KANITI", "YAYIN_ADRESI_EKSIK"},
+        "KANAL_KESIF": {"KANAL_KOSU_KANITI", "YAYIN_ADRESI_EKSIK", "ANA_LISTE_TEKRAR_ADAYI", "KESIF_SAYIM_KANITI_YOK"},
         "LOGO_EPG": {"KIMLIK_KAYNAGI_EKSIK", "KIMLIK_KAYNAK_LISTESI_YOK", "ADAY_LOGO_INCELEME", "LOGO_RAPORU_HATALI"},
         "OTOMASYON": {"GEREKSIZ_TEKRAR", "MERKEZ_TETIKLEME_EKSIK", "MERKEZ_DISI_TETIKLEME"},
         "KABUL": {"KALAN_IS", "CIHAZ_ONAYI"},

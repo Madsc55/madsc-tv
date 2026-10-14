@@ -141,3 +141,8 @@ Kullanicinin son merkezi testleri yesil bildirmesi uzerine var olan `test_bes_is
 ## 14 Ekim — Toplu kanit raporunda eksik yayin adresleri acik ise baglandi
 
 Kullanici onceki bes-is entegrasyon testinin yesil oldugunu bildirdi. Merkezi tek ekran raporunda kesif ozetindeki `candidate_queue_missing_url` ve `alternative_queue_missing_url` sayilari daha once yalniz bilgi olarak yaziliyordu. Pozitif ve sayisal degerler artik `YAYIN_ADRESI_EKSIK` olarak kanal/kesif acik is grubuna giriyor; bes grup sayimi ve Markdown cikti ayni tek test dosyasinda dogrulaniyor. URL yoklugu canli yayin basarisizligi demek degildir. Yeni workflow olusturulmadi; korunan listeler ve yedekler degistirilmedi. Son commitin Actions sonucu ayrica dogrulanacak.
+
+
+## 14 Ekim - Tek toplu test: tekrar adaylari ve eksik kesif kaniti
+
+Kullanicinin bildirdigi yesil test sonrasi ana listede mevcut URL adaylari ve eksik aday/alternatif sayim kanitlari tek ekran acik is listesine baglandi. Mevcut bes-is test dosyasina regresyon eklendi. Kanal silinmedi, eklenmedi, yeni workflow acilmadi. Canli IBO testi yapilmadi. Yeni Actions sonucu bekleniyor.
