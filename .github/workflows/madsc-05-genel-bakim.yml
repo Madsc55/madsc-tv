@@ -6,6 +6,9 @@ on:
       - madsc/bes-sistem-toplu-birlestirme
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
+      - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'scripts/five_category_permission_gate.py'
+      - 'test_five_category_permission_gate.py'
 permissions:
   contents: read
   actions: read
