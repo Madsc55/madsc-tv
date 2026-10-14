@@ -24,6 +24,10 @@ Kullanıcıyla kesinleştirildi: Beş ana bölümün yönetimi tek merkezden yap
 
 Ana liste sağlık iş akışında, kod/test/workflow değişiklikleri ağır ffmpeg yayın taramasını ayrıca başlatıyordu. Bu ikinci tetik kaldırıldı. Günlük 06:40 UTC ve manuel çalıştırma korunur; sağlık kodu değişikliği yalnız beş aşamalı merkezi regresyon denetimini başlatır. Ana liste ve kanal kayıtları değiştirilmez. GitHub Actions yeni sonuç doğrulaması beklenir.
 
+## 14 Ekim — Yeni test ve analiz dosyalarının merkezi kontrol boşluğu kapatıldı
+
+Yeni kök test dosyaları ve yeni scripts/ altındaki Python analizleri daha önce merkezi push listesinde tek tek yazılmadıkça denetimi tetiklemeyebilirdi. Merkezi denetime `test_*.py` ve `scripts/*.py` kapsaması eklendi. Ana liste yayın sağlık kodu/workflow ve durum belgesi dahil beş senaryo için yalnız merkezi denetim push koşusu açıldığını doğrulayan regresyon testi eklendi. Bu düzenleme ağır keşif veya kanal taramasını yeniden başlatmaz. Son Actions sonucu bekleniyor; canlı yayın ve IBO kabulü bu testten çıkarılmaz.
+
 ## Tamamlanan otomasyon sadeleştirmeleri
 - Belge kontrolü ve korunan yazma kapısının ayrı push tekrarları kaldırıldı; manuel denetimler korundu.
 - Birleşik keşif, kod değişikliğiyle ağır tarama başlatmaz; günlük zamanlama ve manuel başlatma korunur.

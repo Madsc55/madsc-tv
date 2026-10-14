@@ -62,6 +62,8 @@ on:
       - '.github/workflows/test-31-protected-write-gate.yml'
       - 'test_central_consolidation_audit.py'
       - 'test_tek_merkez_tetikleme.py'
+      - 'test_*.py'
+      - 'scripts/*.py'
       - 'test_central_duplicate_test_audit.py'
       - 'test_central_source_reconciliation.py'
       - 'test_central_eight_task_audit.py'

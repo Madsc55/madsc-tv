@@ -20,6 +20,21 @@ class TopluMerkezTesti(unittest.TestCase):
             self.assertEqual(case["push_is_akislari"],
                              ["madsc-aylik-merkezi-denetim.yml"], case["islem"])
 
+    def test_tum_yeni_testler_ve_analiz_araclari_tek_merkeze_gider(self):
+        root = Path(".github/workflows")
+        flows = {p.name: p.read_text(encoding="utf-8") for p in root.glob("*.y*ml")}
+        scenarios = {
+            "Yeni test": ["test_yeni_regresyon.py"],
+            "Yeni analiz": ["scripts/yeni_analiz.py"],
+            "Ana liste yayın kodu": ["scripts/ana_liste_saglik.py"],
+            "Ana liste sağlık workflow": [".github/workflows/madsc-ana-liste-saglik.yml"],
+            "Toplu rapor": ["TOPLU_DURUM_RAPORU.md"],
+        }
+        report = analyze(flows, scenarios)
+        for case in report["senaryolar"]:
+            self.assertEqual(case["push_is_akislari"],
+                             ["madsc-aylik-merkezi-denetim.yml"], case["islem"])
+
     def test_dokuman_push_yok(self):
         raw = Path(".github/workflows/madsc-documentation-check.yml").read_text()
         self.assertIsNone(push_rules(raw))
