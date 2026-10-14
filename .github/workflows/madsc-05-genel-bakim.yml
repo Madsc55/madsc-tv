@@ -111,6 +111,9 @@ jobs:
           assert priorities["total"] == 92 and len(priorities["ordered_workflows"]) == 92
           assert audit["migration_blocked_count"] == 92, "Unsafe legacy retirement"
           assert len({x["file"] for x in priorities["ordered_workflows"]}) == 92
+          assert all(x["gaps"] for x in priorities["ordered_workflows"]), "Missing migration gap evidence"
+          assert all(x["priority"] in ("HIGH", "NORMAL") for x in priorities["ordered_workflows"])
+          assert all(category["count"] == len(category["workflows"]) for category in queues.values())
           print("Five categories and all 92 outstanding workflows accounted for; no legacy workflow retired.")
           PY
       - name: Kategoriye ait tum regresyon testleri
