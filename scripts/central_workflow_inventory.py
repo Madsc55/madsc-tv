@@ -119,3 +119,47 @@ critical = [x for x in priority if x["category"] in ("YEDEK_VE_KURTARMA", "GUVEN
                     "Mevcut kesif, EPG, yedek ve guvenlik otomasyonlari kapatilmaz."]
 }, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Merkezi oncelik raporu: {len(priority)} is akisi, {sum(x['risk']=='YUKSEK' for x in priority)} yuksek on inceleme.")
+
+# Bes asamali ana sistem: her mevcut workflow tam bir ana asamaya baglanir.
+# Bu salt okunur eslestirme; mevcut tetikleyicileri ve izinleri degistirmez.
+def five_stage(item):
+    category = classify(item)
+    if category in ("YEDEK_VE_KURTARMA", "GUVENLIK"):
+        return 1
+    if category == "KESIF":
+        return 2
+    if category == "ADAY_TEST":
+        return 3
+    if category in ("LOGO", "EPG"):
+        return 4
+    return 5
+
+stage_names = {
+    1: "Guvenlik ve sistem sagligi",
+    2: "Kanal kesfi ve kaynak guvenilirligi",
+    3: "Toplu yayin testleri",
+    4: "Logo EPG ve kanal kimligi",
+    5: "Sonuclar saglik raporlari ve uyarilar",
+}
+stage_workflows = {str(n): [] for n in range(1, 6)}
+for item in items:
+    stage_workflows[str(five_stage(item))].append(item["file"])
+mapped = sorted(name for names in stage_workflows.values() for name in names)
+expected = sorted(item["file"] for item in items)
+if mapped != expected or len(mapped) != len(set(mapped)):
+    raise RuntimeError("Bes asama eslestirmesinde eksik veya tekrar eden workflow var.")
+(out / "bes_asama_tum_workflow_eslestirmesi.json").write_text(
+    json.dumps({
+        "version": 1,
+        "workflow_count": len(items),
+        "mapped_count": len(mapped),
+        "unmapped": [],
+        "stages": [{"number": n, "name": stage_names[n],
+                    "workflows": stage_workflows[str(n)]} for n in range(1, 6)],
+        "limitations": [
+            "Dosya adi ve mevcut kategoriye gore otomatik eslestirme; elle kapsam kontrolu gerekir.",
+            "Eski workflowlar kapatilmadi veya birlestirilmedi.",
+            "Gercek Actions basarisi, gecmis is kapsami veya cihaz testi kaniti degildir."
+        ]
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"{len(mapped)} workflow bes asamaya eksiksiz ve tekrarsiz eslestirildi; tetikleyici degismedi.")
