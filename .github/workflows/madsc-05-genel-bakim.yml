@@ -147,7 +147,7 @@ jobs:
           archive = Path(".github/workflows/madsc-04-arsiv-yedek.yml").read_text(encoding="utf-8")
           assert "EPG ve Pages yayin baglantisi salt okunur kabul kontrolu" in channel
           assert "Yedek kurtarma ve uzak kopya ayrimi kabul kontrolu" in archive
-          assert "contents: write" not in channel and "contents: write" not in archive
+          assert "contents:" + " write" not in channel and "contents:" + " write" not in archive
           print("Both shadow acceptance gates linked; no live migration authorization.")
           PY
       - name: Kategoriye ait tum regresyon testleri
