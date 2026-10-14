@@ -1,3 +1,7 @@
+## 14 Ekim 2026 — #80 MERKEZİ TEST PNG BAĞIMLILIĞI DÜZELTMESİ
+
+#80 merkezi denetimde 95 testten biri başarısız oldu. Yeni prepare([],[]) regresyon testi, merkezi ortamda kurulu olmayan Pillow bağımlılığını gereksiz yere yüklüyordu. PNG dönüştürücü artık yalnız gerçekten PNG dönüştürme gerektiğinde içe aktarılır; boş, logosuz ve güvenlik incelemesindeki adaylarda yüklenmez. Yeni regresyon testi eklendi. Birleşik keşif gerçek PNG işlemlerini sürdürebilir. Ana liste, logolar ve korunan dosyalar değişmedi. GitHub Actions sonucu henüz doğrulanmadı. Önceki notlar saklandı.
+
 ## 14 Ekim 2026 — #106 KIRMIZI BİRLEŞİK KEŞİF LOGO MODÜLÜ DÜZELTMESİ
 
 Kullanıcı ekran görüntüsünde birleşik keşif #106 kırmızı; beş aşamalı merkezi denetim #79 yeşil. Keşif workflow'u scripts/candidate_logo_report.py dosyasını doğrudan çalıştırıyordu; bu durumda sys.path depo kökü yerine scripts dizinini içerdiği için 'from scripts.automatic_png_logos import convert' ModuleNotFoundError verdi. Tek toplu değişiklikte candidate_logo_report.py içindeki lazy import paket modu ve doğrudan script modunda çalışacak şekilde düzeltildi. Birleşik keşif workflow'u python -m scripts.candidate_logo_report kullanacak; regresyon testi prepare([],[]) çağrısında gerçek lazy importu doğrulayacak. Ana liste logoları, yayın bağlantıları, YENİLER, HEPSİ, favoriler, arşiv ve yedekler değişmedi. Güncel Actions sonucu doğrulanmalıdır. Eski kayıtlar korunur.

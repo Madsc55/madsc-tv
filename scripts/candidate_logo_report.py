@@ -20,12 +20,6 @@ def public_artwork_url(url):
         return False
 
 def prepare(candidates, previous, converter=None, limit=240):
-    if converter is None:
-        try:
-            from .automatic_png_logos import convert
-        except ImportError:
-            from automatic_png_logos import convert
-        converter = convert
     saved = {r['stream_sha256']: r for r in previous}
     used = 0
     for candidate in candidates:
@@ -49,6 +43,12 @@ def prepare(candidates, previous, converter=None, limit=240):
             row['status'] = 'PREPARATION_PENDING'
         else:
             used += 1
+            if converter is None:
+                try:
+                    from .automatic_png_logos import convert
+                except ImportError:
+                    from automatic_png_logos import convert
+                converter = convert
             _, png, status = converter(source, output_dir=ROOT / 'madsc_kesif/candidate_pngs')
             row.update(status='PNG_READY_REVIEW_PENDING' if status in ('png_ready', 'already_local') else 'SOURCE_LOGO_FAILED', conversion=status)
             if status in ('png_ready', 'already_local'):

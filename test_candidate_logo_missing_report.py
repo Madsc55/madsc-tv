@@ -4,6 +4,14 @@ import sys
 from scripts.candidate_logo_missing_report import build
 
 class YeniAdayLogoTesti(unittest.TestCase):
+    def test_logo_png_bagimliligi_sadece_gercek_donusumde_yuklenir(self):
+        from scripts.candidate_logo_report import prepare
+        self.assertEqual(prepare([{"channel": "A", "stream_sha256": "a", "logo_url": ""}], [])[0]["status"],
+                         "MISSING_SOURCE_LOGO_SEARCH_REQUIRED")
+        self.assertEqual(prepare([{"channel": "A", "stream_sha256": "b", "logo_url": "http://local/a.png"}], [])[0]["status"],
+                         "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED")
+        self.assertEqual(prepare([], []), [])
+
     def test_logo_hazirligi_paket_ve_bagimsiz_calistirma(self):
         from scripts.candidate_logo_report import prepare
         self.assertEqual(prepare([], [], converter=lambda *args, **kwargs: None), [])
