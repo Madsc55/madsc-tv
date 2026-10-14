@@ -1,0 +1,33 @@
+name: MADSC 03 - Kanal Testleri
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: madsc-03-kanal-test
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Korunan listelerin SHA256 degerini kaydet
+        run: sha256sum CALISANLAR.m3u YABANCI_KANALLAR.m3u > "${RUNNER_TEMP}/playlist-once"
+      - name: Birim testleri
+        run: python3 -m unittest test_ana_liste_saglik -v
+      - name: Yayın test araci
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Ana listeyi salt okunur 50'lik partide test et
+        run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
+      - name: Korunan listeler degismedi
+        if: always()
+        run: sha256sum -c "${RUNNER_TEMP}/playlist-once"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-03-kanal-test
+          path: madsc_ana_liste_saglik/
+          if-no-files-found: warn
