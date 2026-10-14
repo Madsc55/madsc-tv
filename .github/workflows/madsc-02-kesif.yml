@@ -1,6 +1,7 @@
 name: MADSC 02 - Kanal Kesfi Toplu
 on:
   workflow_dispatch:
+  workflow_call:
 permissions:
   contents: read
   actions: read
