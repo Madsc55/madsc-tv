@@ -107,6 +107,41 @@ jobs:
           gh api --paginate "repos/${GITHUB_REPOSITORY}/actions/workflows?per_page=100" --jq '.workflows[] | {id,name,path,state}' > madsc_merkezi_denetim/github_workflow_durumlari.jsonl
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '[.workflow_runs[] | {workflow_id,name,status,conclusion,run_id:.id,created_at,html_url}]' > madsc_merkezi_denetim/son_100_kosu.json
           python3 scripts/central_run_status.py
+          # Her push sonrasi, yeni kosu beklemeden, son tamamlanmis run'lari
+          # GitHub API uzerinden oku; yeni test veya workflow tetikleme.
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          folder = Path("madsc_merkezi_denetim")
+          runs = json.loads((folder / "son_100_kosu.json").read_text(encoding="utf-8"))
+          latest = {}
+          for run in sorted(runs, key=lambda r: r.get("created_at") or "", reverse=True):
+              key = run.get("workflow_id")
+              if key is not None and key not in latest:
+                  latest[key] = run
+          checked = []
+          for run in latest.values():
+              checked.append({
+                  "workflow_id": run.get("workflow_id"),
+                  "name": run.get("name"),
+                  "run_id": run.get("run_id"),
+                  "url": run.get("html_url"),
+                  "status": run.get("status"),
+                  "conclusion": run.get("conclusion"),
+                  "verified_success": run.get("status") == "completed" and run.get("conclusion") == "success",
+              })
+          summary = {
+              "checked": len(checked),
+              "successful": sum(x["verified_success"] for x in checked),
+              "failed": [x for x in checked if x["status"] == "completed" and x["conclusion"] in ("failure", "timed_out", "startup_failure", "action_required")],
+              "pending": [x for x in checked if x["status"] != "completed"],
+              "unknown": "Only latest runs among the last 100 are covered; missing history is not success.",
+              "workflows": checked,
+          }
+          (folder / "actions_otomatik_sonuc_dogrulama.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+          with open(__import__("os").environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
+              out.write(f"\\n### Otomatik Actions dogrulamasi\\n- Kontrol: {summary['checked']} workflow; basarili: {summary['successful']}; basarisiz: {len(summary['failed'])}; devam: {len(summary['pending'])}\\n")
+          PY
           python3 - <<'PY'
           import json, os, subprocess
           from pathlib import Path
