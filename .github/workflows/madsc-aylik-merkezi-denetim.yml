@@ -28,6 +28,8 @@ on:
       - 'test_central_failure_stage_report.py'
       - 'scripts/central_six_area_audit.py'
       - 'scripts/central_eight_task_audit.py'
+      - 'scripts/central_eighteen_task_audit.py'
+      - 'test_central_eighteen_task_audit.py'
       - 'scripts/central_source_reconciliation.py'
       - 'scripts/central_duplicate_test_audit.py'
       - 'test_central_duplicate_test_audit.py'
@@ -80,6 +82,8 @@ jobs:
         run: python3 scripts/central_source_reconciliation.py
       - name: Sekiz gorevi tek raporda denetle
         run: python3 scripts/central_eight_task_audit.py
+      - name: On sekiz gelistirmeyi bes asamada topluca denetle
+        run: python3 scripts/central_eighteen_task_audit.py
       - name: Alti plan basligini tek raporda denetle
         run: python3 scripts/central_six_area_audit.py
       - name: Merkezi otomasyon risk raporunu test et

@@ -43,6 +43,15 @@ class YonetimOzetiTesti(unittest.TestCase):
             self.assertIn("FIVE_STAGE_MISSING_EVIDENCE", blockers)
             self.assertIn("LATEST_ACTIONS_FAILURES", blockers)
 
+    def test_on_sekiz_gorev_raporu_ozete_girer(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / SOURCES["on_sekiz_gorev"]).write_text(
+                json.dumps({"toplam": 18, "kod_kaniti_eksik": 2}))
+            report = build(folder)
+            self.assertEqual(report["key_indicators"]["eighteen_tasks_mapped"], 18)
+            self.assertEqual(report["key_indicators"]["eighteen_tasks_code_evidence_missing"], 2)
+
     def test_bozuk_json_ayri_raporlanir(self):
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp)

@@ -9,6 +9,7 @@ OUT = ROOT / "madsc_merkezi_denetim"
 OUT.mkdir(exist_ok=True)
 SOURCES = {
     "sekiz_gorev": "sekiz_gorev_tek_merkezi_rapor.json",
+    "on_sekiz_gorev": "on_sekiz_gorev_bes_asama_kanit.json",
     "kaynak_mutabakati": "kaynak_hedef_mutabakati.json",
     "tekrar_test": "tekrar_test_analizi.json",
     "hata_asamalari": "hata_asama_raporu.json",
@@ -40,6 +41,8 @@ def build(folder):
     source_data = sections["kaynak_mutabakati"].get("data", {})
     repeat_data = sections["tekrar_test"].get("data", {})
     indicators = {
+        "eighteen_tasks_mapped": sections["on_sekiz_gorev"].get("data", {}).get("toplam"),
+        "eighteen_tasks_code_evidence_missing": sections["on_sekiz_gorev"].get("data", {}).get("kod_kaniti_eksik"),
         "source_defined": source_data.get("defined"),
         "source_target": source_data.get("target"),
         "source_target_difference": source_data.get("difference"),
