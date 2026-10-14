@@ -42,7 +42,11 @@ def build(root=ROOT):
                 "canli_dogrulandi": False, "ibo_onaylandi": False,
             })
     assert len(records) == 18 and {x["no"] for x in records} == set(range(1, 19))
+    missing = [x["no"] for x in records if x["eksik_dosyalar"]]
     return {
+        "eksik_kod_gorevleri": missing,
+        "canli_kanit_bekleyen_gorevler": [x["no"] for x in records],
+        "tamamlanmis_gorev_sayisi": 0,
         "toplam": 18, "sekiz_taban": 8, "on_ek": 10,
         "bes_asama": {str(n): sum(x["asama"] == n for x in records) for n in range(1, 6)},
         "kod_kaniti_eksik": sum(bool(x["eksik_dosyalar"]) for x in records),

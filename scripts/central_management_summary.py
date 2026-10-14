@@ -43,6 +43,7 @@ def build(folder):
     indicators = {
         "eighteen_tasks_mapped": sections["on_sekiz_gorev"].get("data", {}).get("toplam"),
         "eighteen_tasks_code_evidence_missing": sections["on_sekiz_gorev"].get("data", {}).get("kod_kaniti_eksik"),
+        "eighteen_tasks_live_evidence_pending": len(sections["on_sekiz_gorev"].get("data", {}).get("canli_kanit_bekleyen_gorevler", [])) if isinstance(sections["on_sekiz_gorev"].get("data", {}).get("canli_kanit_bekleyen_gorevler"), list) else None,
         "source_defined": source_data.get("defined"),
         "source_target": source_data.get("target"),
         "source_target_difference": source_data.get("difference"),
@@ -99,6 +100,13 @@ def build(folder):
     indicators["five_stage_evidence_status"] = stage_results
     indicators["actions_current_run_verified"] = False
     blockers = []
+    eighteen = sections["on_sekiz_gorev"].get("data", {})
+    if eighteen.get("eksik_kod_gorevleri"):
+        blockers.append({"code": "EIGHTEEN_TASK_CODE_GAPS", "status": "INCELEME_GEREKLI",
+                         "tasks": eighteen["eksik_kod_gorevleri"]})
+    if eighteen.get("canli_kanit_bekleyen_gorevler"):
+        blockers.append({"code": "EIGHTEEN_TASK_LIVE_EVIDENCE_PENDING", "status": "KANIT_EKSIK",
+                         "tasks": eighteen["canli_kanit_bekleyen_gorevler"]})
     if source_data.get("difference") not in (None, 0):
         blockers.append({"code": "SOURCE_TARGET_MISMATCH", "status": "INCELEME_GEREKLI",
                          "evidence": SOURCES["kaynak_mutabakati"]})

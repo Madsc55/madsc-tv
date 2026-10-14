@@ -54,6 +54,11 @@ def render(workflows, tasks, errors, management=None):
                 for j in jobs) or "JOB_KANITI_YOK"
             lines.append(f"- #{item.get('run_id', '?')} {item.get('workflow', '?')}: {stage}; kok neden icin log gerekir.")
     if isinstance(management, dict):
+        indicators = management.get("key_indicators", {})
+        lines.extend(["", "## 18 geliştirme görevi"])
+        lines.append(f"- Haritalanan: {indicators.get('eighteen_tasks_mapped', 'KANIT_YOK')}")
+        lines.append(f"- Kod kanıtı eksik: {indicators.get('eighteen_tasks_code_evidence_missing', 'KANIT_YOK')}")
+        lines.append(f"- Canlı doğrulama bekleyen: {indicators.get('eighteen_tasks_live_evidence_pending', 'KANIT_YOK')}")
         lines.extend(["", "## Beş aşamalı toplu denetim"])
         for stage in management.get("five_stage_results", []):
             label = "Kanıt eksik" if stage.get("missing_evidence") else "Rapor mevcut; sonuç doğrulaması gerekli"

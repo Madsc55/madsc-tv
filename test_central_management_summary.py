@@ -52,6 +52,18 @@ class YonetimOzetiTesti(unittest.TestCase):
             self.assertEqual(report["key_indicators"]["eighteen_tasks_mapped"], 18)
             self.assertEqual(report["key_indicators"]["eighteen_tasks_code_evidence_missing"], 2)
 
+    def test_on_sekiz_acik_is_engelleri_gizlenmez(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / SOURCES["on_sekiz_gorev"]).write_text(
+                json.dumps({"toplam": 18, "eksik_kod_gorevleri": [4],
+                            "canli_kanit_bekleyen_gorevler": list(range(1, 19))}))
+            report = build(folder)
+            blockers = {x["code"] for x in report["open_blockers"]}
+            self.assertIn("EIGHTEEN_TASK_CODE_GAPS", blockers)
+            self.assertIn("EIGHTEEN_TASK_LIVE_EVIDENCE_PENDING", blockers)
+            self.assertEqual(report["key_indicators"]["eighteen_tasks_live_evidence_pending"], 18)
+
     def test_bozuk_json_ayri_raporlanir(self):
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp)
