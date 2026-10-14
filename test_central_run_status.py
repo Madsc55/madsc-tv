@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -28,6 +29,27 @@ class MerkeziKosuDurumTesti(unittest.TestCase):
             self.assertEqual(report["classifications"]["BASARILI"], 1)
             self.assertEqual(report["classifications"]["BASARISIZ"], 1)
             self.assertEqual(report["classifications"]["SON_100_KOSUDA_YOK"], 1)
+
+    def test_devam_eden_kendi_kosusu_basarili_sayilmaz(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / "madsc_merkezi_denetim"
+            folder.mkdir()
+            (folder / "github_workflow_durumlari.jsonl").write_text(
+                json.dumps({"id": 10, "name": "Merkez", "path": "merkez.yml", "state": "active"}))
+            runs = [
+                {"workflow_id": 10, "run_id": 501, "status": "in_progress",
+                 "conclusion": None, "created_at": "2026-10-14T09:00:00Z"},
+                {"workflow_id": 10, "run_id": 500, "status": "completed",
+                 "conclusion": "success", "created_at": "2026-10-14T08:00:00Z"},
+            ]
+            (folder / "son_100_kosu.json").write_text(json.dumps(runs))
+            env = os.environ.copy()
+            env["GITHUB_RUN_ID"] = "501"
+            subprocess.run([sys.executable, str(SCRIPT)], cwd=tmp, env=env, check=True)
+            report = json.loads((folder / "is_akisi_son_durum_siniflandirma.json").read_text())
+            self.assertTrue(report["current_run_excluded"])
+            self.assertEqual(report["classifications"]["BASARILI"], 1)
+            self.assertEqual(report["workflows"][0]["last_run"]["run_id"], 500)
 
 if __name__ == "__main__":
     unittest.main()
