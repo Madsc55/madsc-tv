@@ -118,6 +118,8 @@ def acceptance(folder):
         {"alan": "Tek işlem / tek merkezi push hedefi", "kanit": "tek_islem_coklu_push_analizi.json",
          "durum": ("TEKRARLI_PUSH_VAR" if isinstance(duplicates, dict)
                    and duplicates.get("tekrarli_senaryolar")
+                   else "MERKEZI_PUSH_TETIKLEME_EKSIK" if isinstance(duplicates, dict)
+                   and duplicates.get("merkezi_denetime_ulasamayan_senaryolar")
                    else "STATIK_KONTROL_TEMIZ_KAPSAM_ONAYSIZ" if isinstance(duplicates, dict)
                    and isinstance(duplicates.get("senaryolar"), list)
                    and duplicates["senaryolar"] else "KANIT_EKSIK")},
@@ -179,7 +181,8 @@ def main():
              f"- Birden fazla push açabilecek senaryo: {len(overlap['tekrarli_senaryolar'])}",
              "| İşlem | Ayrı push koşusu | Durum |", "|---|---:|---|"]
     for case in overlap["senaryolar"]:
-        lines.append(f"| {case['islem']} | {case['ayri_kosu_sayisi']} | {'TEKRAR VAR' if not case['tek_merkez_hedefi_saglandi'] else 'UYGUN'} |")
+        status = "MERKEZ TETIKLENMIYOR" if case["ayri_kosu_sayisi"] == 0 else ("TEKRAR VAR" if case["ayri_kosu_sayisi"] > 1 else "UYGUN")
+        lines.append(f"| {case['islem']} | {case['ayri_kosu_sayisi']} | {status} |")
     lines.extend(["", "### Tetiklenen ayrı workflow dosyaları"])
     for case in overlap["senaryolar"]:
         if not case["tek_merkez_hedefi_saglandi"]:

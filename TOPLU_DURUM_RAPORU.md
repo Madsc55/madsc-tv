@@ -28,6 +28,10 @@ Ana liste sağlık iş akışında, kod/test/workflow değişiklikleri ağır ff
 
 Yeni kök test dosyaları ve yeni scripts/ altındaki Python analizleri daha önce merkezi push listesinde tek tek yazılmadıkça denetimi tetiklemeyebilirdi. Merkezi denetime `test_*.py` ve `scripts/*.py` kapsaması eklendi. Ana liste yayın sağlık kodu/workflow ve durum belgesi dahil beş senaryo için yalnız merkezi denetim push koşusu açıldığını doğrulayan regresyon testi eklendi. Bu düzenleme ağır keşif veya kanal taramasını yeniden başlatmaz. Son Actions sonucu bekleniyor; canlı yayın ve IBO kabulü bu testten çıkarılmaz.
 
+## 14 Ekim — Eksik merkezi tetikleme artık başarı sayılmıyor
+
+Tek merkez kabul raporundaki yanlış olumlu sonuç düzeltildi: aynı dosya değişikliğinde iki push varsa TEKRARLI_PUSH_VAR, hiç push yoksa MERKEZI_PUSH_TETIKLEME_EKSIK, tam bir push varsa statik olarak temiz ama kapsam onaysız sonucu üretilir. Sıfır koşu artık yanlışlıkla TEKRAR VAR olarak gösterilmez. Regresyon testi eklendi. Logo, EPG ve yedek için 'kanıtları kapatmak' silmek değil: eksik yeni aday logolarını doğrulamak, kanal-EPG eşleşmesini kanıtlamak ve yedeklerin geri yüklenebilirliğini doğrulamak demektir. Korunan kanal dosyaları değişmedi; yeni Actions sonucu bekleniyor.
+
 ## Tamamlanan otomasyon sadeleştirmeleri
 - Belge kontrolü ve korunan yazma kapısının ayrı push tekrarları kaldırıldı; manuel denetimler korundu.
 - Birleşik keşif, kod değişikliğiyle ağır tarama başlatmaz; günlük zamanlama ve manuel başlatma korunur.

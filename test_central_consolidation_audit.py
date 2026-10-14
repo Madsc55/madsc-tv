@@ -79,6 +79,20 @@ class TopluMerkezTesti(unittest.TestCase):
         self.assertEqual(statuses["Tek işlem / tek merkezi push hedefi"], "TEKRARLI_PUSH_VAR")
         self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
 
+    def test_sifir_push_kosusu_temiz_sayilmaz(self):
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / "tek_islem_coklu_push_analizi.json").write_text(json.dumps({
+                "senaryolar": [{"islem": "Yeni test", "ayri_kosu_sayisi": 0}],
+                "tekrarli_senaryolar": [],
+                "merkezi_denetime_ulasamayan_senaryolar": ["Yeni test"]}))
+            report = acceptance(folder)
+        statuses = {x["alan"]: x["durum"] for x in report["kriterler"]}
+        self.assertEqual(statuses["Tek işlem / tek merkezi push hedefi"],
+                         "MERKEZI_PUSH_TETIKLEME_EKSIK")
+        self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
+
     def test_kalan_isler_kanitli_ve_onaysizdir(self):
         with tempfile.TemporaryDirectory() as tmp:
             report = acceptance(Path(tmp))
