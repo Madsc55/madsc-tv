@@ -65,3 +65,10 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - Github Actions jobs API'de 1 Guvenlik, 2 Kesif, 3 Kanal Testleri, 4 Arsiv/Yedek, 5 Genel Bakim job'larinin **besi de success**. Bu, bir merkezden sirayla cagrilabilen bes ayri kategori toplu workflow'unun teknik entegrasyonunu kanitlar.
 - Bu sonucda var olan betiklerin rapor/regresyon kontrolleri ve kategori 3'un sinirli yayin saglik partisi calisti. Tum 92 eski workflow'un davranissal esdegerligi, 75 aday icin farkli saat testleri, bagimsiz offsite geri yukleme, IBO cihaz EPG kabulü veya ana dala gecis kaniti DEGILDIR.
 - Sonraki adim: 92 workflow'un tek tek yeni kategori/gorev karsiligini ve eski otomatik tetik bagimliliklarini ispatla; ondan sonra kontrollu gecis yap.
+
+## 14 Ekim — workflow envanterinin yeniden doğrulanması
+- PR #71 dosya listesinde `scripts/five_category_92_workflow_audit.py` ve `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md` bulundu ve içerikleri okundu.
+- Statik betik 92 eski YAML bekler; sayısı değişirse hata verir, beş yeni `madsc-0N-` workflow'unu hariç tutar. Bu **çalıştırılmış envanter sonucu değil**, betik tasarımının doğrulanmasıdır.
+- Tetik envanterinde dokuz cron workflow'u ve bir workflow_run Pages zinciri belgelenmiş. EPG, VOD, yedek ve çift tetiklenme riskleri eşdeğerlik kapısında açık kalır.
+- Run #38630252033 için beş job `success` ve beş artifact kaydı GitHub API üzerinden doğrulandı. Bu yalnız toplu denetim başarısıdır.
+- Sonraki kabul kapısı: üretilen `92_workflow_gorev_ve_kategori_haritasi.json` artifact'ının 92 kaydını ve yazma/tetik risklerini incele; her eski workflow için davranışsal eşdeğerlik kanıtını bağla. **Eski workflow kapatma/silme yetkisi verilmedi.**
