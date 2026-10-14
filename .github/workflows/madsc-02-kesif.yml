@@ -1,12 +1,14 @@
 name: MADSC 02 - Kanal Kesfi Toplu
 on:
+  schedule:
+    - cron: '17 5,17 * * *'
   workflow_dispatch:
   workflow_call:
 permissions:
   contents: read
   actions: read
 concurrency:
-  group: madsc-kesif-tek-kosu
+  group: madsc-kesif-tek-kosu-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   kesif:
@@ -43,4 +45,5 @@ jobs:
           name: madsc-kesif-tek-kosu-rapor
           path: madsc_merkezi_denetim/
           if-no-files-found: warn
-# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.
+# Read-only shadow discovery: twice daily UTC (05:17,17:17) on default branch only.
+# Existing legacy discovery workflows remain enabled; no playlist write or migration approval.
