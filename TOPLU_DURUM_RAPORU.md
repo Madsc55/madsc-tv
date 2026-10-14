@@ -44,6 +44,10 @@ Tek merkez kabul raporundaki yanlış olumlu sonuç düzeltildi: aynı dosya de�
 
 Kullanıcı isteği: tek tek test değil, beş aşamanın tüm eksik/fazla işlerini tek merkezi koşuda göster. `scripts/central_single_screen_report.py` beş aşamadaki 11 raporu, tekrar ve merkez kapsam eksiklerini, açık kalan görevleri, IBO cihaz kabulünü ve harici yedek kanıtını tek `TEK_EKRAN_TOPLU_SONUC.md` ve JSON içinde toplar. Merkezi Actions Summary içine yazılır; aynı artifact ile saklanır. Ağır taramalar yeniden başlatılmaz, korunan playlist ve yedekler değiştirilmez. Yeni Actions sonucu doğrulanmayı bekler.
 
+## 14 Ekim — Toplu raporda aday logo kanıtının gerçek kaynağı düzeltildi
+
+Tek ekran raporunda aday logo dosyası yanlışlıkla merkezi rapor klasöründe aranıyordu. Gerçek keşif kaynağı `madsc_kesif/candidate_logo_missing_report.json` üzerinden okuma eklendi. Aday sayısı yalnız geçerli kanıttan alınır; rapor yoksa sıfır kanal varsayılmaz ve açık eksik olarak gösterilir. Eksik/güvenlik incelemesi isteyen logo kategorileri tek raporda sayılır. Regresyon testi eklendi. Ana liste, favoriler, YENİLER, logolar ve yedeklere yazma yapılmadı. Yeni Actions sonucu bekleniyor.
+
 ## Sıradaki toplu çalışma sırası
 1. Gerçek aday havuzunu ve eksik logo raporunu son keşif artefaktından incele; isim, URL, logo ve kaynak kanıtlarını ayrı kaydet. Eksik logoyu otomatik olarak yanlış bir logoyla doldurma.
 2. Yeni aday yayınlarını ve ana listedeki döngüsel sağlık sonuçlarını karşılaştır; ffprobe başarısızlığını doğrudan IBO başarısızlığı sayma.

@@ -2,12 +2,13 @@
 """Beş aşamanın bütün kanıtlarını tek ekranda toplayan salt okunur rapor."""
 import json
 from pathlib import Path
-OUT = Path(__file__).resolve().parents[1] / "madsc_merkezi_denetim"
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "madsc_merkezi_denetim"
 FILES = {
  "güvenlik": ["protected-write-gate-report.json", "yedek_ve_korunan_dosyalar_kanit.json"],
  "keşif": ["kesif_ve_yabanci_kaynak_toplu_ozet.json", "kaynak_hedef_mutabakati.json"],
  "kanal testleri": ["ana_liste_saglik_kosu_kaniti.json", "tekrar_test_analizi.json"],
- "logo ve EPG": ["logo_epg_kimlik_gecmis_tek_rapor.json", "aday_logo_eksik_raporu.json"],
+ "logo ve EPG": ["logo_epg_kimlik_gecmis_tek_rapor.json"],
  "arşiv ve kabul": ["bes_asama_kabul_kapisi.json", "on_sekiz_gorev_bes_asama_kanit.json", "kalan_isler_tek_kosu_karar_tablosu.json"],
 }
 def read(folder, name):
@@ -15,7 +16,12 @@ def read(folder, name):
         return json.loads((folder / name).read_text(encoding="utf-8"))
     except (OSError, ValueError, UnicodeError):
         return None
-def build(folder):
+def build(folder, discovery_folder=None):
+    discovery_folder = discovery_folder if discovery_folder is not None else ROOT / "madsc_kesif"
+    logo_report = read(discovery_folder, "candidate_logo_missing_report.json")
+    logo_status = ("ADAY_LOGO_KANITI_YOK" if logo_report is None else
+                   "ADAY_LOGO_KAYDI_GECERSIZ" if not isinstance(logo_report.get("total_candidates"), int) else
+                   "ADAY_LOGO_KANITI_VAR_KIMLIK_ONAYSIZ")
     stages = []
     missing = []
     for stage, names in FILES.items():
@@ -23,16 +29,31 @@ def build(folder):
         missing.extend(absent)
         stages.append({"asama": stage, "eksik": absent,
                        "durum": "KANIT_EKSIK" if absent else "RAPOR_VAR_CIHAZ_KABULU_AYRI"})
+    if logo_report is None:
+        missing.append("madsc_kesif/candidate_logo_missing_report.json")
+        for row in stages:
+            if row["asama"] == "logo ve EPG":
+                row["eksik"].append("madsc_kesif/candidate_logo_missing_report.json")
+                row["durum"] = "KANIT_EKSIK"
     push = read(folder, "tek_islem_coklu_push_analizi.json") or {}
     jobs = read(folder, "kalan_isler_tek_kosu_karar_tablosu.json") or {}
     problems = [{"tur": "RAPOR_EKSIK", "aciklama": name} for name in missing]
+    if logo_report is not None and logo_status == "ADAY_LOGO_KAYDI_GECERSIZ":
+        problems.append({"tur": "LOGO_RAPORU_HATALI", "aciklama": "Aday logo raporunun sayısal kanıtı geçersiz"})
+    if logo_report is not None and isinstance(logo_report.get("category_counts"), dict):
+        for category, count in sorted(logo_report["category_counts"].items()):
+            if count and category != "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR":
+                problems.append({"tur": "ADAY_LOGO_INCELEME", "aciklama": "{}: {} aday".format(category, count)})
     problems += [{"tur": "GEREKSIZ_TEKRAR", "aciklama": name} for name in push.get("tekrarli_senaryolar", [])]
     problems += [{"tur": "MERKEZ_TETIKLEME_EKSIK", "aciklama": name} for name in push.get("merkezi_denetime_ulasamayan_senaryolar", [])]
     problems += [{"tur": "KALAN_IS", "aciklama": item.get("name", "?") + ": " + item.get("status", "?")}
                  for item in jobs.get("jobs", []) if item.get("status") not in ("TAMAMLANDI", "ONAYLANDI")]
     problems += [{"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"},
                  {"tur": "HARICI_YEDEK", "aciklama": "Bağımsız yedek ve gerçek geri yükleme kanıtı"}]
-    return {"genel_kabul": "HENUZ_ONAYLANMADI", "bes_asama": stages, "eksik_rapor": len(missing),
+    return {"genel_kabul": "HENUZ_ONAYLANMADI", "bes_asama": stages,
+            "aday_logo_durumu": logo_status,
+            "aday_logo_sayisi": logo_report.get("total_candidates") if isinstance(logo_report, dict) else None,
+            "eksik_rapor": len(missing),
             "gereksiz_tekrar": len(push.get("tekrarli_senaryolar", [])),
             "merkez_kapsam_eksigi": len(push.get("merkezi_denetime_ulasamayan_senaryolar", [])),
             "acik_isler": problems, "acik_is_sayisi": len(problems),
@@ -45,6 +66,8 @@ def markdown(result):
         lines.append("| {} | {} | {} |".format(row["asama"], row["durum"], ", ".join(row["eksik"]) or "Yok"))
     lines += ["", "## Eksik ve fazla işler", "",
               "- Eksik rapor: " + str(result["eksik_rapor"]),
+              "- Yeni aday logo kanıtı: " + result["aday_logo_durumu"],
+              "- Yeni aday sayısı (kanıt varsa): " + str(result["aday_logo_sayisi"]),
               "- Gereksiz push tekrarı: " + str(result["gereksiz_tekrar"]),
               "- Merkeze ulaşmayan senaryo: " + str(result["merkez_kapsam_eksigi"]),
               "- Toplam açık takip maddesi: " + str(result["acik_is_sayisi"]), ""]
