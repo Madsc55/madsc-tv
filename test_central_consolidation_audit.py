@@ -54,9 +54,21 @@ class TopluMerkezTesti(unittest.TestCase):
         todo = pending_tasks(report)
         self.assertEqual(todo["genel_durum"], "HENUZ_ONAYLANMADI")
         self.assertEqual(todo["bekleyen_is_sayisi"], len(report["kriterler"]))
+        self.assertEqual(todo["kanit_mevcut_ama_onay_bekleyen"], 0)
+        self.assertEqual(todo["kanit_eksik_veya_kullanici_onayi_bekleyen"], len(report["kriterler"]))
         self.assertTrue(all(not item["tamamlandi"] and item["kanit"] and item["sonraki_is"]
                             for item in todo["isler"]))
         self.assertTrue(any("IBO Player" in item["alan"] for item in todo["isler"]))
+
+    def test_kanit_mevcut_olsa_bile_son_kabul_yok(self):
+        report = {"genel_kabul": "HENUZ_ONAYLANMADI", "kriterler": [
+            {"alan": "GitHub çalışma geçmişi", "durum": "SON_100_KOSU_VAR", "kanit": "son_100_kosu.json"},
+            {"alan": "IBO Player gerçek cihaz kabulü", "durum": "KULLANICI_ONAYI_BEKLENIYOR", "kanit": "IBO"}]}
+        result = pending_tasks(report)
+        self.assertEqual(result["kanit_mevcut_ama_onay_bekleyen"], 1)
+        self.assertEqual(result["kanit_eksik_veya_kullanici_onayi_bekleyen"], 1)
+        self.assertEqual(result["bekleyen_is_sayisi"], 2)
+        self.assertTrue(all(not x["tamamlandi"] for x in result["isler"]))
 
     def test_kabul_kanitsiz_asla_tamamlanmaz(self):
         with tempfile.TemporaryDirectory() as tmp:

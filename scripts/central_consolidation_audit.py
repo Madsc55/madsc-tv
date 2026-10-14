@@ -137,11 +137,16 @@ def pending_tasks(acceptance_report):
             action = "Son 100 koşu ile daha eski başarısız testlerin arşiv kanıtlarını karşılaştır."
         else:
             action = "18 geliştirme ve 26 koruma kuralının uçtan uca kabul kanıtlarını tamamla."
+        evidence_present = status not in ("KANIT_EKSIK", "KANIT_EKSIK_VEYA_HATALI", "UCA_UCA_KANIT_EKSIK", "KULLANICI_ONAYI_BEKLENIYOR")
         tasks.append({"sira": index, "alan": item["alan"], "durum": status,
+                      "kanit_mevcut": evidence_present,
                       "kanit": item["kanit"], "sonraki_is": action,
                       "tamamlandi": False})
     return {"genel_durum": acceptance_report["genel_kabul"],
-            "bekleyen_is_sayisi": len(tasks), "isler": tasks,
+            "bekleyen_is_sayisi": len(tasks),
+            "kanit_mevcut_ama_onay_bekleyen": sum(x["kanit_mevcut"] for x in tasks),
+            "kanit_eksik_veya_kullanici_onayi_bekleyen": sum(not x["kanit_mevcut"] for x in tasks),
+            "isler": tasks,
             "not": "Bu liste kabul kapısındaki açık kanıtları gösterir; yeşil Actions tüm IPTV kanallarının çalıştığı anlamına gelmez."}
 
 def main():
@@ -171,9 +176,13 @@ def main():
     for item in result["kriterler"]:
         lines.append("- {}: {}".format(item["alan"], item["durum"]))
     lines.extend(["", "## Kalan işler ve kabul kanıtları",
-                  "- Açık kabul maddesi: {}".format(todo["bekleyen_is_sayisi"])])
+                  "- Açık kabul maddesi: {}".format(todo["bekleyen_is_sayisi"]),
+                  "- Kanıt mevcut fakat nihai onay bekliyor: {}".format(todo["kanit_mevcut_ama_onay_bekleyen"]),
+                  "- Kanıt eksik veya IBO onayı bekleniyor: {}".format(todo["kanit_eksik_veya_kullanici_onayi_bekleyen"])])
     for task in todo["isler"]:
-        lines.append("- {}. {}: {}".format(task["sira"], task["alan"], task["sonraki_is"]))
+        lines.append("- {}. {} [{}]: {}".format(task["sira"], task["alan"],
+                     "KANIT VAR / KABUL BEKLIYOR" if task["kanit_mevcut"] else "KANIT / ONAY EKSIK",
+                     task["sonraki_is"]))
     lines.extend(["",
                   "- Kabul için gerçek yayın, geçmiş, güvenlik ve IBO cihaz kanıtları gereklidir.",
                   "- Hiçbir kanal otomatik değiştirilmedi."])
