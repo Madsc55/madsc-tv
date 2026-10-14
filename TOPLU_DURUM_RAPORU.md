@@ -97,3 +97,8 @@ Sekiz görev karar tablosu artık kanıtlı tam yedek durumunu `YEDEK_KANITLARI_
 ## 14 Ekim — Beş alanda tek seferde eksik/fazla değerlendirmesi
 
 Kullanıcı son merkezi testlerin yeşil olduğunu bildirdi. Tek ekran raporuna güvenlik/yedek, kanal/keşif, logo/EPG, otomasyon ve kabul olmak üzere beş alanlı toplu açık iş sayımı eklendi. Her açık madde yalnız bir gruba girer; alan toplamı genel açık iş toplamına eşit olmalıdır. Bu, tek koşuda neyin eksik olduğunu karşılaştırmaya yarar, canlı yayın ve cihaz onayı yerine geçmez. Ayrı bir iş akışı oluşturulmadı; mevcut merkezi test paketine regresyon testi eklendi. Korunan listeler değiştirilmedi.
+
+
+## 14 Ekim — Merkezi #100 hata düzeltmesi
+
+Kullanıcı #100 koşusunda 114 testten birinin başarısız olduğunu gösterdi. Kod incelemesiyle `build()` fonksiyonunda oluşturulan `toplu_alan_ozeti` alanının Markdown çıktı fonksiyonunda yazdırılmadığı görüldü; regresyon testi `Beş alanda toplu açık iş` başlığını bekliyordu. Markdown tablosu eklendi; test artık beş satırın açık madde sayılarının da yazıldığını kontrol eder. Korunan kanal ve yedek dosyaları değiştirilmedi. Yeni merkezi test sonucu ayrıca doğrulanacaktır.

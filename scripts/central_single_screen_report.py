@@ -107,6 +107,10 @@ def markdown(result):
              "| Aşama | Durum | Eksik raporlar |", "|---|---|---|"]
     for row in result["bes_asama"]:
         lines.append("| {} | {} | {} |".format(row["asama"], row["durum"], ", ".join(row["eksik"]) or "Yok"))
+    lines += ["", "## Beş alanda toplu açık iş değerlendirmesi", "",
+              "| Alan | Açık madde | Durum |", "|---|---:|---|"]
+    for area in result["toplu_alan_ozeti"]:
+        lines.append("| {} | {} | {} |".format(area["alan"], area["acik"], area["durum"]))
     lines += ["", "## Eksik ve fazla işler", "",
               "- Eksik rapor: " + str(result["eksik_rapor"]),
               "- Yeni aday logo kanıtı: " + result["aday_logo_durumu"],

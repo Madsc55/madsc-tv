@@ -75,7 +75,10 @@ class TekEkranTopluTest(unittest.TestCase):
             result = build(Path(temp), Path(temp) / "olmayan_kesif")
         self.assertEqual(len(result["toplu_alan_ozeti"]), 5)
         self.assertEqual(sum(x["acik"] for x in result["toplu_alan_ozeti"]), result["acik_is_sayisi"])
-        self.assertIn("Beş alanda toplu açık iş", markdown(result))
+        output = markdown(result)
+        self.assertIn("Beş alanda toplu açık iş", output)
+        for area in result["toplu_alan_ozeti"]:
+            self.assertIn("| {} | {} |".format(area["alan"], area["acik"]), output)
 
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
