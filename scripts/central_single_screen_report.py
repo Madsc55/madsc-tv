@@ -45,6 +45,8 @@ def build(folder, discovery_folder=None):
     backup = backup if isinstance(backup, dict) else {}
     identity = read(folder, "logo_epg_kimlik_gecmis_tek_rapor.json") or {}
     identity = identity if isinstance(identity, dict) else {}
+    discovery = read(folder, "kesif_ve_yabanci_kaynak_toplu_ozet.json") or {}
+    discovery = discovery if isinstance(discovery, dict) else {}
     channel = read(folder, "ana_liste_saglik_kosu_kaniti.json") or {}
     channel = channel if isinstance(channel, dict) else {}
     sources = identity.get("evidence", {})
@@ -99,6 +101,7 @@ def build(folder, discovery_folder=None):
                             "tarihsel_geri_yukleme": backup_historical,
                             "bagimsiz_kopya": backup_external or "DOGRULANMADI"},
             "aday_logo_durumu": logo_status,
+            "aday_ve_alternatif": {key: discovery.get(key) for key in ("candidate_queue_count", "alternative_queue_count", "candidate_queue_with_url", "alternative_queue_with_url", "candidate_queue_missing_url", "alternative_queue_missing_url", "candidate_urls_already_in_main", "alternative_urls_already_in_main")},
             "eksik_kimlik_kaynaklari": missing_sources,
             "kanal_kosusu": channel_status,
             "aday_logo_sayisi": logo_report.get("total_candidates") if isinstance(logo_report, dict) else None,
@@ -126,6 +129,7 @@ def markdown(result):
               "- Tarihsel yedek doğrulandı: " + str(result["yedek_kaniti"]["tarihsel_geri_yukleme"]),
               "- GitHub dışı kopya: " + result["yedek_kaniti"]["bagimsiz_kopya"],
               "- Yeni aday sayısı (kanıt varsa): " + str(result["aday_logo_sayisi"]),
+              "- Aday ve alternatif URL dökümü: " + json.dumps(result["aday_ve_alternatif"], ensure_ascii=False, sort_keys=True),
               "- Gereksiz push tekrarı: " + str(result["gereksiz_tekrar"]),
               "- Merkeze ulaşmayan senaryo: " + str(result["merkez_kapsam_eksigi"]),
               "- Toplam açık takip maddesi: " + str(result["acik_is_sayisi"]), ""]

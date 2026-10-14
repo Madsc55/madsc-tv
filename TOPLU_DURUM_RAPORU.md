@@ -126,3 +126,8 @@ Kullanici son testin yesil oldugunu bildirdi. Kesif toplu ozetine aday ve altern
 ## 14 Ekim - Bes is tek test dosyasinda
 
 Kullanicinin istegiyle bes is icin tek `test_bes_is_tek_dosya.py` regresyon dosyasi eklendi. Tek merkezi workflow zaten tum Python testlerini `test_*.py` deseniyle calistirdigindan yeni workflow veya ayri test tetiklemesi acilmadi. Bes kontrol: kanal kesif/yayin kaniti, logo/EPG, yedek/geri yukleme, otomasyon/koruma, tek ekran genel kabul. Bu testler mevcut kanit ureticilerinin merkezi kosuda yer aldigini dogrular; canli stream ve IBO cihaz onayi iddiasi tasimaz. Korunan listeler degistirilmedi. Yeni merkezi sonuc ayrica dogrulanacak.
+
+
+## 14 Ekim - Tek ekran rapora aday/alternatif URL ozeti
+
+Kullanici tek testin yesil oldugunu bildirdi. Merkezi tek ekran raporu artik kesif ozetinden aday ve alternatif kuyruk sayilarini, URL bulunan/eksik sayilarini ve ana listede zaten bulunan URL sayilarini tek bolumde gosterecek. Kaynak rapor alanlari yoksa null gosterilecek; kanit uydurulmayacak. Tek test dosyasina regresyon eklendi. Ana liste, logo, EPG ve korunan yedekler degistirilmedi.

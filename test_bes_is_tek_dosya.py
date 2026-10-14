@@ -19,6 +19,12 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         self.assertIn("scripts/central_main_playlist_run_evidence.py", self.workflow)
         self.assertTrue((ROOT / "scripts/central_all_remaining_tasks.py").is_file())
 
+    def test_01b_tek_ekranda_aday_alternatif_ozeti(self):
+        source = (ROOT / "scripts/central_single_screen_report.py").read_text(encoding="utf-8")
+        self.assertIn('"kesif_ve_yabanci_kaynak_toplu_ozet.json"', source)
+        self.assertIn('"aday_ve_alternatif"', source)
+        self.assertIn('Aday ve alternatif URL dökümü', source)
+
     def test_02_logo_epg_kimlik_kaniti(self):
         self.assertIn("scripts/central_identity_epg_logo_audit.py", self.workflow)
         self.assertIn("scripts.candidate_logo_missing_report", self.workflow)
