@@ -74,6 +74,15 @@ def inspect(root=ROOT):
             name for name, scripts in new_commands.items()
             if set(item["commands"]) & scripts)
         item["behavioral_parity_verified"] = False
+    # Explicit migration gate: static script-name matches are not production parity.
+    for item in items:
+        item["migration_decision"] = "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE"
+        item["review_priority"] = (
+            "HIGH" if item["contents_write"] and
+            (item["cron_utc"] or item["push"] or item["workflow_run"])
+            else "HIGH" if item["workflow_run"] or item["cron_utc"]
+            else "NORMAL"
+        )
     counts = Counter(x["primary_category"] for x in items)
     risks = [x["file"] for x in items if x["contents_write"] and (x["cron_utc"] or x["push"] or x["workflow_run"])]
     return {
@@ -85,6 +94,8 @@ def inspect(root=ROOT):
         "legacy_workflows_with_unmatched_scripts": sum(bool(x["unmatched_script_entrypoints"]) for x in items),
         "legacy_workflows_with_no_shared_script": sum(not x["shared_script_entrypoints"] for x in items),
         "behavioral_parity_verified_count": 0,
+        "migration_blocked_count": len(items),
+        "high_priority_review_count": sum(x["review_priority"] == "HIGH" for x in items),
         "items": items,
         "limitations": [
             "Classification is preliminary, based on filename and commands; manual review of behavior is mandatory.",
