@@ -72,3 +72,8 @@ Merkezi #94 yeşil kullanıcı ekranında doğrulandı. Tek ekran raporuna mevcu
 
 ## Canlı durum raporlarının kaynağı
 Merkezi GitHub Actions koşusunun `madsc-aylik-merkezi-denetim` artefaktında: `madsc_kisa_durum_ozeti.md`, `toplu_tetikleme_ve_kabul_ozeti.md`, `bes_asama_bekleyen_isler.json`, `kalan_isler_tek_kosu_karar_tablosu.json`, `tek_islem_coklu_push_analizi.json` ve aday logo raporları. Buradaki belge, mevcut kod ve kullanıcı bildirimiyle hazırlanmış **kalıcı çalışma planıdır**; anlık kanal sayısı uydurulmaz.
+
+
+## 14 Ekim — Kanal ve logo/EPG kanıtları tek ekrana bağlandı
+
+Merkezi #95 kullanıcı ekranında yeşil. Ana liste sağlık koşusu ile kanal bazlı gerçek yayın kabulü ayrıldı; logo/EPG kimlik raporunda eksik kaynaklar tek ekran açık iş listesine bağlandı. Regresyon testi eklendi. Korunan playlist, logo, EPG ve yedek dosyalarına yazılmadı. Yeni Actions sonucu ayrıca doğrulanmalıdır.

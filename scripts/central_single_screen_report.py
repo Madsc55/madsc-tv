@@ -40,11 +40,20 @@ def build(folder, discovery_folder=None):
     push = read(folder, "tek_islem_coklu_push_analizi.json") or {}
     jobs = read(folder, "kalan_isler_tek_kosu_karar_tablosu.json") or {}
     backup = read(folder, "yedek_ve_korunan_dosyalar_kanit.json") or {}
+    identity = read(folder, "logo_epg_kimlik_gecmis_tek_rapor.json") or {}
+    channel = read(folder, "ana_liste_saglik_kosu_kaniti.json") or {}
+    sources = identity.get("evidence", {})
+    sources = sources if isinstance(sources, dict) else {}
+    missing_sources = [key for key, item in sources.items() if not isinstance(item, dict) or item.get("available") is not True]
+    channel_status = channel.get("durum", "KOSU_KANITI_YOK")
     backup_restore = backup.get("restore_test", "KANIT_YOK")
     backup_historical = backup.get("historical_recovery_verified") is True
     backup_external = backup.get("off_github_copy")
     backup_status = ("TAM_DOGRULANDI" if backup_restore == "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI" and backup_historical and backup_external == "DOGRULANDI" else "EKSIK_KANIT")
     problems = [{"tur": "RAPOR_EKSIK", "aciklama": name} for name in missing]
+    problems += [{"tur": "KIMLIK_KAYNAGI_EKSIK", "aciklama": name} for name in missing_sources]
+    if channel_status != "IS_AKISI_BASARILI_KANAL_SONUCU_INCELENMELI":
+        problems.append({"tur": "KANAL_KOSU_KANITI", "aciklama": str(channel_status)})
     if logo_report is not None and logo_status == "ADAY_LOGO_KAYDI_GECERSIZ":
         problems.append({"tur": "LOGO_RAPORU_HATALI", "aciklama": "Aday logo raporunun sayısal kanıtı geçersiz"})
     if logo_report is not None and isinstance(logo_report.get("category_counts"), dict):
@@ -68,6 +77,8 @@ def build(folder, discovery_folder=None):
                             "tarihsel_geri_yukleme": backup_historical,
                             "bagimsiz_kopya": backup_external or "DOGRULANMADI"},
             "aday_logo_durumu": logo_status,
+            "eksik_kimlik_kaynaklari": missing_sources,
+            "kanal_kosusu": channel_status,
             "aday_logo_sayisi": logo_report.get("total_candidates") if isinstance(logo_report, dict) else None,
             "eksik_rapor": len(missing),
             "gereksiz_tekrar": len(push.get("tekrarli_senaryolar", [])),
@@ -83,6 +94,8 @@ def markdown(result):
     lines += ["", "## Eksik ve fazla işler", "",
               "- Eksik rapor: " + str(result["eksik_rapor"]),
               "- Yeni aday logo kanıtı: " + result["aday_logo_durumu"],
+              "- Eksik logo/EPG kimlik kaynakları: " + (", ".join(result["eksik_kimlik_kaynaklari"]) or "Yok"),
+              "- Kanal sağlık koşusu: " + str(result["kanal_kosusu"]),
               "- Yedek geri yükleme: " + result["yedek_kaniti"]["izole_geri_yukleme"],
               "- Tarihsel yedek doğrulandı: " + str(result["yedek_kaniti"]["tarihsel_geri_yukleme"]),
               "- GitHub dışı kopya: " + result["yedek_kaniti"]["bagimsiz_kopya"],

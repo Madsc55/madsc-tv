@@ -36,6 +36,15 @@ class TekEkranTopluTest(unittest.TestCase):
         self.assertTrue(any(x["tur"] == "TARIHSEL_YEDEK" for x in report["acik_isler"]))
         self.assertTrue(any(x["tur"] == "HARICI_KOPYA" for x in report["acik_isler"]))
 
+    def test_kimlik_ve_kanal_raporlari_ayri_okunur(self):
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            (folder / "logo_epg_kimlik_gecmis_tek_rapor.json").write_text(json.dumps({"evidence": {"epg": {"available": False}}}))
+            result = build(folder, folder / "olmayan_kesif")
+        self.assertEqual(result["eksik_kimlik_kaynaklari"], ["epg"])
+        self.assertEqual(result["kanal_kosusu"], "KOSU_KANITI_YOK")
+
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
         self.assertNotIn("CALISANLAR.m3u", source)
