@@ -1,0 +1,27 @@
+name: MADSC 02 - Kanal Kesfi
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: madsc-02-kesif
+  cancel-in-progress: false
+jobs:
+  kesif-hazirlik:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Kaynak ve arsiv kurallarini denetle
+        run: |
+          python3 -m unittest discover -p 'test_discovery_archive.py' -v
+          python3 scripts/central_workflow_inventory.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-02-kesif-hazirlik
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
+# Eski iki-gunluk kesif otomasyonu korunuyor; esdegerlik onayi sonrasi bu workflow'a tasinacak.
