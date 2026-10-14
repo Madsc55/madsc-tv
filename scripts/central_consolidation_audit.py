@@ -13,6 +13,8 @@ SCENARIOS = {
     "Proje notu": ["DEVAM_NOTU.md"],
     "Merkezi kod değişikliği": ["scripts/central_management_summary.py"],
     "Logo hazırlığı": ["scripts/candidate_logo_report.py"],
+    "Ana liste ve logo birlikte": ["CALISANLAR.m3u", "scripts/candidate_logo_report.py"],
+    "Korunan liste ve belge birlikte": ["CALISANLAR.m3u", "AGENTS.md", "DEVAM_NOTU.md"],
 }
 
 def push_rules(raw):
@@ -36,7 +38,21 @@ def push_rules(raw):
             match = re.match(r"^      -\s*['\"]?([^'\"\s]+)", line)
             if match:
                 found.append(match.group(1))
-    return found if found else ["**"]
+    if not found:
+        ignored = []
+        inside_ignore = False
+        for line in section.splitlines():
+            if re.match(r"^    paths-ignore:\s*$", line):
+                inside_ignore = True
+                continue
+            if re.match(r"^    [\w-]+:", line):
+                inside_ignore = False
+            if inside_ignore:
+                match = re.match(r"^      -\s*['\"]?([^'\"\s]+)", line)
+                if match:
+                    ignored.append("!" + match.group(1))
+        return ["**"] + ignored
+    return found
 
 def matches(path, rules):
     state = False
@@ -103,6 +119,10 @@ def main():
              "| İşlem | Ayrı push koşusu | Durum |", "|---|---:|---|"]
     for case in overlap["senaryolar"]:
         lines.append(f"| {case['islem']} | {case['ayri_kosu_sayisi']} | {'TEKRAR VAR' if not case['tek_merkez_hedefi_saglandi'] else 'UYGUN'} |")
+    lines.extend(["", "### Tetiklenen ayrı workflow dosyaları"])
+    for case in overlap["senaryolar"]:
+        if not case["tek_merkez_hedefi_saglandi"]:
+            lines.append("- " + case["islem"] + ": " + ", ".join(case["push_is_akislari"]))
     lines.extend(["", "## Beş aşama genel kabul", "- Durum: HENUZ_ONAYLANMADI",
                   "- Kabul için gerçek yayın, geçmiş, güvenlik ve IBO cihaz kanıtları gereklidir.",
                   "- Hiçbir kanal otomatik değiştirilmedi."])
