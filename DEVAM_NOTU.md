@@ -1,3 +1,7 @@
+## 14 Ekim 2026 — ANA LİSTE SAĞLIK İŞ AKIŞI 3. AŞAMADA DOĞRU SINIFLANDIRILDI
+
+Kullanıcının onayıyla .SCI-FI HEPSİ ve SİNEMA'dan kaldırıldı; geçmişte kayıtlı commit 9d2b783, yeni otomatik silme yetkisi değildir. Beş aşamalı envanterde "sağlık" anahtar sözcüğü yüzünden madsc-ana-liste-saglik.yml yanlışlıkla 1. güvenlik bölümüne sınıflanıyordu. Bu özel iş akışı canlı kanal testi olduğundan 3. toplu yayın testleri bölümüne açıkça eşlendi ve birim testi eklendi. Eski workflow takvimleri, kanal dosyaları, yabancı arşivi ve korunan geçmiş değiştirilmedi. Sadece rapor/kanıt ayrımı devam eder; GitHub Actions yeşil kod testi tüm kanalların IBO'da çalıştığı anlamına gelmez.
+
 ## 14 Ekim 2026 — KULLANICI ONAYLI TEK KANAL SİLME: .SCI-FI
 
 Kullanıcı HEPSİ listesindeki yaklaşık 373. sırada bulunan .SCI-FI kanalını kaldırmayı açıkça istedi. CALISANLAR.m3u içinde aynı tvg-id ile iki kayıt vardı: 📺 HEPSİ (375) ve 🎬 SİNEMA (6). Bu iki kayıt, kullanıcı silme komutu gereği kaldırıldı; HEPSİ etiketi 374, SİNEMA etiketi 5 oldu. Başka hiçbir kanalın adı, URL'si, tvg-id'si, logosu, sırası veya kategorisi değiştirilmedi. YABANCI_KANALLAR.m3u arşivinde .SCI-FI adına eşleşen kayıt bulunmadığından o dosyaya dokunulmadı. Önceki ana liste sürümü GitHub commit geçmişinden geri alınabilir. Bu tek kanal için verilen silme onayı başka kanallara veya gelecekteki otomatik düzeltmelere uygulanamaz. Sistem tüm diğer kanal testlerinde yalnız raporlar ve kullanıcı onayı bekler.

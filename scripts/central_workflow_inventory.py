@@ -72,6 +72,9 @@ print(f"{len(shared_groups)} ortak concurrency ifadesi ve {len(same_clock)} orta
 # Toplu risk siralamasi ve mevcut islerin bagimlilik/koruma siniflandirmasi.
 def classify(item):
     name = (item["file"] + " " + item["name"]).lower()
+    # Ana liste canlı yayın sağlık kontrolü güvenlik denetimi değil, 3. aşamadır.
+    if item["file"] == "madsc-ana-liste-saglik.yml":
+        return "ADAY_TEST"
     if any(k in name for k in ("yedek", "kurtarma", "backup")):
         return "YEDEK_VE_KURTARMA"
     if any(k in name for k in ("saglik", "sağlık", "guvenlik", "güvenlik", "safety", "protected", "write-gate", "rule24")):

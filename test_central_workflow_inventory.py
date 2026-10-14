@@ -40,6 +40,13 @@ class MerkeziDenetimTesti(unittest.TestCase):
                        if item["file"] == "madsc-aylik-merkezi-denetim.yml")
         self.assertEqual(central["schedule_utc"], ["0 7 1,15 * *"])
 
+    def test_ana_liste_sagligi_ucuncu_asamada(self):
+        report = json.loads((OUT / "bes_asama_tum_workflow_eslestirmesi.json").read_text(encoding="utf-8"))
+        stage = next(row for row in report["stages"] if row["number"] == 3)
+        self.assertIn("madsc-ana-liste-saglik.yml", stage["workflows"])
+        security = next(row for row in report["stages"] if row["number"] == 1)
+        self.assertNotIn("madsc-ana-liste-saglik.yml", security["workflows"])
+
     def test_koruma_ve_rapor_sozlesmesi(self):
         report = json.loads((OUT / "merkezi_oncelik_ve_koruma_raporu.json").read_text(encoding="utf-8"))
         self.assertEqual(report["safety"], {
