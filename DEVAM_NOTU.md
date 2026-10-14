@@ -1,3 +1,12 @@
+## 14 Ekim 2026 — EPG TEKNIK HAZIRLIK / TELEVIZYON KONTROLU BEKLIYOR
+- Kullanici #126 merkezi denetimin YESIL oldugunu ekran goruntusuyle dogruladi.
+- EPG yeniden gundemde: TV basinda degil; XMLTV hazirligi, pilot 5 kanal, kaynak ve teknik dogrulama tamamlanacak; IBO Player televizyon gorunurluk testi ve kullanici onayi DAHA SONRA.
+- Mevcut epg/report.json: 1039 playlist girisi, 730 eslesme, 583 kullanilabilir tvg-id, 23702 program, 5 kaynak OK (rapor 2026-10-14 08:51 UTC). Bunlar IBO TV kaniti degildir.
+- Yeni scripts/epg_tv_readiness.py ve iki izole test: tam XMLTV, bes kanal pilotu, program sayilari, kaynak raporu ve cihaz onay kapisini denetler; epg/tv_kontrol_bekliyor.json kaydeder.
+- EPG gunluk workflow'unda hazirlik kontrolu tek kosuda gerceklesir; yalniz EPG dosyalari ve bekleyen TV raporu kaydedilir. TV kontrolu bitmeden onay verilmeyecek.
+- IBO TV'de sonradan kontrol edilecek: EPG URL'yi ekleme/yenileme, TRT1/TRT2/SHOW TV/ATV/KANAL D programlari ve Isvec'te gorunurluk. Basarisizsa ekran goruntusu ve uygulama ayarlariyla incele.
+- Kalan toplu isler: 92 workflow aktif/zamanlama cakismasi, 1 ve 15 yedek/restore kaniti, gunde iki kez kesif ve logo birlesimi, 75 aday retest/kimlik. Korunan listeler, favoriler ve PNG logolar degismedi.
+
 ## 14 Ekim 2026 — #125 TEK HATA / TEST VERISI KOK NEDENI
 - Kullanici ekraninda #125 (02d9f79) kirmizi: 128 test, 1 hata, 30 saniye. Goruntude tam traceback yok.
 - Yeni eklenen test_raporda_bilerek_tetiklenmeyen_notlar_hata_sayilmaz testindeki sahte YAML, Python icinde literal \\n karakterleriyle yazilmis; gercek satir sonu olmadigindan push_rules eslesmiyordu. Bu test verisi gercek yeni satirlara duzeltildi.
