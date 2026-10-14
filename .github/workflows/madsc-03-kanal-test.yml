@@ -47,6 +47,8 @@ jobs:
                     "write=", "contents: write" in raw, "cron=", "cron:" in raw)
           print("Read-only shadow check; live Pages publication and IBO playback not verified.")
           PY
+      - name: IBO adaylarini ayri artefakta hazirla
+        run: python3 scripts/export_ibo_two_stage_trial.py --limit 50
       - name: Yayin testi icin ffmpeg aracini kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Ana listeyi salt okunur 50 kanallik partide kontrol et
