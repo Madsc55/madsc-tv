@@ -77,3 +77,8 @@ Merkezi GitHub Actions koşusunun `madsc-aylik-merkezi-denetim` artefaktında: `
 ## 14 Ekim — Kanal ve logo/EPG kanıtları tek ekrana bağlandı
 
 Merkezi #95 kullanıcı ekranında yeşil. Ana liste sağlık koşusu ile kanal bazlı gerçek yayın kabulü ayrıldı; logo/EPG kimlik raporunda eksik kaynaklar tek ekran açık iş listesine bağlandı. Regresyon testi eklendi. Korunan playlist, logo, EPG ve yedek dosyalarına yazılmadı. Yeni Actions sonucu ayrıca doğrulanmalıdır.
+
+
+## 14 Ekim — Tek ekran açık işlerde yanlış tekrarlar giderildi
+
+Kullanıcının ekranında merkezi #96, otomatik devam #33 ve birleşik keşif #109 yeşil. Toplu raporun yedek kontrolünde bağımsız kopya ve geri yükleme maddeleri zaten ayrı kanıt olarak kontrol edilirken koşulsuz ikinci bir `HARICI_YEDEK` maddesi ekleniyordu; bu mükerrer açık iş kaldırıldı. Logo/EPG kaynak dökümü boş olduğunda eksik kanıtın görünmeden kaybolması önlendi. İlgili regresyon testi eklendi. Bu işlem gerçek cihaz/EPG ve yedek kanıtı yerine geçmez; korunan listeler değiştirilmez.

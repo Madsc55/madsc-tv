@@ -52,6 +52,8 @@ def build(folder, discovery_folder=None):
     backup_status = ("TAM_DOGRULANDI" if backup_restore == "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI" and backup_historical and backup_external == "DOGRULANDI" else "EKSIK_KANIT")
     problems = [{"tur": "RAPOR_EKSIK", "aciklama": name} for name in missing]
     problems += [{"tur": "KIMLIK_KAYNAGI_EKSIK", "aciklama": name} for name in missing_sources]
+    if not sources:
+        problems.append({"tur": "KIMLIK_KAYNAK_LISTESI_YOK", "aciklama": "Logo/EPG kaynak dökümü boş veya bulunamadı"})
     if channel_status != "IS_AKISI_BASARILI_KANAL_SONUCU_INCELENMELI":
         problems.append({"tur": "KANAL_KOSU_KANITI", "aciklama": str(channel_status)})
     if logo_report is not None and logo_status == "ADAY_LOGO_KAYDI_GECERSIZ":
@@ -70,8 +72,7 @@ def build(folder, discovery_folder=None):
         problems.append({"tur": "TARIHSEL_YEDEK", "aciklama": "Önceki sürümden geri yükleme doğrulanmadı"})
     if backup_external != "DOGRULANDI":
         problems.append({"tur": "HARICI_KOPYA", "aciklama": "GitHub dışı bağımsız kopya doğrulanmadı"})
-    problems += [{"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"},
-                 {"tur": "HARICI_YEDEK", "aciklama": "Bağımsız yedek ve gerçek geri yükleme kanıtı"}]
+    problems.append({"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"})
     return {"genel_kabul": "HENUZ_ONAYLANMADI", "bes_asama": stages,
             "yedek_kaniti": {"durum": backup_status, "izole_geri_yukleme": backup_restore,
                             "tarihsel_geri_yukleme": backup_historical,
