@@ -79,3 +79,8 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - `.github/workflows/madsc-05-genel-bakim.yml`: yeni regresyon testi ve ilgili dosya değişiklikleri beşli toplu koşuya bağlandı; commit `0bcbcfeed3546b01052ad6a151a5c6d8f91a7242`.
 - **CI kabulü bekliyor:** GitHub bağlayıcısı commit SHA için yalnız PR-tetikli koşuları listeleyebiliyor; push koşusunun en güncel sonucunu bu sorgudan kesinleştirmek mümkün değil. Eski run #38630252033 başarılı, ancak yeni kodu test etmiyor.
 - Eski 92 workflow ve korunan kanal/yedek verileri değiştirilmedi. Davranışsal eşdeğerlik henüz onaylanmadı.
+
+## 14 Ekim — Beşli testte çakışan push tetikleyicisi
+- Kullanıcının GitHub ekranındaki Güvenlik regresyonu 30 testten 1 hata verdi: `scripts/central_workflow_inventory.py` değişimi hem `madsc-aylik-merkezi-denetim.yml` hem `madsc-05-genel-bakim.yml` tetikliyordu. Tek-merkez kuralı doğru olarak hata verdi.
+- `madsc-05-genel-bakim.yml` push paths yalnız kendi YAML dosyasına indirildi; `workflow_dispatch` ve beşli çağrı zinciri korundu. Düzeltme `ab444fa1ce50f21f52f3452a715bcc25be4f2f1a`.
+- CI sonucu henüz doğrulanmadan yeşil kabul edilmeyecek. Korunan dosyalar ve eski 92 workflow değiştirilmedi.
