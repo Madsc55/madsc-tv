@@ -4,6 +4,22 @@ from pathlib import Path
 from scripts.central_consolidation_audit import analyze, acceptance, pending_tasks, push_rules
 
 class TopluMerkezTesti(unittest.TestCase):
+    def test_logo_epg_kesif_degisiklikleri_merkeze_gider(self):
+        root = Path(".github/workflows")
+        flows = {p.name: p.read_text(encoding="utf-8") for p in root.glob("*.y*ml")}
+        cases = {
+            "Ana logo kodu": ["scripts/automatic_png_logos.py"],
+            "Ana logo workflow": [".github/workflows/automatic-png-logos.yml"],
+            "Aday logo": ["scripts/candidate_logo_report.py"],
+            "Keşif": ["madsc_akilli_kesif.py"],
+            "EPG": ["scripts/build_epg.py"],
+            "EPG yayını": [".github/workflows/epg-pages.yml"],
+        }
+        result = analyze(flows, cases)
+        for case in result["senaryolar"]:
+            self.assertEqual(case["push_is_akislari"],
+                             ["madsc-aylik-merkezi-denetim.yml"], case["islem"])
+
     def test_dokuman_push_yok(self):
         raw = Path(".github/workflows/madsc-documentation-check.yml").read_text()
         self.assertIsNone(push_rules(raw))

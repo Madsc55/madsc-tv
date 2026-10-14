@@ -13,6 +13,12 @@ SCENARIOS = {
     "Proje notu": ["DEVAM_NOTU.md"],
     "Merkezi kod değişikliği": ["scripts/central_management_summary.py"],
     "Logo hazırlığı": ["scripts/candidate_logo_report.py"],
+    "Ana liste PNG kodu": ["scripts/automatic_png_logos.py"],
+    "Ana liste PNG workflow": [".github/workflows/automatic-png-logos.yml"],
+    "Yeni aday keşif kodu": ["madsc_akilli_kesif.py"],
+    "Yeni aday logo kodu": ["scripts/candidate_logo_report.py"],
+    "EPG üretim kodu": ["scripts/build_epg.py"],
+    "EPG yayın workflow": [".github/workflows/epg-pages.yml"],
     "Ana liste ve logo birlikte": ["CALISANLAR.m3u", "scripts/candidate_logo_report.py"],
     "Korunan liste ve belge birlikte": ["CALISANLAR.m3u", "AGENTS.md", "DEVAM_NOTU.md"],
 }
@@ -75,9 +81,10 @@ def analyze(workflows, scenarios=SCENARIOS):
                            if any(matches(path, patterns) for path in paths))
         cases.append({"islem": label, "dosyalar": paths, "push_is_akislari": triggered,
                       "ayri_kosu_sayisi": len(triggered),
-                      "tek_merkez_hedefi_saglandi": len(triggered) <= 1})
+                      "tek_merkez_hedefi_saglandi": len(triggered) == 1})
     return {"incelenen_is_akisi": len(workflows), "push_tetikleyicili": len(rules),
-            "senaryolar": cases, "tekrarli_senaryolar": [c["islem"] for c in cases if not c["tek_merkez_hedefi_saglandi"]],
+            "senaryolar": cases, "tekrarli_senaryolar": [c["islem"] for c in cases if c["ayri_kosu_sayisi"] > 1],
+            "merkezi_denetime_ulasamayan_senaryolar": [c["islem"] for c in cases if c["ayri_kosu_sayisi"] == 0],
             "sinir": "Dosya ve push filtresi statik analizi; workflow_run, schedule ve manuel koşular ayrı değerlendirilmelidir.",
             "otomatik_kanal_degisikligi": False}
 

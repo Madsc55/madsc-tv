@@ -1,3 +1,7 @@
+## 14 Ekim 2026 — TOPLU KAPANIŞ: LOGO, KEŞİF VE EPG TEK PUSH KANITI
+
+Merkezi statik çakışma denetimi artık ana PNG logo kodu, ana PNG workflow, yeni aday logo kodu, keşif kodu, EPG üretim kodu ve EPG yayın workflow değişikliklerini ayrı senaryolarla inceler. Regresyon testi bu altı değişiklik türünün her birinde yalnız madsc-aylik-merkezi-denetim.yml push tetiklenmesini zorunlu kılar; sessizce sıfır test tetiklenmesi de başarı sayılmaz. Böylece bir sonraki refaktörde eski ikinci PNG/EPG/keşif push tetikleyicilerinin geri gelmesi veya merkezi yolun kaybolması testte yakalanır. Bu statik güvence canlı yayın, IBO EPG ve yeni aday logo eşleşmesi kabulü değildir. Korunan listeler ve logolar değişmedi. GitHub Actions sonucu henüz doğrulanmadı.
+
 ## 14 Ekim 2026 — DOĞRULANMIŞ ANA LİSTE LOGOLARI İÇİN GÜNLÜK TEKRAR KALDIRILDI
 
 Kullanıcı ana listedeki logoların çalıştığını IBO Player'da doğruladığını, ana liste logolarına dokunulmamasını istedi. automatic-png-logos.yml iş akışının ana listeyi günlük 05:23 UTC tarama ve kod değişikliğinde push tetikleyicileri kaldırıldı. Mevcut güvenlik kontrolleriyle manuel workflow_dispatch seçeneği korunuyor. Yeni adayların PNG hazırlığı günlük birleşik keşif akışında bir kez devam eder. Logo kodu ve iş akışı değişikliklerini merkezi beş aşamalı denetim push ile kontrol eder. Korunan listeler ve logolar değiştirilmedi. Yeni Actions sonucu henüz doğrulanmadı.
