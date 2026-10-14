@@ -1,3 +1,7 @@
+## 14 Ekim 2026 — TEKRAR EDEN DOKÜMANTASYON PUSH TESTİ MERKEZE TAŞINDI
+
+Kullanıcı #64 merkezi ve #113 dokümantasyon testlerini yeşil bildirdi. Aynı değişiklikte gereksiz iki ayrı Actions koşusunu azaltmak için MADSC Documentation Check içindeki eski push tetikleyicisi kaldırıldı, isteğe bağlı workflow_dispatch bırakıldı. Dokümantasyonun altı temel doğrulaması beş aşamalı merkezi workflow'a eklendi. Merkezi workflow artık AGENTS.md, OZELLIK_ENVANTERI.md, DEVAM_NOTU.md, GUVENLIK_KURALLARI.md, CALISANLAR.m3u ve dokümantasyon workflow değişimlerinde de tetiklenir. Bu, bütün eski bağımsız güvenlik/logo push tetikleyicilerinin kaldırıldığı anlamına gelmez; onların ayrıca incelenmesi gerekir. Mevcut kanal listeleri, kanal sıraları, yabancı arşivi ve yedekler değiştirilmedi. Tüm geçmiş korunur.
+
 ## 14 Ekim 2026 — ANA LİSTE SAĞLIK İŞ AKIŞI 3. AŞAMADA DOĞRU SINIFLANDIRILDI
 
 Kullanıcının onayıyla .SCI-FI HEPSİ ve SİNEMA'dan kaldırıldı; geçmişte kayıtlı commit 9d2b783, yeni otomatik silme yetkisi değildir. Beş aşamalı envanterde "sağlık" anahtar sözcüğü yüzünden madsc-ana-liste-saglik.yml yanlışlıkla 1. güvenlik bölümüne sınıflanıyordu. Bu özel iş akışı canlı kanal testi olduğundan 3. toplu yayın testleri bölümüne açıkça eşlendi ve birim testi eklendi. Eski workflow takvimleri, kanal dosyaları, yabancı arşivi ve korunan geçmiş değiştirilmedi. Sadece rapor/kanıt ayrımı devam eder; GitHub Actions yeşil kod testi tüm kanalların IBO'da çalıştığı anlamına gelmez.

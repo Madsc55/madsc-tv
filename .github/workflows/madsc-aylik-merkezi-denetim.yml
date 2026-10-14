@@ -5,6 +5,12 @@ on:
   push:
     branches: [main]
     paths:
+      - 'AGENTS.md'
+      - 'OZELLIK_ENVANTERI.md'
+      - 'DEVAM_NOTU.md'
+      - 'GUVENLIK_KURALLARI.md'
+      - '.github/workflows/madsc-documentation-check.yml'
+      - 'CALISANLAR.m3u'
       - 'scripts/central_workflow_inventory.py'
       - 'test_central_workflow_inventory.py'
       - 'scripts/central_run_status.py'
@@ -68,6 +74,16 @@ jobs:
             test -f "$file" || { echo "::error::Zorunlu dosya eksik: $file"; exit 1; }
           done
           sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
+      - name: Proje kayitlari ve dokumantasyonu merkezi kontrolde dogrula
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s AGENTS.md
+          test -s OZELLIK_ENVANTERI.md
+          test -s DEVAM_NOTU.md
+          grep -q 'Kural 25' AGENTS.md
+          grep -q 'build_epg.py' OZELLIK_ENVANTERI.md
+          head -n 1 CALISANLAR.m3u | grep -q '#EXTM3U'
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
       - name: Logo EPG kimlik ve test gecmisini birlestir

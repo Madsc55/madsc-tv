@@ -1,11 +1,5 @@
 name: MADSC Documentation Check
 on:
-  push:
-    paths:
-      - 'AGENTS.md'
-      - 'OZELLIK_ENVANTERI.md'
-      - 'DEVAM_NOTU.md'
-      - '.github/workflows/madsc-documentation-check.yml'
   workflow_dispatch:
 permissions:
   contents: read
