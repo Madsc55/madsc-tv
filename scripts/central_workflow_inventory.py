@@ -178,3 +178,28 @@ if mapped != expected or len(mapped) != len(set(mapped)):
         ]
     }, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"{len(mapped)} workflow bes asamaya eksiksiz ve tekrarsiz eslestirildi; tetikleyici degismedi.")
+
+# Kullanici icin tek ekranda kesin tetikleyici sayimi. Her tetikleyici
+# bagimsiz sayilir: bir workflow hem schedule hem push icerebilir.
+trigger_counts = {
+    "total_workflow_files": len(items),
+    "scheduled_workflows": sum(bool(x["schedule_utc"]) for x in items),
+    "cron_entries": sum(len(x["schedule_utc"]) for x in items),
+    "push_workflows": sum(x["push"] for x in items),
+    "workflow_run_workflows": sum(x["workflow_run"] for x in items),
+    "manual_workflows": sum(x["manual"] for x in items),
+    "scheduled_and_push": sum(bool(x["schedule_utc"]) and x["push"] for x in items),
+    "not_scheduled": sum(not x["schedule_utc"] for x in items),
+}
+(out / "otomasyon_kesin_tetikleyici_sayimi.json").write_text(
+    json.dumps({"counts": trigger_counts,
+                "scheduled": [{"file": x["file"], "cron_utc": x["schedule_utc"]}
+                              for x in items if x["schedule_utc"]],
+                "push": [x["file"] for x in items if x["push"]],
+                "workflow_run": [x["file"] for x in items if x["workflow_run"]],
+                "notes": ["Bir dosyada birden cok tetikleyici olabilir; sayilar toplanmaz.",
+                          "Bu dosya statik envanterdir, Actions run sayisi degildir.",
+                          "Mevcut dosyalarin hicbiri silinmedi veya calistirilmadi."]},
+               ensure_ascii=False, indent=2), encoding="utf-8")
+print("MADSC tetikleyici envanteri:", trigger_counts)
+
