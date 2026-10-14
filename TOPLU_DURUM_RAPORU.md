@@ -48,6 +48,10 @@ Kullanıcı isteği: tek tek test değil, beş aşamanın tüm eksik/fazla işle
 
 Tek ekran raporunda aday logo dosyası yanlışlıkla merkezi rapor klasöründe aranıyordu. Gerçek keşif kaynağı `madsc_kesif/candidate_logo_missing_report.json` üzerinden okuma eklendi. Aday sayısı yalnız geçerli kanıttan alınır; rapor yoksa sıfır kanal varsayılmaz ve açık eksik olarak gösterilir. Eksik/güvenlik incelemesi isteyen logo kategorileri tek raporda sayılır. Regresyon testi eklendi. Ana liste, favoriler, YENİLER, logolar ve yedeklere yazma yapılmadı. Yeni Actions sonucu bekleniyor.
 
+## 14 Ekim — Kırmızı #93 için deterministik test düzeltmesi
+
+Kullanıcı merkezi koşu #93 ekranında `Failure`, 14 saniye, `exit code 1` ve artifact gösterdi. Ekranda hata veren **adımın logu bulunmuyor**, bu yüzden kesin kök neden henüz doğrulanmadı. Kod incelemesinde tek ekran testinin gerçek çalışma klasöründeki aday logo raporuna bağımlı olması saptandı; test artık izole geçici keşif klasörü kullanıyor. JSON'un beklenmedik liste veya sayı biçiminde gelmesi de raporun çökmesine yol açmayacak. İki düzeltme tek commit ve tek merkezi test ile doğrulanacak. Node.js 20 uyarısı bu ekrandan kesin hata nedeni sayılamaz. Korunan listeler ve yedekler değiştirilmedi.
+
 ## Sıradaki toplu çalışma sırası
 1. Gerçek aday havuzunu ve eksik logo raporunu son keşif artefaktından incele; isim, URL, logo ve kaynak kanıtlarını ayrı kaydet. Eksik logoyu otomatik olarak yanlış bir logoyla doldurma.
 2. Yeni aday yayınlarını ve ana listedeki döngüsel sağlık sonuçlarını karşılaştır; ffprobe başarısızlığını doğrudan IBO başarısızlığı sayma.

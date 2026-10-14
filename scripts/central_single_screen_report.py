@@ -19,6 +19,8 @@ def read(folder, name):
 def build(folder, discovery_folder=None):
     discovery_folder = discovery_folder if discovery_folder is not None else ROOT / "madsc_kesif"
     logo_report = read(discovery_folder, "candidate_logo_missing_report.json")
+    if not isinstance(logo_report, dict):
+        logo_report = None
     logo_status = ("ADAY_LOGO_KANITI_YOK" if logo_report is None else
                    "ADAY_LOGO_KAYDI_GECERSIZ" if not isinstance(logo_report.get("total_candidates"), int) else
                    "ADAY_LOGO_KANITI_VAR_KIMLIK_ONAYSIZ")
