@@ -1,0 +1,57 @@
+name: MADSC - 3. Aşama Ana Liste Sağlık Kontrolü
+run-name: "MADSC | 3. Aşama | Ana listedeki yayınları salt okunur denetle"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '40 6 * * *'
+  push:
+    paths:
+      - 'scripts/ana_liste_saglik.py'
+      - 'test_ana_liste_saglik.py'
+      - '.github/workflows/madsc-ana-liste-saglik.yml'
+permissions:
+  contents: read
+concurrency:
+  group: madsc-ana-liste-saglik
+  cancel-in-progress: false
+jobs:
+  ana-liste:
+    name: Ana liste yayınlarını test et ve yalnız raporla
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Depoyu yazma yetkisi olmadan al
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Korunan dosyaların ilk özetini al
+        run: |
+          sha256sum CALISANLAR.m3u YABANCI_KANALLAR.m3u DEVAM_NOTU.md > "${RUNNER_TEMP}/korunan-once"
+      - name: Sağlık denetimi birim testlerini çalıştır
+        run: python3 -m unittest test_ana_liste_saglik -v
+      - name: Yayın inceleme aracını kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Ana listedeki sıradaki kanalları topluca kontrol et
+        run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
+      - name: Korunan dosyaların hiç değişmediğini doğrula
+        if: always()
+        run: |
+          sha256sum -c "${RUNNER_TEMP}/korunan-once"
+          git diff --exit-code -- CALISANLAR.m3u YABANCI_KANALLAR.m3u DEVAM_NOTU.md
+      - name: Türkçe raporu sakla; kanallara dokunma
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-3-asama-ana-liste-saglik
+          path: madsc_ana_liste_saglik/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Sonucu GitHub özetinde göster
+        if: always()
+        shell: bash
+        run: |
+          if [ -f madsc_ana_liste_saglik/ana_liste_saglik.md ]; then
+            cat madsc_ana_liste_saglik/ana_liste_saglik.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Ana liste raporu üretilemedi; kanallar değiştirilmedi." >> "$GITHUB_STEP_SUMMARY"
+          fi
