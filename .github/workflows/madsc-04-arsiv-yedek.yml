@@ -32,6 +32,19 @@ jobs:
           python3 scripts/central_isolated_git_restore.py
           python3 scripts/central_backup_evidence.py
           python3 scripts/central_archive_consistency.py
+      - name: Yedek kurtarma ve uzak kopya ayrimi kabul kontrolu
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("madsc_merkezi_denetim/yedek_ve_korunan_dosyalar_kanit.json").read_text(encoding="utf-8"))
+          assert not report["protected_missing"], "Protected files missing"
+          assert report["off_github_copy"] == "DOGRULANMADI", "Offsite copy must not be inferred"
+          assert report["historical_recovery_verified"] is False, "Historical restore not independently verified"
+          print("Isolated restore evidence checked; offsite/historical recovery remains blocked.")
+          PY
       - name: Kategoriye ait tum regresyon testleri
         run: python3 -m unittest test_central_isolated_git_restore test_central_backup_evidence test_central_archive_consistency -v
       - name: Korunan dosyalar degismedi
