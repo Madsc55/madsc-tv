@@ -19,6 +19,8 @@ SOURCES = {
     "yabanci_arsiv_koruma": "yabanci_arsiv_koruma_denetimi.json",
     "kesif_kaynaklari": "kesif_ve_yabanci_kaynak_toplu_ozet.json",
     "son_kontrol": "son_kontrol_birikimli_ozet.json",
+    "bes_asama": "bes_asama_tum_workflow_eslestirmesi.json",
+    "actions_dogrulama": "actions_otomatik_sonuc_dogrulama.json",
 }
 
 def build(folder):
@@ -59,6 +61,17 @@ def build(folder):
             evidence_assessment[key] = "HEDEF_FARKI_VAR" if isinstance(difference, int) and difference != 0 else "CANLI_DOGRULAMA_BEKLIYOR"
         else:
             evidence_assessment[key] = "RAPOR_VAR_TAMAMLANMA_DOGRULANMADI"
+    # Bes asama kapsami ve gercek Actions sonucunu ayri tut.
+    stage_data = sections["bes_asama"].get("data", {})
+    actions_data = sections["actions_dogrulama"].get("data", {})
+    mapped = stage_data.get("mapped_count")
+    total = stage_data.get("workflow_count")
+    indicators["five_stage_workflows_mapped"] = mapped
+    indicators["five_stage_workflows_total"] = total
+    indicators["five_stage_unreviewed_ownership"] = len(stage_data.get("manual_scope_review_required", [])) if isinstance(stage_data.get("manual_scope_review_required"), list) else None
+    indicators["actions_successful_latest_seen"] = actions_data.get("successful")
+    indicators["actions_failed_latest_seen"] = len(actions_data.get("failed", [])) if isinstance(actions_data.get("failed"), list) else None
+    indicators["historical_coverage_verified"] = stage_data.get("complete_historical_coverage_verified") is True
     blockers = []
     if source_data.get("difference") not in (None, 0):
         blockers.append({"code": "SOURCE_TARGET_MISMATCH", "status": "INCELEME_GEREKLI",
@@ -66,6 +79,10 @@ def build(folder):
     if repeat_data.get("invalid_history_records", 0) and isinstance(repeat_data.get("invalid_history_records"), int):
         blockers.append({"code": "INVALID_TEST_HISTORY", "status": "INCELEME_GEREKLI",
                          "evidence": SOURCES["tekrar_test"]})
+    if mapped is not None and total is not None and mapped != total:
+        blockers.append({"code": "FIVE_STAGE_MAPPING_INCOMPLETE", "status": "INCELEME_GEREKLI"})
+    if isinstance(actions_data.get("failed"), list) and actions_data["failed"]:
+        blockers.append({"code": "LATEST_ACTIONS_FAILURES", "status": "INCELEME_GEREKLI", "runs": actions_data["failed"]})
     if missing:
         blockers.append({"code": "MISSING_AUDIT_EVIDENCE", "status": "KANIT_EKSIK",
                          "sections": missing})
