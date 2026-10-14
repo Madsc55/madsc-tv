@@ -70,6 +70,11 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         self.assertGreater(groups["KABUL"], 0)
         self.assertEqual(report["aday_ve_alternatif"]["candidate_queue_missing_url"], 1)
         self.assertEqual(report["aday_ve_alternatif"]["alternative_queue_count"], 2)
+        missing_urls = [item for item in report["acik_isler"]
+                        if item["tur"] == "YAYIN_ADRESI_EKSIK"]
+        self.assertEqual(len(missing_urls), 2)
+        self.assertGreaterEqual(groups["KANAL_KESIF"], 3)
+
         self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
         output = markdown(report)
         for group in groups:

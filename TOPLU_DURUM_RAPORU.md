@@ -136,3 +136,8 @@ Kullanici tek testin yesil oldugunu bildirdi. Merkezi tek ekran raporu artik kes
 ## 14 Ekim - Bes gercek acik is alaninin tek dosyada toplu entegrasyon testi
 
 Kullanicinin son merkezi testleri yesil bildirmesi uzerine var olan `test_bes_is_tek_dosya.py` dosyasina tek bir entegre senaryo eklendi. Gecici sahte kanitlarla kanal adaylari/alternatifleri, eksik logo, otomasyon tekrari, yedek kaniti eksikligi ve IBO genel kabul beklemesi birlikte `central_single_screen_report.build()` ile islenir. Bes alanin hepsinde acik is olmasi, alan toplaminin genel sayiya esitligi, aday URL sayilari ve Markdown cikti dogrulanir. Ayrica workflow acilmadi; mevcut merkezi test otomatik kesfeder. Bu sentetik regresyon gercek yayin veya cihaz testi degildir. Korunan playlist, logo ve yedekler degistirilmedi. Yeni GitHub Actions sonucu bekleniyor.
+
+
+## 14 Ekim — Toplu kanit raporunda eksik yayin adresleri acik ise baglandi
+
+Kullanici onceki bes-is entegrasyon testinin yesil oldugunu bildirdi. Merkezi tek ekran raporunda kesif ozetindeki `candidate_queue_missing_url` ve `alternative_queue_missing_url` sayilari daha once yalniz bilgi olarak yaziliyordu. Pozitif ve sayisal degerler artik `YAYIN_ADRESI_EKSIK` olarak kanal/kesif acik is grubuna giriyor; bes grup sayimi ve Markdown cikti ayni tek test dosyasinda dogrulaniyor. URL yoklugu canli yayin basarisizligi demek degildir. Yeni workflow olusturulmadi; korunan listeler ve yedekler degistirilmedi. Son commitin Actions sonucu ayrica dogrulanacak.
