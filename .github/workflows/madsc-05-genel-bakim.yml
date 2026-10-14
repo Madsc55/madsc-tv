@@ -86,6 +86,25 @@ jobs:
         run: python3 -m unittest test_central_consolidation_audit test_tek_merkez_tetikleme -v
       - name: Esdegerlik kapisi regresyon testleri
         run: python3 -m unittest test_five_system_migration_audit test_five_category_92_workflow_audit -v
+      - name: Dort onceki kategori de basarili olmali
+        if: always() && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[madsc-full-batch]'))
+        env:
+          SECURITY_RESULT: ${{ needs.kademe-1-guvenlik.result }}
+          DISCOVERY_RESULT: ${{ needs.kademe-2-kesif.result }}
+          CHANNEL_RESULT: ${{ needs.kademe-3-kanal-test.result }}
+          ARCHIVE_RESULT: ${{ needs.kademe-4-arsiv-yedek.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in SECURITY DISCOVERY CHANNEL ARCHIVE; do
+            key="${name}_RESULT"
+            value="${!key}"
+            echo "${name}: ${value}"
+            if [[ "${value}" != "success" ]]; then
+              echo "::error::${name} category did not pass: ${value}"
+              exit 1
+            fi
+          done
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
