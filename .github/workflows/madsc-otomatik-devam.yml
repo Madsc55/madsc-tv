@@ -1,14 +1,10 @@
 name: MADSC - Test Bitince Otomatik Devam
 on:
-  workflow_run:
-    workflows:
-      - "MADSC TV - Birleşik Kanal Keşfi ve Testi"
-    types: [completed]
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
   devam:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Tek devam yolu kontrolü
