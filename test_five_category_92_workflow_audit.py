@@ -24,6 +24,8 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(result["legacy_workflows_with_unmatched_scripts"], 42)
             self.assertEqual(result["legacy_workflows_with_no_shared_script"], 42)
             self.assertEqual(result["behavioral_parity_verified_count"], 0)
+            self.assertEqual(result["integration_evidence_counts"]["SCRIPT_NAMES_MATCH_ONLY"], 50)
+            self.assertEqual(result["integration_evidence_counts"]["PARTIAL_OR_MISSING_SCRIPT_COVERAGE"], 42)
             self.assertEqual(len(result["items"]), 92)
             self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
 
