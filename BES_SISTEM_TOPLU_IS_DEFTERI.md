@@ -106,3 +106,9 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - `scripts/five_category_92_workflow_audit.py` artık tek koşu artifact'ına `92_workflow_esdegerlik_kabul_matrisi.csv` üretecek: 92 satır, kategori, risk, cron/push/workflow_run/call, yazma izni, komut, action, çıktı, yeni aday karşılığı, eksik betik ve BLOCKED kararı.
 - `test_five_category_92_workflow_audit.py` yeni regresyonu: ortak betik olsa dahi davranışsal eşdeğerlik otomatik onaylanmaz.
 - Bu iki kod değişikliği tek sonraki kabul koşusunda birlikte doğrulanacak; ayrı ayrı test tetiklenmedi. Eski 92 workflow'u kapatma veya canlı kanal listelerine yazma yok.
+
+## 15 Ekim — Yeşil test bildirimi sonrası entegrasyon kanıt sınıflaması
+- Kullanıcı son testin yeşil olduğunu bildirdi. Bu, 92/92 davranışsal eşdeğerlik kanıtı olarak yorumlanmadı.
+- `scripts/five_category_92_workflow_audit.py`: her eski workflow için `integration_evidence_level` (betik isimleri eşleşiyor / eksik / çıkarılmış betik yok), `unverified_trigger_behavior` ve toplam kanıt seviyeleri üretir; 92 satırlık CSV'ye de yazar.
+- `test_five_category_92_workflow_audit.py`: 50 ortak betik ve 42 eksik betik sentetik regresyonunu kanıt sınıflamasına bağlar. Bu 50/42 rakamları GERÇEK depo dağılımı değil, test fikstürüdür.
+- Değişiklikler tek sonraki toplu testte doğrulanacak. Eski workflow'lar, korunan playlist ve yedekler değiştirilmedi.
