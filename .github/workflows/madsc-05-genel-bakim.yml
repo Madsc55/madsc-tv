@@ -1,0 +1,20 @@
+name: MADSC 05 - Genel Bakim
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  maintenance-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/five_system_migration_audit.py --output madsc_merkezi_denetim/bes_sistem_gecis_raporu.json
+      - run: python3 -m unittest test_five_system_migration_audit -v
+      - run: python3 scripts/central_single_screen_report.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-05-bakim
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
