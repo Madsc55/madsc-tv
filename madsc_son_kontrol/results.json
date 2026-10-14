@@ -179703,5 +179703,6187 @@
     },
     "status": "TECHNICAL_PASS_IDENTITY_PENDING",
     "image_evidence": "madsc_son_kontrol/images/963dec8ccb58a191f3e7.jpg"
+  },
+  {
+    "candidate_id": "bd1f98ef60540e685a60",
+    "label": "Radio Coatan Canal 21",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.613028+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 78.122646,
+      "decoded_frames": 142
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": "madsc_son_kontrol/images/bd1f98ef60540e685a60.jpg"
+  },
+  {
+    "candidate_id": "6ed8998d58529d3ae4e8",
+    "label": "Radio Clasica TV (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.612709+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 852,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.980748,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/6ed8998d58529d3ae4e8.jpg"
+  },
+  {
+    "candidate_id": "ba8f8f49b9fb6465af07",
+    "label": "Radio Chisinau (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.612529+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8989
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ba8f8f49b9fb6465af07.jpg"
+  },
+  {
+    "candidate_id": "4a74d1c7263256fddcc5",
+    "label": "Radio 51 TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.603245+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 7,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4a74d1c7263256fddcc5.jpg"
+  },
+  {
+    "candidate_id": "9f5bfd19f77528565b36",
+    "label": "Radio Colmenar 92.5 FM",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.613622+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8994
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9f5bfd19f77528565b36.jpg"
+  },
+  {
+    "candidate_id": "d964f3be1941f3df7cde",
+    "label": "Radio Bruno TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.609579+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d964f3be1941f3df7cde.jpg"
+  },
+  {
+    "candidate_id": "c97310e267a581c80969",
+    "label": "Radio 350 (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.602431+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 1
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988413,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c97310e267a581c80969.jpg"
+  },
+  {
+    "candidate_id": "76a0d7fc696a1440a836",
+    "label": "Radio Edelweiss (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.618920+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8824
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/76a0d7fc696a1440a836.jpg"
+  },
+  {
+    "candidate_id": "4504c20b84dd00208eea",
+    "label": "Radio Fantasia TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:44.592145+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "a66a7a3ccb4dbb205181",
+    "label": "Radio Carnaval TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.611479+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986667,
+      "decoded_frames": 15000
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/a66a7a3ccb4dbb205181.jpg"
+  },
+  {
+    "candidate_id": "51918ff889c2f360bd9a",
+    "label": "Radio Centro (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.611787+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/51918ff889c2f360bd9a.jpg"
+  },
+  {
+    "candidate_id": "333872383ce8b4ed7b7d",
+    "label": "Radio America TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.604396+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.991,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/333872383ce8b4ed7b7d.jpg"
+  },
+  {
+    "candidate_id": "13e463c187ed304969d2",
+    "label": "Radio Frecuencia Uno (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:49.148672+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "66e21d13aa08a023cd41",
+    "label": "Radio Chalaca",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.612029+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 17979
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/66e21d13aa08a023cd41.jpg"
+  },
+  {
+    "candidate_id": "4cfe8c7dffe941bb9513",
+    "label": "Radio Armonia TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.607482+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.980408,
+      "decoded_frames": 8997
+    },
+    "review_events": {
+      "freeze": 10,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4cfe8c7dffe941bb9513.jpg"
+  },
+  {
+    "candidate_id": "409bb5d0f31acdd0d6ec",
+    "label": "Radio Ancon (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.605118+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.98,
+      "decoded_frames": 14767
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/409bb5d0f31acdd0d6ec.jpg"
+  },
+  {
+    "candidate_id": "036862f74418ac381ad4",
+    "label": "Radio Aalsmeer TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.604081+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7494
+    },
+    "review_events": {
+      "freeze": 2,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/036862f74418ac381ad4.jpg"
+  },
+  {
+    "candidate_id": "77e9bba47a9a6a8ec8af",
+    "label": "Radio Duna (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.616967+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 256,
+        "height": 144,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.994921,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/77e9bba47a9a6a8ec8af.jpg"
+  },
+  {
+    "candidate_id": "da35753cea2ff81a03f6",
+    "label": "Radio Contemporanea Coihueco (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.615067+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/da35753cea2ff81a03f6.jpg"
+  },
+  {
+    "candidate_id": "eda1c38cbc7c0e133b3c",
+    "label": "Radio Birikina TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.608229+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/eda1c38cbc7c0e133b3c.jpg"
+  },
+  {
+    "candidate_id": "848c9cd678c6d4e57f0c",
+    "label": "Radio 538 (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.603575+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/848c9cd678c6d4e57f0c.jpg"
+  },
+  {
+    "candidate_id": "a13e829f13c35885530f",
+    "label": "Radio Bocairent TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.608717+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992667,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/a13e829f13c35885530f.jpg"
+  },
+  {
+    "candidate_id": "ef14ee6610f5f286be2f",
+    "label": "Radio Mega TV Amazonia (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:03.121528+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "15447a931d0f35764538",
+    "label": "Radio 3i (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.602656+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8996
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/15447a931d0f35764538.jpg"
+  },
+  {
+    "candidate_id": "d6a82bef25186142525f",
+    "label": "Radio Bonita 106.7 (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.608930+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 1
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.984512,
+      "decoded_frames": 8989
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d6a82bef25186142525f.jpg"
+  },
+  {
+    "candidate_id": "2d5043940f5d06612037",
+    "label": "Radio Capital TiVu (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.609915+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2d5043940f5d06612037.jpg"
+  },
+  {
+    "candidate_id": "4460b00da053ad6a3ba6",
+    "label": "Radio El Sembrador (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:43:24.020730+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 17998
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/4460b00da053ad6a3ba6.jpg"
+  },
+  {
+    "candidate_id": "f626a5bce7001bfdd151",
+    "label": "Radio Conexion Web TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:42:54.614092+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8549
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f626a5bce7001bfdd151.jpg"
+  },
+  {
+    "candidate_id": "a063b611993f1e9480b6",
+    "label": "Radio Onda Digital (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:45.212333+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "5cb913dcff7a0584177d",
+    "label": "Radio Fantastica 98.9 FM (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:44.986903+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8996
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/5cb913dcff7a0584177d.jpg"
+  },
+  {
+    "candidate_id": "03e0f499c6a5cf2f7bc8",
+    "label": "Radio Fann Jordan Studio (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:26.849064+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 14514
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/03e0f499c6a5cf2f7bc8.jpg"
+  },
+  {
+    "candidate_id": "cbb3a877290dd62762e4",
+    "label": "RMC Story (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:28.560601+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.994667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/cbb3a877290dd62762e4.jpg"
+  },
+  {
+    "candidate_id": "b41cefa1902b0f44ffb2",
+    "label": "RTP (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:37.461193+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/b41cefa1902b0f44ffb2.jpg"
+  },
+  {
+    "candidate_id": "b47e78e6ba6069c8bd4a",
+    "label": "Radio Fiesta de Milagros TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:47.659087+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997333,
+      "decoded_frames": 7649
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b47e78e6ba6069c8bd4a.jpg"
+  },
+  {
+    "candidate_id": "ebe557eb17f23516b3d2",
+    "label": "Radio Fx Net (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:49.647930+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 852,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.984,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ebe557eb17f23516b3d2.jpg"
+  },
+  {
+    "candidate_id": "c43b14ecba665ac2fb69",
+    "label": "Radio Hogar (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:53.432197+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8998
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c43b14ecba665ac2fb69.jpg"
+  },
+  {
+    "candidate_id": "8da8ca8662accf6c1f83",
+    "label": "Radio Guaira TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:51.779188+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8987
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8da8ca8662accf6c1f83.jpg"
+  },
+  {
+    "candidate_id": "a7f93ccc4206539494b2",
+    "label": "Radio Italia Trend TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:54.507313+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/a7f93ccc4206539494b2.jpg"
+  },
+  {
+    "candidate_id": "dd7eeb8e59a328ded73f",
+    "label": "Radio La Serena TV (240p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:59.112017+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.987667,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/dd7eeb8e59a328ded73f.jpg"
+  },
+  {
+    "candidate_id": "14f358149378e3f393b7",
+    "label": "Radio JND (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:55.022623+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 11,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/14f358149378e3f393b7.jpg"
+  },
+  {
+    "candidate_id": "b49a4c9c92f36637a8ce",
+    "label": "Radio Hit FM TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:52.246134+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 8
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992857,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b49a4c9c92f36637a8ce.jpg"
+  },
+  {
+    "candidate_id": "b1967aa1271e9979be96",
+    "label": "Radio Las Nieves (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:00.100849+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.987667,
+      "decoded_frames": 8988
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b1967aa1271e9979be96.jpg"
+  },
+  {
+    "candidate_id": "e0af1825ceebe8502a5e",
+    "label": "Radio Master (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:02.310153+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8998
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/e0af1825ceebe8502a5e.jpg"
+  },
+  {
+    "candidate_id": "78a0d8d291b67ad82ca9",
+    "label": "Radio Ibiza TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:54.030102+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/78a0d8d291b67ad82ca9.jpg"
+  },
+  {
+    "candidate_id": "bd72729ad77137cfc743",
+    "label": "Radio Karolina TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:47:57.403554+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/bd72729ad77137cfc743.jpg"
+  },
+  {
+    "candidate_id": "945df91a0df765e447b6",
+    "label": "Radio Suyai TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:54.696002+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "6d9f6262b8cb988608c4",
+    "label": "Radio Lola TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:01.267158+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.984,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6d9f6262b8cb988608c4.jpg"
+  },
+  {
+    "candidate_id": "2c488183a7da9b0f9bf2",
+    "label": "Radio Mir (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:05.994356+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2c488183a7da9b0f9bf2.jpg"
+  },
+  {
+    "candidate_id": "f538cadfe6c5450c1c7f",
+    "label": "Radio Moldova",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:06.135409+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 3,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/f538cadfe6c5450c1c7f.jpg"
+  },
+  {
+    "candidate_id": "3e6463dfcee54a824d31",
+    "label": "Radio Tele Ginen (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:16.552895+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "7b5e31985b8d851101b4",
+    "label": "Radio Ritmo FM (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:42.339299+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "71da4e28e98b5b7f3db7",
+    "label": "Radio Moldova Muzical",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:14.686816+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/71da4e28e98b5b7f3db7.jpg"
+  },
+  {
+    "candidate_id": "464e1d45431d24be23bb",
+    "label": "Radio Norba TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:19.185631+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/464e1d45431d24be23bb.jpg"
+  },
+  {
+    "candidate_id": "1ba47e89d76f891899a1",
+    "label": "Radio Moldova Tineret (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:17.120883+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1ba47e89d76f891899a1.jpg"
+  },
+  {
+    "candidate_id": "6a4593cf6543a27efa6b",
+    "label": "Radio Number One (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:48:39.757341+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.979,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 5,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/6a4593cf6543a27efa6b.jpg"
+  },
+  {
+    "candidate_id": "f9d76478561210c3ae35",
+    "label": "Radio Panoramica (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:49:20.930150+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.979,
+      "decoded_frames": 8989
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f9d76478561210c3ae35.jpg"
+  },
+  {
+    "candidate_id": "d6ddbc8218678b5675df",
+    "label": "Radio Rancagua FM (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:31.543942+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d6ddbc8218678b5675df.jpg"
+  },
+  {
+    "candidate_id": "f9423dac5979a816712d",
+    "label": "Radio Popular TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:28.881137+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8998
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f9423dac5979a816712d.jpg"
+  },
+  {
+    "candidate_id": "cfb108491595952dec53",
+    "label": "Radio Romania Oltenia-Craiova (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:45.109283+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.981667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 22,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/cfb108491595952dec53.jpg"
+  },
+  {
+    "candidate_id": "c979c48e3061ec0955aa",
+    "label": "Radio Piter Pan TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:25.680116+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c979c48e3061ec0955aa.jpg"
+  },
+  {
+    "candidate_id": "3df0ca544bd8d9a498b7",
+    "label": "Radio SWH TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:49.210076+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3df0ca544bd8d9a498b7.jpg"
+  },
+  {
+    "candidate_id": "866d99662725a154f83f",
+    "label": "Radio San Cristobal 88.7 FM",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:53.108006+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1092,
+        "height": 614,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8998
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/866d99662725a154f83f.jpg"
+  },
+  {
+    "candidate_id": "b59715e754fa29abf77c",
+    "label": "Radio Sublime Gracia TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:54.652472+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 644,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992925,
+      "decoded_frames": 7191
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b59715e754fa29abf77c.jpg"
+  },
+  {
+    "candidate_id": "cb4fbb89b9ba4dbd9fc7",
+    "label": "Radio Rossii (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:48.445856+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 20,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/cb4fbb89b9ba4dbd9fc7.jpg"
+  },
+  {
+    "candidate_id": "d35a9d1dabd5b5af4161",
+    "label": "Radio Rumba TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:48.576162+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 17983
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d35a9d1dabd5b5af4161.jpg"
+  },
+  {
+    "candidate_id": "00ad038dd240b9f17987",
+    "label": "Radio Romania Targu Mures (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:47.094989+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/00ad038dd240b9f17987.jpg"
+  },
+  {
+    "candidate_id": "5b2fee83a1fb9cb97c65",
+    "label": "Radio TV Neuquen (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:58.455919+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.995,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/5b2fee83a1fb9cb97c65.jpg"
+  },
+  {
+    "candidate_id": "eee81dc9deb1cfe61268",
+    "label": "Radio Studio Delta TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:53.897626+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/eee81dc9deb1cfe61268.jpg"
+  },
+  {
+    "candidate_id": "13058ada5570f36ec2db",
+    "label": "Radio Pudahuel (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:30.756799+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 8850
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/13058ada5570f36ec2db.jpg"
+  },
+  {
+    "candidate_id": "7e40f780ecbfac3ea239",
+    "label": "Radio Tele Full Gospel (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:09.989878+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/7e40f780ecbfac3ea239.jpg"
+  },
+  {
+    "candidate_id": "ab56dd6738d20849044b",
+    "label": "Radio TV Basse-Terre (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:58.201134+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8997
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ab56dd6738d20849044b.jpg"
+  },
+  {
+    "candidate_id": "a1c9db1e4080a4b68271",
+    "label": "Radio Taormina Sicilia (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:58.585520+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/a1c9db1e4080a4b68271.jpg"
+  },
+  {
+    "candidate_id": "9b60c79afb1c282091a6",
+    "label": "Radio Tele Evangile Sans Limite (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:52:59.831169+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9b60c79afb1c282091a6.jpg"
+  },
+  {
+    "candidate_id": "0ad30cd50007150cb350",
+    "label": "Radio Tele Puissance (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:20.796346+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988354,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0ad30cd50007150cb350.jpg"
+  },
+  {
+    "candidate_id": "fc0580f491a95d2b7068",
+    "label": "Radio Tele Planet Compas (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:20.650638+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992333,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/fc0580f491a95d2b7068.jpg"
+  },
+  {
+    "candidate_id": "4bf53ec3b4a5b479125e",
+    "label": "Radio Television Marbella (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:24.080294+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1092,
+        "height": 614,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8995
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/4bf53ec3b4a5b479125e.jpg"
+  },
+  {
+    "candidate_id": "3cf2af80e017030f748b",
+    "label": "Radio Televizija Banovina (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:25.637029+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3cf2af80e017030f748b.jpg"
+  },
+  {
+    "candidate_id": "c2f0adf87f146c130959",
+    "label": "Radio Tropical (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:26.330033+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988167,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c2f0adf87f146c130959.jpg"
+  },
+  {
+    "candidate_id": "39e038d76deb2329095e",
+    "label": "Radio USACH (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:53:45.970354+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 850,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/39e038d76deb2329095e.jpg"
+  },
+  {
+    "candidate_id": "8d277ecafd4aad0a45d8",
+    "label": "Radio Universal (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:54:09.057432+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.983,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8d277ecafd4aad0a45d8.jpg"
+  },
+  {
+    "candidate_id": "2a950d1d7176cd158d99",
+    "label": "Radio Universitaria San Andres (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:16.836384+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.982,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2a950d1d7176cd158d99.jpg"
+  },
+  {
+    "candidate_id": "5d99099aa551a98a5f7f",
+    "label": "Radio Vida Curico (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:17.578422+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.987333,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/5d99099aa551a98a5f7f.jpg"
+  },
+  {
+    "candidate_id": "2770391a2965bb86ad5c",
+    "label": "Radio Yaqeen Jordan City View (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:28.957886+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2770391a2965bb86ad5c.jpg"
+  },
+  {
+    "candidate_id": "26ee45c0a2f3317a97b5",
+    "label": "RadioTV Oriente (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:41.421067+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.996333,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/26ee45c0a2f3317a97b5.jpg"
+  },
+  {
+    "candidate_id": "98449be6e9bf52eef311",
+    "label": "RadioToppers (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:42.058341+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.977415,
+      "decoded_frames": 7496
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/98449be6e9bf52eef311.jpg"
+  },
+  {
+    "candidate_id": "680857abf4f5f715cd89",
+    "label": "RadioMensaje TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:41.016307+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/680857abf4f5f715cd89.jpg"
+  },
+  {
+    "candidate_id": "e232cf3f4003a801cd60",
+    "label": "Radiocanal (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:45.339041+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997664,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/e232cf3f4003a801cd60.jpg"
+  },
+  {
+    "candidate_id": "0a7e2fed354a94985cb3",
+    "label": "Radio Zona 90.3 (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:39.987905+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0a7e2fed354a94985cb3.jpg"
+  },
+  {
+    "candidate_id": "2bd7c20ed4e866d88500",
+    "label": "Radio Zeta (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:30.519807+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2bd7c20ed4e866d88500.jpg"
+  },
+  {
+    "candidate_id": "e84e1fe8265516f2e4ba",
+    "label": "Radost Moya (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:57.126572+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e84e1fe8265516f2e4ba.jpg"
+  },
+  {
+    "candidate_id": "297a55432463229d8d7f",
+    "label": "Rai 1 (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:00.203133+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/297a55432463229d8d7f.jpg"
+  },
+  {
+    "candidate_id": "e8626217cb83308a0cf0",
+    "label": "RadioNL TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:41.047968+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986771,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e8626217cb83308a0cf0.jpg"
+  },
+  {
+    "candidate_id": "d2ca3a3a7b427f2c2287",
+    "label": "Raftaar Media (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:58.039444+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.992333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d2ca3a3a7b427f2c2287.jpg"
+  },
+  {
+    "candidate_id": "eab23adf11c33040ffb0",
+    "label": "Rai 3 (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:15.658763+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/eab23adf11c33040ffb0.jpg"
+  },
+  {
+    "candidate_id": "30f47b0c481f3c123e17",
+    "label": "Radiowa Czworka (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:49.866517+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.981667,
+      "decoded_frames": 8700
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/30f47b0c481f3c123e17.jpg"
+  },
+  {
+    "candidate_id": "8c7fe7e02e3fa963edfb",
+    "label": "Radiofreccia (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:48.042131+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8c7fe7e02e3fa963edfb.jpg"
+  },
+  {
+    "candidate_id": "4e29798a44aa9ae23630",
+    "label": "Rakuten TV Nordic Films (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:16.146107+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "1d246c96dc1fb20e947c",
+    "label": "Radio y Television Marti (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:57:40.677197+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1d246c96dc1fb20e947c.jpg"
+  },
+  {
+    "candidate_id": "0093732722b3b1003f55",
+    "label": "Rai Italia (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:16.874344+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 480,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 6149
+    },
+    "review_events": {
+      "freeze": 8,
+      "black": 1,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/0093732722b3b1003f55.jpg"
+  },
+  {
+    "candidate_id": "3762e618069a4c315349",
+    "label": "Rai News 24 (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:18.163178+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 408,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7212
+    },
+    "review_events": {
+      "freeze": 3,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/3762e618069a4c315349.jpg"
+  },
+  {
+    "candidate_id": "c6170dcb16ab1065db38",
+    "label": "Rai 2 (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:00.254026+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 408,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7116
+    },
+    "review_events": {
+      "freeze": 2,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/c6170dcb16ab1065db38.jpg"
+  },
+  {
+    "candidate_id": "ccf04acbd58a42a30f41",
+    "label": "Rai Storia (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:20.164648+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 408,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ccf04acbd58a42a30f41.jpg"
+  },
+  {
+    "candidate_id": "f77b9d103d9d164634f8",
+    "label": "Rai Sudtirol (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:59.969518+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7249
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/f77b9d103d9d164634f8.jpg"
+  },
+  {
+    "candidate_id": "4a3cc9036353ba7a3afc",
+    "label": "Rai Scuola (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:58:20.056573+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 408,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/4a3cc9036353ba7a3afc.jpg"
+  },
+  {
+    "candidate_id": "d448479599b211b5fef0",
+    "label": "Rai World Premium (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T11:59:00.524721+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 408,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7212
+    },
+    "review_events": {
+      "freeze": 2,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/d448479599b211b5fef0.jpg"
+  },
+  {
+    "candidate_id": "d7e4f98b06a11df833c1",
+    "label": "Rainbow Ruby (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:06.913277+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "24000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 256,
+        "height": 144,
+        "avg_frame_rate": "24000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "24000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "24000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "24000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986708,
+      "decoded_frames": 7818
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d7e4f98b06a11df833c1.jpg"
+  },
+  {
+    "candidate_id": "e43ae7213fff6696221a",
+    "label": "Raizal TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:14.864042+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8192
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e43ae7213fff6696221a.jpg"
+  },
+  {
+    "candidate_id": "2660ddd6e3c101f86d5c",
+    "label": "Raj Musix Kannada (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:19.899878+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.994667,
+      "decoded_frames": 7495
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2660ddd6e3c101f86d5c.jpg"
+  },
+  {
+    "candidate_id": "c93e5d80b95493f7d3cc",
+    "label": "Raj News Malayalam (360p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:40.798696+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986667,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c93e5d80b95493f7d3cc.jpg"
+  },
+  {
+    "candidate_id": "40b787521ea86bd4c495",
+    "label": "Raj Musix Malayalam (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:32.360026+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 424,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7435
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/40b787521ea86bd4c495.jpg"
+  },
+  {
+    "candidate_id": "9afd6da1b41ff696b87c",
+    "label": "Raj Musix Telugu (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:33.944437+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 424,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7496
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9afd6da1b41ff696b87c.jpg"
+  },
+  {
+    "candidate_id": "52b682acdc509cff0f8f",
+    "label": "Raj News Kannada (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:36.094077+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 424,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7461
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/52b682acdc509cff0f8f.jpg"
+  },
+  {
+    "candidate_id": "ec04d405b212684a73c8",
+    "label": "Rajeen TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:57.598595+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ec04d405b212684a73c8.jpg"
+  },
+  {
+    "candidate_id": "73b0631cf50136f05d77",
+    "label": "Raj News Telugu (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:41.277339+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 424,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7447
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/73b0631cf50136f05d77.jpg"
+  },
+  {
+    "candidate_id": "d6988e75a9798d799f43",
+    "label": "Rakuten TV Action Movies (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:58.155193+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d6988e75a9798d799f43.jpg"
+  },
+  {
+    "candidate_id": "3b074472df402f9b0295",
+    "label": "Rajdhani TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:02:54.117766+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3b074472df402f9b0295.jpg"
+  },
+  {
+    "candidate_id": "b274d33633559b927770",
+    "label": "Rakuten TV Drama Movies (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:04.143139+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/b274d33633559b927770.jpg"
+  },
+  {
+    "candidate_id": "b8dd10e034d25d6b2bc9",
+    "label": "Rakuten TV Comedy Movies (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:00.984961+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b8dd10e034d25d6b2bc9.jpg"
+  },
+  {
+    "candidate_id": "708a974d429089f9c54f",
+    "label": "Rakuten TV Family Movies (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:11.606735+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/708a974d429089f9c54f.jpg"
+  },
+  {
+    "candidate_id": "eae52d56c9452b479f6f",
+    "label": "Rakuten Viki (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:20.642347+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8989
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/eae52d56c9452b479f6f.jpg"
+  },
+  {
+    "candidate_id": "86d887b72903368e5fbe",
+    "label": "Rakuten TV Top Movies (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:18.092163+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/86d887b72903368e5fbe.jpg"
+  },
+  {
+    "candidate_id": "802c4741907cc0608ab5",
+    "label": "Rally TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:42.428426+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "50/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 320,
+        "height": 180,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.982667,
+      "decoded_frames": 15000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/802c4741907cc0608ab5.jpg"
+  },
+  {
+    "candidate_id": "eb5f286ba8c3441de451",
+    "label": "Raly TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:03:54.694104+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998549,
+      "decoded_frames": 8891
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/eb5f286ba8c3441de451.jpg"
+  },
+  {
+    "candidate_id": "76455d64b8c9b7cec531",
+    "label": "Ramdhenu (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:04:06.937773+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997333,
+      "decoded_frames": 7443
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/76455d64b8c9b7cec531.jpg"
+  },
+  {
+    "candidate_id": "b07524b732fba73bd1eb",
+    "label": "Rang (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-14T12:04:07.707090+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978667,
+      "decoded_frames": 7488
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b07524b732fba73bd1eb.jpg"
   }
 ]
