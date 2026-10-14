@@ -64,8 +64,9 @@ def build(folder, discovery_folder=None):
                 problems.append({"tur": "ADAY_LOGO_INCELEME", "aciklama": "{}: {} aday".format(category, count)})
     problems += [{"tur": "GEREKSIZ_TEKRAR", "aciklama": name} for name in push.get("tekrarli_senaryolar", [])]
     problems += [{"tur": "MERKEZ_TETIKLEME_EKSIK", "aciklama": name} for name in push.get("merkezi_denetime_ulasamayan_senaryolar", [])]
-    problems += [{"tur": "KALAN_IS", "aciklama": item.get("name", "?") + ": " + item.get("status", "?")}
-                 for item in jobs.get("jobs", []) if item.get("status") not in ("TAMAMLANDI", "ONAYLANDI")]
+    verified_states = ("TAMAMLANDI", "ONAYLANDI", "YEDEK_KANITLARI_DOGRULANDI")
+    problems += [{"tur": "KALAN_IS", "aciklama": str(item.get("name", "?")) + ": " + str(item.get("status", "?"))}
+                 for item in jobs.get("jobs", []) if isinstance(item, dict) and item.get("status") not in verified_states]
     if backup_restore != "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI":
         problems.append({"tur": "YEDEK_GERI_YUKLEME", "aciklama": "İzole geri yükleme kanıtı yok"})
     if not backup_historical:

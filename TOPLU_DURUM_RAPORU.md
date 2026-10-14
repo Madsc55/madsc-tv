@@ -87,3 +87,8 @@ Kullanıcının ekranında merkezi #96, otomatik devam #33 ve birleşik keşif #
 ## 14 Ekim — Sekiz kalan görevde sabit yedek sonucu kaldırıldı
 
 Kullanıcı merkezi testlerin yeşil olduğunu bildirdi. Sekiz görevlik merkezi karar tablosunda tarihsel yedek kanıtı koşulsuz `False` gösteriliyordu; artık gerçek `historical_recovery_verified`, `off_github_copy` ve izole geri yükleme durumuna göre raporlanır. Üçü doğrulanmadıkça tamamlandı denmez. Ayrıca cihaz bazlı kanıt olmadan sabit yabancı kanal sayısı veya toplu IBO onayı iddiası kaldırıldı. Yeni regresyon testi eklendi. Korunan kanal ve yedek dosyalarına dokunulmadı. Yeni merkezi koşu sonucu bekleniyor.
+
+
+## 14 Ekim — Sekiz görev ve tek ekran durum eşitlemesi
+
+Sekiz görev karar tablosu artık kanıtlı tam yedek durumunu `YEDEK_KANITLARI_DOGRULANDI` olarak raporlayabiliyor. Tek ekran açık iş filtresi aynı durumu hâlâ açık iş sayıyordu. Filtre ve regresyon testi eşitlendi: sadece üç yedek kanıtı gerçekten doğrulandığında kapalı iş olur; diğer logo/EPG ve IBO açık işleri kapanmaz. Önceki engellenen ana dal güncellemesi başarıyla tamamlandı. Kullanıcının bildirdiği yeşil testler önceki koşulara aittir; bu değişiklik sonrası koşu ayrıca doğrulanmalıdır. Korunan listelere dokunulmadı.

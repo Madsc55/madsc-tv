@@ -59,6 +59,17 @@ class TekEkranTopluTest(unittest.TestCase):
         self.assertNotIn("TARIHSEL_YEDEK", codes)
         self.assertIn("KIMLIK_KAYNAK_LISTESI_YOK", codes)
 
+    def test_tamamlanan_yedek_isi_acik_gosterilmez(self):
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            (folder / "kalan_isler_tek_kosu_karar_tablosu.json").write_text(json.dumps({
+                "jobs": [{"name": "Yedek geri yukleme", "status": "YEDEK_KANITLARI_DOGRULANDI"},
+                         {"name": "EPG", "status": "KANIT_EKSIK"}]}))
+            result = build(folder, folder / "olmayan_kesif")
+        remaining = [x["aciklama"] for x in result["acik_isler"] if x["tur"] == "KALAN_IS"]
+        self.assertEqual(remaining, ["EPG: KANIT_EKSIK"])
+
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
         self.assertNotIn("CALISANLAR.m3u", source)
