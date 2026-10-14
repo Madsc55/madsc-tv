@@ -9,6 +9,15 @@ class TekMerkezKuralTesti(unittest.TestCase):
         self.assertNotIn("\n  push:", doc)
         self.assertIn("workflow_dispatch:", doc)
 
+    def test_logo_kanal_degisiminde_ayri_push_acmaz(self):
+        logo = (ROOT / ".github/workflows/automatic-png-logos.yml").read_text()
+        self.assertIn("  workflow_dispatch:", logo)
+        self.assertIn("    - cron: '23 5 * * *'", logo)
+        self.assertNotIn("      - 'CALISANLAR.m3u'", logo)
+        self.assertIn("      - 'scripts/automatic_png_logos.py'", logo)
+        self.assertIn("  contents: read", logo)
+        self.assertIn("Korunan kanal listesi degisikliklerini engelle", logo)
+
     def test_merkez_dokuman_ve_kanal_kontrolu(self):
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
         for name in ("AGENTS.md", "DEVAM_NOTU.md", "CALISANLAR.m3u", "GUVENLIK_KURALLARI.md"):

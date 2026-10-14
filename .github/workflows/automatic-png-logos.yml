@@ -1,13 +1,14 @@
 name: Eksik Kanal Logolari Guvenli Hazirlik
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * *'
   push:
     paths:
-      - 'CALISANLAR.m3u'
       - 'scripts/automatic_png_logos.py'
       - '.github/workflows/automatic-png-logos.yml'
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: automatic-png-logos
   cancel-in-progress: false
