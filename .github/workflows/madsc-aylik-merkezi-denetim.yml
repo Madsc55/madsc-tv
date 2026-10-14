@@ -21,6 +21,8 @@ on:
       - 'scripts/central_isolated_git_restore.py'
       - 'test_central_isolated_git_restore.py'
       - 'scripts/central_identity_epg_logo_audit.py'
+      - 'scripts/candidate_logo_missing_report.py'
+      - 'test_candidate_logo_missing_report.py'
       - 'scripts/central_ibo_review_queue.py'
       - 'test_central_ibo_review_queue.py'
       - 'scripts/central_management_summary.py'
@@ -99,6 +101,8 @@ jobs:
           python3 scripts/central_protected_write_gate.py
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
+      - name: Yeni aday logo eksiklerini merkezi raporla
+        run: python3 -m scripts.candidate_logo_missing_report
       - name: Logo EPG kimlik ve test gecmisini birlestir
         run: python3 scripts/central_identity_epg_logo_audit.py
       - name: IBO adaylarini onaysiz inceleme kuyruguna hazirla
