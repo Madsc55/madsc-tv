@@ -170,6 +170,23 @@ def main():
                 "unverified_trigger_behavior": item["unverified_trigger_behavior"],
                 "migration_gap_reasons": "; ".join(item["migration_gap_reasons"]),
             })
+    # Five actionable queues in one artifact; no legacy workflow is mutated.
+    queues = {}
+    for n in CATEGORIES:
+        rows = [item for item in report["items"] if item["primary_category"] == n]
+        queues[CATEGORIES[n][0]] = {
+            "count": len(rows),
+            "high_priority": sum(x["review_priority"] == "HIGH" for x in rows),
+            "workflows": [
+                {"file": x["file"], "priority": x["review_priority"],
+                 "missing_scripts": x["unmatched_script_entrypoints"],
+                 "gap_reasons": x["migration_gap_reasons"],
+                 "replacement_candidates": x["possible_replacement_workflows"]}
+                for x in rows
+            ],
+        }
+    (out / "bes_kategori_toplu_eksik_is_kuyrugu.json").write_text(
+        json.dumps(queues, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
     lines = ["# MADSC — 92 Otomasyon Görev ve Kategori Haritası", "",
              f"İncelenen iş akışı: **{report['total']}** (statik kaynak kod incelemesi)", "",
              "| Kategori | Birincil workflow sayısı |", "|---|---:|"]
