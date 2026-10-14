@@ -88,3 +88,9 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 ## 14 Ekim — Tam durum ve sonraki aşama kalıcı kaydı
 - Bugüne kadarki hedefler, beş kategorinin yaptığı/yapamadığı işler, doğrulanmış koşular, açık 92/92 eşdeğerlik, canlı EPG/Pages/VOD, 75 aday, IBO onayı, yedek/restore ve kullanıcı koruma kuralları `docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md` dosyasına kaydedildi.
 - **Sıradaki iş:** 92 satırlık eski-yeni görev/çıktı/tetik/yazma/bağımlılık eşdeğerlik matrisi; canlı kabul ayrı. Önceki beşli başarı son kodun başarısı yerine kullanılmayacak.
+
+## 14 Ekim — Genel bakım yanlış negatif kabul hatası düzeltildi
+- Kullanıcının #15 koşusu ekranında ilk dört kategori success, kategori 5 rapor/regresyon/eşdeğerlik testleri success; yalnız `Dort onceki kategori de basarili olmali` adımı başarısız.
+- Kök neden: `genel-bakim` işi `needs` altında yalnız `kademe-4-arsiv-yedek` tanımlıyordu; `needs.kademe-1-guvenlik.result` gibi diğer üç sonuç boş geldi (`SECURITY:`). Başarılı güvenlik testi yanlış negatif sayıldı.
+- Düzeltme: `genel-bakim.needs` artık dört kategorinin tümünü içeriyor; zincirin sırayla çalışma bağımlılıkları korunuyor. Commit `1f2eeda851e1ddef576f5c0d40125ed497821bf9`, `[madsc-full-batch]` ile yeni koşu tetiklenmesi amaçlandı.
+- Son koşunun canlı sonucu ayrıca doğrulanmalı; yeşil ilan edilmedi. Korunan playlist, favori, YENİLER, logo, yedek ve eski 92 workflow değiştirilmedi.
