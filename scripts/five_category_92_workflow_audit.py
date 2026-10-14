@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read-only 92-workflow task inventory; never dispatches, edits, or disables workflows."""
 from __future__ import annotations
+import csv
 import json
 import re
 from collections import Counter
@@ -110,6 +111,38 @@ def main():
     out = ROOT / "madsc_merkezi_denetim"
     out.mkdir(exist_ok=True)
     (out / "92_workflow_gorev_ve_kategori_haritasi.json").write_text(json.dumps(report, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    # Single, machine-readable review queue: all 92 rows, not only aggregate counts.
+    with (out / "92_workflow_esdegerlik_kabul_matrisi.csv").open("w", encoding="utf-8", newline="") as f:
+        columns = [
+            "legacy_workflow", "primary_category", "review_priority",
+            "cron_utc", "push", "workflow_run", "workflow_call", "manual",
+            "contents_write", "legacy_commands", "legacy_actions",
+            "output_hints", "possible_replacement_workflows",
+            "shared_script_entrypoints", "unmatched_script_entrypoints",
+            "behavioral_parity_verified", "migration_decision",
+        ]
+        writer = csv.DictWriter(f, fieldnames=columns)
+        writer.writeheader()
+        for item in report["items"]:
+            writer.writerow({
+                "legacy_workflow": item["file"],
+                "primary_category": CATEGORIES[item["primary_category"]][0],
+                "review_priority": item["review_priority"],
+                "cron_utc": "; ".join(item["cron_utc"]),
+                "push": item["push"],
+                "workflow_run": item["workflow_run"],
+                "workflow_call": item["workflow_call"],
+                "manual": item["manual"],
+                "contents_write": item["contents_write"],
+                "legacy_commands": "; ".join(item["commands"]),
+                "legacy_actions": "; ".join(item["actions"]),
+                "output_hints": "; ".join(item["output_hints"]),
+                "possible_replacement_workflows": "; ".join(item["possible_replacement_workflows"]),
+                "shared_script_entrypoints": "; ".join(item["shared_script_entrypoints"]),
+                "unmatched_script_entrypoints": "; ".join(item["unmatched_script_entrypoints"]),
+                "behavioral_parity_verified": item["behavioral_parity_verified"],
+                "migration_decision": item["migration_decision"],
+            })
     lines = ["# MADSC — 92 Otomasyon Görev ve Kategori Haritası", "",
              f"İncelenen iş akışı: **{report['total']}** (statik kaynak kod incelemesi)", "",
              "| Kategori | Birincil workflow sayısı |", "|---|---:|"]
