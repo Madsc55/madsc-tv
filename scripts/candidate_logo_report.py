@@ -21,7 +21,10 @@ def public_artwork_url(url):
 
 def prepare(candidates, previous, converter=None, limit=240):
     if converter is None:
-        from scripts.automatic_png_logos import convert
+        try:
+            from .automatic_png_logos import convert
+        except ImportError:
+            from automatic_png_logos import convert
         converter = convert
     saved = {r['stream_sha256']: r for r in previous}
     used = 0

@@ -4,6 +4,14 @@ import sys
 from scripts.candidate_logo_missing_report import build
 
 class YeniAdayLogoTesti(unittest.TestCase):
+    def test_logo_hazirligi_paket_ve_bagimsiz_calistirma(self):
+        from scripts.candidate_logo_report import prepare
+        self.assertEqual(prepare([], [], converter=lambda *args, **kwargs: None), [])
+        result = subprocess.run([sys.executable, "-c",
+                                 "from scripts.candidate_logo_report import prepare; assert prepare([], []) == []"],
+                                capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_png_hazirlama_olmasa_da_eksik_logo_raporu(self):
         candidates = [{"channel": "Logo Yok", "stream_sha256": "abc", "logo_url": ""}]
         result = build(candidates, [])

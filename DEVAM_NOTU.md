@@ -1,3 +1,7 @@
+## 14 Ekim 2026 — #106 KIRMIZI BİRLEŞİK KEŞİF LOGO MODÜLÜ DÜZELTMESİ
+
+Kullanıcı ekran görüntüsünde birleşik keşif #106 kırmızı; beş aşamalı merkezi denetim #79 yeşil. Keşif workflow'u scripts/candidate_logo_report.py dosyasını doğrudan çalıştırıyordu; bu durumda sys.path depo kökü yerine scripts dizinini içerdiği için 'from scripts.automatic_png_logos import convert' ModuleNotFoundError verdi. Tek toplu değişiklikte candidate_logo_report.py içindeki lazy import paket modu ve doğrudan script modunda çalışacak şekilde düzeltildi. Birleşik keşif workflow'u python -m scripts.candidate_logo_report kullanacak; regresyon testi prepare([],[]) çağrısında gerçek lazy importu doğrulayacak. Ana liste logoları, yayın bağlantıları, YENİLER, HEPSİ, favoriler, arşiv ve yedekler değişmedi. Güncel Actions sonucu doğrulanmalıdır. Eski kayıtlar korunur.
+
 ## 14 Ekim 2026 — YEŞİL TEST SONRASI ADAY LOGO RAPORU HATA DAYANIKLILIĞI
 
 Kullanıcı önceki #77 düzeltmesinden sonraki testin yeşil olduğunu bildirdi. Tek toplu değişiklikte keşif betiğinde aday logo envanteri PNG hazırlama try/except bloğunun dışına alındı. Böylece PNG dönüştürücüsü hata verirse bile yeni adayların eksik logo raporu üretilir; önceki davranışta rapor tümüyle kayboluyordu. Regresyon testi PNG hazırlama kanıtı olmadan eksik logonun sayıldığını kontrol eder. Ana liste ve mevcut logolar kesinlikle değiştirilmedi; yeni adaylar otomatik onaylanmadı. Bu değişiklik canlı logoları bulmaz, güvenilir eksik iş envanteri üretir. Önceki notlar korunur.

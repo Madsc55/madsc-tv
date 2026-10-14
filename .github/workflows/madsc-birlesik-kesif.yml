@@ -50,7 +50,7 @@ jobs:
         run: python3 scripts/discovery_archive.py after
       - name: Aday logolarını ayrı PNG incelemesine hazırla
         run: |
-          python scripts/candidate_logo_report.py
+          python -m scripts.candidate_logo_report
       - name: Aday yayın logo ve EPG kanıtlarını tek raporda birleştir
         run: python3 scripts/candidate_epg_logo_join.py
       - name: Test çıktılarını arşivle
