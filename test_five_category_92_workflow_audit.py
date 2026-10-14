@@ -1,0 +1,39 @@
+"""Bulk coverage audit regression: 92 old workflows, five new categories."""
+import tempfile
+import unittest
+from pathlib import Path
+from scripts.five_category_92_workflow_audit import inspect
+
+
+class BulkCoverageTests(unittest.TestCase):
+    def test_92_legacy_workflows_all_reported_and_gaps_visible(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                script = "scripts/shared.py" if n < 50 else "scripts/missing.py"
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    f"name: Legacy {n}\non:\n  workflow_dispatch:\njobs:\n  audit:\n    steps:\n      - run: python3 {script}\n")
+            for n, name in enumerate(("guvenlik", "kesif", "kanal-test", "arsiv-yedek", "genel-bakim"), 1):
+                (folder / f"madsc-0{n}-{name}.yml").write_text(
+                    "name: New category\non:\n  workflow_dispatch:\njobs:\n  audit:\n    steps:\n      - run: python3 scripts/shared.py\n")
+            result = inspect(root)
+            self.assertEqual(result["total"], 92)
+            self.assertEqual(result["legacy_workflows_with_unmatched_scripts"], 42)
+            self.assertEqual(result["legacy_workflows_with_no_shared_script"], 42)
+            self.assertEqual(result["behavioral_parity_verified_count"], 0)
+            self.assertEqual(len(result["items"]), 92)
+            self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
+
+    def test_missing_legacy_workflow_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            folder = Path(d) / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "legacy.yml").write_text("name: Legacy\n")
+            with self.assertRaises(SystemExit):
+                inspect(Path(d))
+
+
+if __name__ == "__main__":
+    unittest.main()
