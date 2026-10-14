@@ -1,6 +1,7 @@
 name: MADSC 03 - Kanal Testleri Toplu
 on:
   workflow_dispatch:
+  workflow_call:
 permissions:
   contents: read
   actions: read
