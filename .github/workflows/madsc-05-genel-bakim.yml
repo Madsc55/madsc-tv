@@ -66,6 +66,8 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
       - name: Kategoriye ait tum rapor kontrolleri
+        id: audit_1
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -84,6 +86,8 @@ jobs:
           python3 scripts/central_open_gaps.py
           python3 scripts/central_single_screen_report.py
       - name: 92 satirlik toplu esdegerlik matrisi kabul kapisi
+        id: audit_2
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -99,6 +103,8 @@ jobs:
           print("92 legacy workflows documented; migration remains blocked pending parity evidence")
           PY
       - name: Toplu gecis kuyruklari ve koruma kabul kapisi
+        id: audit_3
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -128,6 +134,8 @@ jobs:
           print("Five categories and all 92 outstanding workflows accounted for; no legacy workflow retired.")
           PY
       - name: Kesif zamanlamasi ve salt okunur yetki kabul kontrolu
+        id: audit_4
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -141,6 +149,8 @@ jobs:
           print("Discovery shadow schedule configured; activation requires default branch.")
           PY
       - name: EPG Pages ve yedek kabul kapilari kategoriye baglandi
+        id: audit_5
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -151,12 +161,20 @@ jobs:
           print("Both shadow acceptance gates linked; no live migration authorization.")
           PY
       - name: EPG Pages ve yedek izin kapisi regresyon testleri
+        id: audit_6
+        continue-on-error: true
         run: python3 -m unittest test_five_category_permission_gate -v
       - name: Kategoriye ait tum regresyon testleri
+        id: audit_7
+        continue-on-error: true
         run: python3 -m unittest test_central_workflow_inventory test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report -v
       - name: Tek merkez push regresyon testleri
+        id: audit_8
+        continue-on-error: true
         run: python3 -m unittest test_central_consolidation_audit test_tek_merkez_tetikleme -v
       - name: Esdegerlik kapisi regresyon testleri
+        id: audit_9
+        continue-on-error: true
         run: python3 -m unittest test_five_system_migration_audit test_five_category_92_workflow_audit -v
       - name: Dort onceki kategori de basarili olmali
         if: always() && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[madsc-full-batch]'))
@@ -180,6 +198,44 @@ jobs:
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Toplu test sonuc ozeti ve hata listesi
+        if: always()
+        env:
+          AUDIT_RESULTS: ${{ toJSON(steps) }}
+          SECURITY_RESULT: ${{ needs.kademe-1-guvenlik.result }}
+          DISCOVERY_RESULT: ${{ needs.kademe-2-kesif.result }}
+          CHANNEL_RESULT: ${{ needs.kademe-3-kanal-test.result }}
+          ARCHIVE_RESULT: ${{ needs.kademe-4-arsiv-yedek.result }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          data = json.loads(os.environ["AUDIT_RESULTS"])
+          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
+          categories = {name: os.environ[name] for name in ["SECURITY_RESULT", "DISCOVERY_RESULT", "CHANNEL_RESULT", "ARCHIVE_RESULT"]}
+          result = {"audit_steps": audits, "categories": categories}
+          folder = Path("madsc_merkezi_denetim")
+          folder.mkdir(exist_ok=True)
+          (folder / "toplu_test_sonuc_ozeti.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+          print(json.dumps(result, indent=2, ensure_ascii=False))
+          PY
+      - name: Toplu test hata kapisi
+        if: always()
+        env:
+          AUDIT_RESULTS: ${{ toJSON(steps) }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          data = json.loads(os.environ["AUDIT_RESULTS"])
+          names = ["audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
+          failures = [name for name in names if data.get(name, {}).get("outcome") != "success"]
+          if failures:
+              print("::error::Failed or skipped consolidated audits: " + ", ".join(failures))
+              sys.exit(1)
+          print("All consolidated audits passed.")
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
