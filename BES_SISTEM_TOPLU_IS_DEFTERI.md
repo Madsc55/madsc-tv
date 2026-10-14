@@ -99,3 +99,10 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - İşlerin küçük küçük test edilmesi yerine önce bütün eksiklerin bir pakette hazırlanması, sonra tek MADSC 05 beşli kabul koşusu ve gerekirse tek toplu hata düzeltme turu yapılması kararlaştırıldı.
 - Uygulama ve kabul şartları `docs/MADSC-IKI-TOPLU-KABUL-PLANI.md` dosyasına kalıcı olarak kaydedildi.
 - Dokümantasyon değişikliği kendi başına yeni beşli Actions koşusu başlatmaz. 92/92 davranışsal eşdeğerlik tamamlanmadan eski workflow'lar korunur.
+
+## 14 Ekim — Test tamamlandı bildirimi ve sonraki toplu hazırlık
+- Kullanıcı son testin bittiğini bildirdi (✅). GitHub son koşusunun job/step sonucu bağımsız doğrulanmadığı için otomatik 5/5 success kabul edilmedi.
+- PR #71 açık/draft, head `f1f4648de28e1aa18397ff146163cb71c4405b66` sorgulama anında; eski 92 workflow ve korunan veriler korunuyor.
+- `scripts/five_category_92_workflow_audit.py` artık tek koşu artifact'ına `92_workflow_esdegerlik_kabul_matrisi.csv` üretecek: 92 satır, kategori, risk, cron/push/workflow_run/call, yazma izni, komut, action, çıktı, yeni aday karşılığı, eksik betik ve BLOCKED kararı.
+- `test_five_category_92_workflow_audit.py` yeni regresyonu: ortak betik olsa dahi davranışsal eşdeğerlik otomatik onaylanmaz.
+- Bu iki kod değişikliği tek sonraki kabul koşusunda birlikte doğrulanacak; ayrı ayrı test tetiklenmedi. Eski 92 workflow'u kapatma veya canlı kanal listelerine yazma yok.
