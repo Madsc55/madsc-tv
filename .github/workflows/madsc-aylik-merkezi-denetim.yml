@@ -40,6 +40,8 @@ on:
       - 'test_central_eighteen_task_audit.py'
       - 'scripts/central_source_reconciliation.py'
       - 'scripts/central_duplicate_test_audit.py'
+      - 'scripts/central_consolidation_audit.py'
+      - 'test_central_consolidation_audit.py'
       - 'test_central_duplicate_test_audit.py'
       - 'test_central_source_reconciliation.py'
       - 'test_central_eight_task_audit.py'
@@ -131,6 +133,7 @@ jobs:
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '[.workflow_runs[] | {workflow_id,name,status,conclusion,run_id:.id,created_at,html_url}]' > madsc_merkezi_denetim/son_100_kosu.json
           python3 scripts/central_run_status.py
           python3 scripts/central_main_playlist_run_evidence.py
+          python3 scripts/central_consolidation_audit.py
           # Her push sonrasi, yeni kosu beklemeden, son tamamlanmis run'lari
           # GitHub API uzerinden oku; yeni test veya workflow tetikleme.
           python3 - <<'PY'
@@ -204,6 +207,7 @@ jobs:
           python3 scripts/central_open_gaps.py
           python3 scripts/central_short_status.py
           cat madsc_merkezi_denetim/madsc_kisa_durum_ozeti.md >> "$GITHUB_STEP_SUMMARY"
+          cat madsc_merkezi_denetim/toplu_tetikleme_ve_kabul_ozeti.md >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "## MADSC - Ayda iki kez merkezi denetim" >> "$GITHUB_STEP_SUMMARY"
           echo "- Takip edilen dosya: $(wc -l < madsc_merkezi_denetim/takip_edilen_dosyalar.txt)" >> "$GITHUB_STEP_SUMMARY"
