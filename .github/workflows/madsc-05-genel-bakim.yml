@@ -1,6 +1,11 @@
 name: MADSC 05 - Genel Bakim Toplu
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-05-genel-bakim.yml'
 permissions:
   contents: read
   actions: read
