@@ -34,6 +34,13 @@ jobs:
         run: |
           set -euo pipefail
           python3 scripts/central_workflow_inventory.py
+          python3 scripts/central_source_reconciliation.py
+          python3 scripts/central_duplicate_test_audit.py
+          python3 scripts/central_backup_evidence.py
+          python3 scripts/central_identity_epg_logo_audit.py
+          python3 scripts/central_ibo_review_queue.py
+          python3 scripts/central_eight_task_audit.py
+          python3 scripts/central_management_summary.py
           python3 scripts/central_eighteen_task_audit.py
           python3 scripts/central_all_remaining_tasks.py
           python3 scripts/central_open_gaps.py
