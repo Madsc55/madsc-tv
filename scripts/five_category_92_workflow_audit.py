@@ -187,6 +187,33 @@ def main():
         }
     (out / "bes_kategori_toplu_eksik_is_kuyrugu.json").write_text(
         json.dumps(queues, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Single actionable review order across all categories.
+    priority_rows = sorted(
+        report["items"],
+        key=lambda item: (
+            item["review_priority"] != "HIGH",
+            not item["workflow_run"],
+            not bool(item["cron_utc"]),
+            item["file"],
+        ),
+    )
+    priority_report = {
+        "total": len(priority_rows),
+        "note": "Review queue only; no migration or deletion authorized.",
+        "ordered_workflows": [
+            {
+                "file": item["file"],
+                "category": CATEGORIES[item["primary_category"]][0],
+                "priority": item["review_priority"],
+                "gaps": item["migration_gap_reasons"],
+            }
+            for item in priority_rows
+        ],
+    }
+    (out / "92_workflow_oncelikli_gecis_isleri.json").write_text(
+        json.dumps(priority_report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     lines = ["# MADSC — 92 Otomasyon Görev ve Kategori Haritası", "",
              f"İncelenen iş akışı: **{report['total']}** (statik kaynak kod incelemesi)", "",
              "| Kategori | Birincil workflow sayısı |", "|---|---:|"]
