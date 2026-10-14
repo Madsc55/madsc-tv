@@ -23,7 +23,7 @@ class TopluMerkezTesti(unittest.TestCase):
         self.assertTrue(report["senaryolar"][0]["tek_merkez_hedefi_saglandi"])
 
     def test_paths_ignore_kontrolu(self):
-        flows = {"istisna.yml": "on:\\n  push:\\n    paths-ignore:\\n      - 'DEVAM_NOTU.md'\\njobs:\\n  test:\\n    runs-on: ubuntu-latest\\n"}
+        flows = {"istisna.yml": "on:\n  push:\n    paths-ignore:\n      - 'DEVAM_NOTU.md'\njobs:\n  test:\n    runs-on: ubuntu-latest\n"}
         result = analyze(flows, {"Not": ["DEVAM_NOTU.md"], "Liste": ["CALISANLAR.m3u"]})
         self.assertEqual(result["senaryolar"][0]["ayri_kosu_sayisi"], 0)
         self.assertEqual(result["senaryolar"][1]["ayri_kosu_sayisi"], 1)

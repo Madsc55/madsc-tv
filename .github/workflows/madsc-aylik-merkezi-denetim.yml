@@ -121,7 +121,8 @@ jobs:
           PY
       - name: Mevcut sistem saglik testlerini calistir
         run: |
-          python3 -m unittest discover -s . -p 'test_*.py' -v
+          set -o pipefail
+          python3 -m unittest discover -s . -p 'test_*.py' -v 2>&1 | tee madsc_merkezi_denetim/birim_test_sonuclari.log
           python3 tools/sistem_saglik_denetimi.py
       - name: Actions son durumunu raporla
         env:
