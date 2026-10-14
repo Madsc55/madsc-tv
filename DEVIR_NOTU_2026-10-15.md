@@ -57,3 +57,9 @@
 
 ## Yeni sohbet acilis cumlesi
 'Mahmut, Madsc55/madsc-tv projesine DEVIR_NOTU_2026-10-15.md dosyasindan devam et. Once iki/uc asama testinden gecen Turk kanal adaylarini GitHub blob raporlarindan dogrulayip CALISANLAR.m3u icindeki mevcut 📦 YEDEKLER kategorisine, eski kanallara ve kategorilere dokunmadan ekle. Sonra MADSC 05 testi ve 5 sistemin gercek entegrasyonuna don. Ayrica yeni M3U adresi istemiyorum.'
+
+## SON KULLANICI TALIMATI — YEDEKLER GERİ ALINDI
+- Kullanici onceki IBO adaylarini YEDEKLER'e ekleme istegini simdilik IPTAL ETTI. Daha sonra yapilacak; simdi ekleme YAPMA.
+- 2026-10-15 ana dal CALISANLAR.m3u dosyasinda 📦 YEDEKLER (14) kategorisindeki son 12 kanal cikarildi; yalnizca ilk iki kanal TRT 1 1440P QHD ve DHA CANLI 720P HD korundu.
+- Ana dal commit: d647b05a013718889eafa8ca3817b885a9df8b9b.
+- Diger kategorilerdeki kanallar degistirilmedi. Yeni sohbette onceki 'yedeklere hemen ekle' onceligi ARTIK GECERSIZ. Kullanici yeniden istemedikce yeni kanal ekleme; 5 sistemin kalan islerine devam et.
