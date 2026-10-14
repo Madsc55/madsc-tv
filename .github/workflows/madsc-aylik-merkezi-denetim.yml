@@ -1,5 +1,5 @@
 name: MADSC - Beş Aşamalı Toplu Sistem Denetimi
-run-name: 'MADSC | Beş aşamalı toplu kontrol | ${{ github.event_name == 'schedule' && 'Zamanlanmış denetim' || 'Değişiklik sonrası denetim' }}'
+run-name: "MADSC | Beş aşamalı toplu kontrol | ${{ github.event_name == 'schedule' && 'Zamanlanmış denetim' || 'Değişiklik sonrası denetim' }}"
 on:
   workflow_dispatch:
   push:
