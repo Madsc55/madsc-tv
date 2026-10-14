@@ -40,6 +40,21 @@ class MerkeziDenetimTesti(unittest.TestCase):
                        if item["file"] == "madsc-aylik-merkezi-denetim.yml")
         self.assertEqual(central["schedule_utc"], ["0 7 1,15 * *"])
 
+    def test_kesin_tetikleyici_sayimi(self):
+        report = json.loads((OUT / "otomasyon_kesin_tetikleyici_sayimi.json").read_text(encoding="utf-8"))
+        inv = json.loads((OUT / "otomasyon_haritasi.json").read_text(encoding="utf-8"))
+        workflows = inv["workflows"]
+        counts = report["counts"]
+        self.assertEqual(counts["total_workflow_files"], len(workflows))
+        self.assertEqual(counts["scheduled_workflows"], sum(bool(w["schedule_utc"]) for w in workflows))
+        self.assertEqual(counts["cron_entries"], sum(len(w["schedule_utc"]) for w in workflows))
+        self.assertEqual(counts["push_workflows"], sum(w["push"] for w in workflows))
+        self.assertEqual(counts["workflow_run_workflows"], sum(w["workflow_run"] for w in workflows))
+        self.assertEqual(counts["manual_workflows"], sum(w["manual"] for w in workflows))
+        self.assertEqual(len(report["scheduled"]), counts["scheduled_workflows"])
+        self.assertEqual(len(report["push"]), counts["push_workflows"])
+        self.assertEqual(len(report["workflow_run"]), counts["workflow_run_workflows"])
+
     def test_ana_liste_sagligi_ucuncu_asamada(self):
         report = json.loads((OUT / "bes_asama_tum_workflow_eslestirmesi.json").read_text(encoding="utf-8"))
         stage = next(row for row in report["stages"] if row["number"] == 3)
