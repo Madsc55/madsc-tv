@@ -1,3 +1,7 @@
+
+
+## 14 Ekim 2026 — TOPLU DEGİSİKLİK PRENSİBİ
+Kullanıcı onayı: her dosyada ayrı commit/test yerine toplu inceleme, tek paket değişiklik, tek doğrulama. Merkezi denetimin push kapsamından yalnız DEVAM_NOTU.md ve TOPLU_DURUM_RAPORU.md çıkarıldı; bu belgeler merkezi denetimde zorunlu dosya ve SHA256 kontrolü kapsamında kalır. Korunan CALISANLAR.m3u, GUVENLIK_KURALLARI.md ve kritik kod değişikliği push denetimi korunur. 92 workflow tamamen birleştirildi iddiası yok. EPG en sona, kanal/PNG/backup korumaları devam. Kalan iş: tüm otomasyon cron/push sayımını gerçek rapordan doğrulama, ayın 1 ve 15'i bakımını tek koordine çalışma haline getirme, offsite/restore kanıtı, aday kanal teknik tekrar testleri.
 ## 14 Ekim 2026 — GECE YARISINDAN ONCE TOPLU IS TAKIBI
 Kullanici istegi: butun kalan isler toplu, gereksiz test/commit tetigi olmadan; saat 00:00'a kadar mumkun olanlar tamamlanacak. Tamamlama garantisi yok.
 DOGRULANDI: GitHub workflow dosyasi 92. Ekran #119 #120 #121 merkezi denetimleri yesil. 1144 runs tarihsel toplamdir, gunluk otomasyon sayisi degil.
