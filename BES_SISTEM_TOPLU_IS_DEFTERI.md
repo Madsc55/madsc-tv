@@ -84,3 +84,7 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - Kullanıcının GitHub ekranındaki Güvenlik regresyonu 30 testten 1 hata verdi: `scripts/central_workflow_inventory.py` değişimi hem `madsc-aylik-merkezi-denetim.yml` hem `madsc-05-genel-bakim.yml` tetikliyordu. Tek-merkez kuralı doğru olarak hata verdi.
 - `madsc-05-genel-bakim.yml` push paths yalnız kendi YAML dosyasına indirildi; `workflow_dispatch` ve beşli çağrı zinciri korundu. Düzeltme `ab444fa1ce50f21f52f3452a715bcc25be4f2f1a`.
 - CI sonucu henüz doğrulanmadan yeşil kabul edilmeyecek. Korunan dosyalar ve eski 92 workflow değiştirilmedi.
+
+## 14 Ekim — Tam durum ve sonraki aşama kalıcı kaydı
+- Bugüne kadarki hedefler, beş kategorinin yaptığı/yapamadığı işler, doğrulanmış koşular, açık 92/92 eşdeğerlik, canlı EPG/Pages/VOD, 75 aday, IBO onayı, yedek/restore ve kullanıcı koruma kuralları `docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md` dosyasına kaydedildi.
+- **Sıradaki iş:** 92 satırlık eski-yeni görev/çıktı/tetik/yazma/bağımlılık eşdeğerlik matrisi; canlı kabul ayrı. Önceki beşli başarı son kodun başarısı yerine kullanılmayacak.
