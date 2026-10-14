@@ -178,7 +178,8 @@ for item in foreign_archive["entries"]:
 (OUT / "yabanci_kanal_adaylari.json").write_text(
     json.dumps({"count": len(archive_candidates), "channels": archive_candidates,
                 "not_a_playlist": True, "per_channel_ibo_approval_not_inferred": True,
-                "user_confirmed_ibo_field_testing": True,
+                "user_confirmed_ibo_field_testing": False,
+    "ibo_field_testing_evidence": "KANAL_BAZINDA_DOGRULAMA_YOK",
                 "technical_failure_does_not_prove_ibo_failure": True},
                ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 main_urls = {e["url"].strip() for e in main_playlist["entries"]}
@@ -189,6 +190,10 @@ discovery_report = {
     "unreachable_in_snapshot": unreachable,
     "candidate_queue_count": len(candidate_rows),
     "alternative_queue_count": len(alternative_rows),
+    "candidate_queue_with_url": sum(bool((row.get("url") or row.get("stream_url") or row.get("link") or "").strip()) for row in candidate_rows),
+    "alternative_queue_with_url": sum(bool((row.get("url") or row.get("stream_url") or row.get("link") or "").strip()) for row in alternative_rows),
+    "candidate_queue_names": sorted({(row.get("kanal") or row.get("channel") or row.get("name") or "").strip() for row in candidate_rows if (row.get("kanal") or row.get("channel") or row.get("name") or "").strip()}),
+    "alternative_queue_names": sorted({(row.get("kanal") or row.get("channel") or row.get("name") or "").strip() for row in alternative_rows if (row.get("kanal") or row.get("channel") or row.get("name") or "").strip()}),
     "candidate_queue_empty": not candidate_rows,
     "foreign_archive_candidate_count": len(archive_candidates),
     "foreign_archive_invalid_url_count": sum(not x["url_scheme_valid"] for x in archive_candidates),

@@ -116,3 +116,8 @@ Kullanicinin ekraninda #101 (88afd6d) yesil ve 28 saniyede tamamlanmis. #100 onc
 ## 14 Ekim - #103 sonrasi toplu kanit kontrolu
 
 Kullanici #103 testini yesil gosterdi. Bes asamada gecersiz JSON dizi tipindeki rapor artik var kabul edilmiyor; merkezi tetikleme raporunda merkez disi tek kosu acik madde olarak siniflandiriliyor. Bir regresyon testi eklendi. Ana liste, logo ve yedekler degistirilmedi. Yeni merkezi test sonucu bekleniyor.
+
+
+## 14 Ekim - #104 sonrasi kanal adaylari toplu dokumu
+
+Kullanici son testin yesil oldugunu bildirdi. Kesif toplu ozetine aday ve alternatif kuyruklarindaki URL bulunan kayit sayilari ile kanal adlari eklendi. Yabanci arsivde kanal bazli IBO testi yapildigini kanit olmadan True olarak gosteren sabit isaret kaldirildi; acikca kanal bazli cihaz kaniti yok denildi. Bu salt okunur rapor degisikligidir; canli akislari test etmez, korunan listeleri degistirmez. Son merkezi test sonucu bekleniyor.
