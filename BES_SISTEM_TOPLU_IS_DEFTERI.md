@@ -47,3 +47,9 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - **Henüz yapılmadı:** Beş kategori için başarılı canlı Actions koşusu, 92 görevin işlevsel eşdeğerliği, harici restore, tüm adayların canlı testleri, TV/IBO kabulü, eski 92 dosyanın beşe indirilmesi.
 - **Yapıldı:** PR #71 üzerinde beş kategori için ayrı salt okunur toplu test girişleri ve tetik envanteri; ana liste ve korunan veriler değiştirilmedi.
 - İş kapanışı için her satırın GitHub run/artifact veya kullanıcı cihaz kanıtı gereklidir. Yalnız dosya oluşturmak yeterli değildir.
+
+## Canli CI kaniti — 14 Ekim 2026
+- 5. Genel Bakim kategori workflow'u, commit d353918384b61629bfd0430f244028d7bd4ebf98 icin GitHub Actions run #38626522362 sonucunda **SUCCESS**. Run: https://github.com/Madsc55/madsc-tv/actions/runs/38626522362
+- GitHub jobs API'de rapor kontrolleri, regresyon testleri, korunan dosya SHA256 kontrolu ve artifact yukleme adimlari ayri ayri **SUCCESS**.
+- Bir onceki iki kategori-5 run'i da basarili (#38620022983, #38619953358).
+- Bu yalniz kategori 5 icin CI kanitidir; kategori 1-4 canli testleri, 92 workflow islev esdegerligi, IBO EPG, harici restore ve 75 aday henuz tamamlandi sayilmaz.
