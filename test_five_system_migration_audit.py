@@ -25,7 +25,7 @@ class MigrationAuditTests(unittest.TestCase):
             w = root / ".github" / "workflows"
             w.mkdir(parents=True)
             for i in range(5):
-                (w / f"workflow-{i}.yml").write_text("name: Placeholder\\non:\\n  workflow_dispatch:\\n")
+                (w / f"workflow-{i}.yml").write_text("name: Placeholder\non:\n  workflow_dispatch:\n")
             report = inspect(root)
             self.assertEqual(report["workflow_count"], 5)
             self.assertFalse(report["migration_complete"])
