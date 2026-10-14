@@ -92,3 +92,8 @@ Kullanıcı merkezi testlerin yeşil olduğunu bildirdi. Sekiz görevlik merkezi
 ## 14 Ekim — Sekiz görev ve tek ekran durum eşitlemesi
 
 Sekiz görev karar tablosu artık kanıtlı tam yedek durumunu `YEDEK_KANITLARI_DOGRULANDI` olarak raporlayabiliyor. Tek ekran açık iş filtresi aynı durumu hâlâ açık iş sayıyordu. Filtre ve regresyon testi eşitlendi: sadece üç yedek kanıtı gerçekten doğrulandığında kapalı iş olur; diğer logo/EPG ve IBO açık işleri kapanmaz. Önceki engellenen ana dal güncellemesi başarıyla tamamlandı. Kullanıcının bildirdiği yeşil testler önceki koşulara aittir; bu değişiklik sonrası koşu ayrıca doğrulanmalıdır. Korunan listelere dokunulmadı.
+
+
+## 14 Ekim — Beş alanda tek seferde eksik/fazla değerlendirmesi
+
+Kullanıcı son merkezi testlerin yeşil olduğunu bildirdi. Tek ekran raporuna güvenlik/yedek, kanal/keşif, logo/EPG, otomasyon ve kabul olmak üzere beş alanlı toplu açık iş sayımı eklendi. Her açık madde yalnız bir gruba girer; alan toplamı genel açık iş toplamına eşit olmalıdır. Bu, tek koşuda neyin eksik olduğunu karşılaştırmaya yarar, canlı yayın ve cihaz onayı yerine geçmez. Ayrı bir iş akışı oluşturulmadı; mevcut merkezi test paketine regresyon testi eklendi. Korunan listeler değiştirilmedi.

@@ -74,7 +74,21 @@ def build(folder, discovery_folder=None):
     if backup_external != "DOGRULANDI":
         problems.append({"tur": "HARICI_KOPYA", "aciklama": "GitHub dışı bağımsız kopya doğrulanmadı"})
     problems.append({"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"})
+    groups = {
+        "GUVENLIK_YEDEK": {"RAPOR_EKSIK", "YEDEK_GERI_YUKLEME", "TARIHSEL_YEDEK", "HARICI_KOPYA"},
+        "KANAL_KESIF": {"KANAL_KOSU_KANITI"},
+        "LOGO_EPG": {"KIMLIK_KAYNAGI_EKSIK", "KIMLIK_KAYNAK_LISTESI_YOK", "ADAY_LOGO_INCELEME", "LOGO_RAPORU_HATALI"},
+        "OTOMASYON": {"GEREKSIZ_TEKRAR", "MERKEZ_TETIKLEME_EKSIK"},
+        "KABUL": {"KALAN_IS", "CIHAZ_ONAYI"},
+    }
+    by_group = {name: [] for name in groups}
+    for item in problems:
+        group = next((name for name, types in groups.items() if item["tur"] in types), "KABUL")
+        by_group[group].append(item)
+    summary = [{"alan": name, "acik": len(items), "durum": "INCELEME_GEREKLI" if items else "BU_RAPORDA_ACIK_YOK"}
+               for name, items in by_group.items()]
     return {"genel_kabul": "HENUZ_ONAYLANMADI", "bes_asama": stages,
+            "toplu_alan_ozeti": summary,
             "yedek_kaniti": {"durum": backup_status, "izole_geri_yukleme": backup_restore,
                             "tarihsel_geri_yukleme": backup_historical,
                             "bagimsiz_kopya": backup_external or "DOGRULANMADI"},

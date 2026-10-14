@@ -70,6 +70,13 @@ class TekEkranTopluTest(unittest.TestCase):
         remaining = [x["aciklama"] for x in result["acik_isler"] if x["tur"] == "KALAN_IS"]
         self.assertEqual(remaining, ["EPG: KANIT_EKSIK"])
 
+    def test_bes_alanin_toplu_acik_is_sayilari_tutarli(self):
+        with tempfile.TemporaryDirectory() as temp:
+            result = build(Path(temp), Path(temp) / "olmayan_kesif")
+        self.assertEqual(len(result["toplu_alan_ozeti"]), 5)
+        self.assertEqual(sum(x["acik"] for x in result["toplu_alan_ozeti"]), result["acik_is_sayisi"])
+        self.assertIn("Beş alanda toplu açık iş", markdown(result))
+
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
         self.assertNotIn("CALISANLAR.m3u", source)
