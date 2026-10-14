@@ -11,6 +11,10 @@ on:
       - '.github/workflows/madsc-0[1-4]-*.yml'
       - 'scripts/five_category_permission_gate.py'
       - 'test_five_category_permission_gate.py'
+      - 'scripts/central_*.py'
+      - 'test_central_*.py'
+      - 'scripts/five_category_*.py'
+      - 'test_five_category_*.py'
 permissions:
   contents: read
   actions: read
