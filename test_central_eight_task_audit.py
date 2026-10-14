@@ -27,7 +27,9 @@ class SekizGorevMerkeziTest(unittest.TestCase):
         self.assertEqual(self.report["safety"], {
             "playlists_modified": False, "backups_modified": False,
             "cron_modified": False, "device_test_claimed": False})
-        self.assertTrue(self.report["tasks"][3]["kanit"]["protected_files"]["CALISANLAR.m3u"])
+        self.assertEqual(self.report["source_issue"], "https://github.com/Madsc55/madsc-tv/issues/2")
+        self.assertEqual(self.report["tasks"][3]["gorev"], "Eksik logo ve EPG kontrolu")
+        self.assertTrue(all("eksikler" in task for task in self.report["tasks"]))
 
 if __name__ == "__main__":
     unittest.main()
