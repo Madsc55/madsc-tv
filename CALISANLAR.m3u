@@ -2080,17 +2080,31 @@ https://tv-trtmuzik.medya.trt.com.tr/master.m3u8
 https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-name="AYAZ TV" tvg-logo="https://www.ayaztv.com/storage/assets/site_logo.png" group-title="🇹🇷 ULUSAL (281)",AYAZ TV 1080P FHD
 https://janya-ayaztv.vgcdn.net/ptnr-WebApp/title-Ayaz_TV/v1/vglive-sk-934820/main.m3u8
-#EXTINF:-1 tvg-name="TRT 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png" group-title="📦 YEDEKLER (7)",TRT 1 1440P QHD
+#EXTINF:-1 tvg-name="TRT 1" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/turkey/trt-1-tr.png" group-title="📦 YEDEKLER (14)",TRT 1 1440P QHD
 https://trt.daioncdn.net/trt-1/master.m3u8?app=web
-#EXTINF:-1 tvg-id="" tvg-name="DHA CANLI" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9a/DHA_logo.png" group-title="📦 YEDEKLER (7)",DHA CANLI 720P HD
+#EXTINF:-1 tvg-id="" tvg-name="DHA CANLI" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/9a/DHA_logo.png" group-title="📦 YEDEKLER (14)",DHA CANLI 720P HD
 https://603c568fccdf5.streamlock.net/live/dhaweb1_C5efC/playlist.m3u8
-#EXTINF:-1 tvg-name="AZ STAR TV 1080P" group-title="📦 YEDEKLER (7)",AZ STAR TV 1080P
+#EXTINF:-1 tvg-name="AZ STAR TV 1080P" group-title="📦 YEDEKLER (14)",AZ STAR TV 1080P
 https://live.livestreamtv.ca/azstar/amlst:azstar/playlist.m3u8
-#EXTINF:-1 tvg-name="KANAL 35 720P" group-title="📦 YEDEKLER (7)",KANAL 35 720P
+#EXTINF:-1 tvg-name="KANAL 35 720P" group-title="📦 YEDEKLER (14)",KANAL 35 720P
 https://str2.yodacdn.net/kanal35/index.m3u8
-#EXTINF:-1 tvg-name="NAXCIVAN TV 720P" group-title="📦 YEDEKLER (7)",NAXCIVAN TV 720P
+#EXTINF:-1 tvg-name="NAXCIVAN TV 720P" group-title="📦 YEDEKLER (14)",NAXCIVAN TV 720P
 https://str2.yodacdn.net/ntv/video.m3u8
-#EXTINF:-1 tvg-name="KURDISTAN TV 720P" group-title="📦 YEDEKLER (7)",KURDISTAN TV 720P
+#EXTINF:-1 tvg-name="KURDISTAN TV 720P" group-title="📦 YEDEKLER (14)",KURDISTAN TV 720P
 https://5a3ed7a72ed4b.streamlock.net/live/SMIL:myStream.smil/playlist.m3u8
-#EXTINF:-1 tvg-name="WEST AZERBAIJAN TV" group-title="📦 YEDEKLER (7)",WEST AZERBAIJAN TV
+#EXTINF:-1 tvg-name="WEST AZERBAIJAN TV" group-title="📦 YEDEKLER (14)",WEST AZERBAIJAN TV
 https://ncdn.telewebion.ir/azarbayjangharbi/live/playlist.m3u8
+#EXTINF:-1 tvg-name="DOST TV" group-title="📦 YEDEKLER (14)",DOST TV [IBO TEST]
+http://dost.stream.emsal.im/tv/live.m3u8
+#EXTINF:-1 tvg-name="360" group-title="📦 YEDEKLER (14)",360 [IBO TEST]
+https://cdn-evacoder-tv.facecast.io/evacoder_hls_hi/CkxfR1xNUAJwTgtXTBZTAJli/index.m3u8
+#EXTINF:-1 tvg-name="ATV" group-title="📦 YEDEKLER (14)",ATV [IBO TEST]
+http://190.93.224.42/ATV/index.m3u8
+#EXTINF:-1 tvg-name="ES TV (720p)" group-title="📦 YEDEKLER (14)",ES TV (720p) [IBO TEST]
+https://cloudfront44.lexanetwork.com:1344/relay44_1/HDE040.sdp/playlist.m3u8
+#EXTINF:-1 tvg-name="TLC" group-title="📦 YEDEKLER (14)",TLC [IBO TEST]
+http://stream.mcquack.net/168/index.m3u8
+#EXTINF:-1 tvg-name="TV100" group-title="📦 YEDEKLER (14)",TV100 [IBO TEST]
+https://gwebstream.net/hls/master.m3u8
+#EXTINF:-1 tvg-name="TV8" group-title="📦 YEDEKLER (14)",TV8 [IBO TEST]
+http://109.74.145.11:1935/tv8/mp4:tv8.stream_360p/playlist.m3u8
