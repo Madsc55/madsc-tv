@@ -151,3 +151,8 @@ Kullanicinin bildirdigi yesil test sonrasi ana listede mevcut URL adaylari ve ek
 ## 14 Ekim 14:43 - Merkezi #110 yesil; bes sistemin kalan gercek kabul kapilari
 
 Kullanici ekran goruntusuyle merkezi #110 (commit 3e9c34b, 27 sn) yesil sonucunu bildirdi; #108 ve #109 da yesil. Bunlar merkezi kod denetiminin basarisidir; canli yayin/IBO kabul kaniti degildir. Tek rapora tam yedek kabulunun eksikligi ve aday logo kaniti gecersiz/eksikligi icin ek acik is kapilari konuldu; bes sistemin eksiklerini bitmis gostermeden takip ediyoruz. Korunan playlist ve yedekler degistirilmedi. Sonraki adim gercek CI artefaktlari, tarihsel ve harici yedek kaniti, IBO ve EPG cihaz kanitlarini tamamlamaktir. Bu degisiklik yeni tek merkezi test kosusunu tetikler; sonucu ayrica dogrulanmalidir.
+
+
+## 14 Ekim 14:45 - #111 yesil, gercek kesif raporu eksik alan duzeltmesi
+
+Kullanici #111 (235add8) merkezi testinin yesil oldugunu ekran goruntusuyle dogruladi. Kod incelemesinde kesif ozetini gercekte ureten `scripts/central_all_remaining_tasks.py` dosyasinin, tek ekran raporunun bekledigi dort URL sayim alanini HIC yazmadigi tespit edildi. Bu nedenle onceki raporlar null gosterebiliyordu ve gercek eksikler izlenemiyordu. Ureticiye aday/alternatif eksik URL ve ana listede mevcut URL sayimlari eklendi. `madsc_kesif/adaylar.csv` ve `alternatifler.csv` mevcut depoda sadece baslik satirindan ibaret; sifir kayit gercek kanal kesfi tamamlandi anlamina gelmez. Mevcut tek test dosyasina regresyon eklendi. Bu duzeltme yeni workflow olusturmaz, canli kanal testi yapmaz, korunan playlist/yedekleri degistirmez. Yeni merkezi test sonucu bekleniyor.

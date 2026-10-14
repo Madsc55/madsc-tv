@@ -25,6 +25,14 @@ class BesIsTekDosyaTesti(unittest.TestCase):
         self.assertIn('"aday_ve_alternatif"', source)
         self.assertIn('Aday ve alternatif URL dökümü', source)
 
+    def test_01c_kesif_sayilari_gercek_ureticiden_gelir(self):
+        source = (ROOT / "scripts/central_all_remaining_tasks.py").read_text(encoding="utf-8")
+        for key in ("candidate_queue_missing_url", "alternative_queue_missing_url",
+                    "candidate_urls_already_in_main", "alternative_urls_already_in_main"):
+            self.assertIn('"' + key + '": sum(', source)
+        for csv_name in ("adaylar.csv", "alternatifler.csv"):
+            self.assertIn(csv_name, source)
+
     def test_02_logo_epg_kimlik_kaniti(self):
         self.assertIn("scripts/central_identity_epg_logo_audit.py", self.workflow)
         self.assertIn("scripts.candidate_logo_missing_report", self.workflow)
