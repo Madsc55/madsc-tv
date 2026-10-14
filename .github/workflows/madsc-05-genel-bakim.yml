@@ -1,12 +1,96 @@
-name: MADSC 05 - Genel Bakim
+name: MADSC 05 - Bes Kategori Tek Sefer Toplu Test
 on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: madsc-bes-kategori-tek-sefer
+  cancel-in-progress: false
 jobs:
-  maintenance-audit:
+  kademe-1-guvenlik:
+    name: 1 - Guvenlik toplu test
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install PyYAML
+      - run: python3 scripts/central_protected_write_gate.py
+      - run: python3 -m unittest test_central_protected_write_gate -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kademe-1-guvenlik
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
+
+  kademe-2-kesif:
+    name: 2 - Kesif toplu test
+    needs: kademe-1-guvenlik
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest test_candidate_logo_missing_report -v
+      - run: python3 scripts/central_workflow_inventory.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kademe-2-kesif
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
+
+  kademe-3-kanal-test:
+    name: 3 - Kanal testleri toplu
+    needs: kademe-2-kesif
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Korunan playlist hash
+        run: sha256sum CALISANLAR.m3u YABANCI_KANALLAR.m3u > "${RUNNER_TEMP}/playlists.sha256"
+      - run: python3 -m unittest test_ana_liste_saglik -v
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
+      - name: Korunan playlist degismedi
+        if: always()
+        run: sha256sum -c "${RUNNER_TEMP}/playlists.sha256"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kademe-3-kanal-test
+          path: madsc_ana_liste_saglik/
+          if-no-files-found: warn
+
+  kademe-4-arsiv-yedek:
+    name: 4 - Arsiv ve yedek toplu test
+    needs: kademe-3-kanal-test
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/central_backup_evidence.py
+      - run: python3 -m unittest test_central_backup_evidence -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kademe-4-arsiv-yedek
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
+
+  kademe-5-bakim-rapor:
+    name: 5 - Genel bakim ve rapor toplu test
+    needs: kademe-4-arsiv-yedek
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - run: python3 scripts/five_system_migration_audit.py --output madsc_merkezi_denetim/bes_sistem_gecis_raporu.json
@@ -15,6 +99,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: madsc-05-bakim
+          name: kademe-5-bakim-rapor
           path: madsc_merkezi_denetim/
           if-no-files-found: warn
+# Bu bir salt okunur toplu kabul testidir. Eski islevlerin tamamini tasidigi anlamina gelmez.
