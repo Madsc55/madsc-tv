@@ -1,3 +1,20 @@
+## 14 Ekim 2026 — TEK MERKEZ KARARI: TÜM TARİHSEL IPTV ÇALIŞMASINI BEŞ BÖLÜMDE YÖNET
+
+Kullanıcı açıkça, projenin kuruluşundan beri konuşulan, yapılan, yapılamayan ve planlanan TÜM işleri beş ana bölümden çalıştırmak istiyor. Yalnızca beş aşamaya etiketleme/rapor üretme yeterli değildir; gerçek keşif, yayın testleri, logo/EPG, arşiv ve güvenlik otomasyonlarının yönetimi ve sonuç kanıtları bu bölümlere bağlanmalıdır. Yeni küçük testler/tekrarlı commitler ve her seferinde ekran görüntüsü istemek yerine envanter + açık boşluklar + güvenli toplu uygulama + mevcut merkezi test tercih edilir.
+
+Beş ana bölüm ve kapsamları:
+1. GÜVENLİK VE SİSTEM GÜNCELLEMESİ: Onaylı 1–24 güvenlik kuralları, AGENTS.md içindeki 25 değişiklik sonrası test ve 26 Türkçe test adları kuralı, korunan dosyalar, GitHub izinleri, hata devre kesicisi, sürüm/yedek/geri yükleme, Actions sağlık ve güncellemeler. Onaylanmış 27. kural kaydı doğrulanmadı; yeni kural uydurma.
+2. KANAL ARAMA VE KAYNAKLAR: Türk kanalları, yabancı adaylar, 740 yabancı kanal arşivi, yeni/eksik kanal arama, alternatif URL, kaynak güvenilirliği, 156/155 mutabakatı, tekrar eleme, keşif geçmişi. Yabancı kaynaklar mevcut birleşik keşifte otomatik Türkçe filtre nedeniyle bütünüyle taranmıyor; tamamlandı sayma.
+3. TOPLU YAYIN TESTLERİ: Video/ses/çözünürlük, donma/kesinti, coğrafi erişim ve token/geçici hata ayrımı, test geçmişi, akıllı tekrar test, teknik çalışan/çalışmayan, kullanıcı IBO kararı ayrı, üç aşama ve son kontrol.
+4. LOGO/EPG/KİMLİK: Gerçek kanal/logo/amblem, EPG, doğru kanal kimliği, HD/FHD kalite, İsveç IBO gerçek cihaz kanıtı ayrı; otomatik liste değişikliği yok.
+5. ARŞİV/SONUÇ/YÖNETİM: CALISANLAR.m3u, HEPSİ, favoriler, ⭐ YENİLER, onaylı yedekler, YABANCI_KANALLAR.m3u, aday/alternatif/çalışan/çalışmayan kayıtları, yapılacak/yapılmayacak işler, Türkçe tek rapor, günlük sağlık ve uyarı teslimi.
+
+8 temel (issue #2) + 10 ek (issue #3) = 18 geliştirme bu beş bölümün alt görevleridir; ayrı 18 yönetim sistemi değildir. Tarihsel DEVAM_NOTU.md, IPTV_PROJE_HAFIZASI.md, OZELLIK_ENVANTERI.md, AGENTS.md, GUVENLIK_KURALLARI.md, Actions ve gerçek raporlar birbirine karşılaştırılmadan 'tüm geçmiş kapsandı' denmez. Beş aşama eşleştirmesi bugün sadece statik sınıflandırma; merkezi workflow gerçek alt iş akışlarını yönetmiyor. Bu açık teknik eksiktir. Eski başarılı workflowları silme; zamanlama/izin/çakışmaları incelemeden toplu otomatik tetikleme yapma.
+
+Son kullanıcı ekranı: merkezi #60 (cac726e) ve #61 (e74d9d2) yeşil; sonraki 57f6f3f sonucu henüz teyit edilmedi. Yeşil kod testi canlı kanal, EPG/IBO veya bütün sistemin tamamlandığı anlamına gelmez. Ana liste, sıralamalar, onaylı yedekler ve kullanıcı kararları açık izin olmadan değiştirilmez.
+
+SIRADAKİ TEK ANA İŞ: Her mevcut workflow'un gerçek işlev, tetikleyici, veri girdisi/çıktısı, korunan dosyaya yazma riski, son çalışma kanıtı ve 5 bölüm sahipliğini tek envanterde mutabık kıl; 18 iş ve geçmiş kararlarla farkları çıkar; ardından mevcut iş akışlarını tekrarsız, güvenli merkezi orkestrasyona topluca bağla. Raporlamayı gerçek çalışma yerine koyma.
+
 ## 14 Ekim 2026 — GÜVENLİ DEVİR KAYDI: BEŞ AŞAMALI TOPLU SİSTEM
 
 Kullanıcı kararı: Tek tek küçük test ve commit döngüsü yerine bütün eksikleri topluca belirle, mümkünse tek değişiklikte birleştir, mevcut merkezi Actions denetiminde kontrol et; test sonuçlarını ve başlıkları Türkçe göster. Kullanıcıdan her koşu için ekran görüntüsü isteme. Yeşil kod testi, canlı yayın veya IBO cihaz doğrulaması anlamına gelmez.
