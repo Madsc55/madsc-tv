@@ -2,14 +2,7 @@ name: MADSC - Genel Sistem Sağlık ve Güvenlik Denetimi
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 5 * * 1'
-  push:
-    paths:
-      - 'tools/sistem_saglik_denetimi.py'
-      - 'final_validation.py'
-      - 'tools/son_kontrol_yedekler_aktar.py'
-      - 'test_sistem_saglik_denetimi.py'
-      - '.github/workflows/madsc-sistem-saglik-denetimi.yml'
+    - cron: '17 5 1,15 * *'
 permissions:
   contents: read
 jobs:
