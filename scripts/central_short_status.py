@@ -17,7 +17,7 @@ def read(filename):
     except (ValueError, UnicodeError):
         return None
 
-def render(workflows, tasks, errors):
+def render(workflows, tasks, errors, management=None):
     counts = workflows.get("classifications", {}) if isinstance(workflows, dict) else {}
     task_list = tasks.get("tasks", []) if isinstance(tasks, dict) else []
     if not isinstance(task_list, list):
@@ -53,6 +53,15 @@ def render(workflows, tasks, errors):
                 f"{j.get('job', '?')}: " + (", ".join(s.get("name", "?") for s in j.get("failed_steps", [])) or "ADIM_BILINMIYOR")
                 for j in jobs) or "JOB_KANITI_YOK"
             lines.append(f"- #{item.get('run_id', '?')} {item.get('workflow', '?')}: {stage}; kok neden icin log gerekir.")
+    if isinstance(management, dict):
+        lines.extend(["", "## Beş aşamalı toplu denetim"])
+        for stage in management.get("five_stage_results", []):
+            label = "Kanıt eksik" if stage.get("missing_evidence") else "Rapor mevcut; sonuç doğrulaması gerekli"
+            lines.append(f"- {stage.get('number')}. {stage.get('name')}: {label}")
+        actionable = [x for x in management.get("open_blockers", []) if x.get("status") != "KAPSAM_DISI"]
+        lines.append(f"- İnceleme gerektiren engel: {len(actionable)}")
+        for blocker in actionable[:12]:
+            lines.append(f"  - {blocker.get('code', 'BİLİNMİYOR')}")
     lines.extend(["", "## Guvenlik ve kapsam",
                   "- Kanal listeleri, yedekler ve cron bu raporla degistirilmez.",
                   "- Isvec IBO cihaz testi ve kullanici onayi bu rapordan cikarilmaz.",
@@ -61,6 +70,7 @@ def render(workflows, tasks, errors):
 
 summary = render(read("is_akisi_son_durum_siniflandirma.json"),
                  read("sekiz_gorev_tek_merkezi_rapor.json"),
-                 read("hata_asama_raporu.json"))
+                 read("hata_asama_raporu.json"),
+                 read("madsc_tek_yonetim_ozeti.json"))
 (OUT / "madsc_kisa_durum_ozeti.md").write_text(summary, encoding="utf-8")
 print("Kisa durum ozeti mevcut merkezi raporlardan olusturuldu.")
