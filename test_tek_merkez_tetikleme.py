@@ -12,9 +12,12 @@ class TekMerkezKuralTesti(unittest.TestCase):
     def test_logo_kanal_degisiminde_ayri_push_acmaz(self):
         logo = (ROOT / ".github/workflows/automatic-png-logos.yml").read_text()
         self.assertIn("  workflow_dispatch:", logo)
-        self.assertIn("    - cron: '23 5 * * *'", logo)
+        self.assertNotIn("\n  schedule:", logo)
+        self.assertNotIn("\n  push:", logo)
         self.assertNotIn("      - 'CALISANLAR.m3u'", logo)
-        self.assertIn("      - 'scripts/automatic_png_logos.py'", logo)
+        central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
+        self.assertIn("'scripts/automatic_png_logos.py'", central)
+        self.assertIn("'.github/workflows/automatic-png-logos.yml'", central)
         self.assertIn("  contents: read", logo)
         self.assertIn("Korunan kanal listesi degisikliklerini engelle", logo)
 

@@ -27,6 +27,8 @@ on:
       - 'scripts/central_identity_epg_logo_audit.py'
       - 'madsc_akilli_kesif.py'
       - 'scripts/discovery_archive.py'
+      - 'scripts/automatic_png_logos.py'
+      - '.github/workflows/automatic-png-logos.yml'
       - 'scripts/candidate_logo_report.py'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'scripts/candidate_logo_missing_report.py'
