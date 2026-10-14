@@ -4,11 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '40 6 * * *'
-  push:
-    paths:
-      - 'scripts/ana_liste_saglik.py'
-      - 'test_ana_liste_saglik.py'
-      - '.github/workflows/madsc-ana-liste-saglik.yml'
 permissions:
   contents: read
 concurrency:

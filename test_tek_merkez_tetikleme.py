@@ -37,6 +37,17 @@ class TekMerkezKuralTesti(unittest.TestCase):
                      ".github/workflows/epg-gunluk.yml", ".github/workflows/epg-pages.yml"):
             self.assertIn("'" + path + "'", central)
 
+    def test_ana_liste_saglik_kod_degisiminde_agir_tarama_yok(self):
+        health = (ROOT / ".github/workflows/madsc-ana-liste-saglik.yml").read_text()
+        central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
+        self.assertNotIn("\\n  push:", health)
+        self.assertIn("  workflow_dispatch:", health)
+        self.assertIn("    - cron: '40 6 * * *'", health)
+        self.assertIn("  contents: read", health)
+        for path in ("scripts/ana_liste_saglik.py", "test_ana_liste_saglik.py",
+                     ".github/workflows/madsc-ana-liste-saglik.yml"):
+            self.assertIn("'" + path + "'", central)
+
     def test_kesif_kod_degisikligi_ayri_yayin_taramasi_baslatmaz(self):
         workflow = (ROOT / ".github/workflows/madsc-birlesik-kesif.yml").read_text()
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
