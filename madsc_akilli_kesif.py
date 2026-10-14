@@ -194,6 +194,10 @@ def main():
   prepared=prepare_candidate_artwork(artwork,previous,limit=40)
   previous_path.write_text(json.dumps({"checked_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"results":prepared,"limits":"PNG preparation only; visual identity and IBO approval required. No playlist edits."},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
   print(json.dumps({"candidate_logos_review":len(prepared),"png_ready":sum(x.get("status")=="PNG_READY_REVIEW_PENDING" for x in prepared)},ensure_ascii=False))
+  from scripts.candidate_logo_missing_report import build as build_missing_logo_report
+  missing_report=build_missing_logo_report(artwork,prepared)
+  (OUT/"candidate_logo_missing_report.json").write_text(json.dumps(missing_report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+  print(json.dumps({"logo_aday_sayisi":missing_report["total_candidates"],"logo_durumlari":missing_report["category_counts"]},ensure_ascii=False))
  except Exception as exc:
   (OUT/"logo_hazirlama_hatasi.txt").write_text(type(exc).__name__+": "+str(exc)[:300]+"\n",encoding="utf-8")
   print("Candidate logo preparation failed; discovery and channel tests continue.")
