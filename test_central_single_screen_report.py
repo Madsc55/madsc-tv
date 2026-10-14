@@ -24,6 +24,18 @@ class TekEkranTopluTest(unittest.TestCase):
         self.assertEqual(report["eksik_rapor"], sum(len(v) for v in FILES.values()))
         self.assertTrue(any(x["tur"] == "ADAY_LOGO_INCELEME" for x in report["acik_isler"]))
 
+    def test_yedek_kaniti_eksikse_basarili_gosterme(self):
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            (folder / "yedek_ve_korunan_dosyalar_kanit.json").write_text(json.dumps({
+                "restore_test": "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI",
+                "historical_recovery_verified": False, "off_github_copy": "DOGRULANMADI"}))
+            report = build(folder, folder / "olmayan_kesif")
+        self.assertEqual(report["yedek_kaniti"]["durum"], "EKSIK_KANIT")
+        self.assertTrue(any(x["tur"] == "TARIHSEL_YEDEK" for x in report["acik_isler"]))
+        self.assertTrue(any(x["tur"] == "HARICI_KOPYA" for x in report["acik_isler"]))
+
     def test_korunan_dosyalara_yazilmaz(self):
         source = Path("scripts/central_single_screen_report.py").read_text()
         self.assertNotIn("CALISANLAR.m3u", source)

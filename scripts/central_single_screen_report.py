@@ -39,6 +39,11 @@ def build(folder, discovery_folder=None):
                 row["durum"] = "KANIT_EKSIK"
     push = read(folder, "tek_islem_coklu_push_analizi.json") or {}
     jobs = read(folder, "kalan_isler_tek_kosu_karar_tablosu.json") or {}
+    backup = read(folder, "yedek_ve_korunan_dosyalar_kanit.json") or {}
+    backup_restore = backup.get("restore_test", "KANIT_YOK")
+    backup_historical = backup.get("historical_recovery_verified") is True
+    backup_external = backup.get("off_github_copy")
+    backup_status = ("TAM_DOGRULANDI" if backup_restore == "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI" and backup_historical and backup_external == "DOGRULANDI" else "EKSIK_KANIT")
     problems = [{"tur": "RAPOR_EKSIK", "aciklama": name} for name in missing]
     if logo_report is not None and logo_status == "ADAY_LOGO_KAYDI_GECERSIZ":
         problems.append({"tur": "LOGO_RAPORU_HATALI", "aciklama": "Aday logo raporunun sayısal kanıtı geçersiz"})
@@ -50,9 +55,18 @@ def build(folder, discovery_folder=None):
     problems += [{"tur": "MERKEZ_TETIKLEME_EKSIK", "aciklama": name} for name in push.get("merkezi_denetime_ulasamayan_senaryolar", [])]
     problems += [{"tur": "KALAN_IS", "aciklama": item.get("name", "?") + ": " + item.get("status", "?")}
                  for item in jobs.get("jobs", []) if item.get("status") not in ("TAMAMLANDI", "ONAYLANDI")]
+    if backup_restore != "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI":
+        problems.append({"tur": "YEDEK_GERI_YUKLEME", "aciklama": "İzole geri yükleme kanıtı yok"})
+    if not backup_historical:
+        problems.append({"tur": "TARIHSEL_YEDEK", "aciklama": "Önceki sürümden geri yükleme doğrulanmadı"})
+    if backup_external != "DOGRULANDI":
+        problems.append({"tur": "HARICI_KOPYA", "aciklama": "GitHub dışı bağımsız kopya doğrulanmadı"})
     problems += [{"tur": "CIHAZ_ONAYI", "aciklama": "IBO Player kanal ve EPG görünümü"},
                  {"tur": "HARICI_YEDEK", "aciklama": "Bağımsız yedek ve gerçek geri yükleme kanıtı"}]
     return {"genel_kabul": "HENUZ_ONAYLANMADI", "bes_asama": stages,
+            "yedek_kaniti": {"durum": backup_status, "izole_geri_yukleme": backup_restore,
+                            "tarihsel_geri_yukleme": backup_historical,
+                            "bagimsiz_kopya": backup_external or "DOGRULANMADI"},
             "aday_logo_durumu": logo_status,
             "aday_logo_sayisi": logo_report.get("total_candidates") if isinstance(logo_report, dict) else None,
             "eksik_rapor": len(missing),
@@ -69,6 +83,9 @@ def markdown(result):
     lines += ["", "## Eksik ve fazla işler", "",
               "- Eksik rapor: " + str(result["eksik_rapor"]),
               "- Yeni aday logo kanıtı: " + result["aday_logo_durumu"],
+              "- Yedek geri yükleme: " + result["yedek_kaniti"]["izole_geri_yukleme"],
+              "- Tarihsel yedek doğrulandı: " + str(result["yedek_kaniti"]["tarihsel_geri_yukleme"]),
+              "- GitHub dışı kopya: " + result["yedek_kaniti"]["bagimsiz_kopya"],
               "- Yeni aday sayısı (kanıt varsa): " + str(result["aday_logo_sayisi"]),
               "- Gereksiz push tekrarı: " + str(result["gereksiz_tekrar"]),
               "- Merkeze ulaşmayan senaryo: " + str(result["merkez_kapsam_eksigi"]),

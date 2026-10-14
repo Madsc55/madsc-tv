@@ -52,6 +52,10 @@ Tek ekran raporunda aday logo dosyası yanlışlıkla merkezi rapor klasöründe
 
 Kullanıcı merkezi koşu #93 ekranında `Failure`, 14 saniye, `exit code 1` ve artifact gösterdi. Ekranda hata veren **adımın logu bulunmuyor**, bu yüzden kesin kök neden henüz doğrulanmadı. Kod incelemesinde tek ekran testinin gerçek çalışma klasöründeki aday logo raporuna bağımlı olması saptandı; test artık izole geçici keşif klasörü kullanıyor. JSON'un beklenmedik liste veya sayı biçiminde gelmesi de raporun çökmesine yol açmayacak. İki düzeltme tek commit ve tek merkezi test ile doğrulanacak. Node.js 20 uyarısı bu ekrandan kesin hata nedeni sayılamaz. Korunan listeler ve yedekler değiştirilmedi.
 
+## 14 Ekim — Yedek güvenliği kanıtları tek rapora bağlandı
+
+Merkezi #94 yeşil kullanıcı ekranında doğrulandı. Tek ekran raporuna mevcut `yedek_ve_korunan_dosyalar_kanit.json` içinden izole Git geri yükleme, tarihsel kurtarma ve GitHub dışı bağımsız kopya kanıtları ayrı durumlar olarak bağlandı. Birinin eksik olması tam geri yükleme başarısı olarak sunulmaz; regresyon testi eklendi. Yedek dosyası taşınmadı, silinmedi, üzerine yazılmadı; bu değişiklik kanıt raporlamasıdır, yeni harici kopya oluşturma değildir. Yeni Actions koşusu henüz doğrulanmadı.
+
 ## Sıradaki toplu çalışma sırası
 1. Gerçek aday havuzunu ve eksik logo raporunu son keşif artefaktından incele; isim, URL, logo ve kaynak kanıtlarını ayrı kaydet. Eksik logoyu otomatik olarak yanlış bir logoyla doldurma.
 2. Yeni aday yayınlarını ve ana listedeki döngüsel sağlık sonuçlarını karşılaştır; ffprobe başarısızlığını doğrudan IBO başarısızlığı sayma.
