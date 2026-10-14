@@ -62,6 +62,8 @@ on:
       - '.github/workflows/test-31-protected-write-gate.yml'
       - 'test_central_consolidation_audit.py'
       - 'test_tek_merkez_tetikleme.py'
+      - 'scripts/central_single_screen_report.py'
+      - 'test_central_single_screen_report.py'
       - 'test_*.py'
       - 'scripts/*.py'
       - 'test_central_duplicate_test_audit.py'
@@ -239,6 +241,8 @@ jobs:
           python3 scripts/central_management_summary.py
           python3 scripts/central_open_gaps.py
           python3 scripts/central_short_status.py
+          python3 scripts/central_single_screen_report.py
+          cat madsc_merkezi_denetim/TEK_EKRAN_TOPLU_SONUC.md >> "$GITHUB_STEP_SUMMARY"
           cat madsc_merkezi_denetim/madsc_kisa_durum_ozeti.md >> "$GITHUB_STEP_SUMMARY"
           cat madsc_merkezi_denetim/toplu_tetikleme_ve_kabul_ozeti.md >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
