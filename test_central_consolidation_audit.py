@@ -28,6 +28,21 @@ class TopluMerkezTesti(unittest.TestCase):
         self.assertEqual(result["senaryolar"][0]["ayri_kosu_sayisi"], 0)
         self.assertEqual(result["senaryolar"][1]["ayri_kosu_sayisi"], 1)
 
+    def test_korunan_kapi_ve_tekrar_kanitlari_kabulde(self):
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / "protected-write-gate-report.json").write_text(json.dumps({
+                "workflows_scanned": 12, "review_count": 3, "errors": []}))
+            (folder / "tek_islem_coklu_push_analizi.json").write_text(json.dumps({
+                "senaryolar": [{"islem": "Kanal"}], "tekrarli_senaryolar": ["Kanal"]}))
+            report = acceptance(folder)
+        statuses = {x["alan"]: x["durum"] for x in report["kriterler"]}
+        self.assertEqual(statuses["Korunan liste yazma kapısı"],
+                         "DENETIM_VAR_MANUEL_INCELEME_GEREKLI")
+        self.assertEqual(statuses["Tek işlem / tek merkezi push hedefi"], "TEKRARLI_PUSH_VAR")
+        self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
+
     def test_kabul_kanitsiz_asla_tamamlanmaz(self):
         with tempfile.TemporaryDirectory() as tmp:
             report = acceptance(Path(tmp))
