@@ -68,6 +68,22 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(result["migration_gap_reason_counts"]["MISSING_LEGACY_SCRIPT_FILE"], 32)
             self.assertEqual(result["migration_blocked_count"], 92)
 
+    def test_inline_only_workflows_are_not_falsely_accepted(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    "name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  inline:\\n    steps:\\n      - run: echo inline-only\\n"
+                )
+            for n, name in enumerate(("guvenlik", "kesif", "kanal-test", "arsiv-yedek", "genel-bakim"), 1):
+                (folder / f"madsc-0{n}-{name}.yml").write_text("name: New\\njobs: {}\\n")
+            report = inspect(root)
+            self.assertEqual(report["integration_evidence_counts"]["NO_EXTRACTED_SCRIPT_REVIEW_INLINE_ACTIONS"], 92)
+            self.assertEqual(report["migration_gap_reason_counts"]["INLINE_OR_ACTION_BEHAVIOR_UNREVIEWED"], 92)
+            self.assertEqual(report["migration_blocked_count"], 92)
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
