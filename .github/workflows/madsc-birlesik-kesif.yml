@@ -2,7 +2,7 @@ name: MADSC TV - Birleşik Kanal Keşfi ve Testi
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6,18 * * *'
 permissions:
   contents: write
   actions: write
@@ -105,4 +105,4 @@ jobs:
         if: success()
         shell: bash
         run: |
-          echo "Bu kesif calismasi yeni test turu tetiklemez; sonraki kesif zamanlanmis gunde bir kez calisir."
+          echo "Bu kesif calismasi yeni test turu tetiklemez; sonraki kesif zamanlanmis gunde iki kez (06:00 ve 18:00 UTC) calisir."
