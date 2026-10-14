@@ -71,6 +71,7 @@ def inspect(root=ROOT):
             if any(cmd in scripts for scripts in new_commands.values()))
         item["unmatched_script_entrypoints"] = sorted(
             set(item["commands"]) - set(item["shared_script_entrypoints"]))
+        item["missing_legacy_script_files"] = sorted(cmd for cmd in item["commands"] if not (root / cmd).is_file())
         item["possible_replacement_workflows"] = sorted(
             name for name, scripts in new_commands.items()
             if set(item["commands"]) & scripts)
@@ -89,6 +90,7 @@ def inspect(root=ROOT):
         item["migration_gap_reasons"] = (
             (["INLINE_OR_ACTION_BEHAVIOR_UNREVIEWED"] if not item["commands"] else [])
             + (["UNMATCHED_SCRIPT_ENTRYPOINTS"] if item["unmatched_script_entrypoints"] else [])
+            + (["MISSING_LEGACY_SCRIPT_FILE"] if item["missing_legacy_script_files"] else [])
             + (["AUTOMATIC_TRIGGER_NOT_REPLACED"] if item["unverified_trigger_behavior"] else [])
             + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] else [])
             + (["ARTIFACT_OUTPUTS_UNVERIFIED"] if item["output_hints"] else [])
@@ -114,6 +116,7 @@ def inspect(root=ROOT):
         "manual": sum(x["manual"] for x in items), "write_enabled_with_auto_trigger": risks,
         "legacy_workflows_with_unmatched_scripts": sum(bool(x["unmatched_script_entrypoints"]) for x in items),
         "legacy_workflows_with_no_shared_script": sum(not x["shared_script_entrypoints"] for x in items),
+        "legacy_workflows_with_missing_script_file": sum(bool(x["missing_legacy_script_files"]) for x in items),
         "behavioral_parity_verified_count": 0,
         "integration_evidence_counts": dict(Counter(x["integration_evidence_level"] for x in items)),
         "migration_gap_reason_counts": dict(Counter(reason for x in items for reason in x["migration_gap_reasons"])),
@@ -143,7 +146,7 @@ def main():
             "shared_script_entrypoints", "unmatched_script_entrypoints",
             "behavioral_parity_verified", "migration_decision",
             "integration_evidence_level", "unverified_trigger_behavior",
-            "migration_gap_reasons",
+            "migration_gap_reasons", "missing_legacy_script_files",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -169,6 +172,7 @@ def main():
                 "integration_evidence_level": item["integration_evidence_level"],
                 "unverified_trigger_behavior": item["unverified_trigger_behavior"],
                 "migration_gap_reasons": "; ".join(item["migration_gap_reasons"]),
+                "missing_legacy_script_files": "; ".join(item["missing_legacy_script_files"]),
             })
     # Five actionable queues in one artifact; no legacy workflow is mutated.
     queues = {}
