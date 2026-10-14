@@ -38,8 +38,12 @@ def assemble(source, duplicate, backups, identity, failures, tasks):
         "OLCUM_VAR_KESIN_OPTIMIZASYON_YOK" if isinstance(duplicate, dict) and duplicate.get("status") != "GECMIS_DOSYASI_YOK" and isinstance(duplicate.get("excess_test_runs"), int) else "GECMIS_KANITI_YOK",
         {"excess_test_runs": duplicate.get("excess_test_runs") if isinstance(duplicate, dict) else None},
         "Gercek gecmisle tekrar maliyetini dogrula; test guvenlik kurallarini bozma.", "GECMIS")
-    add(3, "Yedek geri yukleme", "GERI_YUKLEME_BU_KOSUDA_YOK",
-        {"protected_missing": backups.get("protected_missing") if isinstance(backups, dict) else None},
+    restore_state = backups.get("restore_test") if isinstance(backups, dict) else None
+    add(3, "Yedek geri yukleme",
+        "GIT_HEAD_IZOLE_ESLESME_VAR_HARICI_YEDEK_DOGRULANMADI" if restore_state == "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI" else "GERI_YUKLEME_KANITI_EKSIK",
+        {"protected_missing": backups.get("protected_missing") if isinstance(backups, dict) else None,
+         "restore_test": restore_state,
+         "historical_recovery_verified": False},
         "Bagimsiz kopya ve izole geri yukleme kanitini dogrula.", "HARICI_YEDEK_ERISIMI")
     add(4, "Logo EPG kanal kimligi", "KIMLIK_KANITI_BEKLIYOR_CIHAZ_TESTI_KAPSAM_DISI",
         {"report_present": isinstance(identity, dict), "ibo_device_retest": False,

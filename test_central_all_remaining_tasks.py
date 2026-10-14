@@ -11,6 +11,15 @@ class TopluKalanIsTesti(unittest.TestCase):
         self.assertEqual(result["jobs"][1]["evidence"]["excess_test_runs"],3)
         self.assertEqual(result["jobs"][5]["status"],"ONAY_BEKLIYOR")
         self.assertIn(6,result["requires_user_or_external_evidence"])
+    def test_izole_geri_yukleme_harici_yedekle_karistirilmaz(self):
+        result = assemble(None, None,
+                          {"protected_missing": [], "restore_test": "GIT_HEAD_IZOLE_ESLESME_DOGRULANDI"},
+                          None, None, None)
+        self.assertEqual(result["jobs"][2]["status"],
+                         "GIT_HEAD_IZOLE_ESLESME_VAR_HARICI_YEDEK_DOGRULANMADI")
+        self.assertFalse(result["jobs"][2]["evidence"]["historical_recovery_verified"])
+        self.assertFalse(result["all_done"])
+
     def test_olcum_dosyasi_var_sayi_yoksa_olcum_sayilmaz(self):
         result = assemble({}, {"status": "OK"}, {}, {}, {}, {})
         self.assertEqual(result["jobs"][1]["status"], "GECMIS_KANITI_YOK")

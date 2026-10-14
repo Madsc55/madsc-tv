@@ -149,7 +149,7 @@ jobs:
           }
           (folder / "actions_otomatik_sonuc_dogrulama.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
           with open(__import__("os").environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as out:
-              out.write(f"\\n### Otomatik Actions dogrulamasi\\n- Kontrol: {summary['checked']} workflow; basarili: {summary['successful']}; basarisiz: {len(summary['failed'])}; devam: {len(summary['pending'])}\\n")
+              out.write(f"\n### Otomatik Actions doğrulaması\n- Kontrol: {summary['checked']} workflow; basarili: {summary['successful']}; basarisiz: {len(summary['failed'])}; devam: {len(summary['pending'])}\n")
           PY
           python3 - <<'PY'
           import json, os, subprocess
