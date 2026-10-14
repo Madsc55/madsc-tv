@@ -1,10 +1,5 @@
 name: MADSC TV - Birleşik Kanal Keşfi ve Testi
 on:
-  push:
-    paths:
-      - 'madsc_akilli_kesif.py'
-      - 'scripts/discovery_archive.py'
-      - '.github/workflows/madsc-birlesik-kesif.yml'
   workflow_dispatch:
   schedule:
     - cron: '0 6 * * *'

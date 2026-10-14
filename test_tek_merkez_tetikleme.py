@@ -18,6 +18,17 @@ class TekMerkezKuralTesti(unittest.TestCase):
         self.assertIn("  contents: read", logo)
         self.assertIn("Korunan kanal listesi degisikliklerini engelle", logo)
 
+    def test_kesif_kod_degisikligi_ayri_yayin_taramasi_baslatmaz(self):
+        workflow = (ROOT / ".github/workflows/madsc-birlesik-kesif.yml").read_text()
+        central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
+        self.assertNotIn("\n  push:", workflow)
+        self.assertIn("  workflow_dispatch:", workflow)
+        self.assertIn("    - cron: '0 6 * * *'", workflow)
+        for path in ("madsc_akilli_kesif.py", "scripts/discovery_archive.py",
+                     "scripts/candidate_logo_report.py",
+                     ".github/workflows/madsc-birlesik-kesif.yml"):
+            self.assertIn("'" + path + "'", central)
+
     def test_yeni_aday_png_tek_kesif_turunda_hazirlanir(self):
         workflow = (ROOT / ".github/workflows/madsc-birlesik-kesif.yml").read_text()
         discovery = (ROOT / "madsc_akilli_kesif.py").read_text()
