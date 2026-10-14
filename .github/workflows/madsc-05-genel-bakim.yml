@@ -45,7 +45,7 @@ jobs:
       contents: read
       actions: read
   genel-bakim:
-    needs: kademe-4-arsiv-yedek
+    needs: [kademe-1-guvenlik, kademe-2-kesif, kademe-3-kanal-test, kademe-4-arsiv-yedek]
     if: ${{ always() }}
     name: MADSC 05 - Genel Bakim Toplu - tek kosuda butun denetimler
     runs-on: ubuntu-latest
