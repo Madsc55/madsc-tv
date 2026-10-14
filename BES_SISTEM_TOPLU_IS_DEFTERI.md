@@ -112,3 +112,9 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - `scripts/five_category_92_workflow_audit.py`: her eski workflow için `integration_evidence_level` (betik isimleri eşleşiyor / eksik / çıkarılmış betik yok), `unverified_trigger_behavior` ve toplam kanıt seviyeleri üretir; 92 satırlık CSV'ye de yazar.
 - `test_five_category_92_workflow_audit.py`: 50 ortak betik ve 42 eksik betik sentetik regresyonunu kanıt sınıflamasına bağlar. Bu 50/42 rakamları GERÇEK depo dağılımı değil, test fikstürüdür.
 - Değişiklikler tek sonraki toplu testte doğrulanacak. Eski workflow'lar, korunan playlist ve yedekler değiştirilmedi.
+
+## 15 Ekim — Toplu gecis kuyrugu ve rapor duzeltmesi
+- Bes kategori eksik is JSON ciktisindaki satir sonu duzeltildi; onceki cift ters bolu tek satir sonuna cevrildi.
+- 92 eski workflow'un tamamini kapsayan kanit muhasebesi regresyonu guclendirildi.
+- `92_workflow_oncelikli_gecis_isleri.json` artik otomatik tetik, workflow_run ve oncelik sirasina gore tek inceleme kuyrugu verir. Bu entegrasyon veya silme onayi degildir.
+- Degisiklikler tek toplu kabul kosusunda test edilecek; eski 92 workflow ve korunan playlist/yedekler aynen duruyor.
