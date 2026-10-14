@@ -1,27 +1,45 @@
-name: MADSC 02 - Kanal Kesfi
+name: MADSC 02 - Kanal Kesfi Toplu
 on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
-  group: madsc-02-kesif
+  group: madsc-kesif-tek-kosu
   cancel-in-progress: false
 jobs:
-  kesif-hazirlik:
+  kesif:
+    name: MADSC 02 - Kanal Kesfi Toplu - tek kosuda butun denetimler
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
-      - name: Kaynak ve arsiv kurallarini denetle
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Korunan dosyalarin baslangic ozeti
         run: |
-          python3 -m unittest test_candidate_logo_missing_report -v
-          python3 scripts/central_workflow_inventory.py
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Kategoriye ait tum rapor kontrolleri
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/central_source_reconciliation.py
+          python3 scripts/central_duplicate_test_audit.py
+          python3 scripts/central_ibo_review_queue.py
+      - name: Kategoriye ait tum regresyon testleri
+        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue -v
+      - name: Korunan dosyalar degismedi
+        if: always()
+        run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: madsc-02-kesif-hazirlik
+          name: madsc-kesif-tek-kosu-rapor
           path: madsc_merkezi_denetim/
           if-no-files-found: warn
-# Eski iki-gunluk kesif otomasyonu korunuyor; esdegerlik onayi sonrasi bu workflow'a tasinacak.
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.
