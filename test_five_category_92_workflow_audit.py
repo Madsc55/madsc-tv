@@ -33,10 +33,10 @@ class BulkCoverageTests(unittest.TestCase):
             folder.mkdir(parents=True)
             for n in range(92):
                 (folder / f"legacy-{n:02d}.yml").write_text(
-                    "name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  test:\\n    steps:\\n      - run: python3 scripts/legacy.py\\n")
+                    "name: Legacy\non:\n  workflow_dispatch:\njobs:\n  test:\n    steps:\n      - run: python3 scripts/legacy.py\n")
             for n, name in enumerate(("guvenlik", "kesif", "kanal-test", "arsiv-yedek", "genel-bakim"), 1):
                 (folder / f"madsc-0{n}-{name}.yml").write_text(
-                    "name: New\\njobs:\\n  test:\\n    steps:\\n      - run: python3 scripts/legacy.py\\n")
+                    "name: New\njobs:\n  test:\n    steps:\n      - run: python3 scripts/legacy.py\n")
             result = inspect(Path(d))
             self.assertEqual(result["migration_blocked_count"], 92)
             self.assertTrue(all(x["migration_decision"] == "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE" for x in result["items"]))
