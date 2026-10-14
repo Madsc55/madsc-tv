@@ -134,6 +134,16 @@ def five_stage(item):
         return 4
     return 5
 
+# Kritik kaynaklar dosya adina gore yanlis siniflanabilir. Bunlari raporda
+# acikca manuel kapsam denetimine isaretle; eksiksizlik iddiasi kurma.
+ambiguous_workflows = [
+    item["file"] for item in items
+    if classify(item) == "DIGER" or (
+        any(token in item["file"].lower() for token in ("epg", "logo", "kaynak", "backup", "yedek"))
+        and five_stage(item) == 5
+    )
+]
+
 stage_names = {
     1: "Guvenlik ve sistem sagligi",
     2: "Kanal kesfi ve kaynak guvenilirligi",
@@ -154,6 +164,8 @@ if mapped != expected or len(mapped) != len(set(mapped)):
         "workflow_count": len(items),
         "mapped_count": len(mapped),
         "unmapped": [],
+        "manual_scope_review_required": ambiguous_workflows,
+        "complete_historical_coverage_verified": False,
         "stages": [{"number": n, "name": stage_names[n],
                     "workflows": stage_workflows[str(n)]} for n in range(1, 6)],
         "limitations": [
