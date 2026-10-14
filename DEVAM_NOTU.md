@@ -1,3 +1,16 @@
+## 14 Ekim 2026 — GECE YARISINDAN ONCE TOPLU IS TAKIBI
+Kullanici istegi: butun kalan isler toplu, gereksiz test/commit tetigi olmadan; saat 00:00'a kadar mumkun olanlar tamamlanacak. Tamamlama garantisi yok.
+DOGRULANDI: GitHub workflow dosyasi 92. Ekran #119 #120 #121 merkezi denetimleri yesil. 1144 runs tarihsel toplamdir, gunluk otomasyon sayisi degil.
+TAMAMLANAN: birlesik kesif 06:00/18:00 UTC gunde iki kez; ana liste sagligi ayin 1/15; otomatik devam zinciri kaldirildi; tam sistem yedek push tetigi kaldirildi, ayin 1/15 cron korundu; sistem saglik/guvenlik haftalik ve push yerine ayin 1/15; tetikleyici sayim raporu ve regresyon testi kodlandi.
+ACIK 1: 92 workflow icinde gercek scheduled/push/workflow_run/manual sayilarini rapordan dogrula; risk ve gereksiz tekrar haritasi.
+ACIK 2: Merkezi denetimin genis push filtreleri nedeniyle her kod ve not degisikliginde 125 test kosmasini azalt, kritik playlist ve guvenlik kontrolunu koru.
+ACIK 3: Ayin 1/15'inde guvenlik, saglik, yedek ve arsiv islerini tek koordine bakim kosusuna birlestir. Yedek restore/offsite kanitini dogrula; ayri cronlar su an var.
+ACIK 4: Eski kanal tarama/logo/EPG zamanlamalarini ve workflow_run zincirlerini incele. EPG en sona ertelendi.
+ACIK 5: 75 aday, 51 farkli saat testi bekleyen, 24 ffprobe gecmeyen, 4 alternatif; kimlik ve IBO Isvec onayi yok. Onaysiz ana listeye ekleme yapma.
+ACIK 6: Tarihsel arsiv 11762, arsiv URL 11742 ve yedek geri yukleme kanitini koru/dogrula.
+KORUMA: CALISANLAR.m3u, HEPSI, YENILER, favoriler, kanallar, URL, sira, logo ve yedeklere izinsiz dokunulmayacak.
+Son toplu test ve tek kapanis raporu; bitmeyenler acik kalacak.
+
 ## 14 Ekim 2026 — KALICI TOPLU DURUM RAPORU VE YAPILACAKLAR
 
 Kullanıcı son testlerin yeşil olduğunu bildirdi ve biten/eksik/fazla işleri tek belgede görmeyi istedi. TOPLU_DURUM_RAPORU.md oluşturuldu: beş aşama, tamamlanan otomasyon sadeleştirmeleri, kalan gerçek kabul kanıtları, öncelik sırası, korunan ana liste logo kuralları ve rapor artefakt yolları. Yeni belge merkezi denetimin push yollarına, zorunlu dosya kontrolüne ve SHA256 izlemeye alındı; regresyon testi eklendi. Bu statik çalışma notu güncel canlı kanal sayılarını veya cihaz onayını varsaymaz. Ana liste, logo, favori, YENİLER ve yedek değiştirilmedi. Yeni Actions sonucu henüz doğrulanmadı.
