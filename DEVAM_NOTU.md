@@ -1,3 +1,7 @@
+## 14 Ekim 2026 — KALICI TOPLU DURUM RAPORU VE YAPILACAKLAR
+
+Kullanıcı son testlerin yeşil olduğunu bildirdi ve biten/eksik/fazla işleri tek belgede görmeyi istedi. TOPLU_DURUM_RAPORU.md oluşturuldu: beş aşama, tamamlanan otomasyon sadeleştirmeleri, kalan gerçek kabul kanıtları, öncelik sırası, korunan ana liste logo kuralları ve rapor artefakt yolları. Yeni belge merkezi denetimin push yollarına, zorunlu dosya kontrolüne ve SHA256 izlemeye alındı; regresyon testi eklendi. Bu statik çalışma notu güncel canlı kanal sayılarını veya cihaz onayını varsaymaz. Ana liste, logo, favori, YENİLER ve yedek değiştirilmedi. Yeni Actions sonucu henüz doğrulanmadı.
+
 ## 14 Ekim 2026 — TOPLU KAPANIŞ: LOGO, KEŞİF VE EPG TEK PUSH KANITI
 
 Merkezi statik çakışma denetimi artık ana PNG logo kodu, ana PNG workflow, yeni aday logo kodu, keşif kodu, EPG üretim kodu ve EPG yayın workflow değişikliklerini ayrı senaryolarla inceler. Regresyon testi bu altı değişiklik türünün her birinde yalnız madsc-aylik-merkezi-denetim.yml push tetiklenmesini zorunlu kılar; sessizce sıfır test tetiklenmesi de başarı sayılmaz. Böylece bir sonraki refaktörde eski ikinci PNG/EPG/keşif push tetikleyicilerinin geri gelmesi veya merkezi yolun kaybolması testte yakalanır. Bu statik güvence canlı yayın, IBO EPG ve yeni aday logo eşleşmesi kabulü değildir. Korunan listeler ve logolar değişmedi. GitHub Actions sonucu henüz doğrulanmadı.

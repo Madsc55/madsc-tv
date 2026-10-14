@@ -8,6 +8,7 @@ on:
       - 'AGENTS.md'
       - 'OZELLIK_ENVANTERI.md'
       - 'DEVAM_NOTU.md'
+      - 'TOPLU_DURUM_RAPORU.md'
       - 'GUVENLIK_KURALLARI.md'
       - '.github/workflows/madsc-documentation-check.yml'
       - 'CALISANLAR.m3u'
@@ -88,10 +89,10 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           git ls-files > madsc_merkezi_denetim/takip_edilen_dosyalar.txt
           git ls-files '.github/workflows/*' > madsc_merkezi_denetim/is_akislari.txt
-          for file in AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u; do
+          for file in AGENTS.md DEVAM_NOTU.md TOPLU_DURUM_RAPORU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u; do
             test -f "$file" || { echo "::error::Zorunlu dosya eksik: $file"; exit 1; }
           done
-          sha256sum AGENTS.md DEVAM_NOTU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
+          sha256sum AGENTS.md DEVAM_NOTU.md TOPLU_DURUM_RAPORU.md OZELLIK_ENVANTERI.md GUVENLIK_KURALLARI.md SEKIZ_GOREV_TOPLU_DENETIM.md CALISANLAR.m3u > madsc_merkezi_denetim/korunan_dosyalar_sha256.txt
       - name: Proje kayitlari ve dokumantasyonu merkezi kontrolde dogrula
         shell: bash
         run: |
@@ -99,6 +100,7 @@ jobs:
           test -s AGENTS.md
           test -s OZELLIK_ENVANTERI.md
           test -s DEVAM_NOTU.md
+          test -s TOPLU_DURUM_RAPORU.md
           grep -q 'Kural 25' AGENTS.md
           grep -q 'build_epg.py' OZELLIK_ENVANTERI.md
           head -n 1 CALISANLAR.m3u | grep -q '#EXTM3U'
