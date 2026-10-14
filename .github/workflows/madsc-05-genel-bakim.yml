@@ -110,6 +110,8 @@ jobs:
           assert sum(category["count"] for category in queues.values()) == 92, "Category queue lost a legacy workflow"
           assert priorities["total"] == 92 and len(priorities["ordered_workflows"]) == 92
           assert audit["migration_blocked_count"] == 92, "Unsafe legacy retirement"
+          assert "legacy_workflows_with_missing_script_file" in audit, "Missing legacy script check not run"
+          assert audit["legacy_workflows_with_missing_script_file"] >= 0
           assert len({x["file"] for x in priorities["ordered_workflows"]}) == 92
           assert all(x["gaps"] for x in priorities["ordered_workflows"]), "Missing migration gap evidence"
           assert all(x["priority"] in ("HIGH", "NORMAL") for x in priorities["ordered_workflows"])
