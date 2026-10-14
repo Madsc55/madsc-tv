@@ -46,6 +46,16 @@ class TopluMerkezTesti(unittest.TestCase):
         for name in ("DEVAM_NOTU.md", "TOPLU_DURUM_RAPORU.md"):
             self.assertIn("test -s " + name, central)
 
+    def test_raporda_bilerek_tetiklenmeyen_notlar_hata_sayilmaz(self):
+        flows = {"merkez.yml": "on:\\n  push:\\n    paths:\\n      - 'CALISANLAR.m3u'\\njobs:\\n  test:\\n    runs-on: ubuntu-latest\\n"}
+        report = analyze(flows, {"Proje notu": ["DEVAM_NOTU.md"],
+                                 "Toplu durum belgesi": ["TOPLU_DURUM_RAPORU.md"],
+                                 "Kanal listesi": ["CALISANLAR.m3u"]})
+        self.assertEqual(report["bilerek_push_tetiklemeyen_notlar"],
+                         ["Proje notu", "Toplu durum belgesi"])
+        self.assertEqual(report["merkezi_denetime_ulasamayan_senaryolar"], [])
+        self.assertEqual(report["tekrarli_senaryolar"], [])
+
     def test_dokuman_push_yok(self):
         raw = Path(".github/workflows/madsc-documentation-check.yml").read_text()
         self.assertIsNone(push_rules(raw))

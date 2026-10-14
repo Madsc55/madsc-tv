@@ -43,4 +43,4 @@ report = {
 (OUT / "yedek_ve_korunan_dosyalar_kanit.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 if report["protected_missing"]:
     raise SystemExit("Zorunlu korunan dosyalar eksik: " + ", ".join(report["protected_missing"]))
-print(f"{len(entries)} korunan dosyanin butunluk parmak izi kaydedildi; geri yukleme bu kosuda dogrulanmadi.")
+print(f"{len(entries)} korunan dosyanin SHA256 parmak izi kaydedildi; Git HEAD izole eslesme={restore_verified}; harici ve tarihsel geri yukleme dogrulanmadi.")

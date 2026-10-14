@@ -1,3 +1,9 @@
+## 14 Ekim 2026 — #124 YESIL / TOPLU IZLEME DUZELTMESI
+- Kullanici ekraninda #124, 6a22b44 commit, 25 saniye, YESIL. #123 kirmizi, #124 yesil.
+- Merkezi tek-islem raporunda DEVAM_NOTU ve TOPLU_DURUM_RAPORU degisikliklerinin bilerek push tetiklememesi artik "eksik merkezi tetik" degil, ayri istisna kategorisi olarak raporlanir. Diger push eksikleri gizlenmez.
+- Yedek raporunun konsol mesajinda Git HEAD izole restore kaniti ile gercek harici/tarihsel kurtarma ayrimi netlestirildi.
+- SONRAKI TOPLU ISLER: aktif 92 workflow'un canli API durumlari/cron yukleri, cakisma; bagimsiz yedek kaniti; 75 aday icin farkli saat testi ve Turkce/yabanci ayirimi; logo kimlik; IBO onay kapisi. EPG en son. Ana liste ve yedeklere otomatik yazma yok.
+
 ## 14 Ekim 2026 — #123 UYUMSUZLUK / TEK PAKET DUZELTME
 - Kullanici ekrani: merkezi denetim #123, 126 test, 3 failure, 26 saniye. Ekran sonu yalniz toplam hata sayisini gosteriyor; tek tek traceback gorulmedi.
 - Kod incelemesinde not dosyalarinin push listesinden bilerek kaldirilmasina ragmen eski beklentilerin kaldigi goruldu: test_tek_merkez_tetikleme.py, test_toplu_durum_raporu.py, test_central_consolidation_audit.py.

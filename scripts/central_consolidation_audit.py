@@ -87,9 +87,11 @@ def analyze(workflows, scenarios=SCENARIOS):
         cases.append({"islem": label, "dosyalar": paths, "push_is_akislari": triggered,
                       "ayri_kosu_sayisi": len(triggered),
                       "tek_merkez_hedefi_saglandi": len(triggered) == 1})
+    expected_no_push = {"Proje notu", "Toplu durum belgesi"}
     return {"incelenen_is_akisi": len(workflows), "push_tetikleyicili": len(rules),
             "senaryolar": cases, "tekrarli_senaryolar": [c["islem"] for c in cases if c["ayri_kosu_sayisi"] > 1],
-            "merkezi_denetime_ulasamayan_senaryolar": [c["islem"] for c in cases if c["ayri_kosu_sayisi"] == 0],
+            "merkezi_denetime_ulasamayan_senaryolar": [c["islem"] for c in cases if c["ayri_kosu_sayisi"] == 0 and c["islem"] not in expected_no_push],
+            "bilerek_push_tetiklemeyen_notlar": [c["islem"] for c in cases if c["ayri_kosu_sayisi"] == 0 and c["islem"] in expected_no_push],
             "sinir": "Dosya ve push filtresi statik analizi; workflow_run, schedule ve manuel koşular ayrı değerlendirilmelidir.",
             "otomatik_kanal_degisikligi": False}
 
@@ -181,11 +183,11 @@ def main():
              f"- Birden fazla push açabilecek senaryo: {len(overlap['tekrarli_senaryolar'])}",
              "| İşlem | Ayrı push koşusu | Durum |", "|---|---:|---|"]
     for case in overlap["senaryolar"]:
-        status = "MERKEZ TETIKLENMIYOR" if case["ayri_kosu_sayisi"] == 0 else ("TEKRAR VAR" if case["ayri_kosu_sayisi"] > 1 else "UYGUN")
+        status = "BILEREK TETIKLENMIYOR" if case["ayri_kosu_sayisi"] == 0 and case["islem"] in overlap["bilerek_push_tetiklemeyen_notlar"] else "MERKEZ TETIKLENMIYOR" if case["ayri_kosu_sayisi"] == 0 else ("TEKRAR VAR" if case["ayri_kosu_sayisi"] > 1 else "UYGUN")
         lines.append(f"| {case['islem']} | {case['ayri_kosu_sayisi']} | {status} |")
     lines.extend(["", "### Tetiklenen ayrı workflow dosyaları"])
     for case in overlap["senaryolar"]:
-        if not case["tek_merkez_hedefi_saglandi"]:
+        if not case["tek_merkez_hedefi_saglandi"] and case["islem"] not in overlap["bilerek_push_tetiklemeyen_notlar"]:
             lines.append("- " + case["islem"] + ": " + ", ".join(case["push_is_akislari"]))
     lines.extend(["", "## Beş aşama genel kabul", "- Durum: HENUZ_ONAYLANMADI"])
     for item in result["kriterler"]:
