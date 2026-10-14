@@ -6,6 +6,7 @@ on:
       - madsc/bes-sistem-toplu-birlestirme
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
+      - 'scripts/five_category_92_workflow_audit.py'
 permissions:
   contents: read
   actions: read
