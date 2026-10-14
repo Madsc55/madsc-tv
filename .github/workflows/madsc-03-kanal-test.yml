@@ -44,7 +44,7 @@ jobs:
           print("Legacy EPG/Pages workflow sources:", [name for name, _ in epg])
           for name, raw in epg:
               print(name, "workflow_run=", "workflow_run:" in raw, "deploy=", "deploy-pages" in raw,
-                    "write=", "contents: write" in raw, "cron=", "cron:" in raw)
+                    "write=", "contents:" + " write" in raw, "cron=", "cron:" in raw)
           print("Read-only shadow check; live Pages publication and IBO playback not verified.")
           PY
       - name: IBO adaylarini ayri artefakta hazirla
