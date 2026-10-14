@@ -3,11 +3,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '40 5 1,15 * *'
-  push:
-    paths:
-      - '.github/workflows/madsc-tum-sistem-yedek.yml'
-      - 'scripts/full_system_backup.py'
-      - 'scripts/repository_settings_inventory.py'
 permissions:
   contents: read
 concurrency:
