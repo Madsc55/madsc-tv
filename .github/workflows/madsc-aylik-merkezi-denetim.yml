@@ -8,6 +8,8 @@ on:
       - 'scripts/central_workflow_inventory.py'
       - 'test_central_workflow_inventory.py'
       - 'scripts/central_run_status.py'
+      - 'scripts/central_main_playlist_run_evidence.py'
+      - 'test_central_main_playlist_run_evidence.py'
       - 'scripts/central_failure_stage_report.py'
       - 'scripts/central_backup_evidence.py'
       - 'scripts/central_isolated_git_restore.py'
@@ -112,6 +114,7 @@ jobs:
           gh api --paginate "repos/${GITHUB_REPOSITORY}/actions/workflows?per_page=100" --jq '.workflows[] | {id,name,path,state}' > madsc_merkezi_denetim/github_workflow_durumlari.jsonl
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs?per_page=100" --jq '[.workflow_runs[] | {workflow_id,name,status,conclusion,run_id:.id,created_at,html_url}]' > madsc_merkezi_denetim/son_100_kosu.json
           python3 scripts/central_run_status.py
+          python3 scripts/central_main_playlist_run_evidence.py
           # Her push sonrasi, yeni kosu beklemeden, son tamamlanmis run'lari
           # GitHub API uzerinden oku; yeni test veya workflow tetikleme.
           python3 - <<'PY'

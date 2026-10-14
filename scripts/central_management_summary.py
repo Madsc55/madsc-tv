@@ -20,6 +20,7 @@ SOURCES = {
     "yabanci_arsiv_koruma": "yabanci_arsiv_koruma_denetimi.json",
     "kesif_kaynaklari": "kesif_ve_yabanci_kaynak_toplu_ozet.json",
     "son_kontrol": "son_kontrol_birikimli_ozet.json",
+    "ana_liste_saglik": "ana_liste_saglik_kosu_kaniti.json",
     "bes_asama": "bes_asama_tum_workflow_eslestirmesi.json",
     "actions_dogrulama": "actions_otomatik_sonuc_dogrulama.json",
 }
@@ -54,6 +55,7 @@ def build(folder):
         "invalid_history_records": repeat_data.get("invalid_history_records"),
         "evidence_complete": not missing,
         "ibo_device_verification": "NOT_VERIFIED",
+        "main_playlist_health_run": sections["ana_liste_saglik"].get("data", {}).get("durum", "KOSU_KANITI_YOK"),
     }
     # Raporun varligi gorevin tamamlandigini tek basina kanitlamaz.
     evidence_assessment = {}
@@ -80,7 +82,7 @@ def build(folder):
     stage_evidence = {
         1: ("korunan_dosyalar_yedek", "otomasyon_durumu"),
         2: ("kaynak_mutabakati", "kesif_kaynaklari"),
-        3: ("tekrar_test", "son_kontrol"),
+        3: ("tekrar_test", "son_kontrol", "ana_liste_saglik"),
         4: ("logo_epg_kimlik",),
         5: ("hata_asamalari", "kalan_isler", "actions_dogrulama"),
     }
@@ -107,6 +109,9 @@ def build(folder):
     if eighteen.get("canli_kanit_bekleyen_gorevler"):
         blockers.append({"code": "EIGHTEEN_TASK_LIVE_EVIDENCE_PENDING", "status": "KANIT_EKSIK",
                          "tasks": eighteen["canli_kanit_bekleyen_gorevler"]})
+    if indicators["main_playlist_health_run"] in ("KOSU_KANITI_YOK", "IS_AKISI_BASARISIZ"):
+        blockers.append({"code": "MAIN_PLAYLIST_HEALTH_RUN_NOT_VERIFIED", "status": "KANIT_EKSIK",
+                         "evidence": SOURCES["ana_liste_saglik"]})
     if source_data.get("difference") not in (None, 0):
         blockers.append({"code": "SOURCE_TARGET_MISMATCH", "status": "INCELEME_GEREKLI",
                          "evidence": SOURCES["kaynak_mutabakati"]})

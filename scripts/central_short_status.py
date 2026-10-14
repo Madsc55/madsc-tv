@@ -55,6 +55,9 @@ def render(workflows, tasks, errors, management=None):
             lines.append(f"- #{item.get('run_id', '?')} {item.get('workflow', '?')}: {stage}; kok neden icin log gerekir.")
     if isinstance(management, dict):
         indicators = management.get("key_indicators", {})
+        lines.extend(["", "## Ana liste canlı sağlık takibi"])
+        lines.append(f"- Son iş akışı: {indicators.get('main_playlist_health_run', 'KOSU_KANITI_YOK')}")
+        lines.append("- Kanal bazlı teknik sonuçlar ayrı sağlık raporundadır; otomatik değişiklik yapılmaz.")
         lines.extend(["", "## 18 geliştirme görevi"])
         lines.append(f"- Haritalanan: {indicators.get('eighteen_tasks_mapped', 'KANIT_YOK')}")
         lines.append(f"- Kod kanıtı eksik: {indicators.get('eighteen_tasks_code_evidence_missing', 'KANIT_YOK')}")
