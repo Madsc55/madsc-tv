@@ -84,6 +84,16 @@ def inspect(root=ROOT):
         item["unverified_trigger_behavior"] = bool(
             item["cron_utc"] or item["push"] or item["workflow_run"] or item["workflow_call"]
         )
+        # Concrete migration checklist: do not mistake a script-name match for
+        # trigger, write permission, or downstream publication parity.
+        item["migration_gap_reasons"] = (
+            (["INLINE_OR_ACTION_BEHAVIOR_UNREVIEWED"] if not item["commands"] else [])
+            + (["UNMATCHED_SCRIPT_ENTRYPOINTS"] if item["unmatched_script_entrypoints"] else [])
+            + (["AUTOMATIC_TRIGGER_NOT_REPLACED"] if item["unverified_trigger_behavior"] else [])
+            + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] else [])
+            + (["ARTIFACT_OUTPUTS_UNVERIFIED"] if item["output_hints"] else [])
+            + ["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"]
+        )
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
@@ -106,6 +116,7 @@ def inspect(root=ROOT):
         "legacy_workflows_with_no_shared_script": sum(not x["shared_script_entrypoints"] for x in items),
         "behavioral_parity_verified_count": 0,
         "integration_evidence_counts": dict(Counter(x["integration_evidence_level"] for x in items)),
+        "migration_gap_reason_counts": dict(Counter(reason for x in items for reason in x["migration_gap_reasons"])),
         "migration_blocked_count": len(items),
         "high_priority_review_count": sum(x["review_priority"] == "HIGH" for x in items),
         "items": items,
@@ -132,6 +143,7 @@ def main():
             "shared_script_entrypoints", "unmatched_script_entrypoints",
             "behavioral_parity_verified", "migration_decision",
             "integration_evidence_level", "unverified_trigger_behavior",
+            "migration_gap_reasons",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -156,6 +168,7 @@ def main():
                 "migration_decision": item["migration_decision"],
                 "integration_evidence_level": item["integration_evidence_level"],
                 "unverified_trigger_behavior": item["unverified_trigger_behavior"],
+                "migration_gap_reasons": "; ".join(item["migration_gap_reasons"]),
             })
     lines = ["# MADSC — 92 Otomasyon Görev ve Kategori Haritası", "",
              f"İncelenen iş akışı: **{report['total']}** (statik kaynak kod incelemesi)", "",
