@@ -16,7 +16,7 @@ jobs:
           persist-credentials: false
       - name: Kaynak ve arsiv kurallarini denetle
         run: |
-          python3 -m unittest discover -p 'test_discovery_archive.py' -v
+          python3 -m unittest test_candidate_logo_missing_report -v
           python3 scripts/central_workflow_inventory.py
       - uses: actions/upload-artifact@v4
         if: always()
