@@ -1,6 +1,7 @@
 name: MADSC 01 - Guvenlik Toplu
 on:
   workflow_dispatch:
+  workflow_call:
 permissions:
   contents: read
   actions: read
