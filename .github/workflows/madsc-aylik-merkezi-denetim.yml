@@ -41,6 +41,9 @@ on:
       - 'scripts/central_source_reconciliation.py'
       - 'scripts/central_duplicate_test_audit.py'
       - 'scripts/central_consolidation_audit.py'
+      - 'scripts/central_protected_write_gate.py'
+      - 'test_central_protected_write_gate.py'
+      - '.github/workflows/test-31-protected-write-gate.yml'
       - 'test_central_consolidation_audit.py'
       - 'test_central_duplicate_test_audit.py'
       - 'test_central_source_reconciliation.py'
@@ -86,6 +89,10 @@ jobs:
           grep -q 'Kural 25' AGENTS.md
           grep -q 'build_epg.py' OZELLIK_ENVANTERI.md
           head -n 1 CALISANLAR.m3u | grep -q '#EXTM3U'
+      - name: Korunan liste yazma kapisini merkezi kosuda denetle
+        run: |
+          python3 -m pip install pyyaml
+          python3 scripts/central_protected_write_gate.py
       - name: Tum otomasyonlarin zamanlama ve izin haritasini olustur
         run: python3 scripts/central_workflow_inventory.py
       - name: Logo EPG kimlik ve test gecmisini birlestir

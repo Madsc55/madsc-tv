@@ -18,6 +18,14 @@ class TekMerkezKuralTesti(unittest.TestCase):
         self.assertIn("  contents: read", logo)
         self.assertIn("Korunan kanal listesi degisikliklerini engelle", logo)
 
+    def test_korunan_yazma_kapisi_merkezde(self):
+        gate = (ROOT / ".github/workflows/test-31-protected-write-gate.yml").read_text()
+        central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
+        self.assertNotIn("\\n  push:", gate)
+        self.assertIn("  workflow_dispatch:", gate)
+        self.assertIn("python3 scripts/central_protected_write_gate.py", central)
+        self.assertIn("  contents: read", central)
+
     def test_merkez_dokuman_ve_kanal_kontrolu(self):
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
         for name in ("AGENTS.md", "DEVAM_NOTU.md", "CALISANLAR.m3u", "GUVENLIK_KURALLARI.md"):

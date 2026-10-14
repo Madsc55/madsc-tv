@@ -1,9 +1,6 @@
 name: "31 - Korumali Liste Yazma Kapisi Denetimi"
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - ".github/workflows/test-31-protected-write-gate.yml"
 permissions:
   contents: read
 jobs:
