@@ -114,8 +114,14 @@ jobs:
           from pathlib import Path
           folder = Path("madsc_merkezi_denetim")
           runs = json.loads((folder / "son_100_kosu.json").read_text(encoding="utf-8"))
+          import os
+          current_run_id = int(os.environ["GITHUB_RUN_ID"])
+          current_run = [r for r in runs if r.get("run_id") == current_run_id]
+          # Calismakta olan denetim kendi basarisini ilan edemez.
           latest = {}
           for run in sorted(runs, key=lambda r: r.get("created_at") or "", reverse=True):
+              if run.get("run_id") == current_run_id:
+                  continue
               key = run.get("workflow_id")
               if key is not None and key not in latest:
                   latest[key] = run
@@ -132,6 +138,8 @@ jobs:
               })
           summary = {
               "checked": len(checked),
+              "current_run": {"id": current_run_id, "status": "IN_PROGRESS_NOT_VERIFIED"},
+              "current_run_found_in_sample": bool(current_run),
               "successful": sum(x["verified_success"] for x in checked),
               "failed": [x for x in checked if x["status"] == "completed" and x["conclusion"] in ("failure", "timed_out", "startup_failure", "action_required")],
               "pending": [x for x in checked if x["status"] != "completed"],
