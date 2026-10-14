@@ -33,6 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python3 scripts/five_category_preflight.py
           python3 scripts/central_workflow_inventory.py
           python3 scripts/central_source_reconciliation.py
           python3 scripts/central_duplicate_test_audit.py
