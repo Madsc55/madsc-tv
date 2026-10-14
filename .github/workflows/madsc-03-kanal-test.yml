@@ -1,33 +1,44 @@
-name: MADSC 03 - Kanal Testleri
+name: MADSC 03 - Kanal Testleri Toplu
 on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
-  group: madsc-03-kanal-test
+  group: madsc-kanal-test-tek-kosu
   cancel-in-progress: false
 jobs:
-  test:
+  kanal-test:
+    name: MADSC 03 - Kanal Testleri Toplu - tek kosuda butun denetimler
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           persist-credentials: false
-      - name: Korunan listelerin SHA256 degerini kaydet
-        run: sha256sum CALISANLAR.m3u YABANCI_KANALLAR.m3u > "${RUNNER_TEMP}/playlist-once"
-      - name: Birim testleri
-        run: python3 -m unittest test_ana_liste_saglik -v
-      - name: Yayın test araci
-        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Ana listeyi salt okunur 50'lik partide test et
-        run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
-      - name: Korunan listeler degismedi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Korunan dosyalarin baslangic ozeti
+        run: |
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Kategoriye ait tum rapor kontrolleri
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/central_identity_epg_logo_audit.py
+          python3 scripts/central_main_playlist_run_evidence.py
+      - name: Kategoriye ait tum regresyon testleri
+        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence -v
+      - name: Korunan dosyalar degismedi
         if: always()
-        run: sha256sum -c "${RUNNER_TEMP}/playlist-once"
+        run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: madsc-03-kanal-test
-          path: madsc_ana_liste_saglik/
+          name: madsc-kanal-test-tek-kosu-rapor
+          path: madsc_merkezi_denetim/
           if-no-files-found: warn
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.
