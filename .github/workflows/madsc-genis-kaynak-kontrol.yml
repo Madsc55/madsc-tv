@@ -1,9 +1,6 @@
 name: MADSC - Haftalik ve Aylik Genis Kaynak Kontrolu
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '15 4 * * 1'
-    - cron: '15 3 1 * *'
 permissions:
   contents: write
   actions: write
@@ -23,13 +20,11 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
           git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
-      - name: Check weekly additional sources
-        if: github.event.schedule == '15 4 * * 1' || github.event_name == 'workflow_dispatch'
+      - name: Check additional sources (manual only)
         env:
           MADSC_SCAN_MODE: weekly
         run: python3 tools/genis_kaynak_taramasi.py
-      - name: Check monthly 155 sources
-        if: github.event.schedule == '15 3 1 * *' || github.event_name == 'workflow_dispatch'
+      - name: Check 155 sources (manual only)
         env:
           MADSC_SCAN_MODE: monthly
         run: python3 tools/genis_kaynak_taramasi.py
@@ -64,7 +59,7 @@ jobs:
             sleep $((attempt * 2))
           done
           exit 1
-      - name: Continue with existing three-stage verification
+      - name: Continue with existing three-stage verification (manual source audit only)
         if: success()
         env:
           GH_TOKEN: ${{ github.token }}

@@ -1,3 +1,11 @@
+## 14 Ekim 2026 — TOPLU OTOMASYON YUKU AZALTMA / EK DENETIMLER ELLE
+- Kullanici merkezi testin yesil oldugunu bildirdi; gereksiz tekrarlari tek committe azaltma istendi.
+- Haftalik Cuma ana kanal + EPG denetiminin otomatik schedule tetigi kaldirildi; workflow_dispatch saklandi. Ana liste sagligi ayin 1 ve 15'inde, birlesik kanal kesfi her gun iki kez suruyor.
+- Haftalik Pazartesi + ayin 1'i genis kaynak kontrolunun schedule tetikleri kaldirildi; workflow_dispatch saklandi. Elle acilirsa iki kaynak modu da calisir. Eski workflow'un ayrica uc-asama dispatch etmesi sadece elle calistirildiginda gerceklesir.
+- EPG gunluk guncelleme ve Pages yayinlamasi korunuyor; IBO TV onayi BEKLIYOR. Korunan listeler, logo ve yedekler degismedi.
+- Daha yapilmayanlar: tum 92 workflow'un tam aktiflik/tetik zinciri ve otomatik yuk denetimi; 1 ve 15 yedek geri yukleme/harici kopya kaniti; 75 aday icin farkli saat/kimlik testleri. Bunlar tamamlandi diye raporlanmaz.
+- Yalniz iki gereksiz otomatik takvim kapatildi; manuel calisma ve gecmis dosyalar silinmedi.
+
 ## 14 Ekim 2026 — EPG TEKNIK HAZIRLIK / TELEVIZYON KONTROLU BEKLIYOR
 - Kullanici #126 merkezi denetimin YESIL oldugunu ekran goruntusuyle dogruladi.
 - EPG yeniden gundemde: TV basinda degil; XMLTV hazirligi, pilot 5 kanal, kaynak ve teknik dogrulama tamamlanacak; IBO Player televizyon gorunurluk testi ve kullanici onayi DAHA SONRA.

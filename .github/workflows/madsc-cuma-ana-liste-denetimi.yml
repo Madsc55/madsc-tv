@@ -1,8 +1,6 @@
 name: MADSC - Cuma Ana Kanal ve EPG Denetimi
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 9 * * 5'
 permissions:
   contents: read
 concurrency:
