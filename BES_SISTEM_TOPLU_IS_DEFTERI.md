@@ -72,3 +72,10 @@ Bu defter kalan işleri korur; doğrulanmayan işleri bitmiş saymaz.
 - Tetik envanterinde dokuz cron workflow'u ve bir workflow_run Pages zinciri belgelenmiş. EPG, VOD, yedek ve çift tetiklenme riskleri eşdeğerlik kapısında açık kalır.
 - Run #38630252033 için beş job `success` ve beş artifact kaydı GitHub API üzerinden doğrulandı. Bu yalnız toplu denetim başarısıdır.
 - Sonraki kabul kapısı: üretilen `92_workflow_gorev_ve_kategori_haritasi.json` artifact'ının 92 kaydını ve yazma/tetik risklerini incele; her eski workflow için davranışsal eşdeğerlik kanıtını bağla. **Eski workflow kapatma/silme yetkisi verilmedi.**
+
+## 14 Ekim — Toplu kategori eşleştirme hatası düzeltildi
+- `scripts/central_workflow_inventory.py`: YEDEK_VE_KURTARMA artık kategori 4; EPG ve LOGO kategori 3. Güvenlik kategori 1 olarak korundu.
+- `test_central_workflow_inventory.py`: bütün envanter öğelerinde bu eşleşmeleri zorunlu tutan regresyon testi eklendi.
+- `.github/workflows/madsc-05-genel-bakim.yml`: yeni regresyon testi ve ilgili dosya değişiklikleri beşli toplu koşuya bağlandı; commit `0bcbcfeed3546b01052ad6a151a5c6d8f91a7242`.
+- **CI kabulü bekliyor:** GitHub bağlayıcısı commit SHA için yalnız PR-tetikli koşuları listeleyebiliyor; push koşusunun en güncel sonucunu bu sorgudan kesinleştirmek mümkün değil. Eski run #38630252033 başarılı, ancak yeni kodu test etmiyor.
+- Eski 92 workflow ve korunan kanal/yedek verileri değiştirilmedi. Davranışsal eşdeğerlik henüz onaylanmadı.
