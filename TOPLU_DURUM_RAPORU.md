@@ -121,3 +121,8 @@ Kullanici #103 testini yesil gosterdi. Bes asamada gecersiz JSON dizi tipindeki 
 ## 14 Ekim - #104 sonrasi kanal adaylari toplu dokumu
 
 Kullanici son testin yesil oldugunu bildirdi. Kesif toplu ozetine aday ve alternatif kuyruklarindaki URL bulunan kayit sayilari ile kanal adlari eklendi. Yabanci arsivde kanal bazli IBO testi yapildigini kanit olmadan True olarak gosteren sabit isaret kaldirildi; acikca kanal bazli cihaz kaniti yok denildi. Bu salt okunur rapor degisikligidir; canli akislari test etmez, korunan listeleri degistirmez. Son merkezi test sonucu bekleniyor.
+
+
+## 14 Ekim - Bes is tek test dosyasinda
+
+Kullanicinin istegiyle bes is icin tek `test_bes_is_tek_dosya.py` regresyon dosyasi eklendi. Tek merkezi workflow zaten tum Python testlerini `test_*.py` deseniyle calistirdigindan yeni workflow veya ayri test tetiklemesi acilmadi. Bes kontrol: kanal kesif/yayin kaniti, logo/EPG, yedek/geri yukleme, otomasyon/koruma, tek ekran genel kabul. Bu testler mevcut kanit ureticilerinin merkezi kosuda yer aldigini dogrular; canli stream ve IBO cihaz onayi iddiasi tasimaz. Korunan listeler degistirilmedi. Yeni merkezi sonuc ayrica dogrulanacak.
