@@ -31,7 +31,7 @@ def inspect(root):
             "manual_count":sum("workflow_dispatch" in r["triggers"] for r in rows),
             "write_permission_count":sum(r["contents_write"] for r in rows),
             "unresolved_dispatch_targets":unresolved,
-            "workflows":rows, "migration_complete":len(rows)==5 and not unresolved,
+            "workflows":rows, "migration_complete":False,
             "note":"Static evidence only. Five workflows alone do not prove feature parity, safe backups, live channels, or IBO approval."}
 
 def main():
@@ -45,6 +45,6 @@ def main():
         args.output.parent.mkdir(parents=True,exist_ok=True)
         args.output.write_text(result+"\n",encoding="utf-8")
     print(result)
-    # An audit must not fail merely because consolidation is unfinished.
+    # Static inventory cannot certify behavior parity.
 if __name__=="__main__":
     main()
