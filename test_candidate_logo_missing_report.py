@@ -4,6 +4,13 @@ import sys
 from scripts.candidate_logo_missing_report import build
 
 class YeniAdayLogoTesti(unittest.TestCase):
+    def test_png_hazirlama_olmasa_da_eksik_logo_raporu(self):
+        candidates = [{"channel": "Logo Yok", "stream_sha256": "abc", "logo_url": ""}]
+        result = build(candidates, [])
+        self.assertEqual(result["total_candidates"], 1)
+        self.assertEqual(result["category_counts"]["LOGO_KAYNAGI_YOK"], 1)
+        self.assertFalse(result["candidates"][0]["playlist_approved"])
+
     def test_merkezi_logo_raporu_modul_olarak_acilir(self):
         result = subprocess.run([sys.executable, "-m", "scripts.candidate_logo_missing_report"],
                                 capture_output=True, text=True, timeout=20)
