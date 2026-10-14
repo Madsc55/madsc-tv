@@ -3,7 +3,7 @@ run-name: "MADSC | 3. Aşama | Ana listedeki yayınları salt okunur denetle"
 on:
   workflow_dispatch:
   schedule:
-    - cron: '40 6 * * *'
+    - cron: '40 6 1,15 * *'
 permissions:
   contents: read
 concurrency:

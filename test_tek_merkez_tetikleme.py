@@ -42,7 +42,7 @@ class TekMerkezKuralTesti(unittest.TestCase):
         central = (ROOT / ".github/workflows/madsc-aylik-merkezi-denetim.yml").read_text()
         self.assertNotIn("\\n  push:", health)
         self.assertIn("  workflow_dispatch:", health)
-        self.assertIn("    - cron: '40 6 * * *'", health)
+        self.assertIn("    - cron: '40 6 1,15 * *'", health)
         self.assertIn("  contents: read", health)
         for path in ("scripts/ana_liste_saglik.py", "test_ana_liste_saglik.py",
                      ".github/workflows/madsc-ana-liste-saglik.yml"):
