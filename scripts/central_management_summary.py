@@ -72,6 +72,29 @@ def build(folder):
     indicators["actions_successful_latest_seen"] = actions_data.get("successful")
     indicators["actions_failed_latest_seen"] = len(actions_data.get("failed", [])) if isinstance(actions_data.get("failed"), list) else None
     indicators["historical_coverage_verified"] = stage_data.get("complete_historical_coverage_verified") is True
+    # Bes asamanin her birini ayri kanit ve engel durumuyla tek rapora ekle.
+    stage_evidence = {
+        1: ("korunan_dosyalar_yedek", "otomasyon_durumu"),
+        2: ("kaynak_mutabakati", "kesif_kaynaklari"),
+        3: ("tekrar_test", "son_kontrol"),
+        4: ("logo_epg_kimlik",),
+        5: ("hata_asamalari", "kalan_isler", "actions_dogrulama"),
+    }
+    stage_results = []
+    for stage in stage_data.get("stages", []):
+        number = stage.get("number")
+        expected = stage_evidence.get(number, ())
+        absent = [key for key in expected if sections[key]["status"] != "RAPOR_VAR"]
+        stage_results.append({
+            "number": number,
+            "name": stage.get("name"),
+            "workflow_count": len(stage.get("workflows", [])),
+            "evidence_reports": list(expected),
+            "missing_evidence": absent,
+            "status": "KANIT_EKSIK" if absent else "RAPOR_VAR_SONUC_DOGRULAMASI_GEREKIR",
+        })
+    indicators["five_stage_evidence_status"] = stage_results
+    indicators["actions_current_run_verified"] = False
     blockers = []
     if source_data.get("difference") not in (None, 0):
         blockers.append({"code": "SOURCE_TARGET_MISMATCH", "status": "INCELEME_GEREKLI",
@@ -79,6 +102,12 @@ def build(folder):
     if repeat_data.get("invalid_history_records", 0) and isinstance(repeat_data.get("invalid_history_records"), int):
         blockers.append({"code": "INVALID_TEST_HISTORY", "status": "INCELEME_GEREKLI",
                          "evidence": SOURCES["tekrar_test"]})
+    if stage_data.get("manual_scope_review_required"):
+        blockers.append({"code": "UNREVIEWED_WORKFLOW_OWNERSHIP", "status": "INCELEME_GEREKLI",
+                         "workflows": stage_data["manual_scope_review_required"]})
+    if stage_results and any(row["missing_evidence"] for row in stage_results):
+        blockers.append({"code": "FIVE_STAGE_MISSING_EVIDENCE", "status": "KANIT_EKSIK",
+                         "stages": [row["number"] for row in stage_results if row["missing_evidence"]]})
     if mapped is not None and total is not None and mapped != total:
         blockers.append({"code": "FIVE_STAGE_MAPPING_INCOMPLETE", "status": "INCELEME_GEREKLI"})
     if isinstance(actions_data.get("failed"), list) and actions_data["failed"]:
@@ -89,6 +118,7 @@ def build(folder):
     blockers.append({"code": "IBO_DEVICE_VERIFICATION", "status": "KAPSAM_DISI",
                      "note": "Kullanici talebi geregi cihaz testi yapilmaz."})
     return {
+        "five_stage_results": stage_results,
         "evidence_assessment": evidence_assessment,
         "open_blockers": blockers,
         "key_indicators": indicators,
