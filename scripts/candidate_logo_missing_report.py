@@ -2,6 +2,7 @@
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+from scripts.candidate_logo_report import public_artwork_url
 
 def build(candidates, prepared):
     prepared_by_hash = {str(row.get("stream_sha256", "")): row for row in prepared if isinstance(row, dict)}
@@ -11,7 +12,7 @@ def build(candidates, prepared):
             continue
         name = " ".join(str(c.get("channel", "")).casefold().split())
         url = str(c.get("logo_url", "")).strip()
-        if name and url and not c.get("logo_source_review_required"):
+        if name and public_artwork_url(url) and not c.get("logo_source_review_required"):
             source_by_name[name].add(url)
     rows = []
     for c in candidates:
@@ -22,9 +23,11 @@ def build(candidates, prepared):
         row = prepared_by_hash.get(key, {})
         status = str(row.get("status", "NOT_PREPARED"))
         source = str(c.get("logo_url", "")).strip()
-        if not source:
+        if c.get("logo_source_review_required"):
+            category = "LOGO_KAYNAGI_GUVENLIK_INCELEMESI"
+        elif not source:
             category = "LOGO_KAYNAGI_YOK"
-        elif c.get("logo_source_review_required"):
+        elif not public_artwork_url(source):
             category = "LOGO_KAYNAGI_GUVENLIK_INCELEMESI"
         elif status == "PNG_READY_REVIEW_PENDING":
             category = "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR"
