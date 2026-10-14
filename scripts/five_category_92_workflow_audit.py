@@ -74,6 +74,16 @@ def inspect(root=ROOT):
         item["possible_replacement_workflows"] = sorted(
             name for name, scripts in new_commands.items()
             if set(item["commands"]) & scripts)
+        # Review triage only: this is evidence of shared entrypoints, NOT task migration.
+        if not item["commands"]:
+            item["integration_evidence_level"] = "NO_EXTRACTED_SCRIPT_REVIEW_INLINE_ACTIONS"
+        elif item["unmatched_script_entrypoints"]:
+            item["integration_evidence_level"] = "PARTIAL_OR_MISSING_SCRIPT_COVERAGE"
+        else:
+            item["integration_evidence_level"] = "SCRIPT_NAMES_MATCH_ONLY"
+        item["unverified_trigger_behavior"] = bool(
+            item["cron_utc"] or item["push"] or item["workflow_run"] or item["workflow_call"]
+        )
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
@@ -95,6 +105,7 @@ def inspect(root=ROOT):
         "legacy_workflows_with_unmatched_scripts": sum(bool(x["unmatched_script_entrypoints"]) for x in items),
         "legacy_workflows_with_no_shared_script": sum(not x["shared_script_entrypoints"] for x in items),
         "behavioral_parity_verified_count": 0,
+        "integration_evidence_counts": dict(Counter(x["integration_evidence_level"] for x in items)),
         "migration_blocked_count": len(items),
         "high_priority_review_count": sum(x["review_priority"] == "HIGH" for x in items),
         "items": items,
@@ -120,6 +131,7 @@ def main():
             "output_hints", "possible_replacement_workflows",
             "shared_script_entrypoints", "unmatched_script_entrypoints",
             "behavioral_parity_verified", "migration_decision",
+            "integration_evidence_level", "unverified_trigger_behavior",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -142,6 +154,8 @@ def main():
                 "unmatched_script_entrypoints": "; ".join(item["unmatched_script_entrypoints"]),
                 "behavioral_parity_verified": item["behavioral_parity_verified"],
                 "migration_decision": item["migration_decision"],
+                "integration_evidence_level": item["integration_evidence_level"],
+                "unverified_trigger_behavior": item["unverified_trigger_behavior"],
             })
     lines = ["# MADSC — 92 Otomasyon Görev ve Kategori Haritası", "",
              f"İncelenen iş akışı: **{report['total']}** (statik kaynak kod incelemesi)", "",
