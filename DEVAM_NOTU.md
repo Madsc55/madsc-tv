@@ -1347,3 +1347,18 @@ Kullanıcı ekranındaki beş P0 maddesinin durumu: 1 son Actions koşusu **DOĞ
 15 Ekim tarihli run #38697244625 için Actions artifact API yeniden doğrulandı: beş raporun tamamı mevcut, expired=false: güvenlik artifact #11955111316 (14.329 B), keşif #11954646399 (14.020.969 B), kanal test #11955367216 (7.496 B), arşiv/yedek #11954257578 (2.613 B), genel bakım #11955167608 (82.492 B). Artifact'ın varlığı, içindeki her kabul ölçütünün geçtiğini veya gerçek 92 devir tamamlandığını göstermez. Kaynak commit \`c2d28bea366f00372b8da63da06c2791612ebcf4\`.
 
 Kullanıcı tercihi: eski sistem üzerinde, kayıt silmeden, riskli otomasyonları devre dışı bırakmadan devam. Ayrı güvenlik dalındaki tek satır keşif fail-fast düzeltmesi henüz ana çalışma dalına birleştirilmedi; son Actions sonucu bu düzeltmeyi test etmiyor. **Sıradaki somut adım:** 92 workflow'un tamamının dosya içeriğinden izin/komut/tetik/çıktı tablosu ve yüksek riskli yazıcıların listesi; sonra mevcut testleri bozmadan izole dalda gerekli iyileştirmeler ve yeni CI kanıtı.
+
+
+## 15 EKİM 2026 — KULLANICI İSTEĞİ: P0 BEŞ GÖREV TEK PAKET KAPANIŞ DURUMU
+
+Kullanıcı beş güvenlik/sağlık görevini tek seferde ele alma talimatı verdi. **Dürüst durum: denetim paketi ilerledi ama teknik kabulün beşi de bitmedi; bitmiş gibi işaretleme.**
+
+1. Son beşli Actions run: **DOĞRULANDI** #38697244625, \`c2d28bea\`, 5/5 jobs ve 5 artifact; bu yalnız test edilen commit için geçerli.
+2. 26 kural: **POLİTİKA DENETİMİ YAPILDI, ENFORCEMENT EKSİK**. Kural 21 korunan dosyaya merkezi yazma kapısı ve 24 ortak başarısızlık devre kesicisi henüz doğrulanmadı; 25 kod değişikliği sonrası gerçek Actions testi gerekir.
+3. 92 eski workflow: **92/92 STATİK ENVANTER VAR, 92/92 DAVRANIŞ KABULÜ YOK**. \`docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md\` eski #38630252033 beşli koşunun 92 dosyayı işleyen statik script'e kanıt olduğunu, ancak komut/çıktı/izin/tetik eşdeğerliğinin beklediğini açıkça bildirir. Güncel 92-satırlık rapor dosyası repository root'ta bulunamadı (404); artifact içinde üretiliyor. Bütün 92 dosyanın bu turda tek tek yeniden okunduğu iddia edilmez.
+4. SHA/branch/devre kesici: **KISMİ**; bazı koşu içi SHA testleri var, branch protection API 403, tam korunan dosya bütünlüğü ve ortak devre kesici eksik.
+5. Çift push/tetik: **RİSKLER BELİRLENDİ, ÜRETİM ÇÖZÜMÜ BEKLİYOR**; yeni keşif 05:17/17:17, eski üretim keşfi 06:00/18:00 UTC; final workflow_run + schedule; 1/15 sağlık/yedek ayrı görevler, eşdeğerlik korunmalı.
+
+İlk güvenlik düzeltmesi yalnız izole \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalında \`madsc-02-kesif.yml\` keşif adımı \`continue-on-error: false\`; henüz gerçek Actions run kabulü ve çalışma dalına birleştirme yapılmadı. Kod değişikliği sonrası gerçek test kanıtı yokken 'düzeltme tamamen kabul edildi' deme. Korunan dosyalar ve eski workflow'lar değiştirilmedi.
+
+**Kapanış kriteri:** 92 satırlık izin/komut/tetik/çıktı matrisi + yüksek riskli yazıcıların manuel kabulü, 26 kural için uygulama kanıtı, korunan dosya SHA kapsamı, ortak devre kesici, çift tetik önlemi ve değişen commit'e ait başarılı Actions run. Kullanıcının istediği tek paket güvenlik bitişi bunlardan sonra ilan edilir.
