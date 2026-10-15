@@ -537,7 +537,37 @@ jobs:
               print("Protected or cross-task remote changes: fail closed")
               print("No network, rebase, or production write attempted")
           PY
-      - name: 18 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 18 - EPG ve VOD uretim kapisi yerlesimini denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          workflows = Path(".github/workflows")
+          for filename, output in (
+              ("epg-gunluk.yml", "epg/report.json"),
+              ("vod-guncelle.yml", "vod/guncel-bolumler.json"),
+          ):
+              source = (workflows / filename).read_text(encoding="utf-8")
+              assert "git add " + output in source or output in source
+              assert "git push" in source
+              assert "workflow_failure_gate.py" not in source
+              assert "concurrency:" not in source
+              proposed_order = [
+                  "1 - Cakisma korumasi",
+                  "2 - Iki ard arda hata icin devre kesici",
+                  "3 - EPG VOD veri uretimi",
+                  "4 - Degisen dosyalari izin listesiyle denetle",
+                  "5 - Yalniz izinli dosyalari kaydet",
+                  "6 - Uzak dal farkini denetle ve uygunsa gonder",
+              ]
+              assert len(set(proposed_order)) == len(proposed_order)
+              print("PRODUCTION INTEGRATION PLAN:", filename)
+              for item in proposed_order:
+                  print(item)
+              print("STATUS: not wired to production; review and approval required")
+          PY
+      - name: 19 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
