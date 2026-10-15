@@ -1668,3 +1668,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - GUVENLIK_KURALLARI.md dosyasinda 24 onayli kural yaziyor; resimde 26 denmis. Eksik 2 kural dogrulanmadan onayli/uygulandi sayilmayacak.
 - MADSC 01 guvenlik workflow'unda iki rapor denetimi birbirini durdurmadan ayri calisacak; regresyonlar continue-on-error ile ilerler; en son hata kapisi basarisizligi job'a yansitir ve artifact always yuklenir. Commit ef79813c8c4b3e2be5695ef50f2b4d876b85ef35.
 - Acik: 26 kuralin kaynagi, 92 legacy workflow yazma izinleri, branch protection, gercek SHA, cifte push/tetikleyici, guvenlik kapisi ve devre kesici ispatlari. Ana planin sirasi korunacak; 1. sistemden devam.
+
+
+## 2026-10-15 — MADSC 03/04 BAGIMSIZ DENETIM VE GUNCEL KANIT
+- MADSC 04 arsiv/yedek: uc rapor betigi birbirinden bagimsiz kosar; kabul ve regresyon continue-on-error; final hata kapisi tum outcome'lari kontrol eder. Commit abedbfc04cc2140f2873bb8871ac29d551c3fba8.
+- MADSC 03 kanal testleri: iki rapor betigi bagimsiz kosar; EPG/Pages, IBO, ffmpeg, 50 kanal kontrolu, kapsam ve regresyon continue-on-error; final hata kapisi yedi outcome'u kontrol eder. Commit 35f28ab0b8a921cc822084e4e77cbf0e9ba3db96.
+- Her iki workflow yeni dal uzerinden tekrar okunarak hata kapisi ve always artifact varligi dogrulandi. Bunlar statik kaynak kanitidir; yeni SHA icin gercek GitHub Actions kosusu/test basarisi HENUZ DOGRULANMADI. Commit status ve PR-triggered run sorgulari bos dondu; bunlar tum Actions kosularinin yoklugunu kanitlamaz.
+- Acik P0: gercek SHA uzerinde CI, 26 kuralin uygulanma kaniti, 92 legacy yazma/tetikleyici denetimi, branch protection ve devre kesici. 92/92 davranissal esdegerlik kanitlanmadi; hicbir eski workflow kapatilmaz. main, playlist, yedek ve PR #71 degistirilmez.
