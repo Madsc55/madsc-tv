@@ -1047,3 +1047,24 @@ Ekranda kısaltılmış MADSC_2026-10-13_KA... ve ONCELIK_1_BES_MERKE... dosyala
 2. Uzun kaynakları parçalara bölerek tam oku ve kanal/rapor zamanlarını eşleştir.
 3. Görevleri tamamlandı, eksik, kullanıcı onayı bekliyor ve kanıtı yok olarak tekilleştir.
 4. Korunan kaynaklara dokunmadan ana notta kanıt bağlantıları ve kabul koşullarını tamamla.
+
+
+## 15 EKİM 2026 — EKRANLARIN TEKRAR KONTROLÜ VE TAM ADI BULUNAN DOSYALAR
+
+**Kapsam ve kanıt:** Kullanıcının üç ekran görüntüsündeki kök dosya ve klasörler tekrar GitHub çalışma dalı kök dizin listesiyle karşılaştırıldı. Kök dizinde 22 klasör mevcut (görüntülerdeki 21 klasör + `docs`). Ekran görüntüleri `main` dalını gösterir; bu not ve okunan dosyalar `madsc/bes-sistem-toplu-birlestirme` dalındadır. İki dalın tam eşitliği varsayılmaz. GitHub kök listesinde önceki 404 ile erişilemeyen iki dosyanın gerçek tam adı kesinleştirildi ve içerikleri doğrudan okundu:
+- `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md` (15 KB)
+- `ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md` (6.6 KB)
+Ayrıca `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md`, `BES_SISTEM_GECIS_KONTROL.md`, `BES_SISTEM_TOPLU_IS_DEFTERI.md`, `DEVIR_NOTU_2026-10-15.md` doğrudan okundu. Önceki turda ekran kök dosyalarının 18'i açılmış, bir kısmı uzunluk nedeniyle kısmi incelenmişti. Bu turda bütün alt klasör dosyalarının tamamının yeniden okunduğu iddia edilmez.
+
+### Tarihsel kararlar, yapılanlar, yapılmayanlar ve çelişki çözümü
+1. **Beş otomasyon:** 13 Ekim planı ilk 89 workflow sayımına dayanıyor; 14 Ekim envanteri 92 eski workflow'a güncellenmiş. Beş kategori için teknik entegrasyon koşusu #38627719035 beş job success; daha sonraki #38630252033 de beş job/artifact success olarak raporlanmış. Ancak bu **92 eski workflow'un davranışsal eşdeğerliği değildir**. Tetik/çıktı/yazma/bağımlılık başına 92/92 kanıt hâlâ açık; PR #71 merge yok, eski workflow kapatma yok.
+2. **Takvim ve tekrar:** 13 Ekim taslağında günlük keşif bir kez, haftalık kalite/güvenlik, 15 günlük arşiv, aylık yönetim istenmiş. 14 Ekim tetik envanterinde `madsc-birlesik-kesif.yml` 06:00/18:00 UTC iki zaman gösteriyor; 15 Ekim devir notu çalışma dalında 05:17/17:17 UTC salt okunur keşif planından bahsediyor. Bunlar farklı tarih/dal sürümleri; **mevcut etkin schedule canlı Actions/default branch üzerinden yeniden doğrulanmalı**. Önceki tercih sessizce değiştirilmez.
+3. **YEDEKLER izni:** 13 ve 15 Ekim kayıtlarında geçmişte YEDEKLER'e aday ekleme onayları yer alsa da `DEVIR_NOTU_2026-10-15.md` dosyasının en son 'SON KULLANICI TALIMATI — YEDEKLER GERİ ALINDI' bölümü bu izni açıkça iptal eder. **Güncel karar: YEDEKLER'e hiçbir kanal ekleme.** Main commit d647b05... ile yalnız TRT 1 1440P QHD ve DHA CANLI 720P HD iki tarihsel kaydın korunduğu bildirilmiş; çalışma dalındaki canlı eşitlik ayrıca kontrol edilmeli. Eski onay yeni yetki değildir.
+4. **IBO teknik false-negative:** `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md` kullanıcı saha gözleminde ffprobe başarısız kanalların IBO'da çalışabildiğini, 740 yabancı adayın arşivde saklandığını, otomatik testin kullanıcı cihaz kararını ezemeyeceğini anlatıyor. 740'ın tamamı tek tek bugün çalışıyor diye iddia edilmez. Teknik geçiş kimlik/EPG/logo/lisans kanıtı değildir.
+5. **Kuyruk snapshotları:** 13 Ekim 3175 tamamlanan/3082 kalan, 14 Ekim 3800 tamamlanan/2574 kalan raporları tarihsel ardışık anlık durumlar; farklı tarihleri toplayıp yeni aday sayısı çıkarma. `ready_for_playlist=0` kimlik onayı eksikliğine işaret ediyor.
+6. **CI kabulü:** `BES_SISTEM_TOPLU_IS_DEFTERI.md` 14 Ekim'de beşli entegrasyon success, ayrıca sonraki regresyon/yanlış negatif/çakışan push tetikleri ve bekleyen yeni koşu kayıtlarını içeriyor. En son değişiklik için başarılı Actions run ve artifact olmadan 'tamamlandı' yazma. 50 ortak/42 eksik betik rakamları sentetik test fikstürüdür, gerçek 92 dağılımı değildir.
+7. **Açık geçiş işleri:** EPG üretiminden Pages yayın zinciri, VOD, 1/15 backup ve harici restore, 75 aday (51 farklı saat, 24 ffprobe başarısız), dört alternatif, 18 görev/26 güvenlik kuralı, kullanıcı IBO EPG kabulü, gerçek korunan dosya yazma kapısı, eski workflow çifte tetiklenmesi ve 92/92 davranışsal parity. Salt statik test veya yeşil CI bu işlerin hepsini kapatmaz.
+8. **Güvenli işlem sınırı:** Bu tekrar kontrolü yalnız mevcut notlara yeni kayıt ekler; playlist, logo, arşiv, YEDEKLER, workflow, PR veya diğer dosyalara yazılmaz.
+
+### Tam inceleme için açık kapsam
+Klasörlerin alt dosyalarının tümünün güncel dal üzerinden tekil dosya bazında yeniden okunması ve büyük M3U/JSON/CSV'lerin tüm satırlarının değerlendirilmesi henüz bu turda tamamlanmadı. Önceki 769/769 envanter kaydı korunur; bağımsız yeniden doğrulama gibi sunulmaz. Özellikle `main` ekran görüntüsü ile çalışma dalı arasındaki değişiklikler ve güncel Actions sonuçları ayrıca incelenecek.
