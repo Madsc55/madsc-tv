@@ -1689,3 +1689,9 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - test_central_protected_write_gate.py icine legacy workflow contents:write fixture'i eklendi: legacy kayit manuel inceleme gerektirir, central_write_violations bos kalmalidir. Commitler bb8c30ee671db7280ac04b319f262b3cd8849f49 ve fixture satir sonu duzeltmesi 8b05ac40aed41c1935ef3c534e5e0f561274986b.
 - GitHub yeniden okuma ile test dosyasinda 4 test metodu ve legacy fixture'in dogru Python kacisli YAML satir sonlari oldugu dogrulandi. Ancak gercek CI run ID/sonucu hala dogrulanmadi; testlerin PASS oldugu iddia edilmez.
 - Sonraki zorunlu kanit: Actions run ID, checkout SHA, tum kategori job conclusions; branch protection ve rule24 ortak devre kesici hala acik. 92 legacy workflow degistirilmedi.
+
+
+## 2026-10-15 — MERKEZI TOKEN IZINLERI GUVENLIK KONTROLU
+- scripts/central_protected_write_gate.py: beş merkezi workflow icin en ust seviye permissions tanimi yoksa rapor errors'a yazilir ve denetim basarisiz olur; GitHub repo default token yetkisi read-only varsayilmaz. Commit de5d4d57f6782e5587585f1050523c32b24b6787.
+- MADSC 01-05 workflow dosyalarinin hepsinde contents:read ve actions:read tanimlari GitHub dosya okumasi ile goruldu. Bu yalniz statik izin kanitidir, repo branch protection kaniti degildir.
+- Bu yeni kontrolun ek regresyon testini kaydetme girisimi guvenlik denetimi tarafindan engellendi; test yazildi/passed iddiasi YOK. Gercek Actions run ID ve checked-out SHA hala dogrulanmadi. Rule24 ortak devre kesici halen eksik; eski 92 workflow dokunulmadi.
