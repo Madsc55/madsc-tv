@@ -1,3 +1,34 @@
+## 15 EKİM — EK 20 WORKFLOW TAM METİN TARAMASI (TOPLAM BU TUR 38/97)
+
+**Bu ek turda 20 workflow daha doğrudan okundu; önceki 18 ile birlikte bu oturumda 38 benzersiz workflow tam metni okundu, 59 workflow halen okunacak.** Eski dosyalara dokunulmadı.
+
+### Ek 20 kaynaktan görev kopyaları
+- `besinci-zaman-asimi-test.yml`: zaman aşımı davranışı regresyonu.
+- `birlesik-aday-raporu.yml`: eski gözlem geçmişini geri al, gerçek ffprobe medya testi, aday puanı, günler arası kararlılık ve birleşik onay raporu; MADSC 02/03'te bütün zincirin parity kanıtı açık.
+- `birlesik-durum-raporu.yml`: yayın testi başlatmadan birleşik durum, eksik Türk kanal hedefi, 155 kaynak kapsamı, haftalık bakım ve salt-okunur snapshot; MADSC 05 karşılığı açık.
+- `dokuzuncu-akilli-tekrar-test.yml`: akıllı tekrar test takvimi regresyonu.
+- `genel-aday-medya-test.yml`: gerçek ffprobe aday ilk parti video/ses testi, ayrı artifact.
+- `genis-kanal-tarama.yml`: çok kaynaklı salt-okunur tarama ve yayın testi.
+- `ibo-yedek-kalite.yml`: yedek stream kalitesi gerçek ffprobe, ayrı rapor.
+- `iptv-test.yml`: kanal testi ve test sonuçlarını saklama.
+- `kanal-kararlilik.yml`: eski gözlemi restore et, canlı kontrol, günler arası fark, sonraki çalışmaya gözlem geçmişi saklama; yeni 5'li sistemde tarihsel süreklilik parity açık.
+- `kaynak-puanlama-kontrol.yml`: kaynak puanlama testleri.
+- `madsc-11599-yedek-geri-yukle.yml`: **contents:write** ve 11599 yedek geri yükleme/commit; kullanıcı yeni izni olmadan yeniden çalıştırma/uygulama yok. Eski workflow açık kalma ve yazma riski ayrı denetlenecek.
+- `madsc-ana-liste-saglik.yml`: zamanlanmış salt-okunur ana liste sağlık partisi, korunmuş dosya hash kontrolü, rapor artifact; MADSC 03 kapsam farkı açık.
+- `madsc-arsiv-yedek-aktarim.yml`: **contents:write**, arşiv kayıtlarını YEDEKLER'e ekleme ve commit; **güncel YEDEKLER'e ekleme izni İPTAL**. Eski workflow'un tetik/izin riski incelenecek; kullanıcı onaysız çalıştırma yok.
+- `madsc-aylik-merkezi-denetim.yml`: geniş merkezi güvenlik/92 workflow/tetik/kimlik/IBO/restore/rapor kontrolleri, cron ve push; MADSC 05'e tüm ayrıntılı kontrol parity açık.
+- `madsc-birlesik-kesif.yml`: **contents:write, actions:write**, zamanlanmış gerçek keşif, kural 24 ardışık hata kapısı, geçmiş gözlem, keşif arşivi, aday PNG/EPG ve dört aşamalı rapor. MADSC 02'nin tek gerçek tarama adımı bunun tamamına eşdeğer değil; kritik açık iş.
+- `madsc-cuma-ana-liste-denetimi.yml`: Cuma ana liste+EPG taraması, uyarı özeti ve artifact; yeni kategoriye haftalık davranış parity açık.
+- `madsc-documentation-check.yml`: proje notları varlık/uyum kontrolü.
+- `madsc-genis-kaynak-kontrol.yml`: manuel 155 kaynak ve ilave kaynak taraması, geçmişi koruma, üç aşamalı doğrulama; **contents:write, actions:write**; manuel tetik ve yan etki parity açık.
+- `madsc-ibo-3-5281.yml`: kullanıcı geçmiş sesli kanal kararlarını uygulayan **contents:write** ve commit workflow'u. Geçmiş kararları koru, fakat yeni onay olmadan playlist yazma yok.
+- `madsc-ibo-354-classify.yml`: kullanıcı sınıflandırmalarını bir defa uygulayan **contents:write** workflow'u. Geçmiş kararları koru, yeni onay olmadan playlist yazma yok.
+
+### Yeni kritik denetim başlığı
+**Eski workflow yazma izinleri:** En az `madsc-11599-yedek-geri-yukle`, `madsc-arsiv-yedek-aktarim`, `madsc-birlesik-kesif`, `madsc-genis-kaynak-kontrol`, `madsc-ibo-3-5281`, `madsc-ibo-354-classify` içerik yazma yetkisi taşıyor. Bu, gerçekten çalıştıkları veya korunan dosyaları değiştirdikleri anlamına gelmez; ancak güncel kullanıcı izniyle çelişebilecek **potansiyel tetik/yazma riskidir**. Kullanıcı onayı olmadan hiçbirini çalıştırma, silme, kapatma, izinlerini değiştirme veya korunan dosyalara yazma. Yalnızca kanıt ve risk raporu çıkar.
+
+---
+
 ## 15 EKİM — GENİŞLETİLMİŞ KAYNAK TARAMASI / KANITLI SAYIM VE YENİ BULGULAR
 
 **Amaç:** Kullanıcının gönderdiği ekran görüntülerindeki bütün GitHub kaynaklarından geçmiş, tamamlanan ve yapılacak işlerin tek `DEVAM_NOTU.md` arşivine kayıp olmadan aktarılması. **Bu turdaki durum: KISMİ TARAMA, TAM KAPSAM DEĞİL.** Sadece bu dosya değiştirildi; kaynaklara dokunulmadı.
