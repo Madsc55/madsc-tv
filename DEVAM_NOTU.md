@@ -1068,3 +1068,42 @@ Ayrıca `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md`, `BES_SISTEM_GECIS_KONTROL.m
 
 ### Tam inceleme için açık kapsam
 Klasörlerin alt dosyalarının tümünün güncel dal üzerinden tekil dosya bazında yeniden okunması ve büyük M3U/JSON/CSV'lerin tüm satırlarının değerlendirilmesi henüz bu turda tamamlanmadı. Önceki 769/769 envanter kaydı korunur; bağımsız yeniden doğrulama gibi sunulmaz. Özellikle `main` ekran görüntüsü ile çalışma dalı arasındaki değişiklikler ve güncel Actions sonuçları ayrıca incelenecek.
+
+
+## 15 EKİM 2026 — KÖK TEST DOSYALARI TEKİL İNCELEME VE GÖREV MUTABAKATI
+
+**Amaç:** Ekran görüntülerindeki kök test dosyalarından geçmiş işlev, mevcut koruma, eksik kanıt, tekrar ve beş merkezi sisteme geçiş görevlerini toplamak. Bu turda aşağıdaki **33 benzersiz test dosyasının içeriği GitHub'dan doğrudan açıldı**. Bu, testlerin çalıştırıldığı veya başarılı olduğu iddiası değildir. Önceki turda ayrıca 15 ana programın içeriği açılmıştı. Uzun M3U/CSV ve tüm alt klasörler bu kayıtla tamamlanmış sayılmaz.
+
+### Tekrar, aday, ana liste
+**Doğrudan açılan kaynaklar:** `test_akilli_tekrar_test_takvimi.py`, `test_ana_liste_saglik.py`, `test_bes_is_tek_dosya.py`, `test_candidate_logo_missing_report.py`.
+**Çıkarılan görev ve kabul sınırı:** Tekrar aralığı ve son gerçek test zamanı; ana liste hata sonucu silme yetkisi değildir; beş iş entegrasyonunun varlığı canlı IBO onayı değildir; aynı isimli farklı logo otomatik onaylanmaz.
+
+### Sekiz/on sekiz görev, arşiv, yedek
+**Doğrudan açılan kaynaklar:** `test_central_all_remaining_tasks.py`, `test_central_archive_consistency.py`, `test_central_backup_evidence.py`, `test_central_eight_task_audit.py`, `test_central_eighteen_task_audit.py`, `test_central_isolated_git_restore.py`.
+**Çıkarılan görev ve kabul sınırı:** 8 görev ve 18 görev raporları eksik kanıtı başarıya çevirmemeli. Arşiv kategori sayısı dinamik olmalı; Git HEAD izole restore, bağımsız harici ve tarihsel geri yükleme kanıtı değildir. Test fikstüründeki sayılar canlı envanter değildir.
+
+### Merkezi otomasyon, tekrar, tetik, hatalar
+**Doğrudan açılan kaynaklar:** `test_central_consolidation_audit.py`, `test_central_duplicate_test_audit.py`, `test_central_failure_stage_report.py`, `test_central_workflow_inventory.py`, `test_tek_merkez_tetikleme.py`, `test_workflow_failure_gate.py`.
+**Çıkarılan görev ve kabul sınırı:** Tek değişiklik tek merkez tetiklemeli, doküman değişikliği ağır tarama başlatmamalı. Çakışan push ve cron ayrı sayılmalı. Hatalı geçmiş sessizce yok sayılmamalı. Başarısız step, log olmadan kesin kök neden değildir. İki başarısızlık zinciri için devre kesici testi var; bütün workflow'larda fiili entegrasyon kanıtı ayrı.
+
+### IBO, kimlik, EPG, logo, kaynak
+**Doğrudan açılan kaynaklar:** `test_central_ibo_review_queue.py`, `test_central_identity_epg_logo_audit.py`, `test_central_source_reconciliation.py`, `test_epg_pilot.py`, `test_epg_tv_readiness.py`, `test_final_validation.py`.
+**Çıkarılan görev ve kabul sınırı:** SHA ile aday ayrımı; kanal adı aynı olsa farklı akışlar korunur. IBO, kimlik, yayın hakkı ve logo otomatik onaylanmaz. EPG gece yarısı taşması dar koşulda düzeltilir, diğer ters zamanlar reddedilir. Kaynak tanımları/duplicate isim ve endpoint farkları gerçek envanterden çıkarılır. Final süreklilik yalnız üç başarılı aday için; terminal sonuçlar gereksiz tekrar edilmez.
+
+### Kanıt, yönetim, güvenlik, tek ekran
+**Doğrudan açılan kaynaklar:** `test_central_main_playlist_run_evidence.py`, `test_central_management_summary.py`, `test_central_open_gaps.py`, `test_central_protected_write_gate.py`, `test_central_run_status.py`, `test_central_short_status.py`, `test_central_single_screen_report.py`, `test_sistem_saglik_denetimi.py`, `test_toplu_durum_raporu.py`.
+**Çıkarılan görev ve kabul sınırı:** Yeşil workflow kanalı doğrulamaz; eksik/bozuk JSON raporlar ayrı hata sayılır; tek ekranda beş aşama ve açık işler kanıtıyla görünür. Statik protected-write denetimi gerçek branch ruleset engeli değildir. Actions run tamamlanmadan başarılı sayılmaz.
+
+### Diğer kontrol dosyaları
+**Doğrudan açılan kaynaklar:** `test_toplu_durum_raporu.py`, `test_verification_pipeline.py`, `test_yedekler_teknik_aktar.py`, `test_ana_liste_saglik.py`, `test_candidate_logo_missing_report.py`.
+**Çıkarılan görev ve kabul sınırı:** Üç testte altı saat aralık, süre/frame kanıtı ve sayısal olmayan ffmpeg çıktısının güvenli reddi aranır. YEDEKLER teknik aktarım kodunda eski koşullu yol bulunsa da 15 Ekim kullanıcı iptali üstün: hiçbir aktarım yapılmaz.
+
+### Birleştirilmiş yapılacaklar (yeni beş kategori)
+1. **Güvenlik:** yazma yetkisi/branch ruleset ve gerçek engelleme; başarısızlık devre kesicisinin tüm aktif workflow'lardaki kapsamı; korunan dosyaların SHA ve değişiklik izni.
+2. **Keşif:** 156/155 tarihsel kaynak farkını güncel kaynak envanteriyle doğrula; aynı endpoint, farklı ad, eski snapshot, güven puanı ve ham URL gizliliğini kontrol et.
+3. **Kanal testleri:** altı saat aralık/terminal sonuç/gerçek test zamanı; 3 aşama, final süreklilik, kimlik ve kullanıcı IBO kararı birbirinden bağımsız; aynı URL tekrarları ve bozuk geçmiş raporlanmalı.
+4. **Logo/EPG:** XMLTV ve gece yarısı sınırlarını doğrula; görsel logo eşleşmesi ve İsveç IBO cihaz kanıtı olmadan onay verme.
+5. **Arşiv ve kabul:** gerçek arşiv sayısı, izole restore ile offsite/tarihsel restore ayrımı, 8/18 görev açık kanıtı, 92 eski workflow'un 5 sisteme işlevsel eşdeğerliği ve tek merkez tetikleme kabulü; son Actions run ve kullanıcı onayı olmadan kapatma.
+
+### Açık inceleme / önemli ihtiyat
+Bu turda **35 farklı test dosyası** doğrudan açıldı (ilk 12 + sonraki 12 + son 9; toplam 33 değil: 12+12+9=33). **Doğru kesin sayı 33**; yukarıdaki liste de 33 benzersiz dosyayı kapsar. Ekrandaki kalan başka test dosyalarının (örn. adı görüntüde kesilen ve GitHub kök dizininde eşleştirilmeyen) tamamı bu raporda 'açıldı' sayılmaz. Test dosyalarının içeriklerinin GitHub'dan alınması, canlı Actions başarısı veya IBO cihaz kanıtı değildir. Main ekranıyla çalışma dalı farkı devam ediyor. Bu not yalnız DEVAM_NOTU.md sonuna eklendi; başka kaynak dosya, workflow, YEDEKLER veya playlist değiştirilmedi.
