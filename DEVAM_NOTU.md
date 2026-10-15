@@ -1576,3 +1576,16 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - Acik riskler: madsc-uc-asama.yml ve madsc-son-kontrol.yml halen contents: write ve main'e push iceriyor. Iki dosyayi salt-okunur hale getiren toplu guncelleme aracin guvenlik kontrolu tarafindan ENGELLENDI. Kontrolu asma; degistirildiklerini iddia etme.
 - 26 guvenlik kuralinin uretim onayi, 92 eski workflow davranissal esdegerligi, branch protection API dogrulamasi ve cift tetikleme risklerinin tamamlanmasi HALA ACIK. EPG ertelendi.
 - Siradaki is: yetkili bir GitHub Actions kosusundan 31 adimlik sonucu dogrula; iki kalan riskli workflow icin guvenli inceleme ve izinli duzeltme yolunu bul; izole dalda test et. Main'e merge/push veya gercek kullanici verilerine yazma YOK. Kullanici her mikro adimdan sonra devam istenmesini istemiyor.
+
+
+## 2026-10-15 — YENI SOHBETE DEVIR / KULLANICININ EN SON KESIN KARARLARI
+- Kullanici 15 Ekim 2026 tarihli kapsamli MADSC-TV tam devir notunu iletti. Son kullanici talimatlari eski notlardan ustundur.
+- 92 eski workflow DEGiSTIRILMEZ, KAPATILMAZ, SILINMEZ; onceki izole dalda yapilan 16 eski workflow duzenlemesi bu yeni kurala gore URETIM ICIN ONAYLI DEGIL. Esdegerlik kaniti 0/92. PR #71 birlestirilmeyecek; PR #72 ayri incelenecek.
+- Korunan CALISANLAR.m3u, FAVORILER, HEPSI, YENILER, YEDEKLER, logolar, arsivler degistirilmez. YEDEKLER'e kanal ekleme izni iptal. EPG/Pages basarisi IBO Player cihaz onayi degildir.
+- Altı temel belge GitHub calisma dalindan tekrar okundu: DEVIR_NOTU_2026-10-15.md, AGENTS.md, DEVAM_NOTU.md, OZELLIK_ENVANTERI.md, IPTV_PROJE_HAFIZASI.md, TOPLU_DURUM_RAPORU.md.
+- PR #72'nin 2026-10-15 tarihinde okunan diff'i yalniz .github/workflows/madsc-02-kesif.yml dosyasinda continue-on-error: true -> false degisikligi iceriyor; gecici MADSC 05 tetikleyici diff'te yok. PR'in merge edildigi veya degisikligin calisma dalina gectigi kanitlanmadi.
+- ChatGPT MADSC 7/24 Saatlik Denetim gorevi KAPALI olarak dogrulandi (son calisma 2026-10-15 14:19:47 UTC civari). MADSC Besli Otomasyon Takibi ve diger saatlik MADSC gorevleri de kapali. 16 Ekim 2026 10:30 Europe/Stockholm tek seferlik MADSC Sabah Durum Raporu ACIK. Saatlik otomasyonu izinsiz acma.
+- ChatGPT saatlik gorevlerinin GitHub Actions testlerini dogrudan bozdugu kanitlanmadi. Ancak ayni repo ve dalda eszamanli commit veya Actions tetiklemesi kaynakli cakisabilir; bunu sadece ilgili run/log/commit zamanlariyla dogrula.
+- Oncelik: guncel Actions run/job/log/artifact kanitlari; kesif gecmisinin sonraki kosuda geri yuklenmesi; PNG ModuleNotFoundError automatic_png_logos; MADSC 05 14 bagimsiz denetimin hata toplama davranisi; 3 zamanli 6 saat aralikli aday testi; 50/1039 saglik kapsami; 156/155 kaynak farki; offsite/tarihsel restore; 92 workflow esdegerligi; IBO cihaz onayi.
+- 38695730312, 38697244625, 38724971116 tarihsel basarili run olarak aktarildi; yeni kosu gibi sunma. 31 adimli izole P0 testinin son sonucu halen dogrulanmadi. Basarili testleri sebepsiz yeniden calistirma.
+- Guvenlik engelini asma; test calistirmadan calistirildi, log okumadan hata giderildi, cihaz onayi olmadan cihazda calisiyor deme. Kullanici her mikro asamada devam sorulmasini istemiyor. Sohbet degisince bu nottan basla.
