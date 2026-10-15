@@ -33,18 +33,26 @@ def inspect(root):
                     isinstance(grant, dict) and any(value == "write" for value in grant.values())
                 ):
                     writes = True
-            if not writes:
+            # Legacy jobs can inherit unknown token defaults or mutate files
+            # without an explicit git push. Report risks; never execute them.
+            inherited = "permissions" not in data
+            risky_commands = sorted(set(re.findall(
+                r"(?im)(?:git\s+(?:push|commit|reset|clean)|rm\s+-[rfRF]+|sed\s+-i|curl\s+[^\n]*\|\s*(?:sh|bash))",
+                content,
+            )))
+            if not writes and not inherited and not risky_commands:
                 continue
             protected = bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/", content, re.I))
             gate = bool(re.search(r"environment:\s*[^\s]+", content))
-            rows.append({"workflow": str(p.relative_to(root)), "write_capability": True,
+            rows.append({"workflow": str(p.relative_to(root)), "write_capability": writes, "inherited_permissions": inherited,
+                         "risky_commands": risky_commands,
                          "protected_path_reference": protected, "environment_gate_marker": gate,
                          "status": "MANUAL_REVIEW_REQUIRED"})
         except Exception as exc:
             errors.append(f"{p.name}: {exc}")
     central_violations = [
         row["workflow"] for row in rows
-        if re.match(r"madsc-0[1-5]-", Path(row["workflow"]).name)
+        if row["write_capability"] and re.match(r"madsc-0[1-5]-", Path(row["workflow"]).name)
     ]
     return {"workflows_scanned": len(files), "review_required": rows, "review_count": len(rows),
             "central_write_violations": central_violations,
