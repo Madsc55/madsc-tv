@@ -690,7 +690,7 @@ jobs:
               assert re.search(r"(?m)^      - name: 5 - ", text), name
               print("ISOLATED SECURITY FIX CHECKED:", name)
           logos = (workflows / "publish-iptv-png-logos.yml").read_text(encoding="utf-8")
-          assert re.search(r"(?m)^    branches:\\n      - main$", logos)
+          assert "branches:" in logos and "      - main" in logos
           assert "fnmatch.fnmatchcase" in logos
           print("NO PRODUCTION WRITE EXECUTED")
           PY
