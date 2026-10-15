@@ -848,10 +848,15 @@ jobs:
               raw = (root / name).read_text(encoding="utf-8")
               assert "contents: read" in raw and "contents: write" not in raw, name
               assert "  push:" not in raw and "  schedule:" not in raw, name
-          remaining = ("madsc-genis-kaynak-kontrol.yml", "madsc-uc-asama.yml", "madsc-son-kontrol.yml")
+          remaining = ("madsc-uc-asama.yml", "madsc-son-kontrol.yml")
           for name in remaining:
               raw = (root / name).read_text(encoding="utf-8")
               assert "contents: write" in raw, name
               print("INCELEME BEKLEYEN YAZMA YETKISI:", name)
-          print("KORUNAN DOSYALAR VAR; BRANCH PROTECTION API VE 26 KURAL URETIM ONAYI AYRI BEKLIYOR")
+          source = (root / "madsc-genis-kaynak-kontrol.yml").read_text(encoding="utf-8")
+          assert "contents: read" in source and "contents: write" not in source
+          assert "git push" not in source and "dispatches" not in source
+          assert "persist-credentials: false" in source
+          print("KAYNAK TARAMASI YAZMA VE ZINCIRLEME TETIKLEMESI IZOLASYONDA KAPATILDI")
+          print("BRANCH PROTECTION API VE 26 KURAL URETIM ONAYI AYRI BEKLIYOR")
           PY
