@@ -371,13 +371,17 @@ jobs:
               raw = (Path(".github/workflows") / filename).read_text(encoding="utf-8")
               adds = re.findall(r"(?m)^[ ]*git add (.+)$", raw)
               assert len(adds) == 1, (filename, "unexpected git add count", adds)
-              actual = set(shlex.split(adds[0]))
+              actual = set(shlex.split(adds[0])) - {"--"}
               assert actual == allowlist, (filename, "allowlist mismatch", actual ^ allowlist)
               assert "contents: write" in raw and "schedule:" in raw, filename
               assert "git push" in raw, filename
-              assert not re.search(r"(?m)^concurrency:[ ]*$", raw), filename
-              assert "workflow_failure_gate.py" not in raw, filename
-              print("EXACT OUTPUT MATCH; LIVE PROTECTION STILL MISSING:", filename, sorted(actual))
+              if filename == "vod-guncelle.yml":
+                  assert "concurrency:" in raw and "workflow_failure_gate.py" in raw
+                  print("VOD ISOLATED FIX CHECKED:", sorted(actual))
+              else:
+                  assert not re.search(r"(?m)^concurrency:[ ]*$", raw), filename
+                  assert "workflow_failure_gate.py" not in raw, filename
+                  print("EPG LIVE GAP:", sorted(actual))
           PY
       - name: 14 - EPG ve VOD cift calisma korumasini denetle
         run: |
@@ -393,7 +397,10 @@ jobs:
           for filename, group in candidates.items():
               live = (root / filename).read_text(encoding="utf-8")
               assert "schedule:" in live and "workflow_dispatch:" in live, filename
-              assert "concurrency:" not in live, "Unexpected live concurrency: " + filename
+              if filename == "vod-guncelle.yml":
+                  assert "concurrency:" in live and "cancel-in-progress: false" in live
+              else:
+                  assert "concurrency:" not in live, "Unexpected live concurrency: " + filename
               proposed = (
                   "concurrency:\n"
                   "  group: " + group + "\n"
@@ -551,8 +558,11 @@ jobs:
               source = (workflows / filename).read_text(encoding="utf-8")
               assert "git add " + output in source or output in source
               assert "git push" in source
-              assert "workflow_failure_gate.py" not in source
-              assert "concurrency:" not in source
+              if filename == "vod-guncelle.yml":
+                  assert "workflow_failure_gate.py" in source and "concurrency:" in source
+              else:
+                  assert "workflow_failure_gate.py" not in source
+                  assert "concurrency:" not in source
               proposed_order = [
                   "1 - Cakisma korumasi",
                   "2 - Iki ard arda hata icin devre kesici",
