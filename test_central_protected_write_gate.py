@@ -10,6 +10,22 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
         self.assertTrue(all(x["status"] == "MANUAL_REVIEW_REQUIRED"
                             for x in report["review_required"]))
 
+    def test_job_duzeyi_yazma_yetkisi_yakalanir(self):
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "madsc-01-guvenlik.yaml").write_text(
+                "name: Test\\non: workflow_dispatch\\npermissions:\\n  contents: read\\njobs:\\n  check:\\n    runs-on: ubuntu-latest\\n    permissions:\\n      contents: write\\n    steps:\\n      - run: echo ok\\n",
+                encoding="utf-8",
+            )
+            report = inspect(root)
+            self.assertEqual(report["workflows_scanned"], 1)
+            self.assertEqual(len(report["central_write_violations"]), 1)
+            self.assertEqual(report["errors"], [])
+
     def test_merkezi_rapor_kanal_listesini_degistirmez(self):
         source = Path("scripts/central_protected_write_gate.py").read_text()
         self.assertNotIn("write_text(content", source)
