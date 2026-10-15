@@ -47,7 +47,22 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory -v
+        shell: bash
+        run: |
+          set -uo pipefail
+          failed=0
+          for suite in test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory; do
+            echo "::group::Regresyon: ${suite}"
+            if python3 -m unittest "${suite}" -v; then
+              echo "PASS ${suite}"
+            else
+              code=$?
+              echo "::error title=Guvenlik regresyonu::FAIL ${suite} (exit ${code})"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "${failed}"
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
