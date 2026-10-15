@@ -2493,3 +2493,9 @@ genis_kanal_tara.py:norm(s) eski govdesi ortak fonksiyona wide_scan profiliyle y
 SINIRLAMA: GitHub uzerinde kod yazildi, ancak Python runtime parity/golden fixture, workflow Actions ve IBO testleri CALISTIRILMADI. Bu nedenle 'PASS' veya tam birlesme iddiasi yok. Iki tarama programi ag istegi ve rapor yazma yan etkisi tasidigi icin tetiklenmedi.
 SONRAKI: ortak modulu salt izole fixture ile eski kod ciktilariyla karsilastir, sonra parser ve ffprobe adapterlerini kademeli tasarla. Mevcut 92 legacy workflow devre disi birakilmaz.
 DURUM: 1 ortak modul, 2 cagiran dosya gercek kod refaktoru; protected playlist/backup/cron degisikligi 0.
+
+
+## 2026-10-16 — C01 NORMALIZE REGRESYON TESTLERI VE SHEBANG DUZELTMESI
+yeni_kanal_tara.py icinde ortak importun shebang uzerine konmasi duzeltildi; #!/usr/bin/env python3 tekrar ilk satirda, import normal importlarin arasinda (commit 6cc1ccb46a3f13f0abe0b5cd0adfb96f5c0105f0).
+tests/test_channel_name_normalization.py yeni izole unittest modulu eklendi (commit 16bc0e2bdb9cd6fcbecc6094ae186c0a76954a8e). 18 farkli kanal adinda wide_scan/new_scan icin eski referans koduyla parity assert; bilinmeyen profile ValueError testi. Test modulu ag tarayicilarini import etmez, protected listeye yazmaz.
+Durum: testler GitHub dalina EKLENDI ama henuz runtime CALISTIRILMADI; PASS iddiasi yok. Kod birlestirmesi 1 ortak fonksiyon modulu + 2 tarayici adapteri; tum workflowlar ve protected playlistler korunuyor.
