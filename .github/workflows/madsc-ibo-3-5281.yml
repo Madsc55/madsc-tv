@@ -175,7 +175,27 @@ jobs:
               assert entries == urls == expected == recorded, (archive_name, entries, urls, recorded)
               print(archive_name, "verified:", entries)
           PY
-      - name: 7 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 7 - Otomatik baslatma ve yazma engelini denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          raw = Path(".github/workflows/madsc-ibo-3-5281.yml").read_text(encoding="utf-8")
+          assert "workflow_dispatch:" in raw
+          assert "push:" in raw
+          assert "madsc/p0-guvenli-yazma-kapisi-deneme-20261015" in raw
+          assert re.search(r"(?m)^  contents: read\\s*$", raw)
+          assert "persist-credentials: false" in raw
+          assert re.search(r"(?m)^concurrency:\\s*$", raw)
+          assert "cancel-in-progress: false" in raw
+          assert not re.search(r"(?m)^  contents: write\\s*$", raw)
+          assert not re.search(r"(?m)^  schedule:\\s*$", raw)
+          assert not re.search(r"(?m)^  workflow_run:\\s*$", raw)
+          print("Isolated auto-trigger guardrails verified; production auto-write remains disabled")
+          PY
+      - name: 8 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
