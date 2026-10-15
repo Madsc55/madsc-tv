@@ -1,0 +1,65 @@
+"""Fail-closed protected path check for *proposed* Git changes.
+
+This module never writes a playlist or changes Git state. Call before any push.
+A successful check is not a substitute for GitHub branch rulesets.
+"""
+import argparse
+import subprocess
+import sys
+from pathlib import PurePosixPath
+
+PROTECTED_EXACT = frozenset({
+    "CALISANLAR.m3u",
+    "CALISMAYANLAR.txt",
+    "YENILER.m3u",
+    "YABANCI_KANALLAR.m3u",
+    "GUVENLIK_KURALLARI.md",
+})
+PROTECTED_PREFIXES = ("yedekler/", "YEDEKLER/", "FAVORILER/", "HEPSI/")
+
+
+def blocked_paths(paths):
+    """Conservatively reject protected paths and any unexpected M3U mutations."""
+    blocked = []
+    for raw in paths:
+        name = raw.replace("\\", "/").removeprefix("./")
+        if (name in PROTECTED_EXACT
+                or any(name.startswith(prefix) for prefix in PROTECTED_PREFIXES)
+                or PurePosixPath(name).suffix.lower() == ".m3u"):
+            blocked.append(name)
+    return blocked
+
+
+def git_changed_paths(base):
+    """Read changes between base and HEAD; fail on missing or invalid Git base."""
+    result = subprocess.run(
+        ["git", "diff", "--name-only", "-z", "--no-renames", f"{base}..HEAD"],
+        check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    staged = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "-z", "--no-renames"],
+        check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    return [p.decode("utf-8", errors="strict") for p in
+            (result.stdout + staged.stdout).split(b"\0") if p]
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--base", required=True, help="trusted baseline commit")
+    args = parser.parse_args(argv)
+    try:
+        paths = git_changed_paths(args.base)
+        blocked = blocked_paths(paths)
+    except (OSError, subprocess.CalledProcessError, UnicodeError, ValueError) as exc:
+        print(f"DENY: unable to verify Git changes: {exc}", file=sys.stderr)
+        return 2
+    if blocked:
+        print("DENY: protected paths changed: " + ", ".join(blocked), file=sys.stderr)
+        return 1
+    print(f"ALLOW: {len(paths)} changed paths checked, no protected paths")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
