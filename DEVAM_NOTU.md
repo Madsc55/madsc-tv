@@ -1565,3 +1565,14 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 **Engelli/acik kalan eski yazicilar:** madsc-arsiv-yedek-aktarim.yml ve madsc-ibo-364-355-364.yml salt okunur guncelleme denemeleri arac guvenlik kontrolunde engellendi; madsc-ibo-ilk-239.yml guncellemesi de engellendi. Bu dosyalar degistirilmedi. Eski scriptleri tekrar calistirma. 21 riskli listenin digerleri hala acik. Sonraki is: diger eski workflow'lari tek tek gercekten incele, izinli izole dal guvenlik duzeltmelerini yap, mevcut toplu testi guncelle ve calistir, hata olursa gider, siradakine gec. Izinsiz main merge veya kanal listesi degisikligi YOK.
 
 **Ozel not:** Kullanici saatlerce ayni minik testte takilmayi ve her basarili testten sonra "devam" istenmesini kesinlikle istemiyor. Bir sonraki sohbette tekrar plan anlatmak yerine GITHUB'DA DOGRUDAN KALAN ISLERE DEVAM ET. Bu notun guncellenmesi disinda main/playlist/arsiv degistirilmedi.
+
+
+## P0 GUVENLIK DEVIR GUNCELLEMESI - 2026-10-15 / IZOLASYON DEVAMI
+
+- Deneme dali: madsc/p0-guvenli-yazma-kapisi-deneme-20261015. Ana dal, PR #71, playlistler, yedekler, kullanici karar dosyalari degistirilmedi.
+- Onceki 28 adimli GitHub Actions kosusu 38746858354, job 116462654672 basarili. Bu kanit daha sonraki 29-31 adimlari kapsamaz. Son 31 adimli kosunun sonucuna dogrulanmis erisim YOK; tamamlandi denemez.
+- Deneme dalinda 16 workflow icin guvenlik degisikligi yapildi: ilk 9, ardindan madsc-ibo-ilk-239.yml, madsc-arsiv-yedek-aktarim.yml, madsc-ibo-364-355-364.yml, madsc-11599-yedek-geri-yukle.yml, madsc-turk-kanal-geri-sec.yml, madsc-yedek-turk-ayir.yml, madsc-genis-kaynak-kontrol.yml.
+- Son kaynak taramasi guvenlik commit'i 918c5a0ba85b24686d0fe911a3fbf177cd00309a; 31 adimlik kontrol envanteri uyarlama commit'i 292115de63cbc6e9ba6240983cea70b03b40a625.
+- Acik riskler: madsc-uc-asama.yml ve madsc-son-kontrol.yml halen contents: write ve main'e push iceriyor. Iki dosyayi salt-okunur hale getiren toplu guncelleme aracin guvenlik kontrolu tarafindan ENGELLENDI. Kontrolu asma; degistirildiklerini iddia etme.
+- 26 guvenlik kuralinin uretim onayi, 92 eski workflow davranissal esdegerligi, branch protection API dogrulamasi ve cift tetikleme risklerinin tamamlanmasi HALA ACIK. EPG ertelendi.
+- Siradaki is: yetkili bir GitHub Actions kosusundan 31 adimlik sonucu dogrula; iki kalan riskli workflow icin guvenli inceleme ve izinli duzeltme yolunu bul; izole dalda test et. Main'e merge/push veya gercek kullanici verilerine yazma YOK. Kullanici her mikro adimdan sonra devam istenmesini istemiyor.
