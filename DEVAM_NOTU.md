@@ -1,3 +1,39 @@
+## 15 EKİM — GENİŞLETİLMİŞ KAYNAK TARAMASI / KANITLI SAYIM VE YENİ BULGULAR
+
+**Amaç:** Kullanıcının gönderdiği ekran görüntülerindeki bütün GitHub kaynaklarından geçmiş, tamamlanan ve yapılacak işlerin tek `DEVAM_NOTU.md` arşivine kayıp olmadan aktarılması. **Bu turdaki durum: KISMİ TARAMA, TAM KAPSAM DEĞİL.** Sadece bu dosya değiştirildi; kaynaklara dokunulmadı.
+
+### Dosya sayıları ve tarama yöntemi
+- Git tree snapshot: `b2a4d278402b6abd9fc282d7c7cd060ec0cfa822`, toplam **796 Git girdisi** (dosya + klasör). `.github` 99 girdi; `madsc_kesif` 321; `logos` 90; `scripts` 69; `yedekler` 23; `tools` 17. Bunlar klasör dahil girdilerdir, program sayısı değildir.
+- İnceleme için seçilen `.py/.yml/.yaml/.sh/.md` uzantılı, `madsc_kesif` ve `yedekler` içindeki veriler hariç **274 dosya**; bunların **97'si workflow**. Ayrı `madsc_kesif` raporları, `yedekler` dosyaları ve JSON/CSV dahil tüm 796 girdinin içeriği henüz incelenmedi.
+- Bu ek turda **18 workflow'un tam metni** (`390-aday-tekrar-test`, `aday-bekletme`, `aday-logo-epg-test`, `aday-oncelik-kontrol`, `aday-yedekleme`, `akilli-aday-puanlama`, `altinci-aday-tekrar-test`, `automatic-png-logos`, `epg-gunluk`, `epg-pages`, `felaket-kurtarma-tatbikati`, `ibo-bagimsiz-test-listesi`, `ibo-epg-kimlik-denetimi`, `madsc-01`, `madsc-02`, `madsc-03`, `madsc-04`, `madsc-05`) okundu. Önceki turlarda 17 temel not ve seçilmiş 14 kod/test dosyası okunmuştu; tekrarları dışlayan genel toplam henüz denetlenmedi. **97/97 workflow okundu iddiası yoktur.**
+
+### 18 workflow'dan çıkarılan ayrı görev/özellik kayıtları
+1. `390-aday-tekrar-test.yml`: 390 adayın paralel 20 saniyelik gerçek video/ses testi, ffmpeg kurulumu, rapor artifact; MADSC 03'e işlevsel eşdeğerlik ve gerçek sonuç karşılaştırması **açık**.
+2. `aday-bekletme.yml`: yeni kanal keşfi, tekrar URL raporu, gelişmiş medya testi, aday bekletme geçmişi, akıllı tekrar takvimi, zamanı gelen tekrar test, kaynak güven puanı, öncelik sıralama ve artifact. MADSC 02/03'te tüm zincirin eşdeğerliği **açık**.
+3. `aday-logo-epg-test.yml`: aday EPG+logo kanıtı salt okunur birleştirme; kaynak kimlik onayı ayrı **açık**.
+4. `aday-oncelik-kontrol.yml`: örnek adaylarla sıralama doğrulaması; regresyon eşdeğerliği **açık**.
+5. `aday-yedekleme.yml`: teknik testten geçen adayları yedek taslak raporuna aktarma; **güncel YEDEKLER'e ekleme izni iptal**, hiçbir canlı listeye otomatik yazma yapılmaz. Tarihsel workflow davranışı güvenlik denetiminde ayrıca değerlendirilecek.
+6. `akilli-aday-puanlama.yml`: ffprobe ile gerçek aday tarama/medya kanıtı, puanlama, ayrı raporlar; yeni keşif raporuyla teknik parity **açık**.
+7. `altinci-aday-tekrar-test.yml`: bekleyen adayların tekrarı ve Türkçe rapor; MADSC 03'e gerçek tekrar döngüsü parity **açık**.
+8. `automatic-png-logos.yml`: korunan liste yazma engeli, logo PNG hazırlığı ve görsel kanıt; kullanıcı onaysız logo değiştirme yok.
+9. `epg-gunluk.yml`: günlük EPG üretimi, 5 kanallı XMLTV/TV onay bekleme raporu ve yalnız EPG çıktısı commit; MADSC 03/05 tetik ve yan etki parity **açık**.
+10. `epg-pages.yml`: EPG XMLTV'yi Pages'e hazırlama, yayınlanan kılavuzun dosyayla eşleşmesi; EPG→Pages tetik ve yayın doğrulaması **açık**.
+11. `felaket-kurtarma-tatbikati.yml`: korunan listelerin geçici ortamda kurtarma denemesi ve artifact; **tarihsel/harici gerçek restore kanıtı değildir**.
+12. `ibo-bagimsiz-test-listesi.yml`: ffprobe gerçek görüntü/ses, izole IBO test listesi ve artifact; kullanıcı IBO cihazı/kimliği ayrıca **bekliyor**.
+13. `ibo-epg-kimlik-denetimi.yml`: playlist ile 5 kanallı XMLTV kimlik eşleştirmesi, salt okunur rapor; canlı cihaz onayı **bekliyor**.
+14. `madsc-01-guvenlik.yml`: korunan dosyaların önce/sonra karşılaştırması, koruma kapısı, regresyon; 92 eski workflow yan etkisinin gerçek taşınması ayrı.
+15. `madsc-02-kesif.yml`: kaynak mutabakatı, tekrar ve IBO kuyruk denetimi, gerçek `madsc_akilli_kesif.py`, koruma, artifact. Run #38697244625 gerçek keşif step SUCCESS; eski aday-bekletme/takvim/puanlama zincirinin tamamını kapsadığı kanıtlanmadı.
+16. `madsc-03-kanal-test.yml`: EPG Pages bağlantı kontrolü, izole IBO aday listesi, ffmpeg, 50 kanallık salt-okunur sağlık partisi, JSON/MD tutarlılık, regresyon ve koruma; 1039 kanalın tamamının aynı run'da testi **yok**.
+17. `madsc-04-arsiv-yedek.yml`: izole Git HEAD geri dönüş, yedek kanıtı, arşiv tutarlılığı, harici kopya ayrımı; gerçek offsite/tarihsel restore **açık**.
+18. `madsc-05-genel-bakim.yml`: 92 workflow matrisi, 18/8 görev, EPG/Pages, backup, 5 kategori raporu, tetik/izin kapıları ve regresyon; **parity 0/92**. Kategori `needs` zincirinin güvenli ayrılması önceki yazma güvenlik engeli yüzünden **açık**.
+
+### Kapsam/teslim durumu
+- Bu bölüm **18 doğrudan okunmuş workflow + önceki doğrudan okunmuş seçilmiş kod/not bulgularının kopya özetidir**; bütün 796 girdinin tam içerik kopyası değildir.
+- Kalan **79 workflow**, diğer kod/test/notlar, `madsc_kesif` veri/raporları, `yedekler`, eski PR/issue/commit ve erişilebilir konuşma kararları, kaynak ve tarihleriyle tek tek işlenecek. Kapsam dışı kalmış olabilecek binary/logo dosyalarından otomatik görev çıkarmak için kod/manifest ilişkisi incelenir; görsel dosya başlı başına görev metni değildir.
+- Geçmiş hiçbir kaynak silinmez, taşınmaz, değiştirilmez. Bu dosyaya eklenenler görev kapanışı değildir; tamamlanma yalnız kod+Actions+artifact+cihaz/onay kanıtıyla işaretlenir.
+
+---
+
 ## 15 EKİM — EKRAN GÖRÜNTÜLERİYLE İSTENEN KÖK DOSYA/KOD TARAMASI — KANITLI EK KAYIT
 
 Kullanıcının beş GitHub ekran görüntüsündeki `.github`, `aday_bekletme`, `aday_hazirlik`, `arastirma`, `epg`, `epg_deneme`, `kontrol_notlari`, `liste_kontrol`, `logo_deneme`, `logos`, `madsc_dogrulama`, `madsc_kesif`, `madsc_son_kontrol`, `raporlar`, `reports`, `scripts`, `tarama`, `tests`, `tools`, `vod`, `yedekler` klasörleri ve kök dosyalar **kapsama alındı**. Git tree anlık görüntüsü 796 girdi; `madsc_kesif` 321, `.github` 99, `logos` 90, `scripts` 69, `yedekler` 23, `tools` 17 girdi. **Dosya adlarının sayılması içeriklerin tümünün okunduğu anlamına gelmez.** 309 metin/kod/yapılandırma dosyası ana çalışma kümesinde belirlendi (ayrıca `madsc_kesif` ve `yedekler` rapor arşivleri var). Bu turda seçilmiş kök Python, merkezi script ve test içerikleri doğrudan okunup görev açıklamaları incelendi; kalanların satır satır taraması AÇIK.
