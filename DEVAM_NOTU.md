@@ -1626,3 +1626,8 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 ## 2026-10-15 — BOOTSTRAP JSON SATIR SONU HATASI
 - MADSC 02 ilk calisma JSON olusturma komutunda Python stringine literal ters egik cizgi+n yazilmasi riski giderildi; chr(10) ile gercek satir sonu kullaniliyor. Commit 94e82666fc966c19059eaae68f16770d2774587b.
 - CI run gercekten baslatilip gecmeden basarili sayilmaz. Mevcut GitHub baglantisinda workflow_dispatch eylemi bulunmadi; yalnizca mevcut run/job inceleme ve tekrar kosma arayuzleri var. Yanlis dalda test baslatma veya guvenlik engelini asma yok.
+
+## 2026-10-15 — PNG KUTUPHANE BAGIMLILIK DUZELTMESI
+- scripts/automatic_png_logos.py mevcut ve PIL.Image ile istege bagli cairosvg kullaniyor. MADSC 02 Python kurulumundan sonra bu bagimliliklari kurmuyordu. .github/workflows/madsc-02-kesif.yml icine python3 -m pip install --disable-pip-version-check Pillow CairoSVG eklendi; commit 9a6b29d32b5502acc6f30a7a6eddfbb5ba34e73c.
+- Bu degisiklik bagimlilik eksigini hedefler; onceki ModuleNotFoundError automatic_png_logos hatasinin tum nedenlerinin giderildigi veya CI testinin gectigi kanitlanmadi.
+- Risk: MADSC 02 restore sadece onceki success run'lari ariyor; kesif adimi continue-on-error true oldugu icin basarisiz kesifin job basarili gorunmesi ve eksik artifact tarihi olasiligi incelenmeli. Gecmis kaybi yasatmadan duzeltme oncelikli.
