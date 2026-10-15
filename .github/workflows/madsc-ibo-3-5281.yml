@@ -567,7 +567,52 @@ jobs:
                   print(item)
               print("STATUS: not wired to production; review and approval required")
           PY
-      - name: 19 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 19 - Iki hata devre kesicisini gercek kodla sina
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util
+          import os
+          from unittest.mock import patch
+          from pathlib import Path
+
+          path = Path("tools/workflow_failure_gate.py")
+          spec = importlib.util.spec_from_file_location("madsc_failure_gate_test", path)
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+
+          def history(*conclusions):
+              return [
+                  {"id": index + 1, "created_at": "2026-10-15T%02d:00:00Z" % (index + 1),
+                   "status": "completed", "conclusion": conclusion}
+                  for index, conclusion in enumerate(conclusions)
+              ]
+
+          cases = [
+              ("one failure", history("success", "failure"), False, 1),
+              ("two failures", history("success", "failure", "failure"), True, 2),
+              ("timeout plus failure", history("success", "timed_out", "failure"), True, 2),
+              ("success resets", history("failure", "failure", "success"), False, 0),
+              ("cancel interrupts", history("failure", "cancelled", "failure"), False, 1),
+              ("ignore current", history("success", "failure", "failure"), False, 1),
+          ]
+          for label, runs, blocked, count in cases:
+              current = runs[-1]["id"] if label == "ignore current" else 999
+              actual = module.should_stop(runs, current)
+              assert actual == (blocked, count), (label, actual)
+              print("PASS:", label, actual)
+
+          with patch.dict(os.environ, {
+              "GITHUB_REPOSITORY": "example/sandbox",
+              "GITHUB_WORKFLOW_REF": "example/sandbox/.github/workflows/epg-gunluk.yml@refs/heads/main",
+              "GITHUB_RUN_ID": "999",
+              "GITHUB_EVENT_NAME": "workflow_dispatch",
+          }, clear=True):
+              module.main()
+          print("PASS: manual recovery bypasses history and API token lookup")
+          print("Live EPG/VOD gate still not connected; no API requests made")
+          PY
+      - name: 20 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
