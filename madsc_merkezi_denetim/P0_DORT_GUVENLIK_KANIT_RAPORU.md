@@ -41,3 +41,9 @@ Tarih: 2026-10-15
 - `madsc-yedek-turk-ayir.yml`, `madsc-yedekler-sayi-duzelt.yml`, `madsc-genis-kaynak-kontrol.yml`: gerçek yazma adımları ve eksik doğrudan rule24 çağrıları doğrulandı.
 - **Kabul hâlâ AÇIK.** GitHub branch protection API 403. Bir statik denetim sonucu üretimde zorunlu yazma engelinin uygulandığını kanıtlamaz. Kalan gerçek riskleri sadece test filtresinden çıkararak yeşil göstermeyeceğiz.
 - Güvenli sonraki aşama: üretim workflow'larının her biri için yazma hedefi, onay kapısı, tetikleme, devre kesici ve concurrency öncesi/sonrası davranışını ayrı PR'de izole testle kanıtlamak; `main`'e merge yok.
+
+## Izole P0 yazma engeli denemesi
+- Dal: `madsc/p0-guvenli-yazma-kapisi-deneme-20261015`; kaynak: `madsc/p0-dort-guvenlik-kabul-20261015`.
+- `madsc-ibo-3-5281.yml` denemesinde otomatik `push` yerine yalnız `workflow_dispatch`, `contents: read` ve `main` commit/push yerine bilgilendirme kondu.
+- Bu bir **davranış değiştiren prova**; gerçek arşiv yazma ihtiyacını karşılayan nihai workflow olarak birleştirilmemeli. İşlemi `main` dalına taşımak YASAK; onay ve test gerekir.
+- Bu izole workflow'un gerçek çalıştırma testi henüz yapılmadı. Güvenlik kabulü hâlâ açık; eski üretim workflow'ları korunuyor.
