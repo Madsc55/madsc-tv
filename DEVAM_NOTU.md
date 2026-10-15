@@ -1661,3 +1661,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 ## 2026-10-15 — ANA LISTE TEST GECMISI KAYIT KORUMASI
 - madsc_akilli_kesif.py icindeki `audit={k:v for k,v in audit.items() if k in unique}` filtrelemesi mevcut ana listede bulunmayan eski UID kayitlarini kalici JSON'dan siliyordu. Filtre kaldirildi; sadece `unique` anahtarlarindan uretilen aktif rapor ve due kontrolleri guncel listeyi kullanir. Eski test gecmisi korunur. Commit 75690207a05a7610564adfd92c00f37127a5aef7.
 - Not: UID sira+URL tabanli oldugundan kanal yer degistirirse eski kayit korunur ancak yeni UID icin testler yeniden baslayabilir; UID eslestirme tasarimi ayri denetim konusu. Gercek CI calismasi olmadan basari iddia edilmiyor. Playlist, main, 92 legacy workflow degismedi.
+
+## 2026-10-15 — BES SISTEM PLANI / MADSC 01 GUVENLIK DONUSU
+- Kullanici ekran goruntusundeki ana plan BES MERKEZI SISTEM: 1 guvenlik/saglik, 2 kesif, 3 kanal testleri, 4 EPG/logo, 5 arsiv/bakim. Ikinci resimdeki 5 madde, yalnizca 1. guvenlik sistemi icin kontrol listesidir. Tum sistemler tamamlama kaniti olmadan kapatilmaz.
+- GitHub Actions run 38724971116 ve 38697244625 icin 5/5 job conclusion success goruldu; bu run'lar mevcut dalin son commitlerini dogrulamaz, gercek checkout SHA/branch ayrica kontrol edilmeli.
+- GUVENLIK_KURALLARI.md dosyasinda 24 onayli kural yaziyor; resimde 26 denmis. Eksik 2 kural dogrulanmadan onayli/uygulandi sayilmayacak.
+- MADSC 01 guvenlik workflow'unda iki rapor denetimi birbirini durdurmadan ayri calisacak; regresyonlar continue-on-error ile ilerler; en son hata kapisi basarisizligi job'a yansitir ve artifact always yuklenir. Commit ef79813c8c4b3e2be5695ef50f2b4d876b85ef35.
+- Acik: 26 kuralin kaynagi, 92 legacy workflow yazma izinleri, branch protection, gercek SHA, cifte push/tetikleyici, guvenlik kapisi ve devre kesici ispatlari. Ana planin sirasi korunacak; 1. sistemden devam.
