@@ -47,3 +47,8 @@ Tarih: 2026-10-15
 - `madsc-ibo-3-5281.yml` denemesinde otomatik `push` yerine yalnız `workflow_dispatch`, `contents: read` ve `main` commit/push yerine bilgilendirme kondu.
 - Bu bir **davranış değiştiren prova**; gerçek arşiv yazma ihtiyacını karşılayan nihai workflow olarak birleştirilmemeli. İşlemi `main` dalına taşımak YASAK; onay ve test gerekir.
 - Bu izole workflow'un gerçek çalıştırma testi henüz yapılmadı. Güvenlik kabulü hâlâ açık; eski üretim workflow'ları korunuyor.
+
+## Salt-okunur IBO provası (güncel)
+- Commit `00b3ef09`: `madsc-ibo-3-5281.yml` izole dalda manuel-only, `contents: read`, `persist-credentials: false`, `concurrency` ve dal eşitliği kontrolüyle değiştirildi.
+- ÖNEMLİ: Önceki prova yanlışlıkla `scripts/apply_ibo_3_5281.py` çalıştırabilirdi; bu kaldırıldı. Yeni prova sadece Python AST syntax, gerekli dosyalar ve `git diff --exit-code` kontrollerini çalıştırır. Gerçek veri değiştirme/commit/push yok.
+- Manuel workflow_dispatch koşusu henüz başlatılmadı. Bu prova gerçek yazma yetkilendirmesini test etmez ve üretime alınamaz. P0 kabulü hâlâ açık.
