@@ -1,3 +1,14 @@
+## SOHBET DEVRİ — 15 Ekim 2026 güncel durum (önce bunu oku)
+
+- Kullanıcı hedefi: 1 Ekim'den beri konuşulan tüm eksik, yarım ve yeni işlerin tamamlanması; 92 eski workflow'un görevlerinin gerçek işlevsel eşdeğerlikle 5 ana kategoriye aktarılması. Sadece rapor/haritalama tamamlanma değildir; doğrulanan eşdeğerlik hâlâ 0/92. Eski workflow'lar silinmez/kapatılmaz, taslak PR #71 birleştirilmez.
+- Son karar: **YEDEKLER'e kanal ekleme izni iptal**. Eski `DEVIR_NOTU_2026-10-15.md` içindeki izin cümlesi geçersizdir. CALISANLAR, YENILER, HEPSI, FAVORILER, YEDEKLER, logo, arşiv ve yedekler açık yeni izin olmadan değiştirilmez.
+- Tamamlanan ve doğrulanan: MADSC 05 push yinelenmesi `c7567e1` run #38694043295 SUCCESS; MADSC 03 sağlık artifacti `7e797fa` run #38694963696 SUCCESS; MADSC 03 sağlık kabul kontrolü `439dc5b` run #38695730312 SUCCESS; MADSC 02 gerçek `madsc_akilli_kesif.py` çağrısı ve `madsc_kesif/` artifact kapsamı `c2d28be` run #38697244625 SUCCESS. Son koşuda keşif adımı `continue-on-error` olduğundan gerçek tarama/çıktı ayrıca doğrulanmalı; yeşil run tek başına kanıt değildir.
+- Saatlik MADSC 7/24 ChatGPT otomasyonu yeniden aktif; her saat bir tur, kesintisiz gerçek zamanlı çalışma değil. 16 Ekim 10:30 İsveç saati raporu ayrı açık.
+- Öncelik sırası: (1) keşif adım logları ve artifact içeriği; (2) MADSC 05 bağımsız kategoriler ve hata kapısı (önceki düzenleme güvenlik engeli nedeniyle kaydedilemedi); (3) 92 workflow'un gerçek script/inline/cron/izin/yan etki/artifact davranış aktarımı ve tek tek kanıt; (4) MADSC 04 tarihsel/harici yedek geri yükleme; (5) MADSC 03 tam kanal kapsamı, aday tekrar/kimlik/IBO İsveç testi; (6) EPG Pages, 730/1039 eşleşme, logo kimlik; (7) gerçek koruma/yazma kapısı, kural 24 devre kesici; (8) cron/çakışma/rapor tekrarlarının azaltılması; (9) her tamamlanan işin commit/run/artifact kanıtıyla bu not ve `OZELLIK_ENVANTERI.md`ye yazılması.
+- Git HEAD izole geri yükleme harici/tarihsel restore değildir. 92 workflow'un gerçek aktarımı, IBO cihaz onayı ve dış yedek kanıtı bitmedi. Eski notları silme, tamamlanmayanı tamamlandı diye gösterme.
+
+---
+
 ## 14 Ekim 2026 — TOPLU OTOMASYON YUKU AZALTMA / EK DENETIMLER ELLE
 - Kullanici merkezi testin yesil oldugunu bildirdi; gereksiz tekrarlari tek committe azaltma istendi.
 - Haftalik Cuma ana kanal + EPG denetiminin otomatik schedule tetigi kaldirildi; workflow_dispatch saklandi. Ana liste sagligi ayin 1 ve 15'inde, birlesik kanal kesfi her gun iki kez suruyor.
