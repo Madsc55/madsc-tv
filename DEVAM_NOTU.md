@@ -1458,3 +1458,19 @@ Kullanıcının ekran görüntüsündeki 1. Güvenlik ve sağlık 5 maddesinin g
 5. Çift push ve gereksiz otomatik tetikler: **KISMİ** (son-kontrol schedule+workflow_run ve üç-aşama kendini dispatch riski belirlendi; güvenli düzeltme ve tekrar önleme kabulü henüz yapılmadı).
 
 **Kural 1.02:** Başarısızlık bulgularını izinsiz düzeltme; sıradaki incelemeye sormadan geç. Mevcut test success olduğundan ek düzeltme yapılmadı. Ana listeler, yedekler, EPG, logo, eski workflow'lar, main ve PR #71 değişmedi.
+
+
+## 15 EKİM 2026 — KURAL 1.02 P0 92/92 ESKİ WORKFLOW İLK TOPLU KOD TARAMASI
+
+GitHub repo ağacındaki 97 YAML workflow dosyasından \`madsc-01\`…\`madsc-05\` yeni merkezi dosyalar ayrıldı; **92 eski workflow'un 92'si** bu turda **12'şer dosyalık gruplarla tek tek GitHub fetch_file üzerinden okunarak** salt-okunur statik risk taramasından geçirildi. Son grup 8 dosyaydı. Her dosyada şu metin desenleri arandı: \`contents/actions/pull-requests: write\`, \`git push\`, \`gh api ... dispatches\` / \`gh workflow run\`, \`git reset --hard\`, cron, üst seviye concurrency, \`tools/workflow_failure_gate.py\`. **Önemli:** Bu desen taraması kodun tüm dolaylı yazma yollarını, job-level izinleri veya 26 kuralın tam davranışını kanıtlamaz; 92/92 davranışsal eşdeğerlik halen bekliyor.
+
+Doğrulanan öncelikli risk örnekleri:
+- \`madsc-11599-yedek-geri-yukle.yml\`, \`madsc-arsiv-yedek-aktarim.yml\`, \`madsc-ibo-3-5281.yml\`, \`madsc-ibo-354-classify.yml\`, \`madsc-ibo-364-355-364.yml\`, \`madsc-ibo-398-16-49.yml\`, \`madsc-ibo-530-archive.yml\`, \`madsc-ibo-6115-second.yml\`, \`madsc-ibo-ilk-239.yml\`, \`madsc-ibo-kararlar-grup1.yml\`, \`madsc-ibo-second-voice.yml\`, \`madsc-turk-kanal-geri-sec.yml\`, \`madsc-yedek-turk-ayir.yml\`, \`madsc-yedekler-sayi-duzelt.yml\`: kodda yazma yetkisi ve \`git push\` tespit edildi; bu dosyaların bir kısmında üst seviye concurrency yok.
+- \`madsc-genis-kaynak-kontrol.yml\`, \`madsc-uc-asama.yml\`: \`gh api ... dispatches\` görüldü; ikinci workflow kendi kendini tekrar çağırabiliyor.
+- \`madsc-son-kontrol.yml\`: cron + workflow_run tetik; iki bağımsız çalıştırma yolu.
+- \`epg-gunluk.yml\`, \`vod-guncelle.yml\`: zamanlanmış yazma ve üst seviye concurrency eksik.
+- \`publish-iptv-png-logos.yml\`: yazma yetkisi ve \`git push\`, concurrency yok; kullanıcı logosu korunacak.
+- \`test-32-unapproved-write-regression.yml\`, \`test-38-audit-selftest.yml\`, \`toplu-sistem-kontrol.yml\`: \`git push\` metni bulundu ama bu otomasyonlarda \`contents:write\` bulunmadı; **komutun çalıştığı ve başarılı yazdığı iddia edilmez**.
+- \`workflow_failure_gate.py\` çağrısı görülen eski dosyalar: \`madsc-birlesik-kesif.yml\`, \`madsc-son-kontrol.yml\`, \`madsc-uc-asama.yml\`, \`madsc-rule24-test.yml\`. Diğerlerinde doğrudan çağrı bulunmadı; bu **koruma yokluğu kesin kanıtı değildir**, başka kapılar olabilir.
+
+**P0 kabul durumu:** 1. madde tamamlandı (gerçek beşli run/commit); 2. madde 26 kural enforcement açık; 3. madde **92/92 ilk statik desen taraması tamamlandı**, tam semantik izin/komut ve dinamik risk kabulü açık; 4. madde branch protection API erişimi/merkezi devre kesici kapsama açık; 5. madde çift tetik davranışsal kabul açık. Kural 1.02 gereği **hiçbir hata izinsiz düzeltilmedi**, eski workflow ve veri dosyalarına yazılmadı; bu turda yeni Actions run başlatılmadı.
