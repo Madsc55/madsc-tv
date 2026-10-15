@@ -1,3 +1,50 @@
+# 15 EKİM 2026 — 769/769 DOSYA GÖREV/NOT AMAÇLI ENVANTER VE İÇERİK TARAMASI TAMAMLANDI
+
+**KAPSAM TANIMI:** Bu çalışma kullanıcı isteği doğrultusunda her dosyanın görev/not/karar/eksik iş içerip içermediğinin tespitidir; bütün görsellerin yayın kimliği onayı, her URL'nin canlı çalışması, kodların çalıştırılması, 92/92 workflow davranışsal parity veya 1 Ekim'den bugüne GitHub dışı sohbetlerin eksiksiz taranması değildir. Başlangıç anlık görüntüsü: `3e79287598e4182aee48ae64fddeb8174321fbae` (15 Ekim 2026); yeni commitlerle ağaç değişebilir.
+
+## Tamamlanmış kaynak denetimi — **769/769 dosya**
+
+| Tür | Sayı | Gerçek inceleme |
+|---|---:|---|
+| GitHub Actions YAML | **97/97** | Tam metin okundu; her workflow'un işi/çağrıları/tetikleri/yazma izinleri ve görev ailesi yukarıdaki bölümde kaynak bazında kayıtlı |
+| Python program ve test | **151/151** | Her blob içeriği doğrudan okundu; fonksiyon/eksik-onay-bekleme işaretleri ve program sorumlulukları tarandı; geçmişte ayrıntılı kod bulguları kaydedildi |
+| Markdown notları | **34/34** | Tam metin okundu; başlıklar, kontrol listeleri, kararlar, geçmiş kullanıcı istekleri ve açık görevler çıkarıldı |
+| JSON veri ve raporlar | **51/51** | Tam içerik parse edildi, anahtarlar/rapor durumları incelendi; 5 büyük dosya için `fetch_file` başarısız olunca SHA ile **`fetch_blob`** kullanılarak erişim sağlandı |
+| CSV geçmiş/rapor | **26/26** | Tam metin ve başlık/satır yapıları okundu; 3 büyük dosya `fetch_blob` ile alındı; satır sayıları bazen multiline CSV yüzünden kesin kayıt sayısı değildir |
+| M3U playlist ve arşiv | **27/27** | İçerik okunup `#EXTINF` sayıldı; 1 büyük dosya `fetch_blob` ile alındı; listeyi değiştirmeden tarihsel farklar değerlendirildi |
+| Diğer TXT/XML | **10/10** | Tam metin okundu; 8,84 MB EPG XML 215 kanal ve 23.702 program; IBO test XML 5 kanal 361 program; 5 kanal izole demo XML 23 program |
+| SVG logo kaynakları | **40/40** | SVG metni okundu, TODO/FIXME/bekleyen yorum tarandı; yeni açık görev notu bulunmadı. Görselin gerçek kanal kimliği ayrı onaydır |
+| PNG/JPG/WebP görseller | **333/333** | Dosya yolu/uzantı/byte/blob SHA metadata envanteri değerlendirildi; raster ikili dosyalar metin görev notu değildir; gerçek görüntü içeriği/kare-logo eşleştirmesi yapılmadı |
+| **TOPLAM** | **769/769** | **436 dosyada metin/kod/veri/SVG içerik taraması + 333 raster dosyada metadata/görev ilişkisi taraması** |
+
+**ÖNCEKİ AÇIK KAYIT DÜZELTMESİ:** Bir önceki bölümde '9 büyük veri dosyası içerik engeli' deniyordu. Bunlar SHA tabanlı blob okuma ile **tamamlandı**: `aday_bekletme/gecmis.json` (URL anahtarlı tarihsel gözlemler), `aday_hazirlik/uc_asama_2026-10-12_1037.json` (üç aşama), `madsc_dogrulama/state.json` (**7100** kanal anahtarı), `madsc_kesif/gecmis.json` (**11762** geçmiş kayıt), `madsc_son_kontrol/results.json` (son kontrol kayıtları), `aday_bekletme/ADAY_ONCELIK_RAPORU.csv` (2667 civarı veri satırı), `madsc_kesif/bulunan_kanal_arsivi.csv` (**11743** civarı veri satırı), `madsc_kesif/yedek_ulke_inceleme.csv` (**11557** civarı veri satırı), `madsc_kesif/yedeklerden_ayrilanlar_20261013T170042Z.m3u` (**11557** EXTINF). URL içeren ham satırlar ana nota kopyalanmadı; orijinal dosyalarda korunuyor.
+
+## Çıkarılan görev ve kanıt aileleri — 16 ana başlık
+
+1. **Kullanıcı onayı ve güvenlik:** 23/24/25/26 kural geçmişi, geri alınan YEDEKLER izni, korunan playlist/logolar/yedekler, 92 eski workflow yazma/trigger kapıları.
+2. **Beşli sistem geçişi:** 97 workflow'un görev envanteri, 92 eski iş akışının 5 hedefe davranışsal eşdeğerlik/kanıt matrisi (**0/92 kanıtlı**), PR #71 güvenli bekleme.
+3. **Kanal keşfi:** 155 hedef/156 tanımlı kaynak, eksik ücretsiz Türk kanalları, resmî/yasal HLS, Türksat katalog karşılaştırması, yeni/alternatif ayrımı.
+4. **Aday/tekrar test:** 75 aday/4 alternatif tarihsel snapshot, 51 saatli tekrar, 24 teknik/IBO belirsiz, 390 geçmiş aday, 7100 üç aşama, 125'lik son kontrol partileri.
+5. **Canlı medya ve kalite:** ffprobe video/ses, 5 dakika süreklilik, 7/30 günlük kararlılık, timeout/403/geo engeli ayrımı, HD/FHD kimlik kanıtı.
+6. **IBO gerçek cihaz ve kimlik:** İsveç TCL 55C655, Ibo Player Pro 2128.0, kullanıcı çalışıyor/çalışmıyor kararı, gerçek oynatma ve kanal kimliği; GitHub yeşil testi yerine geçmez.
+7. **EPG/XMLTV/Pages:** 1039 playlist/730 eşleşme/309 eşleşmeyen/23.702 program snapshot, 215 XMLTV kanalı, 5 kanallı pilot, Pages GITHUB_TOKEN tetik bağı ve cihaz kabulü.
+8. **Logo/PNG/WebP/SVG:** 373 görsel metadata, 40 SVG metni, 6 HTTP hatalı logo URL, 32 sorunlu kayıt, adayın gerçek istasyon logosu ve onaylı PNG hazırlığı.
+9. **Tarihsel yedek/arşiv:** 11762 geçmiş kayıt, 11557 ayrılan M3U, 740 yabancı, 10817 kimliği belirsiz; offsite/tarihsel restore kanıtı yok.
+10. **Geçmiş kullanıcı kararları:** 7 Ekim 10 ret kanal adı, IBO pozisyon/grup kararları, URL/tarih ile teknik sonucu ayır, hiçbir eski kararı yanlış akışa aktarma.
+11. **YENİLER/YEDEKLER/Ulusal/Favoriler:** Kategori sayısı, alfabetik/onay kuralı, Ulusal ana depo, tarihsel logo-kategori kararı ve FTV TÜRK/Red Bull TV isim uyumsuzluğu.
+12. **VOD film/dizi:** Metadata/kategori ve bölüm takvimi var; lisanslı gerçek VOD/IBO Film-Dizi sekmesi/ayrı Xtream entegrasyonu kanıtı yok.
+13. **İzin ve gizlilik:** `contents:write` eski akışlar, dolaylı Python yazma yolları, URL yolunda token/kimlik gizliliği, raporlarda ham yayın URL'si riski.
+14. **Merkezi rapor/test:** 18 görev/8 görev, gerçek Actions run ve artifact, yanlış yeşil durum, kısmi 50/1039 sağlık testinin rotasyonu, tek ekran yönetim.
+15. **Yedek kurtarma ve felaket planı:** izole Git HEAD restore, Actions artifact saklama, bağımsız dış kopya, gerçek restore ve secrets/cihaz ayarı sınırı.
+16. **Tarihsel talepler ve takvim:** aylık geniş denetim, günde iki aday keşfi, Cuma/haftalık kontroller, 90 günlük kaynak taraması, tekrar test saatleri, eski görevlerin yinelenmeden birleştirilmesi.
+
+**Sayım yorumu:** Yukarıdaki **16 benzersizleştirilmiş ana iş ailesi** altında **97 workflow kaynak-görev kaydı** ve önceki bölümlerde çok sayıda kod, karar, JSON/CSV ve cihaz kanıtı bulunuyor. 97 workflow'un hepsi 97 ayrı yapılacak görev değildir; aynı işi tekrarlayan workflow'lar var. **Tekilleştirilmiş alt görev sayısı** henüz kesin sayılıp onaylanmadı; uydurma kesin toplam verilmez.
+
+## Kaynak incelemesi kapandı; şimdi uygulanacak işler
+Bu 769 dosyanın **not/görev amaçlı kaynak taraması tamamlandı**. Bir sonraki iş artık aynı dosyaları körlemesine tekrar okumak değil; yukarıdaki 16 aileyi somut, tekilleştirilmiş kabul görevlerine dönüştürmek ve **önce güvenlik/izin + 92 parity, sonra keşif/IBO/EPG/backup/VOD** sırasıyla test etmek. **Hiçbir eski dosya, liste, logo, workflow, arşiv veya yedek bu envanter çalışması sırasında değiştirilmedi.** Yalnızca `DEVAM_NOTU.md` genişletildi.
+
+---
+
 ## 15 EKİM — 769 DOSYANIN TAMAMINA UZANAN KAYNAK TÜRÜ TARAMASI / YENİ KANITLAR
 
 **Bu oturumdaki kapsam:** 769 dosyanın tamamı Git ağacından yol, tür, byte boyutu ve blob SHA düzeyinde envanterlendi. 373 PNG/SVG/JPG/WebP görsel **dosya metadata/hash düzeyinde** değerlendirildi; her görselin görsel kimliği ayrıca doğrulanmadı. 97/97 workflow tam metni önceki turda okundu. Bu turda 51 JSON, 26 CSV, 27 M3U dosyasının **her birine içerik erişimi denendi**, sonuçlar aşağıda. Önceden çok sayıda Python/Markdown/test okunmuştu, ancak 151/151 ve 34/34 satır bazında doğrulama matrisi henüz bitmedi. **769/769 içerik tamamlandı demek doğru değildir.**
