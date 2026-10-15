@@ -36,4 +36,16 @@ def normalize_channel_name(name, profile="wide_scan"):
 , '', value)
         value = value.casefold().translate(str.maketrans('ıİşçğüö', 'iiscguo'))
         return re.sub(r'[^a-z0-9]', '', value)
+    if profile in ("satellite", "satellite_playlist"):
+        value = re.sub(r'\([^)]*\)|\[[^]]*\]', '', name).strip()
+        value = re.sub(r'\b(?:HD|FHD|UHD|SD)\b', '', value, flags=re.I).strip().rstrip('.')
+        value = re.sub(r'\s+(?:ADAY|ALTERNATİF)
+, '', value, flags=re.I).strip()
+        if profile == "satellite_playlist" and not re.fullmatch(
+            r'(?:TRT|BRT|TV|Tele|Kanal|Tivi)\s+\d+', value, flags=re.I
+        ) and value != 'Imam Hussein TV 5':
+            value = re.sub(r'\s+\d+
+, '', value)
+        value = value.casefold().translate(str.maketrans('ıİşçğüö', 'iiscguo'))
+        return re.sub(r'[^a-z0-9]', '', value)
     raise ValueError("Unknown normalization profile: " + str(profile))
