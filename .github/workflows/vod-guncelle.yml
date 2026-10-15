@@ -5,19 +5,61 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: read
+concurrency:
+  group: madsc-vod-tek-kosu
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch permitted TV episode schedule metadata
-        run: python scripts/vod_guncelle.py
-      - name: Commit VOD metadata only
+      - name: 1 - Yalniz ana dalda yazma yetkisini dogrula
         run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/main"
+      - name: 2 - Iki ard arda hatada guvenlik devre kesicisini uygula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/workflow_failure_gate.py
+      - name: 3 - Izinli VOD bolum bilgilerini guncelle
+        run: python3 scripts/vod_guncelle.py
+      - name: 4 - Degisen dosyalari VOD izin listesiyle denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          allowed = {"vod/guncel-bolumler.json"}
+          result = subprocess.run(
+              ["git", "status", "--porcelain", "--untracked-files=all"],
+              check=True, capture_output=True, text=True
+          )
+          changes = {line[3:] for line in result.stdout.splitlines()}
+          if not changes <= allowed:
+              raise SystemExit("VOD disinda degisen dosyalar: " + repr(sorted(changes - allowed)))
+          print("VOD izin listesi dogrulandi:", sorted(changes))
+          PY
+      - name: 5 - Yalniz VOD dosyasini guvenle kaydet ve gonder
+        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add vod/guncel-bolumler.json
-          git diff --cached --quiet || (git commit -m "Update Turkish TV episode schedule metadata" && git push)
+          git add -- vod/guncel-bolumler.json
+          if git diff --cached --quiet; then
+            echo "VOD dosyasi degismedi; gonderme yok."
+            exit 0
+          fi
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" || {
+            echo "Uzak ana dal degisti; otomatik yeniden deneme yasak."
+            exit 1
+          }
+          git commit -m "Update Turkish TV episode schedule metadata"
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)" push origin HEAD:main
+        env:
+          GH_TOKEN: ${{ github.token }}
