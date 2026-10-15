@@ -96,7 +96,8 @@ def main():
  for idx,ch in enumerate(parse(master)):
   uid=str(idx+1)+"|"+key(ch["url"])
   unique[uid]=ch
- audit={k:v for k,v in audit.items() if k in unique}
+ # Preserve historical checks for entries no longer in the current playlist.
+ # Only current UIDs participate in the active report and due-check selection.
  def health_check_due(previous):
   if int(previous.get("successful_runs",0))>=3:return False
   last=previous.get("last_test")
