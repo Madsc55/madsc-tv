@@ -304,7 +304,55 @@ jobs:
               assert "contents: write" in raw, filename
               print("OLAYA BAGLI - GUVENLI YAZMA KAPISI GEREKIR:", filename)
           PY
-      - name: 12 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 12 - EPG ve VOD icin izinli dosya yazma kapisini sina
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          allowed = {
+              "epg": {"epg/madsc-epg.xml", "epg/ibo-test-epg.xml", "epg/report.json", "epg/tv_kontrol_bekliyor.json"},
+              "vod": {"vod/guncel-bolumler.json"},
+          }
+          with tempfile.TemporaryDirectory() as tmp:
+              root = Path(tmp)
+              subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+              subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
+              subprocess.run(["git", "config", "user.name", "Guvenlik Testi"], cwd=root, check=True)
+              paths = sorted(set().union(*allowed.values()) | {"CALISANLAR.m3u", "AGENTS.md"})
+              for path in paths:
+                  target = root / path
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_text("original\\n", encoding="utf-8")
+              subprocess.run(["git", "add", "--all"], cwd=root, check=True)
+              subprocess.run(["git", "commit", "-qm", "baseline"], cwd=root, check=True)
+
+              def changed():
+                  output = subprocess.check_output(
+                      ["git", "status", "--porcelain", "--untracked-files=all"], cwd=root, text=True
+                  )
+                  return {line[3:] for line in output.splitlines()}
+
+              def gate(kind):
+                  modifications = changed()
+                  return bool(modifications) and modifications <= allowed[kind]
+
+              (root / "epg/report.json").write_text("new\\n", encoding="utf-8")
+              assert gate("epg"), "Permitted EPG output blocked"
+              assert not gate("vod"), "EPG output leaked into VOD allowance"
+              (root / "CALISANLAR.m3u").write_text("unauthorized\\n", encoding="utf-8")
+              assert not gate("epg"), "Protected playlist change was allowed"
+              (root / "CALISANLAR.m3u").write_text("original\\n", encoding="utf-8")
+              (root / "epg/report.json").write_text("original\\n", encoding="utf-8")
+              (root / "vod/guncel-bolumler.json").write_text("new\\n", encoding="utf-8")
+              assert gate("vod"), "Permitted VOD output blocked"
+              (root / "AGENTS.md").write_text("unauthorized\\n", encoding="utf-8")
+              assert not gate("vod"), "Protected policy change was allowed"
+              print("EPG/VOD allowlists tested with permitted and forbidden disposable changes")
+          PY
+      - name: 13 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
