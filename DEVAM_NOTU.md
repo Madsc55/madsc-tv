@@ -1728,3 +1728,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC01 regresyonlari `for suite in ...; do` icinde `python3 -m unittest "${suite}" -v` kullaniyor. scripts/five_category_preflight.py statik taramasi eskiden ${suite} degiskenini test modulu saniyordu. Degiskenleri dosya adi saymama ve dongudeki gercek suite adlarini tarama duzeltildi: e2d010d9c1984e21b57f7ac519dc420cd1058dfb; regex newline duzeltmesi 11c3cce1f3ebe97d67ba2fe3dd971d9e245d90bc.
 - Ekrandaki diger 'Process completed with exit code 1' ve toplu hata kapisi audit_1 failure sonucudur; Node.js20 deprecation yalniz uyaridir. Baska failing script olup olmadigi tam run loguyla dogrulanmali.
 - CI gercek run ID, SHA ve success sonucu henuz teyit edilmedi. 92 legacy workflow ve korunan dosyalar degistirilmedi. Sonraki adim: yeni MADSC05 run audit_1 script ciktisini, tum 14 scripti ve 5/5 kategori sonucunu gercek kanitla dogrula; diger gercek hatalari kok nedeniyle duzelt.
+
+
+## 2026-10-15 — CI PREFLIGHT TETIKLEME KOK NEDENI
+- scripts/five_category_preflight.py shell-loop unittest komutundaki ${suite} ve `; then` parcalarini dosya adi olarak saymama duzeltmesi: 44789bfe275314ee727c9909642906e65d9244ca.
+- MADSC05 push.paths listesinde scripts/five_category_preflight.py eksikti: script degisince besli Actions kosusu baslamiyordu. Bu yol ve scripts/five_category_92_workflow_audit.py tetikleyiciye eklendi: 3bc033e7b468c7dfad8a1388f932f5a0c6e868b3.
+- Bu SHA icin commit PR-run sorgusu ve combined-status sorgusu bos dondu. Bunlar push Actions check-runs kaniti degildir; CI PASS denilemez. Sonraki adim yeni MADSC05 Actions run ID ve audit_1 tam script ciktilarini bulmak, varsa kalan hata icin dogrudan kok neden duzeltmek.
+- Legacy workflow ve korunan dosyalara dokunulmadi; ana hedef 92/92 islevsel esdegerlik.
