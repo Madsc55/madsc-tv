@@ -1258,3 +1258,42 @@ Yeni resmi dosyalar \`.github/workflows/madsc-01-guvenlik.yml\`, \`madsc-02-kesi
 **Açık kapanış kapısı:** Her eski workflow için yalnız isim eşleşmesi değil komut/izin/tetik/artifact/yazma/hata/rollback ve yeni iş sahibi. Gerçek 92/92 davranış eşdeğerliği, güncel CI, EPG→Pages, VOD, IBO ve restore kanıtları yoksa geçiş TAMAMLANDI denmez. Geçmiş 5/5 başarılı run yeni kodun kabulü değildir. PR #71 birleştirilmez, eski otomasyon kapatılmaz.
 
 **Bu araştırmanın sonucu:** Eski belgelerden yukarıdaki kaybolabilecek karar ve görevler merkezi notta toplandı. Bu, 769 dosyanın her satırının incelendiği veya 92 işlevin tam eşleştirildiği iddiası değildir. Bundan sonraki ana çalışma beş resmi workflow'un **yalnız eksik işlevlerine** dönmektir; yeni kod/workflow değişikliği için kullanıcıdan ayrıca açık izin alınır.
+
+
+## 15 EKİM 2026 — KULLANICI KARARI: ESKİ DOSYA ARAMASI ERTELENDİ, BEŞLİ GEÇİŞ ÖNCELİK
+
+**Güncel talimat:** 769 dosyanın içinde henüz ayrıntılı okunmamış olanları daha sonra salt okunur açmaya/incelemeye devam et. **Şimdilik bu araştırmayı durdur; dosya veya geçmiş kayıt silme, değiştirme, temizleme, taşımaya kalkışma.** Amaç her eski dosyanın işlevini anlayıp gerekli davranışları yeni beşli sisteme koruyarak aktarmaktır. Bu kullanıcı kararı önceki geniş dosya okuma planına göre önceliklidir. Eski notlar, kayıtlar, logolar, playlistler, yedekler ve workflow'lar aynen kalır. Yalnız DEVAM_NOTU.md güncellenebilir; kod/workflow değişikliği için ayrıca açık izin gerekir.
+
+### Güncel öncelik ve kabul sırası — kaynaktan tekilleştirilmiş kontrol listesi
+
+**P0 — Güvenlik ve gerçek durum tespiti (madsc-01-guvenlik + madsc-05-genel-bakim):**
+- [x] 92 eski + 5 yeni YAML ve temel beş kategori dosya adları envanteri; 26 kuralın politika kaydı; güvenlik/sağlık statik testleri; tarihsel başarılı Actions koşuları.
+- [ ] En güncel dal/commit ile son beşli Actions job/step/artifact kanıtını eşleştir. Tarihsel 5/5 başarı yeni kodu doğrulamaz.
+- [ ] 26 güvenlik kuralı, korunan dosya SHA, gerçek tüm yazma yolları/contents:write/push izinleri, branch ruleset/403 belirsizliği, çift push ve iki başarısızlık devre kesicisini üretim davranışıyla doğrula.
+- [ ] Her eski workflow için gerçek görev sahibi, tetik, komut, artifact, izin, yan etki, hata/rollback, yeni karşılık: 92 satırlık matriste KANITLI/KISMİ/EKSİK/BLOKE durumları. Sadece isim/statik eşleşme geçişi kapatmaz.
+
+**P1 — Arşiv, geçmiş ve yedek (madsc-04-arsiv-yedek):**
+- [x] Tarihsel aday/keşif/son kontrol dosyaları erişilebilir; izole Git restore ve SHA256 arşiv kanıtları mevcut.
+- [ ] Geçmiş test/IBO/alternatif/yabancı/belirsiz kayıtları kayıpsız korunuyor mu, 11.742 URL / 11.762 geçmiş eski snapshot ile güncel durumun ayrımı, 1/15 yedek/sağlık tetik çakışması ve bağımsız geri yükleme kanıtı.
+- [ ] Harici/offsite kopya, secrets/IBO ayarları ve 30 günlük saklama eski notlarda ertelenmiş; açık bağımlılık olarak tut, kullanıcı izni olmadan kurma.
+
+**P2 — Keşif ve arama (madsc-02-kesif):**
+- [x] Eski \`madsc-birlesik-kesif.yml\` içinde günde iki kez 06:00/18:00 UTC keşif ve \`scripts/four_stage_discovery_report.py\` ile arşiv, aday/alternatif, URL tekrar ve aday logo kanıtı altyapısı var. 156 kaynak envanteri kayıtlı; 155 hedefe zorla düşürme yok.
+- [ ] Yeni \`madsc-02-kesif.yml\` eski üretim keşfinin gerçekten tüm işlevini/tetiğini devraldı mı, canlı Actions/artifact ile karşılaştır. Sadece yeni dosyanın varlığı devir değildir.
+- [ ] Kaynakların erişimi, izin/lisans ve ülke/kimlik ayrımı; Türk/yabancı/belirsiz; yeni URL ve alternatif tekrarı; aday logo yalnız eksikse; günlük iki keşif ve ayrı aylık geniş tarama; Eurostar, eksik Türk kanalları ve IBO teknik yanlış negatifleri.
+- [ ] Keşif → üç aşama → final bağımlılığında tek devam ve aynı adayın tekrarsız işlenmesi; eski cron kapatılmaz.
+
+**P3 — Kanal testleri ve adaylar (madsc-03-kanal-test):**
+- [x] Üç aşama 6 saat, final kontrol, kimlik/IBO ayrımı ve 50 kanallık salt okunur sağlık testi altyapısı.
+- [ ] 75 adayın 51 farklı saat retesti, 24 ffprobe başarısızı, 4 alternatif; 3.800 tarihsel final sonucu ve güncel kalan kuyruğun doğrulanması; süreklilik, görüntü/ses, gerçek HD/FHD ve Ekol başa sarma.
+- [ ] Cihaz TCL 55C655 / IBO Player Pro 2128.0 gerçek oynatma, açılış/geçiş, kullanıcı kararları; kimlik ve yayın hakkı bağımsız. Listeye onaysız ekleme yok.
+- [ ] Ana listedeki çalışan PNG'ler kullanıcıya göre çalışıyor: **koru**. Yeni adayların eksik/yanlış logo kimliği ayrı.
+
+**P4 — Genel bakım, özel üretim zincirleri ve nihai 92 devir (madsc-05-genel-bakim):**
+- [x] Merkezi 8/18 görev, 26 kural, 92 satırlık statik rapor, açık işler ve tek ekran özeti araçları var.
+- [ ] 92 eski workflow'un schedule/push/workflow_run/dispatch/call, step/çıktı/izin ve hata davranışını beş yeni kategoriye bire bir koru; aynı işi iki kez tetiklemeyi engelle.
+- [ ] VOD günlük 07:17 UTC eski tetik ve ayrı Filmler/Diziler katalog/IBO sekme doğrulaması; haftalık IPTV testi, günlük final, 1/15 sağlık/yedek/bakım, tek rapor; 11 geliştirme/8 görev/18 görev eksiklerinin tek tek gerçek kapanışı.
+- [ ] **EPG EN SONA ERTELENDİ:** \`TOPLU_DURUM_RAPORU.md\` içindeki daha yeni kullanıcı kararı EPG'yi şimdilik durduruyor; IBO'da EPG görünmüyor, mevcut çalışan PNG'ler korunuyor. EPG XMLTV, gece yarısı, günlük üretim→Pages workflow_run ve cihaz kabulü *kaybolmayacak açık görev* olarak saklanır ama yeni EPG işi şimdi yapılmaz.
+- [ ] Her kategori eksik işi uygulandıktan sonra bir defalık 5 job toplu CI, gerçek artifact ve üretim kabul kanıtları. Ancak kullanıcı onayı ve 92/92 davranış eşdeğerliği sonrasında eski tetikler kontrollü devredilir. PR #71 birleştirilmez.
+
+**Önerilen başlangıç:** P0'daki son gerçek CI + güvenlik/izin ve 92 workflow eşdeğerlik açığını salt okunur kanıtla tespit et; sonra P1 arşiv/yedek güvenliği, P2 keşif, P3 aday testleri, P4 tek merkez ve en son ertelenen EPG. Kod değişikliğine geçmeden kullanıcıdan kapsamlı açık izin alınır. Geçmiş araştırma tamamlandı diye ilan edilmez, ertelendi diye kayıt düşülür.
