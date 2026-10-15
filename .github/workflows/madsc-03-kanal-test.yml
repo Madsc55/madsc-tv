@@ -62,6 +62,8 @@ jobs:
         if: always()
         with:
           name: madsc-kanal-test-tek-kosu-rapor
-          path: madsc_merkezi_denetim/
+          path: |
+            madsc_merkezi_denetim/
+            madsc_ana_liste_saglik/
           if-no-files-found: warn
 # Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.
