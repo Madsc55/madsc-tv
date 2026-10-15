@@ -1617,3 +1617,8 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 ## 2026-10-15 — EK RESTORE DOGRULAMASI
 - Kullanici beklemeden devam edilmesini istedi. MADSC 02 artifact restore adiminda gh run download ciktisinin madsc_kesif/ altinda veya artifact kokunde olabilmesi nedeniyle iki klasor yolu desteklendi; commit c98fcfc784e9adf5ebaf1bf2f1390ce7d8fc968a.
 - Dikkat: calisma dalindaki madsc_kesif/gecmis.json dosyasi 0 bayt olarak goruldu; ilk kosu bootstrap ve artifact kaynagi gercek Actions logunda dogrulanmadan kesif gecmisi tamamlandi DENEMEZ. Henuz yeni run baslatilmadi. Korunan playlistler ve eski 92 workflow degistirilmedi.
+
+## 2026-10-15 — ILK CALISTIRMA GECMISI DUZELTMESI
+- madsc_akilli_kesif.py: hic olmayan gecmis dosyasi (ilk calisma) ile mevcut 0 bayt/bozuk gecmis ayirt edildi; mevcut bos dosya hata verir, gecmis yoksa {} baslatilir. Commit be7b7071a17f38c5fbceb5bcda163107442510c4.
+- MADSC 02 restore adimi: ayni dalda onceki basarili run yoksa iki gecerli bos JSON history/channels dosyasi olusturup ilk kosuya izin verir; onceki run varsa artifact restore gerekir. Commit d83f7ee8388c2777d94541e20f1ac25df15e1ddf.
+- UYARI: gh run list sonucunun bos olmasi API/izin/yanlis workflow kimligi nedeniyle de olabilir; basarili gecmis olmadigi kesinlesmeden otomatik bootstrap guvenligi ayrica test edilmeli. Gercek CI kosusu henüz dogrulanmadi.
