@@ -124,3 +124,9 @@ Tarih: 2026-10-15
 - epg-gunluk.yml git add hedefleri: epg/madsc-epg.xml, epg/ibo-test-epg.xml, epg/report.json, epg/tv_kontrol_bekliyor.json. vod-guncelle.yml hedefi: vod/guncel-bolumler.json. Tam eslesme dogrulandi.
 - Iki uretim is akisinda da concurrency ve workflow_failure_gate.py baglantisi bulunmuyor; riskler acik.
 - Ilk deneme 38737947254 denetim regex hatasiyla basarisiz oldu; duzeltme sonrasi test gecti. Uretim workflow'lari ve gercek kanal dosyalari degistirilmedi.
+
+## 15. Test - EPG ve VOD cakisma gruplari
+- GitHub Actions 38738240149; commit b907be884d6a153ef5d3475d2adf45e6d91cd044; 19/19 adim basarili.
+- EPG icin madsc-epg-tek-kosu, VOD icin madsc-vod-tek-kosu adli birbirinden farkli sabit concurrency gruplari yapisal olarak denendi.
+- cancel-in-progress false ayari onaylandi; bu ayar mevcut isi iptal etmez ancak GitHub Actions pending siniri nedeniyle tum olaylarin mutlaka tek tek islenecegini garanti etmez.
+- Canli EPG/VOD workflow'larinda concurrency hala eksik. Gercek eszamanli calisma testi yapilmadi; uretim workflow'lari ve kanal listeleri degistirilmedi.
