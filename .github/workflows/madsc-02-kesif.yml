@@ -36,6 +36,19 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p madsc_kesif madsc_merkezi_denetim
+          # Checked-out history is authoritative; never replace it with an older artifact.
+          if [[ -e madsc_kesif/gecmis.json || -e madsc_kesif/ana_liste_test_gecmisi.json ]]; then
+            for file in gecmis.json ana_liste_test_gecmisi.json; do
+              key="channels"
+              [[ "${file}" == "gecmis.json" ]] && key="history"
+              if [[ ! -f "madsc_kesif/${file}" ]] || ! python3 -c 'import json,sys; d=json.load(open(sys.argv[1],encoding="utf-8")); assert isinstance(d,dict) and isinstance(d.get(sys.argv[2]),dict)' "madsc_kesif/${file}" "${key}"; then
+                echo "::error::Depodaki gecmis eksik veya bozuk: ${file}; otomatik sifirlama/geri yukleme yapilmadi."
+                exit 1
+              fi
+            done
+            echo "Depodaki dogrulanmis iki gecmis dosyasi korunarak kullaniliyor."
+            exit 0
+          fi
           run_ids="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 100 --json databaseId --jq '.[].databaseId')"
           if [[ -z "${run_ids}" ]]; then
             if [[ -e madsc_kesif/gecmis.json || -e madsc_kesif/ana_liste_test_gecmisi.json ]]; then
