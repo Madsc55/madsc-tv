@@ -1,32 +1,22 @@
-name: MADSC - Yedeklerde Turk Kanal Secimi
+name: MADSC - Historical protected audit - madsc-yedek-turk-ayir.yml
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-yedek-turk-ayir.yml'
+  workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: madsc-yedek-turk-ayir
+  group: madsc-historical-madsc-yedek-turk-ayir
   cancel-in-progress: false
 jobs:
-  ayir:
+  audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Guncel main'i yukle
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Yabanci ve kimligi belirsiz adaylari kayipsiz ayir
-        run: python3 scripts/keep_turkish_backups.py
-      - name: Korunan listeleri degistirmeden arşiv ve oynatici listesini kaydet
+        with:
+          persist-credentials: false
+      - name: Verify protected playlist remains unchanged
         run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/yedeklerden_ayrilanlar_*.m3u madsc_kesif/yedek_turk_ayirma_raporu.json
-          git diff --cached --quiet && exit 0
-          git commit -m "Archive non-Turkish and ambiguous backups; keep Turkish candidates for IBO"
-          git push origin HEAD:main
+          before="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          git diff --exit-code -- CALISANLAR.m3u
+          test "$before" = "$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
