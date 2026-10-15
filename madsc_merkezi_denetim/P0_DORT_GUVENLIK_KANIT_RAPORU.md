@@ -66,3 +66,10 @@ Tarih: 2026-10-15
 - Salt okunur `contents: read`, `persist-credentials: false`, yalnız test dalı için push tetikleyicisi, AST sözdizimi, dosya varlığı ve `git diff --exit-code` doğrulandı.
 - **Geçici push tetikleyicisi yalnız `madsc/p0-guvenli-yazma-kapisi-deneme-20261015` dalında; üretim otomasyonunun geri açıldığı anlamına gelmez.** Kullanıcının kararı: kalıcı olarak manuel-only bırakılmayacak. Gerekli otomatik işlevi koruyan güvenli tasarım, yazma yetkisi kapısı ve branch protection kanıtı tamamlanınca ayrı kabul/dağıtım yapılacak.
 - 21 eski workflow güvenlik kabul riski hâlâ açık. Bu prova 21 riski kapatmaz.
+
+## Turkce baslikli tarihsel surum testi - 15 Ekim 2026
+- GitHub Actions kosusu 38735532105, SHA 3244e46cffd763a8bc853fa6e68fbb501d4e15bb: 9/9 adim basarili.
+- Dort tarihsel CALISANLAR.m3u Git blob kimligi GitHub API uzerinden dogrulandi: b5ce4a752104, 2c5bbe376a20, a40e0df02d7a, d647b05a0137.
+- 11367 sahte YEDEKLER kaydi ile IBO betigi gecici dizinde basarili calisti; kaynak liste SHA256 degismedi.
+- Workflow adi ve adimlari Turkce numaralandirildi.
+- Sinir: Bu test her bir arsiv kanalinin eksiksiz oldugunu ve mevcut 2 yedek icin eski 11367 kararlarinin yeniden uygulanabilecegini kanitlamaz. Uretim yazma kapisi ve otomatik baslatma hala ACIK.
