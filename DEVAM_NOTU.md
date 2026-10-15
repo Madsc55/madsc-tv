@@ -1017,3 +1017,33 @@ Bu bölüm önceki 21 klasör hedefli kayda ektir. **Doğrudan okunan yeni dosya
 - `.github/workflows/birlesik-durum-raporu.yml`: bu daldaki okunan sürümde `workflow_dispatch` ve `main` üzerindeki seçili dosya değişiminde `push` tetikleri var; **schedule anahtarı yok**. Önceki notlardaki günlük 06:40/18:40 otomatik rapor iddiası ile güncel YAML arasında fark bulunuyor; cron gerçekten kaldırılmış mı, başka workflow devralmış mı, kullanıcı kararına aykırı mı araştırılmalı. Workflow dört JSON/rapor çıktısını 30 günlük artifact'a koyuyor, `contents: read`.
 
 **İşlem sınırı ve kanıt:** Bu ek yalnız dosya metninden yapılan statik incelemedir; Actions run, gerçek cihaz, tüm klasörlerin her alt dosyası ve main/çalışma dalı farkı doğrulanmadı. Korunan dosyalara dokunulmadı. Önceki 769/769 envanter sonucu, bu turdaki bağımsız 21 klasör yeniden taramasıyla eş anlamlı değildir.
+
+
+## 15 EKİM 2026 — KÖK DOSYALAR EK İNCELEME KAYDI
+
+Kapsam: Kullanıcının 10:14 ekranında görünen kök dosyalar. Bu kayıt mevcut notların sonuna eklenmiştir; önceki kararlar silinmez. Yalnız bu dosya güncellenir.
+
+### İncelenen kaynaklardan çıkarılan görevler
+- AGENTS.md: kullanıcı izni, değişiklik sonrası gerçek Actions kanıtı, eski kararları koruma, Türkçe iş adları ve tekrar testinden kaçınma kuralları sürdürülmeli.
+- GUVENLIK_KURALLARI.md: korunan dosyalara yazma yetkisi ile fiili engelleme ayrı ayrı denetlenmeli; otomasyonların hata durdurma zinciri ve branch protection kanıtı açık.
+- IPTV_PROJE_HAFIZASI.md: 9 Ekim tarihli 587 kanal tarihsel sayı; güncel sayı diye kullanılmaz. Ulusal kategori ana depo kararı, YENİLER'e ve ana listeye izinsiz eklememe kuralı korunur.
+- SEKIZ_GOREV_TOPLU_DENETIM.md: sekiz görevde SHA ve izole yedek testi mevcut; bağımsız harici yedek, kaynakların gerçek erişimi, kanal kimliği, lisans, logo, EPG ve İsveç IBO cihaz kanıtı açık. Kullanıcının ertelediği harici kopya izinsiz yapılmaz.
+- TOPLU_DURUM_RAPORU.md: 14 Ekim raporunda 92 eski workflow'un tetik çakışması, 1/15 yedek restore kanıtı, 75 adayın yeniden testi ve EPG cihaz görünürlüğü açık. Önceki #93 başarısızlığının log olmadan kesin kök nedeni belirlenmemiş. Teknik EPG raporu 1039 kayıt, 730 eşleşme, 23702 program; IBO onayı değildir.
+- OZELLIK_ENVANTERI.md: mevcut özellikleri tekrar geliştirmeden önce kurulu, kısmi ve eksik işlerin güncel Actions kanıtıyla eşleştirilmesi gerekiyor.
+- CALISMAYANLAR.txt: kanal adları güncel ve kalıcı arıza kanıtı sayılmamalı; TEST_RAPORU.csv ile kanal, URL ve test zamanı bazında karşılaştırılmalı.
+- TEST_RAPORU.csv: aynı kanalın başarılı ve başarısız alternatifleri bulunuyor; HTTP 403/404/timeout gerçek televizyon başarısızlığı değildir. IBO uyumluluğu etiketi cihaz testi yerine geçmez. Ham yayın URL'leri buraya aktarılmadı.
+- CALISANLAR.m3u, YENILER.m3u, YABANCI_KANALLAR.m3u, MADSC_TV_47_LISTE_ADAY.m3u: üretim, yeni aday, yabancı arşiv ve aday koleksiyonu ayrılmalı. Teknik adaylar onaysız ana listeye aktarılmaz. Bu dosyalarda hiçbir değişiklik yapılmadı.
+- aday_bekletme.py: aday geçmişi ve başarılı test sayısı tutar; iki başarılı koşu kanal kimliği veya IBO onayı değildir. Ham URL'nin state dosyasında saklanması erişim açısından denetlenmeli.
+- aday_hata_siniflandirma.py: 403, timeout ve coğrafi kısıt yorumları tek başına kesin hata sebebi değildir.
+- aday_oncelik_raporu.py: öncelik sıralaması kullanıcı onayı veya doğrulanmış kanal kimliği sağlamaz.
+- aday_tekrar_raporu.py: yalnız tam URL eşitliğine dayanan tekrar analizi farklı query ve alias biçimlerini kaçırabilir; kaynak geçmişi korunarak normalizasyon araştırılmalı.
+- akilli_tekrar_test_takvimi.py: last_seen ile gerçek son test zamanı ayrılmalı; önerilen tekrar aralıkları üç aşamalı testin tamamlandığı kanıtı değildir.
+
+### Kalan inceleme ve kanıt sınırları
+Ekranda kısaltılmış MADSC_2026-10-13_KA... ve ONCELIK_1_BES_MERKE... dosyalarının gerçek tam yolları henüz doğrulanmadı. Uzun playlist, CSV ve ana notun bütün satırları bu turda yeniden okunmadı. Bu kayıt incelenen kesitlerin bulgularını korur; tüm 20 kök dosya tam tarandı iddiası değildir. Ekran main dalını gösteriyor, kayıt ise madsc/bes-sistem-toplu-birlestirme dalına yapılıyor; iki dalın farkı ayrıca denetlenmeli.
+
+### Sonraki işler
+1. Kısaltılmış iki dosyanın gerçek yolunu bulup bütün not ve kararlarını karşılaştır.
+2. Uzun kaynakları parçalara bölerek tam oku ve kanal/rapor zamanlarını eşleştir.
+3. Görevleri tamamlandı, eksik, kullanıcı onayı bekliyor ve kanıtı yok olarak tekilleştir.
+4. Korunan kaynaklara dokunmadan ana notta kanıt bağlantıları ve kabul koşullarını tamamla.
