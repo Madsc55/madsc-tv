@@ -122,7 +122,32 @@ jobs:
           source = Path("CALISANLAR.m3u")
           print("Current playlist SHA256: " + hashlib.sha256(source.read_bytes()).hexdigest())
           PY
-      - name: 5 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 5 - Arsiv kayitlarini karar dosyasiyla tek tek karsilastir
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path("madsc_kesif")
+          report = json.loads((root / "ibo_3_5281_rapor.json").read_text(encoding="utf-8"))
+          decisions = list(csv.DictReader((root / "ibo_3_5281_kararlar.csv").open(encoding="utf-8", newline="")))
+          archive = (root / "ibo_3_5281_ayrilanlar.m3u").read_text(encoding="utf-8-sig").splitlines()
+          assert archive[0] == "#EXTM3U"
+          archived = [(archive[i], archive[i+1]) for i in range(1, len(archive), 2)]
+          expected = [row for row in decisions if row["action"] == "ARSIVE_ALINDI"]
+          kept = [row for row in decisions if row["action"] == "YEDEKLERDE_KALDI"]
+          assert len(decisions) == 5279, "Decision count mismatch"
+          assert len(expected) == report["foreign_archived"] == 5252
+          assert len(kept) == report["turkish_kept_in_range"] == 27
+          assert len(archived) == len(expected)
+          assert [url for _, url in archived] == [row["url"] for row in expected]
+          assert [int(row["original_position_in_11367"]) for row in kept] == report["kept_turkish_positions"]
+          assert report["previous_backup"] - report["foreign_archived"] == report["remaining_backup"]
+          print("5252 archive URLs match decisions in order; 27 kept decisions verified")
+          PY
+      - name: 6 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
