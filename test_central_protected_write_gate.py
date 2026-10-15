@@ -18,7 +18,7 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             (folder / "madsc-01-guvenlik.yaml").write_text(
-                "name: Test\\non: workflow_dispatch\\npermissions:\\n  contents: read\\njobs:\\n  check:\\n    runs-on: ubuntu-latest\\n    permissions:\\n      contents: write\\n    steps:\\n      - run: echo ok\\n",
+                "name: Test\non: workflow_dispatch\npermissions:\n  contents: read\njobs:\n  check:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - run: echo ok\n",
                 encoding="utf-8",
             )
             report = inspect(root)
