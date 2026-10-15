@@ -853,6 +853,10 @@ jobs:
               raw = (root / name).read_text(encoding="utf-8")
               assert "contents: write" in raw, name
               print("INCELEME BEKLEYEN YAZMA YETKISI:", name)
+          # Risk envanterini gecis kosulu gibi gostermeden gercek korumayi denetle.
+          for name in ("madsc-uc-asama.yml", "madsc-son-kontrol.yml"):
+              raw = (root / name).read_text(encoding="utf-8")
+              assert "git push origin HEAD:main" in raw, (name, "risk envanteri degisti; yeniden incele")
           source = (root / "madsc-genis-kaynak-kontrol.yml").read_text(encoding="utf-8")
           assert "contents: read" in source and "contents: write" not in source
           assert "git push" not in source and "dispatches" not in source
