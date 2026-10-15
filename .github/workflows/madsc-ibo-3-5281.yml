@@ -54,7 +54,17 @@ jobs:
               sandbox = Path(temp)
               (sandbox / "scripts").mkdir()
               (sandbox / "madsc_kesif").mkdir()
-              shutil.copy2(source, sandbox / "CALISANLAR.m3u")
+              # Historical 11367-entry layout is required by this one-time writer.
+              # Build a synthetic fixture; never invent or rewrite real channel data.
+              fixture = ["#EXTM3U\\n"]
+              for position in range(1, 11368):
+                  fixture.append(
+                      f'#EXTINF:-1 group-title="📦 YEDEKLER (11367)",Synthetic backup {position}\\n'
+                  )
+                  fixture.append(f'https://example.invalid/backup/{position}\\n')
+              (sandbox / "CALISANLAR.m3u").write_text(
+                  "".join(fixture), encoding="utf-8"
+              )
               shutil.copy2(root / "scripts/apply_ibo_3_5281.py", sandbox / "scripts/apply_ibo_3_5281.py")
               result = subprocess.run(
                   [sys.executable, "scripts/apply_ibo_3_5281.py"],
@@ -67,7 +77,7 @@ jobs:
               for name in ("ibo_3_5281_ayrilanlar.m3u", "ibo_3_5281_kararlar.csv", "ibo_3_5281_rapor.json"):
                   if not (sandbox / "madsc_kesif" / name).is_file():
                       raise SystemExit("Missing simulation artifact: " + name)
-              print("IBO transformation succeeded on disposable copy only")
+              print("IBO transformation succeeded on synthetic 11367-entry disposable fixture only")
           after = hashlib.sha256(source.read_bytes()).hexdigest()
           if before != after:
               raise SystemExit("Protected source playlist changed")
