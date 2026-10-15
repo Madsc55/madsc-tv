@@ -1613,3 +1613,7 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - .github/workflows/madsc-02-kesif.yml dosyasina onceki ayni dalin basarili MADSC 02 kosusunun madsc-kesif-tek-kosu-rapor artifact'ini gh run list/download ile alma, gecmis.json ve ana_liste_test_gecmisi.json JSON sozluk yapisini kontrol edip madsc_kesif/ altina yukleme adimi eklendi. Commit 08971e86d09095d2fd931f1d8fce1a3c2fcca008.
 - Onceki basarili kosu veya gerekli artifact yoksa islem hata verir; sessiz sifirlama yapmaz. Ilk calisma (bootstrap), artifact klasor yapisi ve izinler gercek Actions run'inda HENUZ DOGRULANMADI. Basari iddia etme. Bu adim ile kodun gecmis kontrolu birlikte incelenmeli. actions: read yetkisi mevcut.
 - Bu turda korunan playlistler, 92 eski workflow, main ve arsivler degistirilmedi. Yeni test/workflow dosyasi olusturulmadi.
+
+## 2026-10-15 — EK RESTORE DOGRULAMASI
+- Kullanici beklemeden devam edilmesini istedi. MADSC 02 artifact restore adiminda gh run download ciktisinin madsc_kesif/ altinda veya artifact kokunde olabilmesi nedeniyle iki klasor yolu desteklendi; commit c98fcfc784e9adf5ebaf1bf2f1390ce7d8fc968a.
+- Dikkat: calisma dalindaki madsc_kesif/gecmis.json dosyasi 0 bayt olarak goruldu; ilk kosu bootstrap ve artifact kaynagi gercek Actions logunda dogrulanmadan kesif gecmisi tamamlandi DENEMEZ. Henuz yeni run baslatilmadi. Korunan playlistler ve eski 92 workflow degistirilmedi.
