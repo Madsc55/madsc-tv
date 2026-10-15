@@ -833,3 +833,25 @@ jobs:
               assert "git diff --exit-code -- CALISANLAR.m3u" in raw, name
               print("KANAL YAZICISI IZOLASYONU DOGRU:", name)
           PY
+
+      - name: 31 - Bes kritik baslik icin kanit ve acik risk envanteri
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          root = Path(".github/workflows")
+          protected = ("CALISANLAR.m3u", "AGENTS.md", "GUVENLIK_KURALLARI.md")
+          for name in protected:
+              assert Path(name).is_file(), name
+          safe = ("madsc-ibo-ilk-239.yml", "madsc-arsiv-yedek-aktarim.yml", "madsc-ibo-364-355-364.yml", "madsc-11599-yedek-geri-yukle.yml", "madsc-turk-kanal-geri-sec.yml", "madsc-yedek-turk-ayir.yml")
+          for name in safe:
+              raw = (root / name).read_text(encoding="utf-8")
+              assert "contents: read" in raw and "contents: write" not in raw, name
+              assert "  push:" not in raw and "  schedule:" not in raw, name
+          remaining = ("madsc-genis-kaynak-kontrol.yml", "madsc-uc-asama.yml", "madsc-son-kontrol.yml")
+          for name in remaining:
+              raw = (root / name).read_text(encoding="utf-8")
+              assert "contents: write" in raw, name
+              print("INCELEME BEKLEYEN YAZMA YETKISI:", name)
+          print("KORUNAN DOSYALAR VAR; BRANCH PROTECTION API VE 26 KURAL URETIM ONAYI AYRI BEKLIYOR")
+          PY
