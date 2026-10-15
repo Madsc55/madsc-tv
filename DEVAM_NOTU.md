@@ -1884,3 +1884,159 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 - Ek 5 merkezi workflow: madsc-01-guvenlik.yml, madsc-02-kesif.yml, madsc-03-kanal-test.yml, madsc-04-arsiv-yedek.yml, madsc-05-genel-bakim.yml. Hedef beşli mimaride EPG ve Logo ayri kategori olarak isteniyor; mevcut merkezi 04/05 adlari hedef mimariyle birebir ayni degil.
 - Inceleme plani: 92 eski YAML + 5 merkezi YAML + 103 test olmayan Python programi + 38 test dosyasi + 2 .github/commands dosyasi; her birini gorev, cagiran/cagirilan baglantisi, veri okuma/yazma, risk, tekrar/ortusme, beklenen cikti, test durumu ve hedef kategoriyle eslestir. Kapsam disinda kalan diger dosyalar da veri/rapor/yedek/konfigurasyon bagimliligi olarak envanterde tutulur. Hicbirini silme, birlestirme veya calistirma izni otomatik varsayilmaz.
 - Bu turda dosya agaci sayimi yapildi; bu 103 programin tamamini okuma veya test etme iddiasi DEGIL. Korunan M3U ve yedeklere dokunulmadi.
+
+
+## 2026-10-15 — 92 WORKFLOW DISINDAKI CALISAN KOD, TEST VE KOMUT DOSYALARI ENDEKSI
+- Git tree SHA 99f117f634e8c1d7fa1e282f16082dde67518264. 92 eski + 5 yeni workflow DISINDA otomasyonla iliskili Python ve komut dosyalari envanteri. Kapsam: scripts/ Python 69; tools/ Python 17; Kok Python (test disi) 19; Birim testleri 38; GitHub komut tarifleri 2. Toplam 145 benzersiz dosya (kok testleri cift sayilmadi).
+- Bu dosyalar GitHub Actions workflow DEGILDIR; workflowlar tarafindan cagrilabilen is mantigi, yardimci arac, test veya komut tarifleridir. Ayni islevleri tekrar ediyor olabilirler; dosya adindan ayni davranis kanitlanamaz. Her dosyanin gorevi asagida isimden elde edilen ON TAHMINDIR. Kaynak kod, bagimlilik, cikti, yan etki ve testler ayrica incelenmeden TAMAM denmez.
+- Onemli: apply, restore, backup, aktar, ekle, guncelle, sync, silme/yazma davranisi olabilecek dosyalar YUKSEK RISK olarak ayri izolasyon gerektirir; hicbiri burada calistirilmadi. Kanal listeleri ve yedeklere dokunulmadi.
+
+| # | Dosya | Tur | Dosya adina gore olasi gorev | Gecici besli kategori | Inceleme durumu |
+|---:|---|---|---|---|---|
+| 1 | `scripts/akilli_aday_puanla.py` | scripts/ Python | akilli aday puanla | 2 Kesif | Kod ve izole test bekliyor |
+| 2 | `scripts/ana_liste_saglik.py` | scripts/ Python | ana liste saglik | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 3 | `scripts/apply_ibo_3_5281.py` | scripts/ Python | apply ibo 3 5281 | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 4 | `scripts/apply_ibo_6115_second.py` | scripts/ Python | apply ibo 6115 second | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 5 | `scripts/apply_ibo_decisions_group1.py` | scripts/ Python | apply ibo decisions group1 | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 6 | `scripts/apply_ibo_first_239_decisions.py` | scripts/ Python | apply ibo first 239 decisions | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 7 | `scripts/apply_ibo_second_voice.py` | scripts/ Python | apply ibo second voice | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 8 | `scripts/apply_ibo_session2_6115.py` | scripts/ Python | apply ibo session2 6115 | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 9 | `scripts/archive_backups_16_49.py` | scripts/ Python | archive backups 16 49 | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 10 | `scripts/archive_backups_354_classified.py` | scripts/ Python | archive backups 354 classified | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 11 | `scripts/archive_backups_355_364.py` | scripts/ Python | archive backups 355 364 | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 12 | `scripts/archive_backups_399_onward.py` | scripts/ Python | archive backups 399 onward | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 13 | `scripts/automatic_png_logos.py` | scripts/ Python | automatic png logos | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 14 | `scripts/birlesik_aday_raporu.py` | scripts/ Python | birlesik aday raporu | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 15 | `scripts/build_epg.py` | scripts/ Python | build epg | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 16 | `scripts/build_ibo_epg_test.py` | scripts/ Python | build ibo epg test | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 17 | `scripts/bulk_integrity_gate.py` | scripts/ Python | bulk integrity gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 18 | `scripts/candidate_epg_logo_join.py` | scripts/ Python | candidate epg logo join | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 19 | `scripts/candidate_logo_missing_report.py` | scripts/ Python | candidate logo missing report | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 20 | `scripts/candidate_logo_report.py` | scripts/ Python | candidate logo report | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 21 | `scripts/central_all_remaining_tasks.py` | scripts/ Python | central all remaining tasks | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 22 | `scripts/central_archive_consistency.py` | scripts/ Python | central archive consistency | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 23 | `scripts/central_backup_evidence.py` | scripts/ Python | central backup evidence | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 24 | `scripts/central_consolidation_audit.py` | scripts/ Python | central consolidation audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 25 | `scripts/central_duplicate_test_audit.py` | scripts/ Python | central duplicate test audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 26 | `scripts/central_eight_task_audit.py` | scripts/ Python | central eight task audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 27 | `scripts/central_eighteen_task_audit.py` | scripts/ Python | central eighteen task audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 28 | `scripts/central_failure_stage_report.py` | scripts/ Python | central failure stage report | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 29 | `scripts/central_ibo_review_queue.py` | scripts/ Python | central ibo review queue | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 30 | `scripts/central_identity_epg_logo_audit.py` | scripts/ Python | central identity epg logo audit | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 31 | `scripts/central_isolated_git_restore.py` | scripts/ Python | central isolated git restore | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 32 | `scripts/central_main_playlist_run_evidence.py` | scripts/ Python | central main playlist run evidence | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 33 | `scripts/central_management_summary.py` | scripts/ Python | central management summary | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 34 | `scripts/central_open_gaps.py` | scripts/ Python | central open gaps | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 35 | `scripts/central_protected_write_gate.py` | scripts/ Python | central protected write gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 36 | `scripts/central_run_status.py` | scripts/ Python | central run status | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 37 | `scripts/central_short_status.py` | scripts/ Python | central short status | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 38 | `scripts/central_single_screen_report.py` | scripts/ Python | central single screen report | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 39 | `scripts/central_six_area_audit.py` | scripts/ Python | central six area audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 40 | `scripts/central_source_reconciliation.py` | scripts/ Python | central source reconciliation | 2 Kesif | Kod ve izole test bekliyor |
+| 41 | `scripts/central_workflow_inventory.py` | scripts/ Python | central workflow inventory | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 42 | `scripts/disaster_recovery_dry_run.py` | scripts/ Python | disaster recovery dry run | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 43 | `scripts/discovery_archive.py` | scripts/ Python | discovery archive | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 44 | `scripts/epg_tv_readiness.py` | scripts/ Python | epg tv readiness | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 45 | `scripts/export_ibo_two_stage_trial.py` | scripts/ Python | export ibo two stage trial | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 46 | `scripts/five_category_92_workflow_audit.py` | scripts/ Python | five category 92 workflow audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 47 | `scripts/five_category_permission_gate.py` | scripts/ Python | five category permission gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 48 | `scripts/five_category_preflight.py` | scripts/ Python | five category preflight | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 49 | `scripts/five_system_migration_audit.py` | scripts/ Python | five system migration audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 50 | `scripts/four_stage_discovery_report.py` | scripts/ Python | four stage discovery report | 2 Kesif | Kod ve izole test bekliyor |
+| 51 | `scripts/full_system_backup.py` | scripts/ Python | full system backup | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 52 | `scripts/genel_aday_medya_test.py` | scripts/ Python | genel aday medya test | 2 Kesif | Kod ve izole test bekliyor |
+| 53 | `scripts/ibo_bagimsiz_test_listesi.py` | scripts/ Python | ibo bagimsiz test listesi | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 54 | `scripts/ibo_epg_kimlik_denetimi.py` | scripts/ Python | ibo epg kimlik denetimi | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 55 | `scripts/kanal_kararlilik_takip.py` | scripts/ Python | kanal kararlilik takip | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 56 | `scripts/keep_turkish_backups.py` | scripts/ Python | keep turkish backups | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 57 | `scripts/logo_visual_evidence.py` | scripts/ Python | logo visual evidence | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 58 | `scripts/oncelikli_kanal_dogrula.py` | scripts/ Python | oncelikli kanal dogrula | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 59 | `scripts/protected_playlist_audit.py` | scripts/ Python | protected playlist audit | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 60 | `scripts/recover_turkish_backups.py` | scripts/ Python | recover turkish backups | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 61 | `scripts/repository_settings_inventory.py` | scripts/ Python | repository settings inventory | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 62 | `scripts/restore_all_11599_backups.py` | scripts/ Python | restore all 11599 backups | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 63 | `scripts/restore_dry_run.py` | scripts/ Python | restore dry run | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 64 | `scripts/stage_archive_to_backups.py` | scripts/ Python | stage archive to backups | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 65 | `scripts/sync_yedekler_category_count.py` | scripts/ Python | sync yedekler category count | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 66 | `scripts/test_kanal_adaylari.py` | scripts/ Python | test kanal adaylari | 2 Kesif | Kod ve izole test bekliyor |
+| 67 | `scripts/vod_guncelle.py` | scripts/ Python | vod guncelle | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 68 | `scripts/yedekler_yeniler_medya_kontrol.py` | scripts/ Python | yedekler yeniler medya kontrol | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 69 | `scripts/yeniler_aktar.py` | scripts/ Python | yeniler aktar | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 70 | `tools/candidate_status_summary.py` | tools/ Python | candidate status summary | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 71 | `tools/change_simulation.py` | tools/ Python | change simulation | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 72 | `tools/channel_stability.py` | tools/ Python | channel stability | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 73 | `tools/cuma_denetim_uyari_ozeti.py` | tools/ Python | cuma denetim uyari ozeti | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 74 | `tools/eksik_turk_kanal_takibi.py` | tools/ Python | eksik turk kanal takibi | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 75 | `tools/genel_sistem_bakimi.py` | tools/ Python | genel sistem bakimi | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 76 | `tools/genis_kaynak_taramasi.py` | tools/ Python | genis kaynak taramasi | 2 Kesif | Kod ve izole test bekliyor |
+| 77 | `tools/guncel_test_durum_ozeti.py` | tools/ Python | guncel test durum ozeti | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 78 | `tools/haftalik_ana_liste_denetimi.py` | tools/ Python | haftalik ana liste denetimi | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 79 | `tools/kaynak_kapsam_denetimi.py` | tools/ Python | kaynak kapsam denetimi | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 80 | `tools/logo_epg_audit.py` | tools/ Python | logo epg audit | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 81 | `tools/sistem_saglik_denetimi.py` | tools/ Python | sistem saglik denetimi | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 82 | `tools/son_kontrol_yedekler_aktar.py` | tools/ Python | son kontrol yedekler aktar | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 83 | `tools/test_adaylarini_yedege_hazirla.py` | tools/ Python | test adaylarini yedege hazirla | 2 Kesif | Kod ve izole test bekliyor |
+| 84 | `tools/workflow_failure_gate.py` | tools/ Python | workflow failure gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 85 | `tools/workflow_safety.py` | tools/ Python | workflow safety | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 86 | `tools/yedekler_guvenli_ekle.py` | tools/ Python | yedekler guvenli ekle | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 87 | `aday_bekletme.py` | Kok Python (test disi) | aday bekletme | 2 Kesif | Kod ve izole test bekliyor |
+| 88 | `aday_hata_siniflandirma.py` | Kok Python (test disi) | aday hata siniflandirma | 2 Kesif | Kod ve izole test bekliyor |
+| 89 | `aday_oncelik_raporu.py` | Kok Python (test disi) | aday oncelik raporu | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 90 | `aday_tekrar_raporu.py` | Kok Python (test disi) | aday tekrar raporu | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 91 | `akilli_tekrar_test_takvimi.py` | Kok Python (test disi) | akilli tekrar test takvimi | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 92 | `altinci_aday_tekrar_test.py` | Kok Python (test disi) | altinci aday tekrar test | 2 Kesif | Kod ve izole test bekliyor |
+| 93 | `final_validation.py` | Kok Python (test disi) | final validation | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 94 | `gelismis_medya_testi.py` | Kok Python (test disi) | gelismis medya testi | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 95 | `genis_kanal_tara.py` | Kok Python (test disi) | genis kanal tara | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 96 | `iptv_test.py` | Kok Python (test disi) | iptv test | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 97 | `kaynak_degisiklik_raporu.py` | Kok Python (test disi) | kaynak degisiklik raporu | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 98 | `kaynak_guven_puani.py` | Kok Python (test disi) | kaynak guven puani | 2 Kesif | Kod ve izole test bekliyor |
+| 99 | `kaynak_kesfet.py` | Kok Python (test disi) | kaynak kesfet | 2 Kesif | Kod ve izole test bekliyor |
+| 100 | `madsc_akilli_kesif.py` | Kok Python (test disi) | madsc akilli kesif | 2 Kesif | Kod ve izole test bekliyor |
+| 101 | `madsc_uc_asama.py` | Kok Python (test disi) | madsc uc asama | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 102 | `verification_pipeline.py` | Kok Python (test disi) | verification pipeline | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 103 | `yanlis_pozitif_koruma.py` | Kok Python (test disi) | yanlis pozitif koruma | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 104 | `yeni_aday_on_test.py` | Kok Python (test disi) | yeni aday on test | 2 Kesif | Kod ve izole test bekliyor |
+| 105 | `yeni_kanal_tara.py` | Kok Python (test disi) | yeni kanal tara | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 106 | `test_akilli_tekrar_test_takvimi.py` | Birim testleri | test akilli tekrar test takvimi | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 107 | `test_ana_liste_saglik.py` | Birim testleri | test ana liste saglik | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 108 | `test_bes_is_tek_dosya.py` | Birim testleri | test bes is tek dosya | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 109 | `test_candidate_logo_missing_report.py` | Birim testleri | test candidate logo missing report | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 110 | `test_central_all_remaining_tasks.py` | Birim testleri | test central all remaining tasks | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 111 | `test_central_archive_consistency.py` | Birim testleri | test central archive consistency | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 112 | `test_central_backup_evidence.py` | Birim testleri | test central backup evidence | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 113 | `test_central_consolidation_audit.py` | Birim testleri | test central consolidation audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 114 | `test_central_duplicate_test_audit.py` | Birim testleri | test central duplicate test audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 115 | `test_central_eight_task_audit.py` | Birim testleri | test central eight task audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 116 | `test_central_eighteen_task_audit.py` | Birim testleri | test central eighteen task audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 117 | `test_central_failure_stage_report.py` | Birim testleri | test central failure stage report | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 118 | `test_central_ibo_review_queue.py` | Birim testleri | test central ibo review queue | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 119 | `test_central_identity_epg_logo_audit.py` | Birim testleri | test central identity epg logo audit | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 120 | `test_central_isolated_git_restore.py` | Birim testleri | test central isolated git restore | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 121 | `test_central_main_playlist_run_evidence.py` | Birim testleri | test central main playlist run evidence | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 122 | `test_central_management_summary.py` | Birim testleri | test central management summary | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 123 | `test_central_open_gaps.py` | Birim testleri | test central open gaps | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 124 | `test_central_protected_write_gate.py` | Birim testleri | test central protected write gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 125 | `test_central_run_status.py` | Birim testleri | test central run status | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 126 | `test_central_short_status.py` | Birim testleri | test central short status | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 127 | `test_central_single_screen_report.py` | Birim testleri | test central single screen report | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 128 | `test_central_source_reconciliation.py` | Birim testleri | test central source reconciliation | 2 Kesif | Kod ve izole test bekliyor |
+| 129 | `test_central_workflow_inventory.py` | Birim testleri | test central workflow inventory | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 130 | `test_epg_pilot.py` | Birim testleri | test epg pilot | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 131 | `test_epg_tv_readiness.py` | Birim testleri | test epg tv readiness | 4 EPG ve Logo | Kod ve izole test bekliyor |
+| 132 | `test_final_validation.py` | Birim testleri | test final validation | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 133 | `test_five_category_92_workflow_audit.py` | Birim testleri | test five category 92 workflow audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 134 | `test_five_category_permission_gate.py` | Birim testleri | test five category permission gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 135 | `test_five_system_migration_audit.py` | Birim testleri | test five system migration audit | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 136 | `test_sistem_saglik_denetimi.py` | Birim testleri | test sistem saglik denetimi | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 137 | `test_tek_merkez_tetikleme.py` | Birim testleri | test tek merkez tetikleme | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 138 | `test_toplu_durum_raporu.py` | Birim testleri | test toplu durum raporu | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 139 | `test_verification_pipeline.py` | Birim testleri | test verification pipeline | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 140 | `test_workflow_failure_gate.py` | Birim testleri | test workflow failure gate | 1 Guvenlik ve Saglik | Kod ve izole test bekliyor |
+| 141 | `test_yedekler_teknik_aktar.py` | Birim testleri | test yedekler teknik aktar | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 142 | `tests/test_gelismis_medya_zaman_asimi.py` | Birim testleri | test gelismis medya zaman asimi | 3 Kanal Testleri | Kod ve izole test bekliyor |
+| 143 | `tests/test_kaynak_guven_puani.py` | Birim testleri | test kaynak guven puani | 2 Kesif | Kod ve izole test bekliyor |
+| 144 | `.github/commands/aday-yedekleme.txt` | GitHub komut tarifleri | aday yedekleme | 5 Arsiv ve Bakim | Kod ve izole test bekliyor |
+| 145 | `.github/commands/genel-guncelleme.txt` | GitHub komut tarifleri | genel guncelleme | 3 Kanal Testleri | Kod ve izole test bekliyor |
+
+- Sonraki asama: workflow -> script -> test -> rapor -> korunan dosya bagimlilik grafigi olustur; ayni isi yapan kodlari kaynak ve davranis kanitiyla eslestir; tekrarlari raporla, eski kodlari silme veya birlestirme. Oncelik 1 Guvenlik ve Saglik. Kaynak kodu ve gercek testleri incelenmemis dosyalari test gecti diye etiketleme.
