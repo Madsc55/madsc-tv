@@ -2192,3 +2192,56 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 
 - Birlesim adaylari: kesif/kaynak kapsaminda genis_kaynak_taramasi + yeni_kanal_tara; dogrulama/testte verification_pipeline + yeni_aday_on_test + yanlis_pozitif_koruma; saglik raporlarinda genel_sistem_bakimi + haftalik_ana_liste_denetimi + cuma_denetim_uyari_ozeti + guncel_test_durum_ozeti. Bunlar dogrudan birebir esdeger degil, ortak motor ve farkli gorunum/alt moduller adayi.
 - tools/son_kontrol_yedekler_aktar.py YEDEKLER icin aday hazirlama islevi nedeniyle ONAY GEREKLI / KORUNAN DOSYA RISKI grubunda tutulur; ana liste ve yedekler uzerinde otomatik calistirilmaz.
+
+ 
+## 2026-10-16 — YENI SOHBETE GECIS ICIN KESIN DEVIR NOTU (ONCELIKLI)
+
+### Proje ve degistirilemez kurallar
+- Depo: Madsc55/madsc-tv. Yalniz dal: madsc/bes-sistem-toplu-birlestirme. PR #71 TASLAK kalacak; main dalina dokunma, birlestirme yapma.
+- Merkezi ve tek devam notu: DEVAM_NOTU.md. Kullanicinin yeni acik izni olmadan SADECE bu not dosyasini guncelle. Eski workflow, kod, kanal, yedek ve rapor dosyalarini degistirme.
+- CALISANLAR.m3u, CALISMAYANLAR.txt, YENILER.m3u, YABANCI_KANALLAR.m3u, favoriler, siralama, kategoriler ve yedekler korunur. Yeni kesfedilen kanallar hicbir listeye veya yedege onaysiz eklenmez. IBO Player nihai kabulunu yalniz kullanici yapar.
+- 92 legacy workflow'u davranissal esdegerlik kaniti olmadan silme, kapatma veya tek merkezle degistirme. GUVENLIK_KURALLARI.md 24 numarali kural icerir; baska notlarda 26 gecmesi kanit degildir.
+
+### Kesin kapsam ve sayilar
+- Tam Git tree referansi 99f117f634e8c1d7fa1e282f16082dde67518264 (onceki anlik goruntu, guncelligini kontrol et). 97 GitHub Actions YAML = 92 eski + 5 yeni merkezi workflow.
+- Workflow disi 145 dosya: scripts/ altinda 69 Python; tools/ altinda 17 Python; kokte test harici 19 Python; 38 Python test dosyasi; .github/commands/ altinda 2 komut tarifi.
+- Onceki kod incelemeleri: 29 + 20 + 40 + 16 = 105 BENZERSIZ ek Python kaynak dosyasi acilip islev/yazma sinyalleri incelendi. 145 toplam icinde 40 henuz kaynak kodu okunmadi (38 test dosyasinin tamami bu sayima dahildir). Daha sonra ayrica 12 Python test dosyasinin kodu okundu; bu 12 dosya 105 icinde daha once sayilmamisti, dolayisiyla gercek kaynak okuma kapsami 117/145, kalan 28. Bu 12 test dosyasi GitHub notuna ancak simdi kaydediliyor. Kod okunmasi test calistirma DEGILDIR.
+- Bu turda diger 12 test dosyasini toplu acma denemesi yapildi, ancak sonuc arayuze donmedi; BASARILI KABUL ETME, yeniden ac.
+- Testlerin HICBIRI bu turda calistirilmadi; runtime PASS, IBO cihaz testi, 92 workflow esdegerligi iddia etme.
+
+### 12 test dosyasinin gercek kodu incelendi (test fonksiyonlari tespit edildi)
+1. test_five_category_92_workflow_audit.py — 92 legacy kapsami, eksik script, inline workflow ve kanitsiz gecis blokajlari (5 test).
+2. test_five_category_permission_gate.py — shadow izinleri, heredoc yaniltmasi, nested write yetkisi ve read-only beklentisi (4 test).
+3. test_five_system_migration_audit.py — 5 workflow eksik dispatch/parity ve bos repo fail-closed (3 test).
+4. test_central_all_remaining_tasks.py — 8 is, izole restore, tam yedek, olcum ve eksik kanit (5 test).
+5. test_central_archive_consistency.py — gercek yedek sayisi, eski etiket, eksik metadata (3 test).
+6. test_central_backup_evidence.py — korunan dosya ve geri yukleme kanit siniri (1 test).
+7. test_central_consolidation_audit.py — tek merkez tetikleme, gereksiz push, guvenlik, eksik kanit ve kabul sinirlari (14 test).
+8. test_central_duplicate_test_audit.py — tekrar test ve bozuk gecmis ayrimi (2 test).
+9. test_central_eight_task_audit.py — 8 gorev, eksik kanit, korunan dosya (3 test).
+10. test_central_eighteen_task_audit.py — 18 gorev, bes asama, eksik dosya (2 test).
+11. test_central_protected_write_gate.py — workflow write izinleri, legacy belirsizlikleri, korunan dosyaya yazmama (5 test).
+12. test_sistem_saglik_denetimi.py — izin, hata, aday, EPG, concurrency ve fail-closed saglik (8 test).
+- Bunlar testlerin neyi dogrulamaya CALISTIGINI gosterir; kosu sonucu degildir.
+
+### Koddan dogrulanan risk ve birlestirme adaylari
+- KRITIK YAZMA: iptv_test.py CALISANLAR.m3u ve CALISMAYANLAR.txt; tools/yedekler_guvenli_ekle.py, scripts/stage_archive_to_backups.py, scripts/restore_all_11599_backups.py, scripts/keep_turkish_backups.py, scripts/recover_turkish_backups.py, scripts/apply_ibo_*.py, scripts/archive_backups_*.py, scripts/sync_yedekler_category_count.py CALISANLAR.m3u; scripts/yeniler_aktar.py YENILER.m3u. tools/test_adaylarini_yedege_hazirla.py yedekler/ altina yazar. Kullanici onayi olmadan bunlari CALISTIRMA.
+- BIRLESTIRME ADAYLARI: (1) kesif/kaynak tarama/aday karantina/tekrar testi, (2) kanal ffprobe ve kararlilik, (3) EPG/logo/kanal kimligi, (4) guvenlik ve workflow write-gate, (5) yedek butunlugu ve izole restore, (6) merkezi 6/8/18 gorev raporlari, (7) Actions kosu/hata raporlari, (8) IBO karar/arsiv isleme — sonuncusu yuksek riskli ve tarihsel pozisyonlara bagli.
+- Tekrarlanan isler icin yeni ortak motor + ayri modul/rapor gorunumleri planla; kodlari birlestirmeden ONCE input/output, sema, yan etki, hata davranisi, zamanlama, karsilastirmali fixture testleri ve kullanici onayi gerekir.
+- Bes kategori SIRASI: 1 Guvenlik ve Saglik; 2 Kesif; 3 Kanal Testleri; 4 EPG ve Logo; 5 Arsiv ve Bakim. Eski five_category_92_workflow_audit.py siniflandirmasi bu sirayla tam uyusmuyor, kanit olmadan yeniden etiketleme yapma.
+
+### Siradaki somut isler
+1. 12 test dosyasinin bu turdaki gercek kod incelemesini notlara ekledikten sonra kalan 28 dosyayi kucuk gruplarla GitHub fetch_file ile oku; her birinin test adlarini, girdilerini, mock/fixture kullanimini, yazma etkilerini ve test ettigi programi kaydet.
+2. Iki GitHub komut tarifi .github/commands/aday-yedekleme.txt ve .github/commands/genel-guncelleme.txt 145 kapsamina dahil; gercek metnini oku.
+3. DEVAM_NOTU.md icindeki eski tekrarli notlari incele, uyusmazliklari belirle; kullanicinin istedigi tek birlestirilmis kanonik durum ozeti olustur, ama tarihi kaniti silme ve korunan kodlari degistirme.
+4. 92 workflow YAML ve cagrilan kodlar arasinda workflow -> script -> test -> cikti -> korunan dosya bagimlilik matrisi kur. Kodlari silme/kapama.
+5. Yalniz guvenli, izole, yan etkisiz fixture testleri kullan. Eger mevcut araclarla calistirma mumkun degilse acikca TEST YAPILMADI de.
+6. Her ilerlemeyi DEVAM_NOTU.md'ye dogru sayilar ve GitHub commit kanitiyla kaydet; kullanicidan surekli 'devam et' bekleme.
+
+### Kayitlar
+- 145 dosyalik ilk envanter ea4c603c962de62c7459467b8c7cd911aee3150c.
+- Ilk 29 kod incelemesi 2302dec73477e9dc8515b7c5d936221f6846e20a.
+- Sonraki 20 kod incelemesi d1805214668a867ef4df4e90126ebd955ac7c298.
+- Sonraki 40 kod incelemesi 31fdc2809f0255edaaa09b282d8e9bd929d61115.
+- Sonraki 16 kod incelemesi 5a429944c2bca222b2b7e11f06ff71a2c5bb40f0.
+- En guncel devir kaydi bu bolumu ekleyen commit.
