@@ -2521,3 +2521,9 @@ Toplam bu dalda ortaklasan eski cagiran dosya sayisi 7 (3 kanal normalizasyonu +
 - tests/test_discovery_m3u_parser.py izolasyon fixture eklendi (1109bd651760d6a398045e21e950418ac88ef7df); testler henuz GitHub Actions veya yerel Python ile calistirilmadi. PASS iddiasi yok.
 - Mevcut ortak moduller: channel_name_normalization.py, scripts/evidence_reader.py, discovery_m3u_parser.py. Ortak kodu kullanan benzersiz eski dosya: 8 (genis_kanal_tara, yeni_kanal_tara, liste_kontrol/build, central_open_gaps, central_short_status, central_single_screen_report, central_identity_epg_logo_audit, central_management_summary).
 - Kalan: farkli M3U parser profilleri, kesif fetch, medya probe, EPG/logo, test gecmisi, workflow parity. Hicbir eski workflow kapatilmadi, playlistler degistirilmedi. Kullanici yeni kanal eklemeye onay vermedi.
+
+## 2026-10-16 — TOPLU BIRLESTIRME: UYDU KIMLIK PROFILLERI
+- channel_name_normalization.py: satellite ve satellite_playlist ayri profiller eklendi (ea3eb44e5866ac7d4da242f5bf03808ddaab4256); playlist profilinde rakam silme ve Imam Hussein TV 5 istisnasi korunur.
+- arastirma/uydu_karsilastir.py:key() ortak fonksiyona baglandi; alt klasorden calisma icin repo kok import yolu ayarlandi (b2403bc4297a599759083b2487e7dfbb8738cce9).
+- tests/test_channel_name_normalization.py uydu edge case testleri eklendi (cd1a1afef9a87f88deaff828531097aeb9d58648); runtime/Actions testi henuz CALISTIRILMADI.
+- Toplam ortak kod kullanan benzersiz eski program 9. Protected playlistler, yedekler, eski workflowlar ve cihaz onaylari degismedi. Tam toplu birlestirme bitmedi; parity kaniti olmadan tehlikeli silme/kapatma yapilmayacak.
