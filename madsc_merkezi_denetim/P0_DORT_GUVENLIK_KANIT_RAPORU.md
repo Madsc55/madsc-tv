@@ -93,3 +93,9 @@ Tarih: 2026-10-15
 - contents read, persist-credentials false, concurrency ve cancel-in-progress false ayarlari denetlendi. Test, gercek listeye yazma yapmiyor.
 - Ilk kosu 38736179870 test regex kacis hatasi nedeniyle basarisizdi; hata duzeltildi ve yeni kosu gecti.
 - KALICI GOREV ACIK: Bu test eski IBO kanal ayirma workflow'unun canli otomatik yazma yetkisini geri getirmez. Tarihsel tek-seferlik 11367 kanal kararlari guncel 2 yedekli listeye yeniden uygulanmayacak. Uretim guvenlik kapisi, kalan 21 risk ve onay gereksinimi devam ediyor.
+
+## 9. Test - Korunan dosya yazma kapisi izole denemesi
+- GitHub Actions 38736442357; commit 4f0fb99ec749be39ee2c8c19a1dbf99d949a5a4d; 13/13 adim basarili.
+- Gecici Git deposunda CALISANLAR.m3u, AGENTS.md ve GUVENLIK_KURALLARI.md icin git diff --quiet HEAD kontrolu kullanildi.
+- Temiz durum kabul edildi; izinsiz kanal listesi ve guvenlik kurali degisiklikleri reddedildi; eski hale donen dosya kabul edildi.
+- Bu yalniz bir izolasyon kanitidir; canli workflow yazma yollarina entegre edilmis zorunlu bir kapi DEGILDIR. Canli koruma, 21 risk ve dal korumasi onaylari hala aciktir.
