@@ -1387,3 +1387,21 @@ Gerçek run #38722819072 \`completed/success\`, kaynak SHA \`b5b48bec6792d1c5d5c
 CI'yi başlatmak için ayrı dalda eklenen geçici \`push\` tetikleyicisi commit \`679391b8799ba253b2a66bd4505b5ca906229999\` ile geri alındı. PR #72 dosya farkı tekrar REST API'den doğrulandı: **yalnız \`.github/workflows/madsc-02-kesif.yml\` ve tek satır \`continue-on-error: true\` → \`false\`**. PR #72 hâlâ taslak/birleştirilmedi. Eski 92 workflow, PR #71, ana liste, PNG ve yedekler değişmedi.
 
 P0 kalan açık: 26/26 merkezi üretim enforcement, 92/92 komut/izin/tetik matrisi ve davranış kanıtı, branch protection API erişimi, iki ardışık başarısızlık devre kesicisinin PR #4 değerlendirme/testi, çift tetik önleme. İlk 01 CI başarıyla geçti diye P0 tamamen kapanmış sayılmaz.
+
+
+## 15 EKİM 2026 — P0 SEKİZ KRİTİK ESKİ WORKFLOW DOĞRUDAN KOD DENETİMİ
+
+Kullanıcı talimatıyla aşağıdaki 8 eski workflow'un **tam dosya içerikleri GitHub'dan doğrudan okundu** (92 dosyanın tamamı okundu iddiası yok). Yalnız statik kod kanıtıdır; üretim arızası ispatı değildir.
+
+| Eski workflow | UTC cron | Otomatik tetik | İzin | Kodda görülen risk / koruma |
+|---|---|---|---|---|
+| \`madsc-birlesik-kesif.yml\` | \`0 6,18 * * *\` | schedule | contents:write, actions:write | \`git reset --hard origin/main\`, \`git push origin HEAD:main\`; concurrency mevcut |
+| \`madsc-son-kontrol.yml\` | \`10 6 * * *\` | schedule + workflow_run | contents:write, actions:write | \`git reset --hard origin/main\`, \`git push origin HEAD:main\`; concurrency mevcut |
+| \`madsc-uc-asama.yml\` | yok | push | contents:write, actions:write | \`git reset --hard origin/main\`, \`git push origin HEAD:main\`, \`gh api --method POST .../dispatches\`; concurrency mevcut |
+| \`madsc-genis-kaynak-kontrol.yml\` | yok | yalnız manual | contents:write, actions:write | \`git reset --hard origin/main\`, \`git push origin HEAD:main\`, üç aşama workflow dispatch; concurrency mevcut |
+| \`vod-guncelle.yml\` | \`17 7 * * *\` | schedule | contents:write | \`git commit\` + \`git push\`; concurrency yok |
+| \`epg-gunluk.yml\` | \`25 3 * * *\` | schedule | contents:write | \`git pull --rebase\` + \`git push\`; concurrency yok; EPG kullanıcı kararı gereği ertelendi |
+| \`madsc-otomatik-devam.yml\` | yok | yalnız manual | contents:read | git push veya dispatch bulunmadı |
+| \`madsc-sistem-saglik-denetimi.yml\` | \`17 5 1,15 * *\` | schedule | contents:read | audit adımında \`continue-on-error:true\` var; devamındaki gate mantığı ayrıca değerlendirilmelidir |
+
+**Karar:** \`madsc-son-kontrol\` çift tetik yolu ve \`madsc-uc-asama\` push/dispatch döngü ihtimali için en yüksek öncelikli akış analizi. \`vod-guncelle\` ve \`epg-gunluk\` için concurrency eksikliği raporlanır ama kullanıcı onayı/izole test olmadan canlı dosyalara değişiklik yapılmaz. Hiçbir eski workflow, kanal listesi, EPG, PNG veya yedek değiştirilmedi. Bir sonraki adım 92 dosyanın geri kalanını küçük gruplarda içerik taraması ve 24. kural PR #4 testinin doğrulanmasıdır.
