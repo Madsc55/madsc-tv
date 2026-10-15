@@ -789,23 +789,7 @@ jobs:
           assert "concurrency:" in safe
           assert "git push" not in safe and "git commit" not in safe
           assert "git diff --exit-code -- CALISANLAR.m3u" in safe
-          risky = Path(".github/workflows/madsc-ibo-ilk-239.yml").read_text(encoding="utf-8")
-          assert "contents: write" in risky and "git push origin HEAD:main" in risky
-          print("6115 IZOLASYONU DOGRU; ILK 239 YAZICI RISKI HALA ACIK")
-          PY
-
-      - name: 29 - Uc tarihsel yazicinin izolasyonunu dogrula
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          for name in ("madsc-ibo-ilk-239.yml", "madsc-arsiv-yedek-aktarim.yml", "madsc-ibo-364-355-364.yml"):
-              raw = (Path(".github/workflows") / name).read_text(encoding="utf-8")
-              assert "workflow_dispatch:" in raw and "  push:" not in raw and "  schedule:" not in raw, name
-              assert "contents: read" in raw and "contents: write" not in raw, name
-              assert "persist-credentials: false" in raw and "concurrency:" in raw, name
-              assert "git push" not in raw and "git commit" not in raw, name
-              assert "git diff --exit-code -- CALISANLAR.m3u" in raw, name
-              print("IZOLE EDILDI:", name)
+          print("6115 IZOLASYONU DOGRU; ILK 239 AYRI 29. ADIMDA DENETLENIYOR")
           PY
 
       - name: 28 - IBO grup1 ve ikinci ses tarihsel yazicilarini dogrula
@@ -824,3 +808,18 @@ jobs:
               assert "git diff --exit-code -- CALISANLAR.m3u" in raw, filename
               print("IBO TARIHSEL KARAR TEKRARI ENGELLENDI:", filename)
           PY
+
+      - name: 29 - Uc tarihsel yazicinin izolasyonunu dogrula
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in ("madsc-ibo-ilk-239.yml", "madsc-arsiv-yedek-aktarim.yml", "madsc-ibo-364-355-364.yml"):
+              raw = (Path(".github/workflows") / name).read_text(encoding="utf-8")
+              assert "workflow_dispatch:" in raw and "  push:" not in raw and "  schedule:" not in raw, name
+              assert "contents: read" in raw and "contents: write" not in raw, name
+              assert "persist-credentials: false" in raw and "concurrency:" in raw, name
+              assert "git push" not in raw and "git commit" not in raw, name
+              assert "git diff --exit-code -- CALISANLAR.m3u" in raw, name
+              print("IZOLE EDILDI:", name)
+          PY
+
