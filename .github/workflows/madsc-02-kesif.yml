@@ -35,7 +35,7 @@ jobs:
           python3 scripts/central_duplicate_test_audit.py
           python3 scripts/central_ibo_review_queue.py
       - name: Gercek aday kesfi ve teknik aday taramasi
-        continue-on-error: true
+        continue-on-error: false
         timeout-minutes: 40
         shell: bash
         run: |
