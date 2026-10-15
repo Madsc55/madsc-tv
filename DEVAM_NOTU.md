@@ -1695,3 +1695,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - scripts/central_protected_write_gate.py: beş merkezi workflow icin en ust seviye permissions tanimi yoksa rapor errors'a yazilir ve denetim basarisiz olur; GitHub repo default token yetkisi read-only varsayilmaz. Commit de5d4d57f6782e5587585f1050523c32b24b6787.
 - MADSC 01-05 workflow dosyalarinin hepsinde contents:read ve actions:read tanimlari GitHub dosya okumasi ile goruldu. Bu yalniz statik izin kanitidir, repo branch protection kaniti degildir.
 - Bu yeni kontrolun ek regresyon testini kaydetme girisimi guvenlik denetimi tarafindan engellendi; test yazildi/passed iddiasi YOK. Gercek Actions run ID ve checked-out SHA hala dogrulanmadi. Rule24 ortak devre kesici halen eksik; eski 92 workflow dokunulmadi.
+
+
+## 2026-10-15 — KULLANICI GITHUB ACTIONS EKRAN GORUNTULERI / CI HATA AYRISTIRMA
+- Kullanici ekraninda MADSC05 push run #55 failure, #56 iptal/durdu, #57 in progress gorunuyor (gorsel anindaki durum; guncel sonuc olarak kabul edilmez). MADSC01 guvenlik regresyonlari failure; MADSC05 SECURITY category did not pass: failure diyerek dogru sekilde fail ediyor. Node.js 20 deprecation ayri warning; root cause kaniti degil.
+- MADSC01 regresyonlari dort suite'i bagimsiz calistiracak ve hangi suite fail olduysa ::error annotation uretecek sekilde duzenlendi. Commit 9eb806947552d6d5633824c86cc6a62805b37f66.
+- MADSC01 regressions adimindaki continue-on-error:true kaldirildi; hatali test adimi yesil gibi gorunmeyecek, fail gate ve artifact if:always korunuyor. Commit 01b8859c3c78f7e6accb717ea646afa31b6c9132. GitHub dosya tekrar okunarak dogrulandi.
+- Ekran goruntuleri regresyonun Python traceback'ini gostermiyor; asil failing assertion/exception ve Actions run ID henuz elde edilmedi. Bu nedenle regresyon root cause cozuldu veya yeni CI PASS oldu iddiasi YOK. Siradaki is: yeni kosunun failing suite logu/traceback ve SHA'sini alarak kok nedeni duzeltmek.
