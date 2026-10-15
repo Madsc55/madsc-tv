@@ -37,7 +37,7 @@ jobs:
           run_id="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 20 --json databaseId --jq '.[0].databaseId // empty')"
           if [[ -z "${run_id}" ]]; then
             echo "::notice::Onceki basarili kesif kosusu yok; ilk calistirma icin bos ama gecerli gecmis baslatiliyor."
-            python3 -c 'import json,pathlib; p=pathlib.Path("madsc_kesif"); (p/"gecmis.json").write_text(json.dumps({"history":{}})+"\\n",encoding="utf-8"); (p/"ana_liste_test_gecmisi.json").write_text(json.dumps({"channels":{}})+"\\n",encoding="utf-8")'
+            python3 -c 'import json,pathlib; p=pathlib.Path("madsc_kesif"); (p/"gecmis.json").write_text(json.dumps({"history":{}})+chr(10),encoding="utf-8"); (p/"ana_liste_test_gecmisi.json").write_text(json.dumps({"channels":{}})+chr(10),encoding="utf-8")'
             exit 0
           fi
           mkdir -p "${RUNNER_TEMP}/madsc-onceki-kesif"
