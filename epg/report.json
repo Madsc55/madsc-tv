@@ -1,38 +1,38 @@
 {
-  "generated_utc": "2026-10-14T08:51:34.375972+00:00",
+  "generated_utc": "2026-10-15T08:26:35.441156+00:00",
   "playlist_entries": 1039,
-  "matched_entries": 730,
-  "unmatched_entries": 309,
+  "matched_entries": 727,
+  "unmatched_entries": 312,
   "ambiguous_entries": 0,
-  "programmes": 23702,
-  "overlap_skipped": 5364,
+  "programmes": 23404,
+  "overlap_skipped": 4680,
   "usable_playlist_entries": 583,
-  "epg_bytes": 8840899,
+  "epg_bytes": 8782209,
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/trology85/iptv-epg-turkey/main/epg/turksat_epg.xml.gz",
       "status": "ok",
-      "programmes": 7258
+      "programmes": 7401
     },
     {
       "url": "https://epgshare01.online/epgshare01/epg_ripper_TR1.xml.gz",
       "status": "ok",
-      "programmes": 15455
+      "programmes": 15358
     },
     {
       "url": "https://epgshare01.online/epgshare01/epg_ripper_TR3.xml.gz",
       "status": "ok",
-      "programmes": 33024
+      "programmes": 32530
     },
     {
       "url": "https://www.open-epg.com/files/turkey1.xml.gz",
       "status": "ok",
-      "programmes": 7048
+      "programmes": 7835
     },
     {
       "url": "https://www.open-epg.com/files/turkey2.xml.gz",
       "status": "ok",
-      "programmes": 7493
+      "programmes": 2265
     }
   ],
   "unmatched": [
@@ -125,6 +125,11 @@
       "id": "",
       "name": "SATRANÇ TV",
       "display": "SATRANÇ TV 480P SD"
+    },
+    {
+      "id": "",
+      "name": "TAY TV",
+      "display": "TAY TV 360P SD"
     },
     {
       "id": "jgxiih7f6yhagpj",
@@ -777,6 +782,11 @@
       "display": "SATRANÇ TV 480P SD"
     },
     {
+      "id": "",
+      "name": "TAY TV",
+      "display": "TAY TV 360P SD"
+    },
+    {
       "id": "jgxiih7f6yhagpj",
       "name": "TJK TV 1",
       "display": "TJK TV 1 1080P FHD"
@@ -1290,6 +1300,11 @@
       "id": "",
       "name": "SHOW MAX",
       "display": "SHOW MAX"
+    },
+    {
+      "id": "",
+      "name": "TAY TV",
+      "display": "TAY TV 360P SD"
     },
     {
       "id": "TBMMTV.tr@SD",
