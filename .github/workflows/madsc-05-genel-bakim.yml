@@ -17,6 +17,10 @@ on:
       - 'test_central_protected_write_gate.py'
       - 'scripts/central_consolidation_audit.py'
       - 'test_central_consolidation_audit.py'
+      - 'scripts/central_*.py'
+      - 'test_central_*.py'
+      - 'test_tek_merkez_tetikleme.py'
+      - 'test_five_category_*.py'
 permissions:
   contents: read
   actions: read
