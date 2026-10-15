@@ -2118,3 +2118,29 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 - Ozellikle merkezi 8/18/6 gorev raporlari birbirini tekrar eden kanit okumalari barindiriyor; tek kanit toplama motoru + ayri gorunumler adayidir. Logo ve EPG raporlarinda farkli veri turleri korunacak. Kararlilikta 7/30 gun ve 24 saat kuralinin ikisi de kaybedilmeyecek.
 - Guvenlik: Kodlar bu turda calistirilmadi; CALISANLAR.m3u, CALISMAYANLAR.txt, YABANCI_KANALLAR.m3u, YENILER.m3u, yedekler/ degismedi. Kullanici onayi olmadan kanallarin yedeklere eklenmesi veya ana listede degisiklik YASAK.
 - Sonraki is: kalan 96 dosyanin kaynak kodu, tam bagimlilik ve cikti eslestirmesi, fixture ile guvenli esdegerlik testleri, ardindan yeni besli sistemde birlestirme. Tamamlandi denmez.
+
+
+## 2026-10-15 — ILAVE 40 PYTHON KODU OKUNDU: GOREV VE BIRLESTIRME ADAYLARI
+- Bu turda 40 Python dosyasinin GERCEK kaynak icerigi acildi; fonksiyon, yazma sinyali ve islev ipuclari kontrol edildi. Onceki 49 ile toplam 89/145 kaynak kodu incelendi, 56 kaldi. Hicbir program calistirilmadi veya test PASS olarak isaretlenmedi.
+
+### Kesif ve aday raporlama
+- Dosyalar: aday_bekletme.py, aday_hata_siniflandirma.py, aday_oncelik_raporu.py, aday_tekrar_raporu.py, akilli_tekrar_test_takvimi.py, altinci_aday_tekrar_test.py, gelismis_medya_testi.py, genis_kanal_tara.py, kaynak_degisiklik_raporu.py, kaynak_guven_puani.py, kaynak_kesfet.py, madsc_uc_asama.py, scripts/akilli_aday_puanla.py, scripts/birlesik_aday_raporu.py, scripts/four_stage_discovery_report.py, scripts/genel_aday_medya_test.py, scripts/oncelikli_kanal_dogrula.py, scripts/test_kanal_adaylari.py, scripts/yedekler_yeniler_medya_kontrol.py
+- Kod inceleme bulgusu: Kesif, aday karantina, kaynak puani, medya testi ve tekrar planlamasi ortak veri motoruna aday.
+- Durum: KOD OKUNDU; IZOLASYON TESTI BEKLIYOR.
+
+### IBO karar ve yedek arsiv
+- Dosyalar: scripts/apply_ibo_6115_second.py, scripts/apply_ibo_first_239_decisions.py, scripts/apply_ibo_second_voice.py, scripts/apply_ibo_session2_6115.py, scripts/archive_backups_16_49.py, scripts/archive_backups_354_classified.py, scripts/archive_backups_355_364.py, scripts/archive_backups_399_onward.py
+- Kod inceleme bulgusu: Sekiz dosyada ana liste yazma sinyali var; tarihsel konumlar farkli, otomatik birlestirme tehlikeli.
+- Durum: KOD OKUNDU; IZOLASYON TESTI BEKLIYOR.
+
+### EPG logo ve IBO uyumu
+- Dosyalar: scripts/build_ibo_epg_test.py, scripts/epg_tv_readiness.py, scripts/ibo_epg_kimlik_denetimi.py, scripts/logo_visual_evidence.py, scripts/export_ibo_two_stage_trial.py
+- Kod inceleme bulgusu: XMLTV hazirlik, kimlik, gorsel kanit ve bagimsiz test listesi farkli ciktilar.
+- Durum: KOD OKUNDU; IZOLASYON TESTI BEKLIYOR.
+
+### Guvenlik ve migration
+- Dosyalar: final_validation.py, scripts/bulk_integrity_gate.py, scripts/central_isolated_git_restore.py, scripts/central_workflow_inventory.py, scripts/five_category_preflight.py, scripts/five_system_migration_audit.py, scripts/protected_playlist_audit.py, scripts/repository_settings_inventory.py
+- Kod inceleme bulgusu: Statik kontrol, SHA butunlugu, kurtarma ve esdegerlik raporlarinin ortak kabul matrisi adayi.
+- Durum: KOD OKUNDU; IZOLASYON TESTI BEKLIYOR.
+
+- Ozellikle IBO karar ve yedek arsiv kodlari CALISANLAR.m3u yazabildigi icin izin olmadan calistirilmaz. Eski kodlar silinmez; yeni ortak motor ancak esdegerlik testinden sonra kabul edilir.
