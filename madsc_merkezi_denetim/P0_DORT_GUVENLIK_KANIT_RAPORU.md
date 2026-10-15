@@ -52,3 +52,9 @@ Tarih: 2026-10-15
 - Commit `00b3ef09`: `madsc-ibo-3-5281.yml` izole dalda manuel-only, `contents: read`, `persist-credentials: false`, `concurrency` ve dal eşitliği kontrolüyle değiştirildi.
 - ÖNEMLİ: Önceki prova yanlışlıkla `scripts/apply_ibo_3_5281.py` çalıştırabilirdi; bu kaldırıldı. Yeni prova sadece Python AST syntax, gerekli dosyalar ve `git diff --exit-code` kontrollerini çalıştırır. Gerçek veri değiştirme/commit/push yok.
 - Manuel workflow_dispatch koşusu henüz başlatılmadı. Bu prova gerçek yazma yetkilendirmesini test etmez ve üretime alınamaz. P0 kabulü hâlâ açık.
+
+## KALICI PLAN — Manuel başlatma yalnızca geçici prova (kullanıcı kararı)
+- Kullanıcı onayıyla kesinleştirildi: `madsc-ibo-3-5281.yml` için `workflow_dispatch`-only ve `contents: read` **kalıcı üretim tasarımı DEĞİLDİR**; yalnızca izole, salt okunur güvenlik denemesidir.
+- **YAPILACAK / AÇIK:** Kanıt ve kabul tamamlandıktan sonra gereken otomatik tetiklemeyi, üretimdeki gerçek kanal ayırma/arşiv işlevini kaybetmeden güvenli biçimde geri getir. Çift tetiklemeyi önle; concurrency, hata devre kesici, korunan dosya yazma yetkilendirme kapısı ve main branch koruma kanıtını uygula/doğrula. Kullanıcı izni olmadan üretim yazma akışlarını açma, main'e merge yapma veya korunan veri değiştirme.
+- **Sıra:** (1) manuel salt-okunur prova çalıştırma kanıtı, (2) gerekli otomatik davranış için izole tasarım ve regresyon, (3) yazma yetkisi/branch koruma onayı, (4) kullanıcı onaylı devreye alma. Bu adımlar bitmeden otomatik işlevin geri geldiğini söyleme.
+- Bu not, geçici manuel durumun unutulmaması için tutuldu. DURUM: AÇIK.
