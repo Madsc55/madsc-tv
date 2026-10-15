@@ -1589,3 +1589,13 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - Oncelik: guncel Actions run/job/log/artifact kanitlari; kesif gecmisinin sonraki kosuda geri yuklenmesi; PNG ModuleNotFoundError automatic_png_logos; MADSC 05 14 bagimsiz denetimin hata toplama davranisi; 3 zamanli 6 saat aralikli aday testi; 50/1039 saglik kapsami; 156/155 kaynak farki; offsite/tarihsel restore; 92 workflow esdegerligi; IBO cihaz onayi.
 - 38695730312, 38697244625, 38724971116 tarihsel basarili run olarak aktarildi; yeni kosu gibi sunma. 31 adimli izole P0 testinin son sonucu halen dogrulanmadi. Basarili testleri sebepsiz yeniden calistirma.
 - Guvenlik engelini asma; test calistirmadan calistirildi, log okumadan hata giderildi, cihaz onayi olmadan cihazda calisiyor deme. Kullanici her mikro asamada devam sorulmasini istemiyor. Sohbet degisince bu nottan basla.
+
+
+## 2026-10-15 — GUVENLIK VE SAGLIK GORSELINDEKI BES MADDEYE DONUS
+- Kullanici guvenlik ve saglik 5 maddelik gorseli tekrar paylasti ve gercek hatalarin giderilmesini istedi.
+- GitHub Actions run 38724971116 job listesi dogrulandi: 5 kategori success. Kesif job 116388519282 gercek checkout logu commit 97869612210f7f868976aa598191cd6710f8be8a, dal madsc/p0-guvenlik-guvenli-duzeltme-20261015. Bu kosu madsc/bes-sistem-toplu-birlestirme dalinin guncel commitini test etmis sayilamaz.
+- Run 38697244625 job listesinde de 5 kategori success; commit SHA bu turda dogrulanmadi. Her iki sonuc da tarihsel.
+- Run 38724971116 kesif job logunda 1039 ana liste, 1037 kontrol edilen ve 1037 teknik gecemeyen goruluyor; bu teknik test sonucu kanalin gercek cihazda calismadigi kaniti degildir. Kaynak hedefi 155 ve tanimli kaynak 156 farki logda mevcut.
+- 2026-10-15 besli calisma dalinda MADSC 05'in 14 ardarda python denetiminin ilk hatada kesilmesi sorunu icin dongu, bagimsiz hata toplama ve madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv eklendi, commit b945582a5843cefa64d24c8b9c920d9674034e75. Sonraki dosya okumasinda kayit dogrulandi; gercek Actions rerun ve basari henuz kanitlanmadi.
+- MADSC 02 continue-on-error true calisma dalinda hala mevcut. PR #72 diff'inde false teklif ediliyor, fakat merge/aktarim kaniti yok.
+- Kullanici en guncel kural: 92 eski workflow'a dokunma, ana playlist/yedek/arsiv/logo koru; test sonucu gelmeden basari iddia etme. Ilk bes gorevin kalanlari: 26 kuralin uretimde uygulanmasi, 92 workflow yazma izinleri/riskli komutlari salt okunur karsilastirma, korunan dosya SHA/branch protection/devre kesici, cift push ve tetikleyici analizi.
