@@ -1,27 +1,24 @@
-name: MADSC - IBO Ilk 239 Kullanici Kararlari
+name: MADSC - Historical read-only audit - madsc-ibo-ilk-239.yml
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-ibo-ilk-239.yml'
+  workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
+concurrency:
+  group: madsc-historical-audit-madsc-ibo-ilk-239
+  cancel-in-progress: false
 jobs:
-  apply:
+  audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Siraya gore kullanici kararlarini kaydet ve yedeklerden ayir
-        run: python3 scripts/apply_ibo_first_239_decisions.py
-      - name: Degisiklikleri kaydet
+        with:
+          persist-credentials: false
+      - name: Verify historical playlist remains unchanged
         run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/ibo_kullanici_kararlari.csv madsc_kesif/ibo_ilk_239_ayirma_raporu.json
-          git commit -m "Save user IBO results and archive removed backup positions"
-          git push origin HEAD:main
+          before="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          git diff --exit-code -- CALISANLAR.m3u
+          after="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          test "$before" = "$after"
+          echo "Historical writer disabled; no user decisions replayed"
