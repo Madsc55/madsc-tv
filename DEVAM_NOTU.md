@@ -1773,3 +1773,106 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 3. .github/workflows/test-31-protected-write-gate.yml — korunan dosyalara yazma riski ve environment onay isaretlerini arar; protected-write-gate-report.json artifact'i uretir. Tetik: manuel; contents:read. Sinir: environment metni onayin zorlandigini ispatlamaz; yalnizca statik rapor. Kategori 1. DURUM: KODU_INCELENDI, izole test bekliyor.
 4. .github/workflows/madsc-sistem-saglik-denetimi.yml — tum workflow YAML sozdizimini Ruby ile denetler, test_sistem_saglik_denetimi unittest ve tools/sistem_saglik_denetimi.py calistirir, Actions son 100 calisma durumunu gh api ile okur, madsc_bakim/ raporlari artifact'e koyar; kritik hata varsa fail. Tetik: manuel veya UTC 05:17 her ayin 1 ve 15'i; contents:read. Kategori 1 Guvenlik ve Saglik (bakim baglantisi da var). DURUM: KODU_INCELENDI, izole test ve gercek kosu kaniti bekliyor.
 - 4/92 dosyanin bireysel YAML kaynak icerigi bu turda incelendi; 88/92 henuz bu protokolle incelenmedi. Bu inceleme guvenli testlerin gectigi veya 92/92 esdegerlik saglandigi anlamina GELMEZ. Sonraki adim: ilk dort icin izole regresyon/fixture testlerini kanitlamak, ardindan siradaki guvenlik workflowlarini tek tek incelemek.
+
+
+## 2026-10-15 — 92/92 ESKI WORKFLOW TAM DOSYA ADI ENDEKSI (ILK TOPLU RAPOR)
+- GitHub tree SHA 99f117f634e8c1d7fa1e282f16082dde67518264: 97 YAML = 92 legacy + 5 merkezi. Bu tablo 92/92 dosya adini eksiksiz indeksler. Kategori ve muhtemel amac SADECE DOSYA ADINDAN TAHMIN EDILMISTIR; YAML icerigi, script bagimliliklari ve calisma sonucunu kanitlamaz. Ilk 4 dosyanin YAML icerigi onceki notta ayrica incelenmistir.
+- Basliktan gecici gruplama: 2 Keşif: 15; 4 EPG ve Logo: 7; 5 Arşiv ve Bakım: 22; 3 Kanal Testleri: 33; 1 Güvenlik ve Sağlık: 15. Bir workflow birden cok goreve hizmet edebilir.
+- Yasak: Bu rapor icin eski workflow calistirilmaz, korunan listeler/yedekler degistirilmez. Bireysel testler izole edilmeden 92 test basarili denmez.
+
+| # | Eski workflow | Dosya adina gore olasi islev | Gecici hedef kategori | Durum |
+|---:|---|---|---|---|
+| 1 | `390-aday-tekrar-test.yml` | 390 aday tekrar test.yml | 2 Keşif | YAML/izole test bekliyor |
+| 2 | `aday-bekletme.yml` | aday bekletme.yml | 2 Keşif | YAML/izole test bekliyor |
+| 3 | `aday-logo-epg-test.yml` | aday logo epg test.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 4 | `aday-oncelik-kontrol.yml` | aday oncelik kontrol.yml | 2 Keşif | YAML/izole test bekliyor |
+| 5 | `aday-yedekleme.yml` | aday yedekleme.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 6 | `akilli-aday-puanlama.yml` | akilli aday puanlama.yml | 2 Keşif | YAML/izole test bekliyor |
+| 7 | `altinci-aday-tekrar-test.yml` | altinci aday tekrar test.yml | 2 Keşif | YAML/izole test bekliyor |
+| 8 | `automatic-png-logos.yml` | automatic png logos.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 9 | `besinci-zaman-asimi-test.yml` | besinci zaman asimi test.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 10 | `birlesik-aday-raporu.yml` | birlesik aday raporu.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 11 | `birlesik-durum-raporu.yml` | birlesik durum raporu.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 12 | `dokuzuncu-akilli-tekrar-test.yml` | dokuzuncu akilli tekrar test.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 13 | `epg-gunluk.yml` | epg gunluk.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 14 | `epg-pages.yml` | epg pages.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 15 | `felaket-kurtarma-tatbikati.yml` | felaket kurtarma tatbikati.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 16 | `genel-aday-medya-test.yml` | genel aday medya test.yml | 2 Keşif | YAML/izole test bekliyor |
+| 17 | `genis-kanal-tarama.yml` | genis kanal tarama.yml | 2 Keşif | YAML/izole test bekliyor |
+| 18 | `ibo-bagimsiz-test-listesi.yml` | ibo bagimsiz test listesi.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 19 | `ibo-epg-kimlik-denetimi.yml` | ibo epg kimlik denetimi.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 20 | `ibo-yedek-kalite.yml` | ibo yedek kalite.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 21 | `iptv-test.yml` | iptv test.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 22 | `kanal-kararlilik.yml` | kanal kararlilik.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 23 | `kaynak-puanlama-kontrol.yml` | kaynak puanlama kontrol.yml | 2 Keşif | YAML/izole test bekliyor |
+| 24 | `madsc-11599-yedek-geri-yukle.yml` | madsc 11599 yedek geri yukle.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 25 | `madsc-ana-liste-saglik.yml` | madsc ana liste saglik.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 26 | `madsc-arsiv-yedek-aktarim.yml` | madsc arsiv yedek aktarim.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 27 | `madsc-aylik-merkezi-denetim.yml` | madsc aylik merkezi denetim.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 28 | `madsc-birlesik-kesif.yml` | madsc birlesik kesif.yml | 2 Keşif | YAML/izole test bekliyor |
+| 29 | `madsc-cuma-ana-liste-denetimi.yml` | madsc cuma ana liste denetimi.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 30 | `madsc-documentation-check.yml` | madsc documentation check.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 31 | `madsc-genis-kaynak-kontrol.yml` | madsc genis kaynak kontrol.yml | 2 Keşif | YAML/izole test bekliyor |
+| 32 | `madsc-ibo-3-5281.yml` | madsc ibo 3 5281.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 33 | `madsc-ibo-354-classify.yml` | madsc ibo 354 classify.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 34 | `madsc-ibo-364-355-364.yml` | madsc ibo 364 355 364.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 35 | `madsc-ibo-398-16-49.yml` | madsc ibo 398 16 49.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 36 | `madsc-ibo-530-archive.yml` | madsc ibo 530 archive.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 37 | `madsc-ibo-6115-second.yml` | madsc ibo 6115 second.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 38 | `madsc-ibo-ilk-239.yml` | madsc ibo ilk 239.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 39 | `madsc-ibo-kararlar-grup1.yml` | madsc ibo kararlar grup1.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 40 | `madsc-ibo-second-voice.yml` | madsc ibo second voice.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 41 | `madsc-otomatik-devam.yml` | madsc otomatik devam.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 42 | `madsc-rule24-test.yml` | madsc rule24 test.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 43 | `madsc-sistem-saglik-denetimi.yml` | madsc sistem saglik denetimi.yml | 1 Güvenlik ve Sağlık | YAML incelendi; test bekliyor |
+| 44 | `madsc-son-kontrol-kurtarma-teshis.yml` | madsc son kontrol kurtarma teshis.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 45 | `madsc-son-kontrol.yml` | madsc son kontrol.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 46 | `madsc-toplu-butunluk.yml` | madsc toplu butunluk.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 47 | `madsc-tum-sistem-yedek.yml` | madsc tum sistem yedek.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 48 | `madsc-turk-kanal-geri-sec.yml` | madsc turk kanal geri sec.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 49 | `madsc-uc-asama.yml` | madsc uc asama.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 50 | `madsc-yedek-turk-ayir.yml` | madsc yedek turk ayir.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 51 | `madsc-yedekler-aktarim-test.yml` | madsc yedekler aktarim test.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 52 | `madsc-yedekler-sayi-duzelt.yml` | madsc yedekler sayi duzelt.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 53 | `oncelikli-kanal-dogrulama.yml` | oncelikli kanal dogrulama.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 54 | `onikinci-hata-siniflandirma-test.yml` | onikinci hata siniflandirma test.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 55 | `publish-iptv-png-logos.yml` | publish iptv png logos.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 56 | `sekizinci-tekrar-raporu-test.yml` | sekizinci tekrar raporu test.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 57 | `sozcu-akit-ozel-test.yml` | sozcu akit ozel test.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 58 | `test-13-kaynak-degisiklik.yml` | test 13 kaynak degisiklik.yml | 2 Keşif | YAML/izole test bekliyor |
+| 59 | `test-14-istikrar.yml` | test 14 istikrar.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 60 | `test-15-logo-epg.yml` | test 15 logo epg.yml | 4 EPG ve Logo | YAML/izole test bekliyor |
+| 61 | `test-16-workflow-safety.yml` | test 16 workflow safety.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 62 | `test-17-candidate-summary.yml` | test 17 candidate summary.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 63 | `test-18-change-simulation.yml` | test 18 change simulation.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 64 | `test-19-integration.yml` | test 19 integration.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 65 | `test-20-full-integration.yml` | test 20 full integration.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 66 | `test-21-functional-e2e.yml` | test 21 functional e2e.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 67 | `test-22-real-playlist.yml` | test 22 real playlist.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 68 | `test-23-live-stream.yml` | test 23 live stream.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 69 | `test-24-system-audit.yml` | test 24 system audit.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 70 | `test-25-full-project-readonly.yml` | test 25 full project readonly.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 71 | `test-26-automation-safety.yml` | test 26 automation safety.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 72 | `test-27-pipeline-contract.yml` | test 27 pipeline contract.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 73 | `test-28-approval-gate.yml` | test 28 approval gate.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 74 | `test-29-write-path-audit.yml` | test 29 write path audit.yml | 1 Güvenlik ve Sağlık | YAML incelendi; test bekliyor |
+| 75 | `test-30-write-risk-report.yml` | test 30 write risk report.yml | 1 Güvenlik ve Sağlık | YAML incelendi; test bekliyor |
+| 76 | `test-31-protected-write-gate.yml` | test 31 protected write gate.yml | 1 Güvenlik ve Sağlık | YAML incelendi; test bekliyor |
+| 77 | `test-32-unapproved-write-regression.yml` | test 32 unapproved write regression.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 78 | `test-33-all-write-paths.yml` | test 33 all write paths.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 79 | `test-34-protected-write-regression.yml` | test 34 protected write regression.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 80 | `test-35-remaining-write-gate.yml` | test 35 remaining write gate.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 81 | `test-36-system-integration-audit.yml` | test 36 system integration audit.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 82 | `test-37-indirect-write-audit.yml` | test 37 indirect write audit.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 83 | `test-38-audit-selftest.yml` | test 38 audit selftest.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 84 | `test-39-protected-playlist.yml` | test 39 protected playlist.yml | 1 Güvenlik ve Sağlık | YAML/izole test bekliyor |
+| 85 | `test-kanal-adaylari.yml` | test kanal adaylari.yml | 2 Keşif | YAML/izole test bekliyor |
+| 86 | `toplu-sistem-kontrol.yml` | toplu sistem kontrol.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 87 | `vod-guncelle.yml` | vod guncelle.yml | 3 Kanal Testleri | YAML/izole test bekliyor |
+| 88 | `yedek-geri-yukleme-tatbikat.yml` | yedek geri yukleme tatbikat.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 89 | `yedekler-yeniler-medya-kontrol.yml` | yedekler yeniler medya kontrol.yml | 5 Arşiv ve Bakım | YAML/izole test bekliyor |
+| 90 | `yeni-aday-on-test.yml` | yeni aday on test.yml | 2 Keşif | YAML/izole test bekliyor |
+| 91 | `yeni-kanal-arama-2026.yml` | yeni kanal arama 2026.yml | 2 Keşif | YAML/izole test bekliyor |
+| 92 | `yeniler-guvenli-arama.yml` | yeniler guvenli arama.yml | 2 Keşif | YAML/izole test bekliyor |
+
+- Takip: Tum 92 workflow'un YAML adimlari ve bagli Python/shell scriptleri, cron/push/manual tetikleri, yazma izinleri, gercek ciktisi, hatalari ve test kaniti tek tek eklenecek. Diger dosyalar: scripts/, tools/, test_*.py, yedekler/, raporlar/, madsc_kesif/, epg/, logo_deneme/, logos/ ayrica incelenecek. Bu indeks dosyalarin tam kaynak kod analizi veya test raporu degildir.
