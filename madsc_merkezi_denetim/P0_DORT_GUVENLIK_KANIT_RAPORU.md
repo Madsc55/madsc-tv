@@ -146,3 +146,8 @@ Tarih: 2026-10-15
 - GitHub Actions 38738962250; commit fe25c6b58f5165665ea54e2a1f2af9d5fb9dd063; 22/22 adim basarili.
 - Gecici yerel Git gecmisinde ayni revizyon icin UNCHANGED, yalniz izinli EPG cikti degisikligi icin REVIEW, korunan kanal dosyasi veya gorev disi degisiklik icin BLOCK kararlari dogrulandi.
 - Otomatik rebase, gercek uzak git push ve uretim yazma engeli bu testte uygulanmadi. 21 uretim riski acik.
+
+## 19. Test - EPG/VOD uretim kapisi yerlestirme denetimi
+- GitHub Actions 38739211329; commit 793946b27d3d6d38e73a262a68a2066724f0d1e8; 23/23 adim basarili.
+- Uretim EPG ve VOD is akislarinda guvenlik adimlarinin uygulanma sirasi yapisal olarak denetlendi: concurrency, iki hata devre kesici, veri uretimi, izinli dosya denetimi, kapsamli commit ve uzak Git fark kontrolu.
+- Mevcut workflow'larda concurrency ve workflow_failure_gate.py baglantilari halen eksik; bu test korumalari baglamadi ve ana dala yazmadi. 21 risk acik.
