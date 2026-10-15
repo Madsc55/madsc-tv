@@ -352,7 +352,34 @@ jobs:
               assert not gate("vod"), "Protected policy change was allowed"
               print("EPG/VOD allowlists tested with permitted and forbidden disposable changes")
           PY
-      - name: 13 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 13 - Gercek EPG ve VOD is akislarinin yazma hedeflerini dogrula
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import re
+          import shlex
+          from pathlib import Path
+
+          expected = {
+              "epg-gunluk.yml": {
+                  "epg/madsc-epg.xml", "epg/ibo-test-epg.xml",
+                  "epg/report.json", "epg/tv_kontrol_bekliyor.json",
+              },
+              "vod-guncelle.yml": {"vod/guncel-bolumler.json"},
+          }
+          for filename, allowlist in expected.items():
+              raw = (Path(".github/workflows") / filename).read_text(encoding="utf-8")
+              adds = re.findall(r"(?m)^\\s*git add (.+)$", raw)
+              assert len(adds) == 1, (filename, "unexpected git add count", adds)
+              actual = set(shlex.split(adds[0]))
+              assert actual == allowlist, (filename, "allowlist mismatch", actual ^ allowlist)
+              assert "contents: write" in raw and "schedule:" in raw, filename
+              assert "git push" in raw, filename
+              assert not re.search(r"(?m)^concurrency:\\s*$", raw), filename
+              assert "workflow_failure_gate.py" not in raw, filename
+              print("EXACT OUTPUT MATCH; LIVE PROTECTION STILL MISSING:", filename, sorted(actual))
+          PY
+      - name: 14 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
