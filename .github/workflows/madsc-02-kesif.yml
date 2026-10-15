@@ -23,6 +23,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: PNG aday logosu bagimliliklari
+        run: python3 -m pip install --disable-pip-version-check Pillow CairoSVG
       - name: Korunan dosyalarin baslangic ozeti
         run: |
           mkdir -p madsc_merkezi_denetim
