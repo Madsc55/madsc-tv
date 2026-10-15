@@ -1,3 +1,29 @@
+## 15 EKİM 2026 — KULLANICININ TÜM DOSYALARI GÖREV HAFIZASI İÇİN İNCELEME TALİMATI (BU SOHBET)
+
+**Kullanıcının açık amacı:** GitHub deposundaki **bütün dosyalar** (yalnız notlar veya workflow'lar değil) okunacak. Her dosyadan geçmiş kullanıcı isteği, karar, yapılmış iş, kısmen yapılmış iş, eksik veya başarısız görev, kurulum/otomasyon ihtiyacı, kaynak veri, test kanıtı, çakışma, risk ve öneri çıkarılacak. Her bulgu mevcut işlerle karşılaştırılacak; yinelenen görevler tekilleştirilecek; özgün kaynak yolu ve kanıt tarihiyle **DEVAM_NOTU.md** ana notuna eklenecek. Kullanıcının bu sohbette tekrar ettiği istek: 'Her dosyada bir eksik görev, not, yapılacak veya yaptığı şeyler vardır; bunları ana notumuza ekleyip sistem eksiklerini topluca anlamak ve notlara bakarak eksikleri yapmak istiyorum.' Bu çalışma, gelecekteki gerçek uygulama ve testlerin ön hazırlığıdır; sadece isim listesi üretmek yeterli değildir.
+
+### Sayımın dürüst kapsamı
+- Git ağacından alınan envanter: **769 gerçek dosya, 27 klasör = 796 ağaç girdisi** (15 Ekim'de okunan ağaç; yeni commitlerle değişebilir).
+- Dosya türleri: **97 workflow YAML, 151 Python, 34 Markdown, 51 JSON, 26 CSV, 27 M3U, 10 diğer metin/XML, 373 görsel** (bu sınıflar toplam 769).
+- **97/97 workflow YAML tam metni incelendi**; bunların **92'si eski iş akışı**, 5'i hedef ana kategori. Kaynak-görev dökümü yukarıdaki bölümde. **92/92 davranışsal eşdeğerlik henüz kanıtlanmadı; 0/92 kanıtlı.**
+- Çok sayıda Python, test, araç, Markdown, JSON, geçmiş karar ve kök komut dosyası açılarak içeriklerinden görev çıkarıldı. Ancak **769/769 içerik okundu iddiası yoktur**; benzersiz dosya bazlı imzalı tamamlanma tablosu henüz üretilmedi. Bu nedenle 'toplam tam incelenen dosya' için **kesin kanıtlanabilir alt sınır 97 workflow**; diğer açılmış dosyalar ayrıca sayılmadan 769'a dahil edilip tamamlandı denemez.
+- İncelenen kaynakların görev/kanıt aileleri: **(1) 97 workflow, (2) Python/araç kodları, (3) regresyon testleri, (4) Markdown talimat/karar notları, (5) JSON teknik raporlar, (6) tarihsel CSV/M3U/TXT arşivleri, (7) logo/EPG/VOD metadata**. Bu **7 kaynak ailesidir**; her ailenin tüm dosyaları tamamlanmış değildir.
+- Önceki notlarda **14 ayrı kod kaynaklı açık iş başlığı**, **14 tarihsel/koruma bulgusu** ve workflow'ların görev dökümü yer alıyor. Bunlar **28 ayrı başlık** olarak kayıtlıdır; birbirleriyle örtüşebilir, benzersiz 28 görev veya toplam tüm eksiklerin sayısı değildir. Bir sonraki aşamada kaynak yolu, durum, sorumlu beşli kategori, kanıt ve tekrar ilişkisi ile tekilleştirilecek.
+
+### Tek merkezli görev kaydı için zorunlu alanlar
+Her kaynak için: **dosya yolu; dosya türü; son incelenen commit/tarih; okuma kapsamı (tam/özet/metadata); geçmiş kullanıcı talimatı; mevcut işlev; yapılan işin kanıtı; eksik veya hatalı iş; öneri; beş ana sistemde görev sahibi; risk/yazma etkisi; kullanıcı onayı gerekiyor mu; test/run ID; sıradaki somut adım; durum (YAPILDI/KISMEN_YAPILDI/BEKLIYOR/KANIT_EKSIK/ONAY_BEKLIYOR); yinelenen görev bağlantısı** tutulmalı. Not/kanıt ile canlı başarının birbirine karışması engellenecek. Görsel dosyalarında isim, boyut, format, hash ve hangi kanal/logo kararıyla ilişkili olduğu; görselin gerçek içeriği ayrıca doğrulanacak.
+
+### Kesin koruma ve çalışma sırası
+1. 769 dosyalık sabit başlangıç envanteri üzerinden **benzersiz dosya bazlı inceleme matrisi** oluştur, okunmamışları ve okunanları ayrı işaretle; her dosyanın tamamını/uygun yapısal özetini kaynak bazlı değerlendir.
+2. Görev ve geçmiş kararları `DEVAM_NOTU.md` içinde tekilleştir; diğer özgün notları ve kanıtları silme, değiştirme veya yeniden adlandırma.
+3. Önce **kullanıcı istekleri/koruma kuralları ve yapılmış işlerin çakışması**, ardından eksik workflow davranış eşdeğerliği, kritik yedek/EPG/keşif/test/kimlik güvenliği önceliklerini sırala.
+4. Kanıtı olan gerçek işi ve test sonucunu göster; **sadece yeşil CI sonucu = işlevsel eşdeğerlik veya IBO cihaz onayı değil**.
+5. **CALISANLAR.m3u, YENILER, FAVORILER, HEPSI, YEDEKLER, logolar, arşivler ve 92 eski workflow** üzerinde açık yeni kullanıcı onayı olmadan yazma/silme/kapatma/taşıma yok. Önceden verilmiş YEDEKLER ekleme izni **geri alındı**. PR #71 merge edilmeyecek; beşli geçiş parity olmadan tamamlandı denmeyecek.
+
+**Bu konuşmadaki kullanıcı isteği kaydedildi:** 'Tüm dosyalardan görevleri, eksikleri, yapılanları ve geçmiş taleplerimi bul; ana devam notuna ekle; sonra bu toplu notlara bakarak eksikleri tamamlayalım. Kaç dosyaya ve kaç kaynağa bakıldığını açık sayılarla söyle.'
+
+---
+
 ## 15 EKİM — PYTHON, TEST, KÖK KOMUT, GEÇMİŞ VE JSON İÇERİK TARAMASI
 
 **Tarama kapsamı:** 97/97 workflow tamamlandı. Ek olarak kök Python aday/keşif/test kodları, `scripts/` merkezi/yedek/IBO/EPG/kurtarma kodları, `test_*.py` regresyonları, `tools/` programları, `tests/` ve `arastirma/uydu_karsilastir.py`, `epg_deneme/build.py`, `logo_deneme/audit.py` kodları gruplar halinde doğrudan açılarak incelendi. Bu not, bütün 151 Python dosyasının benzersiz dosya listesiyle birebir çapraz kontrolü tamamlandı iddiası değildir. Büyük JSON/CSV ve görüntüler için tam içerik incelemesi hâlâ sürüyor. Eski kaynakların hiçbirine yazılmadı.
