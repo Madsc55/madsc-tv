@@ -99,3 +99,9 @@ Tarih: 2026-10-15
 - Gecici Git deposunda CALISANLAR.m3u, AGENTS.md ve GUVENLIK_KURALLARI.md icin git diff --quiet HEAD kontrolu kullanildi.
 - Temiz durum kabul edildi; izinsiz kanal listesi ve guvenlik kurali degisiklikleri reddedildi; eski hale donen dosya kabul edildi.
 - Bu yalniz bir izolasyon kanitidir; canli workflow yazma yollarina entegre edilmis zorunlu bir kapi DEGILDIR. Canli koruma, 21 risk ve dal korumasi onaylari hala aciktir.
+
+## 10-11. Test sonuclari (15 Ekim 2026)
+- 10. test: GitHub Actions 38736716737, 14/14 basarili. Izole is akisina korunan dosya fark kontrolu eklendi; canli otomasyonlara uygulanmadi.
+- 11. test: GitHub Actions 38737217166, 15/15 basarili. 11599 yedek geri yukleme, IBO 354 siniflandirma ve EPG gunluk workflow dosyalarinda yazma yetkisi ile git push tespit edildi.
+- Ilk 11. test kosusu 38737139468 duzenli ifade hatasiyla basarisiz oldu; 75e6a8cb97d3dd063b9916c6b9df7e3a90839eb8 duzeltmesinden sonra test gecti.
+- Bu kanitlar 21 uretim riskini kapatmaz. Tek seferlik tarihsel islemler yeniden calistirilmamali; surekli EPG gibi gorevler icin ayri yetkilendirme gerekir.
