@@ -1001,3 +1001,19 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 **Açık doğrulama:** Ekrandaki 21 klasörün güncel ağaç/dosya bazlı kapsam matrisi, `main` ile çalışma dalı farkı, bu turda henüz doğrudan yeniden açılmamış `reports`, `tarama`, `tests`, `tools`, `yedekler`, `logos`, `scripts`, `epg`, `.github` altındaki her dosya için tekil kaynak-iş-kayıt eşlemesi. Önceki 769/769 beyanı korunur ancak yeni ekran kapsamına yönelik bağımsız tam yeniden denetim olarak gösterilmez.
 
 **Koruma:** Bu güncelleme yalnız `DEVAM_NOTU.md` içindir. PR #71 merge yok, korunan listelere/yedeklere/logolara/otomasyonlara yazma yok.
+
+
+### 15 Ekim — ekran klasörleri için EK KOD İNCELEMESİ (önceki turda açılmayan kaynaklar)
+Bu bölüm önceki 21 klasör hedefli kayda ektir. **Doğrudan okunan yeni dosyalar (9):** `scripts/protected_playlist_audit.py`, `scripts/restore_dry_run.py`, `scripts/disaster_recovery_dry_run.py`, `tools/genis_kaynak_taramasi.py`, `tools/genel_sistem_bakimi.py`, `tools/guncel_test_durum_ozeti.py`, `.github/workflows/birlesik-durum-raporu.yml`, `.github/workflows/test-31-protected-write-gate.yml` ve `DEVAM_NOTU.md` güncel sürümü. GitHub'da tahmini adla denenmiş `epg/rehber.xml`, `reports/summary.json`, `tarama/rapor.json`, `yedekler/README.md`, `tests/test_verification_pipeline.py` **404** döndürdü; klasör boş veya incelendi sonucu çıkarılamaz. Önceki 769 dosya envanterinde doğrulanmış gerçek yol listesiyle eşleştirilmeli.
+
+**Koddan doğrulanan işlevler / boşluklar:**
+- `scripts/protected_playlist_audit.py`: sadece CALISANLAR/YENILER dosyası, M3U başlığı ve AGENTS varlığını kontrol eder. **İzin kontrolü, satır/sıra/URL bütünlüğü veya branch protection sağlamaz.**
+- `.github/workflows/test-31-protected-write-gate.yml`: yazma yetkisi, git push ve protected path işaretlerini statik YAML taramasıyla raporlar; **yetkisiz yazmayı engelleyen kapı değil**. Gerçek ruleset/approval doğrulanmalı.
+- `scripts/restore_dry_run.py`: iki tarihli `yedekler/` dosyasını geçici klasöre kopyalayıp checksum, kanal parse ve bozuk veri reddini kontrol eder; korunan gerçek playlistleri değiştirmez. **Harici/offsite backup ve gerçek üretim restore kanıtı değildir.**
+- `scripts/disaster_recovery_dry_run.py`: Git HEAD içindeki iki playlisti geçici yerde bozup geri yükleme simüle eder. Kendi `limitations` alanında Git'in bağımsız offsite yedek olmadığını açıkça söyler.
+- `tools/genis_kaynak_taramasi.py`: haftalık hedefli / aylık tüm tanımlı kaynak taraması, SHA-256 kaynak değişimi, kimlik inceleme kuyruğu. **Yeni URL'yi üçlü doğrulama state'ine aktarmaz, oynatma/IBO doğrulamaz.** Ayrıca rapor dosyasında kaynak URL'si ve aday inceleme state'inde ham URL saklanır; artifact/log erişimi ve gizli adres maskeleme denetlenmeli. Geçersiz geçmişte güvenli durur.
+- `tools/genel_sistem_bakimi.py`: keşif, üçlü/final, geniş tarama JSON'larının varlık/parse kontrolü. **Başarıyla parse edilmiş snapshot'ın taze olduğu veya testin başarılı çalıştığı anlamına gelmez.**
+- `tools/guncel_test_durum_ozeti.py`: üçlü + final raporlarını birleştirir, sayı tutarlılığı kontrol eder; cihaz/kimlik onayı vermez, yeni test başlatmaz.
+- `.github/workflows/birlesik-durum-raporu.yml`: bu daldaki okunan sürümde `workflow_dispatch` ve `main` üzerindeki seçili dosya değişiminde `push` tetikleri var; **schedule anahtarı yok**. Önceki notlardaki günlük 06:40/18:40 otomatik rapor iddiası ile güncel YAML arasında fark bulunuyor; cron gerçekten kaldırılmış mı, başka workflow devralmış mı, kullanıcı kararına aykırı mı araştırılmalı. Workflow dört JSON/rapor çıktısını 30 günlük artifact'a koyuyor, `contents: read`.
+
+**İşlem sınırı ve kanıt:** Bu ek yalnız dosya metninden yapılan statik incelemedir; Actions run, gerçek cihaz, tüm klasörlerin her alt dosyası ve main/çalışma dalı farkı doğrulanmadı. Korunan dosyalara dokunulmadı. Önceki 769/769 envanter sonucu, bu turdaki bağımsız 21 klasör yeniden taramasıyla eş anlamlı değildir.
