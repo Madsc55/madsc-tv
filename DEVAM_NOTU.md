@@ -1208,3 +1208,53 @@ Kaynaklar, playlistler, workflowlar, yedekler ve görseller değiştirilmedi. PR
 5. **Arşiv, yedek ve genel bakım:** izole/tarihsel/offsite restore ayrımı, 1/15 backup, VOD Filmler/Diziler, 92 workflow tetik/komut/izin/çıktı/artifact/hata/rollback matrisi, çifte tetik denetimi, 8/18 görev ve tek merkez raporu, nihai 5/5 toplu kabul.
 
 **Kabul engeli:** Her eski workflow için yeni kategori sahibi, somut işlev karşılığı, aynı girdide çıktı ve hata karşılaştırması, tetik/yan etki/izin/artifact, korunan SHA ve rollback kanıtı yazılmadan `ESDEGERLIK_BEKLIYOR` kalır. Kullanıcının son taşıma denemesi için test sonucu yok; başarılı kabul edilmez. Bu not yazılırken hiçbir workflow veya korunan veri değiştirilmedi.
+
+
+## 15 EKİM 2026 — ESKİ DOSYALARDAKİ UNUTULMUŞ GÖREV VE KARARLARIN TOPLU KURTARILMASI
+
+**Bu çalışmanın gerçek amacı:** 769 dosyayı tek tek çalıştırmak değil; eski not, program, workflow ve raporlardaki kullanıcı isteklerini, yapılmış işleri, yarım kalanları, yasakları ve beş merkezi sistemde unutulmaması gereken davranışları kurtarmak. Dosya envanteri bu iş için yalnız araçtır. Aşağıdaki bulgular 15 Ekim'de doğrudan yeniden okunan kaynaklara dayanır; eski tarihli durumları güncel canlı başarı olarak göstermez. Bu bölüm önceki kronolojik kayıtları silmez.
+
+### Okunan ana eski kaynaklar
+\`AGENTS.md\`, \`GUVENLIK_KURALLARI.md\`, \`IPTV_PROJE_HAFIZASI.md\`, \`OZELLIK_ENVANTERI.md\`, \`SEKIZ_GOREV_TOPLU_DENETIM.md\`, \`raporlar/GELISTIRME_11_DURUM_2026-10-12.md\`, \`MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md\`, \`kontrol_notlari/DEVAM_GECMISI_2026-10-12_1947.md\`, \`kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md\`, \`kontrol_notlari/2026-10-12_ekol_basa_sarma.md\`, \`vod/README.md\`, \`BES_SISTEM_TOPLU_IS_DEFTERI.md\`, \`BES_SISTEM_GECIS_KONTROL.md\`, \`BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md\`, \`ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md\`, \`DEVIR_NOTU_2026-10-15.md\`; ayrıca önceki turda dört \`docs/MADSC-...\` geçiş belgesi ve yedi büyük veri dosyası. \`TOPLU_DURUM_RAPORU.md\` ve 97 workflow'un bu turda tek tek yeniden davranış okuması henüz yapılmadı.
+
+### 1. Güvenlik merkezine taşınacak unutulmaması gereken kurallar
+- [KARAR] Ana liste/HEPSİ/FAVORİLER/YENİLER/YEDEKLER, ad/URL/logo/ID/sıra/kategori kullanıcı izni olmadan değişmez. Yalnız bu notu düzenleme izni var. 13 Ekim'deki YEDEKLER'e ekleme izni daha sonraki kullanıcı kararıyla geri alındı; eski notlardaki ters izin geçersiz.
+- [KARAR] \`GUVENLIK_KURALLARI.md\` 1–24 korumaları; \`AGENTS.md\` 25 değişiklik sonrası test, 26 kullanıcıya görünen yeni/değişen test adları Türkçe. Politikaların yazılması teknik uygulanma kanıtı değildir.
+- [YAPILDI/KISMİ] Güvenlik testleri, raporlar, SHA256 izole yedek açma, korunan yazma risk taramaları var; GitHub branch protection API bir tarihsel denemede 403 döndürdü. Branch protection etkin kabul edilmez.
+- [AÇIK] Tüm üretim yazarlarında gerçek merkezi yazma kapısı, dolaylı push/izin, eski 92 workflow, iki ardışık başarısızlıkta ortak devre kesici, 26 kuralın gerçek kanıtı ve kullanıcı onayı sonrası M3U sıra/sayı/URL bütünlüğü.
+- [KARAR] Tamamlanan kanal kimlik retleri, kullanıcı IBO kararları, silme/taşıma geçmişi ve mevcut başarılı testler korunur; yeniden uygulanmaz. İlk 90 HEPSİ sırası ve Favoriler 1/2/3 sıraları ayrıca korunur.
+
+### 2. Keşif ve aday merkezine taşınacak görevler
+- [YAPILDI/KISMİ] Birleşik keşif, kaynak geçmişi, aday/alternatif ayrımı, \`source_history\`, aday öncelik ve arşiv raporları kurulu; 156 kaynak ile 155 hedef farkı geçmişte kaydedildi. Kaynak adı Türkçe kimliği veya lisans kanıtı değildir.
+- [AÇIK] Günde iki **yalnız yeni URL keşfi** (06:00 ve 18:00 UTC) ile **aylık geniş kaynak taraması** ayrı tutulmalı. 156 kaynağın benzersizliği/erişimi, Türk/yabancı/belirsiz, diaspora/yerel, öncelikli ulusal-haber-spor-belgesel-çocuk-müzik ve alternatif URL ayıklama tamamlanmalı.
+- [AÇIK/ÜRÜN TALEBİ] Eurostar eski kullanıcı talimatıyla kaldırılmış ve 404 doğrulanmış; çalışır, gerçek görüntü/ses/kimlik/süreklilik kanıtlı alternatif araması bekliyor. Bulunması listeye ekleme yetkisi değildir. Eksik Türk kanalları ayrı keşif kuyruğunda.
+- [KARAR] Kullanıcı IBO'da teknik testten geçmeyen pek çok kanalı oynatabiliyor; ffprobe başarısızlığı = cihaz başarısızlığı değildir. 740 yabancı olarak belirlenen kayıt ve 10.817 belirsiz sınıflandırma eski snapshot'tır; kullanıcı son kararı ve güncel dosya önceliklidir.
+- [KARAR] Adayları YEDEKLER'e otomatik taşıma **şimdilik iptal**. Yabancı/Türk/kimlik belirsiz geçmişi korunur, URL ve kanal sayıları karıştırılmaz.
+
+### 3. Üç aşama ve gerçek oynatma merkezine taşınacak görevler
+- [YAPILDI/KISMİ] Üç deneme, en az altı saat aralık, tekrar atlama, son kontrol, ses/görüntü/süreklilik ve kullanıcı IBO kararı için ayrı kayıt altyapısı var. Eski 6.436 tamamlanmış üçlü kayıt ve ilk 39 final/kimlik kararı yeniden sıfırdan çalıştırılmaz.
+- [AÇIK] 75 aday (51 farklı saat retest, 24 ffprobe geçmeyen) ve dört alternatif; final sonuçlarda kimlik bekleyen, içerik incelemesi, timeout ve süreklilik hata kuyrukları; gerçek son deneme zamanları ve yanlış negatiflerin ayrılması.
+- [KARAR] Teknik decode, yayın kimliği, yayın hakkı, IBO cihaz oynatması ve kullanıcının kabulü **beş ayrı hüküm**; otomatik teknik PASS ana listeye ekleme izni vermez.
+- [KARAR] Kullanıcının ADA/Kanal D ret kararı önceki görsel desteği geçersiz kılar. Eski retler veya kabul edilmiş kategoriler yeniden değiştirilmez.
+- [AÇIK] TCL 55C655 / IBO Player Pro 2128.0 için gerçek cihaz/sürüm, açılış ve kanal geçiş süresi, kullanıcı gözlemi; ffprobe decoder süresi cihaz açılış süresi değildir.
+- [AÇIK/ÜRÜN TALEBİ] Ekol TV ve Ekol Sports'un başa sarma şikâyeti: eski HLS manifestinde parçalar ilerlemiyordu; HTTP 200 canlı yayın kanıtı değildir. Yeni alternatifte segment ilerlemesi ve uzun oynatma ayrı doğrulanır.
+
+### 4. EPG/logo zinciri (mevcut resmi üçüncü kategori içinde) için görevler
+- [YAPILDI/KISMİ] Beş kanallık EPG pilotu, XMLTV üretimi, günlük EPG ve Pages akışları, aday PNG ve logo URL denetimi var; daha önce yapılanı sıfırdan kurma.
+- [AÇIK] Gece yarısı \`stop\` tarih kayması ve \`source_time_repairs\` kanıtı; gerçek program eşleşmesi, İsveç IBO görünürlüğü, EPG günlük → başarılı workflow_run → Pages yayın zincirinin yeni beşli görev sahipliği.
+- [AÇIK] Görselin gerçek kanal logosu/kimliği ile eşleşmesi, eksik aday logoları, mevcut dolu logoların korunması. PNG dosyasının varlığı doğru amblem kanıtı değildir.
+
+### 5. Arşiv/yedek ve genel bakım merkezlerine taşınacak görevler
+- [YAPILDI/KISMİ] Tam sistem tar arşivi ve SHA256 izole açma, Actions artifact, izole restore, merkezi altı alan/sekiz görev/18 görev rapor araçları ve tek yönetim özeti mevcut. Bunlar gerçek harici restore veya tamamlama sertifikası değildir.
+- [AÇIK] Ayın 1/15'i sistem sağlığı, ana liste kontrolü, merkezi denetim ve tam yedek birbirini tekrarlamadan koordine edilmeli; 30 gün saklama, harici/offsite kopya, secrets/IBO ayarları ve bağımsız geri yükleme tarihsel olarak kullanıcı tarafından ertelenmişti: izinsiz kurma, açık bağımlılık olarak izle.
+- [AÇIK] VOD Filmler/Diziler ayrı çalışma alanı; \`vod/katalog.json\` ve izinli Big Buck Bunny test listesi var. IBO Filmler/Diziler sekmesi görünürlüğü doğrulanmadı; Xtream uyumluluğu gerekebilir. Lisans, ses/altyazı, sezon/bölüm, ileri-geri sarma ve ancak cihaz doğrulamasından sonra günlük ekleme değerlendirilecek. TV ana listesine dokunma.
+- [AÇIK] 11 geliştirme raporunun eksik parçaları, sekiz görev ve 18 görev kararları; tek durum raporunun gerçek state/final/IBO/EPG/kimlik verilerini aynı koşuda karşılaştırması; rapor bulunması görev tamamlandı demek değildir.
+- [KARAR] Eski cron envanterinde günlük EPG 03:25 UTC, haftalık IPTV testi çarşamba 06:30 UTC, iki kez keşif 06:00/18:00 UTC, günlük final 06:10 UTC, günlük VOD 07:17 UTC ve ayın 1/15'i birden fazla sağlık/yedek/denetim tetikleyicisi vardı. Yeni beşli sisteme **işlev ve periyot korunarak, çift tetik engellenerek** aktarılmalı; bu saatler tarihsel main envanteridir, güncel etkinlik kanıtı değildir.
+- [AÇIK] \`epg-pages.yml\` başarılı EPG üretimine bağlı \`workflow_run\`; \`madsc-genis-kaynak-kontrol.yml\` üç aşamayı dispatch eder; \`madsc-son-kontrol.yml\` hem schedule hem workflow_run ile başlatılabilir. Yanlışlıkla sonsuz devam, aynı adayın iki kez test edilmesi ve push yarışları önlenmeli.
+
+### Beş gerçek workflow'un resmi sınırı ve kabul
+Yeni resmi dosyalar \`.github/workflows/madsc-01-guvenlik.yml\`, \`madsc-02-kesif.yml\`, \`madsc-03-kanal-test.yml\`, \`madsc-04-arsiv-yedek.yml\`, \`madsc-05-genel-bakim.yml\`. EPG/logo üçüncü kategorinin alt görevidir; bağımsız altıncı ana workflow veya resmi dördüncü kategori değildir. Daha eski planlarda 89 workflow yazsa da geçişte kapsam 92 eski workflow'dur; depodaki 97 YAML = 92 eski + 5 yeni.
+
+**Açık kapanış kapısı:** Her eski workflow için yalnız isim eşleşmesi değil komut/izin/tetik/artifact/yazma/hata/rollback ve yeni iş sahibi. Gerçek 92/92 davranış eşdeğerliği, güncel CI, EPG→Pages, VOD, IBO ve restore kanıtları yoksa geçiş TAMAMLANDI denmez. Geçmiş 5/5 başarılı run yeni kodun kabulü değildir. PR #71 birleştirilmez, eski otomasyon kapatılmaz.
+
+**Bu araştırmanın sonucu:** Eski belgelerden yukarıdaki kaybolabilecek karar ve görevler merkezi notta toplandı. Bu, 769 dosyanın her satırının incelendiği veya 92 işlevin tam eşleştirildiği iddiası değildir. Bundan sonraki ana çalışma beş resmi workflow'un **yalnız eksik işlevlerine** dönmektir; yeni kod/workflow değişikliği için kullanıcıdan ayrıca açık izin alınır.
