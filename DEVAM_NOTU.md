@@ -2530,3 +2530,10 @@ Toplam bu dalda ortaklasan eski cagiran dosya sayisi 7 (3 kanal normalizasyonu +
 
 ## 2026-10-16 — ACIL SYNTAXERROR DUZELTMESI
 Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 32 `SyntaxError: unterminated string literal` ekran goruntusu paylasti. Gercek dosyada list_control ve satellite profillerinde toplam 4 bolunmus regex stringi ve list_control profilinde cift kacis hatasi tespit edildi. Regex string satirlari commit 94e4f2371e38d580a781d8e9a4ab8c1ec592a78b ile, cift kacislar commit 7d11da18004a09910d4773becd24f08a91955047 ile duzeltildi. GitHub fetch ile yeni kaynak kontrol edildi, stringler tam ve tek satirli gorunuyor. Yeni Actions kosusu veya unittest sonucu henuz dogrulanmadi; PASS iddiasi yok. Ana liste/backup/workflow degismedi. Kalan toplu refactor test ve davranis parity gerektirir.
+
+## 2026-10-16 — PYTHON SYNTAX KAPISI
+- GitHub kaynak dosyasi channel_name_normalization.py tekrar fetch edildi: 32. satir artik tam regex literalidir; list_control profili kacis karakterleri de onarildi (commitler 94e4f237, 7d11da18).
+- tests/test_refactor_syntax.py eklendi: refactor edilen 12 Python dosyasini import etmeden, ag/playlist yan etkisi olmadan ast.parse ile denetler; commit bfbd24286d7391acf2bbee7f1a724ad3b60b009c.
+- Yerel sandbox'ta normalizasyon fonksiyonunun yeniden olusturulan esdeger kopyasi python -m py_compile ile gecti ve ornek adlar kontrol edildi. Bu GitHub deposundaki tam dosyanin yerel checkout testi DEGIL; tam depo testi henuz kosulmadi.
+- Onceki GitHub Actions failure kosulari 2ce4419 commitinden; duzeltme sonrasi tarama workflow PASS kaniti yok. Testler yeni branch HEAD uzerinde calistirilmadan genel PASS iddia edilmez.
+- Korumali dosyalar, playlistler, yedekler ve workflow tanimlari degistirilmedi.
