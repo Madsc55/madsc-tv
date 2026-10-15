@@ -2245,3 +2245,51 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 - Sonraki 40 kod incelemesi 31fdc2809f0255edaaa09b282d8e9bd929d61115.
 - Sonraki 16 kod incelemesi 5a429944c2bca222b2b7e11f06ff71a2c5bb40f0.
 - En guncel devir kaydi bu bolumu ekleyen commit.
+
+
+## 2026-10-16 — KALAN 28 DOSYANIN KAYNAK OKUMASI TAMAMLANDI (TEST KOSUSU DEGIL)
+- Onceki devirdeki 117/145 sayimina ek olarak 26 Python test dosyasi ve 2 komut tarifi GitHub fetch_file ile acildi: **145/145 kaynak okuma kapsami**. Onceki notlarda 145/145 iddiasi ile 105/145 ve 117/145 arasindaki celiski bu tarihli benzersiz sayimla aciklanir. Kaynak okuma, runtime PASS veya davranissal esdegerlik kaniti DEGILDIR.
+- Test kodlarinin fonksiyon adlari, import bagimliliklari, gecici dosya/mock/patch sinyalleri incelendi. Hicbir test calistirilmadi. Fixture yazma ifadeleri testlerin gecici alanda dosya olusturabilecegini gosterir; gercek korunan listelere yazildigi iddia edilmez.
+
+### Bu turda okunan 26 test ve hedefleri
+1. test_akilli_tekrar_test_takvimi.py — tekrar zamani gelen aday, gecmis JSON, gecici CSV, patch ile altinci_aday_tekrar_test.
+2. test_ana_liste_saglik.py — M3U okuma/gruplama, hata silme karari degil, salt rapor; scripts.ana_liste_saglik; tempfile/patch.
+3. test_bes_is_tek_dosya.py — bes is entegrasyonu, kesif, logo/EPG, restore, otomasyon, rapor; gecici fixture.
+4. test_candidate_logo_missing_report.py — eksik logo, PNG bagimliligi, kimlik onayi, kaynak guvenligi; scripts.candidate_logo_missing_report.
+5. test_central_failure_stage_report.py — hata asamasi kok neden olarak sunulmaz; gecici fixture/subprocess.
+6. test_central_ibo_review_queue.py — onaysiz aday, SHA eksikligi, kanit uydurmama; scripts.central_ibo_review_queue.
+7. test_central_identity_epg_logo_audit.py — IBO ve kanal kimligi otomatik onaylanmaz.
+8. test_central_isolated_git_restore.py — korunan dosyalar Git HEAD ile eslesir; scripts.central_isolated_git_restore.
+9. test_central_main_playlist_run_evidence.py — eksik/yesil/kirmizi kosu kaniti; scripts.central_main_playlist_run_evidence; tempfile.
+10. test_central_management_summary.py — eksik/bozuk kanit, bes asama, 18 gorev, acik engeller; scripts.central_management_summary; tempfile.
+11. test_central_open_gaps.py — rapor varligi gorev tamamlanmasi degil; scripts.central_open_gaps.
+12. test_central_run_status.py — son 100 kosu, devam eden kosu basari degil; tempfile/subprocess.
+13. test_central_short_status.py — bes asama, eksik/hata gorunurlugu; scripts.central_short_status.
+14. test_central_single_screen_report.py — tek ekran, tutarli acik is sayisi, bozuk JSON, korunan dosya; scripts.central_single_screen_report; tempfile.
+15. test_central_source_reconciliation.py — gercek kaynak tanimlari; subprocess.
+16. test_central_workflow_inventory.py — workflow kapsami, takvim, tetikleyici, koruma; subprocess.
+17. test_epg_pilot.py — gece yarisi rollover, normal ve gecersiz sure araliklari; epg_deneme.build.
+18. test_epg_tv_readiness.py — bes kanalli XMLTV, eksik program, cihaz onayi bekler; scripts.epg_tv_readiness; tempfile.
+19. test_final_validation.py — gecersiz kanit, 3 PASS, terminal sonuc, kaynak kokeni, oncelik; final_validation.
+20. test_tek_merkez_tetikleme.py — gereksiz push/tetikleme, EPG, korunan yazma kapisi; workflow metin kontrolleri.
+21. test_toplu_durum_raporu.py — bes asama ve merkez raporu.
+22. test_verification_pipeline.py — tekrar araligi, sure/frame kaniti, bozuk ilerleme; verification_pipeline; patch.
+23. test_workflow_failure_gate.py — iki hata durdurur, basari sifirlar, iptal zinciri keser, mevcut kosu haric; tools.workflow_failure_gate.
+24. test_yedekler_teknik_aktar.py — yalniz teknik hazirlik; tools.son_kontrol_yedekler_aktar ve tools.yedekler_guvenli_ekle import edilir. Gercek listeye yazan islevleri izinsiz calistirma.
+25. tests/test_gelismis_medya_zaman_asimi.py — timeout sonrasi tekrar test bekleme; gelismis_medya_testi; patch.
+26. tests/test_kaynak_guven_puani.py — guven duzeyi, test edilmemis aday, bos gecmis; gecici CSV/JSON ve subprocess.
+
+### Okunan iki komut tarifi
+- .github/commands/aday-yedekleme.txt — 2026-10-09 tarihli izole aday yedegi talimati; CALISANLAR.m3u degistirilmez. Bu talimat kullanicinin onceden acik onay kosulunu ortadan kaldirmaz.
+- .github/commands/genel-guncelleme.txt — 2026-10-08/10 tarihli salt okunur kanal arama ve test tetikleme kayitlari; ad/normalize URL ile tekrar ayrimi, alternatif aday raporu, IBO nihai karar, liste ve yedek korumasi. Bunlar workflow YAML degil, komut metinleri.
+
+### Birlesim plani — YALNIZ TASARIM, KOD DEGISIKLIGI YOK
+1. Guvenlik ve Saglik: workflow_safety, failure_gate, protected_write_gate, permission_gate ve preflight icin ortak fail-closed kabul kaniti; statik tarama ile gercek yazma izni ayrilir.
+2. Kesif: kaynak kesfi, guven puani, aday karantina, tekrar takvimi ve kaynak mutabakati icin ortak kaynak/aday kimligi; 155 kaynak hedefi, kaynak kokeni ve gecmis kaybolmaz.
+3. Kanal Testleri: ffprobe, medya timeout, 3 asama, tekrar araligi, 7/30 gun kararlilik ve 24 saat kurali ayri kabul sutunlari; IBO cihazi onayi otomatik verilemez.
+4. EPG ve Logo: XMLTV, kanal kimligi, PNG/logo aday kaniti ortak rapor semasi; ayni ad/farkli logo otomatik birlestirilmez.
+5. Arsiv ve Bakim: SHA/yedek sayisi, izole restore, Actions kosu/hata ve 6/8/18 gorev raporlari ortak kanit okuyucu + farkli rapor gorunumleri; tarihsel konumlu IBO/yedek yazicilari ayri ve bloke kalir.
+- Her aday icin workflow -> script -> test -> rapor/cikti -> korunan hedef matrisi, girdi/cikti semasi, hata davranisi, zamanlama ve fixture esdegerlik kaniti tamamlanmadan kod birlestirme YOK.
+- 97 workflow (92 legacy + 5 merkez) sayimi onceki devir notu referansidir; bu turda 92 YAML yeniden tam okunmadi, parity PASS denmez. Onceki 99f117f Git tree anlik goruntusu bu turda yeniden dogrulanmadi.
+- Korunan CALISANLAR.m3u, CALISMAYANLAR.txt, YENILER.m3u, YABANCI_KANALLAR.m3u, favoriler, kategoriler, yedekler ve main degistirilmedi; PR #71 birlestirilmedi. Kullanici onayi olmadan yeni kanal hicbir yedek/test listesine eklenmez.
+- Kalan isler: 92 YAML'nin tek tek bagimlilik matrisi, davranissal fixture esdegerlik testleri, guvenli test kosusu kaniti, kanonik not uyusmazlik analizi. Kaynak okuma 145/145 TAMAM; proje kabul testleri TAMAM DEGIL.
