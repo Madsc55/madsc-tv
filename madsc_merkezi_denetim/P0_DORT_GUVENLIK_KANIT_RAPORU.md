@@ -58,3 +58,11 @@ Tarih: 2026-10-15
 - **YAPILACAK / AÇIK:** Kanıt ve kabul tamamlandıktan sonra gereken otomatik tetiklemeyi, üretimdeki gerçek kanal ayırma/arşiv işlevini kaybetmeden güvenli biçimde geri getir. Çift tetiklemeyi önle; concurrency, hata devre kesici, korunan dosya yazma yetkilendirme kapısı ve main branch koruma kanıtını uygula/doğrula. Kullanıcı izni olmadan üretim yazma akışlarını açma, main'e merge yapma veya korunan veri değiştirme.
 - **Sıra:** (1) manuel salt-okunur prova çalıştırma kanıtı, (2) gerekli otomatik davranış için izole tasarım ve regresyon, (3) yazma yetkisi/branch koruma onayı, (4) kullanıcı onaylı devreye alma. Bu adımlar bitmeden otomatik işlevin geri geldiğini söyleme.
 - Bu not, geçici manuel durumun unutulmaması için tutuldu. DURUM: AÇIK.
+
+## Başarılı gerçek izole prova — 2026-10-15
+- GitHub Actions: https://github.com/Madsc55/madsc-tv/actions/runs/38734458156
+- SHA: `18adcda209a3771d96b86edd454237870bf8edaa`.
+- Sonuç: `completed/success`; 7/7 iş adımı başarılı.
+- Salt okunur `contents: read`, `persist-credentials: false`, yalnız test dalı için push tetikleyicisi, AST sözdizimi, dosya varlığı ve `git diff --exit-code` doğrulandı.
+- **Geçici push tetikleyicisi yalnız `madsc/p0-guvenli-yazma-kapisi-deneme-20261015` dalında; üretim otomasyonunun geri açıldığı anlamına gelmez.** Kullanıcının kararı: kalıcı olarak manuel-only bırakılmayacak. Gerekli otomatik işlevi koruyan güvenli tasarım, yazma yetkisi kapısı ve branch protection kanıtı tamamlanınca ayrı kabul/dağıtım yapılacak.
+- 21 eski workflow güvenlik kabul riski hâlâ açık. Bu prova 21 riski kapatmaz.
