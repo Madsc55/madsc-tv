@@ -369,13 +369,13 @@ jobs:
           }
           for filename, allowlist in expected.items():
               raw = (Path(".github/workflows") / filename).read_text(encoding="utf-8")
-              adds = re.findall(r"(?m)^\\s*git add (.+)$", raw)
+              adds = re.findall(r"(?m)^[ ]*git add (.+)$", raw)
               assert len(adds) == 1, (filename, "unexpected git add count", adds)
               actual = set(shlex.split(adds[0]))
               assert actual == allowlist, (filename, "allowlist mismatch", actual ^ allowlist)
               assert "contents: write" in raw and "schedule:" in raw, filename
               assert "git push" in raw, filename
-              assert not re.search(r"(?m)^concurrency:\\s*$", raw), filename
+              assert not re.search(r"(?m)^concurrency:[ ]*$", raw), filename
               assert "workflow_failure_gate.py" not in raw, filename
               print("EXACT OUTPUT MATCH; LIVE PROTECTION STILL MISSING:", filename, sorted(actual))
           PY
