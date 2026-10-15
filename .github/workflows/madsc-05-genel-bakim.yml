@@ -73,20 +73,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 scripts/five_category_preflight.py
-          python3 scripts/five_category_92_workflow_audit.py
-          python3 scripts/central_workflow_inventory.py
-          python3 scripts/central_source_reconciliation.py
-          python3 scripts/central_duplicate_test_audit.py
-          python3 scripts/central_backup_evidence.py
-          python3 scripts/central_identity_epg_logo_audit.py
-          python3 scripts/central_ibo_review_queue.py
-          python3 scripts/central_eight_task_audit.py
-          python3 scripts/central_management_summary.py
-          python3 scripts/central_eighteen_task_audit.py
-          python3 scripts/central_all_remaining_tasks.py
-          python3 scripts/central_open_gaps.py
-          python3 scripts/central_single_screen_report.py
+          mkdir -p madsc_merkezi_denetim
+          failed=0
+          : > madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
+          for script in scripts/five_category_preflight.py scripts/five_category_92_workflow_audit.py scripts/central_workflow_inventory.py scripts/central_source_reconciliation.py scripts/central_duplicate_test_audit.py scripts/central_backup_evidence.py scripts/central_identity_epg_logo_audit.py scripts/central_ibo_review_queue.py scripts/central_eight_task_audit.py scripts/central_management_summary.py scripts/central_eighteen_task_audit.py scripts/central_all_remaining_tasks.py scripts/central_open_gaps.py scripts/central_single_screen_report.py; do
+            echo "::group::Denetim: ${script}"
+            if python3 "${script}"; then
+              printf '%s\\t%s\\n' "${script}" "success" >> madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
+            else
+              status=$?
+              printf '%s\\t%s\\t%s\\n' "${script}" "failure" "${status}" >> madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
+              echo "::error::Denetim basarisiz: ${script} (cikis: ${status})"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "${failed}"
       - name: 92 satirlik toplu esdegerlik matrisi kabul kapisi
         id: audit_2
         continue-on-error: true
