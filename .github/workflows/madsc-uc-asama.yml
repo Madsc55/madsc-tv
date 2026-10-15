@@ -6,7 +6,7 @@ on:
       - 'verification_pipeline.py'
 permissions:
   contents: write
-  actions: write
+  actions: read
 concurrency:
   group: madsc-rapor-yazma
   cancel-in-progress: false
