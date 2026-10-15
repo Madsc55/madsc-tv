@@ -266,7 +266,7 @@ jobs:
           for filename in legacy:
               content = (root / filename).read_text(encoding="utf-8")
               writes = "contents: write" in content
-              pushes = bool(re.search(r"git\\s+push", content))
+              pushes = bool(re.search(r"git\s+push", content))
               if not writes or not pushes:
                   raise SystemExit("Review legacy write policy: " + filename)
               print("PRODUCTION RISK STILL OPEN:", filename)
