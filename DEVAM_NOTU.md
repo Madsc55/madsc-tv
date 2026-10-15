@@ -2165,3 +2165,30 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 ### Not birlestirme ilkesi
 - DEVAM_NOTU.md kronolojik kaynak kayitlari silinmez. Ayni gorev ve kararlar bir GUNCEL DURUM bolumunde referanslarla birlestirilir; onceki SHA, tarih, kanit korunur. 330k+ karakterlik notun butun tekrarlari henuz metin bazinda karsilastirilmadi; not temizlendi denmez.
 - Sonraki asama: 92 legacy workflow YAML iceriklerinin tam okunmasi, workflow-script-test bagimlilik eslestirmesi, fixture ile izole esdegerlik testleri. Eski kodlar silinmez veya kapatilmaz; korunan listeler degistirilmez.
+
+
+## 2026-10-15 — 16 ILAVE PYTHON KODU GERCEKTEN OKUNDU, NOTLARA AKTARILDI
+- Bir onceki turda kaynaklari GitHub'dan okunan ancak notlara islenemeyen asagidaki 16 dosyanin gorevleri simdi kaydedildi. Toplam gercek kaynak kodu acilan ek dosya 105/145 (89+16); 40 dosyanin kaynak kodu bekliyor. Bu sayim 38 Python test dosyasini da kapsar; henuz tek tek acilmamis olabilir.
+- KOD OKUNDU; PROGRAMLAR CALISTIRILMADI; IZOLASYON TESTI VE DAVRANISSAL ESDEGERLIK KANITI YOK.
+
+| # | Kod dosyasi | Koddan anlasilan gorev | Durum |
+|---:|---|---|---|
+| 1 | tools/candidate_status_summary.py | aday durumunu ozetler | KOD OKUNDU / TEST YOK |
+| 2 | tools/change_simulation.py | oneri degisikligini ve geri donus planini simule eder | KOD OKUNDU / TEST YOK |
+| 3 | tools/cuma_denetim_uyari_ozeti.py | Cuma denetim uyari raporu yazar | KOD OKUNDU / TEST YOK |
+| 4 | tools/eksik_turk_kanal_takibi.py | eksik Turk kanallari salt okunur izler | KOD OKUNDU / TEST YOK |
+| 5 | tools/genel_sistem_bakimi.py | haftalik sistem saglik raporu olusturur | KOD OKUNDU / TEST YOK |
+| 6 | tools/genis_kaynak_taramasi.py | haftalik/aylik kaynak tarama metaverisi ve aday raporu uretir | KOD OKUNDU / TEST YOK |
+| 7 | tools/guncel_test_durum_ozeti.py | test ilerleme ozetini birlestirir | KOD OKUNDU / TEST YOK |
+| 8 | tools/haftalik_ana_liste_denetimi.py | haftalik yayin ve EPG teknik denetimi raporlar | KOD OKUNDU / TEST YOK |
+| 9 | tools/kaynak_kapsam_denetimi.py | kesif kaynak kapsamini denetler | KOD OKUNDU / TEST YOK |
+| 10 | tools/son_kontrol_yedekler_aktar.py | test gecen adaylari YEDEKLER icin hazirlar; onay ve yan etki riski | KOD OKUNDU / TEST YOK |
+| 11 | tools/workflow_failure_gate.py | Actions hata zinciri icin durdurma kapisi | KOD OKUNDU / TEST YOK |
+| 12 | tools/workflow_safety.py | sinirli tekrar, hiz limiti ve URL maskeleme yardimcilari | KOD OKUNDU / TEST YOK |
+| 13 | verification_pipeline.py | aday dogrulama durumunu surdurur ve rapor yazar | KOD OKUNDU / TEST YOK |
+| 14 | yanlis_pozitif_koruma.py | HLS yanlis pozitif kontrolleri | KOD OKUNDU / TEST YOK |
+| 15 | yeni_aday_on_test.py | yeni aday on testi ve CSV raporu | KOD OKUNDU / TEST YOK |
+| 16 | yeni_kanal_tara.py | cok kaynakli kesif ve HLS/ffprobe teknik test raporlari | KOD OKUNDU / TEST YOK |
+
+- Birlesim adaylari: kesif/kaynak kapsaminda genis_kaynak_taramasi + yeni_kanal_tara; dogrulama/testte verification_pipeline + yeni_aday_on_test + yanlis_pozitif_koruma; saglik raporlarinda genel_sistem_bakimi + haftalik_ana_liste_denetimi + cuma_denetim_uyari_ozeti + guncel_test_durum_ozeti. Bunlar dogrudan birebir esdeger degil, ortak motor ve farkli gorunum/alt moduller adayi.
+- tools/son_kontrol_yedekler_aktar.py YEDEKLER icin aday hazirlama islevi nedeniyle ONAY GEREKLI / KORUNAN DOSYA RISKI grubunda tutulur; ana liste ve yedekler uzerinde otomatik calistirilmaz.
