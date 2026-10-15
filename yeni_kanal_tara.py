@@ -1,3 +1,4 @@
+from channel_name_normalization import normalize_channel_name
 #!/usr/bin/env python3
 """Read-only multi-source IPTV discovery and bounded HLS segment test. Scan requested 2026-10-09."""
 import csv
@@ -71,10 +72,7 @@ def parse(content):
             meta = None
 
 def norm(name):
-    name = name.upper().translate(str.maketrans("İÇŞĞÜÖ", "ICSGUO"))
-    name = re.sub(r"\[[^]]*\]|\([^)]*\)", " ", name)
-    name = re.sub(r"\b(?:TR|TURKIYE|HD|FHD|UHD|QHD|SD|1080P|720P|576P|480P|360P)\b", " ", name)
-    return re.sub(r"[^A-Z0-9]", "", name)
+    return normalize_channel_name(name, profile="new_scan")
 
 def hls_probe(url, seconds=30):
     """Probe HLS playlist and sample media repeatedly; not a visual/audio identity test."""
