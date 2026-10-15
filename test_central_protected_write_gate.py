@@ -34,7 +34,7 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             (folder / "eski-kanal-guncelleme.yml").write_text(
-                "name: Eski\\non: workflow_dispatch\\npermissions:\\n  contents: write\\njobs:\\n  job:\\n    runs-on: ubuntu-latest\\n    steps:\\n      - run: echo test\\n",
+                "name: Eski\non: workflow_dispatch\npermissions:\n  contents: write\njobs:\n  job:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo test\n",
                 encoding="utf-8",
             )
             report = inspect(root)
