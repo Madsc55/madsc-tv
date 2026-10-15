@@ -112,3 +112,9 @@ Tarih: 2026-10-15
 - Zamanlanmis yazici: epg-gunluk.yml, vod-guncelle.yml. Olay tetiklemeli yazici: publish-iptv-png-logos.yml.
 - Test sadece dosya yapisi, tetikleme ve yetki siniflandirmasi yapti; canli otomasyonlari degistirmedi.
 - Kalan 21 risk ve uretim yazma korumasi halen acik.
+
+## 13. Test - EPG ve VOD izinli dosya yazma denemesi
+- GitHub Actions 38737759017; commit 8d308084d205c5da3eb3d162c189750a9462963b; 17/17 adim basarili.
+- Gecici Git deposunda EPG icin yalniz epg/madsc-epg.xml, epg/ibo-test-epg.xml, epg/report.json, epg/tv_kontrol_bekliyor.json; VOD icin yalniz vod/guncel-bolumler.json degisikliklerine izin veren kontrol denendi.
+- Diger gorev ciktilari, CALISANLAR.m3u ve AGENTS.md degisiklikleri reddedildi.
+- Bu yalniz test kanitidir; uretim EPG/VOD workflow'larina baglanmadi. 21 risk hala acik.
