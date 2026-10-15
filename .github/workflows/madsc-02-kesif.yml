@@ -65,6 +65,7 @@ jobs:
           python3 scripts/central_duplicate_test_audit.py
           python3 scripts/central_ibo_review_queue.py
       - name: Gercek aday kesfi ve teknik aday taramasi
+        id: discovery
         continue-on-error: true
         timeout-minutes: 40
         shell: bash
@@ -76,6 +77,14 @@ jobs:
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Kesif basarisizlik kapisi
+        if: always()
+        shell: bash
+        run: |
+          if [[ "${{ steps.discovery.outcome }}" != "success" ]]; then
+            echo "::error::Kesif teknik taramasi basarisiz; bu kosu basarili gecmis kaynagi sayilamaz."
+            exit 1
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
