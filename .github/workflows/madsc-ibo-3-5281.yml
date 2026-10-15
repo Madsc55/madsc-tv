@@ -407,7 +407,60 @@ jobs:
           assert len(set(candidates.values())) == len(candidates)
           print("Independent stable EPG/VOD groups checked; no production change")
           PY
-      - name: 15 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 15 - EPG ve VOD guvenli kaydetme kapisini sina
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          allowed = {
+              "epg": {"epg/report.json", "epg/madsc-epg.xml"},
+              "vod": {"vod/guncel-bolumler.json"},
+          }
+          with tempfile.TemporaryDirectory() as tmp:
+              root = Path(tmp)
+              def git(*args, check=True):
+                  return subprocess.run(
+                      ["git", *args], cwd=root, check=check, capture_output=True, text=True
+                  )
+              git("init", "-q")
+              git("config", "user.email", "test@example.invalid")
+              git("config", "user.name", "Guvenlik Testi")
+              for name in sorted(set().union(*allowed.values()) | {"CALISANLAR.m3u"}):
+                  target = root / name
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_text("original", encoding="utf-8")
+              git("add", "--all")
+              git("commit", "-qm", "baseline")
+
+              def gate(kind):
+                  status = git("status", "--porcelain", "--untracked-files=all").stdout
+                  paths = {line[3:] for line in status.splitlines()}
+                  return bool(paths) and paths <= allowed[kind]
+
+              (root / "epg/report.json").write_text("updated", encoding="utf-8")
+              assert gate("epg")
+              git("add", "--", "epg/report.json")
+              assert gate("epg"), "Staged permitted output rejected"
+              (root / "CALISANLAR.m3u").write_text("forbidden", encoding="utf-8")
+              assert not gate("epg"), "Unauthorized unstaged change escaped"
+              git("add", "--", "CALISANLAR.m3u")
+              assert not gate("epg"), "Unauthorized staged change escaped"
+              git("restore", "--staged", "--worktree", "CALISANLAR.m3u")
+              assert gate("epg"), "Recovery of protected file did not restore gate"
+              git("commit", "-qm", "permitted EPG only")
+              assert not git("status", "--porcelain").stdout
+              assert git("show", "--pretty=format:", "--name-only", "HEAD").stdout.strip() == "epg/report.json"
+
+              (root / "vod/guncel-bolumler.json").write_text("updated", encoding="utf-8")
+              assert gate("vod")
+              assert not gate("epg"), "Cross-task output escaped gate"
+              print("EPG/VOD staged and unstaged allowlists, commit scope, cross-task isolation verified")
+              print("No remote push attempted; production push and rebase still require separate checks")
+          PY
+      - name: 16 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
