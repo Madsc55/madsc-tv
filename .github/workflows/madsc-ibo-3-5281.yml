@@ -775,3 +775,21 @@ jobs:
               assert "git diff --exit-code -- CALISANLAR.m3u" in raw, filename
               print("TARIHSEL YAZICI IZOLASYONU DOGRU:", filename)
           PY
+
+      - name: 27 - IBO 6115 tarihsel kararlarinin tekrar yazilmasini engelle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          safe = Path(".github/workflows/madsc-ibo-6115-second.yml").read_text(encoding="utf-8")
+          assert "workflow_dispatch:" in safe
+          assert "  push:" not in safe and "  schedule:" not in safe
+          assert "contents: read" in safe and "contents: write" not in safe
+          assert "persist-credentials: false" in safe
+          assert "concurrency:" in safe
+          assert "git push" not in safe and "git commit" not in safe
+          assert "git diff --exit-code -- CALISANLAR.m3u" in safe
+          risky = Path(".github/workflows/madsc-ibo-ilk-239.yml").read_text(encoding="utf-8")
+          assert "contents: write" in risky and "git push origin HEAD:main" in risky
+          print("6115 IZOLASYONU DOGRU; ILK 239 YAZICI RISKI HALA ACIK")
+          PY
