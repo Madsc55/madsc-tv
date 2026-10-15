@@ -1516,3 +1516,11 @@ Doğrulanan öncelikli risk örnekleri:
 - P0 madde 5: cift push ve gereksiz otomatik tetik adaylari bulundu; engelleme ve davranissal kabul tamamlanmadi.
 - KAPANIS SARTI: bes maddenin her biri gercek uygulama ve kanitla tamamlanacak; engelli olan acikca engelli kalacak, yapilmayan is yesil gosterilmeyecek. Yeni tek tek uzun test serileri acilmadan toplu duzeltme ve toplu kabul yapilacak.
 - KORUMA: Yalniz DEVAM_NOTU.md guncellendi. Workflow/playlist/arsiv, main, PR #71 birlestirme icin kullanicidan ayrica acik izin gerekir.
+
+
+## KULLANICI KALICI CALISMA TALIMATI - YAP, TEST ET, DUZELT, TEKRAR TEST ET, SONRA GEC (2026-10-15)
+- Kullanici acik talimat verdi: MADSC TV kapsamindaki guvenlik, kanal, arsiv, yedek, kesif ve diger tum gorevlerde sirayla gercek isi yap, testi calistir, hata cikarsa hatayi duzelt, tekrar test et; ancak basariyi dogruladiktan sonra sonraki goreve gec. Yapilmayan isi bitmis gosterme; testlerin kapsam sinirlarini belirt. Gereksiz kucuk test serileri yerine toplu kabul tercih et.
+- Kalici emniyet siniri: Gercek kanal listelerindeki kullanici kararlarini, gecmis yedekleri ve korunan dosyalari izinsiz yikici sekilde degistirme; main merge ve PR #71 birlestirme ayrica acik onay ister. Once izole dalda dene.
+- P0 ilk somut workflow duzeltmesi: madsc/p0-guvenli-yazma-kapisi-deneme-20261015 dalinda .github/workflows/vod-guncelle.yml icin concurrency, Rule24 devre kesicisi, main-only branch kontrolu, dosya izin listesi ve uzak dal degismisse push durdurma eklendi (commit fd02d6393711b7cbb9c6d8755f792ca50ab4a56f). Uretim/main workflow'u degismedi.
+- Regresyon testinde ilk run 38743576992 eski 'git push' yazim beklentisi nedeniyle basarisiz oldu; denetim duzeltildi, run 38743651878 SUCCESS. Bu mevcut testlerin basarisi; VOD'un gercek uretim gonderimi veya concurrency davranisi henuz canli dogrulanmadi.
+- P0 BIRINCI BOLUM ACIK: 21 riskli otomasyonun tumu henuz duzeltilmedi, 26 kural enforcement toplu kabul edilmedi, branch protection API 403 engeli devam ediyor. Siradaki gorev diger riskli yazicilari ayni yaklasimla izole dalda duzeltmek ve toplu test etmektir.
