@@ -1,4 +1,4 @@
-name: MADSC - IBO 3-5281 Guvenli Izole Prova
+name: MADSC - Guvenli Kanal Ayirma ve Yedek Dogrulama Testi
 on:
   workflow_dispatch:
   push:
@@ -19,14 +19,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: P0 isolated proof - verify workflow scope
+      - name: 1 - Deneme dalini ve yazma iznini denetle
         env:
           GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           set -euo pipefail
           test "$GITHUB_REF_NAME" = "madsc/p0-guvenli-yazma-kapisi-deneme-20261015"
           echo "Read-only rehearsal. No protected data is modified."
-      - name: Check writer script syntax without executing it
+      - name: 2 - Kanal ayirma betiginin kodunu dogrula
         run: |
           set -euo pipefail
           python3 - <<'PY'
@@ -35,7 +35,7 @@ jobs:
           ast.parse(Path("scripts/apply_ibo_3_5281.py").read_text(encoding="utf-8"))
           print("IBO writer script syntax OK; script not executed")
           PY
-      - name: Simulate IBO transformation on disposable copy
+      - name: 3 - 11367 sahte yedekle kanal ayirmayi sinama
         run: |
           set -euo pipefail
           python3 - <<'PY'
@@ -83,7 +83,7 @@ jobs:
               raise SystemExit("Protected source playlist changed")
           print("Protected repository playlist SHA256 unchanged")
           PY
-      - name: Verify target files and guardrails
+      - name: 4 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
