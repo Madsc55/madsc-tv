@@ -1606,3 +1606,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - Run 38724971116 MADSC 02 job 116388519282 logu okundu; gercek checkout commit 97869612210f7f868976aa598191cd6710f8be8a (izole dal). Bu run besli ana calisma dalinin guncel commitini test etmiyor.
 - madsc_akilli_kesif.py ana liste test gecmisinde bozuk JSON veya gecersiz channels nesnesini sessizce {} ile sifirliyordu. Kodda dosya mevcut ve bozuksa RuntimeError ile taramayi durduracak sekilde duzeltildi. Commit 4176c5feb23b224754583339461890b6305ce9c2. Bu, sonraki kosular arasinda artifact geri yukleme sorununu tek basina COZMEZ; restore mekanizmasi halen ayri is.
 - MADSC 05 14 bagimsiz denetim duzeltmesi commit b945582; guncel Actions kosu kaniti henüz yok. Hicbir eski workflow veya korunan playlist/yedek/logo degistirilmedi.
+
+
+## 2026-10-15 — KESIF GECMISININ ACTIONS ARASI RESTORE ADIMI
+- Kullanici tekrar talimat verdi: hata bul/duzelt/test et/siradakine gec; her adimda soru sorma; notu al.
+- .github/workflows/madsc-02-kesif.yml dosyasina onceki ayni dalin basarili MADSC 02 kosusunun madsc-kesif-tek-kosu-rapor artifact'ini gh run list/download ile alma, gecmis.json ve ana_liste_test_gecmisi.json JSON sozluk yapisini kontrol edip madsc_kesif/ altina yukleme adimi eklendi. Commit 08971e86d09095d2fd931f1d8fce1a3c2fcca008.
+- Onceki basarili kosu veya gerekli artifact yoksa islem hata verir; sessiz sifirlama yapmaz. Ilk calisma (bootstrap), artifact klasor yapisi ve izinler gercek Actions run'inda HENUZ DOGRULANMADI. Basari iddia etme. Bu adim ile kodun gecmis kontrolu birlikte incelenmeli. actions: read yetkisi mevcut.
+- Bu turda korunan playlistler, 92 eski workflow, main ve arsivler degistirilmedi. Yeni test/workflow dosyasi olusturulmadi.
