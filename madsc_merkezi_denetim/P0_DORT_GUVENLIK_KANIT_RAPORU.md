@@ -151,3 +151,9 @@ Tarih: 2026-10-15
 - GitHub Actions 38739211329; commit 793946b27d3d6d38e73a262a68a2066724f0d1e8; 23/23 adim basarili.
 - Uretim EPG ve VOD is akislarinda guvenlik adimlarinin uygulanma sirasi yapisal olarak denetlendi: concurrency, iki hata devre kesici, veri uretimi, izinli dosya denetimi, kapsamli commit ve uzak Git fark kontrolu.
 - Mevcut workflow'larda concurrency ve workflow_failure_gate.py baglantilari halen eksik; bu test korumalari baglamadi ve ana dala yazmadi. 21 risk acik.
+
+## 20. Test - Iki hata devre kesicisinin gercek kodla testi
+- GitHub Actions 38739946079; commit 44dfd3ce3d5946175650773cf1e43e748115dcd2; 24/24 adim basarili.
+- tools/workflow_failure_gate.py gercek should_stop fonksiyonu tek hata, iki hata, zaman asimi+hata, basari ile sifirlama, iptal arasi ve mevcut calismayi haric tutma senaryolarinda dogrulandi.
+- workflow_dispatch kurtarma gecisi gercek main fonksiyonu ile API cagrisi yapmadan sinandi.
+- EPG/VOD uretim otomasyonlarina devre kesici bagli degil; 21 risk acik.
