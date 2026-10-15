@@ -749,9 +749,9 @@ jobs:
               assert "CALISANLAR.m3u" in raw or "madsc_kesif" in raw, name
               print("KANAL ZINCIRI - KORUMA VAR AMA HARD RESET/PUSH INCELEMESI ACIK:", name)
           final = (root / "madsc-son-kontrol.yml").read_text(encoding="utf-8")
-          assert "workflow_run:" in final and "schedule:" in final
-          assert "conclusion == 'success'" in final
-          print("SON KONTROL CIFT TETIK ADAYI: schedule + workflow_run")
+          assert "workflow_run:" not in final and "schedule:" in final
+          assert "workflow_dispatch:" in final
+          print("SON KONTROL CIFT TETIKLEME KALDIRILDI: schedule + manual")
           PY
 
       - name: 26 - Uc tarihsel kanal yazicisinin salt okunur guvenligini dogrula
