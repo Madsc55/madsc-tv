@@ -7,6 +7,7 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
         report = inspect(Path(__file__).resolve().parent)
         self.assertGreater(report["workflows_scanned"], 0)
         self.assertEqual(report["errors"], [])
+        self.assertEqual(report["central_write_violations"], [])
         self.assertTrue(all(x["status"] == "MANUAL_REVIEW_REQUIRED"
                             for x in report["review_required"]))
 
