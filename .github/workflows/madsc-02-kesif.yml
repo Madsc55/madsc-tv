@@ -36,31 +36,50 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p madsc_kesif madsc_merkezi_denetim
-          run_id="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 20 --json databaseId --jq '.[0].databaseId // empty')"
-          if [[ -z "${run_id}" ]]; then
-            if [[ -s madsc_kesif/gecmis.json || -s madsc_kesif/ana_liste_test_gecmisi.json ]]; then
-              echo "::error::Onceki kosu bulunamadi ancak depoda gecmis var; mevcut kayitlarin uzerine yazilmayacak."
+          run_ids="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 100 --json databaseId --jq '.[].databaseId')"
+          if [[ -z "${run_ids}" ]]; then
+            if [[ -e madsc_kesif/gecmis.json || -e madsc_kesif/ana_liste_test_gecmisi.json ]]; then
+              echo "::error::Onceki kosu bulunamadi ancak depoda gecmis dosyasi var; mevcut kayitlarin uzerine yazilmayacak."
               exit 1
             fi
-            echo "::notice::Onceki basarili kesif kosusu yok; ilk calistirma icin bos ama gecerli gecmis baslatiliyor."
+            echo "::notice::Onceki basarili kesif kosusu yok; ilk calistirma icin bos gecmis olusturuluyor."
             python3 -c 'import json,pathlib; p=pathlib.Path("madsc_kesif"); (p/"gecmis.json").write_text(json.dumps({"history":{}})+chr(10),encoding="utf-8"); (p/"ana_liste_test_gecmisi.json").write_text(json.dumps({"channels":{}})+chr(10),encoding="utf-8")'
             exit 0
           fi
-          mkdir -p "${RUNNER_TEMP}/madsc-onceki-kesif"
-          gh run download "${run_id}" --name madsc-kesif-tek-kosu-rapor --dir "${RUNNER_TEMP}/madsc-onceki-kesif"
-          for file in gecmis.json ana_liste_test_gecmisi.json; do
-            source="${RUNNER_TEMP}/madsc-onceki-kesif/madsc_kesif/${file}"
-            if [[ ! -f "${source}" && -f "${RUNNER_TEMP}/madsc-onceki-kesif/${file}" ]]; then
-              source="${RUNNER_TEMP}/madsc-onceki-kesif/${file}"
+          restored=""
+          for run_id in ${run_ids}; do
+            source_dir="${RUNNER_TEMP}/madsc-onceki-kesif-${run_id}"
+            mkdir -p "${source_dir}"
+            if ! gh run download "${run_id}" --name madsc-kesif-tek-kosu-rapor --dir "${source_dir}"; then
+              echo "::warning::Run ${run_id} artifact indirilemedi; daha eski basarili kosu deneniyor."
+              continue
             fi
-            if [[ ! -f "${source}" ]]; then
-              echo "::error::Onceki gecmis dosyasi eksik: ${file}"
-              exit 1
+            files_ok=true
+            for file in gecmis.json ana_liste_test_gecmisi.json; do
+              source="${source_dir}/madsc_kesif/${file}"
+              if [[ ! -f "${source}" && -f "${source_dir}/${file}" ]]; then
+                source="${source_dir}/${file}"
+              fi
+              key="channels"
+              [[ "${file}" == "gecmis.json" ]] && key="history"
+              if [[ ! -f "${source}" ]] || ! python3 -c 'import json,sys; d=json.load(open(sys.argv[1],encoding="utf-8")); assert isinstance(d,dict) and isinstance(d.get(sys.argv[2]),dict)' "${source}" "${key}"; then
+                files_ok=false
+                break
+              fi
+            done
+            if [[ "${files_ok}" == true ]]; then
+              cp "${source_dir}/madsc_kesif/gecmis.json" "madsc_kesif/gecmis.json" 2>/dev/null || cp "${source_dir}/gecmis.json" "madsc_kesif/gecmis.json"
+              cp "${source_dir}/madsc_kesif/ana_liste_test_gecmisi.json" "madsc_kesif/ana_liste_test_gecmisi.json" 2>/dev/null || cp "${source_dir}/ana_liste_test_gecmisi.json" "madsc_kesif/ana_liste_test_gecmisi.json"
+              restored="${run_id}"
+              break
             fi
-            python3 -c 'import json,sys; data=json.load(open(sys.argv[1],encoding="utf-8")); assert isinstance(data.get(sys.argv[2]),dict), "invalid history"' "${source}" "$( [[ "${file}" == gecmis.json ]] && echo history || echo channels )"
-            cp "${source}" "madsc_kesif/${file}"
+            echo "::warning::Run ${run_id} gecmisi eksik veya gecersiz; daha eski basarili kosu deneniyor."
           done
-          echo "Onceki kesif gecmisi geri yuklendi: run ${run_id}"
+          if [[ -z "${restored}" ]]; then
+            echo "::error::Basarili kosularin hicbirinde gecerli iki gecmis dosyasi bulunamadi; gecmis sifirlanmayacak."
+            exit 1
+          fi
+          echo "Gecerli kesif gecmisi geri yuklendi: run ${restored}"
       - name: Kategoriye ait tum rapor kontrolleri
         shell: bash
         run: |
