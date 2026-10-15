@@ -1636,3 +1636,7 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC 02 kesif adimina id: discovery eklendi; continue-on-error: true sayesinde bagimsiz regresyon/korunan dosya kontrolleri ve if: always() artifact korunuyor. Artifact oncesine if: always() basarisizlik kapisi eklendi; steps.discovery.outcome success degilse job failure oluyor. Commit 0f6493b10af0124f80227f985d8e7d7c2d31a948.
 - Boylece basarisiz kesif sonraki gh run list --status success gecmis seciminde basarili gorunmemeli. Gercek CI run baslatilamadi ve gecis kaniti yok. Onceden basarili gorunmus fakat gecmis artifact'i eksik eski kosular hala ayri risk; onceki run secimi ve artifact uygunlugu incelenmeli.
 - 92 legacy workflow, main, playlist, yedek ve logolar degistirilmedi.
+
+## 2026-10-15 — BOOTSTRAP VERI KAYBI KORUMASI
+- MADSC 02 onceki basarili run bulunamazsa ilk kosu icin bos JSON olusturuyordu. Depoda madsc_kesif/gecmis.json veya ana_liste_test_gecmisi.json icerigi varsa bu kayitlari ezme riski saptandi. Yeni kontrol ile -s olan gecmis dosyasi varken bootstrap hata verir, uzerine yazmaz. Commit 724ab23f72e1c171b8e64901bdc4b17a039e14d7.
+- Hala acik: onceki run'un artifact kalitesi, birden fazla basarili run arasinda en son gecerli gecmisin secimi, GitHub Actions gercek kosu testi. Kod duzeltildi fakat test gecti denemez. Korunan dosyalar degismedi.
