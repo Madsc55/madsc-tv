@@ -2484,3 +2484,12 @@ P1 TUTARSIZLIK: central_workflow_inventory.py five_stage LOGO/EPG -> 3 ve YEDEK 
 PARITY KAPILARI: her eski workflow icin trigger, schedule, concurrency, permissions, script entrypoint, env/secrets, artifact, output schema, protected write behavior ve negative test esitligi. 92/92 karsilastirilmadan workflow kapatilmaz; mevcut parity 0/92. Golden fixture: eksik/bozuk kanit, iki M3U ayni URL farkli ad, Turkce harf, gecersiz EXTINF, ffprobe timeout, HLS 200 segment 404, audio-only, farkli EPG pilotlari, bozuk logo, Actions son100 disi, eski kategori mapping, korunan dosyaya yazma girisimi.
 YETKI SINIRI: Bu kayit salt dokumantasyon; kod dosyalari, workflowlar, playlistler, yedek/test listeleri, logo/EPG ve PR #71 degistirilmedi. Kesfedilen kanal sayisi ve hedef yedek/test listesi belirtilerek ONCEDEN acik kullanici onayi alinmadan kanal eklenmez. IBO Player cihazi onayi kullanicida.
 DURUM: 5 kategorinin fonksiyon duzeyi birlesim matrisi toplandi; 10 ortak katman tasarimi, korunacak ayrimlar ve P0/P1 engelleri kaydedildi. 0 kod refaktoru, 0 runtime test, 0/92 workflow parity.
+
+
+## 2026-10-16 — ILK GERCEK KOD BIRLESTIRMESI (K2 C01)
+Kullanici 'Neyi bekliyorsun yapsana' diyerek kod birlestirmesine acik izin verdi. Ana liste, yedek/test listeleri, workflow, main ve PR #71 korumasi aynen suruyor.
+Gercek degisiklik: yeni salt hesaplama modulu channel_name_normalization.py olusturuldu (commit 89df6f2991fd810864869e8d35990621e24f6964). normalize_channel_name(name,profile) iki eski davranisi 'wide_scan' ve 'new_scan' olarak birebir tasir. Bilinmeyen profil ValueError; ag/dosya yazma yan etkisi yok.
+genis_kanal_tara.py:norm(s) eski govdesi ortak fonksiyona wide_scan profiliyle yonlendirildi (commit 543184b97ad62ddbcc3dec716447d1dbaafe9946). yeni_kanal_tara.py:norm(name) eski govdesi new_scan profiliyle yonlendirildi (commit 3ad9ded4e5f3cd5660f2a37e5a807ca84b2a93be). Eski isimli norm giris noktalari ve iki farkli normalizasyon semantigi korundu.
+SINIRLAMA: GitHub uzerinde kod yazildi, ancak Python runtime parity/golden fixture, workflow Actions ve IBO testleri CALISTIRILMADI. Bu nedenle 'PASS' veya tam birlesme iddiasi yok. Iki tarama programi ag istegi ve rapor yazma yan etkisi tasidigi icin tetiklenmedi.
+SONRAKI: ortak modulu salt izole fixture ile eski kod ciktilariyla karsilastir, sonra parser ve ffprobe adapterlerini kademeli tasarla. Mevcut 92 legacy workflow devre disi birakilmaz.
+DURUM: 1 ortak modul, 2 cagiran dosya gercek kod refaktoru; protected playlist/backup/cron degisikligi 0.
