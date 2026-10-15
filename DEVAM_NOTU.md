@@ -1116,3 +1116,22 @@ Klasörlerin alt dosyalarının tümünün güncel dal üzerinden tekil dosya ba
 
 ### Açık inceleme / önemli ihtiyat
 Bu turda **33 farklı test dosyası** doğrudan açıldı (ilk 12 + sonraki 12 + son 9). Yukarıdaki kaynak listesi bu 33 dosyayı kapsar. Ekrandaki kalan başka test dosyalarının (örn. adı görüntüde kesilen ve GitHub kök dizininde eşleştirilmeyen) tamamı bu raporda 'açıldı' sayılmaz. Test dosyalarının içeriklerinin GitHub'dan alınması, canlı Actions başarısı veya IBO cihaz kanıtı değildir. Main ekranıyla çalışma dalı farkı devam ediyor. Bu not yalnız DEVAM_NOTU.md sonuna eklendi; başka kaynak dosya, workflow, YEDEKLER veya playlist değiştirilmedi.
+
+
+## 15 EKİM 2026 — YEDİ BÜYÜK DOSYAYA BLOB ERİŞİMİ
+
+Kullanıcı talimatıyla önceki açılmış dosyaları gereksiz tekrarlamadan, 7 büyük engelli dosyaya GitHub Git Blob API SHA üzerinden yeniden erişildi. **Yedi dosyanın yedisinden içerik geldi**; önceki fetch_file boş yanıtı dosya bozukluğu değildir. Blob denemeleri GitHub `main` ağacındaki SHA ile yapıldı; çalışma dalında aynı SHA olup olmadığı her kaynak için ayrıca doğrulanmalıdır. İçeriğe erişim, bütün kayıtların tek tek semantik denetiminin tamamlandığı anlamına gelmez.
+
+- `aday_bekletme/ADAY_ONCELIK_RAPORU.csv`: yaklaşık 2.669 satır, öncelik/inceleme notu/kanal/adayı/teknik-medya testi/kaynak ve durum sütunları. Gizli yayın URL'lerini notlara kopyalama.
+- `madsc_kesif/bulunan_kanal_arsivi.csv`: yaklaşık 11.744 satır, kanal/URL/kaynaklar/sınıf/teknik/IBO/ilk-son görülme sütunları; 11.742 URL raporuyla tarihsel kapsam mutabakatı yapılmalı.
+- `madsc_dogrulama/state.json`: 206.000 satır, `channels` kökü; üç aşamalı kontrol geçmişi, zaman aralıkları, 3/3 başarı ve kimlik/IBO ayrımı için inceleme.
+- `madsc_kesif/gecmis.json`: 107.607 satır, `history` kökü; tekrar/kaynak geçmişi ve tarihsel kimliği belirsiz arşivler.
+- `madsc_son_kontrol/results.json`: 185.889 satır, JSON dizi; final süreklilik, kimlik bekleme ve önceki başarısızlıkların sınıflandırılması.
+- `aday_bekletme/gecmis.json`: yaklaşık 71.986 satırlık içerik döndü, fakat yanıtın sonu kapanışla doğrulanamadı; tam JSON parse ve bütünlük kontrolü ayrıca gerekli.
+- `aday_hazirlik/uc_asama_2026-10-12_1037.json`: 60.602 satır, snapshot zamanı, durum sayımları, altı saat kural ihlalleri, playlist tekrarları, bekleyen gruplar ve sonraki adımlar; tarihsel snapshot güncel başarı sayılmaz.
+
+**Birleştirilecek açık işler:** (1) 7 kaynağın tarih/branch/sha eşleştirmesi; (2) 10.817 kimliği belirsiz tarihsel arşiv kaydı; (3) aday öncelik ve final durumlarının tekrarsız karşılaştırması; (4) gerçek altı saat test aralığı ve 3/3 geçmiş bütünlüğü; (5) yanlış pozitif, kanal kimliği ve İsveç IBO cihaz kararı ayrımı; (6) ham URL/credential sızıntısını engelleme; (7) diğer 769 envanter dosyasının benzersiz tam içerik/format kontrol matrisini tamamlama.
+
+**Sayım ihtiyatı:** 15 Ekim çalışma dalı envanteri 769 dosya/27 klasör, daha önce `main` dalı ağacı 749 dosya/26 klasör gösterdi. Bu iki sayım farklı dal/sürüm olabilir; **749 ve 769 toplanmaz veya biri ötekinin yerine kullanılmaz.** Önceki '48 + 30' okumaları kısmi ve çakışmalı; bu tur 7 büyük dosya için erişim kanıtı var. Bütün 769 dosyanın tam içerik incelemesi henüz sayısal olarak sertifikalandırılmadı.
+
+Kaynaklar, playlistler, workflowlar, yedekler ve görseller değiştirilmedi. PR #71 birleştirilmedi.
