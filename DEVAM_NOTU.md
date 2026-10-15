@@ -2040,3 +2040,42 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 | 145 | `.github/commands/genel-guncelleme.txt` | GitHub komut tarifleri | genel guncelleme | 3 Kanal Testleri | Kod ve izole test bekliyor |
 
 - Sonraki asama: workflow -> script -> test -> rapor -> korunan dosya bagimlilik grafigi olustur; ayni isi yapan kodlari kaynak ve davranis kanitiyla eslestir; tekrarlari raporla, eski kodlari silme veya birlestirme. Oncelik 1 Guvenlik ve Saglik. Kaynak kodu ve gercek testleri incelenmemis dosyalari test gecti diye etiketleme.
+
+
+## 2026-10-15 — 29 EK PYTHON DOSYASININ GERCEK KOD INCELEMESI
+- Bu bolum onceki 145 dosyalik isim envanterinden farkli: asagidaki 29 dosyanin Python kaynak icerigi GitHub uzerinden okundu, fonksiyonlari, dosya hedefleri ve yazma yan etkileri incelendi. HICBIRI CALISTIRILMADI. 145/145 tam kaynak incelemesi veya 29/29 test PASS iddiasi YOK.
+- Kritik: Ana liste ve yedekleri degistirebilen programlar var. Kullanicinin onceden acik izni olmadan calistirilamaz. Testler yalniz izole fixture/dry-run ortaminda yapilacak.
+
+| # | Kod dosyasi | Kaynaktan gorulen islev | Risk | Durum |
+|---:|---|---|---|---|
+| 1 | iptv_test.py | yayin ve codec testinden sonra CALISANLAR.m3u ve CALISMAYANLAR.txt yazar | critical | KOD OKUNDU / TEST YOK |
+| 2 | tools/yedekler_guvenli_ekle.py | onayli adaylari ana listedeki YEDEKLER'e ekler | critical | KOD OKUNDU / TEST YOK |
+| 3 | scripts/restore_all_11599_backups.py | arsivden ana liste YEDEKLER grubunu geri yukler | critical | KOD OKUNDU / TEST YOK |
+| 4 | scripts/keep_turkish_backups.py | yedekleri ayirir ve ana M3U yazar | critical | KOD OKUNDU / TEST YOK |
+| 5 | scripts/yeniler_aktar.py | teknik raporlardan YENILER.m3u yazar | critical | KOD OKUNDU / TEST YOK |
+| 6 | scripts/stage_archive_to_backups.py | arsiv adaylarini ana M3U yedek grubuna ekler | critical | KOD OKUNDU / TEST YOK |
+| 7 | scripts/recover_turkish_backups.py | Turkce yedekleri ana listeye geri getirir | critical | KOD OKUNDU / TEST YOK |
+| 8 | scripts/apply_ibo_3_5281.py | IBO kararlarini ana listeye uygular | critical | KOD OKUNDU / TEST YOK |
+| 9 | scripts/apply_ibo_decisions_group1.py | IBO grup kararlarini ana listeye uygular | critical | KOD OKUNDU / TEST YOK |
+| 10 | scripts/sync_yedekler_category_count.py | ana M3U yedek kategori sayisini degistirir | critical | KOD OKUNDU / TEST YOK |
+| 11 | tools/test_adaylarini_yedege_hazirla.py | yedekler/ altina test aday dosyasi yazar | approval | KOD OKUNDU / TEST YOK |
+| 12 | scripts/automatic_png_logos.py | PNG logo uretir, logo alanlarini duzenleyebilir | approval | KOD OKUNDU / TEST YOK |
+| 13 | scripts/ibo_bagimsiz_test_listesi.py | ayri IBO test M3U dosyasi yazar | approval | KOD OKUNDU / TEST YOK |
+| 14 | scripts/discovery_archive.py | aday URL arsiv ve gecmis raporu yazar | reports | KOD OKUNDU / TEST YOK |
+| 15 | scripts/full_system_backup.py | Git tracked dosyalari tar.gz yedekleyip hash dogrular | reports | KOD OKUNDU / TEST YOK |
+| 16 | scripts/ana_liste_saglik.py | ana listeyi bolumlu ffprobe test eder ve raporlar | reports | KOD OKUNDU / TEST YOK |
+| 17 | scripts/build_epg.py | XMLTV rehber ve epg eslesme raporu uretir | reports | KOD OKUNDU / TEST YOK |
+| 18 | scripts/central_protected_write_gate.py | workflow yazma izni ve risklerini raporlar | reports | KOD OKUNDU / TEST YOK |
+| 19 | scripts/five_category_92_workflow_audit.py | 92 workflow esdegerlik on envanteri raporlar | reports | KOD OKUNDU / TEST YOK |
+| 20 | tools/sistem_saglik_denetimi.py | depo saglik ve guvenlik denetimi raporlar | reports | KOD OKUNDU / TEST YOK |
+| 21 | madsc_akilli_kesif.py | ag kaynakli kanal kesfi, medya testleri ve raporlar | reports | KOD OKUNDU / TEST YOK |
+| 22 | scripts/central_consolidation_audit.py | cift tetik ve besli kabul eksigi raporu | reports | KOD OKUNDU / TEST YOK |
+| 23 | scripts/vod_guncelle.py | TVMaze yayin takvimini vod/ JSON'a yazar | reports | KOD OKUNDU / TEST YOK |
+| 24 | scripts/central_main_playlist_run_evidence.py | ana liste saglik kosu kanitini rapora baglar | reports | KOD OKUNDU / TEST YOK |
+| 25 | scripts/central_source_reconciliation.py | kesif kaynak URL sayisi ve hedef mutabakati | reports | KOD OKUNDU / TEST YOK |
+| 26 | scripts/central_ibo_review_queue.py | IBO inceleme kuyrugu CSV raporu | reports | KOD OKUNDU / TEST YOK |
+| 27 | scripts/disaster_recovery_dry_run.py | gecici dizinde Git kurtarma provasi | dryrun | KOD OKUNDU / TEST YOK |
+| 28 | scripts/restore_dry_run.py | gecici dizinde yedek kurtarma provasi | dryrun | KOD OKUNDU / TEST YOK |
+| 29 | scripts/five_category_permission_gate.py | merkezi workflow izin statik denetimi | dryrun | KOD OKUNDU / TEST YOK |
+
+- Sonraki asama: 145 ek dosyanin kalan 116'sinin gercek kodunu okumak, workflow-script bagimliliklarini ve yinelenen gorevleri eslestirmek, salt okunur izole test kanitlarini eklemek. Korunan listelere ve yedeklere dokunulmaz.
