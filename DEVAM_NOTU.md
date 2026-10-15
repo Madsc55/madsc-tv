@@ -1599,3 +1599,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - 2026-10-15 besli calisma dalinda MADSC 05'in 14 ardarda python denetiminin ilk hatada kesilmesi sorunu icin dongu, bagimsiz hata toplama ve madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv eklendi, commit b945582a5843cefa64d24c8b9c920d9674034e75. Sonraki dosya okumasinda kayit dogrulandi; gercek Actions rerun ve basari henuz kanitlanmadi.
 - MADSC 02 continue-on-error true calisma dalinda hala mevcut. PR #72 diff'inde false teklif ediliyor, fakat merge/aktarim kaniti yok.
 - Kullanici en guncel kural: 92 eski workflow'a dokunma, ana playlist/yedek/arsiv/logo koru; test sonucu gelmeden basari iddia etme. Ilk bes gorevin kalanlari: 26 kuralin uretimde uygulanmasi, 92 workflow yazma izinleri/riskli komutlari salt okunur karsilastirma, korunan dosya SHA/branch protection/devre kesici, cift push ve tetikleyici analizi.
+
+
+## 2026-10-15 — KULLANICI OTOMATIK IS ZINCIRI KURALI VE YENI DUZELTME
+- Kullanici kesin talimatini yineledi: izinli isleri sirayla yap; mevcut testleri ve loglari incele; basarili/basarisiz ayrimini yap; gercek hatayi duzelt; sonucu dogrula; sonraki bagimsiz goreve tekrar izin sormadan gec; her asamayi not et. Yeni workflow/test dosyasi gereksiz yere olusturma. Guvenlik engeli varsa ASMA, salt okunur denetimle devam et. Arka planda surekli calisma vaadi verme.
+- Run 38724971116 MADSC 02 job 116388519282 logu okundu; gercek checkout commit 97869612210f7f868976aa598191cd6710f8be8a (izole dal). Bu run besli ana calisma dalinin guncel commitini test etmiyor.
+- madsc_akilli_kesif.py ana liste test gecmisinde bozuk JSON veya gecersiz channels nesnesini sessizce {} ile sifirliyordu. Kodda dosya mevcut ve bozuksa RuntimeError ile taramayi durduracak sekilde duzeltildi. Commit 4176c5feb23b224754583339461890b6305ce9c2. Bu, sonraki kosular arasinda artifact geri yukleme sorununu tek basina COZMEZ; restore mekanizmasi halen ayri is.
+- MADSC 05 14 bagimsiz denetim duzeltmesi commit b945582; guncel Actions kosu kaniti henüz yok. Hicbir eski workflow veya korunan playlist/yedek/logo degistirilmedi.
