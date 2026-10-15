@@ -136,3 +136,8 @@ Tarih: 2026-10-15
 - Gecici Git deposunda EPG/VOD izinli dosya degisiklikleri, staged/unstaged durumlar, korunan CALISANLAR.m3u degisikliklerinin reddi ve EPG commit kapsaminda yalniz izinli dosyanin bulunmasi dogrulandi.
 - VOD degisikliginin EPG izniyle gecemeyecegi de dogrulandi.
 - Gercek uzak git push, git pull --rebase ve uzak dal cakismalari bu testte sinanmadi. Uretim otomasyonlari degistirilmedi; 21 risk acik.
+
+## 17. Test - Uzak dal degisikligini taklit ederek korunan dosya denetimi
+- GitHub Actions 38738749884; commit 4da74768f32e4b2351e3e1dcc2e0b36ffc8016cf; 21/21 adim basarili.
+- Gecici yerel Git deposunda onceki commit ile sonraki commit karsilastirildi; CALISANLAR.m3u degisikliginin EPG izin listesi disinda kaldigi dogrulandi.
+- Gercek uzak push, stale push reddi, rebase ve otomatik yeniden deneme bu testte SINANMADI. Uretim yazma kapisi bagli degil; 21 risk acik.
