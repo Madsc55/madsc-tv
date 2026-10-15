@@ -2,6 +2,10 @@
 """Beş aşamanın bütün kanıtlarını tek ekranda toplayan salt okunur rapor."""
 import json
 from pathlib import Path
+try:
+    from scripts.evidence_reader import read_json_evidence
+except ModuleNotFoundError:
+    from evidence_reader import read_json_evidence
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "madsc_merkezi_denetim"
 FILES = {
@@ -12,10 +16,9 @@ FILES = {
  "arşiv ve kabul": ["bes_asama_kabul_kapisi.json", "on_sekiz_gorev_bes_asama_kanit.json", "kalan_isler_tek_kosu_karar_tablosu.json"],
 }
 def read(folder, name):
-    try:
-        return json.loads((folder / name).read_text(encoding="utf-8"))
-    except (OSError, ValueError, UnicodeError):
-        return None
+    state, data = read_json_evidence(folder / name)
+    return data if state == "present" else None
+
 def build(folder, discovery_folder=None):
     discovery_folder = discovery_folder if discovery_folder is not None else ROOT / "madsc_kesif"
     logo_report = read(discovery_folder, "candidate_logo_missing_report.json")
