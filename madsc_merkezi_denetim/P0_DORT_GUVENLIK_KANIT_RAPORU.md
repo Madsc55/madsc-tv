@@ -141,3 +141,8 @@ Tarih: 2026-10-15
 - GitHub Actions 38738749884; commit 4da74768f32e4b2351e3e1dcc2e0b36ffc8016cf; 21/21 adim basarili.
 - Gecici yerel Git deposunda onceki commit ile sonraki commit karsilastirildi; CALISANLAR.m3u degisikliginin EPG izin listesi disinda kaldigi dogrulandi.
 - Gercek uzak push, stale push reddi, rebase ve otomatik yeniden deneme bu testte SINANMADI. Uretim yazma kapisi bagli degil; 21 risk acik.
+
+## 18. Test - Eski Git surumunde yeniden deneme karari
+- GitHub Actions 38738962250; commit fe25c6b58f5165665ea54e2a1f2af9d5fb9dd063; 22/22 adim basarili.
+- Gecici yerel Git gecmisinde ayni revizyon icin UNCHANGED, yalniz izinli EPG cikti degisikligi icin REVIEW, korunan kanal dosyasi veya gorev disi degisiklik icin BLOCK kararlari dogrulandi.
+- Otomatik rebase, gercek uzak git push ve uretim yazma engeli bu testte uygulanmadi. 21 uretim riski acik.
