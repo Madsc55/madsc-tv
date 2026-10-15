@@ -4,6 +4,8 @@ import argparse, hashlib, json, re
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from channel_name_normalization import normalize_channel_name
 
 def attribute(line, name):
