@@ -694,3 +694,23 @@ jobs:
           assert "fnmatch.fnmatchcase" in logos
           print("NO PRODUCTION WRITE EXECUTED")
           PY
+
+      - name: 23 - Tarihsel 354 kanal siniflandirmasinin yeniden yazmasini engelle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path(".github/workflows/madsc-ibo-354-classify.yml").read_text(encoding="utf-8")
+          assert "workflow_dispatch:" in source
+          assert "  push:" not in source
+          assert "  schedule:" not in source
+          assert "contents: read" in source
+          assert "contents: write" not in source
+          assert "persist-credentials: false" in source
+          assert "concurrency:" in source
+          assert "git push" not in source
+          assert "git commit" not in source
+          assert "python3 scripts/archive_backups_354_classified.py" not in source
+          assert "git diff --exit-code -- CALISANLAR.m3u" in source
+          print("TARIHSEL 354 OTOMATIK YAZMA KAPATILDI; KARAR DOSYALARI KORUNDU")
+          PY
