@@ -118,3 +118,9 @@ Tarih: 2026-10-15
 - Gecici Git deposunda EPG icin yalniz epg/madsc-epg.xml, epg/ibo-test-epg.xml, epg/report.json, epg/tv_kontrol_bekliyor.json; VOD icin yalniz vod/guncel-bolumler.json degisikliklerine izin veren kontrol denendi.
 - Diger gorev ciktilari, CALISANLAR.m3u ve AGENTS.md degisiklikleri reddedildi.
 - Bu yalniz test kanitidir; uretim EPG/VOD workflow'larina baglanmadi. 21 risk hala acik.
+
+## 14. Test - Gercek EPG ve VOD yazma hedefleri
+- GitHub Actions 38738033294, commit 9680f34a3041b3b5afdbadb78d96fa914682959b: 18/18 adim basarili.
+- epg-gunluk.yml git add hedefleri: epg/madsc-epg.xml, epg/ibo-test-epg.xml, epg/report.json, epg/tv_kontrol_bekliyor.json. vod-guncelle.yml hedefi: vod/guncel-bolumler.json. Tam eslesme dogrulandi.
+- Iki uretim is akisinda da concurrency ve workflow_failure_gate.py baglantisi bulunmuyor; riskler acik.
+- Ilk deneme 38737947254 denetim regex hatasiyla basarisiz oldu; duzeltme sonrasi test gecti. Uretim workflow'lari ve gercek kanal dosyalari degistirilmedi.
