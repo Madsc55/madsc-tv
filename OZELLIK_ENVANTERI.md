@@ -43,3 +43,11 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - **İzole Git HEAD geri yükleme doğrulaması:** `scripts/central_isolated_git_restore.py` ve `test_central_isolated_git_restore.py`; üç korunan dosyanın Git HEAD sürümünü geçici dizinde geri açar, SHA256 ile doğrular. Harici veya tarihsel yedek kurtarma kanıtı değildir.
 
 - **IBO aday inceleme kuyruğu:** `scripts/central_ibo_review_queue.py`, `test_central_ibo_review_queue.py`; aday kanıtı varsa tekrarsız CSV üretir, IBO onayı ve liste aktarımı yapmaz. Kaynak mutabakatında ham kaynak adı tekrarları da denetlenir.
+
+## 15 Ekim 2026 — güncel kanıt ve iş kuyruğu
+- MADSC 05 tetikleyici düzeltmesi: c7567e1, run 38694043295 SUCCESS.
+- MADSC 03 sağlık raporu artifact kapsamı: 7e797fa, run 38694963696 SUCCESS; sağlık raporu kabul kontrolü: 439dc5b, run 38695730312 SUCCESS.
+- MADSC 02 gerçek salt-okunur keşif taraması ve madsc_kesif artifact yolu: c2d28be, MADSC 05 run 38697244625 SUCCESS. Keşif adımı continue-on-error olduğu için adımın ve çıktıların ayrı doğrulanması şart.
+- YEDEKLER'e otomatik kanal ekleme izni kullanıcının sonraki talimatıyla İPTAL edildi; eski devir notundaki izin geçersiz. Korunan listeler, logolar, yedekler değiştirilmeyecek; PR #71 birleştirilmeyecek.
+- AÇIK İŞLER, sırayla: (1) gerçek keşif adımı ve artifact içeriği; (2) bağımsız 5 kategori hata yönetimi; (3) 92 eski workflow'un işlev/tetik/yan etki/artifact eşdeğerliğinin tek tek uygulanması (kanıtlı 0/92); (4) tarihsel ve harici yedek geri yükleme; (5) 1039 girişin sağlık kapsamı ve aday tekrar/kimlik/IBO testleri; (6) EPG/Pages ve PNG aday kimliği; (7) gerçek yazma koruması/devre kesici; (8) eski cron/çakışma ve rapor yükünün doğrulanması.
+- 7/24 saatlik ChatGPT görevi tekrar etkin; bu, her saat bir çalışma turudur, kesintisiz gerçek zamanlı işlem değildir. Tamamlanmış denmeyen işlerin kanıtı toplanmaya devam eder.
