@@ -1,24 +1,24 @@
-name: MADSC - YEDEKLER 355-364 Yabanci Arsiv
+name: MADSC - Historical read-only audit - madsc-ibo-364-355-364.yml
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-ibo-364-355-364.yml'
+  workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
+concurrency:
+  group: madsc-historical-audit-madsc-ibo-364-355-364
+  cancel-in-progress: false
 jobs:
-  archive:
+  audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - run: python3 scripts/archive_backups_355_364.py
-      - run: |
+        with:
+          persist-credentials: false
+      - name: Verify historical playlist remains unchanged
+        run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/ibo_364_355_364_yabanci_arsiv.m3u madsc_kesif/ibo_364_355_364_rapor.json
-          git commit -m "Archive user-identified foreign backups 355-364"
-          git push origin HEAD:main
+          before="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          git diff --exit-code -- CALISANLAR.m3u
+          after="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          test "$before" = "$after"
+          echo "Historical writer disabled; no user decisions replayed"
