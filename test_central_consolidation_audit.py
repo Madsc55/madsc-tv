@@ -32,8 +32,13 @@ class TopluMerkezTesti(unittest.TestCase):
         }
         report = analyze(flows, scenarios)
         for case in report["senaryolar"]:
-            self.assertEqual(case["push_is_akislari"],
-                             ["madsc-aylik-merkezi-denetim.yml"], case["islem"])
+            expected = ["madsc-aylik-merkezi-denetim.yml"]
+            # The branch-only five-stage CI intentionally runs for central
+            # security/audit changes. Keep the second trigger visible rather
+            # than incorrectly asserting that it does not exist.
+            if case["islem"] == "Merkezi denetim kodu":
+                expected = ["madsc-05-genel-bakim.yml", *expected]
+            self.assertEqual(case["push_is_akislari"], expected, case["islem"])
 
     def test_not_degisikligi_agir_merkezi_push_baslatmaz(self):
         root = Path(".github/workflows")
