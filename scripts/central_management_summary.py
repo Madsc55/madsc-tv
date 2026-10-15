@@ -3,6 +3,10 @@
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+try:
+    from scripts.evidence_reader import read_json_evidence
+except ModuleNotFoundError:
+    from evidence_reader import read_json_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "madsc_merkezi_denetim"
@@ -28,15 +32,13 @@ SOURCES = {
 def build(folder):
     sections = {}
     for key, filename in SOURCES.items():
-        path = folder / filename
-        if not path.is_file():
+        state, data = read_json_evidence(folder / filename)
+        if state == "missing":
             sections[key] = {"status": "KANIT_YOK", "file": filename}
-            continue
-        try:
-            data = json.loads(path.read_text(encoding="utf-8"))
-            sections[key] = {"status": "RAPOR_VAR", "file": filename, "data": data}
-        except (ValueError, UnicodeError):
+        elif state == "invalid":
             sections[key] = {"status": "GECERSIZ_RAPOR", "file": filename}
+        else:
+            sections[key] = {"status": "RAPOR_VAR", "file": filename, "data": data}
     missing = [key for key, row in sections.items() if row["status"] != "RAPOR_VAR"]
     # Kritik sinyalleri buyuk raporu acmadan gorunur kil; veri yoksa sifir varsayma.
     source_data = sections["kaynak_mutabakati"].get("data", {})
