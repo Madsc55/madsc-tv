@@ -26,12 +26,24 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
       - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
         shell: bash
         run: |
-          set -euo pipefail
-          python3 scripts/central_identity_epg_logo_audit.py
-          python3 scripts/central_main_playlist_run_evidence.py
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_identity_epg_logo_audit.py scripts/central_main_playlist_run_evidence.py; do
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
       - name: EPG ve Pages yayin baglantisi salt okunur kabul kontrolu
+        id: epg
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -48,12 +60,20 @@ jobs:
           print("Read-only shadow check; live Pages publication and IBO playback not verified.")
           PY
       - name: IBO adaylarini ayri artefakta hazirla
+        id: ibo
+        continue-on-error: true
         run: python3 scripts/export_ibo_two_stage_trial.py --limit 50
       - name: Yayin testi icin ffmpeg aracini kur
+        id: ffmpeg
+        continue-on-error: true
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Ana listeyi salt okunur 50 kanallik partide kontrol et
+        id: playlist
+        continue-on-error: true
         run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
       - name: Kanal saglik raporunu ve test kapsamini dogrula
+        id: coverage
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -70,10 +90,33 @@ jobs:
           print('Tum liste kapsandi:', report['tum_liste_bu_kosuda_test_edildi'])
           PY
       - name: Kategoriye ait tum regresyon testleri
+        id: regressions
+        continue-on-error: true
         run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Kanal testleri basarisizlik kapisi
+        if: always()
+        shell: bash
+        env:
+          REPORTS: ${{ steps.reports.outcome }}
+          EPG: ${{ steps.epg.outcome }}
+          IBO: ${{ steps.ibo.outcome }}
+          FFMPEG: ${{ steps.ffmpeg.outcome }}
+          PLAYLIST: ${{ steps.playlist.outcome }}
+          COVERAGE: ${{ steps.coverage.outcome }}
+          REGRESSIONS: ${{ steps.regressions.outcome }}
+        run: |
+          failed=0
+          for name in REPORTS EPG IBO FFMPEG PLAYLIST COVERAGE REGRESSIONS; do
+            value="${!name}"
+            if [[ "${value}" != "success" ]]; then
+              echo "::error::Kanal denetimi basarisiz veya atlandi: ${name}=${value}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
