@@ -1175,3 +1175,36 @@ Kaynaklar, playlistler, workflowlar, yedekler ve görseller değiştirilmedi. PR
 - Önceden blob yöntemiyle erişilen yedi büyük dosya tekrar indirilmedi; eski parse ve satır sayısı kanıtları korunur. Eski okuma listeleri dosya bazında SHA/okuma derinliğiyle tekilleştirilmediğinden tam incelenen benzersiz dosya sayısı **henüz bilinmiyor**.
 - Güncel yetki: sadece DEVAM_NOTU.md; ana playlistler, HEPSİ, FAVORİLER, YENİLER, YEDEKLER, logolar ve workflow'lar değiştirilmez; PR #71 merge edilmez. Kullanıcının son sistem taşıma denemesine ait log/test sonucu paylaşılmadı: **BAŞARI DOĞRULANMADI**.
 - Sonraki salt okunur görevler: HEAD/devir ağaç farkı; önceki okuma kanıtlarından SHA bazlı gerçek kapsama matrisi; açılmamış CSV/M3U/XML/program/raporlar; 92 workflow için tetik, komut, izin, yan etki, artifact, hata, geri alma ve korunan SHA karşılaştırması. EPG→Pages, 2/gün keşif, VOD, 1/15 yedek, harici restore, 26 güvenlik kuralı ve İsveç IBO cihaz kabulü ayrı engel olarak kalır. Kod ve workflow değişikliği için yeni açık kullanıcı izni gerekir.
+
+
+## 15 EKİM 2026 — YEDİ BÜYÜK KAYNAĞIN YENİDEN BLOB KONTROLÜ VE MERKEZİ İŞ DEVİR LİSTESİ
+
+**Yetki sınırı:** Kullanıcı büyük dosyaların yeniden açılmasına, inceleme bulgularının DEVAM_NOTU.md içinde toparlanmasına izin verdi. Korunan listeler, YEDEKLER, YENİLER, FAVORİLER, HEPSİ, logo, çalışan otomasyonlar ve PR #71 üzerinde değişiklik yetkisi verilmedi.
+
+**Yeni doğrudan kanıt:** Devir commit'i `4987dfb79618f3cd24d4078c9003f77ff697b775` üzerinden recursive Git tree tam (truncated=false): 769 blob, 27 klasör, 373 görsel. Dosya türleri: 97 yml, 151 py, 51 json, 34 md, 27 m3u, 26 csv, 3 xml, 7 txt, 330 png, 40 svg, 1 webp, 2 jpg. Bu sayım dosyaların incelendiğini değil envanterin varlığını kanıtlar.
+
+**Önceden erişim sorunu yaşayan 7/7 dosya SHA ile yeniden açıldı, yanıtın hem başlangıcı hem dosya sonu kontrol edildi:**
+1. `aday_bekletme/ADAY_ONCELIK_RAPORU.csv` — blob `525f650158e7c25da58421abd8cbe000b120d232`, yaklaşık 1.1 MB; öncelik, inceleme notu, teknik/medya testi, kaynak ve onay sütunları.
+2. `madsc_kesif/bulunan_kanal_arsivi.csv` — `48910f40d973ea0d6834aa7d051a68de62d2b2ab`, yaklaşık 2.46 MB; kanal, kaynak, sınıf, teknik/IBO durum ve görülme zamanları.
+3. `madsc_dogrulama/state.json` — `c9060ffb9e3a0b046657c4933cf77a794aff861a`, yaklaşık 5.96 MB; channels kökü ve test geçmişi.
+4. `madsc_kesif/gecmis.json` — `6d9164b0f38edfa266c794a01d13e9e1139fcf6d`, yaklaşık 4.8 MB; history kökü ve kaynak geçmişi.
+5. `madsc_son_kontrol/results.json` — `779f7d97ce79b79e072dcf5b7d12d817054bc487`, yaklaşık 4.84 MB; sonuç dizisi, kimlik ve süreklilik ayrımı.
+6. `aday_bekletme/gecmis.json` — `db88c948936e66fc019c757f40c451a78546abf6`, yaklaşık 2.03 MB; aday geçmişi, successful_runs dizisi.
+7. `aday_hazirlik/uc_asama_2026-10-12_1037.json` — `076a6d4d05cfa8104e760d9c1965026846e28d7b`, yaklaşık 1.79 MB; tarihsel üç aşama snapshot ve bekleyen işler.
+
+**Önemli sınır:** Bu turda yedi dosyanın tam metin yanıtına erişildi ve kapanışları görüldü. Önceki kayıttaki beş JSON parse ve sayımlar tarihsel kanıt olarak geçerlidir; bu turda tüm CSV satırları ve JSON kayıtları tek tek yeniden iş kuralı denetiminden geçirilmedi. Ham URL/token/credential notlara kopyalanmadı. Devir commit'i SHA'ları ile güncel dal HEAD SHA'ları ayrı karşılaştırılmalıdır.
+
+**Tekilleştirilmiş görev başlıkları ve durumları:**
+- YAPILDI / KANITLI: 769 dosyalık devir ağacı sayımı; 7 büyük dosyaya blob erişimi; geçmiş 5/5 kategori CI koşusu ve artifact kayıtları (eski commit için); beş kategori rapor altyapısı; 92 eski workflow'un statik sınıflandırma altyapısı.
+- YAPILDI AMA KAPSAMI SINIRLI: 5 JSON parse ve tarihsel aday/sonuç sayımları; 50 kanal salt okunur sağlık partisi; EPG beş kanal pilotu; izole Git restore; korunan yazma kapısının statik testleri. Bunlar canlı IBO, offsite restore, 92/92 eşdeğerlik veya gerçek branch koruma başarısı değildir.
+- EKSİK KANIT: SHA bazlı tekil tam-okuma matrisi; CSV/M3U/XML satır düzeyi anomali ve kaynak mutabakatı; 373 görselin kimlik/logo incelemesi; güncel Actions sonuçları; kullanıcının son taşıma denemesi logları; canlı cihaz, Pages ve harici geri yükleme kanıtları.
+- KULLANICI KARARI: Eski YEDEKLER ekleme izni geri alındı. Ana kanal/YEDEKLER/YENİLER/FAVORİLER/HEPSİ/logo korunur; otomatik teknik sonuç kanal kimliği veya yayın hakkı onayı değildir. PR #71 merge edilmez; eski workflow kapatılmaz. Küçük testler yerine hazırlanmış tek toplu beşli kabul tercih edilir.
+
+**Beş merkezi kademe için görev devri (uygulama değil plan):**
+1. **Güvenlik ve izin:** 26 kural, 8/18 görev raporlarının güvenlik açıkları, korunan SHA256 ve gerçek yazma reddi, credential sızıntısı, otomatik push/contents_write, iki başarısızlık devre kesicisi, 92 workflow izin karşılaştırması.
+2. **Keşif ve aday:** 155/156 kaynak farkı, 11.742 arşiv URL ve 11.762 geçmiş mutabakatı, 75 aday/4 alternatif, kimliği belirsiz tarihsel kayıtlar, yinelenen endpoint ve zaman farkı, günde iki keşif üretim tetiklerinin eşdeğerliği; playlist yazma yok.
+3. **Üç aşamalı kanal testi ve IBO:** 6 saat aralıklı 3/3, 51 farklı saat retest, 24 ffprobe başarısız, terminal sonuç ve gerçek son test zamanı, yanlış negatifler, 3.800 son kontrol, kimlik/lisans/IBO cihaz kararlarının bağımsızlığı.
+4. **EPG ve logo:** XMLTV geçerliliği, gece yarısı program sınırı, EPG→Pages workflow_run ve yayın, logo eşleştirme, İsveç IBO cihaz testi; Ekol TV başa sarma ve eksik Türk kanalı talepleri ayrı ürün görevleri.
+5. **Arşiv, yedek ve genel bakım:** izole/tarihsel/offsite restore ayrımı, 1/15 backup, VOD Filmler/Diziler, 92 workflow tetik/komut/izin/çıktı/artifact/hata/rollback matrisi, çifte tetik denetimi, 8/18 görev ve tek merkez raporu, nihai 5/5 toplu kabul.
+
+**Kabul engeli:** Her eski workflow için yeni kategori sahibi, somut işlev karşılığı, aynı girdide çıktı ve hata karşılaştırması, tetik/yan etki/izin/artifact, korunan SHA ve rollback kanıtı yazılmadan `ESDEGERLIK_BEKLIYOR` kalır. Kullanıcının son taşıma denemesi için test sonucu yok; başarılı kabul edilmez. Bu not yazılırken hiçbir workflow veya korunan veri değiştirilmedi.
