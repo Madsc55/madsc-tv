@@ -34,7 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p madsc_kesif madsc_merkezi_denetim
-          run_id="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 10 --json databaseId --jq '.[0].databaseId // empty')"
+          run_id="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 20 --json databaseId --jq '.[0].databaseId // empty')"
           if [[ -z "${run_id}" ]]; then
             echo "Onceki basarili kesif kosusu bulunamadi; yeni gecmis olusturulmayacak."
             exit 1
@@ -43,6 +43,9 @@ jobs:
           gh run download "${run_id}" --name madsc-kesif-tek-kosu-rapor --dir "${RUNNER_TEMP}/madsc-onceki-kesif"
           for file in gecmis.json ana_liste_test_gecmisi.json; do
             source="${RUNNER_TEMP}/madsc-onceki-kesif/madsc_kesif/${file}"
+            if [[ ! -f "${source}" && -f "${RUNNER_TEMP}/madsc-onceki-kesif/${file}" ]]; then
+              source="${RUNNER_TEMP}/madsc-onceki-kesif/${file}"
+            fi
             if [[ ! -f "${source}" ]]; then
               echo "::error::Onceki gecmis dosyasi eksik: ${file}"
               exit 1
