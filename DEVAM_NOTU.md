@@ -1497,3 +1497,10 @@ Doğrulanan öncelikli risk örnekleri:
 - 5) Cift push ve gereksiz tetikleme adaylari belirlendi; gercek engelleme duzeltme paketine devredildi.
 - GOREV SINIRI: Denetim bolumu tamamlandi olarak isaretlenebilir, fakat uretim guvenligi TAMAMLANDI etiketi verilemez. Ana dala merge yok. Acik izin olmadan workflow ve veri dosyalari degistirilmez.
 - Sonraki tek toplu is: 21 riskli workflow icin izinli guvenlik duzeltmeleri + toplu kabul ve kalan branch protection erisim engelinin ayri raporlanmasi.
+
+
+## Ikinci bolum P1 - Arsiv/yedek toplu ilk somut kontrol (2026-10-15)
+- madsc-04-arsiv-yedek.yml SALT OKUNUR: contents:read, persist-credentials:false, sabit concurrency, protected SHA256 once/sonra, izole git restore, backup evidence, archive consistency, unittest ve artifact. Merkezi kategori rapor kontrolu var; gercek tarihsel geri yukleme kaniti yok.
+- central_backup_evidence.py acikca historical_recovery_verified=false, off_github_copy=DOGRULANMADI, github_branch_protection=API_IZNI_OLMADAN_DOGRULANMADI yazar. Mevcut SHA256 tek basina tarihsel korunma kaniti degildir.
+- KRITIK ACIK: madsc-arsiv-yedek-aktarim.yml eski workflow'u workflow_dispatch ve kendi workflow dosyasi push tetigine sahip, contents:write ile scripts/stage_archive_to_backups.py calistiriyor, CALISANLAR.m3u commit edip git push origin HEAD:main yapiyor. Merkezi salt-okunur akis bu eski otomatik yazma riskini devre disi birakmiyor. Kullanici onayi olmadan tetik/izin/yazma komutu degistirilmedi.
+- P1 kapanis durumu: inceleme basladi; arsivlerin kayipsizligi, 1/15 tetik cakismasi, tarihsel restore ve offsite kaniti acik. Tek tek numarali test yerine toplu kanit/kabul izlenecek.
