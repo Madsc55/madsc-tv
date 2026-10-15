@@ -1,5 +1,10 @@
 name: MADSC 01 - Guvenlik Toplu
 on:
+  push:
+    branches:
+      - madsc/p0-guvenlik-guvenli-duzeltme-20261015
+    paths:
+      - '.github/workflows/madsc-01-guvenlik.yml'
   workflow_dispatch:
   workflow_call:
 permissions:
