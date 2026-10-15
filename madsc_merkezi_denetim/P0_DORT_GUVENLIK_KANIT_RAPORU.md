@@ -80,3 +80,9 @@ Tarih: 2026-10-15
 - 27 YEDEKLERDE_KALDI karari rapordaki Turk konumlariyla eslesti; 11367 - 5252 = 6115 sayisi dogrulandi.
 - Kontrol salt okunur ve gecici test dizini disinda kanal listelerine yazma yok.
 - Sinir: Bu sonuc yalniz ilk IBO 3-5281 arsivi icindir. Diger arsivlerin butunlugu ve uretim otomatik yazma kapisi hala ACIK.
+
+## 7. Test - Diger alti IBO arsivi dogrulandi
+- GitHub Actions kosusu 38735950829; commit d3b44e3193ec62e6ac71f8b5285d255e08a23002; 11/11 adim basarili.
+- Raporlarla eslesen arsiv kayitlari: ikinci IBO 5585, 399-530 132, 16-49 34, 355-364 10, Turk calismaz 332, yabanci 20. Toplam 6113 arsiv kaydi.
+- Ilk IBO arsivindeki 5252 kayitla birlikte yedi dosyanin kayit sayilari kontrol edildi. Bu, benzersiz kanal sayisi ya da tum arsivlerin birbirinden ayrik oldugu iddiasi degildir.
+- Gercek kanal listeleri degistirilmedi. Uretim yazma kapisi ve guvenli otomatik baslatma gorevleri ACIK.
