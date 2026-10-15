@@ -147,7 +147,35 @@ jobs:
           assert report["previous_backup"] - report["foreign_archived"] == report["remaining_backup"]
           print("5252 archive URLs match decisions in order; 27 kept decisions verified")
           PY
-      - name: 6 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 6 - Diger alti arsiv dosyasinin kayit sayilarini dogrula
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("madsc_kesif")
+          cases = [
+              ("ibo_6115_ikinci_ayrilanlar.m3u", "ibo_6115_ikinci_rapor.json", "foreign_archived", 5585),
+              ("ibo_530_399_sonrasi_yabanci_arsiv.m3u", "ibo_530_399_sonrasi_rapor.json", "archived", 132),
+              ("ibo_398_16_49_yabanci_arsiv.m3u", "ibo_398_16_49_rapor.json", "archived", 34),
+              ("ibo_364_355_364_yabanci_arsiv.m3u", "ibo_364_355_364_rapor.json", "archived", 10),
+              ("ibo_354_3_334_turk_calismaz_arsiv.m3u", "ibo_354_iki_kategori_rapor.json", "turkish_user_reported_not_working", 332),
+              ("ibo_354_335_354_yabanci_arsiv.m3u", "ibo_354_iki_kategori_rapor.json", "foreign_user_identified", 20),
+          ]
+          for archive_name, report_name, field, expected in cases:
+              lines = (root / archive_name).read_text(encoding="utf-8-sig").splitlines()
+              assert lines and lines[0].startswith("#EXTM3U"), archive_name
+              entries = sum(line.startswith("#EXTINF") for line in lines)
+              urls = sum(line.startswith(("http://", "https://")) for line in lines)
+              report = json.loads((root / report_name).read_text(encoding="utf-8"))
+              recorded = report[field]
+              if isinstance(recorded, dict):
+                  recorded = recorded["count"]
+              assert entries == urls == expected == recorded, (archive_name, entries, urls, recorded)
+              print(archive_name, "verified:", entries)
+          PY
+      - name: 7 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
