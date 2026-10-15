@@ -259,7 +259,6 @@ jobs:
 
           root = Path(".github/workflows")
           legacy = (
-              "madsc-11599-yedek-geri-yukle.yml",
               "epg-gunluk.yml",
           )
           for filename in legacy:
@@ -271,7 +270,7 @@ jobs:
               print("PRODUCTION RISK STILL OPEN:", filename)
           safe = (root / "madsc-ibo-354-classify.yml").read_text(encoding="utf-8")
           assert "contents: read" in safe and "git push" not in safe
-          print("354 historical writer now read-only; remaining legacy writers still risky")
+          print("354 historical writer now read-only; EPG production review remains open")
           PY
       - name: 11 - Tek seferlik ve surekli otomasyonlari ayir
         run: |
@@ -296,8 +295,9 @@ jobs:
                   assert "git push" not in raw and "contents: read" in raw
                   print("TARIHSEL 354 SALT OKUNUR:", filename)
               else:
-                  assert ("git push" in raw or "push origin HEAD:main" in raw), filename
-                  print("TARIHSEL TEK SEFERLIK - YENIDEN CALISTIRMA:", filename)
+                  assert "workflow_dispatch:" in raw and "  push:" not in raw, filename
+                  assert "contents: read" in raw and "git push" not in raw, filename
+                  print("TARIHSEL TEK SEFERLIK - SALT OKUNUR:", filename)
           for filename in recurring:
               raw = (root / filename).read_text(encoding="utf-8")
               assert "schedule:" in raw, filename
@@ -720,22 +720,17 @@ jobs:
           print("TARIHSEL 354 OTOMATIK YAZMA KAPATILDI; KARAR DOSYALARI KORUNDU")
           PY
 
-      - name: 24 - Tarihsel arsiv yazicilarini engelli risk olarak kaydet
+      - name: 24 - Tarihsel arsiv yazicilarinin guvenli izolasyonunu dogrula
         run: |
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
-          paths = (
-              ".github/workflows/madsc-arsiv-yedek-aktarim.yml",
-              ".github/workflows/madsc-ibo-364-355-364.yml",
-          )
-          for name in paths:
-              content = Path(name).read_text(encoding="utf-8")
-              assert "contents: write" in content, name
-              assert "git push origin HEAD:main" in content, name
-              assert "CALISANLAR.m3u" in content, name
-              print("ACIK RISK - URETIM YAZICISI HENUZ DUZELTILMEDI:", name)
-          print("Bu adim riskin varligini dogrular; giderildigini iddia etmez.")
+          for name in (".github/workflows/madsc-arsiv-yedek-aktarim.yml", ".github/workflows/madsc-ibo-364-355-364.yml"):
+              raw = Path(name).read_text(encoding="utf-8")
+              assert "workflow_dispatch:" in raw and "  push:" not in raw, name
+              assert "contents: read" in raw and "contents: write" not in raw, name
+              assert "git push" not in raw and "git commit" not in raw, name
+              print("ARSIV YAZICISI IZOLASYONU DOGRU:", name)
           PY
 
       - name: 25 - Kanal kesif test final zinciri guvenlik kanitini denetle
