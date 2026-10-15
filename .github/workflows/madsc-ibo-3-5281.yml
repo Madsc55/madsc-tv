@@ -857,6 +857,10 @@ jobs:
           for name in ("madsc-uc-asama.yml", "madsc-son-kontrol.yml"):
               raw = (root / name).read_text(encoding="utf-8")
               assert "git push origin HEAD:main" in raw, (name, "risk envanteri degisti; yeniden incele")
+          verification = (root / "madsc-uc-asama.yml").read_text(encoding="utf-8")
+          assert "actions/workflows/madsc-uc-asama.yml/dispatches" not in verification
+          assert "Bekleyen adayların testine otomatik devam et" not in verification
+          print("UC ASAMALI DOGRULAMA OZ-TETIKLEME KALDIRILDI")
           source = (root / "madsc-genis-kaynak-kontrol.yml").read_text(encoding="utf-8")
           assert "contents: read" in source and "contents: write" not in source
           assert "git push" not in source and "dispatches" not in source
