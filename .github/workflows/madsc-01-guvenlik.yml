@@ -27,16 +27,44 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
       - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
         shell: bash
         run: |
-          set -euo pipefail
-          python3 scripts/central_protected_write_gate.py
-          python3 scripts/central_consolidation_audit.py
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_protected_write_gate.py scripts/central_consolidation_audit.py; do
+            echo "::group::${script}"
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "${failed}"
       - name: Kategoriye ait tum regresyon testleri
+        id: regressions
+        continue-on-error: true
         run: python3 -m unittest test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Guvenlik basarisizlik kapisi
+        if: always()
+        shell: bash
+        run: |
+          failed=0
+          if [[ "${{ steps.reports.outcome }}" != "success" ]]; then
+            echo "::error::Guvenlik rapor denetimi basarisiz veya atlandi."
+            failed=1
+          fi
+          if [[ "${{ steps.regressions.outcome }}" != "success" ]]; then
+            echo "::error::Guvenlik regresyon testleri basarisiz veya atlandi."
+            failed=1
+          fi
+          exit "${failed}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
