@@ -1683,3 +1683,9 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC 05 ilgili dal push tetikleyicilerinde tum 4 alt kategori artik [madsc-full-batch] commit mesaji olmadan da kosacak; guvenlik script/test yolları tetikleyiciye eklendi. Commit df49d4ec4785909345ae4542a59ba492eda4e661.
 - MADSC 05 'Dort onceki kategori de basarili olmali' adimi da her kosuda kontrol eder, normal push'ta atlanmaz. Commit e72ece7c7512d35652cdb13193f20f95c66c61cc. Statik GitHub yeniden okuma ile kosulun degistigi dogrulandi.
 - Acik: ilgili SHA'larda PR-triggered run ve combined-status sorgulari bos; bu tum Actions kosulari yok demek degildir. Gercek Actions run ID, checkout SHA ve conclusion olmadan basari ONAYLANMAZ. 92 eski workflow korunuyor; branch protection ve devre kesici kaniti halen eksik. Merkezi guvenlik denetimi tum legacy yazma risklerini otomatik engellemez.
+
+
+## 2026-10-15 — LEGACY YAZMA IZNI REGRESYON KORUMASI
+- test_central_protected_write_gate.py icine legacy workflow contents:write fixture'i eklendi: legacy kayit manuel inceleme gerektirir, central_write_violations bos kalmalidir. Commitler bb8c30ee671db7280ac04b319f262b3cd8849f49 ve fixture satir sonu duzeltmesi 8b05ac40aed41c1935ef3c534e5e0f561274986b.
+- GitHub yeniden okuma ile test dosyasinda 4 test metodu ve legacy fixture'in dogru Python kacisli YAML satir sonlari oldugu dogrulandi. Ancak gercek CI run ID/sonucu hala dogrulanmadi; testlerin PASS oldugu iddia edilmez.
+- Sonraki zorunlu kanit: Actions run ID, checkout SHA, tum kategori job conclusions; branch protection ve rule24 ortak devre kesici hala acik. 92 legacy workflow degistirilmedi.
