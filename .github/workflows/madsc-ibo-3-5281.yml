@@ -857,6 +857,10 @@ jobs:
           for name in ("madsc-uc-asama.yml", "madsc-son-kontrol.yml"):
               raw = (root / name).read_text(encoding="utf-8")
               assert "git push origin HEAD:main" in raw, (name, "risk envanteri degisti; yeniden incele")
+          final = (root / "madsc-son-kontrol.yml").read_text(encoding="utf-8")
+          assert "  workflow_run:" not in final
+          assert "  schedule:" in final and "  workflow_dispatch:" in final
+          print("SON KONTROL CIFT OTOMATIK TETIKLEYICI KALDIRILDI")
           verification = (root / "madsc-uc-asama.yml").read_text(encoding="utf-8")
           assert "actions/workflows/madsc-uc-asama.yml/dispatches" not in verification
           assert "Bekleyen adayların testine otomatik devam et" not in verification
