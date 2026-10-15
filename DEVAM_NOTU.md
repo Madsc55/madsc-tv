@@ -1649,3 +1649,7 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC 02 onceki artifact geri yukleme adimi checkout ile gelen madsc_kesif/gecmis.json ve ana_liste_test_gecmisi.json uzerine dogrudan cp yapiyordu. Artik hedef dosya mevcutsa cmp ile birebir aynilik istenir; farkliysa hata ve sifir overwrite. Bos mevcut dosya da otomatik ezilmez. Commit 5b6b1a703f881434fd9f338bcb9146bcffab841b.
 - GitHub fetch_file madsc_kesif/gecmis.json icin content length 0 dondu (API truncate/icerik belirsiz); gercek dosya boyutu kanitlanmadi. ana_liste_test_gecmisi.json 311847 karakter icerik dondu. Bunlar korunmadan artifact kopyalanmamali.
 - Acik: iki gecmisin dogrulanmis merge tasarimi, artifact run seciminin gercek CI testi, depo gecmisinin gercek byte boyutu. Test basarisi iddia edilmiyor.
+
+## 2026-10-15 — CHECKOUT GECMISI ONCELIGI
+- MADSC 02 restore adimina once mevcut checkout gecmisini dogrulama eklendi. Iki dosya (gecmis.json history dict ve ana_liste_test_gecmisi.json channels dict) varsa ve gecerliyse artifact'e bakmadan kullanir; eksik/bozuksa sifirlamadan hata verir. Depoda hicbiri yoksa onceki basarili run artifact arama mekanizmasi korunur. Commit c392c42aed388283eaea97bbbeb53ad73d58c553.
+- Bu, depoda gecmis varken eski artifact'in byte-farki nedeniyle kesifin gereksiz durmasini onler; gercek GitHub Actions CI testi halen yapilmadi. Depodaki gecmisin zaman bakimindan artifact'ten daha guncel oldugu garanti edilmez; dogrulanmis birlestirme ayri is.
