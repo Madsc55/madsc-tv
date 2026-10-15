@@ -2513,3 +2513,11 @@ Yeni scripts/evidence_reader.py read_json_evidence(path) -> (missing|invalid|pre
 Guncellenen 4 adapter: scripts/central_open_gaps.py (061cd82551572c6f042495f963fd88400a0e32fa), scripts/central_short_status.py (632eeadad933afabe59f6fe565d985946cb2cee3), scripts/central_single_screen_report.py (bcf4357fd5cd561e85b0c11f697cacc45f201c2a), scripts/central_identity_epg_logo_audit.py (95f28b903c422d7b305a52f37c82b97514fe080f). Eksik/gecersiz -> None veya eski rapor status semantigi adapterlerde korunur.
 Yeni tests/test_evidence_reader.py missing/invalid/present-object/present-array izole fixture eklendi; commit 58bca92145a265011073e6cbe2b9d5cb731d61e2. Henuz GitHub Actions veya runtime testi CALISTIRILMADI, PASS denmez.
 Toplam bu dalda ortaklasan eski cagiran dosya sayisi 7 (3 kanal normalizasyonu + 4 kanit okuyucu). Birimlere gore kalan parser, probe, XMLTV/logo ve workflow uyum testleri hala acik; 92 eski workflowdan hicbiri kapatilmadi. Protected playlist/yedek/IBO kayitlari degismedi.
+
+## 2026-10-16 — TOPLU DEVAM: M3U PARSER + MERKEZI YONETIM
+- Yeni salt-okunur discovery_m3u_parser.py: wide_scan ve new_scan profilleriyle eski ayrik parse davranislarini korur; commit 26909277f519c63ec4a85ea64d645ad71388de56.
+- genis_kanal_tara.py parse wrapper ortak parsera baglandi (ad6b9fe70a81b75fa76d55fea62730e83931a911); yeni_kanal_tara.py generator wrapper baglandi (2ce4419b31182ed02d9088e6c8f54d1b0af3c72f).
+- scripts/central_management_summary.py ortak JSON evidence reader kullaniyor; eski status etiketleri korunuyor (458c56fc9ce9d1a1004e0ea5df7ea1114e0798c4).
+- tests/test_discovery_m3u_parser.py izolasyon fixture eklendi (1109bd651760d6a398045e21e950418ac88ef7df); testler henuz GitHub Actions veya yerel Python ile calistirilmadi. PASS iddiasi yok.
+- Mevcut ortak moduller: channel_name_normalization.py, scripts/evidence_reader.py, discovery_m3u_parser.py. Ortak kodu kullanan benzersiz eski dosya: 8 (genis_kanal_tara, yeni_kanal_tara, liste_kontrol/build, central_open_gaps, central_short_status, central_single_screen_report, central_identity_epg_logo_audit, central_management_summary).
+- Kalan: farkli M3U parser profilleri, kesif fetch, medya probe, EPG/logo, test gecmisi, workflow parity. Hicbir eski workflow kapatilmadi, playlistler degistirilmedi. Kullanici yeni kanal eklemeye onay vermedi.
