@@ -612,7 +612,38 @@ jobs:
           print("PASS: manual recovery bypasses history and API token lookup")
           print("Live EPG/VOD gate still not connected; no API requests made")
           PY
-      - name: 20 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 20 - API arizasinda devre kesicinin guvenle durdugunu sina
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import importlib.util
+          import os
+          import urllib.error
+          from pathlib import Path
+          from unittest.mock import patch
+
+          spec = importlib.util.spec_from_file_location("madsc_gate_api_test", Path("tools/workflow_failure_gate.py"))
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          environment = {
+              "GITHUB_REPOSITORY": "example/sandbox",
+              "GITHUB_WORKFLOW_REF": "example/sandbox/.github/workflows/vod-guncelle.yml@refs/heads/main",
+              "GITHUB_RUN_ID": "999",
+              "GITHUB_EVENT_NAME": "schedule",
+              "GH_TOKEN": "fake-token",
+          }
+          for error in (urllib.error.URLError("network offline"), TimeoutError("request timed out")):
+              with patch.dict(os.environ, environment, clear=True):
+                  with patch.object(module.urllib.request, "urlopen", side_effect=error):
+                      try:
+                          module.main()
+                      except (urllib.error.URLError, TimeoutError):
+                          print("PASS: API unavailable; gate fails closed:", type(error).__name__)
+                      else:
+                          raise AssertionError("API error incorrectly allowed writer to continue")
+          print("No real GitHub API request or production write performed")
+          PY
+      - name: 21 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
