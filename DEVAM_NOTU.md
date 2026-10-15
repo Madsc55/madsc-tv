@@ -1433,3 +1433,12 @@ Doğrudan okunan \`madsc-son-kontrol.yml\`, \`madsc-uc-asama.yml\`, \`madsc-birl
 7. **Tek toplu koşu tüm geçmiş 92 workflow'un davranışsal eşdeğerliğini kendiliğinden ispatlamaz**; statik denetim ve gerçek parity kabulü ayrı raporlanır.
 
 **Mevcut gerçek teknik durum:** 05 workflow \`workflow_dispatch\` ve \`schedule\` ile 5 kategoriyi çağırır; \`push\` tetikleyicisi yalnız çalışma dalında belirli dosyalar değiştiğinde çalışır ve \`[madsc-full-batch]\` commit mesajı yoksa ilk 4 kategori çalışmaz. Bu turda yeni toplu run **tetiklenmedi**: mevcut GitHub connector yalnız okuma/dosya güncelleme sunuyor, workflow_dispatch işlemi sunmuyor. Yeni CI başlatıldı diye yazma. Kullanıcı tek seferlik test istediğinden gereksiz ayrı run üretme; bir sonraki toplu kabulde tek merkezli koşuyu kullan.
+
+
+## 15 EKİM 2026 — KULLANICI İLE ÇALIŞMA ANLAŞMASI KURAL 1.02 VE TOPLU CI
+
+**Kural 1.02 (kullanıcının açık talimatı):** Testleri tek merkezde topluca başlat; gerçek GitHub Actions run/job/step sonuçlarını asistan kontrol edip yalnız başarılı olanları onaylasın; hatalar varsa kaydet, **kullanıcı yeniden izin vermeden hataları düzeltme**; tek tek izin istemeden sıradaki teste/denetime geç; bir toplu sonuç raporu oluştur. Bu, mevcut 26 güvenlik kuralını ve üretim değişiklik izni sınırlarını değiştirmez.
+
+**Gerçek başlatma:** İzole \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalında \`.github/workflows/madsc-05-genel-bakim.yml\` dosyasının yalnız \`push.branches\` hedefi geçici olarak izole dala çevrilip \`[madsc-full-batch]\` mesajıyla commit \`97869612210f7f868976aa598191cd6710f8be8a\` yapıldı. Bu, mevcut 05 merkez orkestratörün **01→02→03→04+05 tüm kategori denetimlerini tek run'da** çalıştırır. GitHub Actions run **#38724971116**, ilk gözlem \`queued\`; **başarılı deneme henüz kanıtlanmadı**. Kullanıcı verilerine ve eski workflow'lara yazılmadı.
+
+**Geçici tetik temizliği zorunlu:** Bu run sonlandıktan sonra izole daldaki \`madsc-05-genel-bakim.yml\` dosyası çalışma dalıyla aynı içerik haline geri döndürülmeli; PR #72 yalnız \`madsc-02-kesif.yml\` tek satırlık değişikliği taşımalı. Başarısız test varsa Kural 1.02 uyarınca izinsiz düzeltme yapılmaz, yalnız raporlanır.
