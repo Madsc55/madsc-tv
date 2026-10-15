@@ -10,6 +10,8 @@ on:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - '.github/workflows/madsc-0[1-4]-*.yml'
       - 'scripts/five_category_permission_gate.py'
+      - 'scripts/five_category_preflight.py'
+      - 'scripts/five_category_92_workflow_audit.py'
       - 'test_five_category_permission_gate.py'
       - 'scripts/central_protected_write_gate.py'
       - 'test_central_protected_write_gate.py'
