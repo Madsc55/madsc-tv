@@ -34,7 +34,7 @@ def inspect(root):
                 ):
                     writes = True
             # Legacy jobs can inherit unknown token defaults or mutate files
-            # without an explicit git push. Report risks; never execute them.
+            # without an explicit repository upload command. Report risks; never execute them.
             inherited = "permissions" not in data
             risky_commands = sorted(set(re.findall(
                 r"(?im)(?:git\s+(?:push|commit|reset|clean)|rm\s+-[rfRF]+|sed\s+-i|curl\s+[^\n]*\|\s*(?:sh|bash))",
