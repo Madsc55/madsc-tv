@@ -1,3 +1,87 @@
+## 15 EKİM — 97/97 WORKFLOW TAM METİN İNCELEMESİ TAMAMLANDI
+
+**Kanıt kapsamı:** Bu oturumda önceki 38'e ek **59 farklı GitHub Actions YAML dosyasının tam metni** okunarak 97/97 workflow dosyası tarandı. İçeriklerde adımlar, çağrılan programlar ve açık `contents:write` izinleri çıkarıldı. **Bu, 92 eski workflow'un beş sisteme işlevsel aktarıldığı anlamına gelmez (parity 0/92).** Kodların, veri dosyalarının ve tüm tarihsel konuşmaların tam taraması ayrıca sürüyor.
+
+### Yeni okunan 59 workflow'un kaynak bazlı görev kopyası
+**Geçmiş IBO kullanıcı kararları, koruma ve geri yükleme (10):**
+- `madsc-ibo-364-355-364.yml` → `scripts/archive_backups_355_364.py` ile tarihsel sınıflandırma/arşiv; **write**.
+- `madsc-ibo-398-16-49.yml` → `scripts/archive_backups_16_49.py` ile arşiv; **write**.
+- `madsc-ibo-530-archive.yml` → `scripts/archive_backups_399_onward.py` ile arşiv; **write**.
+- `madsc-ibo-6115-second.yml` → `scripts/apply_ibo_6115_second.py`, ikinci sesli karar ve liste/arşiv commit; **write**.
+- `madsc-ibo-ilk-239.yml` → ilk 239 kararın kaydı ve yedekten ayırma; **write**.
+- `madsc-ibo-kararlar-grup1.yml` → birinci karar grubu, kayıpsız arşiv; **write**.
+- `madsc-ibo-second-voice.yml` → 6115 sabit bazdan yabancı arşiv ayırma; **write**.
+- `madsc-otomatik-devam.yml` → tek devam yolu kontrolü.
+- `madsc-rule24-test.yml` → 24. kural ardışık hata regresyonu.
+- `madsc-sistem-saglik-denetimi.yml` → YAML, kod, Actions run, kritik hata ve sistem sağlık raporu.
+
+**Son kontrol, yedek, IBO ve kanal testi (10):**
+- `madsc-son-kontrol-kurtarma-teshis.yml` → son kontrol kuyruğu/rapor/koruma kilidi teşhisi.
+- `madsc-son-kontrol.yml` → 5 dakika video/ses süreklilik, 24. kural, ayrı rapor; **write** izinli ama kanal/yedek onaysız yazma yasak.
+- `madsc-toplu-butunluk.yml` → arşiv/tekrar/YEDEKLER bütünlüğü.
+- `madsc-tum-sistem-yedek.yml` → bütün takip edilen dosyalar, açık ayarlar, tek arşiv ve restore testi; harici saklama kanıtı ayrı.
+- `madsc-turk-kanal-geri-sec.yml` → Türk kanal ayırma ve arşiv commit; **write**.
+- `madsc-uc-asama.yml` → 24. kural, kayıtlı geçmiş, üç aşamalı doğrulama ve ayrı durum commit; **write**.
+- `madsc-yedek-turk-ayir.yml` → yabancı/kimliği belirsiz adayların kayıpsız ayrılması; **write**.
+- `madsc-yedekler-aktarim-test.yml` → güvenli aktarım regresyonu.
+- `madsc-yedekler-sayi-duzelt.yml` → YEDEKLER kategori sayısı eşitleme; **write**.
+- `oncelikli-kanal-dogrulama.yml` → öncelikli adayların gerçek ffprobe medya kanıtı.
+
+**Kaynak, logo, test 13–18 (10):**
+- `onikinci-hata-siniflandirma-test.yml` → hata sınıflandırma regresyonu.
+- `publish-iptv-png-logos.yml` → SVG→PNG ve PNG commit; **write**, güncel logo koruması geçerli.
+- `sekizinci-tekrar-raporu-test.yml` → farklı kaynaklarda tekrarlanan URL testi.
+- `sozcu-akit-ozel-test.yml` → Sözcü/Akit aday özel ffprobe testi.
+- `test-13-kaynak-degisiklik.yml` → kaynak değişikliği ve güvenli rollback raporu.
+- `test-14-istikrar.yml` → 7/30 günlük kararlılık ve son başarı.
+- `test-15-logo-epg.yml` → logo/EPG kimlik uyarısı, salt-okunur playlist.
+- `test-16-workflow-safety.yml` → maskeli URL ve sınırlı yeniden deneme.
+- `test-17-candidate-summary.yml` → beş aday durum grubu ve unknown.
+- `test-18-change-simulation.yml` → dry-run/rollback fingerprint ve korunan playlist hash.
+
+**Test 19–28 (10):**
+- `test-19-integration.yml` → salt-okunur entegrasyon.
+- `test-20-full-integration.yml` → tüm geliştirme söz dizimi, mevcut birim testleri, 1–18 görev kapsamı.
+- `test-21-functional-e2e.yml` → adaydan rapora gerçek veri akışı ve geri dönüş simülasyonu.
+- `test-22-real-playlist.yml` → gerçek M3U bütünlük/koruma.
+- `test-23-live-stream.yml` → salt-okunur canlı yayın erişimi.
+- `test-24-system-audit.yml` → tüm Python/YAML/M3U güvenlik envanteri ve birim testleri; **write** izni incelenecek.
+- `test-25-full-project-readonly.yml` → bütün liste/yedek/otomasyon/kod salt-okunur kontrol.
+- `test-26-automation-safety.yml` → workflow güvenlik envanteri.
+- `test-27-pipeline-contract.yml` → aday iş hattı bileşenleri ve korunan veri sözleşmesi.
+- `test-28-approval-gate.yml` → aday durumu ve kullanıcı onay kapısı.
+
+**Test 29–38 (10):**
+- `test-29-write-path-audit.yml` → yazma yetkili yolların çalıştırmadan taranması.
+- `test-30-write-risk-report.yml` → somut yazma riski sicili.
+- `test-31-protected-write-gate.yml` → mutasyon ve onay denetimi.
+- `test-32-unapproved-write-regression.yml` → izinsiz gerçek yazma yolları regresyonu.
+- `test-33-all-write-paths.yml` → bütün workflow yazma yolları.
+- `test-34-protected-write-regression.yml` → otomatik korunan dosya yazması olmaması.
+- `test-35-remaining-write-gate.yml` → karantina akışında repo yazma izni olmaması.
+- `test-36-system-integration-audit.yml` → workflow tanımı ve korunan yazma maruziyeti.
+- `test-37-indirect-write-audit.yml` → workflow çağrılı Python'da dolaylı yazma.
+- `test-38-audit-selftest.yml` → denetimin hata yakalama duyarlılığı; **write** izni incelenecek.
+
+**Son 9 workflow:**
+- `test-39-protected-playlist.yml` → korunan playlist salt-okunur bütünlük.
+- `test-kanal-adaylari.yml` → aday yayın testi ve manuel onaylık rapor.
+- `toplu-sistem-kontrol.yml` → tam repo denetimi, örnek canlı erişim, tüm birim testleri.
+- `vod-guncelle.yml` → izinli dizi bölüm takvimi metadata ve yalnız VOD metadata commit; **write**, lisans ve IBO VOD cihaz onayı açık.
+- `yedek-geri-yukleme-tatbikat.yml` → geçici klasörde yedek restore ve rapor.
+- `yedekler-yeniler-medya-kontrol.yml` → YEDEKLER/YENILER ffprobe, salt-okunur.
+- `yeni-aday-on-test.yml` → yeni aday ffprobe ve rapor.
+- `yeni-kanal-arama-2026.yml` → yeni kanal keşif ve parti testi.
+- `yeniler-guvenli-arama.yml` → son 90 gün kaynak keşfi, M3U/HLS teknik test, rapor; ana listeye otomatik yazma yok.
+
+### 97 workflow taramasının iş listesine eklediği eksikler
+- 92 eski iş akışının **işlev, cron, push, workflow_run, artifact, izin, kullanıcı onayı, rapor, yan etki ve tarihsel veri sürekliliği** beş kategoriye tek tek eşleştirilip gerçek run ile doğrulanmalı; 0/92 tamamlandı kanıtı.
+- Çok sayıda eski **contents:write** yetkisi ve geçmiş karar uygulama scripti var. Bunlar yeni izin anlamına gelmez. Kullanıcının korunan liste/yedek/logo dosyalarına dokunmama kararı geçerli; izinsiz eski workflow çalıştırılmaz, kapatılmaz, değiştirilmez.
+- VOD metadata yazması, PNG logo yayınlaması, 7/30 günlük kararlılık, 5 dakikalık son kontrol, 390 aday testi, kaynak tarama, IBO karar grupları ve 24. kural özel kabul gerektirir.
+- **Sıradaki dosya kapsamı:** 151 Python programı, 34 Markdown, 51 JSON, 26 CSV, 27 M3U, 10 diğer metin/XML ve 373 görselin kaynak-görev-kanıt ilişkisi; bu dosyalar workflow taraması tamamlandı diye tamamlandı sayılmaz.
+
+---
+
 ## 15 EKİM — EK 20 WORKFLOW TAM METİN TARAMASI (TOPLAM BU TUR 38/97)
 
 **Bu ek turda 20 workflow daha doğrudan okundu; önceki 18 ile birlikte bu oturumda 38 benzersiz workflow tam metni okundu, 59 workflow halen okunacak.** Eski dosyalara dokunulmadı.
