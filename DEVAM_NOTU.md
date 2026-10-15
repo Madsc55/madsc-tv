@@ -1631,3 +1631,8 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - scripts/automatic_png_logos.py mevcut ve PIL.Image ile istege bagli cairosvg kullaniyor. MADSC 02 Python kurulumundan sonra bu bagimliliklari kurmuyordu. .github/workflows/madsc-02-kesif.yml icine python3 -m pip install --disable-pip-version-check Pillow CairoSVG eklendi; commit 9a6b29d32b5502acc6f30a7a6eddfbb5ba34e73c.
 - Bu degisiklik bagimlilik eksigini hedefler; onceki ModuleNotFoundError automatic_png_logos hatasinin tum nedenlerinin giderildigi veya CI testinin gectigi kanitlanmadi.
 - Risk: MADSC 02 restore sadece onceki success run'lari ariyor; kesif adimi continue-on-error true oldugu icin basarisiz kesifin job basarili gorunmesi ve eksik artifact tarihi olasiligi incelenmeli. Gecmis kaybi yasatmadan duzeltme oncelikli.
+
+## 2026-10-15 — MADSC 02 KESIF SONUC KAPISI
+- MADSC 02 kesif adimina id: discovery eklendi; continue-on-error: true sayesinde bagimsiz regresyon/korunan dosya kontrolleri ve if: always() artifact korunuyor. Artifact oncesine if: always() basarisizlik kapisi eklendi; steps.discovery.outcome success degilse job failure oluyor. Commit 0f6493b10af0124f80227f985d8e7d7c2d31a948.
+- Boylece basarisiz kesif sonraki gh run list --status success gecmis seciminde basarili gorunmemeli. Gercek CI run baslatilamadi ve gecis kaniti yok. Onceden basarili gorunmus fakat gecmis artifact'i eksik eski kosular hala ayri risk; onceki run secimi ve artifact uygunlugu incelenmeli.
+- 92 legacy workflow, main, playlist, yedek ve logolar degistirilmedi.
