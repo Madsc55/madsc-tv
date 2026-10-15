@@ -28,9 +28,9 @@ def normalize_channel_name(name, profile="wide_scan"):
         )
         return re.sub(r"[^A-Z0-9]", "", value)
     if profile == "list_control":
-        value = re.sub(r'\\([^)]*\\)|\\[[^]]*\\]', '', name).strip()
+        value = re.sub(r'\([^)]*\)|\[[^]]*\]', '', name).strip()
         value = re.sub(r'\s+(?:aday|alternatif|yedek|hd|fhd|uhd|sd)$', '', value, flags=re.I).strip()
-        if not re.fullmatch(r'(?:TRT|BRT|TV|Tele|Kanal|Tivi)\\s+\\d+', value, flags=re.I):
+        if not re.fullmatch(r'(?:TRT|BRT|TV|Tele|Kanal|Tivi)\s+\d+', value, flags=re.I):
             value = re.sub(r'\s+\d+$', '', value)
         value = value.casefold().translate(str.maketrans('ıİşçğüö', 'iiscguo'))
         return re.sub(r'[^a-z0-9]', '', value)
