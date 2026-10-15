@@ -1538,3 +1538,30 @@ Doğrulanan öncelikli risk örnekleri:
 - Izole dal madsc/p0-guvenli-yazma-kapisi-deneme-20261015: madsc-yedekler-sayi-duzelt.yml (536840a), madsc-ibo-398-16-49.yml (aa13d84), madsc-ibo-530-archive.yml (33562d1) salt okunur, sadece manuel kontrol, contents:read, persist-credentials:false ve concurrency korumali hale getirildi. Bu eski islerin otomatik tekrarindan dogacak CALISANLAR.m3u degisimi izole dalda onlendi; tarihsel betikler silinmedi.
 - Toplu regresyon 26. adima genisletildi, GitHub Actions run 38746231477 SUCCESS, test commit 216aaee635e44a87d4a21e24f0b45930cf713c36.
 - Sinir: yalniz izole dal; main uretim eski workflow riskleri devam eder. 26 test adimi = 26 guvenlik kuralinin uretimde eksiksiz uygulandigi anlamina gelmez. P0 ACIK.
+
+ 
+## YENI SOHBETE DEVIR - 2026-10-15 / P0 GUVENLIK DEVAM EDİYOR
+
+**KULLANICI TALIMATI (KESIN):** Gorevi yap -> test et -> hata varsa duzelt -> yeniden test et -> BASARILIYSA SIRADAKINE KENDILIGINDEN GEC. Kullanici tekrar "devam" demek zorunda birakilmayacak. Gereksiz tekil mikrotestlere saplanma; gercek duzeltme ve toplu kabul uygula. Birinci bolum tamamen bitmeden ikinci bolumu bitmis gibi sunma. EPG ertelendi, tarihsel 769 dosya arastirmasi ertelendi.
+
+**Depo:** Madsc55/madsc-tv. Ana calisma notu: DEVAM_NOTU.md, dal: madsc/bes-sistem-toplu-birlestirme. PR #71 taslak, BIRLESTIRME YOK. Izole guvenlik duzeltme dali: madsc/p0-guvenli-yazma-kapisi-deneme-20261015. main, CALISANLAR.m3u, YEDEKLER/YENILER/FAVORILER, diger kanal listeleri ve tarihsel yedekler degistirilmedi. Uretim korumasi kanitlanmadan "tamamlandi" denmez.
+
+**P0 bes ana madde:** (1) Besli Actions commit SHA dogrulandi: 38724971116, 97869612210f7f868976aa598191cd6710f8be8a. (2) 26 guvenlik kuralinin denetimi yapildi; gercek enforcement tam degil. (3) 92 eski workflow tarandi; 21 riskli eski workflow tespit edildi; izole dal duzeltmeleri devam ediyor. (4) SHA/korunan dosya ve devre kesici testleri var; branch protection API 403, canli garanti yok. (5) Cift push ve gereksiz tetik adaylari belirlendi; uretim duzeltmeleri eksik. P0 ACIK.
+
+**Izole dalda gercek degistirilen workflow'lar (TOPLAM 9):**
+1. vod-guncelle.yml: concurrency, Rule24, main-only, dosya allowlist, stale-main push durdurma. fd02d639...
+2. publish-iptv-png-logos.yml: concurrency, Rule24, main-only, PNG allowlist. 738d143...
+3. madsc-ibo-354-classify.yml: salt okunur manuel tarihsel kontrol. 9024125...
+4. madsc-yedekler-sayi-duzelt.yml: salt okunur manuel kontrol. 536840a...
+5. madsc-ibo-398-16-49.yml: salt okunur manuel kontrol. aa13d84...
+6. madsc-ibo-530-archive.yml: salt okunur manuel kontrol. 33562d1...
+7. madsc-ibo-6115-second.yml: salt okunur manuel kontrol. bc85b2d...
+8. madsc-ibo-kararlar-grup1.yml: salt okunur manuel kontrol. a5dc986...
+9. madsc-ibo-second-voice.yml: salt okunur manuel kontrol. d2eafaa...
+Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomatik yeniden uygulanmasini izole dalda onledi. Uretimde main hala eski workflow'lari calistirabilir. Bu workflow'larin isim/semantik degisimleri ileride gercek davranis esdegerligi acisindan ayrica incelenmeli.
+
+**Toplu CI:** Izole dal .github/workflows/madsc-ibo-3-5281.yml guvenli read-only kabul workflow'u 28 kullanici-adimli denetime genisletildi. Son run 38746858354 SUCCESS, commit c20fe0adda5af964b33b6bbbb53ee6273a669c37. Onceki run 38746676681 SUCCESS (27), 38746231477 SUCCESS (26), 38745485020 SUCCESS (25). 28 adim = 26 guvenlik kuralinin tamamlandigi demek DEGIL.
+
+**Engelli/acik kalan eski yazicilar:** madsc-arsiv-yedek-aktarim.yml ve madsc-ibo-364-355-364.yml salt okunur guncelleme denemeleri arac guvenlik kontrolunde engellendi; madsc-ibo-ilk-239.yml guncellemesi de engellendi. Bu dosyalar degistirilmedi. Eski scriptleri tekrar calistirma. 21 riskli listenin digerleri hala acik. Sonraki is: diger eski workflow'lari tek tek gercekten incele, izinli izole dal guvenlik duzeltmelerini yap, mevcut toplu testi guncelle ve calistir, hata olursa gider, siradakine gec. Izinsiz main merge veya kanal listesi degisikligi YOK.
+
+**Ozel not:** Kullanici saatlerce ayni minik testte takilmayi ve her basarili testten sonra "devam" istenmesini kesinlikle istemiyor. Bir sonraki sohbette tekrar plan anlatmak yerine GITHUB'DA DOGRUDAN KALAN ISLERE DEVAM ET. Bu notun guncellenmesi disinda main/playlist/arsiv degistirilmedi.
