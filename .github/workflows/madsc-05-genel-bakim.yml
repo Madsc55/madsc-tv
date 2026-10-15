@@ -185,7 +185,7 @@ jobs:
         continue-on-error: true
         run: python3 -m unittest test_five_system_migration_audit test_five_category_92_workflow_audit -v
       - name: Dort onceki kategori de basarili olmali
-        if: always() && ((github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') || contains(github.event.head_commit.message, '[madsc-full-batch]'))
+        if: always()
         env:
           SECURITY_RESULT: ${{ needs.kademe-1-guvenlik.result }}
           DISCOVERY_RESULT: ${{ needs.kademe-2-kesif.result }}
