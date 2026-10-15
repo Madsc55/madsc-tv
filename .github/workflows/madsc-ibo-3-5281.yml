@@ -737,3 +737,24 @@ jobs:
               print("ACIK RISK - URETIM YAZICISI HENUZ DUZELTILMEDI:", name)
           print("Bu adim riskin varligini dogrular; giderildigini iddia etmez.")
           PY
+
+      - name: 25 - Kanal kesif test final zinciri guvenlik kanitini denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          root = Path(".github/workflows")
+          names = ("madsc-birlesik-kesif.yml", "madsc-uc-asama.yml", "madsc-son-kontrol.yml")
+          for name in names:
+              raw = (root / name).read_text(encoding="utf-8")
+              assert "workflow_failure_gate.py" in raw, name
+              assert "concurrency:" in raw, name
+              assert "git reset --hard origin/main" in raw, name
+              assert "git push origin HEAD:main" in raw, name
+              assert "CALISANLAR.m3u" in raw or "madsc_kesif" in raw, name
+              print("KANAL ZINCIRI - KORUMA VAR AMA HARD RESET/PUSH INCELEMESI ACIK:", name)
+          final = (root / "madsc-son-kontrol.yml").read_text(encoding="utf-8")
+          assert "workflow_run:" in final and "schedule:" in final
+          assert "conclusion == 'success'" in final
+          print("SON KONTROL CIFT TETIK ADAYI: schedule + workflow_run")
+          PY
