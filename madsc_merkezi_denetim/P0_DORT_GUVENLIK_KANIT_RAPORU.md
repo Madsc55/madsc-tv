@@ -73,3 +73,10 @@ Tarih: 2026-10-15
 - 11367 sahte YEDEKLER kaydi ile IBO betigi gecici dizinde basarili calisti; kaynak liste SHA256 degismedi.
 - Workflow adi ve adimlari Turkce numaralandirildi.
 - Sinir: Bu test her bir arsiv kanalinin eksiksiz oldugunu ve mevcut 2 yedek icin eski 11367 kararlarinin yeniden uygulanabilecegini kanitlamaz. Uretim yazma kapisi ve otomatik baslatma hala ACIK.
+
+## 6. Test - IBO arsiv ve karar kayitlari dogrulandi
+- GitHub Actions 38735745705; commit 1ea81f8a8f9ad8db42123ef80672b75dc0ef77df; 10/10 adim basarili.
+- Ilk IBO arsivinde 5252 baglanti, karar CSV dosyasindaki ARSIVE_ALINDI satirlariyla ayni sirada eslesti.
+- 27 YEDEKLERDE_KALDI karari rapordaki Turk konumlariyla eslesti; 11367 - 5252 = 6115 sayisi dogrulandi.
+- Kontrol salt okunur ve gecici test dizini disinda kanal listelerine yazma yok.
+- Sinir: Bu sonuc yalniz ilk IBO 3-5281 arsivi icindir. Diger arsivlerin butunlugu ve uretim otomatik yazma kapisi hala ACIK.
