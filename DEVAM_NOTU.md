@@ -1371,3 +1371,10 @@ Kullanıcının 'devam' talimatıyla ayrı \`madsc/p0-guvenlik-guvenli-duzeltme-
 **Yeni unutulmuş kaynak:** Açık PR #4 \`safety-rule24-circuit-breaker\` → \`main\`: https://github.com/Madsc55/madsc-tv/pull/4 . İçinde \`tools/workflow_failure_gate.py\`, \`test_workflow_failure_gate.py\`, \`madsc-rule24-test.yml\` ve eski keşif/üç aşama/son kontrol workflow'larına devre kesici adımları var. Kod son iki tamamlanmış başarısız/timed_out run'da durdurmayı hedefliyor; elle workflow_dispatch kurtarmasına istisna tanıyor. **Bu mevcut iş yeniden yazılmamalı, önce gerçek Actions kanıtı, eski ana sistemle farkı, yanlış durdurma/erişim hakları ve 26 kural uygunluğu incelenmeli.** PR #4 birleştirilmedi, eski workflow'lar değiştirilmedi.
 
 **P0 hâlâ açık:** 92/92 izin/komut/tetik ayrıntısı, 26 kuralın gerçek enforce edilmesi, SHA/branch ve çift tetik giderimi, ayrı dal CI. Kullanıcıya 5/5 güvenlik tamamlandı denmez. Yeni çalışma bu iki taslak/açık PR üzerinden güvenli test ve karşılaştırma ile sürer.
+
+
+## 15 EKİM 2026 — P0 AYRI DALDA GERÇEK GÜVENLİK CI BAŞLATILDI
+
+Kullanıcının 'devam' talimatı ile güvenlik dalında yalnız \`.github/workflows/madsc-01-guvenlik.yml\` dosyasına **geçici**, yalnız \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalı ve yalnız bu workflow dosyasının değişimine özgü \`push\` tetikleyicisi eklendi; commit \`b5b48bec6792d1c5d5c4d78e90a0b1340baad3a2\`. Böylece mevcut \`madsc-01\` gerçek güvenlik testini manuel UI tıklaması olmadan başlatmak mümkün oldu. Gerçek Actions run #38722819072, 2026-10-15 10:48 UTC, event push, kaynak SHA \`b5b48bec\`, son gözlem \`in_progress\`; **başarılı olduğu henüz söylenemez**. Bu test 01 güvenlik job'udur, tüm beşli zincir veya 92/92 davranışsal kabul değildir.
+
+**Önemli geçici tetik temizlik şartı:** CI sonucu görüldükten sonra izole dalda bu geçici \`push\` bloğu kaldırılmalı ve \`madsc-01-guvenlik.yml\` hedef dal ile bire bir aynı hale getirilmeli; PR #72'de kalıcı değişiklik yalnız \`madsc-02-kesif.yml\` tek satır fail-fast olmalı. Bu geçici tetik asla ana çalışma dalına veya main'e birleştirilmez. Eski workflow'lar ve kullanıcı verileri değiştirilmedi.
