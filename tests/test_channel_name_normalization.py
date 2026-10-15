@@ -38,6 +38,14 @@ class NormalizationParity(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertEqual(normalize_channel_name(name, "new_scan"), legacy_new(name))
 
+    def test_satellite_profiles_keep_distinct_numeric_rules(self):
+        self.assertEqual(normalize_channel_name("TRT 1 HD", "satellite"), "trt1")
+        self.assertEqual(normalize_channel_name("TRT 1 HD", "satellite_playlist"), "trt1")
+        self.assertEqual(normalize_channel_name("SHOW TV 2", "satellite"), "showtv2")
+        self.assertEqual(normalize_channel_name("SHOW TV 2", "satellite_playlist"), "showtv")
+        self.assertEqual(normalize_channel_name("Imam Hussein TV 5", "satellite_playlist"), "imamhusseintv5")
+        self.assertEqual(normalize_channel_name("SHOW TV (TEST) HD", "satellite"), "showtv")
+
     def test_unknown_profile_fails_closed(self):
         with self.assertRaises(ValueError):
             normalize_channel_name("TRT 1", "unknown")
