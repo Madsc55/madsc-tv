@@ -186,13 +186,13 @@ jobs:
           assert "workflow_dispatch:" in raw
           assert "push:" in raw
           assert "madsc/p0-guvenli-yazma-kapisi-deneme-20261015" in raw
-          assert re.search(r"(?m)^  contents: read\\s*$", raw)
+          assert re.search(r"(?m)^  contents: read\s*$", raw)
           assert "persist-credentials: false" in raw
-          assert re.search(r"(?m)^concurrency:\\s*$", raw)
+          assert re.search(r"(?m)^concurrency:\s*$", raw)
           assert "cancel-in-progress: false" in raw
-          assert not re.search(r"(?m)^  contents: write\\s*$", raw)
-          assert not re.search(r"(?m)^  schedule:\\s*$", raw)
-          assert not re.search(r"(?m)^  workflow_run:\\s*$", raw)
+          assert not re.search(r"(?m)^  contents: write\s*$", raw)
+          assert not re.search(r"(?m)^  schedule:\s*$", raw)
+          assert not re.search(r"(?m)^  workflow_run:\s*$", raw)
           print("Isolated auto-trigger guardrails verified; production auto-write remains disabled")
           PY
       - name: 8 - Gercek kanal dosyalarinin degismedigini dogrula
