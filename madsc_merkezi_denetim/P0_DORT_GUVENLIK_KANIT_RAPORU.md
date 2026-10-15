@@ -105,3 +105,10 @@ Tarih: 2026-10-15
 - 11. test: GitHub Actions 38737217166, 15/15 basarili. 11599 yedek geri yukleme, IBO 354 siniflandirma ve EPG gunluk workflow dosyalarinda yazma yetkisi ile git push tespit edildi.
 - Ilk 11. test kosusu 38737139468 duzenli ifade hatasiyla basarisiz oldu; 75e6a8cb97d3dd063b9916c6b9df7e3a90839eb8 duzeltmesinden sonra test gecti.
 - Bu kanitlar 21 uretim riskini kapatmaz. Tek seferlik tarihsel islemler yeniden calistirilmamali; surekli EPG gibi gorevler icin ayri yetkilendirme gerekir.
+
+## 12. Test - Tek seferlik ve surekli otomasyonlar
+- GitHub Actions 38737401839, commit b11409c2bf0c04d1691ec0b37f61bf01e96a5cb6: 16/16 adim basarili.
+- Tarihsel tek seferlik: madsc-11599-yedek-geri-yukle.yml, madsc-ibo-354-classify.yml. Bu islemler yeniden calistirilmaz.
+- Zamanlanmis yazici: epg-gunluk.yml, vod-guncelle.yml. Olay tetiklemeli yazici: publish-iptv-png-logos.yml.
+- Test sadece dosya yapisi, tetikleme ve yetki siniflandirmasi yapti; canli otomasyonlari degistirmedi.
+- Kalan 21 risk ve uretim yazma korumasi halen acik.
