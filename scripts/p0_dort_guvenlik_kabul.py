@@ -28,7 +28,20 @@ def inspect(root=ROOT):
         scheduled = bool(re.search(r"(?m)^\s*schedule:\s*$", raw))
         workflow_run = bool(re.search(r"(?m)^\s*workflow_run:\s*$", raw))
         concurrency = bool(re.search(r"(?m)^concurrency:\s*$", raw))
-        write_candidate = declared_write or git_push or reset_hard
+        # These three inspected read-only audit jobs quote git push as test data.
+        audit_fixtures = {
+            "test-32-unapproved-write-regression.yml",
+            "test-38-audit-selftest.yml",
+            "toplu-sistem-kontrol.yml",
+        }
+        verified_read_only_fixture = (
+            path.name in audit_fixtures
+            and bool(re.search(r"(?m)^  contents:\s*read\s*$", raw))
+            and not declared_write
+            and not reset_hard
+            and "persist-credentials: false" in raw
+        )
+        write_candidate = declared_write or reset_hard or (git_push and not verified_read_only_fixture)
         rows.append({
             "workflow": path.name, "declared_write": declared_write,
             "git_push": git_push, "reset_hard": reset_hard,
