@@ -1,3 +1,33 @@
+## 15 EKİM — KULLANICININ İSTEDİĞİ KAYNAK NOTLARI / YENİDEN DOĞRULANAN DOSYALAR
+
+**Bu inceleme kullanıcı talimatıyla yalnız görev/karar/eksik kanıt toplama amaçlıdır.** Kaynaklar değiştirilmedi. 769 dosya envanteri var, **769 dosyanın tamamının içerik incelemesi henüz doğrulanmadı**. 97 workflow daha önce tam metin okunmuştu. Bu turda özellikle kullanıcı tarafından adı verilen kaynakların tam metni yeniden okundu; 51 JSON'un tamamına içerik düzeyinde erişim denendi, çok büyük JSON/CSV dosyalarında içerik kesintisi görüldü. Eksikleri tamamlandı göstermeme kuralı geçerlidir.
+
+### Kaynağa bağlı yeni görev ve kararlar
+1. `GUVENLIK_KURALLARI.md`: 19 temel + dört ek güvenlik önlemi + 24. kural (hata zincirini durdur). Bunlar onaylı **politika**, bütün teknik yolların otomatik olarak zorlandığının kanıtı değil. Gerçek izin, 10 push denemesi, kilit ve korunan playlist regresyonu ayrı denetim.
+2. `OZELLIK_ENVANTERI.md`: 'VAR+TEST BAŞARILI ise yeniden yazma; VAR+EKSİK ise yalnız eksiği düzelt'; aynı özelliği iki kez kurma. Her kod değişikliğinde Actions run ID ve dosya etkisi ana nota yazılır. Cihaz testi yapılmadan IBO onayı verilmez.
+3. `SEKIZ_GOREV_TOPLU_DENETIM.md`: felaket arşivi/izole açma testi mevcut; **30 gün saklama, GitHub dışı kopya, secrets ve IBO ayarları kurtarma kanıtı yok**. Türk kanal kimliği, lisans, logo/EPG ve gerçek İsveç IBO doğrulaması açık; branch protection ayrı.
+4. `TOPLU_DURUM_RAPORU.md`: EPG/Pages, 5 kanal TV kabulü, 92 workflow tetik/yan etki eşdeğerliği, günde iki keşif, 75 aday (51 retest, 24 ffprobe, 4 alternatif), gerçek cihaz kimliği ve toplu kabul açık. 50 kanallık sağlık partisi bütün ana listenin canlı testi değildir. Eski #93/#100/#101/#102/#103 test düzeltmeleri tekrar yazılmayacak; son run ile kanıtlanacak.
+5. `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md`: tarihsel **3082 kalan aday**, #38430737866 son kontrol run, teknik false-negative ve IBO'da çalışan kanal koruması; eski tarihli snapshot yeni güncel 2574 kalanla karıştırılmayacak. 740 yabancı arşiv kanalını teknik hata yüzünden silme. Önceden izin verilmiş eski taşıma kararları **güncel yazma izni değildir**.
+6. `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md`: **Eurostar** çalışan alternatif araştırması açık; ana listeye/YENİLER'e izinsiz ekleme yok.
+7. `kontrol_notlari/2026-10-12_ekol_basa_sarma.md`: **Ekol TV** 1080p playlistte 180 eski segment / yaklaşık 30 dakika döngü; son segment HTTP 200, canlı yayın kanıtı değil. HLS segment zaman damgası/ilerleme sürekliliği kontrolü ve gerçek güncel kaynak araması açık. Eski URL'leri değiştirme.
+8. `kontrol_notlari/DEVAM_GECMISI_2026-10-12_1947.md`: eski 6981 URL üçlü test ve 63 son kontrol tarihsel anlık görüntüsü, yeni sonuçla karıştırılmayacak. 9 görsel incelenmiş, 8 yayın karesi alınmış, Baku.TV karesi alınamamış; görsel varlığı logo/kanal kimliği onayı değil. TRT 1/DHA/SAT 7 TÜRK kategori kararları tarihsel, güncel listeye izinsiz uygulanmaz.
+9. `arastirma/bes_site_katalog_2026-10-12.json`: **VIN kanal girişinin TRT Kurdî içeriğine yönelme kimlik riski**. Resmî kaynak/kanal kimliği ayrı doğrulanmadan ekleme yok.
+10. `arastirma/lyngsat_arama_oncelikleri.json`: **7 kanal için kimlik inceleme** gereği; uydu kataloğunda ad eşleşmesi yayın kimliği kanıtı değil.
+11. `arastirma/uydu_arama_oncelikleri.json`: öncelikli Türk kanal adları **NOT_FOUND_BY_NAME**; bunlar test edilmiş URL değildir. Resmî açık yayın kaynağı araştır, geçmiş test URL'leriyle karşılaştır.
+12. `aday_hazirlik/ibo_alternatif_10_2026-10-12.json`: durum **SUPERSEDED_AFTER_IMAGE_IDENTITY_REVIEW**; eski on aday listesini hazır/onaylı diye kullanma, kimlik doğrulanmamış ve kopya logolar kanal kimliği kanıtı değil.
+13. `docs/MADSC-IKI-TOPLU-KABUL-PLANI.md`: kullanıcı iki aşamalı toplu kabul istiyor; küçük dosya başına ayrı test istemiyor. Kategori 5 `needs` hatası ve EPG/Pages/keşif/VOD/restore/IBO kanıtları kapanmadan PR #71 merge yok.
+14. `docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md`: davranışsal parity ölçülmeden yüzde ilerleme vermeme; eski üretim tetikleri ve yazma bağımlılıklarını gerçek dry-run/izole testle incele.
+15. `BES_SISTEM_TOPLU_IS_DEFTERI.md` ve `BES_SISTEM_GECIS_KONTROL.md`: 92 workflow görev sahibi, tetik, cron, artifact, risk ve geri dönüş eşleştirmesi; 18 görev, 26 kural ve eski taleplerin eksiksiz kabul tablosu. Kullanıcı onaysız veri değişimi yok.
+
+### Bu tur veri dosyası inceleme yöntemi ve engeller
+- Git ağaç verisinde **769 dosya / 27 klasör**; görseller **373**, görsel olmayan **396** dosya. **Bu sayım içerik incelemesi değildir.**
+- CSV kaynaklarının ilk 20'sinin içerik erişimi denendi: `TEST_RAPORU.csv`, `aday_bekletme/ADAY_DURUM_RAPORU.csv`, `TEKRAR_EDEN_ADAYLAR.csv`, `madsc_kesif/ibo_3_5281_kararlar.csv`, `ibo_6115_ikinci_kararlar.csv`, `eski_bozuk_linkler.csv`, `tekrarlar.csv` gibi kaynaklar açıldı; **1.1 MB `aday_bekletme/ADAY_ONCELIK_RAPORU.csv` ve 2.46 MB `madsc_kesif/bulunan_kanal_arsivi.csv` boş döndü**, okunmuş sayılamaz. `ibo_6115_ikinci_kararlar.csv` 11.929 satır içeriyor; eski kararlar tekrar uygulanmayacak.
+- 51 JSON'da doğrudan okuma denendi. `madsc_dogrulama/state.json` (~5.96 MB), `madsc_kesif/gecmis.json` (~4.80 MB), `madsc_son_kontrol/results.json` (~4.84 MB), `aday_bekletme/gecmis.json` ve `aday_hazirlik/uc_asama_2026-10-12_1037.json` tam JSON parse edilemedi: **okuma/kesilme engeli**, kaynak verinin bozuk olduğu kanıtı değildir. Bunlar parça/parça okunmalı.
+- `epg_deneme/yayim_kontrol.json` Pages yayın checksum/HTTP doğrulama, `liste_kontrol/rapor.json` Ulusal kategori eksikleri, `logo_deneme/png_automation.json` PNG ve görsel onay kuyruğu, `madsc_kesif/candidate_logo_missing_report.json` eksik logo/kimlik adayları, `vod/guncel-bolumler.json` yalnız bölüm takvimi, `raporlar/YEDEK_KATEGORI_LOGO_2026-10-12.json` eski izin snapshotları olarak ayrı incelenmeli; rapor varlığı canlı başarı değildir.
+- **Henüz tamamlanmamış:** kalan CSV/M3U/TXT/XML dosyaları ve 373 logo görselinin format/isim/kanal bağlantısı, büyük JSON'ların satır aralığıyla tam içerik taraması, bütün 151 Python'un dosya bazlı tam sayım kanıtı ve tüm 34 Markdown'un benzersiz kontrol matrisi. Tüm bunlar tamamlanmadan '769/769 inceledim' denmez.
+
+---
+
 # 15 EKİM 2026 — 769/769 DOSYA GÖREV/NOT AMAÇLI ENVANTER VE İÇERİK TARAMASI TAMAMLANDI
 
 **KAPSAM TANIMI:** Bu çalışma kullanıcı isteği doğrultusunda her dosyanın görev/not/karar/eksik iş içerip içermediğinin tespitidir; bütün görsellerin yayın kimliği onayı, her URL'nin canlı çalışması, kodların çalıştırılması, 92/92 workflow davranışsal parity veya 1 Ekim'den bugüne GitHub dışı sohbetlerin eksiksiz taranması değildir. Başlangıç anlık görüntüsü: `3e79287598e4182aee48ae64fddeb8174321fbae` (15 Ekim 2026); yeni commitlerle ağaç değişebilir.
