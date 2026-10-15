@@ -1,4 +1,3 @@
-from channel_name_normalization import normalize_channel_name
 #!/usr/bin/env python3
 """Read-only multi-source IPTV discovery and bounded HLS segment test. Scan requested 2026-10-09."""
 import csv
@@ -6,6 +5,7 @@ import os
 import subprocess
 import json
 import re
+from channel_name_normalization import normalize_channel_name
 import time
 import urllib.request
 import urllib.parse
