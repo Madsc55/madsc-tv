@@ -1,6 +1,11 @@
 name: MADSC - IBO 3-5281 Guvenli Izole Prova
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - madsc/p0-guvenli-yazma-kapisi-deneme-20261015
+    paths:
+      - '.github/workflows/madsc-ibo-3-5281.yml'
 permissions:
   contents: read
 concurrency:
