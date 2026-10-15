@@ -26,13 +26,24 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
       - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
         shell: bash
         run: |
-          set -euo pipefail
-          python3 scripts/central_isolated_git_restore.py
-          python3 scripts/central_backup_evidence.py
-          python3 scripts/central_archive_consistency.py
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_isolated_git_restore.py scripts/central_backup_evidence.py scripts/central_archive_consistency.py; do
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
       - name: Yedek kurtarma ve uzak kopya ayrimi kabul kontrolu
+        id: acceptance
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
@@ -46,10 +57,24 @@ jobs:
           print("Isolated restore evidence checked; offsite/historical recovery remains blocked.")
           PY
       - name: Kategoriye ait tum regresyon testleri
+        id: regressions
+        continue-on-error: true
         run: python3 -m unittest test_central_isolated_git_restore test_central_backup_evidence test_central_archive_consistency -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+      - name: Arsiv ve yedek basarisizlik kapisi
+        if: always()
+        shell: bash
+        run: |
+          failed=0
+          for outcome in "${{ steps.reports.outcome }}" "${{ steps.acceptance.outcome }}" "${{ steps.regressions.outcome }}"; do
+            if [[ "${outcome}" != "success" ]]; then
+              echo "::error::Arsiv/yedek denetimi basarisiz veya atlandi: ${outcome}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
