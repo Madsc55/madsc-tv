@@ -2408,3 +2408,23 @@ KRITIK KORUMA: management_summary eksik kaniti sifir saymaz ve RAPOR_VAR gorev t
 YAZMA YUZEYI: central_management_summary.py ve central_short_status.py ve central_open_gaps.py import esnasinda bile OUT.mkdir/rapor yazma islemi yapabilir; single_screen_report.py __main__ icinde JSON+MD yazar; run_status.py durum raporu yazar. Sadece DEVAM_NOTU.md izni bulundugundan scriptlerin hicbiri CALISTIRILMADI.
 PLAN: ortak read_evidence(path)-> {state:missing|invalid|present, payload, source} primitive; ustunde AYRI management, short, single-screen, open-gaps ve run-status adapterlari. Golden fixture: dosya yok, bozuk JSON, JSON list yerine dict, eksik 5 asama, eksik IBO, yedek harici kopya yok, 100 disi workflow, bos gorev. Eski JSON/MD dosya adlari ve schema sabit tutulur.
 DURUM: bu tur 5 rapor kodu okundu, 4'unde JSON okuma tekrar sinyali kanitlandi; kod degisikligi 0, test calistirma 0, 92->5 parity 0/92. Ana liste, yedek, workflow, PR #71 degismedi.
+
+
+## 2026-10-16 — K2 KESIF BIRLESTIRME: ALTI KOK PYTHON KAYNAGI KARSILASTIRILDI
+Bu turda GitHub dalindan okunan: kaynak_kesfet.py (99 satir; GitHub repo/API kaynak kesfi), madsc_akilli_kesif.py (297; kesif+M3U ayrisma+probe+logo+gecmis), genis_kanal_tara.py (57; kaynak fetch+M3U parse+normalize+probe), yeni_kanal_tara.py (176; coklu kaynak+HLS segment+ffprobe), kaynak_guven_puani.py (55; aday gecmisinden kaynak guven puani), aday_tekrar_raporu.py (36; ham aday CSV'de birebir URL tekrarlari). Yalniz kaynak okundu; ag taramasi/test/calismasi YAPILMADI.
+
+### Kanitli ayni-is adaylari
+1. **M3U indirme:** genis_kanal_tara.fetch, yeni_kanal_tara.fetch, madsc_akilli_kesif icindeki ag erisimi ortak HTTP cekirdegi adayi. Ancak kaynak URL listeleri, retry/timeout, response limit, User-Agent, hata kaydi ve cikti semalari korunur. kaynak_kesfet.get GitHub API kaynagi arar, M3U tarama ile birebir ayni degil; HTTP yardimcisi ortak olabilir.
+2. **EXTINF ayrisma:** genis_kanal_tara.parse, yeni_kanal_tara.parse, madsc_akilli_kesif.parse ile onceki liste_kontrol/build.py:parse ve scripts/ana_liste_saglik.py:entries ortak parser adayi. Eski fonksiyonlarin URL/isim/tvg-logo/grup, hatali satir, encoding, ham URL ve SHA256 farklari adapter olarak korunur.
+3. **Kanal adi normalize:** genis_kanal_tara.norm, yeni_kanal_tara.norm, madsc_akilli_kesif.key/name ile uydu_karsilastir.key ve liste_kontrol.name_key ortak primitive adayi; Turkce karakter, kalite eki, aday/alternatif ve sayisal kanal isimleri icin golden fixture sart.
+4. **Teknik probe:** genis_kanal_tara.probe, yeni_kanal_tara.hls_probe/ffprobe_stream, madsc_akilli_kesif.probe/test ortak zaman asimi ve ffprobe yardimci katmani adayi; HLS segment, medya codec, sure, 3 PASS ve 7/30 gun tarihsel kararlilik **ayri kabul testleri**.
+5. **Kaynak kimligi ve dedup:** aday_tekrar_raporu.duplicate_groups sadece birebir URL gruplar; kaynak_guven_puani.main aday_bekletme/gecmis.json icinden kaynak guven puani cikarir. Ortak kaynak kimligi/veri modeli adayi; dedup ve guven puani AYRI amaclar, otomatik aday kabulune donusmez.
+
+### Yazma ve izin siniri
+- kaynak_kesfet.py YENI_KAYNAK_ONERILERI.csv/KAYNAK_KESIF_HATALARI.txt; genis_kanal_tara.py GENIS_KANAL_TARAMA_RAPORU.csv; yeni_kanal_tara.py YENILER_KAYNAK_HATALARI.txt ve ham tekrar raporu; madsc_akilli_kesif.py madsc_kesif/ozet.json, logo adaylari, aday gecmisi vb; kaynak_guven_puani.py aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv; aday_tekrar_raporu.py aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv uretir. Bunlar mevcut not-disinda-yazma izni olmadigindan CALISTIRILMADI. madsc_akilli_kesif.py import asamasinda madsc_kesif klasoru yaratabildiginden dogrudan import da uygun degil.
+- Kesif sonucu yedek/test listesine dahi onceden acik kullanici onayi olmadan eklenemez; ana liste, sira, favori, kategori ve IBO onayi korunur.
+
+### Sonraki karar ve test matrisi
+- Birlesim adayi ortak fetch_m3u, parse_extinf, normalize_name(profile), probe_stream(policy), source_identity/dedup yardimcilari; her eski programin cikti dosyasi, schema, tetikleyicisi, istisna ve hata davranisi adapterda kalacak.
+- Fixture: bozuk M3U, BOM, iki URL/tek ad, tek URL/iki ad, Turkce harf, kalite eki, kanal adi sonundaki rakam, ag timeout, ffprobe yalniz ses, HLS segment 404, kaynak puani bos gecmis, bozuk CSV ve eksik kaynak. Gercek test PASS veya 92 workflow parity iddiasi YOK.
+- Durum: **6 kok Python kaynagi yeniden incelendi; 5 somut ortak katman adayi; 0 kod degisikligi, 0 calistirilan test, 0/92 parity kaniti.** Yalniz DEVAM_NOTU.md guncellenir, PR #71 ve tum korunanlar aynen kalir.
