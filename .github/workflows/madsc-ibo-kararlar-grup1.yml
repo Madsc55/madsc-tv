@@ -1,32 +1,21 @@
-name: MADSC - IBO Kullanici Kararlari Grup 1
+name: MADSC - Historical Group 1 Decision Review
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-ibo-kararlar-grup1.yml'
+  workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: madsc-ibo-kararlar-grup1
+  group: madsc-ibo-group1-review
   cancel-in-progress: false
 jobs:
-  apply:
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Guncel main
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Kullanici kararlarini uygula ve kayipsiz arsivle
-        run: python3 scripts/apply_ibo_decisions_group1.py
-      - name: Kayitlari koruyarak guncelle
+        with:
+          persist-credentials: false
+      - name: Verify saved decision source without replay
         run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/ibo_kullanici_kararlari_20261013_grup1.json madsc_kesif/ibo_kullanici_kararlari_20261013_grup1.csv madsc_kesif/ibo_yedeklerden_ayrilanlar_20261013_grup1.m3u
-          git diff --cached --quiet && exit 0
-          git commit -m "Record 36 nonworking Turkish and 197 foreign IBO backup decisions"
-          git push origin HEAD:main
+          test -f scripts/apply_ibo_decisions_group1.py
+          test -f CALISANLAR.m3u
+          git diff --exit-code -- CALISANLAR.m3u
