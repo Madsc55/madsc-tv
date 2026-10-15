@@ -2299,3 +2299,71 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 - GitHub Git tree 99f117f634e8c1d7fa1e282f16082dde67518264 uzerinden `.github/workflows/*.yml|*.yaml` yollarinin tam listesi alindi: **97 YAML**. Bunlarin 5'i madsc-01-guvenlik.yml, madsc-02-kesif.yml, madsc-03-kanal-test.yml, madsc-04-arsiv-yedek.yml, madsc-05-genel-bakim.yml; diger 92 legacy workflow.
 - Bu sayim onceki tree anlik goruntusune aittir; bugunku dal HEAD'indeki YAML iceriklerinin tek tek okunmasi veya 92->5 davranissal esdegerlik testi DEGILDIR. Eksik gorev: 97 YAML icerigini tek tek incele, workflow -> script -> test -> rapor -> korunan hedef matrisi ve izole kabul kanitlarini tamamla.
 - Korunan listeler ve diger dosyalar degistirilmedi; PR #71 birlestirilmedi. Yalniz DEVAM_NOTU.md notu guncellenir.
+
+
+## 2026-10-16 — KANONIK CALISMA ENDEKSI V1 (ONCE BUNU OKU)
+> Bu bolum tarihi kayitlari silmez, yeniden yazmaz; tekrar eden isleri TEK gorev altinda toplar. Onceki notlardaki tamamlanma iddialari farkli kapsamlar icin olabilir. Son durum icin bu endeks + asagidaki kanit sinirlari esastir.
+
+### A. KESIN DURUM VE KAPSAM AYRIMI
+- **97/97 workflow YAML tam metin kaynak okuma: 15 Ekim notu 178-180. satirlarda tamamlandi olarak KAYITLI** (ilk 38 + sonraki 59). 16 Ekimde Git tree 99f117f... ile 97 dosya yolu yeniden sayildi. Bu turda 97 YAML icerigi tekrar tek tek acilmadi. Tarihi tam metin okuma kaniti, yeni bir runtime kabul degildir.
+- **145/145 workflow disi secilmis kaynak dosyasi** (Python kod/test + iki commands metni) okuma kapsami 16 Ekimde 117+28 ile tamamlandi. Bu, tum depodaki her tur dosyanin tam denetimi demek degil.
+- **92 eski workflow -> 5 yeni workflow davranissal parity: 0/92 KANITLI** (15 Ekim tam workflow taramasi notu). 5 merkezi YAML'nin varligi, tum 92 davranisin tasindigi anlamina gelmez.
+- **Test calistirma / runtime PASS / IBO cihaz onayi: bu 16 Ekim kaynak incelemesi turunda YOK.** Gecmisteki ayri test kayitlari bu ifade ile silinmez.
+- 24 numarali guvenlik kurali var; eski basliklarda gecen 26 sayisi dogrulanmis kural adedi olarak kullanilmaz.
+
+### B. TEKIL BES KATEGORI — IS SIRASI VE BENZERLIKLER
+**K1 Guvenlik ve Sistem Sagligi (P0, once):**
+- ORTAK: korunan dosya yazma kapisi, permission gate, 24. kural ardarda hata durdurma, workflow permission/cron/push guvenligi, SHA/koruma fingerprint, hata asamasi raporu, sistem sagligi.
+- BENZER/AYRI RAPORLAR: central_protected_write_gate, five_category_permission_gate, workflow_failure_gate, central_failure_stage_report, central_run_status, sistem_saglik_denetimi. Ortak kanit okuyucu dusun; farkli alarm ve onay semantigini KORU.
+- AYRI TUT: gercek repo yazma/geri yukleme yetkisi; salt okunur denetimle birlestirilip otomatik aktif edilmez.
+- KABUL: 92 eski workflow'daki permission, trigger, fail-closed, rapor ve korunan hedeflerin her biri icin izole regresyon.
+
+**K2 Kesif ve Aday Yonetimi (P1):**
+- ORTAK: coklu kaynak tarama, kaynak guven puani, normalize URL + kanal adi dedup, aday/alternatif ayrimi, provenans, karantina, tekrar takvimi.
+- BENZER: central_source_reconciliation, kaynak_guven_puani, akilli_tekrar_test_takvimi, central_ibo_review_queue, final_validation, candidate_logo_missing_report (kimlik bilgisi yalnizca ortak veri alani).
+- AYRI TUT: kaynak kokeni, manuel aday onayi, IBO cihaz karari; kaynak puani kanal kabulunun yerine gecmez.
+- KABUL: ayni URL/ad varyanti tek aday; ayni ad/farkli URL alternatif; onaysiz ekleme YOK.
+
+**K3 Kanal Testleri ve Kararlilik (P2):**
+- ORTAK: ffprobe video/ses, timeout, sure/frame kaniti, uc asama, 3 PASS, 5 dakika, 24 saat, 7/30 gun kararlilik, tekrar testi ve rapor.
+- BENZER: verification_pipeline, gelismis_medya_testi, ana_liste_saglik, final_validation, bes_is_tek_dosya.
+- AYRI TUT: canli teknik PASS, tarihsel istikrar ve TV'de IBO onayi birbirinden bagimsizdir; hata silme karari DEGIL.
+- KABUL: test fixture'lari ve gercek korunan dosyaya yazilmadiginin kaniti.
+
+**K4 EPG, Logo ve Kanal Kimligi (P3):**
+- ORTAK: XMLTV zaman dilimi/gece yarisi, kanal esleme, logo eksikligi, PNG hazirligi, kimlik kaniti ve tek rapor semasi.
+- BENZER: epg_pilot, epg_tv_readiness, candidate_logo_missing_report, central_identity_epg_logo_audit.
+- AYRI TUT: otomatik logo uretimi/yayin yazmasi, kullanici tarafindan onayli logo ve IBO kimlik karari; ayni isim/farkli logo otomatik onaylanmaz.
+- KABUL: XMLTV hazirligi cihaza uygunluk/onay anlamina gelmez; logolar korunur.
+
+**K5 Arsiv, Yedek, Rapor ve Bakim (P4):**
+- ORTAK: izole restore, SHA, yedek butunlugu, Actions run/hatasi, 6/8/18 gorev ve 5 asama raporlarini ortak kanit semasindan okuma.
+- BENZER: central_management_summary, central_short_status, central_single_screen_report, central_open_gaps, central_workflow_inventory, central_main_playlist_run_evidence, central_isolated_git_restore, central_run_status, toplu_durum_raporu.
+- AYRI TUT: tarihi IBO karar scriptleri, gercek YEDEKLER mutasyonu, kategori sayi duzeltme, kanal arsivleme ve gercek geri yukleme. Salt-okunur raporlar ile otomatik yazici birlestirme YASAK.
+- KABUL: rapor varligi gorev tamamlandi demek degil; bozuk/eksik JSON basari sayilmaz; izole geri yukleme kaniti gercek listeyi degistirmez.
+
+### C. KATEGORILER ARASI ORTAK CEKIRDEK / AYRI KALACAK ISLER
+- **Tek ortak kanit semasi (TASARIM):** kaynak_kimligi, kanal_kimligi, test_tarihi, kaynak_kokeni, teknik_sonuc, kararlilik_sonucu, cihaz_onayi, rapor_yolu, sha, korunan_hedef, hata_asamasi, onay_durumu. Bilinmeyen deger basari diye varsayilmaz.
+- **Tek rapor okuyucu (TASARIM):** 5 kategori, 6/8/18 gorev, tek ekran, kisa durum, yonetim ozeti ayri gorunumler; ortak veri ureticisi ancak semantik farklar korundugunda.
+- **Tek tetikleme ve zamanlama haritasi (TASARIM):** push, cron, workflow_run, manuel, artifact ve branch filtreleri korunarak tekrarlar belirlenir. Var olan 92 workflow'u devre disi birakma YOK.
+- **Ayri izin kapilari:** salt-okunur kesif/test, adaylari yedek/test listesine EKLEME, ana liste degisikligi, logo yayini, tarihi IBO arsivi ve restore birbirinin yerine gecmez. Adaylarin yedek/test listesine eklenmesi bile KULLANICININ ONCEDEN ACIK ONAYINA BAGLIDIR.
+
+### D. TEKRAR EDEN NOTLARIN KANONIK ADRESLERI (TARIHCE KORUNUR)
+- 97 YAML sayimi / 92 eski is: 15 Ekim '97/97 WORKFLOW TAM METIN' ve 16 Ekim '97 WORKFLOW ENVANTER'. Tek kaynak okuma kapsamidir; parity ayri.
+- 145 kaynak sayimi: 15 Ekim 29+20+40+16 kaynak okumasi, 16 Ekim 12+26 test ve iki komut. 15 Ekim erken '145/145' basligi eksik test kapsamiyla karistirilmamali.
+- 5 asama / 6-8-18 gorev / tek ekran / kisa ozet / yonetim raporu: K5 ortak rapor okuyucu; K1-K4 farkli kanit ureticileri.
+- IBO onayi / aday / yedek / ana liste: K2 aday hazirlama, K3 teknik test, K4 kimlik, K5 arsiv; SON KARAR kullanicida.
+- Koruma / 24. kural / yazma yolu / failure gate: K1; K5 restore isleri ancak K1 izniyle.
+- EPG/logo raporu: K4; aday kimlik alanlari K2 ile ortak ama otomatik onay yok.
+
+### E. BIRLESTIRME ISINE DONUS — SIRALI KABUL KAPILARI
+1. **P0** 92 workflow icin workflow -> tetikleyici -> script -> test -> rapor/artifact -> izin -> korunan dosya matrisi; tarihi YAML tam metin notlarini kullan, eksik/degismis alanlari yeniden kontrol et.
+2. **P0** Gercek yazma yapan yollarin (IBO, YEDEKLER, YENILER, restore, logo yayin) ayrik risk kaydi; hicbirini calistirma.
+3. **P1** K1 guvenlik ve ortak kanit semasinin salt-okunur fixture esdegerlik plani; fark varsa duzeltme icin kullanicidan ayri izin.
+4. **P1** K2/K3 kesif ve teknik testlerin tekrar eden fonksiyonlarini, kaynak kokeni ve 3 PASS/24 saat/7-30 gun ayrimlarini koruyarak eslestir.
+5. **P2** K4 EPG/logo/kimlik semasi ve K5 rapor okuyucu icin izole fixture karsilastirmasi.
+6. **P2** 92/92 davranissal parity ve 5 merkezi workflow kabul kanitlari; ancak gercek PASS oldugunda tamamlandi yaz.
+7. **SON** Kullanici acikca yeni dosya degisikligine izin verene kadar yalniz DEVAM_NOTU.md guncellenir; PR #71 draft, merge yok.
+
+### F. GUVENLI DURUM
+- Bu endeks **notlari mantiksal olarak birlestirir**; tarihi bolumleri silmez, kaynak kodu/workflow/listeleri degistirmez. 92 eski + 5 yeni sayisi dogrulanmis; 92->5 parity tamamlandi DENMEZ.
