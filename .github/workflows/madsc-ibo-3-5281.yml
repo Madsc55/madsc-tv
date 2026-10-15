@@ -83,7 +83,46 @@ jobs:
               raise SystemExit("Protected source playlist changed")
           print("Protected repository playlist SHA256 unchanged")
           PY
-      - name: 4 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 4 - Tarihsel ve guncel kanal listesi surumlerini dogrula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import urllib.request
+          from pathlib import Path
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          refs = {
+              "11367-yedek-geri-yukleme": "b5ce4a752104",
+              "ilk-ibo-karar-uygulamasi": "2c5bbe376a20",
+              "ibo-arsivleme": "a40e0df02d7a",
+              "guncel-iki-yedek": "d647b05a0137",
+          }
+          expected = {
+              "11367-yedek-geri-yukleme": "5fc6213b81cef58670d38aa5f863d01afde981c9",
+              "ilk-ibo-karar-uygulamasi": "18a15d34e1e4e14f7b5d9fd6340e9f4e6e01363a",
+              "ibo-arsivleme": "37479c66150636e3d1ab0ca92bf28129513f6f65",
+              "guncel-iki-yedek": "b40aaf6615b120eac7bd936ccf022dc4a14025ae",
+          }
+          for label, ref in refs.items():
+              url = f"https://api.github.com/repos/{repo}/contents/CALISANLAR.m3u?ref={ref}"
+              req = urllib.request.Request(url, headers={
+                  "Authorization": "Bearer " + os.environ["GH_TOKEN"],
+                  "Accept": "application/vnd.github+json",
+              })
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  data = json.load(response)
+              if data["sha"] != expected[label]:
+                  raise SystemExit("Historical blob SHA mismatch: " + label)
+              print(label + ": original Git blob verified")
+          source = Path("CALISANLAR.m3u")
+          print("Current playlist SHA256: " + hashlib.sha256(source.read_bytes()).hexdigest())
+          PY
+      - name: 5 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
