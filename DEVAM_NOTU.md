@@ -976,3 +976,28 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 
 ## 13 Ekim — 24. güvenlik kuralı onaylandı
 - Kullanıcı tekrarlanan otomasyon hatalarında güvenli durma ve hata raporu önerisini kabul etti. `GUVENLIK_KURALLARI.md` 24. maddeyle güncellendi (commit 6c56118796c299f22080b5f68f8a8ff4993f8e2a). Üç ana workflow incelendi: her birinde sınırlı git push denemesi bulunuyor; tüm koşular boyunca ortak hata sayacı/devre kesici henüz doğrulanmadı. Sıradaki iş teknik uygulama ve test; korunan kanal listeleri değişmedi.
+
+
+## 15 EKİM 2026 — EKRAN GÖRÜNTÜSÜNDEKİ 20 KLASÖR İÇİN HEDEFLİ NOT/RAPOR MUTABAKATI
+
+**Kullanıcı kapsamı:** GitHub main ekranında görülen `.github`, `aday_bekletme`, `aday_hazirlik`, `arastirma`, `epg`, `epg_deneme`, `kontrol_notlari`, `liste_kontrol`, `logo_deneme`, `logos`, `madsc_dogrulama`, `madsc_kesif`, `madsc_son_kontrol`, `raporlar`, `reports`, `scripts`, `tarama`, `tests`, `tools`, `vod`, `yedekler` (ekranlarda 21 klasör) ve bunların görev, karar, hata, eksik kanıtlarının tek merkezde toplanması. Ekran `main` dalını gösteriyor; bu çalışma korunmuş `madsc/bes-sistem-toplu-birlestirme` dalındaki mevcut dosyaları esas alır. Fark denetimi henüz yapılmadı.
+
+**Bu turda doğrudan yeniden okunan kaynaklar:** `DEVAM_NOTU.md`, `aday_bekletme/ADAY_DURUM_RAPORU.csv` (ilk 65 satır), `aday_hazirlik/ibo_alternatif_10_2026-10-12.json` (ilk 65 satır), `arastirma/lyngsat_arama_oncelikleri.json`, `epg_deneme/yayim_kontrol.json`, `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md`, `liste_kontrol/rapor.json` (ilk 65 satır), `logo_deneme/png_automation.json` (ilk 65 satır), `madsc_dogrulama/summary.json`, `madsc_kesif/ozet.json` (ilk 65 satır), `madsc_son_kontrol/summary.json`, `vod/guncel-bolumler.json` (ilk 65 satır), `raporlar/GELISTIRME_11_DURUM_2026-10-12.md` (ilk 65 satır). Önceki turda ayrıca `GUVENLIK_KURALLARI.md`, `OZELLIK_ENVANTERI.md`, `SEKIZ_GOREV_TOPLU_DENETIM.md`, `TOPLU_DURUM_RAPORU.md` okundu. Bunlar **bütün 21 klasörün bu turda tam tarandığı kanıtı değildir**; önceki 769/769 envanter kaydı da korunur.
+
+### Yeni mutabakat bulguları ve açık işler
+1. **Üç aşama:** `madsc_dogrulama/summary.json` 14 Ekim 05:07 UTC snapshot'ında 7100 adayın üç denemesi tamam; 6374 üç geçiş, 462 iki, 114 bir, 150 sıfır geçiş; **playlist'e hazır 0**. Teknik test tamamlandı diye kimlik/IBO tamamlandı sayma.
+2. **Son kontrol:** `madsc_son_kontrol/summary.json` 14 Ekim 12:09 UTC snapshot'ında 3800 tamamlanmış, **2574 kalan**, 2332 teknik geçiş/kimlik bekliyor, 1055 teknik geçiş/içerik inceleme, 255 süreklilik başarısız, 158 timeout; **playlist'e hazır 0**. Önceki 3082 ve 5687 kalan sayıları tarihsel snapshot olarak korunur.
+3. **Aday hazırlığı:** On alternatifli `ibo_alternatif_10_2026-10-12.json` dosyası `SUPERSEDED_AFTER_IMAGE_IDENTITY_REVIEW`; teknik geçiş, IBO ve kanal kimliği onayı değil. Eski onlu liste otomatik aktarılmaz.
+4. **Araştırma:** LyngSat 224 kanal adı karşılaştırmasında 103 ad eşleşmesi, 5 takma ad, 7 kimlik incelemesi, 109 isimle bulunamayan var. Uydu kataloğu eşleşmesi oynatılabilir/yasal IPTV URL'si değildir.
+5. **Eurostar:** `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md` eski yayın HTTP 404, IBO açılmadı, kullanıcı kaldırma kararı ve alternatif araştırma talebi kaydeder. Doğrulanmış alternatif yok; ana liste/YENİLER'e ekleme izni yok. Gizli/şüpheli ham URL ana nota taşınmadı.
+6. **EPG/Pages:** `epg_deneme/yayim_kontrol.json` 11 Ekim'de deploy ve yayımlanan içerik hash doğrulaması SUCCESS; günlük takip `CONFIGURED_NOT_YET_OBSERVED`, IBO görünürlüğü `NOT_VERIFIED`. Daha yeni EPG snapshot'larıyla tarihe göre karşılaştır.
+7. **Logo:** `logo_deneme/png_automation.json` HTTP 403/429 logo hataları ve `visual_match: NOT_VERIFIED` içeriyor; 0 onaylı mevcut logo onarımı ve 0 PNG hazır alanları bütün aday logoları onaylı demek değil. Dolu mevcut logolara izinsiz dokunma.
+8. **Liste:** `liste_kontrol/rapor.json` 12 Ekim tarihli eski blob ve `ibo_loaded_version: NOT_OBSERVED`; 657 kategori kaydı/372 benzersiz URL güncel 1039 snapshot ile birleştirilip tek tarihli sayı gibi sunulmaz.
+9. **Keşif:** `madsc_kesif/ozet.json` 14 Ekim 13:36 UTC, ana liste 1039, sonraki yeni bekleyen 0; bu 2574 son kontrol işinin veya tüm keşif hedeflerinin bittiği anlamına gelmez.
+10. **VOD:** `vod/guncel-bolumler.json` bölüm takvimidir; `watch_url: null` örnekleri gerçek oynatma/IBO film-dizi entegrasyonu kanıtı olmadığını gösterir.
+11. **11 geliştirme:** `raporlar/GELISTIRME_11_DURUM_2026-10-12.md` kurulu/kısmi/eksik ayrımını içerir; özellikle IBO açılış-geçiş hızı, harici restore, gerçek cihaz EPG ve logo eşleşmesi açık kalır. Sonraki daha yeni kararlarla mutabakat gerekir.
+12. **Aday CSV kalitesi:** `aday_bekletme/ADAY_DURUM_RAPORU.csv` ilk satırlarda bozuk/ham `#EXTINF` etiketleri ve isim alanında parantezli kayıtlar gösteriyor; normalizasyon/kanal kimliği ve şüpheli kaynak güvenilirliği ayrı incelenmeli. Ham akış adresleri ana nota kopyalanmadı.
+
+**Açık doğrulama:** Ekrandaki 21 klasörün güncel ağaç/dosya bazlı kapsam matrisi, `main` ile çalışma dalı farkı, bu turda henüz doğrudan yeniden açılmamış `reports`, `tarama`, `tests`, `tools`, `yedekler`, `logos`, `scripts`, `epg`, `.github` altındaki her dosya için tekil kaynak-iş-kayıt eşlemesi. Önceki 769/769 beyanı korunur ancak yeni ekran kapsamına yönelik bağımsız tam yeniden denetim olarak gösterilmez.
+
+**Koruma:** Bu güncelleme yalnız `DEVAM_NOTU.md` içindir. PR #71 merge yok, korunan listelere/yedeklere/logolara/otomasyonlara yazma yok.
