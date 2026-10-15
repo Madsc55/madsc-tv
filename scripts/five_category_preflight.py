@@ -26,7 +26,7 @@ def inspect(root: Path) -> dict:
         scripts = re.findall(r"python3 (scripts/[\w.-]+\.py)", raw)
         tests = []
         for line in re.findall(r"python3 -m unittest ([^\n]+)", raw):
-            tests.extend(t for t in line.split() if t != "-v" and not t.startswith("-") and "$" not in t)
+            tests.extend(t for t in line.split(";")[0].split() if t != "-v" and not t.startswith("-") and "$" not in t)
         for suites in re.findall(r"for suite in ([^\n;]+); do", raw):
             tests.extend(suites.split())
         missing_scripts = sorted(set(p for p in scripts if not (root / p).is_file()))
