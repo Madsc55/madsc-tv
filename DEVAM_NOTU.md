@@ -2079,3 +2079,42 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 | 29 | scripts/five_category_permission_gate.py | merkezi workflow izin statik denetimi | dryrun | KOD OKUNDU / TEST YOK |
 
 - Sonraki asama: 145 ek dosyanin kalan 116'sinin gercek kodunu okumak, workflow-script bagimliliklarini ve yinelenen gorevleri eslestirmek, salt okunur izole test kanitlarini eklemek. Korunan listelere ve yedeklere dokunulmaz.
+
+
+## 2026-10-15 — EK 20 KOD DOSYASI: GERCEK ISLEV VE TEKRAR/BIRLESTIRME ADAYLARI
+- Asagidaki 20 dosyanin GERCEK Python kodu okundu. Fonksiyonlari, rapor ciktilari ve dosya yazma sinyalleri incelendi. Kodlar CALISTIRILMADI. Onceki 29 ile birlikte toplam 49/145 kaynak kodu okundu; 96 dosya kaynak incelemesi bekliyor.
+- Birbirine benzer gorevler asagida GRUPLANDI. Bu, esdeger davranis kaniti veya kod birlestirme yetkisi DEGILDIR. Tek bir rapor motoru icin ancak fixture/test kaniti, veri semasi ve yan etki farklari dogrulandiktan sonra yeni kod yazilacak. Eski dosyalar silinmez.
+
+### Merkezi gorev ve yonetim raporlari
+- Kodlari incelenen dosyalar: scripts/central_eight_task_audit.py, scripts/central_eighteen_task_audit.py, scripts/central_all_remaining_tasks.py, scripts/central_six_area_audit.py, scripts/central_open_gaps.py, scripts/central_management_summary.py, scripts/central_short_status.py, scripts/central_single_screen_report.py
+- Bulgu: 8/18/6 baslik, kalan is, kanit ve yonetim ozeti; birincil kanit kaynagi tek, sunumlar farkli olmali.
+- Durum: KOD OKUNDU / IZOLASYON TESTI YOK / BIRLESTIRME ADAYI.
+
+### Actions calisma ve hata kaniti
+- Kodlari incelenen dosyalar: scripts/central_run_status.py, scripts/central_failure_stage_report.py
+- Bulgu: son 100 Actions kosusunun durumu ile hatali adim raporunu birlestirme adayi.
+- Durum: KOD OKUNDU / IZOLASYON TESTI YOK / BIRLESTIRME ADAYI.
+
+### Logo EPG ve kanal kimligi
+- Kodlari incelenen dosyalar: scripts/central_identity_epg_logo_audit.py, scripts/candidate_logo_report.py, scripts/candidate_logo_missing_report.py, scripts/candidate_epg_logo_join.py, tools/logo_epg_audit.py
+- Bulgu: ayni alanin farkli asamalari; aday/playlist/kimlik farkini kaybetmeden tek rapor katmaninda birlestirme adayi.
+- Durum: KOD OKUNDU / IZOLASYON TESTI YOK / BIRLESTIRME ADAYI.
+
+### Kanal kararlilik
+- Kodlari incelenen dosyalar: tools/channel_stability.py, scripts/kanal_kararlilik_takip.py
+- Bulgu: 7/30 gunluk gecmis ile en az 24 saat aralikli tekrar olcum; veri semalari farkli, dogrudan ayni islev sayilmaz.
+- Durum: KOD OKUNDU / IZOLASYON TESTI YOK / BIRLESTIRME ADAYI.
+
+### Korunan dosya ve arsiv
+- Kodlari incelenen dosyalar: scripts/central_backup_evidence.py, scripts/central_archive_consistency.py
+- Bulgu: SHA256 koruma kaniti ve YEDEKLER sayi tutarliligi birbirini tamamlar.
+- Durum: KOD OKUNDU / IZOLASYON TESTI YOK / BIRLESTIRME ADAYI.
+
+### Tekrar test riski
+- Kodlari incelenen dosyalar: scripts/central_duplicate_test_audit.py
+- Bulgu: kesif gecmisinde tekrar test riskini raporlar.
+- Durum: KOD OKUNDU / IZOLASYON TESTI YOK / BIRLESTIRME ADAYI.
+
+- Ozellikle merkezi 8/18/6 gorev raporlari birbirini tekrar eden kanit okumalari barindiriyor; tek kanit toplama motoru + ayri gorunumler adayidir. Logo ve EPG raporlarinda farkli veri turleri korunacak. Kararlilikta 7/30 gun ve 24 saat kuralinin ikisi de kaybedilmeyecek.
+- Guvenlik: Kodlar bu turda calistirilmadi; CALISANLAR.m3u, CALISMAYANLAR.txt, YABANCI_KANALLAR.m3u, YENILER.m3u, yedekler/ degismedi. Kullanici onayi olmadan kanallarin yedeklere eklenmesi veya ana listede degisiklik YASAK.
+- Sonraki is: kalan 96 dosyanin kaynak kodu, tam bagimlilik ve cikti eslestirmesi, fixture ile guvenli esdegerlik testleri, ardindan yeni besli sistemde birlestirme. Tamamlandi denmez.
