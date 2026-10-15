@@ -1524,3 +1524,11 @@ Doğrulanan öncelikli risk örnekleri:
 - P0 ilk somut workflow duzeltmesi: madsc/p0-guvenli-yazma-kapisi-deneme-20261015 dalinda .github/workflows/vod-guncelle.yml icin concurrency, Rule24 devre kesicisi, main-only branch kontrolu, dosya izin listesi ve uzak dal degismisse push durdurma eklendi (commit fd02d6393711b7cbb9c6d8755f792ca50ab4a56f). Uretim/main workflow'u degismedi.
 - Regresyon testinde ilk run 38743576992 eski 'git push' yazim beklentisi nedeniyle basarisiz oldu; denetim duzeltildi, run 38743651878 SUCCESS. Bu mevcut testlerin basarisi; VOD'un gercek uretim gonderimi veya concurrency davranisi henuz canli dogrulanmadi.
 - P0 BIRINCI BOLUM ACIK: 21 riskli otomasyonun tumu henuz duzeltilmedi, 26 kural enforcement toplu kabul edilmedi, branch protection API 403 engeli devam ediyor. Siradaki gorev diger riskli yazicilari ayni yaklasimla izole dalda duzeltmek ve toplu test etmektir.
+
+
+## P0 DEVAM - ARDI ARDINA GERCEK DUZELTME VE TOPLU TEST (2026-10-15)
+- Izole dal: madsc/p0-guvenli-yazma-kapisi-deneme-20261015. Main, PR #71 ve kanal listeleri degistirilmedi.
+- VOD yazici guvenlik duzeltmesi: concurrency, Rule24, main-only, degisen dosya allowlist, uzak dal SHA esleme, yetkiyi checkout'tan ayirma. Test run 38743651878 success.
+- PNG logo yayin yazici guvenlik duzeltmesi: yalniz main push tetigi, concurrency, Rule24, PNG allowlist, stale main engeli, checkout kimlik bilgisi korunmasi. Ilk toplu run 38744244746 yalniz test regex beklentisinde fail; test duzeltildi, run 38744376010 success (22 kullanici adimli kontrol).
+- Tarihsel 354 YEDEKLER siniflandirma otomasyonu izole dalda workflow_dispatch-only, contents:read, checkout persist-credentials:false, concurrency ve salt okunur kontrole cevrildi; otomatik main push ve eski kullanici kararlarini yeniden uygulayan komut kaldirildi. Ilk run 38744510267 eski risk denetimi eski durumu bekledigi icin fail; denetim duzeltildi, run 38744610124 success (23 kullanici adimli kontrol).
+- Kanit SINIRI: bu basarilar izole dal testleri; uretimdeki main workflow'lari degismedi. P0 kapanmadi; diger riskli workflow'lar ve branch protection 403 acik. Kullanici kurali geregi hata gorulunce ayni oturumda duzeltildi ve siradaki gercek goreve gecildi.
