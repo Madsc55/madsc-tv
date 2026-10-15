@@ -758,3 +758,20 @@ jobs:
           assert "conclusion == 'success'" in final
           print("SON KONTROL CIFT TETIK ADAYI: schedule + workflow_run")
           PY
+
+      - name: 26 - Uc tarihsel kanal yazicisinin salt okunur guvenligini dogrula
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          for filename in ("madsc-yedekler-sayi-duzelt.yml", "madsc-ibo-398-16-49.yml", "madsc-ibo-530-archive.yml"):
+              raw = (Path(".github/workflows") / filename).read_text(encoding="utf-8")
+              assert "workflow_dispatch:" in raw, filename
+              assert "  push:" not in raw and "  schedule:" not in raw, filename
+              assert "contents: read" in raw and "contents: write" not in raw, filename
+              assert "persist-credentials: false" in raw, filename
+              assert "concurrency:" in raw, filename
+              assert "git push" not in raw and "git commit" not in raw, filename
+              assert "git diff --exit-code -- CALISANLAR.m3u" in raw, filename
+              print("TARIHSEL YAZICI IZOLASYONU DOGRU:", filename)
+          PY
