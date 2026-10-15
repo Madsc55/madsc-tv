@@ -823,3 +823,18 @@ jobs:
               print("IZOLE EDILDI:", name)
           PY
 
+
+      - name: 30 - Uc kanal kurtarma yazicisinin izolasyonunu dogrula
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in ("madsc-11599-yedek-geri-yukle.yml", "madsc-turk-kanal-geri-sec.yml", "madsc-yedek-turk-ayir.yml"):
+              raw = (Path(".github/workflows") / name).read_text(encoding="utf-8")
+              assert "workflow_dispatch:" in raw and "  push:" not in raw and "  schedule:" not in raw, name
+              assert "contents: read" in raw and "contents: write" not in raw, name
+              assert "persist-credentials: false" in raw and "concurrency:" in raw, name
+              assert "git push" not in raw and "git commit" not in raw, name
+              assert "git diff --exit-code -- CALISANLAR.m3u" in raw, name
+              print("KANAL YAZICISI IZOLASYONU DOGRU:", name)
+          PY
