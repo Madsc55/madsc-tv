@@ -1297,3 +1297,20 @@ Yeni resmi dosyalar \`.github/workflows/madsc-01-guvenlik.yml\`, \`madsc-02-kesi
 - [ ] Her kategori eksik işi uygulandıktan sonra bir defalık 5 job toplu CI, gerçek artifact ve üretim kabul kanıtları. Ancak kullanıcı onayı ve 92/92 davranış eşdeğerliği sonrasında eski tetikler kontrollü devredilir. PR #71 birleştirilmez.
 
 **Önerilen başlangıç:** P0'daki son gerçek CI + güvenlik/izin ve 92 workflow eşdeğerlik açığını salt okunur kanıtla tespit et; sonra P1 arşiv/yedek güvenliği, P2 keşif, P3 aday testleri, P4 tek merkez ve en son ertelenen EPG. Kod değişikliğine geçmeden kullanıcıdan kapsamlı açık izin alınır. Geçmiş araştırma tamamlandı diye ilan edilmez, ertelendi diye kayıt düşülür.
+
+
+## 15 EKİM 2026 — P0 GÜVENLİK/SAĞLIK İLK GERÇEK GITHUB KONTROLÜ (SALT OKUNUR)
+
+**Kullanıcı sıralaması:** Önce beş P0 işi (son beşli koşu, 26 kural, 92 workflow izin/yazma, korunan SHA/branch/devre kesici, çift push); ardından P1'e geç. Bu turda yalnız okuma ve DEVAM_NOTU.md yazma; çalışan YAML/kod/playlist/yedek değişmedi.
+
+**1. Son beşli koşu: DOĞRULANDI, kapsam sınırı açık.** GitHub Actions branch koşu listesi ve jobs API doğrudan okundu: run #38697244625, 2026-10-15 07:12:55 UTC, commit \`c2d28bea366f00372b8da63da06c2791612ebcf4\`, push, completed/success. Beş gerçek job (güvenlik, keşif, kanal test, arşiv/yedek, genel bakım) success. Önceki #38656134669, commit \`f0ed94198ff36f316694cf2a81f90c80a2962d0c\`, failure; güvenlik regresyonu başarısız, genel bakım hata kapısı failure. Başarılı koşu sonraki not-only commit'leri veya 92/92 üretim eşdeğerliğini test etmez.
+
+**2. 26 kural: POLİTİKA VAR, ÜRETİM KABULÜ BEKLİYOR.** \`GUVENLIK_KURALLARI.md\` 1–24; \`AGENTS.md\` 25–26. \`madsc-01-guvenlik.yml\` içerik okuma izni, korunan dosyaların koşu içi SHA256 ve birim regresyon testleri var. Bu üç dosyalık koşu içi SHA kontrolü tüm korunan playlist, yedek, arşiv ve logo kapsamının dış değişikliklerini otomatik denetlemez. Gerçek tüm yazıcıların aynı merkezi onay kapısından geçtiği kanıtlanmadı.
+
+**3. 92 workflow yazma/izin: KISMEN KONTROL, 92/92 DETAY AÇIK.** Eski \`madsc-birlesik-kesif.yml\` ve \`madsc-son-kontrol.yml\` ile \`vod-guncelle.yml\` \`contents: write\` taşır; keşif/son kontrol failure gate ve rapor/commit adımları içerir. \`madsc-aylik-merkezi-denetim.yml\` \`contents: read\`. Beş yeni merkezi workflow \`contents: read\` ve gölge denetim amaçlıdır. Bu doğrudan okunan örnekler 92 eski workflow'un tümünü izin/yan etki bazında doğrulamaz.
+
+**4. Branch protection: BELİRSİZ.** \`GET /branches/main/protection\` 403 \`Resource not accessible by integration\` döndürdü; etkin veya devre dışı iddiası kurulamaz. \`madsc-01\` ve \`madsc-05\` koşu başında \`CALISANLAR.m3u\`, \`AGENTS.md\`, \`GUVENLIK_KURALLARI.md\` SHA256 kaydeder ve koşu sonunda karşılaştırır. Bu, GitHub dışı/offsite ve bütün korunan dosyalar için kalıcı kanıt değildir.
+
+**5. Çift tetik ve devretme: SOMUT AÇIK.** \`madsc-02-kesif.yml\` \`cron: '17 5,17 * * *'\` (05:17/17:17 UTC) ile gölge keşif çalıştırır; eski \`madsc-birlesik-kesif.yml\` günlük 06:00/18:00 UTC ve \`contents: write\` üretim keşfi olarak korunuyor. İkisi aynı arama alanına dokunabilir; fakat aynı kayıtları gerçekten iki kez işlediği kanıtlanmadı. Yeni 02'nin \`madsc_akilli_kesif.py\` adımı \`continue-on-error: true\` taşıyor; 5/5 yeşil sonuç tek başına gerçek keşfin başarılı olduğu anlamına gelmez. Yeni 05 \`schedule: '30 1 * * *'\` ve belirli dosyalar için push; push'ta beşli işlerin tamamı ancak \`[madsc-full-batch]\` commit işaretiyle başlar. Eski günlük son kontrol hem schedule hem workflow_run içerir; çift başlatma potansiyeli ayrıca değerlendirilmelidir.
+
+**P0 karar:** Son CI kontrolü yapıldı. 26 kuralın canlı uygulaması, 92/92 yazma/izin/komut matrisi, tam korunan dosya SHA ve branch ayarları, devre kesici ve çift tetik üretim kanıtları halen AÇIK. Bunlar düzeltilmeden ve canlı kabul kanıtı olmadan P0 'beş görev tamamen bitti' olarak işaretlenmez; P1'e geçiş ancak riskleri açık tutarak planlanabilir. Kullanıcının mevcut yalnız-not-yazma izni devam eder.
