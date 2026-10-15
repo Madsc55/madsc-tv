@@ -1735,3 +1735,10 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC05 push.paths listesinde scripts/five_category_preflight.py eksikti: script degisince besli Actions kosusu baslamiyordu. Bu yol ve scripts/five_category_92_workflow_audit.py tetikleyiciye eklendi: 3bc033e7b468c7dfad8a1388f932f5a0c6e868b3.
 - Bu SHA icin commit PR-run sorgusu ve combined-status sorgusu bos dondu. Bunlar push Actions check-runs kaniti degildir; CI PASS denilemez. Sonraki adim yeni MADSC05 Actions run ID ve audit_1 tam script ciktilarini bulmak, varsa kalan hata icin dogrudan kok neden duzeltmek.
 - Legacy workflow ve korunan dosyalara dokunulmadi; ana hedef 92/92 islevsel esdegerlik.
+
+
+## 2026-10-15 — ANA BESLI PLAN / 1. GUVENLIK ASAMASINA DONUS
+- Kullanici acikca 1. Guvenlik ve Saglik kategorisinin sirayla kurulmasini, 92 eski otomasyonun tum gorevlerinin bes kategoriye aktarilmasini istedi; baska kategorilerdeki CI kozmetigi ana hedefin onune gecmeyecek.
+- MADSC01 rapor denetimi icine scripts/five_category_92_workflow_audit.py eklendi: 92 eski workflow envanter sayimi uyusmazsa rapor adimi fail olur; JSON/CSV matrisi guvenlik artifact'ine de girer. Commit 9e1b1ce79e7d051e6cc65ae7be2efad6a2064bbd. Workflow GitHub'dan yeniden okunup script, failure gate ve artifact varligi dogrulandi.
+- Bu statik 92 sayimidir, 92/92 davranissal parite kaniti DEGIL. 26 kuralin teknik zorlanmasi, gercek Actions run/SHA, branch protection, legacy izinlerinin tam anlamsal analizi, rule24 ortak devre kesici, cift push denetimi acik. 1. kategori TAMAMLANDI denmez.
+- Sonraki is: 1. kategori icinde gerçek CI SHA ve sonucu; izin/tehlikeli komutlarin kapsamli raporu; 26 kural kanit matrisi; branch protection ve ortak devre kesici. Eski workflowlar, listeler ve yedekler degismedi.
