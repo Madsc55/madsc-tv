@@ -1,3 +1,11 @@
+## 15 Ekim — Diğer not arşivleri tarandı: ek görev kaynakları
+
+GitHub çalışma dalının 796 tree girdisi incelendi. Tek not yok: `BES_SISTEM_TOPLU_IS_DEFTERI.md`, `BES_SISTEM_GECIS_KONTROL.md`, `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md`, `ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md`, `TOPLU_DURUM_RAPORU.md`, `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md`, `SEKIZ_GOREV_TOPLU_DENETIM.md`, `docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md`, `docs/MADSC-IKI-TOPLU-KABUL-PLANI.md`, `docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md`, `kontrol_notlari/`, `raporlar/`, `madsc_kesif/` ve `yedekler/` ayrı karar/görev/kanıt kaynaklarıdır. Hepsi tek seferde tamamen satır satır incelendi iddiası yok; önemli görev defterleri karşılaştırıldı.
+
+**Önceki kısa kuyrukta ayrıca görünmesi gereken işler:** günlük VOD üretimi ve IBO ayrı kurulum bağımlılıkları; EPG→Pages workflow_run tetik eşdeğerliği; 156 tanımlı kaynağın 155 hedefinden farklı olması ve gerçekten taranan alt kümenin ayrıca ölçülmesi; eski 3082 adaylık son kontrol kuyruğunun güncel ilerlemesi; 740 yabancı kanal arşivinin korunması; lisans/yayın hakkı ve kaynak kökeni; 30 günlük felaket yedeği saklama/secrets/IBO ayarları (kullanıcı tarafından ertelenmiş olanlar ayrıca izin gerektirir); `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md` içindeki Eurostar alternatif araştırması; 18 görev ve 26 kuralın ayrı kabul matrisi. Bunlar kanıt olmadan tamamlandı sayılmaz. 13 Ekim tarihli 156 kaynak/9576 kayıt/3082 kuyruk gibi rakamlar tarihsel snapshot'tır, güncel değer değildir. Yedek ve playlist izinleri için en son kullanıcı talimatı geçerlidir.
+
+**İşleme sırası:** 1) Son keşif gerçek log/artifact; 2) beş kategori bağımsızlığı; 3) 92 görev parity ve tetikler (VOD/EPG→Pages dahil); 4) yedek/restore ve geçmiş; 5) aday/kimlik/Eurostar/yabancı arşiv; 6) EPG/logo/IBO; 7) güvenlik/hukuk/izin; 8) kalan 18/26 kabul ve rapor. Her kaynak nottaki tamamlanma iddiası güncel Actions/cihaz/restore kanıtıyla yeniden sınanır.
+
 ## SOHBET DEVRİ — 15 Ekim 2026 güncel durum (önce bunu oku)
 
 - Kullanıcı hedefi: 1 Ekim'den beri konuşulan tüm eksik, yarım ve yeni işlerin tamamlanması; 92 eski workflow'un görevlerinin gerçek işlevsel eşdeğerlikle 5 ana kategoriye aktarılması. Sadece rapor/haritalama tamamlanma değildir; doğrulanan eşdeğerlik hâlâ 0/92. Eski workflow'lar silinmez/kapatılmaz, taslak PR #71 birleştirilmez.
