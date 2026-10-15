@@ -1442,3 +1442,19 @@ Doğrudan okunan \`madsc-son-kontrol.yml\`, \`madsc-uc-asama.yml\`, \`madsc-birl
 **Gerçek başlatma:** İzole \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalında \`.github/workflows/madsc-05-genel-bakim.yml\` dosyasının yalnız \`push.branches\` hedefi geçici olarak izole dala çevrilip \`[madsc-full-batch]\` mesajıyla commit \`97869612210f7f868976aa598191cd6710f8be8a\` yapıldı. Bu, mevcut 05 merkez orkestratörün **01→02→03→04+05 tüm kategori denetimlerini tek run'da** çalıştırır. GitHub Actions run **#38724971116**, ilk gözlem \`queued\`; **başarılı deneme henüz kanıtlanmadı**. Kullanıcı verilerine ve eski workflow'lara yazılmadı.
 
 **Geçici tetik temizliği zorunlu:** Bu run sonlandıktan sonra izole daldaki \`madsc-05-genel-bakim.yml\` dosyası çalışma dalıyla aynı içerik haline geri döndürülmeli; PR #72 yalnız \`madsc-02-kesif.yml\` tek satırlık değişikliği taşımalı. Başarısız test varsa Kural 1.02 uyarınca izinsiz düzeltme yapılmaz, yalnız raporlanır.
+
+
+## 15 EKİM 2026 — KURAL 1.02 BEŞLİ TOPLU TEST KESİN SONUÇ VE GÜVENLİ TEMİZLİK
+
+GitHub Actions run #38724971116, SHA \`97869612210f7f868976aa598191cd6710f8be8a\`, izole dal \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\`, \`completed/success\` (15 Ekim 2026 11:11 UTC). Jobs API ile **beşinin de ayrı ayrı success** olduğu doğrulandı: 01 güvenlik, 02 keşif, 03 kanal testleri, 04 arşiv-yedek, 05 genel bakım; hiçbirinde failed step yok. Bu, tek toplu testin gerçek çalışmasıdır; **92 eski workflow'un 92/92 davranışsal eşdeğerlik kanıtı değildir**, 26 kuralın tüm canlı üretim enforcement'ını da tek başına doğrulamaz.
+
+Test için geçici değiştirilen \`madsc-05-genel-bakim.yml\` push dalı commit \`964365b236bb68dacfc746fafbe50f13936ec8ca\` ile çalışma dalındaki orijinal içeriğe geri döndürüldü. PR #72 dosya farkı GitHub API ile tekrar kontrol edildi: yalnız \`.github/workflows/madsc-02-kesif.yml\`, +1/-1 satır; PR birleştirilmedi.
+
+Kullanıcının ekran görüntüsündeki 1. Güvenlik ve sağlık 5 maddesinin gerçek kabul durumu:
+1. Son beşli Actions run/commit eşleşmesi: **TAMAMLANDI** (bu run + SHA).
+2. 26 güvenlik kuralının uygulanması/eksik denetimi: **KISMİ** (politikalar ve merkezi CI testleri var; tüm canlı yazma kapıları için kanıt eksik).
+3. 92 eski workflow yazma izinleri ve riskli komut karşılaştırması: **KISMİ** (92 statik envanter, 8 kritik tam içerik incelendi; kalanları tam risk matrisi tamamlanmadı).
+4. Korunan SHA, branch protection, devre kesici: **KISMİ** (SHA ve testler geçti; branch protection API 403; rule24 sınırlı eski workflow'larda mevcut, tüm kapsam kanıtı yok).
+5. Çift push ve gereksiz otomatik tetikler: **KISMİ** (son-kontrol schedule+workflow_run ve üç-aşama kendini dispatch riski belirlendi; güvenli düzeltme ve tekrar önleme kabulü henüz yapılmadı).
+
+**Kural 1.02:** Başarısızlık bulgularını izinsiz düzeltme; sıradaki incelemeye sormadan geç. Mevcut test success olduğundan ek düzeltme yapılmadı. Ana listeler, yedekler, EPG, logo, eski workflow'lar, main ve PR #71 değişmedi.
