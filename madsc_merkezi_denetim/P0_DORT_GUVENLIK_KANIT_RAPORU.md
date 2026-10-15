@@ -130,3 +130,9 @@ Tarih: 2026-10-15
 - EPG icin madsc-epg-tek-kosu, VOD icin madsc-vod-tek-kosu adli birbirinden farkli sabit concurrency gruplari yapisal olarak denendi.
 - cancel-in-progress false ayari onaylandi; bu ayar mevcut isi iptal etmez ancak GitHub Actions pending siniri nedeniyle tum olaylarin mutlaka tek tek islenecegini garanti etmez.
 - Canli EPG/VOD workflow'larinda concurrency hala eksik. Gercek eszamanli calisma testi yapilmadi; uretim workflow'lari ve kanal listeleri degistirilmedi.
+
+## 16. Test - EPG ve VOD guvenli kaydetme kapisi
+- GitHub Actions 38738463558; commit e55a3942f9938385ab5eaf664144d1414175b747; 20/20 adim basarili.
+- Gecici Git deposunda EPG/VOD izinli dosya degisiklikleri, staged/unstaged durumlar, korunan CALISANLAR.m3u degisikliklerinin reddi ve EPG commit kapsaminda yalniz izinli dosyanin bulunmasi dogrulandi.
+- VOD degisikliginin EPG izniyle gecemeyecegi de dogrulandi.
+- Gercek uzak git push, git pull --rebase ve uzak dal cakismalari bu testte sinanmadi. Uretim otomasyonlari degistirilmedi; 21 risk acik.
