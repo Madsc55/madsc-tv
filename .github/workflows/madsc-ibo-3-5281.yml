@@ -662,3 +662,35 @@ jobs:
           test -f tools/workflow_failure_gate.py
           git diff --exit-code
           echo "Protected playlists unchanged; main write not attempted."
+
+      - name: 22 - VOD ve PNG yayin guvenlik duzeltmelerini toplu denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          workflows = Path(".github/workflows")
+          for name, group, allowed in (
+              ("vod-guncelle.yml", "madsc-vod-tek-kosu", "vod/guncel-bolumler.json"),
+              ("publish-iptv-png-logos.yml", "madsc-png-logo-tek-kosu", "logos/duzeltilmis-*.png"),
+          ):
+              text = (workflows / name).read_text(encoding="utf-8")
+              assert "contents: write" in text, name
+              assert "actions: read" in text, name
+              assert "persist-credentials: false" in text, name
+              assert "workflow_failure_gate.py" in text, name
+              assert "cancel-in-progress: false" in text, name
+              assert "group: " + group in text, name
+              assert 'test "$GITHUB_REF" = "refs/heads/main"' in text, name
+              assert allowed in text, name
+              assert "git fetch origin main" in text, name
+              assert "git rev-parse origin/main" in text, name
+              assert "push origin HEAD:main" in text, name
+              assert "git pull --rebase" not in text, name
+              assert re.search(r"(?m)^      - name: 5 - ", text), name
+              print("ISOLATED SECURITY FIX CHECKED:", name)
+          logos = (workflows / "publish-iptv-png-logos.yml").read_text(encoding="utf-8")
+          assert re.search(r"(?m)^    branches:\\n      - main$", logos)
+          assert "fnmatch.fnmatchcase" in logos
+          print("NO PRODUCTION WRITE EXECUTED")
+          PY
