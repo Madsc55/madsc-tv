@@ -1532,3 +1532,9 @@ Doğrulanan öncelikli risk örnekleri:
 - PNG logo yayin yazici guvenlik duzeltmesi: yalniz main push tetigi, concurrency, Rule24, PNG allowlist, stale main engeli, checkout kimlik bilgisi korunmasi. Ilk toplu run 38744244746 yalniz test regex beklentisinde fail; test duzeltildi, run 38744376010 success (22 kullanici adimli kontrol).
 - Tarihsel 354 YEDEKLER siniflandirma otomasyonu izole dalda workflow_dispatch-only, contents:read, checkout persist-credentials:false, concurrency ve salt okunur kontrole cevrildi; otomatik main push ve eski kullanici kararlarini yeniden uygulayan komut kaldirildi. Ilk run 38744510267 eski risk denetimi eski durumu bekledigi icin fail; denetim duzeltildi, run 38744610124 success (23 kullanici adimli kontrol).
 - Kanit SINIRI: bu basarilar izole dal testleri; uretimdeki main workflow'lari degismedi. P0 kapanmadi; diger riskli workflow'lar ve branch protection 403 acik. Kullanici kurali geregi hata gorulunce ayni oturumda duzeltildi ve siradaki gercek goreve gecildi.
+
+
+## P0 ILERLEME - 3 TARIHSEL YAZICI IZOLASYONU (2026-10-15)
+- Izole dal madsc/p0-guvenli-yazma-kapisi-deneme-20261015: madsc-yedekler-sayi-duzelt.yml (536840a), madsc-ibo-398-16-49.yml (aa13d84), madsc-ibo-530-archive.yml (33562d1) salt okunur, sadece manuel kontrol, contents:read, persist-credentials:false ve concurrency korumali hale getirildi. Bu eski islerin otomatik tekrarindan dogacak CALISANLAR.m3u degisimi izole dalda onlendi; tarihsel betikler silinmedi.
+- Toplu regresyon 26. adima genisletildi, GitHub Actions run 38746231477 SUCCESS, test commit 216aaee635e44a87d4a21e24f0b45930cf713c36.
+- Sinir: yalniz izole dal; main uretim eski workflow riskleri devam eder. 26 test adimi = 26 guvenlik kuralinin uretimde eksiksiz uygulandigi anlamina gelmez. P0 ACIK.
