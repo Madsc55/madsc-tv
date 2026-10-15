@@ -2537,3 +2537,9 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Yerel sandbox'ta normalizasyon fonksiyonunun yeniden olusturulan esdeger kopyasi python -m py_compile ile gecti ve ornek adlar kontrol edildi. Bu GitHub deposundaki tam dosyanin yerel checkout testi DEGIL; tam depo testi henuz kosulmadi.
 - Onceki GitHub Actions failure kosulari 2ce4419 commitinden; duzeltme sonrasi tarama workflow PASS kaniti yok. Testler yeni branch HEAD uzerinde calistirilmadan genel PASS iddia edilmez.
 - Korumali dosyalar, playlistler, yedekler ve workflow tanimlari degistirilmedi.
+
+## 2026-10-16 — K1 TOPLU WORKFLOW GUVENLIK ENVANTERI
+- Dal HEAD f674b374 incelendiginde 97 workflow ve 776 dosya tespit edildi; branch protection false. Son basarili MADSC 05 kosusu 458c56f koduna ait; son HEAD icin PASS kaniti degil.
+- scripts/audit_workflow_security.py salt-okunur statik envanter eklendi (41aa96fc662fb3a154530bbf1d7687c123ce4025). Tum .github/workflows/*.yml|yaml dosyalarini tek komutta taramak icin tetikleyici satirlari, explicit permissions, git push/commit, gh api, curl write, korunan dosya referanslari, write permissions ve manuel inceleme bayraklari uretir. YAML semantik ayrisiticisi veya gerçek enforcement DEGIL.
+- tests/test_workflow_security_audit.py iki izole negatif fixture eklendi (ae7f2d7dd2ddb24f81576bc146b70d32360a267a). Bunlar henuz calistirilmadi; PASS iddiasi yok.
+- KALAN K1: arac gercek 97 workflow uzerinde calistirilmali, cikti yorumlanmali, permissions/branch settings bagimsiz dogrulanmali, korunan dosya yazma engeli ve hata devre kesicisi negatif testleri gerceklestirilmeli. Workflow veya playlist mutasyonu yok.
