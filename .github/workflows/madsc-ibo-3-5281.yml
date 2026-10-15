@@ -35,6 +35,44 @@ jobs:
           ast.parse(Path("scripts/apply_ibo_3_5281.py").read_text(encoding="utf-8"))
           print("IBO writer script syntax OK; script not executed")
           PY
+      - name: Simulate IBO transformation on disposable copy
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import os
+          import shutil
+          import subprocess
+          import sys
+          import tempfile
+          from pathlib import Path
+
+          root = Path.cwd()
+          source = root / "CALISANLAR.m3u"
+          before = hashlib.sha256(source.read_bytes()).hexdigest()
+          with tempfile.TemporaryDirectory() as temp:
+              sandbox = Path(temp)
+              (sandbox / "scripts").mkdir()
+              (sandbox / "madsc_kesif").mkdir()
+              shutil.copy2(source, sandbox / "CALISANLAR.m3u")
+              shutil.copy2(root / "scripts/apply_ibo_3_5281.py", sandbox / "scripts/apply_ibo_3_5281.py")
+              result = subprocess.run(
+                  [sys.executable, "scripts/apply_ibo_3_5281.py"],
+                  cwd=sandbox, capture_output=True, text=True,
+              )
+              if result.returncode != 0:
+                  print(result.stdout)
+                  print(result.stderr)
+                  raise SystemExit("Disposable-copy IBO simulation failed")
+              for name in ("ibo_3_5281_ayrilanlar.m3u", "ibo_3_5281_kararlar.csv", "ibo_3_5281_rapor.json"):
+                  if not (sandbox / "madsc_kesif" / name).is_file():
+                      raise SystemExit("Missing simulation artifact: " + name)
+              print("IBO transformation succeeded on disposable copy only")
+          after = hashlib.sha256(source.read_bytes()).hexdigest()
+          if before != after:
+              raise SystemExit("Protected source playlist changed")
+          print("Protected repository playlist SHA256 unchanged")
+          PY
       - name: Verify target files and guardrails
         run: |
           set -euo pipefail
