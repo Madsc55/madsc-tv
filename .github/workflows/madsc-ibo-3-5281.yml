@@ -1,27 +1,41 @@
-name: MADSC - IBO 3-5281 Kanal Ayirma
+name: MADSC - IBO 3-5281 Guvenli Izole Prova
 on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: madsc-p0-ibo-3-5281-rehearsal
+  cancel-in-progress: false
 jobs:
   apply:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: En guncel liste
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Kullanici sesli kanal kararlarini uygula
-        run: python3 scripts/apply_ibo_3_5281.py
-      - name: Arsivi ve listeyi kaydet
+        with:
+          persist-credentials: false
+      - name: P0 isolated proof - verify workflow scope
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/ibo_3_5281_ayrilanlar.m3u madsc_kesif/ibo_3_5281_kararlar.csv madsc_kesif/ibo_3_5281_rapor.json
-          git diff --cached --stat
-          echo 'P0 isolated rehearsal: commit intentionally blocked'
-          echo 'P0 isolated safety rehearsal: main push intentionally blocked'
+          test "$GITHUB_REF_NAME" = "madsc/p0-guvenli-yazma-kapisi-deneme-20261015"
+          echo "Read-only rehearsal. No protected data is modified."
+      - name: Check writer script syntax without executing it
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import ast
+          from pathlib import Path
+          ast.parse(Path("scripts/apply_ibo_3_5281.py").read_text(encoding="utf-8"))
+          print("IBO writer script syntax OK; script not executed")
+          PY
+      - name: Verify target files and guardrails
+        run: |
+          set -euo pipefail
+          test -f CALISANLAR.m3u
+          test -f YABANCI_KANALLAR.m3u
+          test -f scripts/apply_ibo_3_5281.py
+          test -f tools/workflow_failure_gate.py
+          git diff --exit-code
+          echo "Protected playlists unchanged; main write not attempted."
