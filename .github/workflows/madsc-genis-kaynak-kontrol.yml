@@ -1,11 +1,10 @@
-name: MADSC - Haftalik ve Aylik Genis Kaynak Kontrolu
+name: MADSC - Genis Kaynak Salt Okunur Denetim
 on:
   workflow_dispatch:
 permissions:
-  contents: write
-  actions: write
+  contents: read
 concurrency:
-  group: madsc-rapor-yazma
+  group: madsc-genis-kaynak-denetim
   cancel-in-progress: false
 jobs:
   audit:
@@ -13,18 +12,13 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Rapor başlangıç sürümünü kaydet
-        shell: bash
-        run: |
-          set -euo pipefail
-          git fetch origin main
-          git reset --hard origin/main
-          git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
-      - name: Check additional sources (manual only)
+        with:
+          persist-credentials: false
+      - name: Kaynak taramasi - haftalik mod
         env:
           MADSC_SCAN_MODE: weekly
         run: python3 tools/genis_kaynak_taramasi.py
-      - name: Check 155 sources (manual only)
+      - name: Kaynak taramasi - aylik mod
         env:
           MADSC_SCAN_MODE: monthly
         run: python3 tools/genis_kaynak_taramasi.py
@@ -34,34 +28,7 @@ jobs:
           name: madsc-source-scan
           path: madsc_genis_tarama/
           retention-days: 30
-      - name: Preserve source history and reports
-        shell: bash
+      - name: Korunan dosyalari degistirmedigini dogrula
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          cp -a madsc_genis_tarama "${RUNNER_TEMP}/source-audit"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
-            if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_genis_tarama/; then
-              echo "::error::Rapor klasoru bu calisma sirasinda degisti; eski sonuclarin uzerine yazilmadi. Artifact saklandi."
-              exit 1
-            fi
-            git reset --hard origin/main
-            git checkout -B source-report origin/main
-            mkdir -p madsc_genis_tarama
-            cp -a "${RUNNER_TEMP}/source-audit/." madsc_genis_tarama/
-            git add madsc_genis_tarama/
-            if git diff --cached --quiet; then exit 0; fi
-            git commit -m "Update source change audit"
-            if git push origin HEAD:main; then exit 0; fi
-            sleep $((attempt * 2))
-          done
-          exit 1
-      - name: Continue with existing three-stage verification (manual source audit only)
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-uc-asama.yml/dispatches" -f ref=main
+          git diff --exit-code -- CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md YENILER.m3u YABANCI_KANALLAR.m3u
