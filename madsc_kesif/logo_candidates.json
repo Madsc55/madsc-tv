@@ -1,482 +1,466 @@
 [
   {
-    "channel": "Turksat Tanitim (1080p) [Geo-blocked]",
-    "stream_sha256": "6f9567723f0e9e23fb8d8767e93ebab1bb4621f5961cca935825fa3f9e857279",
-    "source": "iptv-org-TR",
-    "channel_id": "TurksatTanitim.tr@SD",
-    "logo_url": "",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "AMC Europe (1080p)",
-    "stream_sha256": "dba10c3f6306c7a011c10495ddea38255696d65fd037c2f856a94bef576e0a8a",
-    "source": "dearbulut-language-eng",
-    "channel_id": "AMCEurope.uk",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Angel TV (720p)",
-    "stream_sha256": "202d9742c84ce4a5c891829b8e4353d2dad88f5efc6222803ac09e569fe4c0b4",
-    "source": "dearbulut-language-eng",
-    "channel_id": "AngelTV.in",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "Are We There Yet? (1080p)",
-    "stream_sha256": "7de13449de23e2b855c40da56d848ffb15e656e50701a6634a7606a751005c63",
-    "source": "dearbulut-language-eng",
-    "channel_id": "AreWeThereYet.us",
-    "logo_url": "https://i.imgur.com/3BJQiHP.png",
-    "logo_source_review_required": false
-  },
-  {
     "channel": "Arirang TV (1080p)",
-    "stream_sha256": "77ece82264faa5fcd8a8f6be4682912b88091da124481a7da3c6995d4dea31f8",
+    "stream_sha256": "90b58389e56b9b6499290a2f83223dd029dac351d87cfb498e3a1c86e89f4ac8",
     "source": "dearbulut-language-eng",
     "channel_id": "ArirangTV.kr",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "BBC First (1080p)",
-    "stream_sha256": "685eb2e6e7463a05ab32c7e5f470e099aad106dc9ed5c181ba8ebdf30e907da2",
+    "channel": "BBC News (1080p)",
+    "stream_sha256": "0f4f6193c4026d8564200d40a905ba6e397f549e0bb193575280c77e91cdc1e3",
     "source": "dearbulut-language-eng",
-    "channel_id": "BBCFirst.uk",
-    "logo_url": "https://i.imgur.com/UBoBYUI.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "BabyTV (1080p)",
-    "stream_sha256": "7cd3dc74f5e9cd2f283db4f02115100e7b1622228b512923f3bea7674d5a75a0",
-    "source": "dearbulut-TURKCE",
-    "channel_id": "BabyTV.uk",
-    "logo_url": "https://i.imgur.com/4BDJ5FT.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Bloomberg TV (2160p)",
-    "stream_sha256": "c12d83c367fac20ba1a6f8567694852b59a4feccaaffc09dafac9ef2c866e01c",
-    "source": "dearbulut-language-eng",
-    "channel_id": "BloombergTV.us",
-    "logo_url": "https://i.imgur.com/R7FCaB5.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Boomerang (720p)",
-    "stream_sha256": "17b3762975b5c55f3fbcc93ab58111d2dd178090a59bde0c1b164d3556932a12",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Boomerang.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Boomerang_2014_logo.svg/960px-Boomerang_2014_logo.svg.png",
-    "logo_source_review_required": false
+    "channel_id": "BBCNews.uk",
+    "logo_url": "",
+    "logo_source_review_required": true
   },
   {
     "channel": "CBC Television (720p)",
-    "stream_sha256": "adb339f6c2b5133547d95cdd2f64b2f893d273b281635baebad04bbd7193e455",
+    "stream_sha256": "90813cf097710249e1260c19632dd60886eb4c6c469fbe41e1c7f3d48beaf743",
     "source": "dearbulut-language-eng",
     "channel_id": "CBCTelevision.ca",
     "logo_url": "https://i.imgur.com/1p2l9ur.jpeg",
     "logo_source_review_required": false
   },
   {
-    "channel": "CNN International (1080p)",
-    "stream_sha256": "afc4ef876c6ea433fc4e4f161b2bb45fbf37a97157b3b400c8e7eb90354c119b",
+    "channel": "CBeebies (576p)",
+    "stream_sha256": "d01c053ec0ed6fe3fdfe7dd09de18d026b6cab387d70b093c40e0d20d65f5311",
     "source": "dearbulut-language-eng",
-    "channel_id": "CNNInternational.us",
+    "channel_id": "CBeebies.pl",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/CBeebies.svg/960px-CBeebies.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "CNN (1080p)",
+    "stream_sha256": "23d6ca4f848853d7ac25597a7798229cfec3df4ff093237cda89eef0d7d933f7",
+    "source": "dearbulut-language-eng",
+    "channel_id": "CNN.us",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/CNN.svg/960px-CNN.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "California Music Channel (1080p)",
+    "stream_sha256": "a1ce479fb7ad68fcd26ba2652ba240a463d3d976c0de5831a15ad4d5f2dd8770",
+    "source": "dearbulut-language-eng",
+    "channel_id": "CaliforniaMusicChannel.us",
+    "logo_url": "https://i.imgur.com/FyNot5W.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Cinemax 2 Central Europe (1080p)",
+    "stream_sha256": "350f9a5b69a90e6fadc7406d15031b8fb3dbb90b9a56b27586e27899b178dffc",
+    "source": "dearbulut-language-eng",
+    "channel_id": "Cinemax2CentralEurope.hu",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Cinemax_2_%282016%29.png/960px-Cinemax_2_%282016%29.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Cinemax Central Europe (1080p)",
+    "stream_sha256": "41ac624f4ef3d1f717dab3a4c91b156d4b3e761253e804a09abaaa6ef23fa4d3",
+    "source": "dearbulut-language-eng",
+    "channel_id": "CinemaxCentralEurope.hu",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Cinemax_2016.svg/960px-Cinemax_2016.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Cricket Gold (1080p)",
+    "stream_sha256": "ca07d027725394bf4953bc33871c87778da2161ea8e1cb9e0730eb7d554e60d6",
+    "source": "dearbulut-language-eng",
+    "channel_id": "CricketGold.au",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Cartoonito CEE (1080p)",
-    "stream_sha256": "8a20aa0b8d22cfc7b70d5bcbc5b7b0ec3e8a8d384301744ecfd5d671c6aec5a5",
+    "channel": "Daystar TV (1080p)",
+    "stream_sha256": "9d5ac3a1fcfadbfadfbb332ae93035a488d8a213a405f8b0d1e32568b473fe78",
     "source": "dearbulut-language-eng",
-    "channel_id": "CartoonitoCEE.uk",
-    "logo_url": "https://i.imgur.com/9MrzLb1.png",
+    "channel_id": "DaystarTV.us",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Daystar_(2008%E2%80%93present)_unmodified_logo.svg/960px-Daystar_(2008%E2%80%93present)_unmodified_logo.svg.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Cops",
-    "stream_sha256": "3e3ee53169e50a9d7d9f3d01e42fa03f4e822ac2e331c0b935a050710d08e57e",
+    "channel": "Disco Mix (576p)",
+    "stream_sha256": "9930cbb274f01bb8bfe23f072a97c12b66705a5ca9306cd6c88663ffdbbadae5",
     "source": "dearbulut-language-eng",
-    "channel_id": "Cops.us",
-    "logo_url": "https://i.imgur.com/J3XO6V2.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Crazy Ex-Girlfriend",
-    "stream_sha256": "2701aa59a460d4b9b83c9203c8dcf014725d609a1c79a08ccd7abbf3713f1020",
-    "source": "dearbulut-ISVEC",
-    "channel_id": "CrazyExGirlfriend.se",
+    "channel_id": "DiscoMix.ro",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Disney Junior (480p)",
-    "stream_sha256": "53a660ba93e762a67492c23b2df09203e0c65497b2e00c093c17b14d935f60a9",
+    "channel": "Discovery Asia Taiwan (1080p)",
+    "stream_sha256": "1276549d185f8d110adbd0369eb145b93aedad5a0862a6e60f59771b3fb913e1",
     "source": "dearbulut-language-eng",
-    "channel_id": "DisneyJunior.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/2024_Disney_Jr._Logo.svg/960px-2024_Disney_Jr._Logo.svg.png",
+    "channel_id": "DiscoveryAsiaTaiwan.tw",
+    "logo_url": "https://i.imgur.com/foLICwL.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Distrito Comedia (1080p)",
-    "stream_sha256": "c17d43280956e9f12ea4a2cee09a1f26424387998a19d3ee92a288a13e1ee71e",
+    "channel": "Discovery Channel (720p)",
+    "stream_sha256": "63fb9d525360a15b807f6da9593b2b2ed117e64c597b7cad2f998cdf14b441bf",
     "source": "dearbulut-language-eng",
-    "channel_id": "DistritoComedia.mx",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/DistritoComediaLOGO2018.png/960px-DistritoComediaLOGO2018.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "EWTN (720p)",
-    "stream_sha256": "4bcc0317326c7380fdf110c5f68de4b6f2d71f158475146774f45638b7b2ff11",
-    "source": "dearbulut-language-eng",
-    "channel_id": "EWTN.us",
+    "channel_id": "DiscoveryChannel.in",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Estrella TV (1080p)",
-    "stream_sha256": "b5a707121d2c4ffdc4e9bd2047ae80d082d7a29df92adafc42d9ad630d66fb2c",
+    "channel": "Discovery Science (720p)",
+    "stream_sha256": "73ccfd1065b8f9c926309752ac4b7707f30f3509c1a022472cfa06ed7353029d",
     "source": "dearbulut-language-eng",
-    "channel_id": "EstrellaTV.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Estrella_TV_Logo_2020.png/500px-Estrella_TV_Logo_2020.png",
+    "channel_id": "DiscoveryScience.in",
+    "logo_url": "",
+    "logo_source_review_required": true
+  },
+  {
+    "channel": "Discovery Turbo (720p)",
+    "stream_sha256": "693969e18ce9da8b5aea501072489ad6aa8370e7f8aeda23eb4837db5369547b",
+    "source": "dearbulut-language-eng",
+    "channel_id": "DiscoveryTurbo.in",
+    "logo_url": "",
+    "logo_source_review_required": true
+  },
+  {
+    "channel": "Dog the Bounty Hunter (1080p)",
+    "stream_sha256": "cfd2e0c23bf680bcd6753672b1db91e1b071e960084a2bf981f29e9f89b0d6ed",
+    "source": "dearbulut-language-eng",
+    "channel_id": "DogtheBountyHunter.us",
+    "logo_url": "https://i.imgur.com/lMICupK.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Farscape",
-    "stream_sha256": "9b7ae197244acb6b926d67f2380ac81897c7175169150149bf24d81809b9137b",
+    "channel": "Eleven Sports 2 (1080p)",
+    "stream_sha256": "19372a90b68f65fab8202e049f346dd9f86acefe553a9a81222d697900ff11e6",
     "source": "dearbulut-language-eng",
-    "channel_id": "Farscape.us",
-    "logo_url": "https://i.imgur.com/2WH4lSc.png",
+    "channel_id": "ElevenSports2.pl",
+    "logo_url": "https://i.imgur.com/bTIRgqG.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Fox (1080p)",
-    "stream_sha256": "82c5d3479518fb045ce56808ca4dd6bd0e1eacacee74a476c68530fe807eb3c9",
+    "channel": "Eleven Sports 3 (1080p)",
+    "stream_sha256": "2363414a76b6591e5e0e1fd5b8014d3d1ae3745456535d419f72de0c467e2f6a",
     "source": "dearbulut-language-eng",
-    "channel_id": "Fox.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/KTVI_Fox_2_%282020%29.svg",
+    "channel_id": "ElevenSports3.pl",
+    "logo_url": "https://i.imgur.com/bWjGol4.png",
     "logo_source_review_required": false
+  },
+  {
+    "channel": "Eleven Sports 4 (1080p)",
+    "stream_sha256": "3f66d0ec4a9f30361c7e0580cdee2e311899b6a4a0ede961dcb679526df3cc99",
+    "source": "dearbulut-language-eng",
+    "channel_id": "ElevenSports4.pl",
+    "logo_url": "https://i.imgur.com/SEKXaAW.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Eurosport (720p)",
+    "stream_sha256": "6bba110f171f841de993d88e1bdc002596ce1eeef8f0b747fa1aec0bbf44b312",
+    "source": "dearbulut-language-eng",
+    "channel_id": "Eurosport.in",
+    "logo_url": "",
+    "logo_source_review_required": true
+  },
+  {
+    "channel": "FILMBOX+ Action (720p)",
+    "stream_sha256": "3fa227850d34196c3e52c51bf9a6628b268acc13ed5ea9267220cecc5690059c",
+    "source": "dearbulut-language-eng",
+    "channel_id": "FILMBOXPlusAction.pl",
+    "logo_url": "",
+    "logo_source_review_required": true
   },
   {
     "channel": "France 24 (1080p)",
-    "stream_sha256": "cc391460f6ec04effc267a665e2f91230c020659233d6be7fc11392ec3c57a78",
+    "stream_sha256": "199af6eccbee37f62d1dab21ce3b9fa1b4f4a60ef3d4a045be98b8f792d7aa17",
     "source": "dearbulut-language-eng",
     "channel_id": "France24.fr",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Garfield and Friends",
-    "stream_sha256": "9d8f3ecb17ab2161689a5a76acd0594e7022d5d3d81bd10328e4a80524a7ed4e",
+    "channel": "HBO Signature Latin America",
+    "stream_sha256": "e6798d505fd527cee3ef24414cf4b54e6f52811ef0b5187dacfe639a09d21d8d",
     "source": "dearbulut-language-eng",
-    "channel_id": "GarfieldandFriends.us",
-    "logo_url": "https://i.imgur.com/evzfe9C.png",
+    "channel_id": "HBOSignatureLatinAmerica.us",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/HBO_Signature.svg/960px-HBO_Signature.svg.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "HBO Asia (1080p)",
-    "stream_sha256": "9358ff9440435a0e5fe0182ccbfd4e20b59c8798a6acae45f5f3396fdba1ad8b",
+    "channel": "HGTV (720p)",
+    "stream_sha256": "40efb37ecc4a603d1f8d4fc5f1e0e1b64bc04cf180a6957f57569ad4866f20ec",
     "source": "dearbulut-language-eng",
-    "channel_id": "HBOAsia.sg",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "Homeful (1080p)",
-    "stream_sha256": "393bd8ef7837b92d841f66b99f69c1f20a4e45de1cdf104f716d35cf593b2ec1",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Homeful.ca",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "INWILD (1080p)",
-    "stream_sha256": "d38398b0ba68fe4a8d442d4180ec6f8d1da2cdb53dafa2c52f5cfe55203188ec",
-    "source": "dearbulut-language-eng",
-    "channel_id": "INWILD.nl",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "MTV Global (576p)",
-    "stream_sha256": "46b354a8fa8999530f1722bb774231904a6957f9ded75a48984d706d14dacb69",
-    "source": "dearbulut-language-eng",
-    "channel_id": "MTVGlobal.uk",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/MTV_2021_%28brand_version%29.svg",
+    "channel_id": "HGTV.us",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/HGTV_US_Logo_2015.svg/960px-HGTV_US_Logo_2015.svg.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "MacGyver",
-    "stream_sha256": "e5ee94602d1343a1fb73390544d953b90e112903a0999b281f494b549f1d5089",
-    "source": "dearbulut-ISVEC",
-    "channel_id": "MacGyver.se",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "Mission Impossible",
-    "stream_sha256": "4aacf1dad4eeb4873170c981741e1baf8d867e010e12638a9e48419023c0b445",
-    "source": "dearbulut-ISVEC",
-    "channel_id": "MissionImpossible.se",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "Monster Jam (720p)",
-    "stream_sha256": "b34d030c85d3409ed9c5f487b2390063384fd978e662ab87dcb907c554e7cd0b",
+    "channel": "INFAST (1080p)",
+    "stream_sha256": "a6152c0c6c2ecf391054b9072d78c2fdb98c1a98dcfc5222bbfc4df95be0c1e7",
     "source": "dearbulut-language-eng",
-    "channel_id": "MonsterJam.us",
+    "channel_id": "INFAST.nl",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "NBC News NOW (1080p)",
-    "stream_sha256": "e802ea3e2669516e1469e1f9d3ce8490e58ca83c5b47b2251ccb554a310abb26",
+    "channel": "Ice Pilots",
+    "stream_sha256": "5ee6c1448514d74565a5ef7b904a440873d04a4a302b7682b4545dfeeea8418f",
     "source": "dearbulut-language-eng",
-    "channel_id": "NBCNewsNOW.us",
-    "logo_url": "https://i.imgur.com/lw2THVt.png",
+    "channel_id": "IcePilots.us",
+    "logo_url": "https://i.imgur.com/F8GBYq3.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "NOW Rock (1080p)",
-    "stream_sha256": "b4d01bc2d9369af33ff0fc6f924e4a31890139e447b649c5350b6e8f3a226a17",
+    "channel": "Imam Hussein TV 3 (1080p)",
+    "stream_sha256": "c36b6702ac95f695c226ddb221a5330bc293c28603413e26c42600e44f04cd14",
     "source": "dearbulut-language-eng",
-    "channel_id": "NOWRock.uk",
-    "logo_url": "https://i.imgur.com/GuM4GnX.png",
+    "channel_id": "ImamHusseinTV3.iq",
+    "logo_url": "https://i.imgur.com/emQRHQZ.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "OAN Plus (1080p)",
-    "stream_sha256": "dbf71f7128e80ec5ca13d0214b1c7332a4cf217d8fc331d001eb749e0b29318e",
+    "channel": "InWonder (1080p)",
+    "stream_sha256": "6e263b9dee409ad68f55c1e216ffe382035e64d20aae1a90112f0c3a34487bf6",
     "source": "dearbulut-language-eng",
-    "channel_id": "OANPlus.us",
-    "logo_url": "https://i.imgur.com/T9VhMAD.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "PBS (1080p)",
-    "stream_sha256": "18ed3b681707dbbc23632a94dd877185d4879546f336bdea64cb73415bd2749f",
-    "source": "dearbulut-language-eng",
-    "channel_id": "PBS.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/PBS_1971_id.svg/960px-PBS_1971_id.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Perry Mason",
-    "stream_sha256": "9fa39309384afdf30233d01c96e091e05c38edc490776a3c69bf1de21424c915",
-    "source": "dearbulut-language-eng",
-    "channel_id": "PerryMason.us",
+    "channel_id": "InWonder.nl",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Pluto TV Harlequin",
-    "stream_sha256": "eadaef4af8c1b8af274175d7f67b3d8d35840bfd23005e036bf5cc086eaa290d",
-    "source": "dearbulut-ISVEC",
-    "channel_id": "PlutoTVHarlequin.se",
-    "logo_url": "",
-    "logo_source_review_required": true
+    "channel": "Investigation Discovery (720p)",
+    "stream_sha256": "a66bc9fe3498a24507cd30fb1d8264ce0ef15655efa8c2f2185e568c04d9002c",
+    "source": "dearbulut-language-eng",
+    "channel_id": "InvestigationDiscovery.in",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/InvestigationDiscoveryLogo2020.svg/960px-InvestigationDiscoveryLogo2020.svg.png",
+    "logo_source_review_required": false
   },
   {
-    "channel": "Pluto TV Paranormal",
-    "stream_sha256": "7d229cdbffa9d3d474551537cb4db0ce2193d13f88cf338b88512d4806cd16f4",
+    "channel": "Motorvision (1080p)",
+    "stream_sha256": "84c52cd15538a18f89da97e6ec918c4f77f39fb58844908780b873552064c1dd",
     "source": "dearbulut-ALMANYA",
-    "channel_id": "PlutoTVParanormal.de",
+    "channel_id": "Motorvision.de",
+    "logo_url": "https://i.imgur.com/v4kj8pI.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Mr Bean Animated (1080p)",
+    "stream_sha256": "eef70a3ab292dfd3a72b7f51f67b0216b32898fda72aa84de6c630714b827709",
+    "source": "dearbulut-language-eng",
+    "channel_id": "MrBeanAnimated.uk",
+    "logo_url": "https://static.wikia.nocookie.net/logopedia/images/2/25/Mr._Bean_Animated_Series_stacked_logo.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "NBC (1080p)",
+    "stream_sha256": "efa1e104804be9f181df288baf6d61689f6db34d681310b42cc802bb1eaebe21",
+    "source": "dearbulut-language-eng",
+    "channel_id": "NBC.us",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NBC_logo_2022_%28vertical%29.svg/960px-NBC_logo_2022_%28vertical%29.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "National Geographic (576i)",
+    "stream_sha256": "c3d3ecabd27cde913e84c782aa435ca76f9f3c71c99752c7f736581747f34768",
+    "source": "dearbulut-language-eng",
+    "channel_id": "NationalGeographic.pl",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Natgeologo.svg/960px-Natgeologo.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Newsmax 2 (1080p)",
+    "stream_sha256": "25cb1760c795d1b07f4893a40d91b404390a95cbd82438634898870462c76c9d",
+    "source": "dearbulut-language-eng",
+    "channel_id": "Newsmax2.us",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Polsat JimJam (576p)",
-    "stream_sha256": "05297743b36cfb768fa634fd41b2bc1ed6957a293f7ef5a16eb5566e0134311a",
+    "channel": "Nicktoons (576i)",
+    "stream_sha256": "f26b8c6ae28b626e2c629c1bce38b64577c9ad7b9af24ff2b0e730264c642a83",
     "source": "dearbulut-language-eng",
-    "channel_id": "PolsatJimJam.pl",
-    "logo_url": "https://i.imgur.com/GjppUlg.png",
+    "channel_id": "Nicktoons.pl",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Nicktoons_Logo_2023.svg",
     "logo_source_review_required": false
   },
   {
-    "channel": "PowerNation TV (1080p)",
-    "stream_sha256": "37af0f5371c8e9eaac6dacabc93142d8d3e3d3b03e40bfe416f6146c85ca6abb",
+    "channel": "Now 70s (720p)",
+    "stream_sha256": "2a8ab52b042c737df298a5592f6571ee95219d482f6ba9a8710b1ae494d58f62",
     "source": "dearbulut-language-eng",
-    "channel_id": "PowerNationTV.us",
-    "logo_url": "https://i.imgur.com/jguTO8E.png",
+    "channel_id": "Now70s.uk",
+    "logo_url": "https://i.imgur.com/qiCCX5X.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "PursuitUP (1080p)",
-    "stream_sha256": "d61d42b6ab5fa5180ff0d9b94cc1a9898ebcce11cee1052672c2053c1bf82229",
+    "channel": "One Piece",
+    "stream_sha256": "c80d633601fe1611c7861ece9a7cfa774cb3f7ea46249f33190ca59643a82821",
     "source": "dearbulut-language-eng",
-    "channel_id": "PursuitUP.us",
-    "logo_url": "https://i.imgur.com/5Vzwqts.png",
+    "channel_id": "OnePiece.us",
+    "logo_url": "",
+    "logo_source_review_required": true
+  },
+  {
+    "channel": "Pac-12 Insider (1080p)",
+    "stream_sha256": "37a9941cc86d1f1237f781a6faa0970f10619be837c745ae13d1ddfc51f21991",
+    "source": "dearbulut-language-eng",
+    "channel_id": "Pac12Insider.us",
+    "logo_url": "https://i.imgur.com/736QREy.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Rakuten TV Comedy Movies (1080p)",
-    "stream_sha256": "823d4a6703cd7c19b8e500739d9870156cdd5f167577f5af4c3d48aa9ed56722",
+    "channel": "People Are Awesome (720p)",
+    "stream_sha256": "c7b9859e2dbc4570407947be669dd4925d1a6db84c2b6d707256d7e1739f678f",
     "source": "dearbulut-language-eng",
-    "channel_id": "RakutenTVComedyMovies.es",
-    "logo_url": "https://i.imgur.com/Meew6eX.png",
+    "channel_id": "PeopleAreAwesome.us",
+    "logo_url": "https://i.imgur.com/MsIx7Ax.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "South Park: Butters Collection",
-    "stream_sha256": "83077abf3c066e4588e6c8c173c46f1ba61a5ab6289128d0498b4c6a97982f33",
+    "channel": "Pluto TV Sci-Fi",
+    "stream_sha256": "85946ef22687a3358ebff1d16de464365fc42028d8e889bd8ad21064c8e0ca0e",
+    "source": "dearbulut-language-eng",
+    "channel_id": "PlutoTVSciFi.us",
+    "logo_url": "",
+    "logo_source_review_required": true
+  },
+  {
+    "channel": "Pop (1080p)",
+    "stream_sha256": "af06054afc3de42a8bb95d1779ff40e06a2852c6bc5a560e3c4c99913fece962",
+    "source": "dearbulut-language-eng",
+    "channel_id": "Pop.uk",
+    "logo_url": "https://i.imgur.com/fGUlCY3.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "RT India (1080p)",
+    "stream_sha256": "9c2f93671c09244b4aeb15e30ea3b69bc1e40250e3d6959c770d2e088f1106a2",
+    "source": "dearbulut-language-eng",
+    "channel_id": "RTIndia.in",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Russia-today-logo.svg",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "RTNB Divertissement",
+    "stream_sha256": "a3c8e3f18d3e44c6e935cba70e818b99020577f563b148928e132f56cbcf5c77",
+    "source": "dearbulut-language-eng",
+    "channel_id": "RTNBDivertissement.bi",
+    "logo_url": "https://i.imgur.com/vNCVLuO.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "RTNB TV",
+    "stream_sha256": "6fd5629c5e70c9d91952edf2322fac4fa92ba1337c0b5ef17b0d29e083bb90d7",
+    "source": "dearbulut-language-eng",
+    "channel_id": "RTNBTV.bi",
+    "logo_url": "https://i.imgur.com/xfR5P9F.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "RTR-Planeta (576p)",
+    "stream_sha256": "0506bfc581e6eb9aad7d2b6d58ce9f346071bd68dfb02621996803576dbf4e7c",
+    "source": "dearbulut-language-eng",
+    "channel_id": "RTRPlaneta.ru",
+    "logo_url": "https://i.imgur.com/0YEahxs.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Sci Fi (1080p)",
+    "stream_sha256": "84150fc70a1961c59371bc6f3e6fb151b1d94388c3945f180175f36eeeaecbef",
+    "source": "dearbulut-language-eng",
+    "channel_id": "SciFi.pl",
+    "logo_url": "https://i.imgur.com/QEqai8a.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "TLC (576p)",
+    "stream_sha256": "3831c8cadc9b584e0281ab4bfa7b8e713d9f7c356895c5dea7b43567c8b93edc",
+    "source": "dearbulut-ALMANYA",
+    "channel_id": "TLC.de",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/TLC_Logo.svg/960px-TLC_Logo.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "TeenNick (576i)",
+    "stream_sha256": "fc1d8b76a55b8322d9ec144ecc075df22be9468fdb3eb8a2b49e8d853baaaf52",
+    "source": "dearbulut-language-eng",
+    "channel_id": "TeenNick.pl",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/TeenNick_logo_2023_%28outline%29.svg/1280px-TeenNick_logo_2023_%28outline%29.svg.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Tennis Channel (1080p)",
+    "stream_sha256": "e67bb9f63ac73a15a4b23e429ba71252deb7b0857723184603f7a6d0a8b10575",
+    "source": "dearbulut-language-eng",
+    "channel_id": "TennisChannel.us",
+    "logo_url": "https://i.imgur.com/tsljAnY.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "The Carol Burnett Show (1080p)",
+    "stream_sha256": "1cceb9abaa23dd9df6ae17044186f4a7a73fca146446badcc0677163aba1dc04",
+    "source": "dearbulut-language-eng",
+    "channel_id": "TheCarolBurnettShow.us",
+    "logo_url": "https://i.imgur.com/1a03FlX.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "The L Word",
+    "stream_sha256": "429ae48eb85ac1158b122862e9d3ea406c5a4e554488aaf5557390e84018e0fc",
     "source": "dearbulut-ISVEC",
-    "channel_id": "SouthParkButtersCollection.se",
+    "channel_id": "TheLWord.se",
     "logo_url": "",
     "logo_source_review_required": true
-  },
-  {
-    "channel": "Stingray Holidayscapes (1080p)",
-    "stream_sha256": "08d04d80ee0f500d115eae685e539757827f4b6a136445f3d45421e92aac9ae6",
-    "source": "dearbulut-language-eng",
-    "channel_id": "StingrayHolidayscapes.ca",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "Studio Universal Latin America (1080p)",
-    "stream_sha256": "5c8ad2682832df96af78d5b69e91f559328a387f52d985bd9ca980b95017d0b1",
-    "source": "dearbulut-language-eng",
-    "channel_id": "StudioUniversalLatinAmerica.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/StudioUniversal2016.png/960px-StudioUniversal2016.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "TNT Latin America (1080p)",
-    "stream_sha256": "56cdc2a4ada93e0a3df50379b8a4c8b769e6e42e687711972ca559b37c09828a",
-    "source": "dearbulut-language-eng",
-    "channel_id": "TNTLatinAmerica.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/TNT_Logo_2016.svg/960px-TNT_Logo_2016.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Tastemade (1080p)",
-    "stream_sha256": "dda3bf79344ca9bda74bbaba441e3f4fb0aa8fa86aecf42eedf5d59d3818dfa9",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Tastemade.us",
-    "logo_url": "https://i.imgur.com/xP7Ehn8.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Telemundo (1080p)",
-    "stream_sha256": "ab21db3be79de192ac38b34adf542e114a09d92e9c659fa2c44abebff8890e3f",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Telemundo.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Telemundo_logo_2018.svg/960px-Telemundo_logo_2018.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Telesur (1080p)",
-    "stream_sha256": "a38bb167af5044b07aecffc136ecd1ead0327a829f6d23b0906597e58338ba64",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Telesur.ve",
-    "logo_url": "https://i.imgur.com/P50VjRX.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "The New Detectives",
-    "stream_sha256": "ba6bea4062d10bb1da8f295df10f55d7bc1a5bcf92246037607f80314ab03654",
-    "source": "dearbulut-language-eng",
-    "channel_id": "TheNewDetectives.us",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "Tiny House Nation (720p)",
-    "stream_sha256": "698a2bab1793df23484f4e5cbe71c358fced408703c03976a081d7555973e849",
-    "source": "dearbulut-language-eng",
-    "channel_id": "TinyHouseNation.us",
-    "logo_url": "https://i.imgur.com/ai1P06C.png",
-    "logo_source_review_required": false
   },
   {
     "channel": "ToonGoggles (720p)",
-    "stream_sha256": "173dc37c9972e4cd7c29c5711823a229b482af4a22f00dc01726d2bb8f0f8bdc",
+    "stream_sha256": "7003a376625c1f9443fed0b7fbd4b77881e9ca0fa19326d79a2c28b9d9d944aa",
     "source": "dearbulut-language-eng",
     "channel_id": "ToonGoggles.us",
     "logo_url": "https://i.imgur.com/JMnxswq.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Trace Gospel (1080p)",
-    "stream_sha256": "0f761475dedebf855a4948ba22294c5ddc299aea47c1910771a65e785ce40e5b",
+    "channel": "Travel Channel (576i)",
+    "stream_sha256": "81e2edb5e8327fcec626245fe349f1b39e54c8223b6ab6be0a075205dd3da576",
     "source": "dearbulut-language-eng",
-    "channel_id": "TraceGospel.fr",
-    "logo_url": "https://i.imgur.com/X0UmU3K.png",
+    "channel_id": "TravelChannel.pl",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Travel_Channel_logo-cerulean_blue.png/960px-Travel_Channel_logo-cerulean_blue.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Trace Sport Stars (1080p)",
-    "stream_sha256": "32e19920212b5feef23b7517a09f6a015b30c1d689bf36624d064e74e5bb87a0",
+    "channel": "USA TODAY (1080p)",
+    "stream_sha256": "d3c7181284cd5a91fd5b96be9ef2a4493f040e56f835a6724f696c44a594b31a",
     "source": "dearbulut-language-eng",
-    "channel_id": "TraceSportStars.fr",
-    "logo_url": "https://i.imgur.com/FabFP5A.png",
+    "channel_id": "USATODAY.us",
+    "logo_url": "https://i.imgur.com/37K0AZX.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Unbeaten (1080p)",
-    "stream_sha256": "98f55daf8efeb46d264871dc0a5d35911befc183786c972658db7e330d06c556",
+    "channel": "Univision (1080p)",
+    "stream_sha256": "1b8640e498b47beeda513f0606ac857df5398c008d7a040beaa3ae326ff0dff7",
     "source": "dearbulut-language-eng",
-    "channel_id": "Unbeaten.us",
-    "logo_url": "https://i.imgur.com/LmkNt3v.png",
+    "channel_id": "Univision.us",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Logo_Univision_2019.svg/960px-Logo_Univision_2019.svg.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "Universal Cinema (1080p)",
-    "stream_sha256": "a7c3f337d5ee46afb712d26407e9cd4d230101b947f36276e3af620530b278eb",
+    "channel": "Walker Texas Ranger",
+    "stream_sha256": "0885bbda99c09ee44f9b343f80817529b5554cf16bf0083553eb4343165ec2e4",
     "source": "dearbulut-language-eng",
-    "channel_id": "UniversalCinema.us",
-    "logo_url": "https://i.imgur.com/XxfET68.png",
+    "channel_id": "WalkerTexasRanger.us",
+    "logo_url": "https://i.imgur.com/0N7EhuD.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "VICE TV (1080p)",
-    "stream_sha256": "cf59aadef34c705557f766421475650c737ae6106ed138a095f891ce3ddf90d2",
-    "source": "dearbulut-language-eng",
-    "channel_id": "VICETV.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Vice_TV_logo.svg/960px-Vice_TV_logo.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Waypoint TV (1080p)",
-    "stream_sha256": "384bec3c508632811f5cb946e6bf9fd20c7ac2a5738c9bca02540c6978725a90",
-    "source": "dearbulut-language-eng",
-    "channel_id": "WaypointTV.us",
-    "logo_url": "https://i.imgur.com/9vvlJN9.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Willow (720p)",
-    "stream_sha256": "25e7f2255ebd1d93bef7a9336a1c43dfb23686f3a59a66e86eae29e8b2a61886",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Willow.us",
+    "channel": "Wildfire",
+    "stream_sha256": "0ad58793d4a1146fcbd52cf12d26afdc9fa0cda004ce3b4784ba41b22182ae56",
+    "source": "dearbulut-ISVEC",
+    "channel_id": "Wildfire.se",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Willow Sports (1080p)",
-    "stream_sha256": "4b3497d566aa255c47006cfb124246a92caac94a85c26ab4ec85da0b9c2e08cc",
+    "channel": "ducktv (720p)",
+    "stream_sha256": "5c426e881dd86dbb06f1c992bcd82a19669acbdb08d5d3794c9cb51ece1865ed",
     "source": "dearbulut-language-eng",
-    "channel_id": "WillowSports.us",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "World Poker Tour (1080p)",
-    "stream_sha256": "d1be0ea6514416b44f11fdd3251af09876cb088b9484698fa576e6c22a77359e",
-    "source": "dearbulut-language-eng",
-    "channel_id": "WorldPokerTour.us",
-    "logo_url": "https://i.imgur.com/98kLMjj.png",
+    "channel_id": "ducktv.sk",
+    "logo_url": "https://i.imgur.com/gRFQ35W.png",
     "logo_source_review_required": false
-  },
-  {
-    "channel": "Yo! MTV (1080p)",
-    "stream_sha256": "1f550dbdc2bf09c676f0846d23a502730af2cdf9e1e9469697dada47504d2a95",
-    "source": "dearbulut-language-eng",
-    "channel_id": "YoMTV.us",
-    "logo_url": "",
-    "logo_source_review_required": true
   }
 ]
