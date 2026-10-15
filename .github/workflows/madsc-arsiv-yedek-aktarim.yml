@@ -1,36 +1,24 @@
-name: MADSC - Arsivden Yedeklere Tek Seferlik Aktarim
+name: MADSC - Historical read-only audit - madsc-arsiv-yedek-aktarim.yml
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/madsc-arsiv-yedek-aktarim.yml'
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: madsc-arsiv-yedek-aktarim
+  group: madsc-historical-audit-madsc-arsiv-yedek-aktarim
   cancel-in-progress: false
 jobs:
-  aktar:
+  audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Arşiv kayıtlarını YEDEKLER'e tekrarsız ekle
-        run: python3 scripts/stage_archive_to_backups.py
-      - name: Dosya bütünlüğünü doğrula
+        with:
+          persist-credentials: false
+      - name: Verify historical playlist remains unchanged
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          s=Path('CALISANLAR.m3u').read_text()
-          assert s.startswith('#EXTM3U')
-          assert s.count('#EXTINF:') == sum(1 for x in s.splitlines() if x.startswith('#EXTINF:'))
-          print('M3U structure checked')
-          PY
-      - name: Ana listeyi kaydet
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "Stage archived candidates in YEDEKLER for user IBO review"
-          git push origin HEAD:main
+          set -euo pipefail
+          before="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          git diff --exit-code -- CALISANLAR.m3u
+          after="$(sha256sum CALISANLAR.m3u | cut -d' ' -f1)"
+          test "$before" = "$after"
+          echo "Historical writer disabled; no user decisions replayed"
