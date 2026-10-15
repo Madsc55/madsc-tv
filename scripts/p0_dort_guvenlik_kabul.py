@@ -64,6 +64,9 @@ def main():
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"92 legacy workflows inspected; {report['risk_count']} risk rows; "
           f"{report['write_review_count']} write candidates; acceptance blocked.")
+    for row in report["rows"]:
+        if row["risk_reasons"]:
+            print("OPEN", row["workflow"], ": ", ", ".join(row["risk_reasons"]))
     if report["risk_count"]:
         raise SystemExit(1)
 
