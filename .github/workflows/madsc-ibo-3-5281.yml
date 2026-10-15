@@ -491,7 +491,53 @@ jobs:
               print("Protected change between baseline and simulated remote head: BLOCK")
               print("No remote network or production write attempted")
           PY
-      - name: 17 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 17 - Eski surumde guvenli yeniden deneme kararini sina
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          with tempfile.TemporaryDirectory() as tmp:
+              root = Path(tmp)
+              def git(*args):
+                  return subprocess.run(["git", *args], cwd=root, check=True,
+                                        capture_output=True, text=True).stdout.strip()
+              git("init", "-q")
+              git("config", "user.email", "test@example.invalid")
+              git("config", "user.name", "Guvenlik Testi")
+              (root / "epg").mkdir()
+              (root / "epg/report.json").write_text("base", encoding="utf-8")
+              (root / "CALISANLAR.m3u").write_text("base", encoding="utf-8")
+              git("add", "--all")
+              git("commit", "-qm", "base")
+              base = git("rev-parse", "HEAD")
+
+              def retry_decision(old, new, allowed):
+                  if old == new:
+                      return "UNCHANGED"
+                  changed = set(git("diff", "--name-only", old, new).splitlines())
+                  return "REVIEW" if changed <= allowed else "BLOCK"
+
+              (root / "epg/report.json").write_text("new report", encoding="utf-8")
+              git("add", "--all")
+              git("commit", "-qm", "allowed remote update")
+              permitted = git("rev-parse", "HEAD")
+              assert retry_decision(base, permitted, {"epg/report.json"}) == "REVIEW"
+              assert retry_decision(permitted, permitted, {"epg/report.json"}) == "UNCHANGED"
+              (root / "CALISANLAR.m3u").write_text("unexpected channel update", encoding="utf-8")
+              git("add", "--all")
+              git("commit", "-qm", "protected remote update")
+              unsafe = git("rev-parse", "HEAD")
+              assert retry_decision(base, unsafe, {"epg/report.json"}) == "BLOCK"
+              assert retry_decision(permitted, unsafe, {"epg/report.json"}) == "BLOCK"
+              assert retry_decision(base, unsafe, {"vod/guncel-bolumler.json"}) == "BLOCK"
+              print("Unchanged head: no retry; allowed remote changes: manual review")
+              print("Protected or cross-task remote changes: fail closed")
+              print("No network, rebase, or production write attempted")
+          PY
+      - name: 18 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
