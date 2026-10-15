@@ -1622,3 +1622,7 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - madsc_akilli_kesif.py: hic olmayan gecmis dosyasi (ilk calisma) ile mevcut 0 bayt/bozuk gecmis ayirt edildi; mevcut bos dosya hata verir, gecmis yoksa {} baslatilir. Commit be7b7071a17f38c5fbceb5bcda163107442510c4.
 - MADSC 02 restore adimi: ayni dalda onceki basarili run yoksa iki gecerli bos JSON history/channels dosyasi olusturup ilk kosuya izin verir; onceki run varsa artifact restore gerekir. Commit d83f7ee8388c2777d94541e20f1ac25df15e1ddf.
 - UYARI: gh run list sonucunun bos olmasi API/izin/yanlis workflow kimligi nedeniyle de olabilir; basarili gecmis olmadigi kesinlesmeden otomatik bootstrap guvenligi ayrica test edilmeli. Gercek CI kosusu henüz dogrulanmadi.
+
+## 2026-10-15 — BOOTSTRAP JSON SATIR SONU HATASI
+- MADSC 02 ilk calisma JSON olusturma komutunda Python stringine literal ters egik cizgi+n yazilmasi riski giderildi; chr(10) ile gercek satir sonu kullaniliyor. Commit 94e82666fc966c19059eaae68f16770d2774587b.
+- CI run gercekten baslatilip gecmeden basarili sayilmaz. Mevcut GitHub baglantisinda workflow_dispatch eylemi bulunmadi; yalnizca mevcut run/job inceleme ve tekrar kosma arayuzleri var. Yanlis dalda test baslatma veya guvenlik engelini asma yok.
