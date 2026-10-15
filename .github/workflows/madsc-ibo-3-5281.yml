@@ -793,3 +793,20 @@ jobs:
           assert "contents: write" in risky and "git push origin HEAD:main" in risky
           print("6115 IZOLASYONU DOGRU; ILK 239 YAZICI RISKI HALA ACIK")
           PY
+
+      - name: 28 - IBO grup1 ve ikinci ses tarihsel yazicilarini dogrula
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          for filename in ("madsc-ibo-kararlar-grup1.yml", "madsc-ibo-second-voice.yml"):
+              raw = (Path(".github/workflows") / filename).read_text(encoding="utf-8")
+              assert "workflow_dispatch:" in raw, filename
+              assert "  push:" not in raw and "  schedule:" not in raw, filename
+              assert "contents: read" in raw and "contents: write" not in raw, filename
+              assert "persist-credentials: false" in raw, filename
+              assert "concurrency:" in raw, filename
+              assert "git push" not in raw and "git commit" not in raw, filename
+              assert "git diff --exit-code -- CALISANLAR.m3u" in raw, filename
+              print("IBO TARIHSEL KARAR TEKRARI ENGELLENDI:", filename)
+          PY
