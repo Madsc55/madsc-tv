@@ -852,7 +852,8 @@ jobs:
           for name in remaining:
               raw = (root / name).read_text(encoding="utf-8")
               assert "contents: write" in raw, name
-              print("INCELEME BEKLEYEN YAZMA YETKISI:", name)
+              assert "actions: read" in raw and "actions: write" not in raw, name
+              print("INCELEME BEKLEYEN CONTENTS YAZMA YETKISI:", name)
           # Risk envanterini gecis kosulu gibi gostermeden gercek korumayi denetle.
           for name in ("madsc-uc-asama.yml", "madsc-son-kontrol.yml"):
               raw = (root / name).read_text(encoding="utf-8")
