@@ -260,7 +260,6 @@ jobs:
           root = Path(".github/workflows")
           legacy = (
               "madsc-11599-yedek-geri-yukle.yml",
-              "madsc-ibo-354-classify.yml",
               "epg-gunluk.yml",
           )
           for filename in legacy:
@@ -270,7 +269,9 @@ jobs:
               if not writes or not pushes:
                   raise SystemExit("Review legacy write policy: " + filename)
               print("PRODUCTION RISK STILL OPEN:", filename)
-          print("Safety boundary: rehearsal does not authorize these legacy writers")
+          safe = (root / "madsc-ibo-354-classify.yml").read_text(encoding="utf-8")
+          assert "contents: read" in safe and "git push" not in safe
+          print("354 historical writer now read-only; remaining legacy writers still risky")
           PY
       - name: 11 - Tek seferlik ve surekli otomasyonlari ayir
         run: |
@@ -291,8 +292,12 @@ jobs:
           for filename in once:
               raw = (root / filename).read_text(encoding="utf-8")
               assert "schedule:" not in raw, filename
-              assert ("git push" in raw or "push origin HEAD:main" in raw), filename
-              print("TARIHSEL TEK SEFERLIK - YENIDEN CALISTIRMA:", filename)
+              if filename == "madsc-ibo-354-classify.yml":
+                  assert "git push" not in raw and "contents: read" in raw
+                  print("TARIHSEL 354 SALT OKUNUR:", filename)
+              else:
+                  assert ("git push" in raw or "push origin HEAD:main" in raw), filename
+                  print("TARIHSEL TEK SEFERLIK - YENIDEN CALISTIRMA:", filename)
           for filename in recurring:
               raw = (root / filename).read_text(encoding="utf-8")
               assert "schedule:" in raw, filename
