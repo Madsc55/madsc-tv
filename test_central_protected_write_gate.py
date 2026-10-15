@@ -27,6 +27,21 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
             self.assertEqual(len(report["central_write_violations"]), 1)
             self.assertEqual(report["errors"], [])
 
+    def test_legacy_yazma_raporlanir_ama_otomatik_kapatilmaz(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "eski-kanal-guncelleme.yml").write_text(
+                "name: Eski\\non: workflow_dispatch\\npermissions:\\n  contents: write\\njobs:\\n  job:\\n    runs-on: ubuntu-latest\\n    steps:\\n      - run: echo test\\n",
+                encoding="utf-8",
+            )
+            report = inspect(root)
+            self.assertEqual(report["errors"], [])
+            self.assertEqual(report["central_write_violations"], [])
+            self.assertEqual(report["review_count"], 1)
+
     def test_merkezi_rapor_kanal_listesini_degistirmez(self):
         source = Path("scripts/central_protected_write_gate.py").read_text()
         self.assertNotIn("write_text(content", source)
