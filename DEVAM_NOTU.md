@@ -1378,3 +1378,12 @@ Kullanıcının 'devam' talimatıyla ayrı \`madsc/p0-guvenlik-guvenli-duzeltme-
 Kullanıcının 'devam' talimatı ile güvenlik dalında yalnız \`.github/workflows/madsc-01-guvenlik.yml\` dosyasına **geçici**, yalnız \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalı ve yalnız bu workflow dosyasının değişimine özgü \`push\` tetikleyicisi eklendi; commit \`b5b48bec6792d1c5d5c4d78e90a0b1340baad3a2\`. Böylece mevcut \`madsc-01\` gerçek güvenlik testini manuel UI tıklaması olmadan başlatmak mümkün oldu. Gerçek Actions run #38722819072, 2026-10-15 10:48 UTC, event push, kaynak SHA \`b5b48bec\`, son gözlem \`in_progress\`; **başarılı olduğu henüz söylenemez**. Bu test 01 güvenlik job'udur, tüm beşli zincir veya 92/92 davranışsal kabul değildir.
 
 **Önemli geçici tetik temizlik şartı:** CI sonucu görüldükten sonra izole dalda bu geçici \`push\` bloğu kaldırılmalı ve \`madsc-01-guvenlik.yml\` hedef dal ile bire bir aynı hale getirilmeli; PR #72'de kalıcı değişiklik yalnız \`madsc-02-kesif.yml\` tek satır fail-fast olmalı. Bu geçici tetik asla ana çalışma dalına veya main'e birleştirilmez. Eski workflow'lar ve kullanıcı verileri değiştirilmedi.
+
+
+### 15 EKİM 2026 — P0 GÜVENLİK CI SONUCU VE GEÇİCİ TETİĞİN TEMİZLENMESİ
+
+Gerçek run #38722819072 \`completed/success\`, kaynak SHA \`b5b48bec6792d1c5d5c4d78e90a0b1340baad3a2\`. \`MADSC 01 - Guvenlik Toplu\` işinde rapor denetimleri, regresyon testleri, başlangıç/bitiş korunan SHA karşılaştırması ve artifact yükleme adımlarının hepsi \`success\` olarak Jobs API ile doğrulandı. Bu sonuç **güvenlik kategorisi 01 testi** içindir, beşli zincir ve gerçek keşif fail-fast düzeltmesinin uçtan uca kabulü değildir.
+
+CI'yi başlatmak için ayrı dalda eklenen geçici \`push\` tetikleyicisi commit \`679391b8799ba253b2a66bd4505b5ca906229999\` ile geri alındı. PR #72 dosya farkı tekrar REST API'den doğrulandı: **yalnız \`.github/workflows/madsc-02-kesif.yml\` ve tek satır \`continue-on-error: true\` → \`false\`**. PR #72 hâlâ taslak/birleştirilmedi. Eski 92 workflow, PR #71, ana liste, PNG ve yedekler değişmedi.
+
+P0 kalan açık: 26/26 merkezi üretim enforcement, 92/92 komut/izin/tetik matrisi ve davranış kanıtı, branch protection API erişimi, iki ardışık başarısızlık devre kesicisinin PR #4 değerlendirme/testi, çift tetik önleme. İlk 01 CI başarıyla geçti diye P0 tamamen kapanmış sayılmaz.
