@@ -1675,3 +1675,11 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC 03 kanal testleri: iki rapor betigi bagimsiz kosar; EPG/Pages, IBO, ffmpeg, 50 kanal kontrolu, kapsam ve regresyon continue-on-error; final hata kapisi yedi outcome'u kontrol eder. Commit 35f28ab0b8a921cc822084e4e77cbf0e9ba3db96.
 - Her iki workflow yeni dal uzerinden tekrar okunarak hata kapisi ve always artifact varligi dogrulandi. Bunlar statik kaynak kanitidir; yeni SHA icin gercek GitHub Actions kosusu/test basarisi HENUZ DOGRULANMADI. Commit status ve PR-triggered run sorgulari bos dondu; bunlar tum Actions kosularinin yoklugunu kanitlamaz.
 - Acik P0: gercek SHA uzerinde CI, 26 kuralin uygulanma kaniti, 92 legacy yazma/tetikleyici denetimi, branch protection ve devre kesici. 92/92 davranissal esdegerlik kanitlanmadi; hicbir eski workflow kapatilmaz. main, playlist, yedek ve PR #71 degistirilmez.
+
+
+## 2026-10-15 — GUVENLIK REGRESYONU VE TAM KATEGORI KAPISI
+- central_protected_write_gate.py .yml/.yaml ve job-level permissions write yetkilerini de inceler; beş merkezi workflow icin yazma ihlali tespit edilirse audit exit 1 olur. Commit 4e4413e4ed0a10cfebbcf916625335d1e50b8b0b.
+- test_central_protected_write_gate.py icine job-level yazma fixture testi eklendi, YAML satir sonlari duzeltildi, gercek merkezi workflow yazma ihlalleri sifir olma assertion'i eklendi. Commitler 531751955b228097043a9c9089183bed8bd43747 ve 85154c74c69ca794e2b98a3d2c09a64bd2794ef1.
+- MADSC 05 ilgili dal push tetikleyicilerinde tum 4 alt kategori artik [madsc-full-batch] commit mesaji olmadan da kosacak; guvenlik script/test yolları tetikleyiciye eklendi. Commit df49d4ec4785909345ae4542a59ba492eda4e661.
+- MADSC 05 'Dort onceki kategori de basarili olmali' adimi da her kosuda kontrol eder, normal push'ta atlanmaz. Commit e72ece7c7512d35652cdb13193f20f95c66c61cc. Statik GitHub yeniden okuma ile kosulun degistigi dogrulandi.
+- Acik: ilgili SHA'larda PR-triggered run ve combined-status sorgulari bos; bu tum Actions kosulari yok demek degildir. Gercek Actions run ID, checkout SHA ve conclusion olmadan basari ONAYLANMAZ. 92 eski workflow korunuyor; branch protection ve devre kesici kaniti halen eksik. Merkezi guvenlik denetimi tum legacy yazma risklerini otomatik engellemez.
