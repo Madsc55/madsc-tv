@@ -86,3 +86,10 @@ Tarih: 2026-10-15
 - Raporlarla eslesen arsiv kayitlari: ikinci IBO 5585, 399-530 132, 16-49 34, 355-364 10, Turk calismaz 332, yabanci 20. Toplam 6113 arsiv kaydi.
 - Ilk IBO arsivindeki 5252 kayitla birlikte yedi dosyanin kayit sayilari kontrol edildi. Bu, benzersiz kanal sayisi ya da tum arsivlerin birbirinden ayrik oldugu iddiasi degildir.
 - Gercek kanal listeleri degistirilmedi. Uretim yazma kapisi ve guvenli otomatik baslatma gorevleri ACIK.
+
+## 8. Test - Guvenli otomatik baslatma denemesi
+- GitHub Actions 38736246297; commit 477d0b5d850aa7cda5d804b1e8448be4c9e47351; 12/12 adim basarili.
+- Otomatik tetikleme sadece izole test dalindaki workflow degisikliginde; workflow_dispatch manuel secenegi de var.
+- contents read, persist-credentials false, concurrency ve cancel-in-progress false ayarlari denetlendi. Test, gercek listeye yazma yapmiyor.
+- Ilk kosu 38736179870 test regex kacis hatasi nedeniyle basarisizdi; hata duzeltildi ve yeni kosu gecti.
+- KALICI GOREV ACIK: Bu test eski IBO kanal ayirma workflow'unun canli otomatik yazma yetkisini geri getirmez. Tarihsel tek-seferlik 11367 kanal kararlari guncel 2 yedekli listeye yeniden uygulanmayacak. Uretim guvenlik kapisi, kalan 21 risk ve onay gereksinimi devam ediyor.
