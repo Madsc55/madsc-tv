@@ -2293,3 +2293,9 @@ Bu bolumde dort eski workflow'un gercek YAML icerigi okundu; kaynak denetimi yap
 - 97 workflow (92 legacy + 5 merkez) sayimi onceki devir notu referansidir; bu turda 92 YAML yeniden tam okunmadi, parity PASS denmez. Onceki 99f117f Git tree anlik goruntusu bu turda yeniden dogrulanmadi.
 - Korunan CALISANLAR.m3u, CALISMAYANLAR.txt, YENILER.m3u, YABANCI_KANALLAR.m3u, favoriler, kategoriler, yedekler ve main degistirilmedi; PR #71 birlestirilmedi. Kullanici onayi olmadan yeni kanal hicbir yedek/test listesine eklenmez.
 - Kalan isler: 92 YAML'nin tek tek bagimlilik matrisi, davranissal fixture esdegerlik testleri, guvenli test kosusu kaniti, kanonik not uyusmazlik analizi. Kaynak okuma 145/145 TAMAM; proje kabul testleri TAMAM DEGIL.
+
+
+## 2026-10-16 — 97 WORKFLOW ENVANTER SAYISI YENIDEN DOGRULANDI
+- GitHub Git tree 99f117f634e8c1d7fa1e282f16082dde67518264 uzerinden `.github/workflows/*.yml|*.yaml` yollarinin tam listesi alindi: **97 YAML**. Bunlarin 5'i madsc-01-guvenlik.yml, madsc-02-kesif.yml, madsc-03-kanal-test.yml, madsc-04-arsiv-yedek.yml, madsc-05-genel-bakim.yml; diger 92 legacy workflow.
+- Bu sayim onceki tree anlik goruntusune aittir; bugunku dal HEAD'indeki YAML iceriklerinin tek tek okunmasi veya 92->5 davranissal esdegerlik testi DEGILDIR. Eksik gorev: 97 YAML icerigini tek tek incele, workflow -> script -> test -> rapor -> korunan hedef matrisi ve izole kabul kanitlarini tamamla.
+- Korunan listeler ve diger dosyalar degistirilmedi; PR #71 birlestirilmedi. Yalniz DEVAM_NOTU.md notu guncellenir.
