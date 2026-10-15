@@ -1702,3 +1702,12 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 - MADSC01 regresyonlari dort suite'i bagimsiz calistiracak ve hangi suite fail olduysa ::error annotation uretecek sekilde duzenlendi. Commit 9eb806947552d6d5633824c86cc6a62805b37f66.
 - MADSC01 regressions adimindaki continue-on-error:true kaldirildi; hatali test adimi yesil gibi gorunmeyecek, fail gate ve artifact if:always korunuyor. Commit 01b8859c3c78f7e6accb717ea646afa31b6c9132. GitHub dosya tekrar okunarak dogrulandi.
 - Ekran goruntuleri regresyonun Python traceback'ini gostermiyor; asil failing assertion/exception ve Actions run ID henuz elde edilmedi. Bu nedenle regresyon root cause cozuldu veya yeni CI PASS oldu iddiasi YOK. Siradaki is: yeni kosunun failing suite logu/traceback ve SHA'sini alarak kok nedeni duzeltmek.
+
+
+## 2026-10-15 — KULLANICI TALIMATI: ANA HEDEFE DONUS VE UYGULAMA SOZLESMESI
+- ASIL HEDEF: 92 eski workflow'un TUM tetik, komut, cikti, artifact, izin, hata, zamanlama ve tarihsel islevlerini 5 merkezi sisteme kanitli tasimak; sadece 5 yesil CI kutusu elde etmek degildir.
+- ASISTANIN GOREVI: her turda once DEVAM_NOTU.md ve ilgili kaynaklari oku; siradaki acik gorevi sec; guvenli kapsamda gercek degisikligi yap; bagimsiz test/Actions kanitini topla; hatayi kok nedenle duzelt; sonucu SHA, run ID, eksik kanit ve sonraki is ile DEVAM_NOTU.md'ye kaydet; kullaniciya tekrar tekrar ayni isleri tarif edip isi ona devretme.
+- CALISMA SIRASI: (1) gercek Actions SHA/run/failed traceback ve 26 kural; (2) 92/92 envanter ve gorev-parite matrisi; (3) 06/18 UTC kesif, 156/155 kaynak mutabakati, aylik genis tarama; (4) 75 aday/51 retest/24 ffprobe, 3 asama >=6 saat, IBO ve final kuyrugu; (5) EPG/logo Pages canli zincir; (6) tarihsel arsiv, 1/15 yedek, harici restore, VOD; (7) 5/5 gercek kabul.
+- SINIRLAR: yalniz madsc/bes-sistem-toplu-birlestirme; main ve PR #71 merge YOK; 92 eski workflow ve korunan listeler/yedekler kullanici onayi olmadan DEGISTIRILMEZ; 92/92 kanitsiz kapatma YOK. Yeni gereksiz workflow acilmaz.
+- ESKI RAPORLARDAKI 'kapsam var' ifadesi 'islevsel esdegerlik kanitlandi' anlamina gelmez. CI yesil gorunumu da gercek cihaz, kaynak, restore, 6 saat ve zamanlama kaniti degildir.
+- Bu turda mevcut test_central_protected_write_gate.py ve MADSC05 workflow'u yeniden okundu; kullanicinin gorev listesindeki ana islerin eksik oldugu teyit edildi. Henuz yeni bir Actions PASS veya 92/92 kaniti yok.
