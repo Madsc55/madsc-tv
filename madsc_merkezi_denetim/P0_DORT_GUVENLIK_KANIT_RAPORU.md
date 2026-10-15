@@ -30,3 +30,14 @@ Tarih: 2026-10-15
 - Görev 5: **KISMİ** — tetikleme riskleri bulundu, dinamik önleme kanıtı eksik.
 
 **Bu dosya tek başına koruma uygulamaz.** Riskli eski workflow'ların tamamını izinsiz kapatmak, EPG/logo/yedek üretimini değiştirmek, ana dalı birleştirmek veya kullanıcı kurallarını değiştirmek bu kapsamda yapılmadı. Kabulü yeşil göstermek için risk kontrolleri gevşetilmeyecek.
+
+## 15 Ekim — 21 riskin gerçek dosya incelemesi
+
+- Son kanıt koşusu #38731442193: **26/26 regresyon testi başarılı; 92/92 eski workflow tarandı; 21 risk satırı ve 21 yazma adayı kaldı.** Kabul kapısı kasıtlı olarak kırmızı.
+- İlk 24 riskin üçü salt-okunur denetim dosyasıydı; yanlış pozitif sınıflaması ayrıştırıldı. Bu, üretim korumasının eklendiği anlamına gelmez.
+- `madsc-birlesik-kesif.yml`, `madsc-son-kontrol.yml`, `madsc-uc-asama.yml`: kural24 çağrısı ve concurrency mevcut; `git reset --hard origin/main` kullanımının gerçek etkisi, iki olay türü ve dispatch davranışı ayrıca dinamik kanıt gerektirir.
+- `madsc-11599-yedek-geri-yukle.yml`, `madsc-arsiv-yedek-aktarim.yml`, `madsc-ibo-3-5281.yml`, `madsc-ibo-354-classify.yml` ve sekiz diğer IBO/geri-yükleme workflow'u kaynak düzeyinde okundu. Birçoğu kendi workflow dosyasının `push` değişikliğinde tetiklenir ve `main` dalına `git push origin HEAD:main` yapar. Bazıları `CALISANLAR.m3u` yazar. Bu dosyalarda koruma eklemek dahi üretimde istenmeyen otomatik yazma tetikleyebileceğinden doğrudan değiştirilmedi.
+- `epg-gunluk.yml`, `vod-guncelle.yml`, `publish-iptv-png-logos.yml`: doğrudan yazma, üst düzey concurrency ve doğrudan rule24 eksikliği doğrulandı; EPG/logo koruması nedeniyle değiştirilmedi.
+- `madsc-yedek-turk-ayir.yml`, `madsc-yedekler-sayi-duzelt.yml`, `madsc-genis-kaynak-kontrol.yml`: gerçek yazma adımları ve eksik doğrudan rule24 çağrıları doğrulandı.
+- **Kabul hâlâ AÇIK.** GitHub branch protection API 403. Bir statik denetim sonucu üretimde zorunlu yazma engelinin uygulandığını kanıtlamaz. Kalan gerçek riskleri sadece test filtresinden çıkararak yeşil göstermeyeceğiz.
+- Güvenli sonraki aşama: üretim workflow'larının her biri için yazma hedefi, onay kapısı, tetikleme, devre kesici ve concurrency öncesi/sonrası davranışını ayrı PR'de izole testle kanıtlamak; `main`'e merge yok.
