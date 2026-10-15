@@ -250,7 +250,29 @@ jobs:
               raise SystemExit("BLOCKED: protected files differ from HEAD")
           print("PASS: protected files match HEAD; no unauthorized writes")
           PY
-      - name: 10 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 10 - Eski otomasyonlarin dogrudan ana dala yazma riskini denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path(".github/workflows")
+          legacy = (
+              "madsc-11599-yedek-geri-yukle.yml",
+              "madsc-ibo-354-classify.yml",
+              "epg-gunluk.yml",
+          )
+          for filename in legacy:
+              content = (root / filename).read_text(encoding="utf-8")
+              writes = "contents: write" in content
+              pushes = bool(re.search(r"git\\s+push", content))
+              if not writes or not pushes:
+                  raise SystemExit("Review legacy write policy: " + filename)
+              print("PRODUCTION RISK STILL OPEN:", filename)
+          print("Safety boundary: rehearsal does not authorize these legacy writers")
+          PY
+      - name: 11 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
