@@ -379,7 +379,35 @@ jobs:
               assert "workflow_failure_gate.py" not in raw, filename
               print("EXACT OUTPUT MATCH; LIVE PROTECTION STILL MISSING:", filename, sorted(actual))
           PY
-      - name: 14 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 14 - EPG ve VOD cift calisma korumasini denetle
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path(".github/workflows")
+          candidates = {
+              "epg-gunluk.yml": "madsc-epg-tek-kosu",
+              "vod-guncelle.yml": "madsc-vod-tek-kosu",
+          }
+          for filename, group in candidates.items():
+              live = (root / filename).read_text(encoding="utf-8")
+              assert "schedule:" in live and "workflow_dispatch:" in live, filename
+              assert "concurrency:" not in live, "Unexpected live concurrency: " + filename
+              proposed = (
+                  "concurrency:\n"
+                  "  group: " + group + "\n"
+                  "  cancel-in-progress: false\n"
+              )
+              assert proposed.count("concurrency:") == 1
+              assert "cancel-in-progress: false" in proposed
+              assert "github.run_id" not in proposed and "github.event_name" not in proposed
+              print("SAFE PROPOSED GROUP:", filename, group)
+              print("LIVE GAP: concurrency missing; proposal not applied")
+          assert len(set(candidates.values())) == len(candidates)
+          print("Independent stable EPG/VOD groups checked; no production change")
+          PY
+      - name: 15 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
