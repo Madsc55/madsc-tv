@@ -229,7 +229,28 @@ jobs:
               assert not gate(), "Unauthorized security rules write was not blocked"
               print("Guard rejected unauthorized changes in disposable Git fixture")
           PY
-      - name: 9 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 9 - Gercek is akisinda zorunlu yazma kapisini uygula
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+
+          protected = (
+              "CALISANLAR.m3u", "AGENTS.md", "GUVENLIK_KURALLARI.md",
+              "YENILER.m3u", "YABANCI_KANALLAR.m3u",
+          )
+          tracked = [name for name in protected if Path(name).is_file()]
+          assert tracked, "No protected paths available"
+          result = subprocess.run(
+              ["git", "diff", "--exit-code", "HEAD", "--", *tracked],
+              check=False, capture_output=True, text=True
+          )
+          if result.returncode:
+              raise SystemExit("BLOCKED: protected files differ from HEAD")
+          print("PASS: protected files match HEAD; no unauthorized writes")
+          PY
+      - name: 10 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
