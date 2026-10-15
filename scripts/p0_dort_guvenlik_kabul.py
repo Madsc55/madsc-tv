@@ -13,7 +13,7 @@ GATE = "tools/workflow_failure_gate.py"
 def inspect(root=ROOT):
     folder = Path(root) / ".github" / "workflows"
     legacy = sorted(p for p in folder.glob("*.y*ml")
-                    if not re.match(r"madsc-0[1-5]-", p.name))
+                    if not re.match(r"madsc-0[1-5]-", p.name)\n                    and p.name != "madsc-p0-dort-guvenlik-kabul.yml")
     if len(legacy) != 92:
         raise ValueError(f"Expected 92 legacy workflows, found {len(legacy)}")
     rows = []
