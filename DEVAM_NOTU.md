@@ -1486,3 +1486,14 @@ Doğrulanan öncelikli risk örnekleri:
 - Izole test run 38740273892 success, SHA 709e37aa1bbf2b4cd7c0514706fd0c850ef43668; bu uretim duzeltmesi degildir.
 - SINIR: Yeni acik izin olmadan yalniz DEVAM_NOTU.md degistirilebilir. Workflow, playlist, yedek, arsiv, PR birlestirme, ana dal degisikligi yapma. Riskleri gercekten kapatmak icin degistirilecek workflow dosyalari icin acik onay alinacak. Branch protection 403 durumu izin olmadan cozulmus gosterilmeyecek.
 - SONRAKI IS: tek toplu kapatma paketi, 21 riskli dosya icin hedefli duzeltme, 26 kuralin toplu kabul raporu, cift tetik kontrolu, main koruma kaniti. Tamamlanmayan maddelere bitmis denmeyecek.
+
+
+## Birinci asama - 5 madde toplu denetim kapanisi (2026-10-15)
+- DURUM: BES MADDENIN DENETIM ASAMASI TAMAMLANDI. Bu, guvenlik aciklarinin kapatildigi anlamina GELMEZ.
+- 1) Besli Actions run / SHA dogrulandi: 38724971116 / 97869612210f7f868976aa598191cd6710f8be8a.
+- 2) 26 kural denetimi yapildi; eksik enforcement duzeltme paketine devredildi.
+- 3) 92/92 eski workflow ilk statik taramasi yapildi; 21 riskli workflow duzeltme paketine devredildi.
+- 4) Korunan dosya/SHA ve devre kesici denemeleri yapildi; branch protection API 403, kesin dogrulama bekliyor.
+- 5) Cift push ve gereksiz tetikleme adaylari belirlendi; gercek engelleme duzeltme paketine devredildi.
+- GOREV SINIRI: Denetim bolumu tamamlandi olarak isaretlenebilir, fakat uretim guvenligi TAMAMLANDI etiketi verilemez. Ana dala merge yok. Acik izin olmadan workflow ve veri dosyalari degistirilmez.
+- Sonraki tek toplu is: 21 riskli workflow icin izinli guvenlik duzeltmeleri + toplu kabul ve kalan branch protection erisim engelinin ayri raporlanmasi.
