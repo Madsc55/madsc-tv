@@ -1474,3 +1474,15 @@ Doğrulanan öncelikli risk örnekleri:
 - \`workflow_failure_gate.py\` çağrısı görülen eski dosyalar: \`madsc-birlesik-kesif.yml\`, \`madsc-son-kontrol.yml\`, \`madsc-uc-asama.yml\`, \`madsc-rule24-test.yml\`. Diğerlerinde doğrudan çağrı bulunmadı; bu **koruma yokluğu kesin kanıtı değildir**, başka kapılar olabilir.
 
 **P0 kabul durumu:** 1. madde tamamlandı (gerçek beşli run/commit); 2. madde 26 kural enforcement açık; 3. madde **92/92 ilk statik desen taraması tamamlandı**, tam semantik izin/komut ve dinamik risk kabulü açık; 4. madde branch protection API erişimi/merkezi devre kesici kapsama açık; 5. madde çift tetik davranışsal kabul açık. Kural 1.02 gereği **hiçbir hata izinsiz düzeltilmedi**, eski workflow ve veri dosyalarına yazılmadı; bu turda yeni Actions run başlatılmadı.
+
+
+## 2026-10-15 - P0 birinci bolum hizli kapanis karari
+- Kullanici uzun sureli tek tek testlerin durdurulmasini ve 5 maddenin toplu bitirilmesini istiyor. Bundan sonra her alt kontrol icin ayri test/workflow acilmayacak; mevcut kanitlar toplu kabul tablosunda degerlendirilecek.
+- Madde 1 KANITLI TAMAM: besli Actions run 38724971116 success; gercek SHA 97869612210f7f868976aa598191cd6710f8be8a.
+- Madde 2 DENETIM YAPILDI / KAPANMADI: 26 kuralin gercek enforcement kabulunde aciklar var.
+- Madde 3 ILK TARAMA TAMAM / RISK KAPANMADI: 92/92 statik desen taramasi; 21 riskli workflow tespit edildi, uretimde giderilmedi.
+- Madde 4 KISMEN: tarihi korunan dosya SHA karsilastirmalari ve hata devre kesicisi izole testleri gecti; branch protection API 403 Resource not accessible by integration, dogrulanamiyor; uretim devre kesici kapsami eksik.
+- Madde 5 TESPIT KISMEN: concurrency ve gereksiz tetikleme adaylari bulundu; uretimde engelleme ve davranissal kabul tamamlanmadi.
+- Izole test run 38740273892 success, SHA 709e37aa1bbf2b4cd7c0514706fd0c850ef43668; bu uretim duzeltmesi degildir.
+- SINIR: Yeni acik izin olmadan yalniz DEVAM_NOTU.md degistirilebilir. Workflow, playlist, yedek, arsiv, PR birlestirme, ana dal degisikligi yapma. Riskleri gercekten kapatmak icin degistirilecek workflow dosyalari icin acik onay alinacak. Branch protection 403 durumu izin olmadan cozulmus gosterilmeyecek.
+- SONRAKI IS: tek toplu kapatma paketi, 21 riskli dosya icin hedefli duzeltme, 26 kuralin toplu kabul raporu, cift tetik kontrolu, main koruma kaniti. Tamamlanmayan maddelere bitmis denmeyecek.
