@@ -53,6 +53,22 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Ana listeyi salt okunur 50 kanallik partide kontrol et
         run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
+      - name: Kanal saglik raporunu ve test kapsamini dogrula
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          folder = Path('madsc_ana_liste_saglik')
+          report = json.loads((folder / 'ana_liste_saglik.json').read_text(encoding='utf-8'))
+          assert (folder / 'ana_liste_saglik.md').is_file(), 'Kanal Markdown raporu yok'
+          assert report['bu_kosuda_test_edilen'] == len(report['sonuclar']), 'Kanal sonuc sayisi uyusmuyor'
+          assert report['ana_liste_toplam'] >= report['bu_kosuda_test_edilen'] > 0, 'Kanal kapsam hatasi'
+          assert report['otomatik_kanal_degisikligi'] is False, 'Korunan liste degisikligi yasak'
+          print('Kanal test raporu:', report['bu_kosuda_test_edilen'], '/', report['ana_liste_toplam'])
+          print('Tum liste kapsandi:', report['tum_liste_bu_kosuda_test_edildi'])
+          PY
       - name: Kategoriye ait tum regresyon testleri
         run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence -v
       - name: Korunan dosyalar degismedi
