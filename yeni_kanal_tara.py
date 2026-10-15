@@ -6,6 +6,7 @@ import subprocess
 import json
 import re
 from channel_name_normalization import normalize_channel_name
+from discovery_m3u_parser import parse_discovery_m3u
 import time
 import urllib.request
 import urllib.parse
@@ -60,16 +61,7 @@ def fetch(url, timeout=12, limit=4000000):
         return response.read(limit)
 
 def parse(content):
-    meta = None
-    for line in content.splitlines():
-        line = line.strip()
-        if line.startswith("#EXTINF:"):
-            meta = line
-        elif line and not line.startswith("#") and meta:
-            name = meta.rsplit(",", 1)[-1].strip()
-            if name and line.startswith(("http://", "https://")):
-                yield name, line, (re.search(r'tvg-logo="([^"]+)"', meta).group(1) if re.search(r'tvg-logo="([^"]+)"', meta) else "")
-            meta = None
+    yield from parse_discovery_m3u(content, profile="new_scan")
 
 def norm(name):
     return normalize_channel_name(name, profile="new_scan")
