@@ -195,7 +195,41 @@ jobs:
           assert not re.search(r"(?m)^  workflow_run:\s*$", raw)
           print("Isolated auto-trigger guardrails verified; production auto-write remains disabled")
           PY
-      - name: 8 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 8 - Izinsiz dosya degisikligini engelleyen kapinin denemesi
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          protected = ("CALISANLAR.m3u", "AGENTS.md", "GUVENLIK_KURALLARI.md")
+          with tempfile.TemporaryDirectory() as tmp:
+              root = Path(tmp)
+              subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+              subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
+              subprocess.run(["git", "config", "user.name", "Guvenlik Testi"], cwd=root, check=True)
+              for name in protected:
+                  (root / name).write_text("korunan-orijinal\\n", encoding="utf-8")
+              subprocess.run(["git", "add", "--", *protected], cwd=root, check=True)
+              subprocess.run(["git", "commit", "-qm", "baseline"], cwd=root, check=True)
+
+              def gate():
+                  return subprocess.run(
+                      ["git", "diff", "--quiet", "HEAD", "--", *protected],
+                      cwd=root, check=False
+                  ).returncode == 0
+
+              assert gate(), "Clean fixture unexpectedly blocked"
+              (root / "CALISANLAR.m3u").write_text("izinsiz-degisiklik\\n", encoding="utf-8")
+              assert not gate(), "Unauthorized playlist write was not blocked"
+              (root / "CALISANLAR.m3u").write_text("korunan-orijinal\\n", encoding="utf-8")
+              assert gate(), "Restored fixture did not pass"
+              (root / "GUVENLIK_KURALLARI.md").write_text("izinsiz-kural-degisikligi\\n", encoding="utf-8")
+              assert not gate(), "Unauthorized security rules write was not blocked"
+              print("Guard rejected unauthorized changes in disposable Git fixture")
+          PY
+      - name: 9 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
