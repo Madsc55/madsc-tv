@@ -1405,3 +1405,16 @@ Kullanıcı talimatıyla aşağıdaki 8 eski workflow'un **tam dosya içerikleri
 | \`madsc-sistem-saglik-denetimi.yml\` | \`17 5 1,15 * *\` | schedule | contents:read | audit adımında \`continue-on-error:true\` var; devamındaki gate mantığı ayrıca değerlendirilmelidir |
 
 **Karar:** \`madsc-son-kontrol\` çift tetik yolu ve \`madsc-uc-asama\` push/dispatch döngü ihtimali için en yüksek öncelikli akış analizi. \`vod-guncelle\` ve \`epg-gunluk\` için concurrency eksikliği raporlanır ama kullanıcı onayı/izole test olmadan canlı dosyalara değişiklik yapılmaz. Hiçbir eski workflow, kanal listesi, EPG, PNG veya yedek değiştirilmedi. Bir sonraki adım 92 dosyanın geri kalanını küçük gruplarda içerik taraması ve 24. kural PR #4 testinin doğrulanmasıdır.
+
+
+## 15 EKİM 2026 — P0 ÜÇLÜ AKIŞ VE KURAL 24 GERÇEK TEST KANITI
+
+Doğrudan okunan \`madsc-son-kontrol.yml\`, \`madsc-uc-asama.yml\`, \`madsc-birlesik-kesif.yml\` içeriklerine göre:
+- \`madsc-uc-asama.yml\` push yalnız \`verification_pipeline.py\` dosya yolunda, ayrıca \`workflow_dispatch\`. \`pending.outputs.due != '0'\` ve sonuç \`due_now>0\` olduğunda **kendini yeniden dispatch** ediyor. Bu **kontrollü koşullu zincir**, ama azalmayan \`due_now\` veya sürekli hata durumunda yinelenme ihtimali vardır; workflow timeout 40 dk, concurrency \`madsc-rapor-yazma\`, \`cancel-in-progress:false\` **koşu sayısı üst sınırı değildir**.
+- \`madsc-son-kontrol.yml\` hem günlük 06:10 UTC cron hem de \`MADSC - Üç Aşamalı Aday Doğrulama\` tamamlanınca \`workflow_run\`; yalnız workflow_run durumunda başarı şartı var. **Aynı gün iki bağımsız koşu ihtimali**; \`madsc-son-kontrol\` concurrency yalnız paralelliği sıraya koyar, tekrar çalışmayı engellemez.
+- \`madsc-birlesik-kesif.yml\` 06:00/18:00 UTC, \`madsc-rapor-yazma\` concurrency grubunu üç aşamayla paylaşır; keşif sonunda zincirleme test dispatch yok. Rapor yazmadan önce uzaktaki klasör farkını denetleyip çakışmada artifact saklar.
+- Kural 24 \`tools/workflow_failure_gate.py\` **zaten çalışma dalında mevcut** ve bu üç eski workflow'un başlangıcına eklenmiş; PR #4'teki işi tekrar yazmaya gerek yok. Kod son tamamlanmış başarısız/timed_out 2 koşuda durur, başarılı sonuçta sıfırlar, manual dispatch'e kurtarma istisnası tanır; API hatasında hata ile çıkar. **Bu mevcut uygulama 92 workflow'un tamamına yayılmış değildir**.
+- \`safety-rule24-circuit-breaker\` dalında GitHub Actions geçmişinde gerçek \`MADSC - 24. Kural Güvenlik Testi\` run #38324230487 \`success\`, SHA \`1a52253d9551ff2bd0e711774bc31fe647caec1f\`; önceki #38324066648 \`success\`. **Bu dal test kanıtıdır; mevcut ana çalışma dalındaki bütün workflow'ların devre kesici üretim davranışı için yeterli değildir.**
+- Diğer dalın testleri ile \`madsc/bes-sistem-toplu-birlestirme\` kodunun aynılığı ve canlı koşular ayrıca doğrulanmalıdır. Eski workflow'lar, PR #4, PR #71 ve PR #72 birleştirilmedi/değiştirilmedi.
+
+**Öncelikli güvenli iyileştirme adayları:** Üç aşamanın kendi dispatch'ine toplam yeniden deneme/ilerleme sınırı; son kontrolde workflow_run+cron aynı çıktı için idempotent kabul; otomatik yazan workflow'larda ortak devre kesici kapsama tablosu. Önce izole test, sonra kullanıcı onayı olmadan üretime geçiş yok.
