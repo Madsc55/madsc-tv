@@ -1,32 +1,21 @@
-name: MADSC - IBO 6115 Ikinci Ayirma
+name: MADSC - Historical 6115-second Decision Read-only Review
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-ibo-6115-second.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: madsc-ibo-6115-second
+  group: madsc-historical-6115-second-review
   cancel-in-progress: false
 jobs:
-  apply:
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Refresh
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Apply second voice decisions
-        run: python3 scripts/apply_ibo_6115_second.py
-      - name: Save archive and playlist
+        with:
+          persist-credentials: false
+      - name: Verify original decision source without replay
         run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/ibo_6115_ikinci_ayrilanlar.m3u madsc_kesif/ibo_6115_ikinci_kararlar.csv madsc_kesif/ibo_6115_ikinci_rapor.json
-          git commit -m "Archive second session foreign backups without deleting history"
-          git push origin HEAD:main
+          test -f scripts/apply_ibo_6115_second.py
+          test -f CALISANLAR.m3u
+          git diff --exit-code -- CALISANLAR.m3u
