@@ -719,3 +719,21 @@ jobs:
           assert "git diff --exit-code -- CALISANLAR.m3u" in source
           print("TARIHSEL 354 OTOMATIK YAZMA KAPATILDI; KARAR DOSYALARI KORUNDU")
           PY
+
+      - name: 24 - Tarihsel arsiv yazicilarini engelli risk olarak kaydet
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          paths = (
+              ".github/workflows/madsc-arsiv-yedek-aktarim.yml",
+              ".github/workflows/madsc-ibo-364-355-364.yml",
+          )
+          for name in paths:
+              content = Path(name).read_text(encoding="utf-8")
+              assert "contents: write" in content, name
+              assert "git push origin HEAD:main" in content, name
+              assert "CALISANLAR.m3u" in content, name
+              print("ACIK RISK - URETIM YAZICISI HENUZ DUZELTILMEDI:", name)
+          print("Bu adim riskin varligini dogrular; giderildigini iddia etmez.")
+          PY
