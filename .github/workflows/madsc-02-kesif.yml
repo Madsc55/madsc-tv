@@ -109,12 +109,23 @@ jobs:
           fi
           echo "Gecerli kesif gecmisi geri yuklendi: run ${restored}"
       - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
         shell: bash
         run: |
-          set -euo pipefail
-          python3 scripts/central_source_reconciliation.py
-          python3 scripts/central_duplicate_test_audit.py
-          python3 scripts/central_ibo_review_queue.py
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_source_reconciliation.py scripts/central_duplicate_test_audit.py scripts/central_ibo_review_queue.py; do
+            echo "::group::${script}"
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "${failed}"
       - name: Gercek aday kesfi ve teknik aday taramasi
         id: discovery
         continue-on-error: true
@@ -124,6 +135,8 @@ jobs:
           set -euo pipefail
           python3 madsc_akilli_kesif.py
       - name: Kategoriye ait tum regresyon testleri
+        id: regressions
+        continue-on-error: true
         run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue -v
       - name: Korunan dosyalar degismedi
         if: always()
@@ -132,10 +145,19 @@ jobs:
         if: always()
         shell: bash
         run: |
-          if [[ "${{ steps.discovery.outcome }}" != "success" ]]; then
-            echo "::error::Kesif teknik taramasi basarisiz; bu kosu basarili gecmis kaynagi sayilamaz."
-            exit 1
-          fi
+          failed=0
+          for step in reports discovery regressions; do
+            case "${step}" in
+              reports) outcome="${{ steps.reports.outcome }}" ;;
+              discovery) outcome="${{ steps.discovery.outcome }}" ;;
+              regressions) outcome="${{ steps.regressions.outcome }}" ;;
+            esac
+            if [[ "${outcome}" != "success" ]]; then
+              echo "::error::${step} basarisiz veya atlandi (${outcome}); bu kosu basarili gecmis kaynagi sayilamaz."
+              failed=1
+            fi
+          done
+          exit "${failed}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
