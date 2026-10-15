@@ -460,7 +460,38 @@ jobs:
               print("EPG/VOD staged and unstaged allowlists, commit scope, cross-task isolation verified")
               print("No remote push attempted; production push and rebase still require separate checks")
           PY
-      - name: 16 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 16 - Uzak dal degisiklikleri icin korunan dosya denetimini sina
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          with tempfile.TemporaryDirectory() as tmp:
+              root = Path(tmp)
+              def git(*args):
+                  return subprocess.run(["git", *args], cwd=root, check=True, capture_output=True, text=True).stdout.strip()
+              git("init", "-q")
+              git("config", "user.email", "test@example.invalid")
+              git("config", "user.name", "Guvenlik Testi")
+              for name in ("CALISANLAR.m3u", "epg/report.json"):
+                  path = root / name
+                  path.parent.mkdir(parents=True, exist_ok=True)
+                  path.write_text("baseline", encoding="utf-8")
+              git("add", "--all")
+              git("commit", "-qm", "baseline")
+              baseline = git("rev-parse", "HEAD")
+              (root / "CALISANLAR.m3u").write_text("external change", encoding="utf-8")
+              git("add", "--all")
+              git("commit", "-qm", "remote simulation")
+              changed = set(git("diff", "--name-only", baseline, "HEAD").splitlines())
+              assert "CALISANLAR.m3u" in changed
+              assert not changed <= {"epg/report.json"}
+              print("Protected change between baseline and simulated remote head: BLOCK")
+              print("No remote network or production write attempted")
+          PY
+      - name: 17 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
