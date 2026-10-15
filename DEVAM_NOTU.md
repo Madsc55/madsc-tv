@@ -1504,3 +1504,15 @@ Doğrulanan öncelikli risk örnekleri:
 - central_backup_evidence.py acikca historical_recovery_verified=false, off_github_copy=DOGRULANMADI, github_branch_protection=API_IZNI_OLMADAN_DOGRULANMADI yazar. Mevcut SHA256 tek basina tarihsel korunma kaniti degildir.
 - KRITIK ACIK: madsc-arsiv-yedek-aktarim.yml eski workflow'u workflow_dispatch ve kendi workflow dosyasi push tetigine sahip, contents:write ile scripts/stage_archive_to_backups.py calistiriyor, CALISANLAR.m3u commit edip git push origin HEAD:main yapiyor. Merkezi salt-okunur akis bu eski otomatik yazma riskini devre disi birakmiyor. Kullanici onayi olmadan tetik/izin/yazma komutu degistirilmedi.
 - P1 kapanis durumu: inceleme basladi; arsivlerin kayipsizligi, 1/15 tetik cakismasi, tarihsel restore ve offsite kaniti acik. Tek tek numarali test yerine toplu kanit/kabul izlenecek.
+
+
+## DUZELTME - P0 BIRINCI BOLUM KAPATILMADI (2026-10-15)
+- Kullanici hakli olarak itiraz etti: bes maddenin denetimlerinin yapilmasi, bu maddelerin tamamen bitmesi demek degildir. Onceki 'birinci asama denetim kapanisi' ifadesi yalniz DENETIM ALT ISI icin gecerliydi; BIRINCI BOLUMUN TAMAMLANMASI anlamina GELMEZ.
+- GUNCEL KESIN DURUM: P0 BIRINCI BOLUM ACIK. P1 arsiv/yedek ana calismasina gecis ERTELENDI; P1 icin yapilan salt-okunur ilk bulgular kayip olmadan notta korunur.
+- P0 madde 1: son besli Actions gercek SHA kaniti tamam; 38724971116, 97869612210f7f868976aa598191cd6710f8be8a.
+- P0 madde 2: 26 kural enforcement ve aciklarin giderilmesi tamamlanmadi.
+- P0 madde 3: 92/92 ilk tarama tamam; 21 riskli workflow uretim duzeltmeleri ve tam davranis esdegerligi tamamlanmadi.
+- P0 madde 4: protected SHA ve devre kesici izole testleri var; branch protection API 403, uretim kapsami tamamlanmadi.
+- P0 madde 5: cift push ve gereksiz otomatik tetik adaylari bulundu; engelleme ve davranissal kabul tamamlanmadi.
+- KAPANIS SARTI: bes maddenin her biri gercek uygulama ve kanitla tamamlanacak; engelli olan acikca engelli kalacak, yapilmayan is yesil gosterilmeyecek. Yeni tek tek uzun test serileri acilmadan toplu duzeltme ve toplu kabul yapilacak.
+- KORUMA: Yalniz DEVAM_NOTU.md guncellendi. Workflow/playlist/arsiv, main, PR #71 birlestirme icin kullanicidan ayrica acik izin gerekir.
