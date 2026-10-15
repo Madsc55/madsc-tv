@@ -68,8 +68,23 @@ jobs:
               fi
             done
             if [[ "${files_ok}" == true ]]; then
-              cp "${source_dir}/madsc_kesif/gecmis.json" "madsc_kesif/gecmis.json" 2>/dev/null || cp "${source_dir}/gecmis.json" "madsc_kesif/gecmis.json"
-              cp "${source_dir}/madsc_kesif/ana_liste_test_gecmisi.json" "madsc_kesif/ana_liste_test_gecmisi.json" 2>/dev/null || cp "${source_dir}/ana_liste_test_gecmisi.json" "madsc_kesif/ana_liste_test_gecmisi.json"
+              for file in gecmis.json ana_liste_test_gecmisi.json; do
+                source="${source_dir}/madsc_kesif/${file}"
+                [[ -f "${source}" ]] || source="${source_dir}/${file}"
+                target="madsc_kesif/${file}"
+                if [[ -e "${target}" && -s "${target}" ]]; then
+                  if ! cmp -s "${source}" "${target}"; then
+                    echo "::error::Depodaki mevcut gecmis ile artifact farkli: ${file}; kayitlarin uzerine yazilmadi."
+                    exit 1
+                  fi
+                else
+                  if [[ -e "${target}" ]]; then
+                    echo "::error::Depoda bos gecmis dosyasi var: ${file}; otomatik ezilmeyecek."
+                    exit 1
+                  fi
+                  cp "${source}" "${target}"
+                fi
+              done
               restored="${run_id}"
               break
             fi
