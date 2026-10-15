@@ -2,19 +2,18 @@
 """Sekiz gorevde gercek tamamlanma ve kanit eksikligini ayri raporla."""
 import json
 from pathlib import Path
+try:
+    from scripts.evidence_reader import read_json_evidence
+except ModuleNotFoundError:
+    from evidence_reader import read_json_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "madsc_merkezi_denetim"
 OUT.mkdir(exist_ok=True)
 
 def read(name):
-    path = OUT / name
-    if not path.is_file():
-        return None
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (ValueError, UnicodeError):
-        return None
+    state, data = read_json_evidence(OUT / name)
+    return data if state == "present" else None
 
 def build(tasks, management):
     records = tasks.get("tasks", []) if isinstance(tasks, dict) else []
