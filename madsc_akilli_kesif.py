@@ -81,9 +81,11 @@ def main():
  # Only unfinished main-playlist checks, at least six hours apart.
  # Independent state: three successful checks >=6 hours apart.
  audit_state=OUT/"ana_liste_test_gecmisi.json"
- try:audit=json.loads(audit_state.read_text(encoding="utf-8")).get("channels",{})
- except Exception:audit={}
- if not isinstance(audit,dict):audit={}
+ if audit_state.exists():
+  audit=json.loads(audit_state.read_text(encoding="utf-8")).get("channels")
+  if not isinstance(audit,dict):raise RuntimeError("Invalid main-playlist test history; scanning stopped")
+ else:
+  audit={}
  audit_now=datetime.datetime.now(datetime.timezone.utc)
  unique={}
  for idx,ch in enumerate(parse(master)):
