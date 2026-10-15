@@ -1,3 +1,28 @@
+## 15 EKİM — EKRAN GÖRÜNTÜLERİYLE İSTENEN KÖK DOSYA/KOD TARAMASI — KANITLI EK KAYIT
+
+Kullanıcının beş GitHub ekran görüntüsündeki `.github`, `aday_bekletme`, `aday_hazirlik`, `arastirma`, `epg`, `epg_deneme`, `kontrol_notlari`, `liste_kontrol`, `logo_deneme`, `logos`, `madsc_dogrulama`, `madsc_kesif`, `madsc_son_kontrol`, `raporlar`, `reports`, `scripts`, `tarama`, `tests`, `tools`, `vod`, `yedekler` klasörleri ve kök dosyalar **kapsama alındı**. Git tree anlık görüntüsü 796 girdi; `madsc_kesif` 321, `.github` 99, `logos` 90, `scripts` 69, `yedekler` 23, `tools` 17 girdi. **Dosya adlarının sayılması içeriklerin tümünün okunduğu anlamına gelmez.** 309 metin/kod/yapılandırma dosyası ana çalışma kümesinde belirlendi (ayrıca `madsc_kesif` ve `yedekler` rapor arşivleri var). Bu turda seçilmiş kök Python, merkezi script ve test içerikleri doğrudan okunup görev açıklamaları incelendi; kalanların satır satır taraması AÇIK.
+
+### Koddan doğrudan çıkarılan görevler ve uyarılar
+- `madsc_akilli_kesif.py`: keşif geçmişte denenmiş adayları otomatik tekrar test etmiyor (`pending=untested`); 3 başarılı test ve kullanıcı/kimlik onayı ayrı; kaynak artwork kanal kimliği kanıtı değil; eksik logo raporu PNG dönüştürme hatasında dahi tutulmalı. Bu yüzden **tekrar test programı, kaynak/kimlik/PNG onayı ve keşif raporunun gerçek kapsamı** ayrı kabul edilir.
+- `final_validation.py`: `BATCH_SIZE=125`, `MAX_WORKERS=24`; süreklilik testi geçse bile durum `TECHNICAL_PASS_IDENTITY_PENDING`. **125'lik son kontrol kuyruğu ve kimlik onayı** ayrı tamamlanacak; geçmişteki 200'lü gruba göre fark tarihsel karardır.
+- `verification_pipeline.py`: eksik kaynak kökeni tamamlanabilir, fakat tarihsel kontroller ve kullanıcı kararları üzerine yazılamaz. **Kaynak geçmişini bozmama** zorunlu.
+- `yeni_kanal_tara.py`: gerçekten eksik kanal adları, mevcut kanalın alternatif akışlarından önce gelir. **Yeni kanal ve alternatif URL** ayrı kuyruklanmalı.
+- `scripts/central_all_remaining_tasks.py`: sekiz açık iş ailesi içinde dış yedek, kanal kimliği/logo/EPG, IBO onayı, kullanıcı onaylı aktarım, kalıcı cihaz onay arayüzü ve günlük cron için ayrı onay/bağımlılıklar var. Yabancı arşiv URL boşluğu, aday kuyruğu URL boşluğu ve yedek delili ayrı denetlenir; **rapor üretimi kanal açma/kimlik onayı değildir**.
+- `scripts/central_management_summary.py`: 18 görevde kod kanıtı ve canlı kanıt farklı; rapor eksikse başarı denmez, beş kategori için ayrı kanıt ve ana liste sağlık run kanıtı aranır. **Yeşil run ile canlı/cihaz sonucu karıştırılmamalı**.
+- `test_central_eighteen_task_audit.py`: 18 görev için IBO onayı ve canlı doğrulama otomatik doğru kabul edilmez; eksik kod kanıtı varsa 18 görev tamamlandı denmez.
+- `test_epg_tv_readiness.py`: beş kanallı XMLTV pilotunda TV cihaz onayı beklenir; program yoksa teknik hazır sayılmaz.
+- `vod/README.md`, `vod/IBO-AYRI-KURULUM.md`: ayrı test listesi ve katalog var; IBO Filmler/TV Dizileri sekmesinde görünme kanıtı yok, Xtream uyumlu API gerekebilir; otomatik film/bölüm ekleme açık değil, yalnız lisanslı içerik. Ana TV listesi değiştirilmez.
+- `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md`: Eurostar eski HLS 404 ve IBO'da açılmama; alternatif bulunmadı, ana listeye otomatik ekleme yasak.
+
+### Eksiksiz kaynak toplama için kalan denetim
+1. Kalan bütün `.github/workflows` ve `scripts` dosyalarında görev açıklamaları, cron, çağrı, TODO/FIXME ve tamamlanmamış davranışlar tek tek çıkartılacak.
+2. `tools`, kök `test_*.py`, `tests`, `madsc_son_kontrol`, `tarama`, `aday_*`, `arastirma`, `epg`, `vod` kaynakları tek tek okunacak; önceki notla karşılaştırılacak.
+3. `madsc_kesif` 321 girdi, `yedekler` 23 girdi ve diğer JSON/CSV/rapor kayıtlarındaki tarihsel kararlar ve açık işler kaynak/yol/kanıtla ayrıştırılacak. Çok büyük kanal/veri dosyaları ana nota körlemesine yapıştırılmayacak; içerikteki **görev, karar ve kanıt** kopyalanacak, tam kaynak korunacak.
+4. 1 Ekim'den itibaren GitHub geçmiş commit/PR/issue ve erişilebilir sohbet kararları taranıp **kaynakta bulunamayan veya doğrulanamayan** konular ayrı işaretlenecek; eksiksiz tarihsel kapsama iddiası kanıtsız kurulmayacak.
+5. Bütün bu tarama **yalnızca bu `DEVAM_NOTU.md` dosyasını genişletebilir**; diğer eski dosyalar aynen korunacak. Yeni kullanıcı onayı olmadan liste/yedek/logo/workflow değiştirilmez.
+
+---
+
 ## ANA MERKEZ NOT ARSIVI — 15 EKIM 2026 / KAYNAK KOPYA INDEKSI VE GOREV DEFTERI
 
 **Kullanici karari:** GitHub'daki eski notlar, kodlar, workflow'lar, arşivler ve raporlar yerlerinde aynen kalacak; silinmeyecek, taşınmayacak, yeniden yazılmayacak. Buraya içeriklerinden çıkarılan karar ve işlerin **kaynak gösteren kopya özeti** eklenir. Bu bölüm kaynak dosyaların birebir tam metin yedeği değildir; orijinal kaynaklar tek tek korunur. Yeni bir kopyalama işlemi tamamlanmadan 'her şey aktarıldı' denmez.
