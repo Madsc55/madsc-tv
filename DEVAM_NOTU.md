@@ -1418,3 +1418,18 @@ Doğrudan okunan \`madsc-son-kontrol.yml\`, \`madsc-uc-asama.yml\`, \`madsc-birl
 - Diğer dalın testleri ile \`madsc/bes-sistem-toplu-birlestirme\` kodunun aynılığı ve canlı koşular ayrıca doğrulanmalıdır. Eski workflow'lar, PR #4, PR #71 ve PR #72 birleştirilmedi/değiştirilmedi.
 
 **Öncelikli güvenli iyileştirme adayları:** Üç aşamanın kendi dispatch'ine toplam yeniden deneme/ilerleme sınırı; son kontrolde workflow_run+cron aynı çıktı için idempotent kabul; otomatik yazan workflow'larda ortak devre kesici kapsama tablosu. Önce izole test, sonra kullanıcı onayı olmadan üretime geçiş yok.
+
+
+## 15 EKİM 2026 — KULLANICI İLE ORTAK ÇALIŞMA KURALI: TEK SEFERDE TOPLU İŞ VE TEST
+
+**Kullanıcının açık talimatı:** 'Testlerimizin hepsini birleştirelim, bir seferde test yapalım, tek tek uğraşmayalım; kendi aramızda kural oluşturalım.' Bundan sonraki işlerde bu **çalışma usulü** esas alınır; mevcut 26 güvenlik kuralının numarası sessizce değiştirilmez.
+
+1. Önce aynı kategoriye ait eksik görevleri tek iş paketinde belirle; her görev için tekrar tekrar izin isteme. Mevcut başarılı işi tekrar yazma.
+2. Gerekli değişiklikleri izole dalda ve en az dosya farkıyla hazırla. Eski üretim otomasyonları, korunan listeler, logo, EPG, yedekler ve PR #71 korunur.
+3. **Tek toplu test giriş noktası** mevcut \`.github/workflows/madsc-05-genel-bakim.yml\` (\`workflow_dispatch\`): kategori 01→02→03→04 ve kategori 05'in 9 denetim adımını bir koşuda toplar. Yeni bağımsız test orkestratörü yazma; zaten var. Tek koşu farklı alt job'lar içerebilir.
+4. Düzeltmeleri biriktirip **bir bütünleşik Actions run** ile test et; değişen güvenlik davranışının ayrı dalda doğrulanması gerekiyorsa aynı toplu testin izole dal sürümü kullanılmalı. Hata çıkarsa yalnız ilgili başarısız kontroller düzeltilip toplu kapı yeniden çalıştırılır. Her küçük not/rapor için gereksiz yeni CI tetikleme.
+5. Her kabul için run ID, SHA, job/step sonuçları, artifact, korunan dosya SHA ve 92/92 davranışsal eşdeğerlik sınırı açıkça yazılır. Test geçmeyen iş 'tamamlandı' sayılmaz.
+6. Birleştirme, eski workflow kapatma veya üretim yazma izni ayrı açık kullanıcı onayına tabidir.
+7. **Tek toplu koşu tüm geçmiş 92 workflow'un davranışsal eşdeğerliğini kendiliğinden ispatlamaz**; statik denetim ve gerçek parity kabulü ayrı raporlanır.
+
+**Mevcut gerçek teknik durum:** 05 workflow \`workflow_dispatch\` ve \`schedule\` ile 5 kategoriyi çağırır; \`push\` tetikleyicisi yalnız çalışma dalında belirli dosyalar değiştiğinde çalışır ve \`[madsc-full-batch]\` commit mesajı yoksa ilk 4 kategori çalışmaz. Bu turda yeni toplu run **tetiklenmedi**: mevcut GitHub connector yalnız okuma/dosya güncelleme sunuyor, workflow_dispatch işlemi sunmuyor. Yeni CI başlatıldı diye yazma. Kullanıcı tek seferlik test istediğinden gereksiz ayrı run üretme; bir sonraki toplu kabulde tek merkezli koşuyu kullan.
