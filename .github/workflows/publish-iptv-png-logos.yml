@@ -2,16 +2,32 @@ name: Publish IPTV PNG logos
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - 'logos/duzeltilmis-*.svg'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: madsc-png-logo-tek-kosu
+  cancel-in-progress: false
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Convert SVG logos to PNG
+        with:
+          persist-credentials: false
+      - name: 1 - Yalniz ana dalda yayin iznini dogrula
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/main"
+      - name: 2 - Iki basarisiz calismada devre kesicisini uygula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/workflow_failure_gate.py
+      - name: 3 - Mevcut SVG logolari PNG bicimine donustur
         run: |
           python -m pip install cairosvg
           python - <<'PY'
@@ -19,9 +35,37 @@ jobs:
           for p in glob.glob('logos/duzeltilmis-*.svg'):
               cairosvg.svg2png(url=p,write_to=p[:-4]+'.png',output_width=320,output_height=320)
           PY
-      - name: Commit PNG logos
+      - name: 4 - Yalniz izinli PNG dosyalarinin degistigini dogrula
         run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import fnmatch, subprocess
+          result = subprocess.run(
+              ["git", "status", "--porcelain", "--untracked-files=all"],
+              check=True, capture_output=True, text=True
+          )
+          changed = [line[3:] for line in result.stdout.splitlines()]
+          unexpected = [p for p in changed if not fnmatch.fnmatchcase(p, "logos/duzeltilmis-*.png") or "/" in p[len("logos/"):]]
+          if unexpected:
+              raise SystemExit("Izin disi dosya degisikligi: " + repr(unexpected))
+          print("Yalniz izinli PNG degisiklikleri:", changed)
+          PY
+      - name: 5 - PNG dosyalarini guvenle kaydet ve gonder
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add logos/duzeltilmis-*.png
-          git diff --cached --quiet || (git commit -m "Publish IBO-compatible PNG logos" && git pull --rebase origin main && git push)
+          git add -- 'logos/duzeltilmis-*.png'
+          if git diff --cached --quiet; then
+            echo "Yeni PNG degisikligi yok."
+            exit 0
+          fi
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" || {
+            echo "Ana dal degisti, otomatik gonderim durduruldu."
+            exit 1
+          }
+          git commit -m "Publish IBO-compatible PNG logos"
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)" push origin HEAD:main
