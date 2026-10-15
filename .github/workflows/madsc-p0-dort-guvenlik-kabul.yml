@@ -26,7 +26,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Test bagimliligini kur\n        run: python3 -m pip install PyYAML\n      - name: Tum regresyon testlerini calistir
+      - name: Test bagimliligini kur
+        run: python3 -m pip install PyYAML
+      - name: Tum regresyon testlerini calistir
         run: python3 -m unittest test_p0_dort_guvenlik_kabul test_central_protected_write_gate test_tek_merkez_tetikleme test_central_consolidation_audit -v
       - name: Doksan iki eski workflow icin tek risk raporu ve kabul kapisi
         run: python3 scripts/p0_dort_guvenlik_kabul.py
