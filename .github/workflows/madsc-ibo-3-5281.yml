@@ -56,12 +56,12 @@ jobs:
               (sandbox / "madsc_kesif").mkdir()
               # Historical 11367-entry layout is required by this one-time writer.
               # Build a synthetic fixture; never invent or rewrite real channel data.
-              fixture = ["#EXTM3U\\n"]
+              fixture = ["#EXTM3U\n"]
               for position in range(1, 11368):
                   fixture.append(
-                      f'#EXTINF:-1 group-title="📦 YEDEKLER (11367)",Synthetic backup {position}\\n'
+                      f'#EXTINF:-1 group-title="📦 YEDEKLER (11367)",Synthetic backup {position}\n'
                   )
-                  fixture.append(f'https://example.invalid/backup/{position}\\n')
+                  fixture.append(f'https://example.invalid/backup/{position}\n')
               (sandbox / "CALISANLAR.m3u").write_text(
                   "".join(fixture), encoding="utf-8"
               )
