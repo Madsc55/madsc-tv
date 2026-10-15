@@ -1,32 +1,21 @@
-name: MADSC - IBO Ikinci Sesli Kanal Ayirma
+name: MADSC - Historical Second Voice Decision Review
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-ibo-second-voice.yml'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: madsc-ibo-second-voice
+  group: madsc-ibo-second-voice-review
   cancel-in-progress: false
 jobs:
-  apply:
+  verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Refresh main
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Archive non-Turkish channels from fixed 6115 baseline
-        run: python3 scripts/apply_ibo_second_voice.py
-      - name: Commit only changed playlist and lossless archive
+        with:
+          persist-credentials: false
+      - name: Verify original voice decision source without replay
         run: |
           set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/ibo_6115_second_foreign.m3u madsc_kesif/ibo_6115_second_decisions.csv madsc_kesif/ibo_6115_second_report.json
-          git commit -m "Archive foreign backups from second voice review"
-          git push origin HEAD:main
+          test -f scripts/apply_ibo_second_voice.py
+          test -f CALISANLAR.m3u
+          git diff --exit-code -- CALISANLAR.m3u
