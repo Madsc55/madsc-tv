@@ -16,6 +16,10 @@ def inspect(root):
             if not isinstance(data, dict) or not isinstance(data.get("jobs"), dict):
                 errors.append(f"Invalid workflow: {p.name}")
                 continue
+            # A central workflow without explicit permissions inherits repository
+            # defaults; do not treat that unknown default as read-only.
+            if re.match(r"madsc-0[1-5]-", p.name) and "permissions" not in data:
+                errors.append(f"Central workflow missing explicit permissions: {p.name}")
             permissions = data.get("permissions", {})
             writes = (permissions == "write-all" or
                       (isinstance(permissions, dict) and any(v == "write" for v in permissions.values())) or
