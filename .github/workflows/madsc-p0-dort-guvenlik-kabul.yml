@@ -1,0 +1,39 @@
+name: MADSC P0 - Dort Guvenlik Toplu Kabul
+on:
+  push:
+    branches:
+      - madsc/p0-dort-guvenlik-kabul-20261015
+    paths:
+      - '.github/workflows/madsc-p0-dort-guvenlik-kabul.yml'
+      - 'scripts/p0_dort_guvenlik_kabul.py'
+      - 'test_p0_dort_guvenlik_kabul.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: madsc-p0-dort-guvenlik-kabul
+  cancel-in-progress: false
+jobs:
+  toplu-kabul:
+    name: Dort guvenlik gorevi - tek toplu test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tum regresyon testlerini calistir
+        run: python3 -m unittest test_p0_dort_guvenlik_kabul test_central_protected_write_gate test_tek_merkez_tetikleme test_central_consolidation_audit -v
+      - name: Doksan iki eski workflow icin tek risk raporu ve kabul kapisi
+        run: python3 scripts/p0_dort_guvenlik_kabul.py
+      - name: Tum raporlari sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-p0-dort-guvenlik-tek-kabul
+          path: madsc_merkezi_denetim/p0_dort_guvenlik_toplu_kabul.json
+          if-no-files-found: warn
