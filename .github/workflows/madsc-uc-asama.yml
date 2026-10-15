@@ -89,12 +89,3 @@ jobs:
             if git push origin HEAD:main; then exit 0; fi
           done
           exit 1
-      - name: Bekleyen adayların testine otomatik devam et
-        if: steps.pending.outputs.due != '0'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          remaining=$(python3 -c 'import json; print(json.load(open("madsc_dogrulama/summary.json"))["due_now"])')
-          if [ "$remaining" -gt 0 ]; then
-            gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/madsc-uc-asama.yml/dispatches" -f ref=main
-          fi
