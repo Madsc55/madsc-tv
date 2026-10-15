@@ -1362,3 +1362,12 @@ Kullanıcı beş güvenlik/sağlık görevini tek seferde ele alma talimatı ver
 İlk güvenlik düzeltmesi yalnız izole \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalında \`madsc-02-kesif.yml\` keşif adımı \`continue-on-error: false\`; henüz gerçek Actions run kabulü ve çalışma dalına birleştirme yapılmadı. Kod değişikliği sonrası gerçek test kanıtı yokken 'düzeltme tamamen kabul edildi' deme. Korunan dosyalar ve eski workflow'lar değiştirilmedi.
 
 **Kapanış kriteri:** 92 satırlık izin/komut/tetik/çıktı matrisi + yüksek riskli yazıcıların manuel kabulü, 26 kural için uygulama kanıtı, korunan dosya SHA kapsamı, ortak devre kesici, çift tetik önlemi ve değişen commit'e ait başarılı Actions run. Kullanıcının istediği tek paket güvenlik bitişi bunlardan sonra ilan edilir.
+
+
+## 15 EKİM 2026 — P0 İZOLE TASLAK PR #72 VE MEVCUT KURAL 24 PR #4
+
+Kullanıcının 'devam' talimatıyla ayrı \`madsc/p0-guvenlik-guvenli-duzeltme-20261015\` dalındaki **tek satırlık** \`madsc-02-kesif.yml\` \`continue-on-error: false\` değişikliği için **taslak PR #72** açıldı: https://github.com/Madsc55/madsc-tv/pull/72 . Hedef \`madsc/bes-sistem-toplu-birlestirme\`, kaynak commit \`eb477f41f37ad710b7a2f14508513d45d1e2f2a8\`. **Draft, merge edilmedi, birleştirilmeyecek; PR #71 değiştirilmedi.** Commit SHA'ya göre Actions koşu sorgusunda **0 run** bulundu; değişiklik için CI kanıtı yok, üretim kabulü yok.
+
+**Yeni unutulmuş kaynak:** Açık PR #4 \`safety-rule24-circuit-breaker\` → \`main\`: https://github.com/Madsc55/madsc-tv/pull/4 . İçinde \`tools/workflow_failure_gate.py\`, \`test_workflow_failure_gate.py\`, \`madsc-rule24-test.yml\` ve eski keşif/üç aşama/son kontrol workflow'larına devre kesici adımları var. Kod son iki tamamlanmış başarısız/timed_out run'da durdurmayı hedefliyor; elle workflow_dispatch kurtarmasına istisna tanıyor. **Bu mevcut iş yeniden yazılmamalı, önce gerçek Actions kanıtı, eski ana sistemle farkı, yanlış durdurma/erişim hakları ve 26 kural uygunluğu incelenmeli.** PR #4 birleştirilmedi, eski workflow'lar değiştirilmedi.
+
+**P0 hâlâ açık:** 92/92 izin/komut/tetik ayrıntısı, 26 kuralın gerçek enforce edilmesi, SHA/branch ve çift tetik giderimi, ayrı dal CI. Kullanıcıya 5/5 güvenlik tamamlandı denmez. Yeni çalışma bu iki taslak/açık PR üzerinden güvenli test ve karşılaştırma ile sürer.
