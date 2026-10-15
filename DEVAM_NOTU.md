@@ -1644,3 +1644,8 @@ Salt okunur ceviriler tarihsel scriptleri silmedi, sadece eski kararlarin otomat
 ## 2026-10-15 — EN SON GECERLI KESIF GECMISI
 - MADSC 02 restore: ayni daldaki son 100 basarili run icinde yeniden eskiye artifact arar; her iki JSON dosyasi bulunup history/channels sozlukleri dogrulanmadan geri yukleme yapmaz. Eksik/bozuk/indirilemeyen artifact sonraki run ile denenir; hicbiri uygun degilse sifirlama yok, hata. Commit 79d3a7f4314172d86e0a6eb8f78bb06eec90f5d5.
 - Hic onceki run yoksa depoda gecmis dosyasi -e ile mevcutsa bos bile olsa otomatik uzerine yazilmaz. Gercek GitHub Actions kosusu olmadan basarili sayilmaz. 100 run disindaki gecmis ve gecerlilik semantigi (icerik dogrulama derinligi) acik risklerdir.
+
+## 2026-10-15 — DEPO GECMISINI ARTIFACT ILE EZME KORUMASI
+- MADSC 02 onceki artifact geri yukleme adimi checkout ile gelen madsc_kesif/gecmis.json ve ana_liste_test_gecmisi.json uzerine dogrudan cp yapiyordu. Artik hedef dosya mevcutsa cmp ile birebir aynilik istenir; farkliysa hata ve sifir overwrite. Bos mevcut dosya da otomatik ezilmez. Commit 5b6b1a703f881434fd9f338bcb9146bcffab841b.
+- GitHub fetch_file madsc_kesif/gecmis.json icin content length 0 dondu (API truncate/icerik belirsiz); gercek dosya boyutu kanitlanmadi. ana_liste_test_gecmisi.json 311847 karakter icerik dondu. Bunlar korunmadan artifact kopyalanmamali.
+- Acik: iki gecmisin dogrulanmis merge tasarimi, artifact run seciminin gercek CI testi, depo gecmisinin gercek byte boyutu. Test basarisi iddia edilmiyor.
