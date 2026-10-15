@@ -272,7 +272,39 @@ jobs:
               print("PRODUCTION RISK STILL OPEN:", filename)
           print("Safety boundary: rehearsal does not authorize these legacy writers")
           PY
-      - name: 11 - Gercek kanal dosyalarinin degismedigini dogrula
+      - name: 11 - Tek seferlik ve surekli otomasyonlari ayir
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path(".github/workflows")
+          once = (
+              "madsc-11599-yedek-geri-yukle.yml",
+              "madsc-ibo-354-classify.yml",
+          )
+          recurring = (
+              "epg-gunluk.yml",
+              "vod-guncelle.yml",
+          )
+          event_driven = ("publish-iptv-png-logos.yml",)
+          for filename in once:
+              raw = (root / filename).read_text(encoding="utf-8")
+              assert "schedule:" not in raw, filename
+              assert "git push" in raw, filename
+              print("TARIHSEL TEK SEFERLIK - YENIDEN CALISTIRMA:", filename)
+          for filename in recurring:
+              raw = (root / filename).read_text(encoding="utf-8")
+              assert "schedule:" in raw, filename
+              assert "contents: write" in raw, filename
+              print("SUREKLI - GUVENLI YAZMA KAPISI GEREKIR:", filename)
+          for filename in event_driven:
+              raw = (root / filename).read_text(encoding="utf-8")
+              assert "push:" in raw and "schedule:" not in raw, filename
+              assert "contents: write" in raw, filename
+              print("OLAYA BAGLI - GUVENLI YAZMA KAPISI GEREKIR:", filename)
+          PY
+      - name: 12 - Gercek kanal dosyalarinin degismedigini dogrula
         run: |
           set -euo pipefail
           test -f CALISANLAR.m3u
