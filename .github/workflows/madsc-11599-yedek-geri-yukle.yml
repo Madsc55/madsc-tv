@@ -29,4 +29,5 @@ jobs:
           git add CALISANLAR.m3u madsc_kesif/yedek_11599_geri_yukleme_raporu.json
           git diff --cached --quiet && exit 0
           git commit -m "Restore all 11599 backups for user IBO classification"
+          python3 tools/protected_write_gate.py --base origin/main
           git push origin HEAD:main
