@@ -85,7 +85,7 @@ def gh_json(repo, endpoint):
     return json.loads(result.stdout)
 
 
-def find_previous(root, repo, branch, current_run):
+def find_previous(root, repo, branch, current_run, workflows=WORKFLOWS):
     page = 1
     while True:
         data = gh_json(repo, f'actions/runs?branch={quote(branch, safe="")}'
@@ -97,7 +97,7 @@ def find_previous(root, repo, branch, current_run):
                     or run.get('conclusion') != 'success'
                     or run.get('status') != 'completed'
                     or (run.get('head_repository') or {}).get('full_name') != repo
-                    or run.get('path') not in {'.github/workflows/' + w for w in WORKFLOWS}
+                    or run.get('path') not in {'.github/workflows/' + w for w in workflows}
                     or run.get('event') not in ('push', 'schedule', 'workflow_dispatch')):
                 continue
             sha = run['head_sha']

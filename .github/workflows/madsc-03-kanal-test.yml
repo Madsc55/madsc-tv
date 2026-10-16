@@ -80,7 +80,7 @@ jobs:
         id: ibo
         continue-on-error: true
         run: python3 scripts/export_ibo_two_stage_trial.py --limit 50
-      - name: K2 kanitlarini yeniden test etmeden puanla ve inceleme raporunu olustur
+      - name: K2 olcumlerini gecmisi koruyarak puanla ve inceleme raporunu olustur
         id: scoring
         continue-on-error: true
         timeout-minutes: 10
@@ -116,7 +116,7 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence test_five_category_logo_quality test_five_category_candidate_scoring -v
+        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence test_five_category_logo_quality test_five_category_candidate_scoring test_five_category_stability_history -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: |

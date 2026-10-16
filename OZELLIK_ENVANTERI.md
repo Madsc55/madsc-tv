@@ -71,3 +71,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 16 Ekim K5 Actions verisi: eski durum/hata raporlayicilarina GET envanter/son100kosu/enfazla20basarisizkosu job kaniti baglandi; mevcut run haric, otomatik ozet workflow+dal bazli. Gercek CI henuz bekliyor; DEVAM_NOTU izlenir.
 
 - 16 Ekim priority upstream hata duzeltmesi: ffprobe basarisiz satir9alan/8baslik URL-source kaymasi giderildi. Iki fixtureCSV testi ve toplam58 five_categoryPASS; gercek eski priority/toplu Actions sonucu DEVAM_NOTU'de izlenecek. Playlist ve legacyworkflow dosyasi degismedi.
+
+- 16 Ekim K3 kararlilik state: mevcut tracker gercek olcum zamani+tekillik destegi ve gecmisi saklama ile K2 olcumlerine baglandi. category_stability_history aynidal/ataSUCCESS03/05 artifact state+hash restore; entegrasyononcesi acikbootstrap, sonrasi eksikbozukfailclosed.7gunpencere/24saatteknikaralik,30gun/IBO/sureklioynatma degil.69five_category+21ilgiliyerelPASS;gercekCI DEVAM_NOTU'de izlenecek.

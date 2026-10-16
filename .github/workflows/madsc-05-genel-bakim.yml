@@ -17,6 +17,7 @@ on:
       - '.github/workflows/madsc-0[1-4]-*.yml'
       - 'scripts/category_evidence_collect.py'
       - 'scripts/category_candidate_scoring.py'
+      - 'scripts/category_stability_history.py'
       - 'scripts/akilli_aday_puanla.py'
       - 'scripts/birlesik_aday_raporu.py'
       - 'scripts/kanal_kararlilik_takip.py'
