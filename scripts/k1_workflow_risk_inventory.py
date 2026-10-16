@@ -7,7 +7,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / ".github" / "workflows"
 PROTECTED = re.compile(r"(?:CALISANLAR\.m3u|CALISMAYANLAR\.txt|YENILER\.m3u|YABANCI_KANALLAR\.m3u)", re.I)
-WRITE = re.compile(r"(?:\bgit\s+push\b|\bgh\s+api\b|curl[^\n]*(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))", re.I)
+WRITE = re.compile(r"(?:\bgit\s+push\b|curl[^\n]*(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))", re.I)
+GH_API = re.compile(r"\bgh\s+api\b[^\n]*", re.I)
+# Only the existing monthly audit\u0027s known GET-only Actions report calls are exempt.
+READ_ONLY_ACTIONS_API = re.compile(r"\brepos/\$\{GITHUB_REPOSITORY\}/actions/(?:runs|workflows)(?:\?[^\s\"]*)?", re.I)
+GH_API_MUTATION_FLAGS = re.compile(r"(?<!\w)(?:-X|--method|-f|-F|--field|--raw-field|--input)(?:\s|=|$)", re.I)
 PERMISSION = re.compile(r"(?:contents|actions|pull-requests|workflows):\s*write\b|permissions:\s*write-all", re.I)
 TRIGGER = re.compile(r"^\s*(push|pull_request|pull_request_target|workflow_run|schedule|workflow_dispatch|repository_dispatch):", re.M)
 GATE = "tools/protected_write_gate.py"
@@ -18,7 +22,14 @@ def inspect(path):
     pushes = len(re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b", s))
     gates = s.count(GATE)
     force_pushes = len(re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n]*(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", s))
-    has_write = bool(WRITE.search(s))
+    api_calls = GH_API.findall(s)
+    api_write = any(
+        not READ_ONLY_ACTIONS_API.search(call)
+        or bool(GH_API_MUTATION_FLAGS.search(call))
+        or "graphql" in call.casefold()
+        for call in api_calls
+    )
+    has_write = bool(WRITE.search(s)) or api_write
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
