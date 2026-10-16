@@ -170,6 +170,46 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(report["behavioral_parity_verified_count"], 0)
             self.assertEqual(report["migration_blocked_count"], 92)
 
+    def test_bulk_cron_mismatch_and_write_risks_remain_blocked(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                if n == 0:
+                    body = (
+                        "name: Scheduled writer\non:\n  schedule:\n"
+                        "    - cron: '15 3 * * *'\npermissions:\n  contents: write\n"
+                        "jobs:\n  write:\n    steps:\n"
+                        "      - run: git push origin HEAD && git push --force origin HEAD\n"
+                        "      - run: python3 scripts/shared.py\n"
+                    )
+                else:
+                    body = (
+                        "name: Read-only\non:\n  workflow_dispatch:\n"
+                        "jobs:\n  check:\n    steps:\n"
+                        "      - run: python3 scripts/shared.py\n"
+                    )
+                (folder / f"legacy-{n:02d}.yml").write_text(body)
+            (folder / "madsc-01-guvenlik.yml").write_text(
+                "name: Shadow\non:\n  schedule:\n"
+                "    - cron: '30 3 * * *'\njobs:\n  check:\n"
+                "    steps:\n      - run: python3 scripts/shared.py\n"
+            )
+            (root / "scripts").mkdir()
+            (root / "scripts" / "shared.py").write_text("print('read-only')\n")
+            report = inspect(root)
+            writer = next(row for row in report["items"] if row["file"] == "legacy-00.yml")
+            self.assertEqual(writer["git_push_command_count"], 2)
+            self.assertEqual(writer["force_push_command_count"], 1)
+            self.assertEqual(writer["unmatched_cron_expressions"], ["15 3 * * *"])
+            self.assertIn("UNMATCHED_CRON_EXPRESSIONS", writer["migration_gap_reasons"])
+            self.assertIn("VERIFY_NO_DUPLICATE_PUSH", writer["required_acceptance_checks"])
+            self.assertIn("VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK", writer["required_acceptance_checks"])
+            self.assertEqual(writer["script_entrypoint_coverage_ratio"], 1.0)
+            self.assertEqual(report["migration_blocked_count"], 92)
+            self.assertEqual(report["behavioral_parity_verified_count"], 0)
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
