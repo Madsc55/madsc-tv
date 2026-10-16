@@ -48,6 +48,7 @@ def inspect(root=ROOT):
         primary, tags = classify(path.name, commands)
         push_commands = re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n;&|]*", raw)
         force_push_commands = [cmd for cmd in push_commands if re.search(r"(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", cmd)]
+        push_signal_lines = [line.strip()[:240] for line in raw.splitlines() if re.search(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b", line)]
         outputs = list(dict.fromkeys(re.findall(r"(?:(?:path|name):\s*)([\w./*-]+(?:\.json|\.md|\.zip|/))", raw)))
         items.append({
             "file": path.name, "primary_category": primary, "related_categories": tags,
@@ -58,6 +59,7 @@ def inspect(root=ROOT):
             "contents_write": bool(re.search(r"^\s*contents:\s*write\s*$", raw, re.M)),
             "commands": commands, "actions": uses, "output_hints": outputs,
             "git_push_command_count": len(push_commands),
+            "push_signal_lines": push_signal_lines,
             "force_push_command_count": len(force_push_commands),
             "multiple_push_command_signal": len(push_commands) > 1,
             "requires_manual_behavior_review": True,
@@ -183,7 +185,7 @@ def main():
             "legacy_workflow", "primary_category", "review_priority",
             "cron_utc", "push", "workflow_run", "workflow_call", "manual",
             "contents_write", "git_push_command_count", "force_push_command_count",
-            "multiple_push_command_signal", "legacy_commands", "legacy_actions",
+            "multiple_push_command_signal", "push_signal_lines", "legacy_commands", "legacy_actions",
             "output_hints", "possible_replacement_workflows",
             "shared_script_entrypoints", "unmatched_script_entrypoints",
             "behavioral_parity_verified", "migration_decision",
@@ -207,6 +209,7 @@ def main():
                 "git_push_command_count": item["git_push_command_count"],
                 "force_push_command_count": item["force_push_command_count"],
                 "multiple_push_command_signal": item["multiple_push_command_signal"],
+                "push_signal_lines": " || ".join(item["push_signal_lines"]),
                 "legacy_commands": "; ".join(item["commands"]),
                 "legacy_actions": "; ".join(item["actions"]),
                 "output_hints": "; ".join(item["output_hints"]),
