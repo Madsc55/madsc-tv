@@ -34,7 +34,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
       - name: Run Rule 24 circuit breaker negative tests
         run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
-      - name: Compare four protected file blobs against main
+      - name: Compare all tracked protected paths against main
         run: |
           git fetch --no-tags origin main
           python scripts/k1_protected_integrity.py
