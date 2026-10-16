@@ -46,7 +46,7 @@ def inspect(root=ROOT):
         uses = list(dict.fromkeys(re.findall(r"^\s+-?\s*uses:\s*([^\s#]+)", raw, re.M)))
         cron = [x.strip() for x in re.findall(r"^\s+-\s*cron:\s*['\"]?([^'\"\n#]+)", raw, re.M)]
         primary, tags = classify(path.name, commands)
-        push_commands = re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n]*", raw)
+        push_commands = re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n;&|]*", raw)
         force_push_commands = [cmd for cmd in push_commands if re.search(r"(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", cmd)]
         outputs = list(dict.fromkeys(re.findall(r"(?:(?:path|name):\s*)([\w./*-]+(?:\.json|\.md|\.zip|/))", raw)))
         items.append({
