@@ -17,6 +17,7 @@ on:
       - '.github/workflows/madsc-0[1-4]-*.yml'
       - 'scripts/wide_source_scan.py'
       - 'tools/genis_kaynak_taramasi.py'
+      - 'tools/logo_epg_audit.py'
       - 'scripts/discovery_history_restore.py'
       - 'scripts/five_category_permission_gate.py'
       - 'scripts/five_category_preflight.py'

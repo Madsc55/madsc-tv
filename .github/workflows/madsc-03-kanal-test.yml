@@ -42,6 +42,22 @@ jobs:
             fi
           done
           exit "${failed}"
+      - name: Mevcut logo ve EPG kalite denetimini calistir
+        id: logo_quality
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/logo_epg_audit.py CALISANLAR.m3u > madsc_merkezi_denetim/logo_epg_kalite.json
+          python3 - <<'PYTHON'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("madsc_merkezi_denetim/logo_epg_kalite.json").read_text())
+          count = sum(line.startswith("#EXTINF:") for line in Path("CALISANLAR.m3u").read_text(encoding="utf-8-sig").splitlines())
+          assert report["channels_checked"] == count > 0, "Logo/EPG denetim kapsami eksik"
+          assert isinstance(report["warnings"], list)
+          print("Logo/EPG kalite kapsami:", count, "uyari:", len(report["warnings"]))
+          PYTHON
       - name: EPG ve Pages yayin baglantisi salt okunur kabul kontrolu
         id: epg
         continue-on-error: true
@@ -93,7 +109,7 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence -v
+        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence test_five_category_logo_quality -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: |
@@ -105,6 +121,7 @@ jobs:
         shell: bash
         env:
           REPORTS: ${{ steps.reports.outcome }}
+          LOGO_QUALITY: ${{ steps.logo_quality.outcome }}
           EPG: ${{ steps.epg.outcome }}
           IBO: ${{ steps.ibo.outcome }}
           FFMPEG: ${{ steps.ffmpeg.outcome }}
@@ -113,7 +130,7 @@ jobs:
           REGRESSIONS: ${{ steps.regressions.outcome }}
         run: |
           failed=0
-          for name in REPORTS EPG IBO FFMPEG PLAYLIST COVERAGE REGRESSIONS; do
+          for name in REPORTS LOGO_QUALITY EPG IBO FFMPEG PLAYLIST COVERAGE REGRESSIONS; do
             value="${!name}"
             if [[ "${value}" != "success" ]]; then
               echo "::error::Kanal denetimi basarisiz veya atlandi: ${name}=${value}"
