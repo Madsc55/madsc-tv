@@ -135,6 +135,13 @@ def inspect(root=ROOT):
             if status["legacy"] and not status["replacement_declares"]
         ]
         item["write_permission_parity_unverified"] = item["contents_write"]
+        item["required_acceptance_checks"] = [
+            "COMPARE_LEGACY_AND_REPLACEMENT_JOB_STEPS",
+            "VERIFY_TRIGGER_EQUIVALENCE",
+            "VERIFY_OUTPUT_AND_ARTIFACT_EQUIVALENCE",
+            "VERIFY_PROTECTED_PATHS_UNCHANGED",
+        ] + (["VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK"] if item["contents_write"] or item["git_push_command_count"] else []) + (["VERIFY_NO_DUPLICATE_PUSH"] if item["multiple_push_command_signal"] else [])
+
         if item["unmatched_trigger_signals"]:
             item["migration_gap_reasons"].append("UNMATCHED_TRIGGER_SIGNALS")
         item["behavioral_parity_verified"] = False
@@ -192,6 +199,7 @@ def main():
             "integration_evidence_level", "unverified_trigger_behavior",
             "migration_gap_reasons", "missing_legacy_script_files",
             "unmatched_trigger_signals", "write_permission_parity_unverified",
+            "required_acceptance_checks",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -223,6 +231,7 @@ def main():
                 "migration_gap_reasons": "; ".join(item["migration_gap_reasons"]),
                 "unmatched_trigger_signals": "; ".join(item["unmatched_trigger_signals"]),
                 "write_permission_parity_unverified": item["write_permission_parity_unverified"],
+                "required_acceptance_checks": "; ".join(item["required_acceptance_checks"]),
                 "missing_legacy_script_files": "; ".join(item["missing_legacy_script_files"]),
             })
     # Five actionable queues in one artifact; no legacy workflow is mutated.
