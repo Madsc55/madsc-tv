@@ -33,7 +33,7 @@ jobs:
       - name: Produce full 98-workflow risk inventory
         run: |
           python scripts/k1_workflow_risk_inventory.py > k1-workflow-risk-inventory.json
-          python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); assert r['workflow_count'] >= 98"
+          python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98"
       - uses: actions/upload-artifact@v4
         with:
           name: k1-workflow-risk-inventory
