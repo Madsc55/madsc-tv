@@ -3055,3 +3055,10 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - GitHub GET /repos/Madsc55/madsc-tv/rulesets yaniti bos liste []. Bu sonuc repository ruleset gorunumu icindir; branch protection yoktur veya vardir sonucunu tek basina kanitlamaz.
 - Calisma dali /branches/madsc%2Fbes-sistem-toplu-birlestirme/protection ve /branches/... okumasi baglayici tarafinda INVALID_ARGUMENT (400 invalid repository path) hatasi verdi. Bu bir GitHub koruma durumu kaniti DEGIL. Branch protection durumu DOGRULANAMADI; kural 21 enforcement ve 26 kural tam kabul hala acik.
 - Bu DDTD'de sadece DEVAM_NOTU.md append-only degistirildi; korunan listeler, workflow, PR #71 ve main degistirilmedi. Siradaki is: erisilebilir dal koruma kaniti ve 92 workflow tetikleme/izin/yazma riskleri raporu.
+
+## 17 Ekim 2026 — DDTD 92 workflow envanteri ve tetikleme denetimi baslangici
+- GitHub .github/workflows dizini branch uzerinde GET ile okundu: 98 YAML workflow dosyasi. Onceki 92 legacy envanteri ile bu toplam ayni kapsam degildir; 98-92=6 farkinin dosya bazli gerekcesi bu turda dogrulanmadi, otomatik 92 kabul sayilmaz.
+- scripts/central_workflow_inventory.py incelendi: schedule, workflow_dispatch, push, workflow_run, contents:write ve concurrency ifadelerini statik sayiyor; ayni cron, ayni UTC saat, ortak concurrency grup raporlarini uretiyor. Bunlar gercek cift push/tetikleme veya davranissal parity kaniti DEGIL.
+- scripts/central_protected_write_gate.py incelendi: izin mirasi, riskli shell komutlari ve environment isaretleyicisi raporlaniyor; MANUAL_REVIEW_REQUIRED. Yazma engellemesi/enforcement kaniti DEGIL.
+- Son Actions #38970901713 SHA 15b69f59 completed/success, 5/5 daha once job bazinda dogrulandi; yeni kosu yok. Bu DDTD'de korunan dosyalara, kodlara, workflowlara, PR71'e dokunulmadi.
+- SONRAKI IS: 98 workflow dosyasinin merkezi besli/legacy/yardimci olarak kesin siniflandirilmasi; statik tetikleyici/cron/concurrency/yazma izinleri matrisi ve manuel risk sirasi. Onaysiz workflow kapatma, degistirme veya korunan kanallara yazma YOK. 92 davranissal parity 0/92.
