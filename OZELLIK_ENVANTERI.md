@@ -56,3 +56,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 
 - 16 Ekim K4: mevcut disaster_recovery_dry_run.py gecici bozulma/geri acma tatbikati K4'e baglandi; raporu artifact'ta. Harici/tarihsel backup onayi degil.
 - 16 Ekim besli runtime koruma: k1_protected_integrity.py snapshot/check tum takip edilen korunan M3U/yedek/favori dosyalarini gercek calisma dizininde karsilastirir; bes kategoride always son kontrol. Yerel 43 dosya/0 fark; gercek Actions sonucu DEVAM_NOTU.md'de izlenir.
+
+- 16 Ekim K2 kosular arasi gecmis: discovery_history_restore.py ayni dal/ata commit basarili 02 veya parent05 artifact gozlemlerini checkout kayitlarini silmeden birlestirir; bozuk veri/indirme/celiski taramayi durdurur. K2'ye bagli, runner disina push yapmaz. Yerel 8 davranis testi PASS; Actions kaniti DEVAM_NOTU.md'de izlenir.

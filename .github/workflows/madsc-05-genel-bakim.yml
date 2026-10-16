@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'scripts/discovery_history_restore.py'
       - 'scripts/five_category_permission_gate.py'
       - 'scripts/five_category_preflight.py'
       - 'scripts/five_category_92_workflow_audit.py'

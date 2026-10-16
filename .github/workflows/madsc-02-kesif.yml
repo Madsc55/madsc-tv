@@ -36,79 +36,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          mkdir -p madsc_kesif madsc_merkezi_denetim
-          # Checked-out history is authoritative; never replace it with an older artifact.
-          if [[ -e madsc_kesif/gecmis.json || -e madsc_kesif/ana_liste_test_gecmisi.json ]]; then
-            for file in gecmis.json ana_liste_test_gecmisi.json; do
-              key="channels"
-              [[ "${file}" == "gecmis.json" ]] && key="history"
-              if [[ ! -f "madsc_kesif/${file}" ]] || ! python3 -c 'import json,sys; d=json.load(open(sys.argv[1],encoding="utf-8")); assert isinstance(d,dict) and isinstance(d.get(sys.argv[2]),dict)' "madsc_kesif/${file}" "${key}"; then
-                echo "::error::Depodaki gecmis eksik veya bozuk: ${file}; otomatik sifirlama/geri yukleme yapilmadi."
-                exit 1
-              fi
-            done
-            echo "Depodaki dogrulanmis iki gecmis dosyasi korunarak kullaniliyor."
-            exit 0
-          fi
-          run_ids="$(gh run list --workflow madsc-02-kesif.yml --branch "${GITHUB_REF_NAME}" --status success --limit 100 --json databaseId --jq '.[].databaseId')"
-          if [[ -z "${run_ids}" ]]; then
-            if [[ -e madsc_kesif/gecmis.json || -e madsc_kesif/ana_liste_test_gecmisi.json ]]; then
-              echo "::error::Onceki kosu bulunamadi ancak depoda gecmis dosyasi var; mevcut kayitlarin uzerine yazilmayacak."
-              exit 1
-            fi
-            echo "::notice::Onceki basarili kesif kosusu yok; ilk calistirma icin bos gecmis olusturuluyor."
-            python3 -c 'import json,pathlib; p=pathlib.Path("madsc_kesif"); (p/"gecmis.json").write_text(json.dumps({"history":{}})+chr(10),encoding="utf-8"); (p/"ana_liste_test_gecmisi.json").write_text(json.dumps({"channels":{}})+chr(10),encoding="utf-8")'
-            exit 0
-          fi
-          restored=""
-          for run_id in ${run_ids}; do
-            source_dir="${RUNNER_TEMP}/madsc-onceki-kesif-${run_id}"
-            mkdir -p "${source_dir}"
-            if ! gh run download "${run_id}" --name madsc-kesif-tek-kosu-rapor --dir "${source_dir}"; then
-              echo "::warning::Run ${run_id} artifact indirilemedi; daha eski basarili kosu deneniyor."
-              continue
-            fi
-            files_ok=true
-            for file in gecmis.json ana_liste_test_gecmisi.json; do
-              source="${source_dir}/madsc_kesif/${file}"
-              if [[ ! -f "${source}" && -f "${source_dir}/${file}" ]]; then
-                source="${source_dir}/${file}"
-              fi
-              key="channels"
-              [[ "${file}" == "gecmis.json" ]] && key="history"
-              if [[ ! -f "${source}" ]] || ! python3 -c 'import json,sys; d=json.load(open(sys.argv[1],encoding="utf-8")); assert isinstance(d,dict) and isinstance(d.get(sys.argv[2]),dict)' "${source}" "${key}"; then
-                files_ok=false
-                break
-              fi
-            done
-            if [[ "${files_ok}" == true ]]; then
-              for file in gecmis.json ana_liste_test_gecmisi.json; do
-                source="${source_dir}/madsc_kesif/${file}"
-                [[ -f "${source}" ]] || source="${source_dir}/${file}"
-                target="madsc_kesif/${file}"
-                if [[ -e "${target}" && -s "${target}" ]]; then
-                  if ! cmp -s "${source}" "${target}"; then
-                    echo "::error::Depodaki mevcut gecmis ile artifact farkli: ${file}; kayitlarin uzerine yazilmadi."
-                    exit 1
-                  fi
-                else
-                  if [[ -e "${target}" ]]; then
-                    echo "::error::Depoda bos gecmis dosyasi var: ${file}; otomatik ezilmeyecek."
-                    exit 1
-                  fi
-                  cp "${source}" "${target}"
-                fi
-              done
-              restored="${run_id}"
-              break
-            fi
-            echo "::warning::Run ${run_id} gecmisi eksik veya gecersiz; daha eski basarili kosu deneniyor."
-          done
-          if [[ -z "${restored}" ]]; then
-            echo "::error::Basarili kosularin hicbirinde gecerli iki gecmis dosyasi bulunamadi; gecmis sifirlanmayacak."
-            exit 1
-          fi
-          echo "Gecerli kesif gecmisi geri yuklendi: run ${restored}"
+          python3 scripts/discovery_history_restore.py
       - name: Kategoriye ait tum rapor kontrolleri
         id: reports
         continue-on-error: true
@@ -148,7 +76,7 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue test_five_category_discovery_behavior -v
+        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue test_five_category_discovery_behavior test_five_category_discovery_history -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: |
