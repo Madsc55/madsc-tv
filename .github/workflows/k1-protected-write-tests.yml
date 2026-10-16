@@ -43,6 +43,11 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_k1_24_rule_evidence.py' -v
           python scripts/k1_24_rule_evidence.py > k1-24-rule-evidence.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: k1-24-rule-evidence
+          path: k1-24-rule-evidence.json
+          retention-days: 30
       - name: Compare all tracked protected paths against main
         run: |
           git fetch --no-tags origin main
