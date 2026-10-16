@@ -3227,3 +3227,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `tests/test_five_category_92_workflow_audit.py` onceki yalniz regex metni kontrolu yerine gercek `inspect(root)` fonksiyonunu gecici workflow ornekleriyle cagiran teste cevrildi. Eslesen cron: `15 4 * * *`, eslesmeyen cron: `30 7 * * 1`; iki ornekte de `behavioral_parity_verified=False` zorunlu. Commit `7d061d221be3e91e31bacea17d72d8c62b07aa21`.
 - Son SHA Actions sonucu bu oturumda dogrulanamadi; PR-run ve combined status sorgulari tum push Actions kosularini kapsamaz. Testin basarili calistigi iddia edilmez.
 - SONRAKI: CI gercek run sonucunu SHA ile kontrol et; 92 eski workflow icin tetikleyici, script, rapor ve izin farklarini davranissal kanitlarla gider. Eski workflow kapatma yok, kabul 0/92.
+
+
+### 17 Ekim 2026 — 15 dakika CI ve sohbet devri
+- Kullanici main dalinda SADECE 15 dakikalik salt-okunur test zamanlayicisi icin ozel izin verdi.
+- `.github/workflows/madsc-15dk-test-zamanlayici.yml` main dalina eklendi: commit `4c8d41bec3725d29b9cfb967aad37c3d13c9c316`. Dosya fetch ile kontrol edildi: cron `*/15 * * * *`, checkout ref `madsc/bes-sistem-toplu-birlestirme`, contents read.
+- Testler cron regresyonu ve merkezi birlestirme regresyonlarini calistiracak, rapor artifact yukleyecek. ILK GITHUB ACTIONS CALISMASI VE BASARISI HENUZ DOGRULANMADI. GitHub schedule zamanlamasi gecikebilir; garanti 15 dakikada tamamlanma yoktur.
+- Saatlik MADSC TV Gece Gelistirme gorevi ayri aktiftir. Sohbet dolmasi bu kayitli gorevleri kendiliginden durdurmaz; fakat otomatik kod duzeltme ve surekli ajan calismasi garanti degildir.
+- SONRAKI: 15dk workflow Actions run, job log ve artifact dogrula; hata varsa izinli dalda duzelt; 92 eski workflow'un davranissal entegrasyonuna devam et. Kabul 0/92; eski workflow kapatma, playlist/EPG/yedek degistirme, PR71 merge yok.
