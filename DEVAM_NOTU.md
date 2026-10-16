@@ -2628,3 +2628,8 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 ## 2026-10-16 — K1 legacy writer regresyon testi gercekten PASS
 - `tests/test_protected_write_gate.py` icine `tests.test_k1_legacy_writer_guards.LegacyWriterGuards` baglanmis ve mevcut K1 Actions test kesfinde calismistir. GitHub run 38873782878 COMPLETED SUCCESS; logda `test_all_15_have_main_ref_job_guard_and_gate ... ok`, `test_read_only_ci_has_no_write_permission ... ok`, toplam protected-write 9 test PASS. 98 workflow statik envanter CRITICAL_UNGATED_PUSH=0; 5 workflow explicit permissions eksigi devam ediyor.
 - Onceki 'yeni regresyon testi calistirilamadi' notu bu sonuc ile GUNCELLENDI; CI workflow dosyasini degistirmeden mevcut test kesfine baglanmistir. Bu statik konfigurasyon PASS'i eski IBO fonksiyonlarinin gercek oynatici/kanal islemleri PASS'i DEGIL.
+
+## 2026-10-16 — K1 izin kapsami 5/5 kapatildi
+- Statik envanterin eksik izin bildirdigi 5 workflow bulundu: aday-oncelik-kontrol, besinci-zaman-asimi-test, test-13-kaynak-degisiklik, test-14-istikrar, test-15-logo-epg. Kodlari incelendi, hepsi salt okunur test; `permissions: contents: read` eklendi (yalniz calisma dali).
+- Gercek GitHub Actions run'lari sirasiyla 38875098838, 38875111160, 38875119732, 38875131968, 38875145292 = SUCCESS. K1 38875192398 = SUCCESS, statik envanterde missing_explicit_permissions=0 ve CRITICAL_UNGATED_PUSH=0; `test_report_missing_explicit_permissions` artik sifir eksikligi zorunlu tutar.
+- K1 icin hala acik: main dalinda branch protection false (yetki eksik); eski workflowlarin merkezi K1 ile davranis esdegerligi, end-to-end zararsiz test ve onay/IBO kosullari. Salt-okunur ve statik PASS bu maddelerin tamamlandigi anlamina gelmez.
