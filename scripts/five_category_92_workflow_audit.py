@@ -96,7 +96,6 @@ def inspect(root=ROOT):
             + (["AUTOMATIC_TRIGGER_NOT_REPLACED"] if item["unverified_trigger_behavior"] else [])
             + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] else [])
             + (["ARTIFACT_OUTPUTS_UNVERIFIED"] if item["output_hints"] else [])
-            + (["UNMATCHED_TRIGGER_SIGNALS"] if item["unmatched_trigger_signals"] else [])
             + ["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"]
         )
         # Explicit, auditable comparison of legacy trigger and permission signals
@@ -127,6 +126,8 @@ def inspect(root=ROOT):
             if status["legacy"] and not status["replacement_declares"]
         ]
         item["write_permission_parity_unverified"] = item["contents_write"]
+        if item["unmatched_trigger_signals"]:
+            item["migration_gap_reasons"].append("UNMATCHED_TRIGGER_SIGNALS")
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
