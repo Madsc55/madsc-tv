@@ -2665,3 +2665,11 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - GitHub `branches/main` sorgusu `protected:true`; `branches/main/protection` entegrasyon erişimi 403. Kullanıcı Edit ekranı: PR şartı, status checks, signed commits, lock branch ve bypass engeli işaretsiz; force push ve deletion izinleri işaretsiz. Bunlar değiştirilmedi; doğrudan normal pushların genel engeli kanıtlanmadı.
 - `tools/protected_write_gate.py` mevcut haliyle dosya yolu eşleşmesini tam normalleştirmiyor; `./` ve case varyantları ile belirsiz yollar için fail-closed iyileştirme ve negatif testler bekliyor. Kodda değişiklik YAPILMADI; önceki yazma denemesi araç güvenlik kontrolünce engellenmişti. Eski 15 writer'ın gerçek davranış/parity doğrulaması da açık.
 - K1 henüz kapanmadı; yalnız belgelenmiş PASS'ler tamam sayılmalı. main, PR #71 ve kanal listelerine müdahale edilmedi.
+
+
+## 2026-10-16 — Beş sistemin gerçek kabul durumu (yeniden doğrulandı)
+- K1 Actions `38898397515`: `completed/success`; negative-tests job ve bütün adımlar success; genişletilmiş korumalı dosya/M3U/yedek bütünlüğü karşılaştırması PASS. https://github.com/Madsc55/madsc-tv/actions/runs/38898397515
+- Beş kategori workflow'u `madsc-01..05` mevcut; 05 diğer dördünü reusable workflow olarak sırayla çağırıyor ve rapor üretiyor. Bunlar read-only shadow aşamasında. Bu yapının mevcut olması, 92 legacy workflow'un eşdeğer taşındığını kanıtlamaz.
+- `scripts/five_category_92_workflow_audit.py` her 92 legacy workflow için `behavioral_parity_verified=False` ve `migration_decision=BLOCKED_NEEDS_BEHAVIOR_EVIDENCE` yazıyor. `madsc-05-genel-bakim.yml` kabul kapısı da 92 engelli iş akışını bekliyor; bu bilinçli fail-closed koşulu. Gerçek davranış kanıtı olmadan eski görevleri kapatma veya PR #71'i merge etme YASAK.
+- Son 40 feature-branch Actions kaydında K1 success, eski writer job'ları feature dalında skipped; bu yalnızca branch guard kanıtıdır, main üretim parity kanıtı değildir.
+- Kalan işler: 92 eski workflow için tetikleyici/çıktı/yetki/yan etki davranış kanıtlarını topla; beş kategori uçtan uca kabul testleri; IBO Player'da kullanıcı tarafından favori/kategori doğrulaması. Ana liste, favoriler, yedekler, main ve PR #71 değiştirilmedi.
