@@ -24,6 +24,17 @@ class WorkflowSecurityAuditTests(unittest.TestCase):
             self.assertIn("write_permissions", result["risk_line_numbers"])
             self.assertIn("protected_file_reference", result["risk_line_numbers"])
 
+    def test_flags_force_push_and_token_signals(self):
+        from scripts.audit_workflow_security import ROOT
+        from unittest.mock import patch
+        path = ROOT / "tests" / "_security_audit_fixture.yml"
+        source = "permissions:\n  contents: write\nsteps:\n  - run: git -c user.name=bot push --force origin HEAD\n  - run: echo $GH_TOKEN\n"
+        with patch.object(Path, "read_text", return_value=source):
+            result = inspect_workflow(path)
+        self.assertIn("git_force_push", result["risk_line_numbers"])
+        self.assertIn("git_push", result["risk_line_numbers"])
+        self.assertIn("github_token_env", result["risk_line_numbers"])
+
     def test_read_only_workflow_no_false_write_signal(self):
         from scripts.audit_workflow_security import ROOT
         from unittest.mock import patch
