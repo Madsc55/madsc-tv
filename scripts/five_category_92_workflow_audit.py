@@ -137,7 +137,7 @@ def inspect(root=ROOT):
         # A matching trigger type is not proof that schedule expressions match.
         replacement_crons = sorted(set(
             cron.strip() for raw in replacement_raw.values()
-            for cron in re.findall(r"^\\s+-\\s*cron:\\s*['\\\"]?([^'\\\"\\n#]+)", raw, re.M)
+            for cron in re.findall(r"^\s+-\s*cron:\s*['\"]?([^'\"\n#]+)", raw, re.M)
         ))
         item["legacy_cron_expressions"] = sorted(set(item["cron_utc"]))
         item["replacement_cron_expressions"] = replacement_crons
