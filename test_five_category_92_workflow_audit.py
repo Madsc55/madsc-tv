@@ -30,6 +30,8 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(result["migration_gap_reason_counts"]["UNMATCHED_SCRIPT_ENTRYPOINTS"], 42)
             self.assertEqual(sum(result["integration_evidence_counts"].values()), 92)
             self.assertEqual(result["migration_blocked_count"], 92)
+            self.assertTrue(all("trigger_coverage_signals" in x for x in result["items"]))
+            self.assertTrue(all("unmatched_trigger_signals" in x for x in result["items"]))
             self.assertEqual(len(result["items"]), 92)
             self.assertTrue(all(not x["behavioral_parity_verified"] for x in result["items"]))
 
