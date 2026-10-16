@@ -2575,3 +2575,9 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Yeni salt-okunur workflow .github/workflows/k1-protected-write-tests.yml eklendi (1ae499f), run 38868921735 tamamlandi SUCCESS; isolated security audit, protected write gate negative tests ve workflow inventory adimlari yesil. Bu global main write enforcement kaniti DEGIL.
 - Legacy .github/workflows/madsc-arsiv-yedek-aktarim.yml ve madsc-ibo-3-5281.yml calisma dalinda manuel salt-okunur bilgilendirme gorevine cevrildi; otomatik protected playlist mutation devre disi (1ed0163, edacc54). IBO workflow'unun aradaki 6f1cffe commitinde tetikleyicisiz YAML hata kosusu olustu; edacc54 ile workflow_dispatch geri eklendi. Son durum icin yeni GitHub Actions PASS henuz yok.
 - Ana playlist, main ve PR #71 degistirilmedi. Diger legacy workflowlarin yazma riskleri halen acik; K1 tamamlandi denmez.
+
+## 2026-10-16 — K1 Rule24 gercek Actions PASS ve sonraki blokaj
+- tests/test_k1_failure_gate.py: 4 negatif/kenar test eklendi (7c24397); K1 test workflow'una eklendi (4e4b7c2).
+- GitHub Actions run 38869628004 COMPLETED SUCCESS: audit, protected write gate, Rule24 should_stop negatif testleri ve envanter adimlari yesil. Bu yalniz izole testlerdir; butun legacy otomasyonlarda canli enforcement kaniti DEGIL.
+- Calisma dali branch protection=false; 92 legacy workflow'un yetki/tetikleyici/yazma ve esdegerlik incelemesi bitmedi. K1 henuz bitmedi; K2'ye gecilmez.
+- CALISANLAR.m3u, YENILER.m3u, YABANCI_KANALLAR.m3u, CALISMAYANLAR.txt, yedekler ve main degistirilmedi.
