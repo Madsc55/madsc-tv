@@ -2745,3 +2745,10 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Izole gecici Git reposunda gercek betik calistirildi: iki playlist geri acma PASS, orijinaller ayni; kullanici tarafindan degistirilmis YENILER kopyasinda hata verip degisikligi koruma negatif testi PASS. 7 ilgili yerel test PASS. Gercek YEDEKLER veya playlist degismedi.
 - Onceki K2 medya bagimlilik commit'i 1778648f; run 38931765012 bekliyor. Esas onceki run 38931000911 K1/K2 PASS, K3 halen devam. Yeni K4 degisikligi de toplu CI ile dogrulanacak.
 - Bu tatbikat Git HEAD yerel kopyasidir; bagimsiz harici/tarihsel backup veya IBO kurtarmasi DEGILDIR. Eski workflow acik, tetikleyici ve artifact adlari tam parity kabul edilmedi; 0/92 tam davranissal kabul korunuyor.
+
+## 2026-10-16 — Son dogrulanmis Actions ve sonraki adim
+- 7cb0a153 / #38931000911 COMPLETED/SUCCESS; 5/5 kategori PASS. K2 arsiv yasam dongusu gercek runner loglariyla dogrulandi.
+- 1778648f / #38931765012 IN_PROGRESS; K1 SUCCESS, medya araci kurulmus K2 calisiyor. Teknik yayin sonucunu onceki arac kurulumsuz kosuyla karistirma.
+- 96599365 / #38931938112 PENDING; K4 tatbikati dahil en son toplu test. Sonucunu varsayma; ilk sonraki is bu iki run'i kontrol et, hata varsa failed job logundan duzelt.
+- GitHub compare 289e413...96599365 yalniz 6 dosya gosteriyor: K2/K4 YAML, iki davranis testi, OZELLIK_ENVANTERI.md, DEVAM_NOTU.md. Korunan M3U, YEDEKLER/YENILER/FAVORILER ve eski workflow degisikligi yok. main/PR #71 merge yok.
+- Entegrasyonun tamami bitmedi: 92/92 tam kabul halen 0; bu tur K2 arsiv yasam dongusu ve medya on kosulu, K4 gecici felaket tatbikati somut olarak tasindi. Eski tetik/uretme/yazma/artifact/geri alma esdegerligi ve kalan gorevler acik; cihaz kabulunu kullanici yapacak.
