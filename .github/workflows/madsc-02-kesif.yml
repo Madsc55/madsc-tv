@@ -29,6 +29,7 @@ jobs:
         run: |
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
       - name: Onceki kesif gecmisini guvenle geri yukle
         shell: bash
         env:
@@ -150,7 +151,10 @@ jobs:
         run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue test_five_category_discovery_behavior -v
       - name: Korunan dosyalar degismedi
         if: always()
-        run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
       - name: Kesif basarisizlik kapisi
         if: always()
         shell: bash

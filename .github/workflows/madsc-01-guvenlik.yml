@@ -26,6 +26,7 @@ jobs:
         run: |
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
       - name: Kategoriye ait tum rapor kontrolleri
         id: reports
         continue-on-error: true
@@ -50,7 +51,7 @@ jobs:
         run: |
           set -uo pipefail
           failed=0
-          for suite in test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory; do
+          for suite in test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory test_five_category_runtime_integrity; do
             echo "::group::Regresyon: ${suite}"
             if python3 -m unittest "${suite}" -v; then
               echo "PASS ${suite}"
@@ -64,7 +65,10 @@ jobs:
           exit "${failed}"
       - name: Korunan dosyalar degismedi
         if: always()
-        run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
       - name: Guvenlik basarisizlik kapisi
         if: always()
         shell: bash

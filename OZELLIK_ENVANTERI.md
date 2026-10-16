@@ -53,3 +53,6 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 7/24 saatlik ChatGPT görevi tekrar etkin; bu, her saat bir çalışma turudur, kesintisiz gerçek zamanlı işlem değildir. Tamamlanmış denmeyen işlerin kanıtı toplanmaya devam eder.
 
 - 16 Ekim K2: eski birlesik kesfin arsiv before/tarama/after ve dort asama sonuc zinciri K2'ye baglandi; izole gercek betik testi eklendi. Tam workflow/uretim parity kabul edilmedi; Actions kaniti DEVAM_NOTU.md'de izlenir.
+
+- 16 Ekim K4: mevcut disaster_recovery_dry_run.py gecici bozulma/geri acma tatbikati K4'e baglandi; raporu artifact'ta. Harici/tarihsel backup onayi degil.
+- 16 Ekim besli runtime koruma: k1_protected_integrity.py snapshot/check tum takip edilen korunan M3U/yedek/favori dosyalarini gercek calisma dizininde karsilastirir; bes kategoride always son kontrol. Yerel 43 dosya/0 fark; gercek Actions sonucu DEVAM_NOTU.md'de izlenir.

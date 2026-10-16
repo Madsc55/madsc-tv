@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
       - name: Kategoriye ait tum rapor kontrolleri
         id: reports
         continue-on-error: true
@@ -66,7 +67,10 @@ jobs:
         run: python3 -m unittest test_central_isolated_git_restore test_central_backup_evidence test_central_archive_consistency test_five_category_disaster_behavior -v
       - name: Korunan dosyalar degismedi
         if: always()
-        run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
       - name: Arsiv ve yedek basarisizlik kapisi
         if: always()
         shell: bash
