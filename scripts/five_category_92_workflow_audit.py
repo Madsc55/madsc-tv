@@ -94,8 +94,37 @@ def inspect(root=ROOT):
             + (["AUTOMATIC_TRIGGER_NOT_REPLACED"] if item["unverified_trigger_behavior"] else [])
             + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] else [])
             + (["ARTIFACT_OUTPUTS_UNVERIFIED"] if item["output_hints"] else [])
+            + (["UNMATCHED_TRIGGER_SIGNALS"] if item["unmatched_trigger_signals"] else [])
             + ["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"]
         )
+        # Explicit, auditable comparison of legacy trigger and permission signals
+        # against candidate shadow replacements. This is triage, NOT parity proof.
+        replacements = item["possible_replacement_workflows"]
+        replacement_raw = {
+            name: (folder / name).read_text(encoding="utf-8")
+            for name in replacements
+        }
+        trigger_signals = {
+            "schedule": bool(item["cron_utc"]),
+            "push": item["push"],
+            "workflow_run": item["workflow_run"],
+            "workflow_call": item["workflow_call"],
+            "manual": item["manual"],
+        }
+        def has_trigger(raw, trigger):
+            return bool(re.search(r"^  " + re.escape(trigger) + r":", raw, re.M))
+        item["trigger_coverage_signals"] = {
+            trigger: {
+                "legacy": enabled,
+                "replacement_declares": any(has_trigger(raw, trigger) for raw in replacement_raw.values()),
+            }
+            for trigger, enabled in trigger_signals.items()
+        }
+        item["unmatched_trigger_signals"] = [
+            trigger for trigger, status in item["trigger_coverage_signals"].items()
+            if status["legacy"] and not status["replacement_declares"]
+        ]
+        item["write_permission_parity_unverified"] = item["contents_write"]
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
