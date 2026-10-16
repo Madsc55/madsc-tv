@@ -1,0 +1,34 @@
+name: MADSC CI Hata Raporu
+on:
+  workflow_run:
+    workflows: ["MADSC 15dk CI"]
+    types: [completed]
+permissions:
+  actions: read
+  issues: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sonucu issue 74'e kaydet
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          gh api "repos/$REPO/actions/runs/$RUN_ID/jobs?per_page=100" --jq '.jobs[] | [.name,.conclusion,.html_url] | @tsv' > jobs.txt
+          {
+            echo "### Otomatik CI sonucu"
+            echo "Run: $RUN_URL"
+            echo "SHA: $SHA"
+            echo "Sonuç: $CONCLUSION"
+            echo '### İşler'
+            echo '~~~'
+            cat jobs.txt
+            echo '~~~'
+          } > report.md
+          gh issue comment 74 --repo "$REPO" --body-file report.md
