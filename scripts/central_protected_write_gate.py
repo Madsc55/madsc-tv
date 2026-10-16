@@ -57,7 +57,7 @@ def inspect(root):
                 for kind, pattern in target_patterns.items()
                 for match in re.finditer(pattern, content)
             ]
-            gate = bool(re.search(r"environment:\\s*[^\\s]+", content))
+            gate = bool(re.search(r"(?m)^\s*environment:\s*(?:[^\s#]+|\n\s+name:\s*[^\s#]+)", content))
             rows.append({"workflow": str(p.relative_to(root)), "write_capability": writes, "inherited_permissions": inherited,
                          "risky_commands": risky_commands, "write_target_hints": write_target_hints,
                          "protected_path_reference": protected, "environment_gate_marker": gate,
