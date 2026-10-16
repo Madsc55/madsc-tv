@@ -136,6 +136,21 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertTrue(risky[0]["push_signal_lines"])
             self.assertEqual(report["migration_blocked_count"], 92)
 
+    def test_every_legacy_workflow_has_acceptance_checks(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    "name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  check:\\n"
+                    "    steps:\\n      - run: echo read-only\\n")
+            report = inspect(root)
+            self.assertEqual(report["total"], 92)
+            self.assertTrue(all("VERIFY_PROTECTED_PATHS_UNCHANGED" in
+                                row["required_acceptance_checks"] for row in report["items"]))
+            self.assertTrue(all(not row["behavioral_parity_verified"] for row in report["items"]))
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
