@@ -15,8 +15,9 @@ GATE = "tools/protected_write_gate.py"
 def inspect(path):
     s = path.read_text(encoding="utf-8-sig")
     triggers = sorted(set(TRIGGER.findall(s)))
-    pushes = len(re.findall(r"\bgit\s+push\b", s))
+    pushes = len(re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b", s))
     gates = s.count(GATE)
+    force_pushes = len(re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n]*(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", s))
     has_write = bool(WRITE.search(s))
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
@@ -39,6 +40,8 @@ def inspect(path):
         "write_permission_signal": has_permission,
         "protected_reference": protected,
         "git_push_count": pushes,
+        "force_push_count": force_pushes,
+        "multiple_push_signal": pushes > 1,
         "gate_reference_count": gates,
         "write_command_signal": has_write,
         "risky_trigger": risky_triggers,
@@ -53,6 +56,8 @@ def audit():
         "missing_explicit_permissions": sum(not r["explicit_permissions"] for r in records),
         "missing_permission_paths": [r["path"] for r in records if not r["explicit_permissions"]],
         "push_commands": sum(r["git_push_count"] for r in records),
+        "force_push_commands": sum(r["force_push_count"] for r in records),
+        "workflows_with_multiple_push_signals": [r["path"] for r in records if r["multiple_push_signal"]],
         "gate_references": sum(r["gate_reference_count"] for r in records),
         "records": records,
         "limitations": "Static signals only: YAML context, scripts, action side effects, branch rules and runtime enforcement need separate verification.",
