@@ -1,6 +1,11 @@
 name: MADSC - IBO 3-5281 Kanal Ayirma
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-ibo-3-5281.yml'
 
 permissions:
   contents: read
