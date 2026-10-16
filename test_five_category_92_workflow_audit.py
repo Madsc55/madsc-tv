@@ -98,6 +98,27 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(report["total"], 92)
             self.assertNotIn("k1-protected-write-tests.yml", [x["file"] for x in report["items"]])
 
+    def test_push_risk_signals_are_recorded_without_claiming_parity(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                command = ("git -c user.name=bot push --force origin HEAD" if n == 0
+                           else "git push origin HEAD && git push origin HEAD" if n == 1
+                           else "echo no-push")
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    "name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  check:\\n"
+                    f"    steps:\\n      - run: {command}\\n")
+            report = inspect(root)
+            by_name = {row["file"]: row for row in report["items"]}
+            self.assertEqual(by_name["legacy-00.yml"]["force_push_command_count"], 1)
+            self.assertEqual(by_name["legacy-01.yml"]["git_push_command_count"], 2)
+            self.assertTrue(by_name["legacy-01.yml"]["multiple_push_command_signal"])
+            self.assertIn("MULTIPLE_PUSH_COMMANDS_REVIEW", by_name["legacy-01.yml"]["migration_gap_reasons"])
+            self.assertIn("FORCE_PUSH_COMMAND_REVIEW", by_name["legacy-00.yml"]["migration_gap_reasons"])
+            self.assertEqual(report["migration_blocked_count"], 92)
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
