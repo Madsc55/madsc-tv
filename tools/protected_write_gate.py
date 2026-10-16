@@ -40,8 +40,16 @@ def git_changed_paths(base):
         ["git", "diff", "--cached", "--name-only", "-z", "--no-renames"],
         check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
     )
+    unstaged = subprocess.run(
+        ["git", "diff", "--name-only", "-z", "--no-renames"],
+        check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    untracked = subprocess.run(
+        ["git", "ls-files", "--others", "--exclude-standard", "-z"],
+        check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
     return [p.decode("utf-8", errors="strict") for p in
-            (result.stdout + staged.stdout).split(b"\0") if p]
+            (result.stdout + staged.stdout + unstaged.stdout + untracked.stdout).split(bytes([0])) if p]
 
 
 def main(argv=None):
