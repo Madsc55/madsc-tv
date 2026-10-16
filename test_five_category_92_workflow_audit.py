@@ -119,6 +119,23 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertIn("FORCE_PUSH_COMMAND_REVIEW", by_name["legacy-00.yml"]["migration_gap_reasons"])
             self.assertEqual(report["migration_blocked_count"], 92)
 
+    def test_write_risk_queue_has_consistent_evidence(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                command = "git push origin HEAD" if n == 0 else "echo safe"
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    f"name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  audit:\\n    steps:\\n      - run: {command}\\n")
+            report = inspect(root)
+            risky = [item for item in report["items"]
+                     if item["git_push_command_count"] or item["contents_write"]]
+            self.assertEqual(len(risky), 1)
+            self.assertEqual(risky[0]["file"], "legacy-00.yml")
+            self.assertTrue(risky[0]["push_signal_lines"])
+            self.assertEqual(report["migration_blocked_count"], 92)
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
