@@ -73,3 +73,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 16 Ekim priority upstream hata duzeltmesi: ffprobe basarisiz satir9alan/8baslik URL-source kaymasi giderildi. Iki fixtureCSV testi ve toplam58 five_categoryPASS; gercek eski priority/toplu Actions sonucu DEVAM_NOTU'de izlenecek. Playlist ve legacyworkflow dosyasi degismedi.
 
 - 16 Ekim K3 kararlilik state: mevcut tracker gercek olcum zamani+tekillik destegi ve gecmisi saklama ile K2 olcumlerine baglandi. category_stability_history aynidal/ataSUCCESS03/05 artifact state+hash restore; entegrasyononcesi acikbootstrap, sonrasi eksikbozukfailclosed.7gunpencere/24saatteknikaralik,30gun/IBO/sureklioynatma degil.69five_category+21ilgiliyerelPASS;gercekCI DEVAM_NOTU'de izlenecek.
+
+- K3 zamanli kararlilik gercekCI: c1683414 / MADSC05 #38952859393 SUCCESS5/5; eski KanalKararlilik #38952859152 SUCCESS. K3ilkbootstrap0medya/0gozlem/0kararli;K5eksikrapor0,43korunan0fark. Sonraki kosudan gercek state restore ve priority/genelmedya zamanli upstream kabul halenbekliyor; tam92parity0/92.
