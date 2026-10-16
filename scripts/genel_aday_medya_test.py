@@ -6,8 +6,12 @@ from pathlib import Path
 source=Path("YENILER_TARAMA_RAPORU.csv")
 with source.open(encoding="utf-8-sig",newline="") as f: rows=list(csv.DictReader(f))
 batch=int(os.environ.get("ADAY_TEST_GRUBU","0"));size=30
+if batch < 0:
+ raise ValueError("Negatif aday parti numarasi yasak")
 rows=sorted(rows,key=lambda r:(r.get("ADAY_TURU")!="YENI_KANAL_ADAYI",r.get("KANAL",""),r.get("YAYIN_URL","")))
 selected=rows[batch*size:(batch+1)*size]
+if not selected:
+ raise ValueError(f"Aday partisi bos veya kapsam disi: {batch}; toplam aday {len(rows)}")
 reuse={}
 if os.environ.get("MADSC_MEDYA_SKIP_CSV"):
  with Path(os.environ["MADSC_MEDYA_SKIP_CSV"]).open(encoding="utf-8-sig",newline="") as f:
