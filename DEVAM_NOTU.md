@@ -2614,3 +2614,8 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - 15 gercek legacy writer workflow'un job seviyesine `if: github.ref == 'refs/heads/main'` kondu: 8 IBO siniflandirma/ayirma, Turk geri-sec, yedek Turk ayir, yedek sayi duzelt, genis kaynak kontrol, uc asama, VOD, PNG logo. Bu kosul calisma dalinda yanlislikla main'e push veya korunan liste degisimi yapilmasini engellemek icin; main dalindaki eski workflow kodunu DEGISTIRMEZ.
 - Actions kosulari 38872765964, 38872773589, 38872779869, 38872790014, 38872799214, 38872807603, 38872825714, 38872835118, 38872850967, 38872860222, 38872868356 = SKIPPED, beklenen guvenli davranis. K1 38872790002 = SUCCESS. SKIPPED bir fonksiyonel PASS degildir.
 - Sonraki K1: tum 15 workflow icin davranis esdegerligi, main/protection/rulesets ve izin kapsaminda guvenli test; gate icin base/ref dogrulamasi; ana playlist butunluk SHA kontrolu. Eski workflowlari esdegerlik olmadan topluca kaldirma yok.
+
+## 2026-10-16 — K1 dort kritik dosya butunluk testi
+- GitHub main ve madsc/bes-sistem-toplu-birlestirme agaclari karsilastirildi: CALISANLAR.m3u=b40aaf6615b120eac7bd936ccf022dc4a14025ae; CALISMAYANLAR.txt=881cb039e3e248ad2c38d380720d0994a9bfafd6; YABANCI_KANALLAR.m3u=3980338955c65a7f238c7d8a377011a8dd78491f; YENILER.m3u=2a2c4141b14607f2f87d2405a7885e9e0fdda073. Dort dosya iki dalda ayni.
+- scripts/k1_protected_integrity.py salt okunur origin/main vs HEAD blob SHA karsilastirmasi; K1 Actions workflow'una eklendi. GitHub run 38873182777 SUCCESS (negatif testler + risk envanteri + dort dosya butunluk testi).
+- GET branches/main protected=false; branch protection detay endpoint 403 integration access denied. Branch/ruleset yonetim yetkisi eksik; etkin koruma olarak iddia edilemez. K1 acik gorev.
