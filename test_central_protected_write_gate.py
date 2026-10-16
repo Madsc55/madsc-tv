@@ -80,6 +80,23 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
             self.assertIn({"kind": "COPY_MOVE", "target": "YENILER.m3u"}, hints)
             self.assertIn({"kind": "SHELL_REDIRECT", "target": "CALISANLAR.m3u"}, hints)
 
+    def test_salt_okunur_izinle_yazma_hedefi_incelemeye_alinir(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "eski.yml").write_text(
+                "name: Eski\non: workflow_dispatch\npermissions:\n  contents: read\n"
+                "jobs:\n  job:\n    runs-on: ubuntu-latest\n    steps:\n"
+                "      - run: cp rapor.csv YENILER.m3u\n", encoding="utf-8")
+            report = inspect(root)
+            self.assertEqual(report["errors"], [])
+            self.assertEqual(report["review_count"], 1)
+            self.assertFalse(report["review_required"][0]["write_capability"])
+            self.assertIn({"kind": "COPY_MOVE", "target": "YENILER.m3u"},
+                          report["review_required"][0]["write_target_hints"])
+
     def test_merkezi_rapor_kanal_listesini_degistirmez(self):
         source = Path("scripts/central_protected_write_gate.py").read_text()
         self.assertNotIn("write_text(content", source)
