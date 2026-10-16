@@ -24,9 +24,15 @@ class CentralCronRegressionTests(unittest.TestCase):
                 "name: Central\non:\n  schedule:\n    - cron: '15 4 * * *'\njobs: {}\n",
                 encoding="utf-8",
             )
+            # The inventory enforces 92 legacy workflows, including in fixtures.
+            for number in range(90):
+                (workflows / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\\non:\\n  workflow_dispatch:\\njobs: {{}}\\n",
+                    encoding="utf-8",
+                )
             report = inspect(root)
             items = {row["file"]: row for row in report["items"]}
-            self.assertEqual(report["total"], 2)
+            self.assertEqual(report["total"], 92)
             self.assertEqual(items["legacy-matched.yml"]["unmatched_cron_expressions"], [])
             self.assertEqual(
                 items["legacy-unmatched.yml"]["unmatched_cron_expressions"],
