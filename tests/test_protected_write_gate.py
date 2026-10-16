@@ -17,6 +17,15 @@ class ProtectedWriteGateTests(unittest.TestCase):
         self.assertEqual(blocked_paths(["yedekler/old.txt", "test/backup.m3u"]),
                          ["yedekler/old.txt", "test/backup.m3u"])
 
+    def test_case_variants_and_ambiguous_paths_are_denied(self):
+        suspicious = [
+            "calisanlar.m3u", "favoriler/selection.txt",
+            "Yedekler/old.txt", "HEPSI/../report.txt",
+            "../CALISMAYANLAR.txt", "./YENILER.m3u",
+            "madsc_kesif//report.json",
+        ]
+        self.assertEqual(blocked_paths(suspicious), suspicious)
+
     def test_reports_are_allowed(self):
         self.assertEqual(blocked_paths(["madsc_kesif/report.json", "DEVAM_NOTU.md"]), [])
 
