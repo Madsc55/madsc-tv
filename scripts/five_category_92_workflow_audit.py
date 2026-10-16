@@ -134,6 +134,16 @@ def inspect(root=ROOT):
             }
             for trigger, enabled in trigger_signals.items()
         }
+        # A matching trigger type is not proof that schedule expressions match.
+        replacement_crons = sorted(set(
+            cron.strip() for raw in replacement_raw.values()
+            for cron in re.findall(r"^\\s+-\\s*cron:\\s*['\\\"]?([^'\\\"\\n#]+)", raw, re.M)
+        ))
+        item["legacy_cron_expressions"] = sorted(set(item["cron_utc"]))
+        item["replacement_cron_expressions"] = replacement_crons
+        item["unmatched_cron_expressions"] = sorted(
+            set(item["legacy_cron_expressions"]) - set(replacement_crons)
+        )
         item["unmatched_trigger_signals"] = [
             trigger for trigger, status in item["trigger_coverage_signals"].items()
             if status["legacy"] and not status["replacement_declares"]
@@ -148,6 +158,8 @@ def inspect(root=ROOT):
 
         if item["unmatched_trigger_signals"]:
             item["migration_gap_reasons"].append("UNMATCHED_TRIGGER_SIGNALS")
+        if item["unmatched_cron_expressions"]:
+            item["migration_gap_reasons"].append("UNMATCHED_CRON_EXPRESSIONS")
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
