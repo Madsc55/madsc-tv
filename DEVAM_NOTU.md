@@ -2570,3 +2570,8 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - CALISANLAR.m3u commit gecmisinde d647b05a0137 (2026-10-14) 'Keep only original two backup channels' degisikligi mevcut. Kullanici onayi olmadan eski 40 kaydi geri eklemeyin.
 - scripts/diagnose_11599_backups.py raporla tarihsel mutabakat alanlari eklendi (3a8da9d). Bu script yalniz okur. Canli Actions testinin PASS oldugu iddia edilmiyor.
 - K1 devam: diger yazma yetkili workflow'larin guvenlik kapilari, main branch kurallari ve negatif testleri eksik. main, playlist ve yedekler degistirilmedi.
+
+## 2026-10-16 — K1 GitHub Actions gercek PASS
+- Yeni salt-okunur workflow .github/workflows/k1-protected-write-tests.yml eklendi (1ae499f), run 38868921735 tamamlandi SUCCESS; isolated security audit, protected write gate negative tests ve workflow inventory adimlari yesil. Bu global main write enforcement kaniti DEGIL.
+- Legacy .github/workflows/madsc-arsiv-yedek-aktarim.yml ve madsc-ibo-3-5281.yml calisma dalinda manuel salt-okunur bilgilendirme gorevine cevrildi; otomatik protected playlist mutation devre disi (1ed0163, edacc54). IBO workflow'unun aradaki 6f1cffe commitinde tetikleyicisiz YAML hata kosusu olustu; edacc54 ile workflow_dispatch geri eklendi. Son durum icin yeni GitHub Actions PASS henuz yok.
+- Ana playlist, main ve PR #71 degistirilmedi. Diger legacy workflowlarin yazma riskleri halen acik; K1 tamamlandi denmez.
