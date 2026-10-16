@@ -12,13 +12,15 @@ WORKFLOWS = ROOT / ".github" / "workflows"
 TRIGGERS = ("push", "pull_request", "pull_request_target", "workflow_run",
             "workflow_dispatch", "schedule", "repository_dispatch", "workflow_call")
 RISK = {
-    "git_push": r"\bgit\s+push\b",
-    "git_commit": r"\bgit\s+commit\b",
+    "git_push": r"\bgit\s+(?:(?:-[A-Za-z]+|--[\w-]+(?:=[^\s]+)?)\s+)*push\b",
+    "git_commit": r"\bgit\s+(?:(?:-[A-Za-z]+|--[\w-]+(?:=[^\s]+)?)\s+)*commit\b",
     "gh_api": r"\bgh\s+api\b",
     "curl_write": r"\bcurl\b[^\n]*(?:-X\s*(?:POST|PUT|PATCH|DELETE)|--request\s+(?:POST|PUT|PATCH|DELETE))",
     "protected_file_reference": r"\b(?:CALISANLAR\.m3u|CALISMAYANLAR\.txt|YENILER\.m3u|YABANCI_KANALLAR\.m3u)\b",
     "write_permissions": r"\b(?:contents|actions|pull-requests|workflows):\s*write\b",
     "write_all": r"\bpermissions:\s*write-all\b",
+    "git_force_push": r"\bgit\s+(?:(?:-[A-Za-z]+|--[\w-]+(?:=[^\s]+)?)\s+)*push\b[^\n]*(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))",
+    "github_token_env": r"\b(?:GH_TOKEN|GITHUB_TOKEN|PERSONAL_ACCESS_TOKEN)\b",
 }
 DANGEROUS = ("pull_request_target", "workflow_run")
 
