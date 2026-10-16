@@ -265,6 +265,40 @@ def main():
             for item in priority_rows
         ],
     }
+    # Actionable high-risk queue: no workflow changes, only review evidence.
+    push_review = [
+        {
+            "file": item["file"],
+            "category": CATEGORIES[item["primary_category"]][0],
+            "git_push_command_count": item["git_push_command_count"],
+            "force_push_command_count": item["force_push_command_count"],
+            "push_signal_lines": item["push_signal_lines"],
+            "contents_write": item["contents_write"],
+            "automatic_triggers": {
+                "cron_utc": item["cron_utc"],
+                "push": item["push"],
+                "workflow_run": item["workflow_run"],
+            },
+            "migration_decision": item["migration_decision"],
+        }
+        for item in report["items"]
+        if item["git_push_command_count"] or item["contents_write"]
+    ]
+    push_review.sort(key=lambda item: (
+        -item["force_push_command_count"],
+        -item["git_push_command_count"],
+        not item["contents_write"],
+        item["file"],
+    ))
+    (out / "92_workflow_yazma_risk_inceleme_kuyrugu.json").write_text(
+        json.dumps({
+            "total_review_items": len(push_review),
+            "review_only": True,
+            "no_migration_authorized": True,
+            "items": push_review,
+        }, ensure_ascii=False, indent=2) + "\\n",
+        encoding="utf-8",
+    )
     (out / "92_workflow_oncelikli_gecis_isleri.json").write_text(
         json.dumps(priority_report, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
