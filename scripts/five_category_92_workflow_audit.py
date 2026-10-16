@@ -46,6 +46,8 @@ def inspect(root=ROOT):
         uses = list(dict.fromkeys(re.findall(r"^\s+-?\s*uses:\s*([^\s#]+)", raw, re.M)))
         cron = [x.strip() for x in re.findall(r"^\s+-\s*cron:\s*['\"]?([^'\"\n#]+)", raw, re.M)]
         primary, tags = classify(path.name, commands)
+        push_commands = re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n]*", raw)
+        force_push_commands = [cmd for cmd in push_commands if re.search(r"(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", cmd)]
         outputs = list(dict.fromkeys(re.findall(r"(?:(?:path|name):\s*)([\w./*-]+(?:\.json|\.md|\.zip|/))", raw)))
         items.append({
             "file": path.name, "primary_category": primary, "related_categories": tags,
@@ -55,6 +57,9 @@ def inspect(root=ROOT):
             "workflow_call": bool(re.search(r"^\s*workflow_call:", raw, re.M)),
             "contents_write": bool(re.search(r"^\s*contents:\s*write\s*$", raw, re.M)),
             "commands": commands, "actions": uses, "output_hints": outputs,
+            "git_push_command_count": len(push_commands),
+            "force_push_command_count": len(force_push_commands),
+            "multiple_push_command_signal": len(push_commands) > 1,
             "requires_manual_behavior_review": True,
         })
     if len(items) != 92:
@@ -95,6 +100,8 @@ def inspect(root=ROOT):
             + (["MISSING_LEGACY_SCRIPT_FILE"] if item["missing_legacy_script_files"] else [])
             + (["AUTOMATIC_TRIGGER_NOT_REPLACED"] if item["unverified_trigger_behavior"] else [])
             + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] else [])
+            + (["MULTIPLE_PUSH_COMMANDS_REVIEW"] if item["multiple_push_command_signal"] else [])
+            + (["FORCE_PUSH_COMMAND_REVIEW"] if item["force_push_command_count"] else [])
             + (["ARTIFACT_OUTPUTS_UNVERIFIED"] if item["output_hints"] else [])
             + ["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"]
         )
@@ -146,6 +153,8 @@ def inspect(root=ROOT):
         "cron_entries": sum(len(x["cron_utc"]) for x in items),
         "push": sum(x["push"] for x in items), "workflow_run": sum(x["workflow_run"] for x in items),
         "manual": sum(x["manual"] for x in items), "write_enabled_with_auto_trigger": risks,
+        "multiple_push_workflows": [x["file"] for x in items if x["multiple_push_command_signal"]],
+        "force_push_workflows": [x["file"] for x in items if x["force_push_command_count"]],
         "legacy_workflows_with_unmatched_scripts": sum(bool(x["unmatched_script_entrypoints"]) for x in items),
         "legacy_workflows_with_no_shared_script": sum(not x["shared_script_entrypoints"] for x in items),
         "legacy_workflows_with_missing_script_file": sum(bool(x["missing_legacy_script_files"]) for x in items),
@@ -173,7 +182,8 @@ def main():
         columns = [
             "legacy_workflow", "primary_category", "review_priority",
             "cron_utc", "push", "workflow_run", "workflow_call", "manual",
-            "contents_write", "legacy_commands", "legacy_actions",
+            "contents_write", "git_push_command_count", "force_push_command_count",
+            "multiple_push_command_signal", "legacy_commands", "legacy_actions",
             "output_hints", "possible_replacement_workflows",
             "shared_script_entrypoints", "unmatched_script_entrypoints",
             "behavioral_parity_verified", "migration_decision",
@@ -194,6 +204,9 @@ def main():
                 "workflow_call": item["workflow_call"],
                 "manual": item["manual"],
                 "contents_write": item["contents_write"],
+                "git_push_command_count": item["git_push_command_count"],
+                "force_push_command_count": item["force_push_command_count"],
+                "multiple_push_command_signal": item["multiple_push_command_signal"],
                 "legacy_commands": "; ".join(item["commands"]),
                 "legacy_actions": "; ".join(item["actions"]),
                 "output_hints": "; ".join(item["output_hints"]),
