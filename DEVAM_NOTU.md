@@ -2619,3 +2619,8 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - GitHub main ve madsc/bes-sistem-toplu-birlestirme agaclari karsilastirildi: CALISANLAR.m3u=b40aaf6615b120eac7bd936ccf022dc4a14025ae; CALISMAYANLAR.txt=881cb039e3e248ad2c38d380720d0994a9bfafd6; YABANCI_KANALLAR.m3u=3980338955c65a7f238c7d8a377011a8dd78491f; YENILER.m3u=2a2c4141b14607f2f87d2405a7885e9e0fdda073. Dort dosya iki dalda ayni.
 - scripts/k1_protected_integrity.py salt okunur origin/main vs HEAD blob SHA karsilastirmasi; K1 Actions workflow'una eklendi. GitHub run 38873182777 SUCCESS (negatif testler + risk envanteri + dort dosya butunluk testi).
 - GET branches/main protected=false; branch protection detay endpoint 403 integration access denied. Branch/ruleset yonetim yetkisi eksik; etkin koruma olarak iddia edilemez. K1 acik gorev.
+
+## 2026-10-16 — K1 eski workflow koruma regresyon testi (bekliyor)
+- tests/test_k1_legacy_writer_guards.py olusturuldu (commit e5914dc): 15 legacy writer'in main-ref job kosulunu ve protected_write_gate referansini salt okunur dogrular; K1 CI tokeninin read-only olmasini kontrol eder.
+- Bu yeni testi k1-protected-write-tests.yml akimina baglamak icin iki GitHub update denemesi arac guvenlik kontrolu tarafindan ENGELLENDI. CI dosyasi bu adimda degismedi; yeni test GitHub Actions tarafindan HENUZ CALISTIRILMADI. PASS iddiasi yok.
+- main branch protected=false; branch protection endpoint 403. Bu engeller ve yetki sinirlari K1 acik is olarak tutulur. Onceki 38873182777 butunluk testinin SUCCESS sonucu ayridir.
