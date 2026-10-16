@@ -1,6 +1,12 @@
 name: MADSC 05 - Genel Bakim Toplu
 on:
   workflow_dispatch:
+    inputs:
+      wide_scan_mode:
+        description: Genis kaynak taramasi
+        type: choice
+        options: [none, weekly, monthly, both]
+        default: none
   schedule:
     - cron: '30 1 * * *'
   push:
@@ -9,6 +15,8 @@ on:
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'scripts/wide_source_scan.py'
+      - 'tools/genis_kaynak_taramasi.py'
       - 'scripts/discovery_history_restore.py'
       - 'scripts/five_category_permission_gate.py'
       - 'scripts/five_category_preflight.py'
@@ -41,6 +49,9 @@ jobs:
     needs: kademe-1-guvenlik
     if: ${{ always() }}
     uses: ./.github/workflows/madsc-02-kesif.yml
+    with:
+      # Code-change acceptance exercises both modes; schedules keep the manual default.
+      wide_scan_mode: ${{ github.event_name == 'push' && 'both' || inputs.wide_scan_mode || 'none' }}
     permissions:
       contents: read
       actions: read

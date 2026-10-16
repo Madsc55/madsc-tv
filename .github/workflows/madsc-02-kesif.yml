@@ -3,7 +3,18 @@ on:
   schedule:
     - cron: '17 5,17 * * *'
   workflow_dispatch:
+    inputs:
+      wide_scan_mode:
+        description: Genis kaynak taramasi
+        type: choice
+        options: [none, weekly, monthly, both]
+        default: none
   workflow_call:
+    inputs:
+      wide_scan_mode:
+        description: Genis kaynak taramasi
+        type: string
+        default: none
 permissions:
   contents: read
   actions: read
@@ -73,10 +84,18 @@ jobs:
           python3 madsc_akilli_kesif.py
           python3 scripts/discovery_archive.py after
           python3 scripts/four_stage_discovery_report.py
+      - name: Genis kaynak gecmisini koru ve secilen taramayi calistir
+        id: wide
+        continue-on-error: true
+        timeout-minutes: 20
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WIDE_SCAN_MODE: ${{ inputs.wide_scan_mode || 'none' }}
+        run: python3 scripts/wide_source_scan.py --mode "${WIDE_SCAN_MODE}"
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue test_five_category_discovery_behavior test_five_category_discovery_history -v
+        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue test_five_category_discovery_behavior test_five_category_discovery_history test_five_category_wide_scan -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: |
@@ -88,10 +107,11 @@ jobs:
         shell: bash
         run: |
           failed=0
-          for step in reports discovery regressions; do
+          for step in reports discovery wide regressions; do
             case "${step}" in
               reports) outcome="${{ steps.reports.outcome }}" ;;
               discovery) outcome="${{ steps.discovery.outcome }}" ;;
+              wide) outcome="${{ steps.wide.outcome }}" ;;
               regressions) outcome="${{ steps.regressions.outcome }}" ;;
             esac
             if [[ "${outcome}" != "success" ]]; then
@@ -107,6 +127,7 @@ jobs:
           path: |
             madsc_merkezi_denetim/
             madsc_kesif/
+            madsc_genis_tarama/
           if-no-files-found: warn
 # Read-only shadow discovery: twice daily UTC (05:17,17:17) on default branch only.
 # Existing legacy discovery workflows remain enabled; no playlist write or migration approval.
