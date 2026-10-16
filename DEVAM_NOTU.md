@@ -3148,3 +3148,9 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Kullanici onceki mesajindaki 'masaustu IPTV Player gelistir' ifadesini yanlis yazdigini acikca duzeltti. Masaustu uygulama, Python/PySide6/VLC yeni masaustu mimarisi ve desktop_player/ klasoru YAPILACAK IS DEGILDIR; onceki bolumdeki masaustu Adim 1 plani gecersizdir, uygulanmayacak.
 - Asil hedef mevcut TV uygulamalari uzerinden izleme; kullanicinin mevcut IBO Player'i var. MADSC TV'deki mevcut M3U/EPG uyumlulugu, IBO Player ve TV oynatma, 92 eski workflow islevinin 5 merkezi sistemde kayipsiz entegrasyonu esas. Mevcut playlist/kanal kimligi, logo, EPG, yedekler korunacak; kullanicinin onayi olmadan TV uygulamasi degistirilmeyecek ve yeni uygulama gelistirilmeyecek.
 - Bu kayit sadece append-only duzeltmedir; masaustu kodu eklenmedi, playlist/workflow/main/PR71 degismedi.
+
+## 17 Ekim 2026 - DDTD TV/IBO kabul siniri
+- Kullanici duzeltmesi teyit: masaustu player gelistirilmeyecek; mevcut TV ve IBO Player esas. Repo kaynaklari salt okunur denetlendi.
+- test_epg_tv_readiness.py teknik XMLTV hazirligini cihaz onayindan ayiriyor: teknik ready True olsa bile tv_ibo_player_verified False, status TV_KONTROLU_BEKLIYOR, pilot 5 kanal. Test fixture raporundaki 1039/730/583 sayilari canli cihaz sonucu DEGIL.
+- test_central_ibo_review_queue.py adaylari ready_for_playlist HAYIR, user_decision ONAY_BEKLIYOR, sweden_ibo_status NOT_DEVICE_VERIFIED olarak tutuyor; eksik kaynakta KAYNAK_KANITI_YOK. test_central_identity_epg_logo_audit.py kullanici/IBO onayini otomatik vermiyor; logo gorsel kimlik ve cihaz EPG dogrulamasi bekliyor.
+- Bu tur gercek TV cihazinda oynatma testi yapilmadi; IBO calisiyor/EPG tam kabul iddiasi yok. Eski sistem korunuyor, 5 merkezi sistemde 92 legacy davranissal kabul 0/92. Yeni kod, workflow, playlist, main, PR71 degismedi. Sonraki adim TV'de M3U ve XMLTV pilot dogrulamasini kullanici gozlemiyle belgelemek, merkezi raporlarla eslestirmek.
