@@ -29,6 +29,7 @@ class LegacyWriterGuards(unittest.TestCase):
         missing = report["missing_permission_paths"]
         print("K1 missing explicit permissions:", ", ".join(missing))
         self.assertEqual(len(missing), report["missing_explicit_permissions"])
+        self.assertEqual(missing, [], "Every workflow must declare explicit permissions")
 
     def test_read_only_ci_has_no_write_permission(self):
         source = (ROOT / "k1-protected-write-tests.yml").read_text()
