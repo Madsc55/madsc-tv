@@ -2624,3 +2624,7 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - tests/test_k1_legacy_writer_guards.py olusturuldu (commit e5914dc): 15 legacy writer'in main-ref job kosulunu ve protected_write_gate referansini salt okunur dogrular; K1 CI tokeninin read-only olmasini kontrol eder.
 - Bu yeni testi k1-protected-write-tests.yml akimina baglamak icin iki GitHub update denemesi arac guvenlik kontrolu tarafindan ENGELLENDI. CI dosyasi bu adimda degismedi; yeni test GitHub Actions tarafindan HENUZ CALISTIRILMADI. PASS iddiasi yok.
 - main branch protected=false; branch protection endpoint 403. Bu engeller ve yetki sinirlari K1 acik is olarak tutulur. Onceki 38873182777 butunluk testinin SUCCESS sonucu ayridir.
+
+## 2026-10-16 — K1 legacy writer regresyon testi gercekten PASS
+- `tests/test_protected_write_gate.py` icine `tests.test_k1_legacy_writer_guards.LegacyWriterGuards` baglanmis ve mevcut K1 Actions test kesfinde calismistir. GitHub run 38873782878 COMPLETED SUCCESS; logda `test_all_15_have_main_ref_job_guard_and_gate ... ok`, `test_read_only_ci_has_no_write_permission ... ok`, toplam protected-write 9 test PASS. 98 workflow statik envanter CRITICAL_UNGATED_PUSH=0; 5 workflow explicit permissions eksigi devam ediyor.
+- Onceki 'yeni regresyon testi calistirilamadi' notu bu sonuc ile GUNCELLENDI; CI workflow dosyasini degistirmeden mevcut test kesfine baglanmistir. Bu statik konfigurasyon PASS'i eski IBO fonksiyonlarinin gercek oynatici/kanal islemleri PASS'i DEGIL.
