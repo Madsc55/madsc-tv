@@ -77,3 +77,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - K3 zamanli kararlilik gercekCI: c1683414 / MADSC05 #38952859393 SUCCESS5/5; eski KanalKararlilik #38952859152 SUCCESS. K3ilkbootstrap0medya/0gozlem/0kararli;K5eksikrapor0,43korunan0fark. Sonraki kosudan gercek state restore ve priority/genelmedya zamanli upstream kabul halenbekliyor; tam92parity0/92.
 
 - 16 Ekim K3 öncelikli/genel medya: mevcut iki probe betiği gerçek OLCUM_ZAMANI üretir. category_candidate_media.py izole mevcut priority+genel30parti CLI ve yalnız-keşif modunu bağlar; aynı URL priority ölçümü genel taramada tekrar probe edilmez. Başarılı ata artifact'inden hash/şema/üretici sürümüyle 6saatlik reuse; scoring en yeni ölçümü kullanır. Yerel76kategori+31ilgiliPASS;gerçekCIbekliyor,DEVAM_NOTU izlenir. Tam92/IBO/liste onayı değil.
+
+- K3 medya bağlantısı gerçekCI 1568187 / #38957224597 SUCCESS5/5; eskipriority #38957224570 ve eski genel #38957224651 SUCCESS. K3 102gerçekprobe/102gözlem/132tekilpuanlamaadayı,24hkararlı0;2ortakURLtekrarprobesiz. Ata kararlılık restore gerçekPASS. Cache sonraki gerçekreusekabulü bekliyor;79yerelkategoritestPASS.

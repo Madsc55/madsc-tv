@@ -29,8 +29,8 @@ def fixture(folder, at=None, state='VIDEO_SES_VAR', priority_at=None):
         with (folder / filename).open('w', encoding='utf-8-sig', newline='') as handle:
             writer = csv.DictWriter(handle, fieldnames=list(current)); writer.writeheader(); writer.writerow(current)
     (folder / media.SUMMARIES[0]).write_text(json.dumps({'toplam': 1, 'sonuclar': {state: 1}}))
-    (folder / media.SUMMARIES[1]).write_text(json.dumps({'test_edilen': 0, 'yeniden_kullanilan': 1}))
-    manifest = {'schema': 1, 'hashes': {name: hashlib.sha256((folder / name).read_bytes()).hexdigest()
+    (folder / media.SUMMARIES[1]).write_text(json.dumps({'test_edilen': 0, 'yeniden_kullanilan': 1, 'sonuclar': {state: 1}}))
+    manifest = {'schema': 1, 'playlist_write': False, 'device_approval': False, 'hashes': {name: hashlib.sha256((folder / name).read_bytes()).hexdigest()
                                      for name in (*media.FILES.values(), *media.SUMMARIES)}}
     (folder / 'kabul.json').write_text(json.dumps(manifest))
     return manifest
@@ -142,6 +142,45 @@ class CandidateMediaTests(unittest.TestCase):
             self.assertEqual(calls[2][1]['env']['MADSC_MEDYA_SKIP_CSV'], str(folder / media.FILES['priority']))
             self.assertTrue(all(call[1]['cwd'] == folder for call in calls))
             self.assertEqual((root / 'CALISANLAR.m3u').read_bytes(), b'#EXTM3U\n')
+
+    def test_previous_artifact_wrong_head_or_missing_integrated_reports_is_rejected(self):
+        source = dict(id=123, head_sha='a' * 40)
+        good = dict(name=media.ARTIFACT, expired=False, workflow_run=dict(id=123, head_sha='a' * 40))
+        cases = [('wrong_head', {**good, 'workflow_run': dict(id=123, head_sha='b' * 40)}),
+                 ('expired', {**good, 'expired': True}), ('missing_reports', good)]
+        for name, artifact in cases:
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                with patch.dict(os.environ, dict(GITHUB_REPOSITORY='o/r', GITHUB_REF_NAME='branch', GITHUB_RUN_ID='456')), \
+                     patch.object(media, 'find_previous', return_value=source), \
+                     patch.object(media, 'gh_json', return_value={'artifacts': [artifact]}), \
+                     patch.object(media.subprocess, 'check_output', return_value='marker'), \
+                     patch.object(media.subprocess, 'run') as download:
+                    with self.assertRaises(ValueError): media.previous(root, root)
+                    if name != 'missing_reports': download.assert_not_called()
+
+    def test_missing_timestamp_schema_never_falls_back_to_now(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp); fixture(folder)
+            path = folder / media.FILES['priority']
+            content = path.read_text(encoding='utf-8-sig').replace('OLCUM_ZAMANI', 'ESKI_BASLIK')
+            path.write_text(content, encoding='utf-8-sig')
+            with self.assertRaises(ValueError): media.reports(folder)
+            self.assertNotIn('OLCUM_ZAMANI', path.read_text())
+
+    def test_valid_hash_does_not_hide_bad_summary_or_forbidden_approval(self):
+        for case in ('summary', 'approval'):
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as tmp:
+                folder = Path(tmp); manifest = fixture(folder)
+                if case == 'summary':
+                    path = folder / media.SUMMARIES[1]
+                    summary = json.loads(path.read_text()); summary['sonuclar'] = {'DOGRULANAMADI': 1}
+                    path.write_text(json.dumps(summary))
+                    manifest['hashes'][path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+                else:
+                    manifest['device_approval'] = True
+                (folder / 'kabul.json').write_text(json.dumps(manifest))
+                with self.assertRaises(ValueError): media.load_cache(folder)
 
     def test_workflow_gates_media_before_scoring_and_publishes_isolated_files(self):
         workflow = (ROOT / '.github/workflows/madsc-03-kanal-test.yml').read_text()

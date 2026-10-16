@@ -60,6 +60,8 @@ def load_cache(folder, now=None):
     manifest = json.loads((folder / 'kabul.json').read_text(encoding='utf-8'))
     if manifest.get('schema') != 1 or set(manifest.get('hashes', {})) != set(FILES.values()) | set(SUMMARIES):
         raise ValueError('Medya kabul manifesti eksik')
+    if manifest.get('playlist_write') is not False or manifest.get('device_approval') is not False:
+        raise ValueError('Medya kabulunde beklenmeyen yazma/cihaz onayi')
     for name, digest in manifest['hashes'].items():
         path = folder / name
         if path.is_symlink() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
@@ -69,7 +71,8 @@ def load_cache(folder, now=None):
     general = json.loads((folder / SUMMARIES[1]).read_text(encoding='utf-8'))
     if priority['toplam'] != len(result['priority']) or priority['sonuclar'] != dict(collections.Counter(r['TEKNIK_MEDYA'] for r in result['priority'])):
         raise ValueError('Oncelikli medya kapsam/ozet celiskisi')
-    if general['test_edilen'] + general['yeniden_kullanilan'] != len(result['general']):
+    if (general['test_edilen'] + general['yeniden_kullanilan'] != len(result['general'])
+            or general['sonuclar'] != dict(collections.Counter(r['TEKNIK_MEDYA'] for r in result['general']))):
         raise ValueError('Genel medya olcum/tekrar kapsam celiskisi')
     fresh = all(dt.timedelta(0) <= now - timestamp(row['OLCUM_ZAMANI'], now) < dt.timedelta(hours=6)
                 for rows in result.values() for row in rows)
