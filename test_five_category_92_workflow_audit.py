@@ -86,6 +86,18 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertEqual(report["migration_gap_reason_counts"]["INLINE_OR_ACTION_BEHAVIOR_UNREVIEWED"], 92)
             self.assertEqual(report["migration_blocked_count"], 92)
 
+    def test_new_k1_ci_does_not_inflate_legacy_inventory(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                (folder / f"legacy-{n:02d}.yml").write_text("name: Legacy\\n")
+            (folder / "k1-protected-write-tests.yml").write_text("name: New K1 CI\\n")
+            report = inspect(root)
+            self.assertEqual(report["total"], 92)
+            self.assertNotIn("k1-protected-write-tests.yml", [x["file"] for x in report["items"]])
+
     def test_missing_legacy_workflow_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             folder = Path(d) / ".github" / "workflows"
