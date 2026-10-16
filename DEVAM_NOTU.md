@@ -2982,3 +2982,12 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 4. Gerçek24saat/7gün/30gün uzunlamasına kabul henüz yok; zaman geçmeden başarı üretme. Aynıolcumtekrarı yeni gozlem0 kalmalı.
 5. 92 eskiworkflow'un tetik/izin/çıktı/yanetki/idempotence/geri alma eşdeğerliği kabulü hâlâ0/92; somutbileşenleri tamworkflow sayısı yapma. Güncel öncelik kuyruğunu okuyup açık işlevleri sırayla tamamla. EPG/Pages uçtanuca,PNGkimliği,harici+tarihselrestore,gerçekVOD ve kullanıcıIBO kabulü açık.
 6. İlgili kod: category_candidate_media.py, category_candidate_scoring.py, category_stability_history.py; iki mevcut priority/genelmedya betiği; K3/K5 YAML; test_five_category_candidate_media.py ve priorityCSV testi. Yerel çalışmaalanı /workspace/scratch/7d693a10ace6/madsc-media; GitHub kalıcı kaynak, yerel uncommitted görüntüyü tekrar commit/push yapma.
+
+
+## 16 Ekim 2026 — yeni sohbet / aday parti guvenli durus (CI BEKLIYOR)
+- Onceki 22:00 devir notu, AGENTS.md, GUVENLIK_KURALLARI.md, OZELLIK_ENVANTERI.md ve ilgili medya/scoring/test kodlari yeniden okundu. Son kanitli medya cache restore 102 gozlem ve 5/5 PASS aynen korunuyor.
+- scripts/genel_aday_medya_test.py icinde ADAY_TEST_GRUBU negatifse ve secilen 30'luk parti bos/kapsam disiysa ValueError ile fail-closed kontrolu eklendi. Gecerli parti 0 akisi, ffprobe davranisi, korunan listeler ve mevcut cache semasi degistirilmedi. Commit 86a166291719a898cf4a9fb3942ef3212c95332e.
+- test_five_category_candidate_media.py icine negatif parti -1 ve bos parti 1 icin ffprobe'a girmeden hata bekleyen davranis testi eklendi. Commit 21f85d6effb635c59b3b3f821301630ea2111139.
+- GitHub Actions: genel aday #38960520249 ve MADSC05 #38960520290 ilk teknik commit icin calisiyordu; son test commit'i MADSC05 #38960536644 PENDING. SONUC BEKLENIYOR; PASS iddiasi yok.
+- Kalan ASIL is: 30'luk diger aday partilerinin cursor/parti bazli ilerlemesi ve kabul edilmis gecmis URL+gercek OLCUM_ZAMANI olcumlerinin birlesimi. Yalniz ADAY_TEST_GRUBU=1 yapmak yeterli degil: mevcut category_candidate_media.py tek bundle ve 6 saat cache modeli, category_candidate_scoring.py yalniz o bundle'i puanlar; gecmis partiler rapordan dusmemeli. Once test/sozlesme, sonra kod; eski102state silinmeyecek, olcumler yeniden zamanlanmayacak, cakisik hash fail-closed.
+- Ana liste/YENILER/YEDEKLER/FAVORILER/HEPSI/IBO/logolar/main/PR71 degismedi. Tam92 workflow davranissal kabul 0/92. Bu iki commit tum parti kapsaminin tamamlandigi anlamina gelmez.
