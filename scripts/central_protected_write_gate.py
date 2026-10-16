@@ -43,9 +43,21 @@ def inspect(root):
             if not writes and not inherited and not risky_commands:
                 continue
             protected = bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/", content, re.I))
-            gate = bool(re.search(r"environment:\s*[^\s]+", content))
+            # Salt okunur komut ipuclari: hedefler manuel inceleme icindir,
+            # izin/onay kaniti olarak yorumlanamaz.
+            target_patterns = {
+                "SHELL_REDIRECT": r"(?m)(?:>>?|tee\\s+(?:-a\\s+)?)\\s*([^\\s;&|]+)",
+                "COPY_MOVE": r"(?m)\\b(?:cp|mv)\\s+(?:-[^\\s]+\\s+)*[^\\s]+\\s+([^\\s;&|]+)",
+                "IN_PLACE_EDIT": r"(?m)\\bsed\\s+-i(?:\\S*)?\\s+[^\\n]*?\\s+([^\\s;&|]+)$",
+            }
+            write_target_hints = [
+                {"kind": kind, "target": match.group(1)}
+                for kind, pattern in target_patterns.items()
+                for match in re.finditer(pattern, content)
+            ]
+            gate = bool(re.search(r"environment:\\s*[^\\s]+", content))
             rows.append({"workflow": str(p.relative_to(root)), "write_capability": writes, "inherited_permissions": inherited,
-                         "risky_commands": risky_commands,
+                         "risky_commands": risky_commands, "write_target_hints": write_target_hints,
                          "protected_path_reference": protected, "environment_gate_marker": gate,
                          "status": "MANUAL_REVIEW_REQUIRED"})
         except Exception as exc:
