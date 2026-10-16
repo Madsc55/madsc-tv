@@ -5,6 +5,8 @@ on:
       - 'tools/channel_stability.py'
       - '.github/workflows/test-14-istikrar.yml'
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   stability-test:
     runs-on: ubuntu-latest
