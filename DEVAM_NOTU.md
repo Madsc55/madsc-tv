@@ -3198,3 +3198,12 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - YEDEK-01: K1 degisiklik oncesi Git commit b617a7aaf606ea45f1c3766c983a4b3005fc1a26 geri donus referansi; ayri GitHub backup dali OLUSTURULAMADI. IBO aday inceleme kodu user_decision ONAY_BEKLIYOR ve ready_for_playlist HAYIR uretir. 03 EPG/Pages denetimi shadow/read-only; gercek IBO kabul kullanicida.
 - TAM KALDIGIMIZ IS: Kullanici 'DDTD' dedi; scripts/five_category_92_workflow_audit.py ve scripts/central_consolidation_audit.py kaynaklari salt okunur acilarak 92 workflow entegrasyon aciklari incelenmeye baslandi, ancak sohbet devir talebi nedeniyle inceleme tamamlanmadi. Yeni sohbette bu iki betigi ve ilgili testleri oku, 92 eski workflow'dan siradaki davranissal entegrasyon dilimini sec; gerekliyse kod degisikligi icin dosya bazinda kullanici yetkisini teyit et, testleri ve K25 SHA-eslesen Actions'i dogrula. Korunan dosyalara dokunma.
 - Yalniz DEVAM_NOTU.md'ye bu devir kaydi append edildi; baska kod/workflow/playlist/main/PR71 degistirilmedi.
+
+
+### 17 Ekim 2026 — DDTD: cron denetimi düzeltildi ve regresyon testi eklendi
+- Kullanıcı tüm IPTV dosyalarında düzeltme yetkisi verdi; koruma kuralları ve gerçek davranışsal eşdeğerlik kabul şartı sürüyor.
+- `scripts/five_category_92_workflow_audit.py` içindeki merkezi cron regex çift kaçış hatası düzeltildi. Commit: `29e60b8adf2af7e8da95019e6777bdeae01870f0`.
+- `tests/test_five_category_92_workflow_audit.py` regresyon testi oluşturuldu. Commit: `41552b4aaa91c9982dc2ad3abf8c550273747100`.
+- Son commit için GitHub birleşik status sorgusu boş `statuses` döndü; Actions başarısı henüz teyit EDİLMEDİ. Test çalıştırıldı iddiası yok.
+- 92 eski workflow'un davranışsal kabulü halen 0/92; eski workflow'lar kapatılmadı, PR #71 birleştirilmedi, playlist/yedek/EPG/kanal dosyaları değiştirilmedi.
+- SONRAKI: Yeni SHA üzerinde Actions sonuçlarını doğrula; cron ve trigger eşdeğerliğini, script giriş noktalarını, rapor/izin davranışlarını eski 92 workflow için tek tek kanıtla; 0/92 sayısını kanıtsız yükseltme.
