@@ -64,3 +64,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 16 Ekim K3 logo/EPG kalite: mevcut tools/logo_epg_audit.py ve eski test15 uyari sozlesmesi K3'e tasindi. Tam M3U giris kapsam kontrolu, ayri JSON artifact ve zorunlu outcome kapisi; logo/EPG/liste duzeltmesi veya IBO kimlik onayi yapmaz. Gercek Actions kaniti DEVAM_NOTU.md'de.
 
 - 16 Ekim K3 aday puanlama: category_candidate_scoring.py mevcut scorer/birlesik raporu K2'nin kabul edilmis artifact kanitiyla izole klasorde calistirir, ek probe0. Priority rapor adi eslesmesi ve bozuk kararlilik gecmisi sifirlama hatasi duzeltildi. Uzunlamasina state/probe entegrasyonu henuz kabul edilmedi; Actions kaniti DEVAM_NOTU.md'de.
+
+- 16 Ekim K5 kanit devri: category_evidence_collect.py ayni run'in basariliK1..K4 artifact'lerinden sabitJSONraporlari provenance/SHAkontroluyle alir; ownerraporlari eskicheckout'la tekrar yazdirmaz. Yonetimozeti bagimliliklarindan sonra uretilir;24kaynakbolumu. Cihaz/harici/tam92kabul iddiasi yok; gercekCIsonucu DEVAM_NOTU.md'de.

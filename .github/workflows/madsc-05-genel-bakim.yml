@@ -15,6 +15,7 @@ on:
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'scripts/category_evidence_collect.py'
       - 'scripts/category_candidate_scoring.py'
       - 'scripts/akilli_aday_puanla.py'
       - 'scripts/birlesik_aday_raporu.py'
@@ -95,8 +96,15 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
           python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Ayni kosunun dort basarili kategori kanitini guvenle al
+        id: category_evidence
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/category_evidence_collect.py
       - name: Kategoriye ait tum rapor kontrolleri
         id: audit_1
+        if: ${{ steps.category_evidence.outcome == 'success' }}
         continue-on-error: true
         shell: bash
         run: |
@@ -104,9 +112,9 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           failed=0
           : > madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
-          for script in scripts/five_category_preflight.py scripts/five_category_92_workflow_audit.py scripts/central_workflow_inventory.py scripts/central_source_reconciliation.py scripts/central_duplicate_test_audit.py scripts/central_backup_evidence.py scripts/central_identity_epg_logo_audit.py scripts/central_ibo_review_queue.py scripts/central_eight_task_audit.py scripts/central_management_summary.py scripts/central_eighteen_task_audit.py scripts/central_all_remaining_tasks.py scripts/central_open_gaps.py scripts/central_single_screen_report.py; do
+          for script in scripts/five_category_preflight.py scripts/five_category_92_workflow_audit.py scripts/central_workflow_inventory.py scripts/central_source_reconciliation.py scripts/central_duplicate_test_audit.py scripts/central_backup_evidence.py scripts/central_identity_epg_logo_audit.py scripts/central_ibo_review_queue.py scripts/central_consolidation_audit.py scripts/central_eight_task_audit.py scripts/central_eighteen_task_audit.py scripts/central_all_remaining_tasks.py scripts/central_management_summary.py scripts/central_open_gaps.py scripts/central_single_screen_report.py; do
             echo "::group::Denetim: ${script}"
-            if python3 "${script}"; then
+            if python3 scripts/category_evidence_collect.py --run-report "${script}"; then
               printf '%s\\t%s\\n' "${script}" "success" >> madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
             else
               status=$?
@@ -199,7 +207,7 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: audit_7
         continue-on-error: true
-        run: python3 -m unittest test_central_workflow_inventory test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report -v
+        run: python3 -m unittest test_central_workflow_inventory test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report test_central_management_summary test_five_category_evidence_transfer -v
       - name: Tek merkez push regresyon testleri
         id: audit_8
         continue-on-error: true
@@ -233,6 +241,7 @@ jobs:
           set -euo pipefail
           sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
           python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
+          python3 scripts/category_evidence_collect.py --verify
       - name: Toplu test sonuc ozeti ve hata listesi
         if: always()
         env:
@@ -247,7 +256,7 @@ jobs:
           import json, os
           from pathlib import Path
           data = json.loads(os.environ["AUDIT_RESULTS"])
-          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
+          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["category_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
           categories = {name: os.environ[name] for name in ["SECURITY_RESULT", "DISCOVERY_RESULT", "CHANNEL_RESULT", "ARCHIVE_RESULT"]}
           result = {"audit_steps": audits, "categories": categories}
           folder = Path("madsc_merkezi_denetim")
@@ -264,7 +273,7 @@ jobs:
           python3 - <<'PY'
           import json, os, sys
           data = json.loads(os.environ["AUDIT_RESULTS"])
-          names = ["audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
+          names = ["category_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
           failures = [name for name in names if data.get(name, {}).get("outcome") != "success"]
           if failures:
               print("::error::Failed or skipped consolidated audits: " + ", ".join(failures))
