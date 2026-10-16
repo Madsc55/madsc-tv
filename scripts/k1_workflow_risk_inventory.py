@@ -21,7 +21,9 @@ def inspect(path):
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
-    if pushes and gates < pushes:
+    if pushes and not has_permission and "persist-credentials: false" in s and not re.search(r"\bGH_TOKEN\b|\bGITHUB_TOKEN\b", s):
+        tier = "READ_ONLY_AUDIT_TEXT"
+    elif pushes and gates < pushes:
         tier = "CRITICAL_UNGATED_PUSH"
     elif has_write and (protected or risky_triggers):
         tier = "HIGH_WRITE_OR_TRIGGER"
