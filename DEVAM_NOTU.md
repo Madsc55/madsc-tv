@@ -2598,3 +2598,8 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Her kategoride mevcut eski kod/workflow envanteri ile notlardaki tamamlanmis, yarim kalmis, planlanmis, yapilacak ve test bekleyen isler birlikte incelenir; ilgili sisteme eslenir. Sadece eski islevleri birlestirmek yeterli degildir.
 - Her gorev gercek uygulama ve dogrulama olmadan tamamlandi sayilmaz; sonuc ve eksikler yine DEVAM_NOTU.md'ye yazilir. Mevcut sira korunur: once K1 tamamlanir, sonra K2, K3, K4, K5.
 - Ana playlist, yedek, favori, kategori ve IBO onay kurallari degismez; yeni kanal yedek/test listesine eklenmeden once bile kullanicidan acik onay gerekir.
+
+## 2026-10-16 — UC KAYNAKLI K1–K5 IS ESLEME KURALI
+- K1–K5 icin HER is 3 kaynaktan tespit edilir: (1) mevcut eski sistemin gercek dosya/kod/workflow davranisi (notlarda bulunmasa bile), (2) DEVAM_NOTU.md ve diger proje notlarindaki hedefler, eksikler, yarim isler, (3) bes merkezi sistemin islevsel hedefleri ve guvenlik kurallari.
+- Eski sistemde olup notlarda yazilmamis yararli islevler kaybolmaz; notlarda olup eski sistemde uygulanmamis isler atlanmaz. Farklar acik gorev olarak kaydedilir, uygun K kategorisine eslenir, davranis esdegerligi ve testle dogrulanir.
+- Amac salt dosya sayisini azaltmak degil; eski yetenekler + planlanan yeni yetenekler + koruma/onay sinirlari ile dogru, guvenli ve test edilmis bes sistem kurmaktir. K1 bitmeden K2 uygulamasina gecilmez.
