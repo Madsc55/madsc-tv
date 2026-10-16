@@ -62,3 +62,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 16 Ekim K2 genis kaynak: mevcut tools/genis_kaynak_taramasi.py weekly/monthly modlari wide_source_scan.py ile K2'ye baglandi; manuel secim, kod degisikligi CI kabulunde both, normal cron'da none. Iki gecmis belgesi ata commit tabanli uc yonlu birlesir, artifact'ta korunur; main push/dispatch yok. Gercek Actions kaniti DEVAM_NOTU.md'de izlenir.
 
 - 16 Ekim K3 logo/EPG kalite: mevcut tools/logo_epg_audit.py ve eski test15 uyari sozlesmesi K3'e tasindi. Tam M3U giris kapsam kontrolu, ayri JSON artifact ve zorunlu outcome kapisi; logo/EPG/liste duzeltmesi veya IBO kimlik onayi yapmaz. Gercek Actions kaniti DEVAM_NOTU.md'de.
+
+- 16 Ekim K3 aday puanlama: category_candidate_scoring.py mevcut scorer/birlesik raporu K2'nin kabul edilmis artifact kanitiyla izole klasorde calistirir, ek probe0. Priority rapor adi eslesmesi ve bozuk kararlilik gecmisi sifirlama hatasi duzeltildi. Uzunlamasina state/probe entegrasyonu henuz kabul edilmedi; Actions kaniti DEVAM_NOTU.md'de.

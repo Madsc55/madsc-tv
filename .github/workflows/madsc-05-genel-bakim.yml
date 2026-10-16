@@ -15,6 +15,10 @@ on:
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'scripts/category_candidate_scoring.py'
+      - 'scripts/akilli_aday_puanla.py'
+      - 'scripts/birlesik_aday_raporu.py'
+      - 'scripts/kanal_kararlilik_takip.py'
       - 'scripts/wide_source_scan.py'
       - 'tools/genis_kaynak_taramasi.py'
       - 'tools/logo_epg_audit.py'

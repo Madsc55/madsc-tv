@@ -80,6 +80,13 @@ jobs:
         id: ibo
         continue-on-error: true
         run: python3 scripts/export_ibo_two_stage_trial.py --limit 50
+      - name: K2 kanitlarini yeniden test etmeden puanla ve inceleme raporunu olustur
+        id: scoring
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/category_candidate_scoring.py
       - name: Yayin testi icin ffmpeg aracini kur
         id: ffmpeg
         continue-on-error: true
@@ -109,7 +116,7 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence test_five_category_logo_quality -v
+        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence test_five_category_logo_quality test_five_category_candidate_scoring -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: |
@@ -121,6 +128,7 @@ jobs:
         shell: bash
         env:
           REPORTS: ${{ steps.reports.outcome }}
+          SCORING: ${{ steps.scoring.outcome }}
           LOGO_QUALITY: ${{ steps.logo_quality.outcome }}
           EPG: ${{ steps.epg.outcome }}
           IBO: ${{ steps.ibo.outcome }}
@@ -130,7 +138,7 @@ jobs:
           REGRESSIONS: ${{ steps.regressions.outcome }}
         run: |
           failed=0
-          for name in REPORTS LOGO_QUALITY EPG IBO FFMPEG PLAYLIST COVERAGE REGRESSIONS; do
+          for name in REPORTS LOGO_QUALITY EPG IBO FFMPEG PLAYLIST COVERAGE SCORING REGRESSIONS; do
             value="${!name}"
             if [[ "${value}" != "success" ]]; then
               echo "::error::Kanal denetimi basarisiz veya atlandi: ${name}=${value}"
@@ -145,5 +153,6 @@ jobs:
           path: |
             madsc_merkezi_denetim/
             madsc_ana_liste_saglik/
+            madsc_aday_puanlama/
           if-no-files-found: warn
 # Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.

@@ -9,7 +9,18 @@ OUT=Path("KARARLILIK_RAPORU.csv")
 history={}
 if HISTORY.exists():
  try: history=json.loads(HISTORY.read_text(encoding="utf-8"))
- except (ValueError,OSError): history={}
+ except (ValueError,OSError): raise SystemExit("Kararlilik gecmisi bozuk; kayitlar korunarak durduruldu")
+if not isinstance(history,dict):
+ raise SystemExit("Kararlilik gecmisi nesne olmali; sifirlanmadi")
+for observations in history.values():
+ if not isinstance(observations,list):raise SystemExit("Gecersiz gozlem dizisi; gecmis korunuyor")
+ for observation in observations:
+  if not isinstance(observation,dict) or not observation.get("at") or not isinstance(observation.get("state"),str) or not observation.get("state"):
+   raise SystemExit("Gecersiz gozlem; gecmis korunuyor")
+  try:
+   stamp=datetime.datetime.fromisoformat(observation["at"])
+   if stamp.tzinfo is None or stamp>NOW+datetime.timedelta(minutes=5):raise ValueError("timestamp")
+  except (ValueError,TypeError):raise SystemExit("Gecersiz gozlem zamani; gecmis korunuyor")
 with SRC.open(encoding="utf-8-sig",newline="") as f: current=list(csv.DictReader(f))
 report=[]
 for row in current:
