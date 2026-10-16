@@ -46,9 +46,9 @@ def inspect(root):
             # Salt okunur komut ipuclari: hedefler manuel inceleme icindir,
             # izin/onay kaniti olarak yorumlanamaz.
             target_patterns = {
-                "SHELL_REDIRECT": r"(?m)(?:>>?|tee\\s+(?:-a\\s+)?)\\s*([^\\s;&|]+)",
-                "COPY_MOVE": r"(?m)\\b(?:cp|mv)\\s+(?:-[^\\s]+\\s+)*[^\\s]+\\s+([^\\s;&|]+)",
-                "IN_PLACE_EDIT": r"(?m)\\bsed\\s+-i(?:\\S*)?\\s+[^\\n]*?\\s+([^\\s;&|]+)$",
+                "SHELL_REDIRECT": r"(?m)(?:>>?|tee\s+(?:-a\s+)?)\s*([^\s;&|]+)",
+                "COPY_MOVE": r"(?m)\b(?:cp|mv)\s+(?:-[^\s]+\s+)*[^\s]+\s+([^\s;&|]+)",
+                "IN_PLACE_EDIT": r"(?m)\bsed\s+-i(?:\S*)?\s+[^\n]*?\s+([^\s;&|]+)$",
             }
             write_target_hints = [
                 {"kind": kind, "target": match.group(1)}
