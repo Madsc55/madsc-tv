@@ -1,15 +1,44 @@
 {
-  "total_candidates": 58,
+  "total_candidates": 34,
   "category_counts": {
-    "LOGO_INDIRME_VEYA_DONUSUM_HATASI": 11,
+    "LOGO_INDIRME_VEYA_DONUSUM_HATASI": 4,
     "LOGO_KAYNAGI_GUVENLIK_INCELEMESI": 17,
-    "PNG_HAZIRLIGI_BEKLIYOR": 1,
-    "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 29
+    "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 13
   },
   "candidates": [
     {
-      "channel": "Arirang TV (1080p)",
-      "stream_sha256": "90b58389e56b9b6499290a2f83223dd029dac351d87cfb498e3a1c86e89f4ac8",
+      "channel": "ABC (1080p)",
+      "stream_sha256": "ae887a24f7efcae89403661da8d5855357a0f9079c646b8b86268a3bc7b4edeb",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
+      "preparation_status": "SOURCE_LOGO_FAILED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "ABC TV (720p)",
+      "stream_sha256": "a8056709b659951adcd269bd13e81c96346bb7b0d5995fd2c9e039952cc8191c",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Andromeda",
+      "stream_sha256": "aca2c042009690f80f8d301697acaace534621512ea9da25452b9a61837ace93",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Animal Planet (720p)",
+      "stream_sha256": "a62b1294b3a510e57a6768a5015b90be53dc2518fdfb0f5cc58d62d49a3c54b0",
       "source": "dearbulut-language-eng",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
@@ -18,8 +47,28 @@
       "playlist_approved": false
     },
     {
-      "channel": "BBC News (1080p)",
-      "stream_sha256": "0f4f6193c4026d8564200d40a905ba6e397f549e0bb193575280c77e91cdc1e3",
+      "channel": "Arirang TV (1080p)",
+      "stream_sha256": "6a61f26a00e03e70997f47ea94d5ffd684c513ece317b26144ac1287a05b0a3e",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "BBC One (720p)",
+      "stream_sha256": "434061da34666ece27a907e14731772316bbf176bea6f6db472c82f91cb85483",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Bloomberg Originals (1080p)",
+      "stream_sha256": "905b7cffaec130f2aa4830cb608d72f71237515218b2efe7d79d386224b26ed7",
       "source": "dearbulut-language-eng",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
@@ -29,7 +78,7 @@
     },
     {
       "channel": "CBC Television (720p)",
-      "stream_sha256": "90813cf097710249e1260c19632dd60886eb4c6c469fbe41e1c7f3d48beaf743",
+      "stream_sha256": "7c76801ae06af012eae394ac513d633a1c3bf7cf573d9109039fee8f0957c8f4",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -38,8 +87,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "CBeebies (576p)",
-      "stream_sha256": "d01c053ec0ed6fe3fdfe7dd09de18d026b6cab387d70b093c40e0d20d65f5311",
+      "channel": "CNBC Asia (1080p)",
+      "stream_sha256": "ade6d4a3d81bae5267b086c9da790a116335a531e770ef1ffe6a2a26a09ddc35",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -48,8 +97,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "CNN (1080p)",
-      "stream_sha256": "23d6ca4f848853d7ac25597a7798229cfec3df4ff093237cda89eef0d7d933f7",
+      "channel": "Crime 360 (720p)",
+      "stream_sha256": "ad48b10b880023b790d098029d919414620f3ead727461ca96d625440e78c964",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -58,8 +107,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "California Music Channel (1080p)",
-      "stream_sha256": "a1ce479fb7ad68fcd26ba2652ba240a463d3d976c0de5831a15ad4d5f2dd8770",
+      "channel": "Deal or No Deal (1080p)",
+      "stream_sha256": "89c009b2942821722a08668f320cea621893afcd495eb1cb8984d3437d5d855e",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -68,28 +117,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "Cinemax 2 Central Europe (1080p)",
-      "stream_sha256": "350f9a5b69a90e6fadc7406d15031b8fb3dbb90b9a56b27586e27899b178dffc",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Cinemax Central Europe (1080p)",
-      "stream_sha256": "41ac624f4ef3d1f717dab3a4c91b156d4b3e761253e804a09abaaa6ef23fa4d3",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Cricket Gold (1080p)",
-      "stream_sha256": "ca07d027725394bf4953bc33871c87778da2161ea8e1cb9e0730eb7d554e60d6",
+      "channel": "English Club Global",
+      "stream_sha256": "d71ae28b26079a5759543ae83597d416cd23b33f4ddc1309a076c79379ae29e6",
       "source": "dearbulut-language-eng",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
@@ -98,8 +127,48 @@
       "playlist_approved": false
     },
     {
-      "channel": "Daystar TV (1080p)",
-      "stream_sha256": "9d5ac3a1fcfadbfadfbb332ae93035a488d8a213a405f8b0d1e32568b473fe78",
+      "channel": "FIFA+ (720p)",
+      "stream_sha256": "1ddfab18add89e4bfa32f756bb4fcfd06f98d37c9cb7162751228906e02f4ef3",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "FILMBOX+ Comedy (720p)",
+      "stream_sha256": "41646ed6f2762fa2589117c010f677f24e5c0bd6cac95f5573c5570d617d765b",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "FILMBOX+ Emotion (720p)",
+      "stream_sha256": "d109d8509733d176ec91dee03cad4e396281bb90d416bd6b2683e3e6d1335654",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "FILMBOX+ Hits (576i)",
+      "stream_sha256": "b6c48654433c43afb5b8bfd05fa360600cafad7142bf6860c389befd64b91ec1",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Fox (1080p)",
+      "stream_sha256": "b4f2fd56f4d3d34b32b0996a1f1e0cbc24771568796c31767a59f51404e8ab77",
       "source": "dearbulut-language-eng",
       "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
       "preparation_status": "SOURCE_LOGO_FAILED",
@@ -108,18 +177,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "Disco Mix (576p)",
-      "stream_sha256": "9930cbb274f01bb8bfe23f072a97c12b66705a5ca9306cd6c88663ffdbbadae5",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Discovery Asia Taiwan (1080p)",
-      "stream_sha256": "1276549d185f8d110adbd0369eb145b93aedad5a0862a6e60f59771b3fb913e1",
+      "channel": "Fox Sports News (1080p)",
+      "stream_sha256": "9c67a87ef5a95b80a8779b3e9fe412c8f0b0ba7f31b0693db0b61bc082694fe8",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -128,8 +187,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "Discovery Channel (720p)",
-      "stream_sha256": "63fb9d525360a15b807f6da9593b2b2ed117e64c597b7cad2f998cdf14b441bf",
+      "channel": "HauntTV (1080p)",
+      "stream_sha256": "6085f7661f51dea6661545319c2d9c570745f31239f304288295dfb83881bc6f",
       "source": "dearbulut-language-eng",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
@@ -138,9 +197,19 @@
       "playlist_approved": false
     },
     {
-      "channel": "Discovery Science (720p)",
-      "stream_sha256": "73ccfd1065b8f9c926309752ac4b7707f30f3509c1a022472cfa06ed7353029d",
+      "channel": "India Ahead (360p)",
+      "stream_sha256": "5e0c0c63a87f56d243664a53b151600f959c25f8dac600d054588c4a52ae37c1",
       "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Love Nature (1080p)",
+      "stream_sha256": "8c43afc8c9e32fb0e25003aa1f9fe6617a5305b5a1dcea7a82c9f9250499662c",
+      "source": "dearbulut-TURKCE",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
@@ -148,9 +217,9 @@
       "playlist_approved": false
     },
     {
-      "channel": "Discovery Turbo (720p)",
-      "stream_sha256": "693969e18ce9da8b5aea501072489ad6aa8370e7f8aeda23eb4837db5369547b",
-      "source": "dearbulut-language-eng",
+      "channel": "MTV Dating (720p)",
+      "stream_sha256": "38b8ea3a279396261ca95355a810f8c7364e6538ec44ba879f4ef727196869ae",
+      "source": "dearbulut-ISVEC",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
@@ -158,238 +227,18 @@
       "playlist_approved": false
     },
     {
-      "channel": "Dog the Bounty Hunter (1080p)",
-      "stream_sha256": "cfd2e0c23bf680bcd6753672b1db91e1b071e960084a2bf981f29e9f89b0d6ed",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Eleven Sports 2 (1080p)",
-      "stream_sha256": "19372a90b68f65fab8202e049f346dd9f86acefe553a9a81222d697900ff11e6",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Eleven Sports 3 (1080p)",
-      "stream_sha256": "2363414a76b6591e5e0e1fd5b8014d3d1ae3745456535d419f72de0c467e2f6a",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Eleven Sports 4 (1080p)",
-      "stream_sha256": "3f66d0ec4a9f30361c7e0580cdee2e311899b6a4a0ede961dcb679526df3cc99",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Eurosport (720p)",
-      "stream_sha256": "6bba110f171f841de993d88e1bdc002596ce1eeef8f0b747fa1aec0bbf44b312",
-      "source": "dearbulut-language-eng",
+      "channel": "Matlock",
+      "stream_sha256": "c2fab316206064de417f22b03f310c05250a8c81e729d685d7d42f0c6083d810",
+      "source": "dearbulut-ISVEC",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "FILMBOX+ Action (720p)",
-      "stream_sha256": "3fa227850d34196c3e52c51bf9a6628b268acc13ed5ea9267220cecc5690059c",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "France 24 (1080p)",
-      "stream_sha256": "199af6eccbee37f62d1dab21ce3b9fa1b4f4a60ef3d4a045be98b8f792d7aa17",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "HBO Signature Latin America",
-      "stream_sha256": "e6798d505fd527cee3ef24414cf4b54e6f52811ef0b5187dacfe639a09d21d8d",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "HGTV (720p)",
-      "stream_sha256": "40efb37ecc4a603d1f8d4fc5f1e0e1b64bc04cf180a6957f57569ad4866f20ec",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "INFAST (1080p)",
-      "stream_sha256": "a6152c0c6c2ecf391054b9072d78c2fdb98c1a98dcfc5222bbfc4df95be0c1e7",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Ice Pilots",
-      "stream_sha256": "5ee6c1448514d74565a5ef7b904a440873d04a4a302b7682b4545dfeeea8418f",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Imam Hussein TV 3 (1080p)",
-      "stream_sha256": "c36b6702ac95f695c226ddb221a5330bc293c28603413e26c42600e44f04cd14",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "InWonder (1080p)",
-      "stream_sha256": "6e263b9dee409ad68f55c1e216ffe382035e64d20aae1a90112f0c3a34487bf6",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Investigation Discovery (720p)",
-      "stream_sha256": "a66bc9fe3498a24507cd30fb1d8264ce0ef15655efa8c2f2185e568c04d9002c",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Motorvision (1080p)",
-      "stream_sha256": "84c52cd15538a18f89da97e6ec918c4f77f39fb58844908780b873552064c1dd",
-      "source": "dearbulut-ALMANYA",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Mr Bean Animated (1080p)",
-      "stream_sha256": "eef70a3ab292dfd3a72b7f51f67b0216b32898fda72aa84de6c630714b827709",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "NBC (1080p)",
-      "stream_sha256": "efa1e104804be9f181df288baf6d61689f6db34d681310b42cc802bb1eaebe21",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "National Geographic (576i)",
-      "stream_sha256": "c3d3ecabd27cde913e84c782aa435ca76f9f3c71c99752c7f736581747f34768",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Newsmax 2 (1080p)",
-      "stream_sha256": "25cb1760c795d1b07f4893a40d91b404390a95cbd82438634898870462c76c9d",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Nicktoons (576i)",
-      "stream_sha256": "f26b8c6ae28b626e2c629c1bce38b64577c9ad7b9af24ff2b0e730264c642a83",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Now 70s (720p)",
-      "stream_sha256": "2a8ab52b042c737df298a5592f6571ee95219d482f6ba9a8710b1ae494d58f62",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "One Piece",
-      "stream_sha256": "c80d633601fe1611c7861ece9a7cfa774cb3f7ea46249f33190ca59643a82821",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Pac-12 Insider (1080p)",
-      "stream_sha256": "37a9941cc86d1f1237f781a6faa0970f10619be837c745ae13d1ddfc51f21991",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false
     },
     {
       "channel": "People Are Awesome (720p)",
-      "stream_sha256": "c7b9859e2dbc4570407947be669dd4925d1a6db84c2b6d707256d7e1739f678f",
+      "stream_sha256": "46a548603d7d80409a4b81e1251c4bbc9defded01752ad7e6c73ac69665940a2",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -399,118 +248,8 @@
     },
     {
       "channel": "Pluto TV Sci-Fi",
-      "stream_sha256": "85946ef22687a3358ebff1d16de464365fc42028d8e889bd8ad21064c8e0ca0e",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Pop (1080p)",
-      "stream_sha256": "af06054afc3de42a8bb95d1779ff40e06a2852c6bc5a560e3c4c99913fece962",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "RT India (1080p)",
-      "stream_sha256": "9c2f93671c09244b4aeb15e30ea3b69bc1e40250e3d6959c770d2e088f1106a2",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "RTNB Divertissement",
-      "stream_sha256": "a3c8e3f18d3e44c6e935cba70e818b99020577f563b148928e132f56cbcf5c77",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "RTNB TV",
-      "stream_sha256": "6fd5629c5e70c9d91952edf2322fac4fa92ba1337c0b5ef17b0d29e083bb90d7",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "RTR-Planeta (576p)",
-      "stream_sha256": "0506bfc581e6eb9aad7d2b6d58ce9f346071bd68dfb02621996803576dbf4e7c",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Sci Fi (1080p)",
-      "stream_sha256": "84150fc70a1961c59371bc6f3e6fb151b1d94388c3945f180175f36eeeaecbef",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "TLC (576p)",
-      "stream_sha256": "3831c8cadc9b584e0281ab4bfa7b8e713d9f7c356895c5dea7b43567c8b93edc",
+      "stream_sha256": "6d6c4fcadd05e6427e4ea458699e7b49dc3d35311381719eeae90989ac6c0103",
       "source": "dearbulut-ALMANYA",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "TeenNick (576i)",
-      "stream_sha256": "fc1d8b76a55b8322d9ec144ecc075df22be9468fdb3eb8a2b49e8d853baaaf52",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Tennis Channel (1080p)",
-      "stream_sha256": "e67bb9f63ac73a15a4b23e429ba71252deb7b0857723184603f7a6d0a8b10575",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "The Carol Burnett Show (1080p)",
-      "stream_sha256": "1cceb9abaa23dd9df6ae17044186f4a7a73fca146446badcc0677163aba1dc04",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "The L Word",
-      "stream_sha256": "429ae48eb85ac1158b122862e9d3ea406c5a4e554488aaf5557390e84018e0fc",
-      "source": "dearbulut-ISVEC",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
@@ -518,59 +257,9 @@
       "playlist_approved": false
     },
     {
-      "channel": "ToonGoggles (720p)",
-      "stream_sha256": "7003a376625c1f9443fed0b7fbd4b77881e9ca0fa19326d79a2c28b9d9d944aa",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Travel Channel (576i)",
-      "stream_sha256": "81e2edb5e8327fcec626245fe349f1b39e54c8223b6ab6be0a075205dd3da576",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "USA TODAY (1080p)",
-      "stream_sha256": "d3c7181284cd5a91fd5b96be9ef2a4493f040e56f835a6724f696c44a594b31a",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Univision (1080p)",
-      "stream_sha256": "1b8640e498b47beeda513f0606ac857df5398c008d7a040beaa3ae326ff0dff7",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Walker Texas Ranger",
-      "stream_sha256": "0885bbda99c09ee44f9b343f80817529b5554cf16bf0083553eb4343165ec2e4",
-      "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
-      "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Wildfire",
-      "stream_sha256": "0ad58793d4a1146fcbd52cf12d26afdc9fa0cda004ce3b4784ba41b22182ae56",
-      "source": "dearbulut-ISVEC",
+      "channel": "Pluto TV Space",
+      "stream_sha256": "994059cb9ea781520c478f14b2f8df76464273c677cb17394055e68136c817c9",
+      "source": "dearbulut-ALMANYA",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
@@ -578,11 +267,81 @@
       "playlist_approved": false
     },
     {
-      "channel": "ducktv (720p)",
-      "stream_sha256": "5c426e881dd86dbb06f1c992bcd82a19669acbdb08d5d3794c9cb51ece1865ed",
+      "channel": "ProSieben Maxx",
+      "stream_sha256": "c2b7469f613badd48e27df4914cf760a2c9689acdefc3b20145d165fabe9454f",
+      "source": "dearbulut-ALMANYA",
+      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
+      "preparation_status": "SOURCE_LOGO_FAILED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Sansad TV 2 (1080p)",
+      "stream_sha256": "f81fdb9b90f7d98c36bdc1d53d5328335fbb415b83f236a8153d3a1f5e2c0bbf",
       "source": "dearbulut-language-eng",
-      "category": "PNG_HAZIRLIGI_BEKLIYOR",
-      "preparation_status": "PREPARATION_PENDING",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Sky Sports F1 (720p)",
+      "stream_sha256": "0bb3eee0c914787e881079db2d62f4e7a13067315298bdec225d1299f4e7f82e",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Sky Sports NFL (720p)",
+      "stream_sha256": "eecba5609e9158596e06503b4a62f25179cb014830617681568d99d4e03a4da3",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Trace Urban (1080p)",
+      "stream_sha256": "d594bd5c61491d0eb2510eec66b9c7c3060eaaa2648c4442da6a57b42f0aae6f",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Viasat Epic Drama (1080p)",
+      "stream_sha256": "76960a1dc149f889add52dfab111bbd9f47e5c3a41cb2756ff88a730a6529475",
+      "source": "dearbulut-TURKCE",
+      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
+      "preparation_status": "SOURCE_LOGO_FAILED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "WildEarth (1080p)",
+      "stream_sha256": "3c2568002ddf1ba1e78f408bce3e32ddfcddfcbc603766bbf300c680df2e81f7",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "World Poker Tour (1080p)",
+      "stream_sha256": "ff60d20cdfab24ac17a6258a1873d7c52c9061291714b738971376c6647a6696",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false
