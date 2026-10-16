@@ -10,6 +10,7 @@ on:
       - 'tests/test_k1_failure_gate.py'
       - 'tools/workflow_failure_gate.py'
       - 'scripts/k1_workflow_risk_inventory.py'
+      - 'tests/test_k1_workflow_risk_inventory.py'
       - 'scripts/k1_protected_integrity.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
@@ -34,6 +35,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
       - name: Run Rule 24 circuit breaker negative tests
         run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
+      - name: Run workflow push risk inventory regression tests
+        run: python -m unittest discover -s tests -p 'test_k1_workflow_risk_inventory.py' -v
       - name: Compare all tracked protected paths against main
         run: |
           git fetch --no-tags origin main
