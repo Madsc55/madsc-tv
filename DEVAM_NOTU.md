@@ -2726,3 +2726,12 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 5. Yalnizca gercekten kanitlanan kabul maddelerini tamamlandi olarak isaretle. DEVAM_NOTU.md tek merkezi handoff olarak guncel tut. PR #71'i kullanicinin ayrica izni olmadan merge etme.
 
 **Kullanicinin son istegi:** Sohbet dolmadan nerede kalindigi ve yapilan/yapilmayan tum isler bu notta korunsun; yeni sohbette buradan dogrudan devam edilsin. Tekrar tekrar onay istemeden ozellik dalinda guvenli teknik isleri ilerlet; somut degisiklik ve dogrulanmis CI sonucu sun.
+
+
+## 2026-10-16 — K2 gercek arsiv yasam dongusu entegrasyonu
+- Bekleyen #38927847086 yeniden kontrol edildi: 5/5 job COMPLETED/SUCCESS.
+- Guncel AGENTS.md Kural 25 (degisiklik sonrasi gercek Actions testi) ve 26 (gorunen test adlari Turkce) kaynagini iceriyor. GUVENLIK_KURALLARI.md 24 maddeli; iki belgenin kapsami ayridir, 26 runtime PASS iddiasi yok.
+- Eski madsc-birlesik-kesif.yml gercek adimlariyla karsilastirildi. K2'de eksik discovery_archive.py before -> tarama -> discovery_archive.py after -> four_stage_discovery_report.py zinciri ayni sirayla baglandi. set -euo pipefail ile ara hata sonraki adimlari durdurur; mevcut discovery outcome kapisi hatayi job'a tasir. contents:read, credentials:false ve artifact kapsaminda calisir; GitHub'a rapor push etmez.
+- Izole sentetik veriyle gercek archive betigi calistirildi: onceki basari/gecmis kaydi korunuyor, arsiv girdisine sahte basari verilmiyor, ana liste URL'si arsive alinmiyor, iki after calismasi tekrarsiz, playlist byte icerikleri degismiyor. 12 ilgili yerel test PASS. Cihaz testi veya tam 92 parity kaniti degildir.
+- Degisen teknik dosyalar: .github/workflows/madsc-02-kesif.yml, test_five_category_discovery_behavior.py. Eski workflow degistirilmedi; main, PR #71, korunan veri ve cihaz favorileri degismedi.
+- Actions sonucu henuz bu kayit aninda yok; push sonrasi run kimligi/sonucu ayrica eklenecek. 92 eski workflow halen engelli, davranissal tam kabul 0/92; bu adim yalniz eski birlesik kesfin arsiv yasam dongusu eksigini tasir. Tetik saati, uretim rapor saklama/yazma ve geri alma parity'si acik.

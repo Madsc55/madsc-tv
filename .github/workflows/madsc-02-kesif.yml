@@ -133,11 +133,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python3 scripts/discovery_archive.py before
           python3 madsc_akilli_kesif.py
+          python3 scripts/discovery_archive.py after
+          python3 scripts/four_stage_discovery_report.py
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         continue-on-error: true
-        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue -v
+        run: python3 -m unittest test_candidate_logo_missing_report test_central_source_reconciliation test_central_duplicate_test_audit test_central_ibo_review_queue test_five_category_discovery_behavior -v
       - name: Korunan dosyalar degismedi
         if: always()
         run: sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"

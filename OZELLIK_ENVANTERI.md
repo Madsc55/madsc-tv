@@ -51,3 +51,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - YEDEKLER'e otomatik kanal ekleme izni kullanıcının sonraki talimatıyla İPTAL edildi; eski devir notundaki izin geçersiz. Korunan listeler, logolar, yedekler değiştirilmeyecek; PR #71 birleştirilmeyecek.
 - AÇIK İŞLER, sırayla: (1) gerçek keşif adımı ve artifact içeriği; (2) bağımsız 5 kategori hata yönetimi; (3) 92 eski workflow'un işlev/tetik/yan etki/artifact eşdeğerliğinin tek tek uygulanması (kanıtlı 0/92); (4) tarihsel ve harici yedek geri yükleme; (5) 1039 girişin sağlık kapsamı ve aday tekrar/kimlik/IBO testleri; (6) EPG/Pages ve PNG aday kimliği; (7) gerçek yazma koruması/devre kesici; (8) eski cron/çakışma ve rapor yükünün doğrulanması.
 - 7/24 saatlik ChatGPT görevi tekrar etkin; bu, her saat bir çalışma turudur, kesintisiz gerçek zamanlı işlem değildir. Tamamlanmış denmeyen işlerin kanıtı toplanmaya devam eder.
+
+- 16 Ekim K2: eski birlesik kesfin arsiv before/tarama/after ve dort asama sonuc zinciri K2'ye baglandi; izole gercek betik testi eklendi. Tam workflow/uretim parity kabul edilmedi; Actions kaniti DEVAM_NOTU.md'de izlenir.
