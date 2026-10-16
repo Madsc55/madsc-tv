@@ -215,7 +215,8 @@ def main():
             "integration_evidence_level", "unverified_trigger_behavior",
             "migration_gap_reasons", "missing_legacy_script_files",
             "unmatched_trigger_signals", "write_permission_parity_unverified",
-            "required_acceptance_checks",
+            "required_acceptance_checks", "script_entrypoint_coverage_ratio",
+            "unmatched_cron_expressions",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -248,6 +249,8 @@ def main():
                 "unmatched_trigger_signals": "; ".join(item["unmatched_trigger_signals"]),
                 "write_permission_parity_unverified": item["write_permission_parity_unverified"],
                 "required_acceptance_checks": "; ".join(item["required_acceptance_checks"]),
+                "script_entrypoint_coverage_ratio": item["script_entrypoint_coverage_ratio"],
+                "unmatched_cron_expressions": "; ".join(item["unmatched_cron_expressions"]),
                 "missing_legacy_script_files": "; ".join(item["missing_legacy_script_files"]),
             })
     # Five actionable queues in one artifact; no legacy workflow is mutated.
