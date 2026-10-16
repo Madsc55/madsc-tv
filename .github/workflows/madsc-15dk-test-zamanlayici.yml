@@ -1,0 +1,44 @@
+name: MADSC 15 Dakika Gelistirme Dali Testi
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: madsc-15dk-salt-okunur-test
+  cancel-in-progress: false
+jobs:
+  gelistirme-dali-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Gelistirme dalini salt okunur al
+        uses: actions/checkout@v4
+        with:
+          ref: madsc/bes-sistem-toplu-birlestirme
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: SHA ve baslangic bilgisi
+        run: |
+          mkdir -p madsc_15dk_rapor
+          git rev-parse HEAD | tee madsc_15dk_rapor/commit_sha.txt
+      - name: Merkezi entegrasyon regresyon testleri
+        shell: bash
+        run: |
+          set -uo pipefail
+          python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v 2>&1 | tee madsc_15dk_rapor/cron_regresyon.log
+          a=${PIPESTATUS[0]}
+          python3 -m unittest test_five_category_92_workflow_audit test_central_consolidation_audit test_tek_merkez_tetikleme -v 2>&1 | tee madsc_15dk_rapor/merkezi_regresyon.log
+          b=${PIPESTATUS[0]}
+          printf 'cron=%s\nmerkezi=%s\n' "$a" "$b" > madsc_15dk_rapor/test_sonuclari.txt
+          if [[ "$a" != 0 || "$b" != 0 ]]; then exit 1; fi
+      - name: Test kanitlarini sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-15dk-test-${{ github.run_id }}
+          path: madsc_15dk_rapor/
+          retention-days: 7
