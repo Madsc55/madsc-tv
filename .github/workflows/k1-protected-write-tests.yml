@@ -7,6 +7,8 @@ on:
       - 'tests/test_protected_write_gate.py'
       - 'scripts/audit_workflow_security.py'
       - 'tests/test_workflow_security_audit.py'
+      - 'tests/test_k1_failure_gate.py'
+      - 'tools/workflow_failure_gate.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,5 +27,7 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
       - name: Run protected write gate negative tests
         run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
+      - name: Run Rule 24 circuit breaker negative tests
+        run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
       - name: Verify workflow inventory count without executing workflows
         run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
