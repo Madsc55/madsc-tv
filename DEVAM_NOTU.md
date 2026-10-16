@@ -2581,3 +2581,9 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - GitHub Actions run 38869628004 COMPLETED SUCCESS: audit, protected write gate, Rule24 should_stop negatif testleri ve envanter adimlari yesil. Bu yalniz izole testlerdir; butun legacy otomasyonlarda canli enforcement kaniti DEGIL.
 - Calisma dali branch protection=false; 92 legacy workflow'un yetki/tetikleyici/yazma ve esdegerlik incelemesi bitmedi. K1 henuz bitmedi; K2'ye gecilmez.
 - CALISANLAR.m3u, YENILER.m3u, YABANCI_KANALLAR.m3u, CALISMAYANLAR.txt, yedekler ve main degistirilmedi.
+
+## 2026-10-16 — IBO 3-5281 YAML hatasi gercek Actions PASS
+- Kullanici GitHub ekraninda eski 6f1cffe workflow'unun (Line 2, Col 4) bos `on:` nedeniyle INVALID WORKFLOW oldugunu gosterdi.
+- Workflow zaten read-only dry-run ve workflow_dispatch ile duzeltilmisti. Testi kullaniciya birakmamak icin sadece kendi dosya degisikliginde calisan, yalniz calisma dalina ait push trigger eklendi (759c7c1).
+- GitHub Actions run 38870157023 COMPLETED SUCCESS, checkout ve Safe dry-run notice dahil tum adimlar PASS. Eski 6f1cffe hatasi tarihcede kalir; yeni surum YESIL.
+- Bu test gercek kanal ayirma/IBO oynatma testi DEGIL; salt-okunur guvenli workflow testi. Main ve korunan listeler degistirilmedi. K1 diger risklerden dolayi devam ediyor.
