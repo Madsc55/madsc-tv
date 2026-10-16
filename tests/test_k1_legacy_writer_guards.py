@@ -23,6 +23,13 @@ class LegacyWriterGuards(unittest.TestCase):
                 self.assertRegex(source, r"(?m)^    if: github\.ref == 'refs/heads/main'$")
                 self.assertIn("tools/protected_write_gate.py", source)
                 self.assertIn("git push", source)
+    def test_report_missing_explicit_permissions(self):
+        from scripts.k1_workflow_risk_inventory import audit
+        report = audit()
+        missing = report["missing_permission_paths"]
+        print("K1 missing explicit permissions:", ", ".join(missing))
+        self.assertEqual(len(missing), report["missing_explicit_permissions"])
+
     def test_read_only_ci_has_no_write_permission(self):
         source = (ROOT / "k1-protected-write-tests.yml").read_text()
         self.assertRegex(source, r"(?m)^  contents: read$")
