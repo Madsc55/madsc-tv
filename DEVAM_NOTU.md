@@ -2691,3 +2691,38 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Actions #38904213286 (commit 035276de) ve #38904738646 (commit 9c32129d) COMPLETED/SUCCESS; ikisinde de 5/5 job SUCCESS. Bu sonuçlar shadow toplu CI'nin yeşil olduğunu kanıtlar, 92 legacy workflow davranışsal parity kanıtı değildir.
 - `GUVENLIK_KURALLARI.md` incelendi: numaralı onaylı kurallar 1-24 (19 temel + 20-23 dört ek + 24 devre kesici). Diğer raporlarda geçen `26 güvenlik kuralı` ifadesi bu belgedeki mevcut 24 maddeyle uyuşmuyor. 25-26 kaynağı doğrulanmadan yeni kural icat edilmemeli ve 26/26 PASS iddia edilmemeli. Ayrıca 24 kuralın hepsi teknik olarak otomatik zorlanıyor denemez.
 - K1 kalan: 24 belgeli kural için politika/otomatik test/üretim kanıtı matrisi; 25-26 referanslarının kaynağı; 92 eski workflow'un yazma/yan etki/çift push gerçek davranış kanıtı; cihaz IBO favori/kategori sırası kabulü. Main, listeler ve PR #71 değiştirilmedi.
+
+## DEVIR NOTU — 2026-10-16 — Yeni sohbete gecis (en guncel durum)
+
+**Proje:** Madsc55/madsc-tv; yalnizca `madsc/bes-sistem-toplu-birlestirme` dalinda calis. Taslak PR #71 birlestirilmedi; main'e merge/push YAPMA. Kullanici teknik calismalara bu ozellik dalinda devam izni verdi; korunan playlistler, YEDEKLER, YENILER, FAVORILER, kanal sirasi ve IBO Player Pro cihaz favorileri degistirilmeyecek. Eski 92 workflow davranissal esdegerlik kanitlanmadan kapatilmayacak. IBO Player Pro cihaz testini kullanici kendisi yapacak.
+
+**Son GitHub Actions durum kontrolu:** #38927650996, commit `64bcca222744ce0201351ded7ef8874559af7153`, COMPLETED/SUCCESS (besli toplu regresyon). Daha yeni #38927847086, commit `6f373709aef922e348d231356910bcc9a1273941`, son kontrol aninda IN_PROGRESS; **sonucunu yeniden kontrol et, basarili varsayma**. Onceki #38926775630, commit `9b28babd45fba34148a83f73334ff0335a8cd869`, 5/5 SUCCESS. #38922232972 ve #38921218706 SUCCESS. Eger yeni CI red ise basarisiz job logunu bul, hatayi ozellik dalinda duzelt, yeniden dogrula.
+
+**Bu sohbette yapilanlar (ilgili commitler):**
+- `b2f948dc`: zincirlenmis iki git push komutunun tek sayilmasi hatasi duzeltildi; #38911065028 5/5 SUCCESS.
+- `4187010c`: 92-gorev kabul raporuna push komut satiri kaniti; #38912105835 SUCCESS.
+- `e6e7ca15`: `92_workflow_yazma_risk_inceleme_kuyrugu.json` raporu; #38915981523 SUCCESS.
+- `2547b4ae`: risk kuyrugu regresyon testi; #38916973740 SUCCESS.
+- `bbbe0a62`: her eski goreve davranissal kabul kontrol listesi; #38918312342 SUCCESS.
+- `0db90bdf`: 92 gorevin tumunde kabul kontrolu testi; #38919668618 5/5 SUCCESS.
+- `1b6c7835`: ortak betik giris noktasi kapsama orani; `c0811e1c`: dosya varligini icerik parity'si gibi gosteren alan kaldirildi; her iki CI SUCCESS.
+- `c812a502`: %100 betik eslesmesi bile davranissal parity sayilmaz regresyonu; #38922232972 SUCCESS.
+- `9b28babd`: eski ve yeni workflow cron ifadelerinin tam karsilastirilmasi; #38926775630 5/5 SUCCESS.
+- `64bcca22`: cron uyusmazligi + cift push + force push + yazma izinleri toplu regresyonu; #38927650996 SUCCESS.
+- `6f373709`: 92 satirlik CSV kabul matrisine betik kapsama orani ve eslesmeyen cron ifadeleri; #38927847086 son kontrol aninda IN_PROGRESS.
+
+**Dogrulanmis sinirlar ve eksikler:**
+- Bes yeni kategori workflow'u (01 Guvenlik, 02 Kanal Kesfi, 03 Kanal Testleri, 04 Arsiv/Yedek, 05 Genel Bakim) shadow/denetim CI olarak yesil; bu, eski gorevlerin tasindigini KANITLAMAZ.
+- 92 legacy workflow envanterde; `behavioral_parity_verified_count=0`, `migration_blocked_count=92`. Eski workflow'lar halen korunuyor. Gercek gorev esdegerligi, tetikleyici/saat, girdi/cikti, artifact, yan etki, yazma yetkisi, tekrar tetikleme, geri alma ve uctan uca testleri bekliyor.
+- `GUVENLIK_KURALLARI.md` belgeli numarali kurallar **24**. Ekran goruntusundeki 26 ifadesiyle fark var; 25-26 kaynagi bulunmadan kural uydurma. `scripts/k1_24_rule_evidence.py` kanit raporu mevcut, fakat 24 kuralin hepsinin runtime enforcement'i dogrulanmadi (`fully_verified_rules=0`).
+- Korunan dosya butunlugu/SHA, main branch protection ayrintilari, hata devre kesicisi uretim toparlanmasi ve cihaz favori/sira davranisi icin son kabul kanitlari eksik. Main branch korumali olsa da API izin siniri nedeniyle tum koruma kurallari dogrulanamadi.
+- Cift/force push riskleri statik tespit ediliyor, ama gercek is akisi cakismalarini guvenle kaldirma isi bitmedi.
+
+**Siradaki kesin is plani:**
+1. #38927847086'nin bitmis durumunu ve bes job'u kontrol et; hata varsa duzelt.
+2. Yeni rapor eklemekle yetinme: 92 gorevdeki gercek calistirilan adimlar, tetikleyiciler, yazma etkileri ve beklenen ciktilari somut karsilastir; once en yuksek riskli gorevlerden basla. Her gorev icin kanitli parity kabul testi olustur.
+3. Eksik davranislari bes kategori workflow'larina guvenli ve idempotent sekilde entegre et; her degisiklikte CI ve korunan dosya butunlugu testlerini dogrula.
+4. Korunan dosyalar, yedekler, favoriler, kanal sirasi, IBO Player Pro kabulunu kullanicinin cihaz testine kadar degistirme. 92 legacy workflow'u erken devre disi birakma.
+5. Yalnizca gercekten kanitlanan kabul maddelerini tamamlandi olarak isaretle. DEVAM_NOTU.md tek merkezi handoff olarak guncel tut. PR #71'i kullanicinin ayrica izni olmadan merge etme.
+
+**Kullanicinin son istegi:** Sohbet dolmadan nerede kalindigi ve yapilan/yapilmayan tum isler bu notta korunsun; yeni sohbette buradan dogrudan devam edilsin. Tekrar tekrar onay istemeden ozellik dalinda guvenli teknik isleri ilerlet; somut degisiklik ve dogrulanmis CI sonucu sun.
