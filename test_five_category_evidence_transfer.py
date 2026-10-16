@@ -143,7 +143,7 @@ class EvidenceTransferTests(unittest.TestCase):
     def test_workflow_gates_transfer_and_builds_summary_after_dependencies(self):
         workflow = (Path(__file__).resolve().parent / '.github/workflows/madsc-05-genel-bakim.yml').read_text()
         self.assertIn('steps.category_evidence.outcome', workflow)
-        self.assertIn('"category_evidence", "audit_1"', workflow)
+        self.assertIn('"category_evidence", "actions_evidence", "audit_1"', workflow)
         loop = workflow.split('for script in ', 1)[1].split('; do', 1)[0]
         self.assertLess(loop.index('central_eighteen_task_audit.py'), loop.index('central_management_summary.py'))
         self.assertLess(loop.index('central_all_remaining_tasks.py'), loop.index('central_management_summary.py'))

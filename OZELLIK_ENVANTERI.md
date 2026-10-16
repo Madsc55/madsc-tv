@@ -66,3 +66,6 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 16 Ekim K3 aday puanlama: category_candidate_scoring.py mevcut scorer/birlesik raporu K2'nin kabul edilmis artifact kanitiyla izole klasorde calistirir, ek probe0. Priority rapor adi eslesmesi ve bozuk kararlilik gecmisi sifirlama hatasi duzeltildi. Uzunlamasina state/probe entegrasyonu henuz kabul edilmedi; Actions kaniti DEVAM_NOTU.md'de.
 
 - 16 Ekim K5 kanit devri: category_evidence_collect.py ayni run'in basariliK1..K4 artifact'lerinden sabitJSONraporlari provenance/SHAkontroluyle alir; ownerraporlari eskicheckout'la tekrar yazdirmaz. Yonetimozeti bagimliliklarindan sonra uretilir;24kaynakbolumu. Cihaz/harici/tam92kabul iddiasi yok; gercekCIsonucu DEVAM_NOTU.md'de.
+
+- 16 Ekim K5 kanit aktarimi: af3d1dd / #38949404949 SUCCESS5/5. Ayni run'in4kategori17JSON kaniti provenance+hash ile merkezi rapora bagli;24baslikta eksik9->3. Tam92 kabul degil.
+- 16 Ekim K5 Actions verisi: eski durum/hata raporlayicilarina GET envanter/son100kosu/enfazla20basarisizkosu job kaniti baglandi; mevcut run haric, otomatik ozet workflow+dal bazli. Gercek CI henuz bekliyor; DEVAM_NOTU izlenir.
