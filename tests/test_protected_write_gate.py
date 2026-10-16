@@ -35,6 +35,16 @@ class ProtectedWriteGateTests(unittest.TestCase):
         changed.return_value = ["madsc_kesif/report.json"]
         self.assertEqual(main(["--base", "deadbeef"]), 0)
 
+    @patch("tools.protected_write_gate.subprocess.run")
+    def test_unstaged_and_untracked_paths_are_included(self, run):
+        from tools.protected_write_gate import git_changed_paths
+        import subprocess
+        values = [b"", b"", b"YENILER.m3u\x00", b"yedekler/new.txt\x00"]
+        run.side_effect = [subprocess.CompletedProcess([], 0, stdout=value) for value in values]
+        paths = git_changed_paths("trusted")
+        self.assertEqual(paths, ["YENILER.m3u", "yedekler/new.txt"])
+        self.assertEqual(len(run.call_args_list), 4)
+
 
 if __name__ == "__main__":
     unittest.main()
