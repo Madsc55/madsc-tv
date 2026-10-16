@@ -3133,3 +3133,8 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - K1 run 38977103022 commit cfd64749 basarili; 98 workflow, HIGH 12, CRITICAL 0.
 - 12 HIGH dosyanin 11 tanesinde main job guard var. madsc-son-kontrol.yml dosyasinda workflow_run conclusion success kontrolu var ancak upstream branch/repo filtresi gorulmedi. contents: write ve actions: write izinleri mevcut. 10 denemeli rapor push dongusu ve protected_write_gate.py cagrisinin statik incelemesi yapildi.
 - YEDEK-01 ve K1 test ayrintilari onceki bolumde. Bu tur workflow ve playlist degistirilmedi. 92 legacy davranissal kabul 0/92.
+
+## 17 Ekim 2026 - DDTD workflow_run kaynak ve hata kapisi kontrolu
+- madsc-uc-asama.yml upstream workflow adi MADSC - Uc Asamali Aday Dogrulama, push verification_pipeline.py veya workflow_dispatch tetigi, job if github.ref == refs/heads/main. madsc-son-kontrol.yml workflow_run tamamlanma olayi icin sadece conclusion success filtreli; upstream head_branch ve head_repository denetimi bulunamadi. Bu nedenle kaynak guven siniri ayri dogrulama gerektirir; su anda istismar kaniti yok.
+- tools/workflow_failure_gate.py should_stop son iki tamamlanan failure/timed_out kosusunu sayiyor, arada success varsa sifirliyor; API hatasinda fail closed. workflow_dispatch olayinda main() erken donup gecmis hata kontrolunu atliyor; bu bilerek yazilmis kurtarma istisnasi ancak yazma yetkili manuel kosular icin onay/kayit denetimi ayri ele alinmali.
+- Bu tur sadece DEVAM_NOTU.md append-only; workflow, kod, korunan listeler, main ve PR71 degismedi. K1 SHA cfd64749 Actions 38977103022 success; 92 eski workflow davranissal kabul 0/92.
