@@ -1,5 +1,6 @@
 name: MADSC - IBO 3-5281 Kanal Ayirma
 on:
+  workflow_dispatch:
 
 permissions:
   contents: read
