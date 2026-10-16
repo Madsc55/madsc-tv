@@ -12,9 +12,11 @@ import tempfile
 try:
     from scripts.discovery_history_restore import find_previous, gh_json
     from scripts import category_stability_history as stability
+    from scripts import category_candidate_media as media
 except ModuleNotFoundError:
     from discovery_history_restore import find_previous, gh_json
     import category_stability_history as stability
+    import category_candidate_media as media
 
 ROOT = Path(__file__).resolve().parents[1]
 FIELDS = ['KANAL', 'ADAY_TURU', 'TEKNIK_MEDYA', 'SES_IZI', 'COZUNURLUK',
@@ -48,7 +50,7 @@ def source_run(root):
     return previous
 
 
-def build_reports(artifact, output, scripts=ROOT / 'scripts', history=None):
+def build_reports(artifact, output, scripts=ROOT / 'scripts', history=None, media_folder=None):
     candidate_file = artifact / 'madsc_kesif/adaylar.csv'
     with candidate_file.open(encoding='utf-8-sig', newline='') as handle:
         reader = csv.DictReader(handle)
@@ -84,6 +86,36 @@ def build_reports(artifact, output, scripts=ROOT / 'scripts', history=None):
                 candidates.append(dict(KANAL=item.get('name', ''), ADAY_TURU='KIMLIK_INCELEME',
                     TEKNIK_MEDYA='TEST_EDILMEDI', SES_IZI='', COZUNURLUK='', LOGO_ADAY_URL='',
                     YAYIN_URL=url, KAYNAK=item.get('source', '')))
+    k2_count = len(technical)
+    measured = stability.measured_rows(artifact, technical) if history is not None else []
+    media_manifest = None
+    if media_folder is not None:
+        imported, media_manifest, fresh = media.load_cache(media_folder)
+        if not fresh:
+            raise ValueError('Medya olcumleri 6 saatten eski; puanlama durduruldu')
+        for kind, rows in imported.items():
+            for item in rows:
+                row = {key: item.get(key, '') for key in FIELDS}
+                row['ADAY_TURU'] = row['ADAY_TURU'] or ('ONCELIKLI_MEDYA' if kind == 'priority' else 'GENEL_MEDYA')
+                candidates.append(row)
+                measured.append({**row, 'OLCUM_ZAMANI': item['OLCUM_ZAMANI']})
+        # Prefer the newest observation, including failures, over an older positive result.
+        latest = {}
+        import datetime as dt
+        now = dt.datetime.now(dt.timezone.utc)
+        for item in measured:
+            url = item['YAYIN_URL']
+            stamp = stability.timestamp(item['OLCUM_ZAMANI'], now)
+            if url not in latest or stamp > latest[url][0]:
+                latest[url] = (stamp, item)
+            elif stamp == latest[url][0] and item['TEKNIK_MEDYA'] != latest[url][1]['TEKNIK_MEDYA']:
+                raise ValueError('Ayni medya zamaninda celisen sonuclar')
+        technical = [{key: item.get(key, '') for key in FIELDS} for _, item in latest.values()]
+        for candidate in candidates:
+            if candidate['YAYIN_URL'] in latest:
+                newest = latest[candidate['YAYIN_URL']][1]
+                for key in ('TEKNIK_MEDYA', 'SES_IZI', 'COZUNURLUK'):
+                    candidate[key] = newest.get(key, '')
     output.mkdir(parents=True, exist_ok=True)
     write_csv(output / 'YENILER_TARAMA_RAPORU.csv', candidates)
     write_csv(output / 'ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv', technical)
@@ -91,7 +123,6 @@ def build_reports(artifact, output, scripts=ROOT / 'scripts', history=None):
     if history is None:
         write_csv(output / 'KARARLILIK_RAPORU.csv', [], ['YAYIN_URL', '24_SAAT_KARARLI'])
     else:
-        measured = stability.measured_rows(artifact, technical)
         history, stable_rows, counts = stability.track(measured, history, require_measurement_time=True)
         history_file = output / stability.NAME
         history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -121,7 +152,8 @@ def build_reports(artifact, output, scripts=ROOT / 'scripts', history=None):
         raise ValueError('Unexpected automatic review approval')
     return {'candidate_input_rows': len(candidates), 'explicit_media_rows': len(technical),
             'scored_candidates': len(scores), 'review_candidates': len(combined),
-            **stability_report, 'additional_media_probes': 0,
+            **stability_report, 'additional_media_probes': 0, 'additional_media_probe_scope': 'SCORING_STAGE_ONLY', 'k2_explicit_media_rows': k2_count,
+            'upstream_media': media_manifest,
             'playlist_write': False, 'device_approval': False}
 
 
@@ -132,7 +164,8 @@ def main():
         subprocess.run(['gh', 'run', 'download', str(run['id']), '--repo',
                         os.environ['GITHUB_REPOSITORY'], '--name', 'madsc-kesif-tek-kosu-rapor',
                         '--dir', tmp], check=True, capture_output=True)
-        report = build_reports(Path(tmp), ROOT / 'madsc_aday_puanlama', history=history)
+        report = build_reports(Path(tmp), ROOT / 'madsc_aday_puanlama', history=history,
+                               media_folder=ROOT / 'madsc_aday_medya')
     report.update(source_run_id=run['id'], source_commit=run['head_sha'], stability_history_source=history_source)
     (ROOT / 'madsc_aday_puanlama/kabul.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report))
