@@ -10,6 +10,8 @@ on:
       - 'tests/test_k1_failure_gate.py'
       - 'tools/workflow_failure_gate.py'
       - 'scripts/k1_workflow_risk_inventory.py'
+      - 'scripts/k1_24_rule_evidence.py'
+      - 'tests/test_k1_24_rule_evidence.py'
       - 'tests/test_k1_workflow_risk_inventory.py'
       - 'scripts/k1_protected_integrity.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
@@ -37,6 +39,10 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
       - name: Run workflow push risk inventory regression tests
         run: python -m unittest discover -s tests -p 'test_k1_workflow_risk_inventory.py' -v
+      - name: Check 24-rule evidence matrix
+        run: |
+          python -m unittest discover -s tests -p 'test_k1_24_rule_evidence.py' -v
+          python scripts/k1_24_rule_evidence.py > k1-24-rule-evidence.json
       - name: Compare all tracked protected paths against main
         run: |
           git fetch --no-tags origin main
