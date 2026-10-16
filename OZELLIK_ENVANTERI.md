@@ -69,3 +69,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 
 - 16 Ekim K5 kanit aktarimi: af3d1dd / #38949404949 SUCCESS5/5. Ayni run'in4kategori17JSON kaniti provenance+hash ile merkezi rapora bagli;24baslikta eksik9->3. Tam92 kabul degil.
 - 16 Ekim K5 Actions verisi: eski durum/hata raporlayicilarina GET envanter/son100kosu/enfazla20basarisizkosu job kaniti baglandi; mevcut run haric, otomatik ozet workflow+dal bazli. Gercek CI henuz bekliyor; DEVAM_NOTU izlenir.
+
+- 16 Ekim priority upstream hata duzeltmesi: ffprobe basarisiz satir9alan/8baslik URL-source kaymasi giderildi. Iki fixtureCSV testi ve toplam58 five_categoryPASS; gercek eski priority/toplu Actions sonucu DEVAM_NOTU'de izlenecek. Playlist ve legacyworkflow dosyasi degismedi.

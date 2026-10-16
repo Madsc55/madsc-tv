@@ -214,7 +214,7 @@ jobs:
       - name: Kategoriye ait tum regresyon testleri
         id: audit_7
         continue-on-error: true
-        run: python3 -m unittest test_central_workflow_inventory test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report test_central_management_summary test_five_category_evidence_transfer test_five_category_actions_evidence test_central_run_status test_central_failure_stage_report -v
+        run: python3 -m unittest test_central_workflow_inventory test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report test_central_management_summary test_five_category_evidence_transfer test_five_category_actions_evidence test_five_category_priority_csv test_central_run_status test_central_failure_stage_report -v
       - name: Tek merkez push regresyon testleri
         id: audit_8
         continue-on-error: true
