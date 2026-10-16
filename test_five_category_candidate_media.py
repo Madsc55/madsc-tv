@@ -182,6 +182,24 @@ class CandidateMediaTests(unittest.TestCase):
                 (folder / 'kabul.json').write_text(json.dumps(manifest))
                 with self.assertRaises(ValueError): media.load_cache(folder)
 
+    def test_general_media_rejects_negative_or_empty_batch_without_probing(self):
+        import subprocess
+        import sys
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with (root / 'YENILER_TARAMA_RAPORU.csv').open('w', encoding='utf-8', newline='') as handle:
+                writer = csv.DictWriter(handle, fieldnames=['KANAL', 'YAYIN_URL', 'ADAY_TURU'])
+                writer.writeheader()
+                writer.writerow({'KANAL': 'A', 'YAYIN_URL': URL, 'ADAY_TURU': 'YENI_KANAL_ADAYI'})
+            script = ROOT / 'scripts/genel_aday_medya_test.py'
+            for batch in ('-1', '1'):
+                with self.subTest(batch=batch):
+                    result = subprocess.run([sys.executable, str(script)], cwd=root,
+                        env={**os.environ, 'ADAY_TEST_GRUBU': batch}, capture_output=True, text=True)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn('ValueError', result.stderr)
+                    self.assertFalse((root / 'GENEL_ADAY_GERCEK_MEDYA_RAPORU.csv').exists())
+
     def test_workflow_gates_media_before_scoring_and_publishes_isolated_files(self):
         workflow = (ROOT / '.github/workflows/madsc-03-kanal-test.yml').read_text()
         self.assertLess(workflow.index('id: media'), workflow.index('id: scoring'))
