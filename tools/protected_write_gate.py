@@ -22,9 +22,15 @@ def blocked_paths(paths):
     """Conservatively reject protected paths and any unexpected M3U mutations."""
     blocked = []
     for raw in paths:
-        name = raw.replace("\\", "/").removeprefix("./")
-        if (name in PROTECTED_EXACT
-                or any(name.startswith(prefix) for prefix in PROTECTED_PREFIXES)
+        name = raw.replace("\\", "/")
+        parts = name.split("/")
+        if (not name or name.startswith("/")
+                or any(part in ("", ".", "..") for part in parts)):
+            blocked.append(name)
+            continue
+        folded = name.casefold()
+        if (folded in {item.casefold() for item in PROTECTED_EXACT}
+                or any(folded.startswith(prefix.casefold()) for prefix in PROTECTED_PREFIXES)
                 or PurePosixPath(name).suffix.lower() == ".m3u"):
             blocked.append(name)
     return blocked
