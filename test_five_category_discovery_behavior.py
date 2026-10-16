@@ -60,5 +60,7 @@ class DiscoveryBehaviorTests(unittest.TestCase):
         positions = [text.index(command) for command in commands]
         self.assertEqual(positions, sorted(positions))
         self.assertIn('set -euo pipefail\n          ' + commands[0], text)
+        self.assertLess(text.index('sudo apt-get install -y ffmpeg'), positions[0])
+        self.assertLess(text.index('ffprobe -version'), positions[0])
         self.assertIn('contents: read', text)
         self.assertNotIn('git push', text)
