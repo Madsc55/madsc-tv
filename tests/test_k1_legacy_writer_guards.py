@@ -25,7 +25,7 @@ class LegacyWriterGuards(unittest.TestCase):
                 self.assertIn("git push", source)
     def test_combined_discovery_writer_is_main_only(self):
         source = (ROOT / "madsc-birlesik-kesif.yml").read_text(encoding="utf-8-sig")
-        self.assertIn("  kesif:\\n    if: github.ref == 'refs/heads/main'\\n", source)
+        self.assertIn("  kesif:\n    if: github.ref == 'refs/heads/main'\n", source)
         self.assertIn("python3 tools/protected_write_gate.py --base origin/main", source)
         self.assertIn("git push origin HEAD:main", source)
 
