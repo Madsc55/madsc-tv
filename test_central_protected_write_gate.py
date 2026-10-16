@@ -97,6 +97,22 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
             self.assertIn({"kind": "COPY_MOVE", "target": "YENILER.m3u"},
                           report["review_required"][0]["write_target_hints"])
 
+    def test_environment_isaretleyicisi_gercek_yamlda_algilanir(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "legacy.yml").write_text(
+                "name: Legacy\non: workflow_dispatch\npermissions:\n  contents: write\n"
+                "jobs:\n  publish:\n    runs-on: ubuntu-latest\n"
+                "    environment: production\n    steps:\n      - run: echo ok\n",
+                encoding="utf-8")
+            report = inspect(root)
+            self.assertEqual(report["errors"], [])
+            self.assertEqual(report["review_count"], 1)
+            self.assertTrue(report["review_required"][0]["environment_gate_marker"])
+
     def test_merkezi_rapor_kanal_listesini_degistirmez(self):
         source = Path("scripts/central_protected_write_gate.py").read_text()
         self.assertNotIn("write_text(content", source)
