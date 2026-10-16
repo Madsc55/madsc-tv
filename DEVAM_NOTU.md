@@ -3010,3 +3010,12 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Kullanici ev ortaminda kendi kanal listesini kontrol etti: kanal listesinde degisiklik yok, kategorilerde degisiklik yok. Bu iki baslik icin KULLANICI ONAYI verildi.
 - Kapsam: kullanicinin gozlemledigi liste ve kategori gorunumu. Tum kanal URL'leri, yayin oynatimi, cihazlar arasi tutarlilik veya 92 workflow davranissal esdegerligi icin otomatik kanit DEGIL.
 - Bu onay korunacak; korunan listelerde/kategorilerde izinsiz degisiklik yapilmayacak. PR #71 birlestirilmeyecek.
+
+
+## 16 Ekim 2026 — DDTD #111 beşli Actions başarı doğrulaması
+- GitHub Actions run **38966496252**, test edilen kod SHA **393f6e6fbd6e6bfa6f2de65f69f2cc352532e96c**, durum **completed / success**.
+- MADSC 01 Güvenlik: success; MADSC 02 Kanal Keşfi: success; MADSC 03 Kanal Testleri: success; MADSC 04 Arşiv ve Yedek: success; MADSC 05 Genel Bakım: success. **5/5 geçti.**
+- Önceki #109 ve #110 başarısızlıkları sonrasında yazma hedefi regex düzeltmesinin bu SHA'daki güvenlik testinde başarılı olduğu doğrulandı.
+- Bu sonuç **92 eski workflow'un davranışsal entegrasyonunun tamamlandığını**, tüm korunan yazmaların teknik olarak engellendiğini veya branch protection'ın doğrulandığını kanıtlamaz. Statik denetimdeki manuel riskler ayrıca ele alınacak.
+- Kullanıcı kararı: kanal adayları testler tamamlanıp ayrıca kullanıcı onayı alınana kadar **ana listeye, YENILER'e veya YEDEKLER'e eklenmeyecek**; kategoriler ve yayın bağlantıları korunacak. Kullanıcı ev kontrolünde liste ve kategori değişmediğini ayrıca onayladı.
+- PR #71 merge yok; korunan veri dosyalarına dokunulmadı. Sonraki iş: 92 legacy workflow izin/yazma risklerini raporlarla tek tek sınıflandırıp gerçek davranışsal entegrasyon eksiklerini gidermek.
