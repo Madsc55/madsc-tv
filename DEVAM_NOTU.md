@@ -3207,3 +3207,10 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Son commit için GitHub birleşik status sorgusu boş `statuses` döndü; Actions başarısı henüz teyit EDİLMEDİ. Test çalıştırıldı iddiası yok.
 - 92 eski workflow'un davranışsal kabulü halen 0/92; eski workflow'lar kapatılmadı, PR #71 birleştirilmedi, playlist/yedek/EPG/kanal dosyaları değiştirilmedi.
 - SONRAKI: Yeni SHA üzerinde Actions sonuçlarını doğrula; cron ve trigger eşdeğerliğini, script giriş noktalarını, rapor/izin davranışlarını eski 92 workflow için tek tek kanıtla; 0/92 sayısını kanıtsız yükseltme.
+
+
+### 17 Ekim 2026 — DDTD x2 / SIRALI IS PLANI VE CI BAGLANTISI
+1. SON SHA Actions dogrulamasi: 97ffc13 ve 41552b4 icin PR-tetiklemeli run sorgulari bos; combined statuses bos. Bunlar tum Actions kosularini kapsamaz; sonuc BASARILI olarak isaretlenmedi.
+2. Cron regresyon testi `tests/test_five_category_92_workflow_audit.py` olusturuldu, fakat MADSC05 bunu kendiliginden kesfetmiyordu. `.github/workflows/madsc-05-genel-bakim.yml` icine `python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v` adimi eklendi. Commit `6f37cfe9f2d5c08a56f4507c19f4ace62f3d07a6`. Bu commit Actions tetiklemeli; yeni SHA sonucunu dogrulamak gerekiyor.
+3. Sonraki sira: yeni SHA CI; denetim ayrıştırma regresyonlari; 92 workflow icin tetikleyici/script/rapor/izin esleme; bes kategori bazinda davranissal uygulama; eski-yeni karsilastirma ve kabul kanitlari; koruma kontrolleri.
+4. KORUMA: eski workflow'lar kapatilmaz/silinmez; PR #71 birlestirilmez; playlist/EPG/yedek/kanal kimlikleri kullanicinin ozel ekleme talimati olmadan degistirilmez. Davranissal kabul 0/92.
