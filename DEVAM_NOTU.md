@@ -2885,3 +2885,54 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Legacytracker #38952859152 kendi74gercekffprobeolcumu:57DOGRULANAMADI,15VIDEO_SES_VAR,1YALNIZ_VIDEO,1MEDYA_YOK;74yeni gozlem,24saatkararli0. Buayri legacyhavuz yeniK3'teki30kimlikadayi/0medyaileTOPLANMAZ. Legacycache K3artifactstate'ine kanitsiz tasinmadi.
 - Aktif SIRADAKI teknikeksik: mevcut oncelikli/genelmedya probe CSV'lerini olcum aninin gercek timestamp'i ve kaynakrun/HEAD provenance'iyle K3'e baglamak. oncelikli_kanal_dogrula.py mevcut8sutunluCSV'de olcum zamani yok;runbitiszamani veya NOW'yi eskiolcume zaman diye atama. Ayni URL+olcumzamanini tekrar sayma, stale/celiskiyi failclosed tut. Kaynakprobelari gereksiz tekrarlama; bitenisi yeniden kurma.
 - Tam92workflowparity0/92: tetik/izin/cikti/yanetki/geri alma kabul halaayriacik. EPG/Pagesuctanuca/PNGkimligi,harici+tarihselrestore,gercekVOD,IBOcihaz(kullanici) acik. Korumalar: anaM3U/YEDEKLER/YENILER/FAVORILER/cihazdegisikligi yok;mainpushmerge/PR71merge yok;bu calismadalegacyworkflowkapatma yok.
+
+
+## SOHBET DEVRİ — 16 Ekim 2026 21:32 Stockholm — YENİ SOHBET BURADAN BAŞLASIN
+
+Bu bölüm, kullanıcının “bu sohbeti kaybetmeden notlara kaydedelim, diğer sohbetten devam edelim” talebiyle hazırlanmış güncel çalışma devridir. Önceki bölümler tarihsel kayıttır; eski “CI BEKLİYOR” ifadeleri aşağıdaki doğrulanmış sonuçlarla birlikte okunmalıdır. Bu, teknik karar ve kanıtların özeti olup sohbetin kelimesi kelimesine dökümü değildir. Sohbetin doluluk sınırı görünmüyor; dolduğuna ilişkin kesin iddia yok.
+
+### Çalışma yeri ve kesin sınırlar
+- GitHub: Madsc55/madsc-tv; çalışma dalı: madsc/bes-sistem-toplu-birlestirme. İşler bu dalda devam edecek.
+- Ana kanal listelerine, ana listedeki dolu logolara, kanal sırasına, YEDEKLER, YENİLER, FAVORİLER ve cihaz favorilerine DOKUNMA.
+- main'e push/birleştirme yapma; PR #71'i birleştirme. Eski otomasyonları davranışsal eşdeğerlik kanıtı olmadan kapatma. Bu çalışma turunda legacy workflow kapatılmadı.
+- IBO Player Pro cihaz testini kullanıcı yapacak. Teknik medya, kanal kimliği, EPG/Pages, sürekli oynatma ve cihaz/favori onayı ayrı kabul konularıdır.
+- AGENTS.md, GUVENLIK_KURALLARI.md, OZELLIK_ENVANTERI.md ve bu son devir okunacak. Bitmiş başarılı işi yeniden kurma; yalnız eksik/zamanı gelen işi yap.
+- Kullanıcı tekrar tekrar devam yetkisi verdi; rutin geri alınabilir teknik işler için tekrar izin isteme. Şimdiki talep sohbet devri olduğundan yalnız not kaydedildi; yeni test veya yeni geliştirme başlatılmadı.
+
+### Bu sohbet boyunca tamamlanan somut işler
+1. **K2 keşif davranışı:** mevcut arşiv-before / keşif / arşiv-after ve dört aşama sonuç zinciri bağlandı. ffmpeg/ffprobe bağımlılığı doğrulandı. Keşif geçmişi aynı repo/dal/başarılı ata 02 veya 05 artifact'inden korunuyor; bozuk/çelişkili geçmiş sıfırlanmıyor. 6 saat dolmadan tekrar ölçüm yapılmaması kanıtlandı.
+2. **K2 geniş kaynak taraması:** eski tools/genis_kaynak_taramasi.py yeniden yazılmadan weekly/monthly modlarıyla bağlandı. state.json ve candidate_review.json ata commit tabanlı üç yönlü birleştirme ile korunuyor. Gerçek weekly 21/21 erişilebilir; monthly 156 kontrol/155 erişilebilir; 30 kimlik inceleme adayı. Sonraki koşuda state geri geldi, yeni/değişen aday 0; 30'luk kuyruk korundu. Normal cron none; kod kabul testi both; manuel seçim mevcut.
+3. **K3 logo/EPG:** mevcut tools/logo_epg_audit.py bağlandı; 1039 giriş tam sayıldı. 331 eksik tvg-id ve 106 yinelenen ID grubu ayrı uyarılardır; toplam 437 benzersiz bozuk kanal diye sunulmaz. Otomatik liste/logo/EPG düzeltmesi yapılmadı.
+4. **K4 kurtarma tatbikatı:** mevcut disaster_recovery_dry_run.py geçici alanda iki M3U'yu bozup geri açıyor. Orijinaller değişmiyor. Bu, harici veya tarihsel yedek kurtarma kanıtı değildir.
+5. **Beş kategoride gerçek koruma:** scripts/k1_protected_integrity.py başlangıç snapshot ve always son kontrolde takip edilen 43 korunan dosyanın içerik/tür/izinlerini kontrol ediyor. Gerçek loglarda changed_paths=[].
+6. **K3 puanlama:** category_candidate_scoring.py kabul edilmiş K2 artifact'ini mevcut scorer ve birleşik rapora bağladı; ek medya probe 0. Scorer'ın gerçek priority CSV adını tanımaması düzeltildi. Eski takipçinin bozuk geçmişi sessiz sıfırlama hatası kaldırıldı.
+7. **K5 kanıt aktarımı:** category_evidence_collect.py aynı run/repo/dal/HEAD'in dört başarılı kategori job/artifact'ini doğruluyor; seçili 17 JSON raporu, değişmez kaynak kopyaları ve türetilmiş dar kapsamlı sağlık kanıtı dahil 35 dosyayı SHA256 denetimiyle merkezi rapora taşıyor. gh artifact'leri geçici alana indirir; seçili raporlar dışındaki playlist/yedek/CSV/logo dosyaları K5 merkezi çıktısına aktarılmaz. Sahibi diğer kategori olan raporlar K5'in eski checkout verisinden yeniden yazılmıyor.
+8. **K5 rapor sırası ve Actions verisi:** yönetim özeti bağımlı 18 görev/kalan işler raporlarından sonraya alındı. central_actions_evidence.py GET ile workflow envanteri, son 100 koşu ve en fazla 20 başarısız koşunun ilk 100 job bilgisini alıp mevcut durum/hata raporlayıcılarını besliyor. Otomatik özet workflow+dal bazlı; devam eden kendi run'ını başarı saymıyor. Merkezi yönetim özeti 24 başlıkta; eksik rapor 9 → 3 → 0. Sekiz geniş görev ailesi hâlâ açık; rapor varlığı görev bitişi değildir.
+9. **Priority CSV gerçek hata düzeltmesi:** oncelikli_kanal_dogrula.py ffprobe başarısızken 8 başlığa 9 alan yazıp URL/kaynak sütunlarını kaydırıyordu. Hata satırı 8 alana düzeltildi; CSV roundtrip testleri ve gerçek eski workflow başarılı.
+10. **K3 zamanlı kararlılık bağlantısı:** mevcut kanal_kararlilik_takip.py fonksiyonlara ayrıldı; category_stability_history.py aynı dal/başarılı ata 03/05 artifact state'ini ve kabul hash'ini doğruluyor. URL+gerçek ölçüm zamanı tekil; aynı ölçüm yeni tarih verilerek tekrar sayılmıyor. Bozuk/çelişkili/gelecek/saatsiz zaman fail closed; geçmiş silinmiyor. Karar penceresi 7 gün, en az 24 saat aralık ve son 24 saatte güncel başarı gerekir; arada başarısız ölçüm olmamalı. Sürekli oynatma veya 30 gün kabulü değildir.
+
+### Doğrulanmış GitHub kanıtları
+- K2 geniş kaynak/K3 logo aşamaları: #38943242266 ve #38943858694 SUCCESS.
+- Puanlama teknik commit 9fda05043b80a6feb80ea3f0e79d8065197337cc; toplu #38945913422 SUCCESS 5/5. Eski puanlama #38945913310 ve eski takipçi #38945913275 SUCCESS.
+- K5 ilk aktarım af3d1dd48a6ebdd15f50efc66031c5ae759ad033; #38949404949 SUCCESS 5/5; eksik rapor 3.
+- K5 Actions bağlantısı fb12957c8df316dfec8681f73903d869522ae53f; #38950485643 SUCCESS 5/5; eksik rapor 0.
+- CSV düzeltmesi c355b94b44473b8035b840b1d5e8c35bdc388166; toplu #38950923718 SUCCESS 5/5; eski priority #38950923728 SUCCESS.
+- **Son teknik commit c1683414b0baeacf996d967447ea9d20fe5f00f5; son toplu #38952859393 COMPLETED/SUCCESS 5/5.** Devir kaydı sırasında API'den yeniden doğrulandı. https://github.com/Madsc55/madsc-tv/actions/runs/38952859393
+- Son eski Kanal Kararlılık Takibi #38952859152 SUCCESS. 74 gerçek ölçüm: 57 doğrulanamadı, 15 video+ses, 1 yalnız video, 1 medya yok; 24 saat kararlı 0.
+- Son K3 job117148868102: 28 regresyon PASS. K5 job117150619232: 24 başlık/eksik rapor 0, 8/8 geniş görev açık, 43 korunan dosya/0 fark. Yerel son toplam 69 five_category ve 21 ilgili test PASS.
+- K3'teki **30 kimlik adayı / 0 açık medya satırı**, eski takipçinin 74 ölçümlük ayrı havuzuyla TOPLANMAZ. K3 yeni bağlantı ilk koşuda **0 gözlem, 0 kararlı aday** üretti; bu doğru bir boş başlangıçtır, 24 saat başarısı değildir.
+- K3 state hash ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356; kaynak #38950923718/c355b94 entegrasyon öncesi olduğu için PRE_INTEGRATION_BOOTSTRAP. Yeni entegre state'in sonraki gerçek run'dan geri yüklenmesi henüz canlı kanıt bekliyor; fixture testleri başarılı.
+- Görünen tek tarihsel latestfail #38867525528, 11599 beklerken 11559 bulduğu için YAZMADAN durdu. 40 fark tarihsel 42 yedeğin 2'ye indirilmesiyle önceki notta açıklandı. Kayıtlar geri eklenmedi, eski yazan iş yeniden çalıştırılmadı, geçmiş kırmızı başarıya çevrilmedi.
+
+### Yeni sohbette doğrudan devam sırası
+1. Bu bölümü ve güncel branch HEAD/Actions sonuçlarını oku. Önceki tamamlanmış koşuları gereksiz tekrar başlatma.
+2. **Öncelikli teknik eksik:** mevcut öncelikli/genel aday medya ölçümlerini K3 puanlama/kararlılık zincirine gerçek ölçüm zamanı ve source run/HEAD kanıtıyla bağla. scripts/oncelikli_kanal_dogrula.py mevcut 8 sütunlu CSV'sinde ölçüm zamanı yok. Eski ölçüme NOW veya run bitiş zamanını uydurma ölçüm zamanı olarak atama. Önce var olan genel medya betik/workflow ve artifact şemasını incele; çalışan probeları yeniden yazma.
+3. category_stability_history.py'nin yeni entegre başarılı ata artifact'inden gerçek restore'unu uygun sonraki koşuda doğrula. Aynı URL+ölçüm zamanı tekrarında yeni gözlem 0; geçersiz/hash çelişkili/eksik geçmişte reset yok. Ek kaynak probe yalnız gerektiğinde.
+4. Sonra 92 eski workflow'un tetik/izin/çıktı/yan etki/idempotence/geri alma eşdeğerliği açıklarını sırayla tamamla. **Tam davranışsal kabul hâlâ 0/92**; kısmi bileşenleri tam workflow sayısı veya uydurma yüzde yapma.
+5. Gerçek EPG/Pages uçtan uca, PNG kanal kimliği, harici+tarihsel geri yükleme, gerçek VOD ve kullanıcı IBO cihaz kabulü açık kalıyor. ilyswch-TR 404/kaynak hedef farkı kanıtsız kapatılmadı.
+
+### Dosyalar ve çalışma ortamı
+- Esas kalıcı kaynak GitHub dalıdır; yerel scratch'a güvenme. Kod ve envanter repoda; ayrı bir dosya kopyası gerekmiyor.
+- İlgili yeni dosyalar: scripts/category_evidence_collect.py, scripts/central_actions_evidence.py, scripts/category_candidate_scoring.py, scripts/category_stability_history.py; test_five_category_evidence_transfer.py, test_five_category_actions_evidence.py, test_five_category_priority_csv.py, test_five_category_stability_history.py.
+- Önceki yerel worktree /workspace/scratch/7d693a10ace6/madsc-stability idi; yerel değişiklikler GitHub'a gönderilmiş teknik commit ile karşılaştırılmadan tekrar uygulanmamalı. Yeni sohbette gerekirse güncel daldan temiz çalışma alanı oluştur.
+- Bu devir sonrasında kullanıcıya notun GitHub'a kaydedilip tekrar okunarak doğrulandığı ve yeni sohbet için kısa başlangıç cümlesi verilecek. Bütün işlerin bittiği söylenmeyecek.
