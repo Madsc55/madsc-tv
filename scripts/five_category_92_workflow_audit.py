@@ -81,10 +81,6 @@ def inspect(root=ROOT):
         item["unmatched_script_entrypoints"] = sorted(
             set(item["commands"]) - set(item["shared_script_entrypoints"]))
         item["missing_legacy_script_files"] = sorted(cmd for cmd in item["commands"] if not (root / cmd).is_file())
-        item["shared_script_content_identical"] = {
-            cmd: (root / cmd).is_file()
-            for cmd in item["shared_script_entrypoints"]
-        }
         item["script_entrypoint_coverage_ratio"] = (
             round(len(item["shared_script_entrypoints"]) / len(set(item["commands"])), 3)
             if item["commands"] else None
