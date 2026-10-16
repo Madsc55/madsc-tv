@@ -46,7 +46,7 @@ class ProtectedWriteGateTests(unittest.TestCase):
         self.assertEqual(len(run.call_args_list), 4)
 
 
-from tests.test_k1_legacy_writer_guards import LegacyWriterGuards  # included in CI discovery
+from tests.test_k1_legacy_writer_guards import LegacyWriterGuards  # included in CI discovery; checks explicit permissions
 
 
 if __name__ == "__main__":
