@@ -70,10 +70,10 @@ class KorunanYazmaKapisiTesti(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             (folder / "eski.yml").write_text(
-                "name: Eski\\non: workflow_dispatch\\npermissions:\\n  contents: write\\n"
-                "jobs:\\n  job:\\n    runs-on: ubuntu-latest\\n    steps:\\n"
-                "      - run: |\\n          cp rapor.csv YENILER.m3u\\n"
-                "          echo veri >> CALISANLAR.m3u\\n", encoding="utf-8")
+                "name: Eski\non: workflow_dispatch\npermissions:\n  contents: write\n"
+                "jobs:\n  job:\n    runs-on: ubuntu-latest\n    steps:\n"
+                "      - run: |\n          cp rapor.csv YENILER.m3u\n"
+                "          echo veri >> CALISANLAR.m3u\n", encoding="utf-8")
             report = inspect(root)
             self.assertEqual(report["errors"], [])
             hints = report["review_required"][0]["write_target_hints"]
