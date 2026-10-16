@@ -2587,3 +2587,8 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Workflow zaten read-only dry-run ve workflow_dispatch ile duzeltilmisti. Testi kullaniciya birakmamak icin sadece kendi dosya degisikliginde calisan, yalniz calisma dalina ait push trigger eklendi (759c7c1).
 - GitHub Actions run 38870157023 COMPLETED SUCCESS, checkout ve Safe dry-run notice dahil tum adimlar PASS. Eski 6f1cffe hatasi tarihcede kalir; yeni surum YESIL.
 - Bu test gercek kanal ayirma/IBO oynatma testi DEGIL; salt-okunur guvenli workflow testi. Main ve korunan listeler degistirilmedi. K1 diger risklerden dolayi devam ediyor.
+
+## 2026-10-16 — K1 uc rapor yazicisi pre-push guvenlik kapisi
+- .github/workflows/madsc-birlesik-kesif.yml (8d901bc), madsc-son-kontrol.yml (d9bd8fa), epg-gunluk.yml (3fa20ae): git push oncesi `python3 tools/protected_write_gate.py --base origin/main` eklendi. Her dosya GitHub'dan tekrar okunarak gate=1/push=1 dogrulandi.
+- Bu sadece calisma dali degisikligi; main uzerinde devrede DEGIL. Canli Actions end-to-end PASS henuz yok. Eski 92 workflow'un tam parity denetimi ve branch protection eksik. K1 bitmedi.
+- Korunan playlistler ve yedekler degistirilmedi.
