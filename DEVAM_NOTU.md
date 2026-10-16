@@ -3214,3 +3214,10 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 2. Cron regresyon testi `tests/test_five_category_92_workflow_audit.py` olusturuldu, fakat MADSC05 bunu kendiliginden kesfetmiyordu. `.github/workflows/madsc-05-genel-bakim.yml` icine `python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v` adimi eklendi. Commit `6f37cfe9f2d5c08a56f4507c19f4ace62f3d07a6`. Bu commit Actions tetiklemeli; yeni SHA sonucunu dogrulamak gerekiyor.
 3. Sonraki sira: yeni SHA CI; denetim ayrıştırma regresyonlari; 92 workflow icin tetikleyici/script/rapor/izin esleme; bes kategori bazinda davranissal uygulama; eski-yeni karsilastirma ve kabul kanitlari; koruma kontrolleri.
 4. KORUMA: eski workflow'lar kapatilmaz/silinmez; PR #71 birlestirilmez; playlist/EPG/yedek/kanal kimlikleri kullanicinin ozel ekleme talimati olmadan degistirilmez. Davranissal kabul 0/92.
+
+
+### 17 Ekim 2026 — DDTD / CI VE TEST AYRIMI
+- Son devir SHA `c593a2dcf07ebd81a5fc5083bfa1cca2f11a22f0` icin PR-run ve combined-status sorgulari bos dondu. Bu sorgular push-triggerli Actions sonucunu kanitlamaz; CI BASARI iddiasi YOK.
+- `scripts/five_category_92_workflow_audit.py` cron regex duzeltmesi dalda dogrulandi.
+- MADSC05'te yeni `tests/test_five_category_92_workflow_audit.py` icin `unittest discover -s tests` adimi var. Ayrica kokte zaten var olan `test_five_category_92_workflow_audit.py` dosyasi `audit_9` adiminda calistiriliyor. Bunlar iki AYRI test dosyasidir; ayni testin yanlislikla iki kere kosuldugu kanitlanmadi.
+- Oncelik: push Actions gercek sonucunu dogrula; mevcut kok testlerle yeni regresyonun kapsamini ayir; 92 workflow davranissal kanit matrisini ilerlet. Kabul halen 0/92.
