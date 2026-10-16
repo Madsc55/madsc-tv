@@ -2592,3 +2592,9 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - .github/workflows/madsc-birlesik-kesif.yml (8d901bc), madsc-son-kontrol.yml (d9bd8fa), epg-gunluk.yml (3fa20ae): git push oncesi `python3 tools/protected_write_gate.py --base origin/main` eklendi. Her dosya GitHub'dan tekrar okunarak gate=1/push=1 dogrulandi.
 - Bu sadece calisma dali degisikligi; main uzerinde devrede DEGIL. Canli Actions end-to-end PASS henuz yok. Eski 92 workflow'un tam parity denetimi ve branch protection eksik. K1 bitmedi.
 - Korunan playlistler ve yedekler degistirilmedi.
+
+## 2026-10-16 — TUM K1–K5 SISTEMLERI ICIN ZORUNLU NOT KONTROLU
+- Kullanici talimati: DEVAM_NOTU.md, diger proje notlari ve kayitli planlar yalniz K1 icin degil K1, K2, K3, K4, K5'in TAMAMI icin ortak calisma kaynagidir.
+- Her kategoride mevcut eski kod/workflow envanteri ile notlardaki tamamlanmis, yarim kalmis, planlanmis, yapilacak ve test bekleyen isler birlikte incelenir; ilgili sisteme eslenir. Sadece eski islevleri birlestirmek yeterli degildir.
+- Her gorev gercek uygulama ve dogrulama olmadan tamamlandi sayilmaz; sonuc ve eksikler yine DEVAM_NOTU.md'ye yazilir. Mevcut sira korunur: once K1 tamamlanir, sonra K2, K3, K4, K5.
+- Ana playlist, yedek, favori, kategori ve IBO onay kurallari degismez; yeni kanal yedek/test listesine eklenmeden once bile kullanicidan acik onay gerekir.
