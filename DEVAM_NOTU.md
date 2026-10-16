@@ -3019,3 +3019,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Bu sonuç **92 eski workflow'un davranışsal entegrasyonunun tamamlandığını**, tüm korunan yazmaların teknik olarak engellendiğini veya branch protection'ın doğrulandığını kanıtlamaz. Statik denetimdeki manuel riskler ayrıca ele alınacak.
 - Kullanıcı kararı: kanal adayları testler tamamlanıp ayrıca kullanıcı onayı alınana kadar **ana listeye, YENILER'e veya YEDEKLER'e eklenmeyecek**; kategoriler ve yayın bağlantıları korunacak. Kullanıcı ev kontrolünde liste ve kategori değişmediğini ayrıca onayladı.
 - PR #71 merge yok; korunan veri dosyalarına dokunulmadı. Sonraki iş: 92 legacy workflow izin/yazma risklerini raporlarla tek tek sınıflandırıp gerçek davranışsal entegrasyon eksiklerini gidermek.
+
+
+## 16 Ekim 2026 — DDTD #112–#113 yazma ipucu regresyonu doğrulandı
+- Kod commit **811fd04198eaa799cf4a76b4347343fc28864e3e**: `scripts/central_protected_write_gate.py` içinde açık yazma yetkisi bulunmasa da `>`, `>>`, `tee`, `cp`, `mv`, `sed -i` gibi komutlar statik inceleme kapsamına alındı. GitHub Actions run **38967762083**: completed/success.
+- Test commit **872d324fa3713621a11c24611e6cd2a7b6944b0c**: salt okunur `contents: read` tanımlı eski workflow içinde `cp rapor.csv YENILER.m3u` hedefinin rapora alınması için regresyon testi eklendi. GitHub Actions run **38967779386**: completed/success; MADSC 01, 02, 03, 04, 05 **5/5 success**.
+- Bu tespit salt okunur statik taramadır, gerçek dosya yazma girişimini teknik olarak engellemez; 92 eski workflow'un davranışsal eşdeğerliği, yazma yetkisi politikalarının tam uygulanması ve branch protection henüz kanıtlanmadı.
+- Kullanıcı kararı korunuyor: yeni kanal veya yedek eklemesi yok, ana liste/kategoriler/korunan dosyalara dokunma yok, PR #71 merge yok.
+- Sonraki DDTD: 92 eski workflow'un izin, tetikleyici, hedef dosya ve çalışma davranışlarını sınıflandır; gerçek enforcement ve yanlış negatif risklerini gider, her kod değişikliğini Actions ile doğrula.
