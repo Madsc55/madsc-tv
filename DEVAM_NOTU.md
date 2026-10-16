@@ -2557,3 +2557,9 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - tools/protected_write_gate.py artik staged, unstaged, untracked ve base..HEAD farklarini tarar (68a82a7).
 - .github/workflows/madsc-11599-yedek-geri-yukle.yml icinde CALISANLAR.m3u commitinden sonra main push oncesinde `python3 tools/protected_write_gate.py --base origin/main` fail-closed kontrolu eklendi (debcec2). Bu mevcut otomatik geri yukleme akisini korunan dosya degisirse DURDURUR; eski otomatik ana liste yazma yetkisini kullanmaz. Yalniz bu workflow'a baglandi; diger riskli workflow'lar henuz korunmus sayilmaz.
 - tests/test_protected_write_gate.py icin unstaged/untracked senaryosu eklendi (dba0b3d). GitHub kaynaklari geri okunup degisiklikler dogrulandi, ancak Actions PASS henuz dogrulanmadi. Branch protection da henuz etkin degil.
+
+## 2026-10-16 — 11599 geri yukleme hata teshisi
+- Kullanici GitHub ekran goruntusunde: RuntimeError "Expected original 11599 backups, found 11559; refusing destructive edit". Fark 40; bu 40 kaydin gercekte kayboldugu ispatlanmadi. restore_all_11599_backups.py mevcut yedek girdileri ile arsivden tekillestirilerek eklenebilir girdileri topluyor; hedefe uymayinca yazmadan once duruyor.
+- KRITIK: eski madsc-11599-yedek-geri-yukle.yml workflow'u push ile tetikleniyor, contents:write ve main'e CALISANLAR.m3u push barindiriyordu. Calisma dalinda salt-okunur, sadece workflow_dispatch ile baslayan teshis isine cevrildi (a3433cb). main dalindaki eski workflow AYRI KALABILIR; main'e aktarim yapilmadi.
+- scripts/diagnose_11599_backups.py salt-okunur sayim raporu eklendi (f8d6e35). Gercek teshis calismasi ve kaynak arsivdeki 40 farkin kokeni HENUZ DOGRULANMADI.
+- Ana playlist, yedekler, main, PR #71 degistirilmedi. Koruma ilkeleri ve kullanicinin acik onay gereksinimi devam eder.
