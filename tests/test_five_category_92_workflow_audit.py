@@ -27,7 +27,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             # The inventory enforces 92 legacy workflows, including in fixtures.
             for number in range(90):
                 (workflows / f"legacy-filler-{number:02d}.yml").write_text(
-                    f"name: Filler {number}\\non:\\n  workflow_dispatch:\\njobs: {{}}\\n",
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
                     encoding="utf-8",
                 )
             report = inspect(root)
