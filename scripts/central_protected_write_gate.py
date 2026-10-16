@@ -40,7 +40,9 @@ def inspect(root):
                 r"(?im)(?:git\s+(?:push|commit|reset|clean)|rm\s+-[rfRF]+|sed\s+-i|curl\s+[^\n]*\|\s*(?:sh|bash))",
                 content,
             )))
-            if not writes and not inherited and not risky_commands:
+            if not writes and not inherited and not risky_commands and not re.search(
+                r"(?m)(?:>>?|\btee\s+|\b(?:cp|mv)\s+|\bsed\s+-i)", content
+            ):
                 continue
             protected = bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/", content, re.I))
             # Salt okunur komut ipuclari: hedefler manuel inceleme icindir,
