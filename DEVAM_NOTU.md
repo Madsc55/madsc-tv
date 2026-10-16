@@ -2735,3 +2735,5 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - Izole sentetik veriyle gercek archive betigi calistirildi: onceki basari/gecmis kaydi korunuyor, arsiv girdisine sahte basari verilmiyor, ana liste URL'si arsive alinmiyor, iki after calismasi tekrarsiz, playlist byte icerikleri degismiyor. 12 ilgili yerel test PASS. Cihaz testi veya tam 92 parity kaniti degildir.
 - Degisen teknik dosyalar: .github/workflows/madsc-02-kesif.yml, test_five_category_discovery_behavior.py. Eski workflow degistirilmedi; main, PR #71, korunan veri ve cihaz favorileri degismedi.
 - Actions sonucu henuz bu kayit aninda yok; push sonrasi run kimligi/sonucu ayrica eklenecek. 92 eski workflow halen engelli, davranissal tam kabul 0/92; bu adim yalniz eski birlesik kesfin arsiv yasam dongusu eksigini tasir. Tetik saati, uretim rapor saklama/yazma ve geri alma parity'si acik.
+
+- GitHub kaydi dogrulandi: teknik commit 7cb0a1530322a828d55d111d463ac5794736b956. MADSC 05 #92 / run 38931000911 push ile basladi; son kontrol IN_PROGRESS (K1). Sonuc dogrulanmadan PASS denmeyecek. https://github.com/Madsc55/madsc-tv/actions/runs/38931000911
