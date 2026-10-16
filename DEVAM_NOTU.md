@@ -3221,3 +3221,9 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `scripts/five_category_92_workflow_audit.py` cron regex duzeltmesi dalda dogrulandi.
 - MADSC05'te yeni `tests/test_five_category_92_workflow_audit.py` icin `unittest discover -s tests` adimi var. Ayrica kokte zaten var olan `test_five_category_92_workflow_audit.py` dosyasi `audit_9` adiminda calistiriliyor. Bunlar iki AYRI test dosyasidir; ayni testin yanlislikla iki kere kosuldugu kanitlanmadi.
 - Oncelik: push Actions gercek sonucunu dogrula; mevcut kok testlerle yeni regresyonun kapsamini ayir; 92 workflow davranissal kanit matrisini ilerlet. Kabul halen 0/92.
+
+
+### 17 Ekim 2026 — DDTD / CRON DAVRANISSAL REGRESYON
+- `tests/test_five_category_92_workflow_audit.py` onceki yalniz regex metni kontrolu yerine gercek `inspect(root)` fonksiyonunu gecici workflow ornekleriyle cagiran teste cevrildi. Eslesen cron: `15 4 * * *`, eslesmeyen cron: `30 7 * * 1`; iki ornekte de `behavioral_parity_verified=False` zorunlu. Commit `7d061d221be3e91e31bacea17d72d8c62b07aa21`.
+- Son SHA Actions sonucu bu oturumda dogrulanamadi; PR-run ve combined status sorgulari tum push Actions kosularini kapsamaz. Testin basarili calistigi iddia edilmez.
+- SONRAKI: CI gercek run sonucunu SHA ile kontrol et; 92 eski workflow icin tetikleyici, script, rapor ve izin farklarini davranissal kanitlarla gider. Eski workflow kapatma yok, kabul 0/92.
