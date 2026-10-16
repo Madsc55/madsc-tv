@@ -51,6 +51,7 @@ def audit():
         "workflow_count": len(records),
         "tiers": dict(Counter(r["tier"] for r in records)),
         "missing_explicit_permissions": sum(not r["explicit_permissions"] for r in records),
+        "missing_permission_paths": [r["path"] for r in records if not r["explicit_permissions"]],
         "push_commands": sum(r["git_push_count"] for r in records),
         "gate_references": sum(r["gate_reference_count"] for r in records),
         "records": records,
