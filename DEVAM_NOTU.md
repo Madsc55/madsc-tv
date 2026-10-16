@@ -2991,3 +2991,10 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - GitHub Actions: genel aday #38960520249 ve MADSC05 #38960520290 ilk teknik commit icin calisiyordu; son test commit'i MADSC05 #38960536644 PENDING. SONUC BEKLENIYOR; PASS iddiasi yok.
 - Kalan ASIL is: 30'luk diger aday partilerinin cursor/parti bazli ilerlemesi ve kabul edilmis gecmis URL+gercek OLCUM_ZAMANI olcumlerinin birlesimi. Yalniz ADAY_TEST_GRUBU=1 yapmak yeterli degil: mevcut category_candidate_media.py tek bundle ve 6 saat cache modeli, category_candidate_scoring.py yalniz o bundle'i puanlar; gecmis partiler rapordan dusmemeli. Once test/sozlesme, sonra kod; eski102state silinmeyecek, olcumler yeniden zamanlanmayacak, cakisik hash fail-closed.
 - Ana liste/YENILER/YEDEKLER/FAVORILER/HEPSI/IBO/logolar/main/PR71 degismedi. Tam92 workflow davranissal kabul 0/92. Bu iki commit tum parti kapsaminin tamamlandigi anlamina gelmez.
+
+
+## 16 Ekim 2026 — aday parti guvenlik degisikligi CI kesin kabul
+- 86a166291719a898cf4a9fb3942ef3212c95332e: scripts/genel_aday_medya_test.py negatif/bos parti fail-closed. Eski bagimsiz Genel Aday Gercek Medya Testi #38960520249 SUCCESS; MADSC05 #38960520290 SUCCESS, K1..K5 5/5 SUCCESS.
+- 21f85d6effb635c59b3b3f821301630ea2111139: test_five_category_candidate_media.py negatif -1 ve bos 1 parti davranis testleri. MADSC05 #38960536644 COMPLETED SUCCESS, K1..K5 5/5 SUCCESS. https://github.com/Madsc55/madsc-tv/actions/runs/38960536644
+- Bu kabul yalniz mevcut parti0 ve hatali/bos parti korumasini kapsar; otomatik parti ilerlemesi ve cok-parti gecmis birlesimi HENUZ YAPILMADI. K3 mevcut tek-bundle cache, ilk30 general; 102 onceki tekil olcum korunmali. Bir sonraki teknik adim: kabul edilmis URL+OLCUM_ZAMANI gecmisini tutan ve sonraki gercek partiye gecen fail-closed sozlesme/testleri. Eski medya kayitlarini yeni olcum diye sayma.
+- Korunan M3U, YENILER, YEDEKLER, FAVORILER, HEPSI, logo, IBO ve PR71 degistirilmedi; 92 tam workflow parity hala 0/92.
