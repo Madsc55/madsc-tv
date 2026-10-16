@@ -46,5 +46,8 @@ class ProtectedWriteGateTests(unittest.TestCase):
         self.assertEqual(len(run.call_args_list), 4)
 
 
+from tests.test_k1_legacy_writer_guards import LegacyWriterGuards
+
+
 if __name__ == "__main__":
     unittest.main()
