@@ -2685,3 +2685,9 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - K1 kalanlar: tüm writer workflow'ların gerçek çalışmada fail-closed gate/branch guard uygulaması, 92 görev parity matrisi, K1 toplu kabul PASS, IBO Player cihaz tarafı kategori/favori teyidi. K2-5 toplu CI PASS olsa bile bu 92 görevin eksiksiz taşındığını kanıtlamaz.
 - Kullanıcı eski GitHub kırmızı hataları gösterdi. Eski run'lar geçmişte kırmızı kalır; en son commit/run'a bak. Node.js 20 deprecated uyarısı esas K1 hata sebebi değil.
 - Korumalı dosyalar/listeler, main, PR #71 üzerinde bu oturumda değişiklik yapılmadı. Yeni sohbet ilk önce bu notu ve güncel Actions'ı oku, ardından otomatik düzeltme/test döngüsünü sürdür; kullanıcıdan tekrar tekrar izin isteme. Nihai başarıyı kanıt olmadan iddia etme.
+
+
+## 2026-10-16 — K1 devam: beşli testler PASS, kural sayısı uyuşmazlığı
+- Actions #38904213286 (commit 035276de) ve #38904738646 (commit 9c32129d) COMPLETED/SUCCESS; ikisinde de 5/5 job SUCCESS. Bu sonuçlar shadow toplu CI'nin yeşil olduğunu kanıtlar, 92 legacy workflow davranışsal parity kanıtı değildir.
+- `GUVENLIK_KURALLARI.md` incelendi: numaralı onaylı kurallar 1-24 (19 temel + 20-23 dört ek + 24 devre kesici). Diğer raporlarda geçen `26 güvenlik kuralı` ifadesi bu belgedeki mevcut 24 maddeyle uyuşmuyor. 25-26 kaynağı doğrulanmadan yeni kural icat edilmemeli ve 26/26 PASS iddia edilmemeli. Ayrıca 24 kuralın hepsi teknik olarak otomatik zorlanıyor denemez.
+- K1 kalan: 24 belgeli kural için politika/otomatik test/üretim kanıtı matrisi; 25-26 referanslarının kaynağı; 92 eski workflow'un yazma/yan etki/çift push gerçek davranış kanıtı; cihaz IBO favori/kategori sırası kabulü. Main, listeler ve PR #71 değiştirilmedi.
