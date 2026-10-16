@@ -1,0 +1,29 @@
+name: K1 - Protected Write Gate Negative Tests
+on:
+  push:
+    paths:
+      - '.github/workflows/k1-protected-write-tests.yml'
+      - 'tools/protected_write_gate.py'
+      - 'tests/test_protected_write_gate.py'
+      - 'scripts/audit_workflow_security.py'
+      - 'tests/test_workflow_security_audit.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  negative-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run isolated negative tests without touching playlists
+        run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
+      - name: Run protected write gate negative tests
+        run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
+      - name: Verify workflow inventory count without executing workflows
+        run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
