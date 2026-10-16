@@ -2563,3 +2563,10 @@ Kullanici GitHub Actions `tara` kosusunda `channel_name_normalization.py` satir 
 - KRITIK: eski madsc-11599-yedek-geri-yukle.yml workflow'u push ile tetikleniyor, contents:write ve main'e CALISANLAR.m3u push barindiriyordu. Calisma dalinda salt-okunur, sadece workflow_dispatch ile baslayan teshis isine cevrildi (a3433cb). main dalindaki eski workflow AYRI KALABILIR; main'e aktarim yapilmadi.
 - scripts/diagnose_11599_backups.py salt-okunur sayim raporu eklendi (f8d6e35). Gercek teshis calismasi ve kaynak arsivdeki 40 farkin kokeni HENUZ DOGRULANMADI.
 - Ana playlist, yedekler, main, PR #71 degistirilmedi. Koruma ilkeleri ve kullanicinin acik onay gereksinimi devam eder.
+
+## 2026-10-16 — 40 yedek farki cozuldu (tarihsel kaynak)
+- main dosyalari gercekten okundu: CALISANLAR.m3u mevcut 2 yedek, 20261013T170042Z arsivinde 11557 EXTINF+URL kaydi. Arsivde exact URL tekrar sayisi 0; mevcut listeyle birebir URL cakisimi 0. 2 + 11557 = 11559.
+- Tarihsel rapor madsc_kesif/yedek_turk_ayirma_raporu.json: original_backup=11599, kept_backup=42, removed_from_player=11557. 42+11557=11599. Dolayisiyla 40 fark, tarihi 42 tutulmus yedegin bugun 2 olmasindan gelir; arşivden 40 kayit kayboldugu sonucuna varilamaz.
+- CALISANLAR.m3u commit gecmisinde d647b05a0137 (2026-10-14) 'Keep only original two backup channels' degisikligi mevcut. Kullanici onayi olmadan eski 40 kaydi geri eklemeyin.
+- scripts/diagnose_11599_backups.py raporla tarihsel mutabakat alanlari eklendi (3a8da9d). Bu script yalniz okur. Canli Actions testinin PASS oldugu iddia edilmiyor.
+- K1 devam: diger yazma yetkili workflow'larin guvenlik kapilari, main branch kurallari ve negatif testleri eksik. main, playlist ve yedekler degistirilmedi.
