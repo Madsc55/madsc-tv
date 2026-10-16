@@ -3128,3 +3128,8 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Gercek GitHub Actions K1 run #38977103022, SHA cfd64749, job #117229086146 completed success. Log: regresyon 5 test PASS; diger test gruplari 3,12,4,2 PASS. 98 workflow, LOW_STATIC_SIGNAL 75, REVIEW_WRITE 8, HIGH_WRITE_OR_TRIGGER 12, READ_ONLY_AUDIT_TEXT 3, CRITICAL_UNGATED_PUSH 0, missing permissions 0. Korunan dosya butunlugu step success. Eski dagilim 73/9/13/3 idi.
 - YEDEK-01: kod oncesi commit b617a7aaf606ea45f1c3766c983a4b3005fc1a26; eski blob SHA script 3da748668695334036d5af9ba6d5b4a3b7b1d9b8, test 44ce5a8a4eb2349d666e35c53be63bb57900bc7a. /mnt/data/YEDEK-01-MADSC-TV-2026-10-17.txt yerel geri donus kaydi olusturuldu; tam depo backup veya GitHub yedek dali DEGIL. Ayrı dal olusturma araci engellendi.
 - Bu not disinda playlist/yedekler/workflow/main/PR71 degismedi. 92 legacy davranissal kabul 0/92. Sonraki DDTD: kalan 12 HIGH dosyanin runtime yetki ve gate sirasini kanitla; statik CI basarisi behavioral parity demek degildir.
+
+## 17 Ekim 2026 - DDTD son kontrol kaydi
+- K1 run 38977103022 commit cfd64749 basarili; 98 workflow, HIGH 12, CRITICAL 0.
+- 12 HIGH dosyanin 11 tanesinde main job guard var. madsc-son-kontrol.yml dosyasinda workflow_run conclusion success kontrolu var ancak upstream branch/repo filtresi gorulmedi. contents: write ve actions: write izinleri mevcut. 10 denemeli rapor push dongusu ve protected_write_gate.py cagrisinin statik incelemesi yapildi.
+- YEDEK-01 ve K1 test ayrintilari onceki bolumde. Bu tur workflow ve playlist degistirilmedi. 92 legacy davranissal kabul 0/92.
