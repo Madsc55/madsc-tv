@@ -12,6 +12,8 @@ on:
       - 'scripts/k1_workflow_risk_inventory.py'
       - 'scripts/k1_protected_integrity.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
+      - '.github/workflows/madsc-birlesik-kesif.yml'
+      - 'tests/test_k1_legacy_writer_guards.py'
   workflow_dispatch:
 permissions:
   contents: read
