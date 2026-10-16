@@ -3004,3 +3004,9 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - scripts/central_protected_write_gate.py e38b34c32a39cc9e144b4355d7b39ba7e589b6af: salt okunur SHELL_REDIRECT, COPY_MOVE ve IN_PLACE_EDIT hedef ipuclari eklendi. Gercek izin kapisi veya otomatik onay DEGIL.
 - test_central_protected_write_gate.py 2d6840c350050fc3bf6d601807e0536e31cdf5a4: iki korunan dosya hedefi icin fixture testi eklendi. Korunan dosyalar degismedi.
 - GitHub MADSC05 #38963650686 IN_PROGRESS (ilk commit), #38963669708 PENDING (test commit); basarili sayma. Sonraki adim: iki sonucu kontrol et, hata varsa duzelt, sonra 92 workflow icin risk kanitlarini incele. PR71 birlestirme yok.
+
+
+## 16 Ekim 2026 — Kullanici tarafindan evde kanal/kategori koruma onayi
+- Kullanici ev ortaminda kendi kanal listesini kontrol etti: kanal listesinde degisiklik yok, kategorilerde degisiklik yok. Bu iki baslik icin KULLANICI ONAYI verildi.
+- Kapsam: kullanicinin gozlemledigi liste ve kategori gorunumu. Tum kanal URL'leri, yayin oynatimi, cihazlar arasi tutarlilik veya 92 workflow davranissal esdegerligi icin otomatik kanit DEGIL.
+- Bu onay korunacak; korunan listelerde/kategorilerde izinsiz degisiklik yapilmayacak. PR #71 birlestirilmeyecek.
