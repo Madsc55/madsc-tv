@@ -5,6 +5,8 @@ on:
     paths:
       - 'aday_oncelik_raporu.py'
       - '.github/workflows/aday-oncelik-kontrol.yml'
+permissions:
+  contents: read
 jobs:
   oncelik-testi:
     name: Öncelik sıralaması ve rapor testi
