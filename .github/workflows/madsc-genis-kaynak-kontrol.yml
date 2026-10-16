@@ -9,6 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   audit:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
