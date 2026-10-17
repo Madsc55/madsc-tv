@@ -128,10 +128,11 @@ class BulkCoverageTests(unittest.TestCase):
                 command = ("gh api repos/owner/repo/dispatches -X POST" if n == 0
                            else "curl -X DELETE https://example.invalid/resource" if n == 1
                            else "echo safe")
-                (folder / f"legacy-{n:02d}.yml").write_text(
-                    f"name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  audit:\\n"
-                    f"    steps:\\n      - run: {command}\\n".replace("\\\\n", "\\n")
-                )
+                lines = [
+                    "name: Legacy", "on:", "  workflow_dispatch:", "jobs:",
+                    "  audit:", "    steps:", f"      - run: {command}", ""
+                ]
+                (folder / f"legacy-{n:02d}.yml").write_text(chr(10).join(lines))
             report = inspect(root)
             rows = {row["file"]: row for row in report["items"]}
             self.assertTrue(rows["legacy-00.yml"]["write_risk_commands"])
