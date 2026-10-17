@@ -173,7 +173,7 @@ def inspect(root=ROOT):
             else "NORMAL"
         )
     counts = Counter(x["primary_category"] for x in items)
-    risks = [x["file"] for x in items if x["contents_write"] and (x["cron_utc"] or x["push"] or x["workflow_run"])]
+    risks = [x["file"] for x in items if (x["contents_write"] or x["git_push_command_count"] or x["write_risk_commands"]) and (x["cron_utc"] or x["push"] or x["workflow_run"])]
     return {
         "total": len(items), "category_counts": {CATEGORIES[n][0]: counts[n] for n in CATEGORIES},
         "scheduled": sum(bool(x["cron_utc"]) for x in items),
