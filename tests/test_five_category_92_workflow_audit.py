@@ -109,7 +109,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             ("kademe-3-kanal-test", "kademe-2-kesif", "madsc-03-kanal-test.yml"),
             ("kademe-4-arsiv-yedek", "kademe-3-kanal-test", "madsc-04-arsiv-yedek.yml"),
         ):
-            match = re.search(r"^  " + re.escape(stage) + r":\\n(?P<body>.*?)(?=^  [a-z][\\w-]*:|\\Z)", workflow, re.M | re.S)
+            match = re.search(r"^  " + re.escape(stage) + r":\n(?P<body>.*?)(?=^  [a-z][\w-]*:|\Z)", workflow, re.M | re.S)
             self.assertIsNotNone(match, stage)
             body = match.group("body")
             self.assertIn("needs: " + predecessor, body)
