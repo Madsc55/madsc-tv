@@ -3564,3 +3564,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 ## 18 Ekim 2026 — Devir eki: son ekranda bekleyen testler
 - Kullanici ekran goruntulerinde MADSC 05 #155 in progress, #157 queued gorunuyordu; #156 sorunlu/basarisiz gorunuyordu. Bunlar ekran goruntusu anindaki durumdur, son durum degildir. Gercek run ID ve nihai job sonucunu yeniden kontrol et; testin tamamlandigini varsayma.
 - Yeni sohbette ilk is bu uc kosunun guncel durumunu bulup dogrulamak, ardindan Kademe 1 Guvenlik toplu testlerine devam etmektir.
+
+
+## 18 Ekim 2026 — Guvenlik regresyon baglantisi ve yeni CI kaniti
+- `.github/workflows/madsc-01-guvenlik.yml` icindeki mevcut toplu regresyon dongusune `test_k1_legacy_writer_guards.py` ve `test_workflow_security_audit.py` eklendi. Commit `2a5a3aad4f32d905bee8560a6bdee433d3c2001a` (yalniz gelistirme dali).
+- Onceki commit `2e41863` icin MADSC 05 #157 run `39073858289`: bes isin tamami completed/success. Bu, yeni commitin kaniti degildir.
+- Yeni commit `2a5a3aa` icin K1 #38 run `39074604707` completed/success. MADSC 05 #158 run `39074604683` son sorguda in_progress; guvenlik isi completed/success, kesif isi in_progress. Toplu 5/5 sonucu HENUZ yok.
+- 92 legacy davranissal esdegerlik 0/92 dogrulanmis, kademe 1 kabul ACIK. Sonraki adim #158 tamamlanma/job sonucunu dogrulamak, ardindan 24. kural ortak devre kesici ve guvenlik kapsam eksiklerini paket halinde incelemek. Korunan listeler, eski workflowlar, main ve PR #71 degismedi.
