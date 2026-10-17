@@ -3559,3 +3559,8 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - GitHub Actions MADSC 05 run `38957224597` icin job API ile bes is dogrulandi: Guvenlik, Kesif, Kanal Test, Arsiv/Yedek, Genel Bakim: hepsi `completed/success`.
 - Bu onceki bir kosudur; son commitlerin CI sonucu veya 92 legacy davranissal esdegerlik kaniti DEGILDIR. Birinci kademe kabul acik.
 - Sonraki adim: son MADSC 05 run sonucunu ve basarisiz is loglarini dogrula; guvenlik regresyon eksiklerini tek pakette ele al. Korunan listeler ve eski workflow'lar degistirilmez.
+
+
+## 18 Ekim 2026 — Devir eki: son ekranda bekleyen testler
+- Kullanici ekran goruntulerinde MADSC 05 #155 in progress, #157 queued gorunuyordu; #156 sorunlu/basarisiz gorunuyordu. Bunlar ekran goruntusu anindaki durumdur, son durum degildir. Gercek run ID ve nihai job sonucunu yeniden kontrol et; testin tamamlandigini varsayma.
+- Yeni sohbette ilk is bu uc kosunun guncel durumunu bulup dogrulamak, ardindan Kademe 1 Guvenlik toplu testlerine devam etmektir.
