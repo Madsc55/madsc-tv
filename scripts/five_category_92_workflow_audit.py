@@ -197,6 +197,7 @@ def inspect(root=ROOT):
             "Classification is preliminary, based on filename and commands; manual review of behavior is mandatory.",
             "Multiple related categories do not cause the workflow to run twice.",
             "Does not prove replacement parity, production behavior, or that all 92 workflows are enabled.",
+            "GitHub Actions scheduled workflows run from the repository default branch; schedules added only on a feature branch do not establish live scheduled execution.",
             "No legacy workflow is disabled, deleted, or dispatched."
         ],
     }
