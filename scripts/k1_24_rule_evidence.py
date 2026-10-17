@@ -1,4 +1,4 @@
-"""Read-only evidence matrix for all 24 approved MADSC TV safety rules.
+"""Read-only evidence matrix for all 26 approved MADSC TV safety rules.
 
 A passing audit validates inventory completeness, NOT runtime enforcement.
 """
@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RULES = ROOT / "GUVENLIK_KURALLARI.md"
+AGENT_RULES = ROOT / "AGENTS.md"
 EVIDENCE = {
     1: ("tools/protected_write_gate.py", "Runtime and main-list change authorization"),
     2: ("scripts/k1_protected_integrity.py", "Channel metadata and authorized change comparison"),
@@ -33,13 +34,17 @@ EVIDENCE = {
     22: ("scripts/k1_protected_integrity.py", "Authorized post-edit M3U ordering and URL checks"),
     23: (None, "Rollback target recorded and tested without silent changes"),
     24: ("tools/workflow_failure_gate.py", "Cross-run failure streak and stop/recovery in production"),
+    25: ("AGENTS.md", "Actual GitHub Actions run ID and successful result for each code change"),
+    26: ("AGENTS.md", "Turkish user-visible workflow job and step names for new or edited tests"),
 }
 
 def audit():
     source = RULES.read_text(encoding="utf-8")
     numbered = {int(n) for n in re.findall(r"(?m)^(\d{1,2})\.\s", source)}
+    agent_source = AGENT_RULES.read_text(encoding="utf-8")
+    agent_numbered = {int(n) for n in re.findall(r"(?m)^## Kural (25|26):", agent_source)}
     rows = []
-    for number in range(1, 25):
+    for number in range(1, 27):
         artifact, missing = EVIDENCE[number]
         exists = bool(artifact and (ROOT / artifact).is_file())
         rows.append({
@@ -50,8 +55,8 @@ def audit():
             "outstanding_verification": missing,
         })
     return {
-        "documented_rules": sorted(numbered),
-        "expected_rule_count": 24,
+        "documented_rules": sorted(numbered | agent_numbered),
+        "expected_rule_count": 26,
         "rule_count_valid": numbered == set(range(1, 25)),
         "rows": rows,
         "fully_verified_rules": 0,
@@ -61,4 +66,4 @@ def audit():
 if __name__ == "__main__":
     report = audit()
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    raise SystemExit(0 if report["rule_count_valid"] and len(report["rows"]) == 24 else 1)
+    raise SystemExit(0 if report["rule_count_valid"] and len(report["rows"]) == 26 else 1)
