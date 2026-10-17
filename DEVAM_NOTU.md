@@ -3444,3 +3444,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - madsc-son-kontrol-kurtarma-teshis.yml: manuel veya YAML push, test_final_validation, kayitli summary/results ve son kontrolun son Actions run API sorgusu; gercek akis testi veya zincir tetigi yapmaz.
 - madsc-son-kontrol.yml: gunluk 06:10 UTC, manuel veya uc asamali dogrulama tamamlaninca; contents/actions write, rule24 gate, ffmpeg ile final_validation.py bes dakikalik goruntu/ses testi, 30 gun artifact. Korunan playlist/yedekler degismeme kontrolu sonrasi sadece madsc_son_kontrol JSON raporlarini main'e en fazla 10 denemeyle push eder, protected_write_gate.py var; basarisiz workflow_run zinciri atlanir. Yazma yetkisi ve uzun sureli calisma ozel inceleme gerektirir.
 - Besli merkezde tetikler, gercek medya testi, hata kapisi ve rapor devam semantigi birebir kanitlanmadi. Toplam 76/92 incelendi, 16 kaldi, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md degistirildi; yeni sohbet devri 76/92.
+
+
+### 17 Ekim 2026 DDTD — toplu butunluk, Turk yedek ve uc asama incelemesi
+- madsc-toplu-butunluk.yml: manuel veya YAML/bulk_integrity_gate.py degisikliginde read-only arsiv, tekrar, YEDEKLER butunluk betigi; JSON artifact if-no-files-found ignore. Betigin kapsami ayrica dogrulanmali.
+- madsc-turk-kanal-geri-sec.yml: yalniz main dalinda YAML push; contents write; recover_turkish_backups.py ile Turk yedek geri secimi; CALISANLAR.m3u ve CSV/JSON raporu main'e push edebilir; gate var.
+- madsc-uc-asama.yml: main'de manuel veya verification_pipeline.py push; rule24 gate, unittest, due aday hesabina gore ffmpeg ve verification_pipeline.py, 30 gun artifact; madsc_dogrulama/ raporunu cakisma kontrolu ve en cok 10 push denemesiyle main'e yazar; due_now>0 ise gh api ile kendi workflow_dispatch'ini yeniden tetikler. contents/actions write; zincir ve kaynak tuketimi icin ozel kontrol gerekir.
+- madsc-yedek-turk-ayir.yml: main YAML push; keep_turkish_backups.py; CALISANLAR.m3u ve ayrilan arsiv/raporu main'e yazabilir; protected_write_gate.py var. Adindaki koruma ifadesi yazma yetenegini ortadan kaldirmaz.
+- Yazici workflowlar kullanici izni olmadan calistirilmadi. Besli merkezde gercek davranissal esdegerlik kanitlanmadi. Toplam 80/92 incelendi, 12 kaldi, tam parity 0/92. Yalniz DEVAM_NOTU.md degistirildi; yeni sohbet devri 80/92.
