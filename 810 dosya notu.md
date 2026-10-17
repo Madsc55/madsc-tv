@@ -547,3 +547,16 @@ Bu grupta 19 ayrı dosya, 19/19 SVG parse edilebilir başlangıç etiketi, 0/19 
 - `raporlar/YEDEKLERE_EKLENEN_ADAYLAR_2026-10-12.json` — gerçek dosya içeriği açıldı; **işe yarar:** tarihsel kullanıcı kararı, kaynak/kimlik/cihaz kanıtı veya sistem geliştirme kaydı. **Çatışma riski:** eski liste sıra numarası, eski kullanıcı izni, teknik test, logo varlığı veya tarihsel yedekleme işlemini güncel otomatik talimat sanmak. **Yapılacak:** kaynak tarihini ve kullanıcı onayını koru; beşli sistemin ilgili güvenlik/keşif/test/yedek/bakım davranışıyla karşılaştır. **Yapılmayacak:** otomatik silme, taşıma, eski izni tekrar kullanma, playlist veya logo değiştirme.
 
 **Somut bulgular:** yedek Türk ayırma raporu 11599 başlangıç, 42 tutulan, 11557 ayrılan, 10817 kimliği belirsiz arşiv; bunları kesin yabancı sayma. Logo raporu 1029 kayıt, 191 logo URL'si, 8 HTTP hata; logo görünürlük kanıtı değil. 21 aday YEDEKLER'e tarihsel olarak eklenmiş, bugün yeniden eklenmeyecek. TCL/Ibo Player Pro sürüm/paket farklılığı cihaz uyumluluğunun kesin doğrulama gerektirdiğini gösteriyor. 11 dosyanın içeriği bu tur doğrudan okundu; eski 361 yol listesi olmadığından **361/810, 449 kalan tarihsel sayaç** korunuyor; ilerleme uydurulmuyor. DEVAM_NOTU.md değiştirilmedi.
+
+## 18 Ekim — kullanıcı talebiyle 50'lik toplu tarama: 5 büyük M3U gerçek içerik, 1 erişim bekliyor
+
+Bu turda 6 önceki notlarda adı geçmeyen M3U yolu fetch edildi; 5'inin gerçek metni okundu, 1'i boş döndü ve **incelenmiş sayılmadı**:
+
+- `MADSC_TV_47_LISTE_ADAY.m3u`: 1183 EXTINF kaydı, ADAY etiketli; tarihsel aday havuzu. **Yapılacak:** kimlik/URL/IBO kontrolünden bağımsız aday olarak tut. **Yapılmayacak:** doğrudan CALISANLAR'a kopyalama.
+- `madsc_kesif/ibo_3_5281_ayrilanlar.m3u`: 5252 EXTINF kaydı; eski 3–5281 kararlarının arşivi. **Yapılacak:** kullanıcı kararlarının özgün snapshot eşleşmesini koru. **Yapılmayacak:** yeni listeye sıra numarasıyla tekrar uygulama.
+- `madsc_kesif/ibo_6115_ikinci_ayrilanlar.m3u`: 5585 EXTINF kaydı; eski YEDEKLER ayırma arşivi. **Yapılacak:** arşiv olarak koru. **Yapılmayacak:** otomatik silme/geri yükleme.
+- `yedekler/CALISANLAR_ONCESI_YENILER_2026-10-10.m3u`: 597 EXTINF; 10 Ekim öncesi tarihsel snapshot. **Yapılacak:** karşılaştırma/geri izleme kanıtı. **Yapılmayacak:** güncel ana liste diye sunma.
+- `yedekler/KORUMA_ONCESI_YEDEKLER_YENILER_2026-10-10.m3u`: 935 EXTINF; koruma öncesi snapshot. **Yapılacak:** tarihsel karşılaştırma. **Yapılmayacak:** canlı YEDEKLER/YENILER üzerine otomatik yazma.
+- `madsc_kesif/yedeklerden_ayrilanlar_20261013T170042Z.m3u`: GitHub fetch_file **0 karakter** döndürdü (tree boyutu 1.879.407 byte). **BEKLEYEN:** gerçek içerik erişimi olmadan kontrol edildi sayma.
+
+Bu tur yalnız 5 dosyanın gerçek metnini okudu. 50'lik yeni dosya hedefini gerçekleştirmedi; diğer kategorilerde kalanların önceki 361 içinde olup olmadığı belirsiz. Eski 361/810 ve 449 kalan tarihsel sayaç kesin ilerleme diye artırılmıyor. **Yalnız 810 dosya notu değiştirildi; DEVAM_NOTU.md, listeler ve workflow'lar değiştirilmedi.**
