@@ -106,7 +106,7 @@ def inspect(root=ROOT):
             + (["UNMATCHED_SCRIPT_ENTRYPOINTS"] if item["unmatched_script_entrypoints"] else [])
             + (["MISSING_LEGACY_SCRIPT_FILE"] if item["missing_legacy_script_files"] else [])
             + (["AUTOMATIC_TRIGGER_NOT_REPLACED"] if item["unverified_trigger_behavior"] else [])
-            + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] else [])
+            + (["WRITE_SIDE_EFFECTS_UNVERIFIED"] if item["contents_write"] or item["git_push_command_count"] else [])
             + (["MULTIPLE_PUSH_COMMANDS_REVIEW"] if item["multiple_push_command_signal"] else [])
             + (["FORCE_PUSH_COMMAND_REVIEW"] if item["force_push_command_count"] else [])
             + (["ARTIFACT_OUTPUTS_UNVERIFIED"] if item["output_hints"] else [])
