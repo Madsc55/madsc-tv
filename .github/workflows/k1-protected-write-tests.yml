@@ -17,6 +17,8 @@ on:
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
+      - 'scripts/five_category_92_workflow_audit.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
   workflow_dispatch:
 permissions:
   contents: read
