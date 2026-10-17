@@ -68,6 +68,16 @@ jobs:
             echo '::error::FAIL 92-workflow guvenlik regresyonlari'
             failed=1
           fi
+          for pattern in test_protected_write_gate.py test_k1_failure_gate.py test_k1_24_rule_evidence.py test_k1_workflow_risk_inventory.py; do
+            echo "::group::K1 guvenlik regresyonu: ${pattern}"
+            if python3 -m unittest discover -s tests -p "${pattern}" -v; then
+              echo "PASS ${pattern}"
+            else
+              echo "::error::FAIL ${pattern}"
+              failed=1
+            fi
+            echo '::endgroup::'
+          done
           exit "${failed}"
       - name: Korunan dosyalar degismedi
         if: always()
