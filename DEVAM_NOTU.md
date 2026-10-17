@@ -3553,3 +3553,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Saatlik ChatGPT gelistirme ve hata izleme otomasyonlari etkinlestirildi; bu kesintisiz 7/24 gelistirme garantisi degildir. GitHub Actions kendi basina test calistirabilir; otomatik guvenli kod duzeltme ve yeniden test ajani tam olarak kurulmus/dogrulanmis DEGIL. Kullaniciya varmis gibi anlatma.
 - Koruma: main ve taslak PR #71 birlestirilmez; 92 eski workflow, CALISANLAR.m3u, HEPSI, ULUSAL, FAVORILER, YENILER, YEDEKLER, EPG, logolar ve yedekler izinsiz degismez. HEPSI ana kategori; YEDEKLER'deki TRT 1 1440P QHD ve DHA CANLI 720P HD gorunurluk kayitlari korunur; IBO testi kullanicida.
 - Sonraki somut adim: son SHA icin gercek Actions run/job/log sonuclarini mumkun olan yetkili kanaldan kontrol et; mevcut bes workflow'un tetik ve test baglantilarindaki gercek eksikleri gruplayarak duzelt. Run kaniti yoksa basarili sayma. 92/92 davranissal esdegerlik olmadan eski workflowlari kapatma.
+
+
+## 18 Ekim 2026 — Toplu Actions kaniti
+- GitHub Actions MADSC 05 run `38957224597` icin job API ile bes is dogrulandi: Guvenlik, Kesif, Kanal Test, Arsiv/Yedek, Genel Bakim: hepsi `completed/success`.
+- Bu onceki bir kosudur; son commitlerin CI sonucu veya 92 legacy davranissal esdegerlik kaniti DEGILDIR. Birinci kademe kabul acik.
+- Sonraki adim: son MADSC 05 run sonucunu ve basarisiz is loglarini dogrula; guvenlik regresyon eksiklerini tek pakette ele al. Korunan listeler ve eski workflow'lar degistirilmez.
