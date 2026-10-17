@@ -35,6 +35,8 @@ jobs:
           python-version: '3.12'
       - name: Run isolated negative tests without touching playlists
         run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
+      - name: Run 92-workflow security audit regression tests
+        run: python -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
       - name: Run protected write gate negative tests
         run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
       - name: Run Rule 24 circuit breaker negative tests
