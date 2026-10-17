@@ -73,6 +73,15 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertEqual(report["api_write_or_dispatch_review_count"], 1)
 
+    def test_central_shadow_schedules_preserve_legacy_cadence(self):
+        root = Path(__file__).resolve().parents[1]
+        discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
+        health = (root / ".github/workflows/madsc-03-kanal-test.yml").read_text(encoding="utf-8")
+        self.assertIn("cron: '0 6,18 * * *'", discovery)
+        self.assertIn("cron: '40 6 1,15 * *'", health)
+        self.assertIn("contents: read", discovery)
+        self.assertIn("contents: read", health)
+
     def test_exact_schedule_match_and_unmatched_schedule(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
