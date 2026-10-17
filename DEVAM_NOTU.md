@@ -3571,3 +3571,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Onceki commit `2e41863` icin MADSC 05 #157 run `39073858289`: bes isin tamami completed/success. Bu, yeni commitin kaniti degildir.
 - Yeni commit `2a5a3aa` icin K1 #38 run `39074604707` completed/success. MADSC 05 #158 run `39074604683` son sorguda in_progress; guvenlik isi completed/success, kesif isi in_progress. Toplu 5/5 sonucu HENUZ yok.
 - 92 legacy davranissal esdegerlik 0/92 dogrulanmis, kademe 1 kabul ACIK. Sonraki adim #158 tamamlanma/job sonucunu dogrulamak, ardindan 24. kural ortak devre kesici ve guvenlik kapsam eksiklerini paket halinde incelemek. Korunan listeler, eski workflowlar, main ve PR #71 degismedi.
+
+
+## 18 Ekim 2026 — Eski/yeni depo dosyalarinda unutulmus is taramasi (ilk tur)
+- Git tree `2f1b78c` uzerinde 810 dosya: 98 yml, 190 py, 35 md, 51 json, 26 csv, 27 m3u, 330 png, 40 svg ve digerleri. 11 buyuk dosyanin tam blob icerigi alternatif GitHub blob API ile okunabildi. Bu, 810 dosyanin hepsinin satir satir incelendigi anlamina GELMEZ.
+- Okunan eski kayitlar: `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md`, `ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md`, `OZELLIK_ENVANTERI.md`, `docs/MADSC-IKI-TOPLU-KABUL-PLANI.md`, `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md`, `raporlar/GELISTIRME_11_DURUM_2026-10-12.md`, `TOPLU_DURUM_RAPORU.md`, `madsc_kesif/NOT_EKSIK_TURK_KANALLARI.md`.
+- Unutulmamasi gereken acik isler: EPG->Pages canli zincir esdegerligi; VOD cron/guncelleme; son kontrol bekleyen adaylarin GUNCEL durumu (eski snapshot 3082); 901 icerik ve 1931 kimlik incelemesi eski snapshot; harici bagimsiz yedek ve izole geri yukleme kaniti; teknik false-negative/IBO kullanici onayi ayrimi; 75 aday ve 4 alternatifin kanit durumu; 92 workflow icin tetik/izin/yazma/artifact/davranissal esdegerlik. Sayilar tarihsel kayittir, canli sonuc degildir.
+- `ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md` 89 workflow tarihsel hedefini icerir; guncel dalda 98 yml dosyasi gorulmesi 92 eski workflow + 5 merkezi + K1 ek akisi ile uyumludur; tum dosyalarin tek tek davranissal incelenmesi halen aciktir.
+- Korunan listeler, eski workflowlar, main ve PR #71 degistirilmedi. Sonraki is: kalan kaynak ve scriptlerin icerigini kategoriler halinde tarayip eski gorevleri OZELLIK_ENVANTERI ile eslestirmek; yeni script uretmeden mevcut eksigi tespit etmek.
