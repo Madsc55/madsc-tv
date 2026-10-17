@@ -114,3 +114,26 @@ Henüz incelenmeyen dosyalara devam et; önceden okunan dosyaları sayma. Her ye
 - **KANIT BEKLEYEN:** epg_deneme/liste.m3u beş TRT kanalına ait ayrı EPG pilotu, cihazda gözlenmiş kabul değil. vod/TEST-FILMLER.m3u 1 adet kısa test klibi, tam VOD kütüphanesi değil. yedekler/IBO_YEDEK_EKSIK_KANALLAR_2026-10-09.txt ad eşleşmeyenler listesi; güncel eksik kanal kanıtı değil.
 - **YAPILMAYACAK:** eski arşiv kayıtlarını bugünkü ana listeye/YEDEKLER'e otomatik taşıma; kullanıcı izni olmadan hiçbir playlisti düzenleme. Dosyalar okunmuş, oynatma veya betik çalıştırılmamıştır.
 - Benzersiz sayaç 361/810 sabit; 361 eski yol listesi olmadığı için 20 dosyayı yeni benzersiz saymak kanıtsız olur. Kalanlar arasında görsel PNG/SVG varlıklar ağırlıkta; bunlar da içerik ve tür doğrulaması gerektirir.
+
+## 18 EKİM — 50 DOSYA GERÇEK İÇERİK TARAMASI
+
+İlk 810 dosyalık ağaçtaki JSON/MD/TXT/XML sıralamasında 34–83 indeksleri arasında **50 ayrı dosyanın blob içeriği GitHub'dan getirildi ve alanları/başlıkları kontrol edildi**. Bu, çok büyük JSON kayıtlarının her satırının elle incelendiği anlamına gelmez. Önceki 361/810 sayacı doğru ve benzersiz kabul edilirse yeni sayı **411/810, kalan 399**; ancak önceki 361 sayacında yeniden okunan belgeler olabileceğinden toplamın benzersiz yol listesiyle uzlaştırılması gerekir.
+
+### YAPILACAK
+- `madsc_dogrulama/summary.json`: 14 Ekim tarihli 7.100 adaydan 6.374'ü üç teknik decode başarısı almış; cihaz/kimlik onayı ayrı tutulmalı. `madsc_son_kontrol/results.json` (4,8 MB) ve `madsc_dogrulama/state.json` (5,9 MB) gibi büyük kayıtlar örnek değil kapsamlı otomatik tutarlılık kontrolü gerektirir.
+- `logo_deneme/visual_review.json`: `FRAME_READY_FOR_REVIEW` durumunu `visual_match=NOT_VERIFIED` ile ayır; `logo_deneme/approved_repairs.json` eski izinleri yeni otomatik onay sanma.
+- `madsc_kesif/DORT_ASAMA_TEK_RAPOR.json`: bağımsız dış yedek ve geri yükleme kanıtı eksik. `madsc_kesif/yedek_11599_geri_yukleme_raporu.json` geçmişte 11.557 kaydın geri alındığını belgeliyor; bağımsız kurtarma testi değildir.
+- `kontrol_notlari/2026-10-12_ekol_basa_sarma.md`: Ekol Sports/TV yayınının başa sarma sorunu, yalnız ilk bağlantı başarısıyla anlaşılmaz; süreklilik kontrolünde ayrıca ele alınmalı.
+- `madsc_kesif/candidate_logo_missing_report.json`: 75 adayda logo kaynağı, PNG hazırlığı ve kimlik onayı kategorileri var; ayrı güvenlik/kimlik incelemesi gerekir.
+- `madsc_kesif/candidate_epg_logo_join.json`: 5 kanallı EPG pilotu tam üretim kapsamı değildir.
+- `madsc_kesif/ana_liste_test_gecmisi.json` ve `madsc_kesif/gecmis.json`: tarihsel testler korunmalı; yeni çalışmanın sonucuyla karıştırılmamalı.
+- `madsc_son_kontrol/kimlik_incelemesi_2026-10-12.json`: 36 görsel örnek incelenmiş, 3 adayda görüntü yok; bu durum IBO cihaz onayı yerine geçmez.
+
+### YAPILMAYACAK
+- `madsc_kesif/ibo_*_rapor.json` ve `reports/ibo-user-decisions-2026-10-13-session2.md` içindeki **eski liste sıralaması esaslı** IBO kararlarını güncel listeye yeniden uygulama.
+- 12–14 Ekim tarihli raporları bugünün canlı yayın/cihaz sonucu gibi sunma; teknik geçişi kullanıcı onayı olarak gösterme.
+- Korunan listelere, kanal isimlerine, logolara, yedeklere ve workflow'lara onaysız yazma.
+
+### DEVAM
+
+Özgün ağaçtaki JSON/MD/TXT/XML sıralamasında 84. indexten devam et. Görsel, M3U ve CSV dosyalarının içeriğini de gerçekten kontrol et; yalnız dosya adlarını listelemekle yetinme. Büyük dosyalar için örnekleme yapıldığını açıkça belirt, doğrulanmadığı halde tüm satırları incelendi deme.
