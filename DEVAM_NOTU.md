@@ -3341,3 +3341,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `test-13-kaynak-degisiklik.yml`: `kaynak_degisiklik_raporu.py` eski/yeni M3U icin added/changed/removed ve otomatik rollback YOK guvenlik notu; fixture dosyalari korunur. Merkezi 01/02/03'te dogrudan cagrisi yok.
 - `test-14-istikrar.yml`: `tools/channel_stability.py` 7/30 gun test/success oranlari, hic test edilmemis aralik ve son basari zamani beklentileri. Merkezi 01/02/03'te dogrudan cagrisi yok.
 - Toplam 32 eski workflowun inceleme bulgulari kaydedildi; 0/92 tam davranissal esdegerlik. Kod, playlist ve eski workflow degisikligi yok.
+
+
+### 17 Ekim 2026 — DDTD / 15-18 eski kabul testleri karsilastirmasi
+- `test-15-logo-epg.yml`: `tools.logo_epg_audit.audit` fixture uzerinde duplicate_tvg_id, missing_logo, missing_tvg_id, suspicious_logo_url, bos playlist kontrolu ve gercek CALISANLAR.m3u salt-okunur denetimi. Merkezi 03 gercek playlistte `tools/logo_epg_audit.py` calistiriyor, fakat eski fixture beklentilerini birebir calistirmiyor; kismi kapsama.
+- `test-16-workflow-safety.yml`: `tools.workflow_safety.redact` URL/token/sifre gizleme ve `bounded_retry` basarili/sonlanan tekrar deneme fixture testleri. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- `test-17-candidate-summary.yml`: `tools.candidate_status_summary` yeni, dogrulanmis, karantina, bozuk, kimlik bekleyen, bilinmeyen durum sayimi ve JSON/CSV okuma fixture. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- `test-18-change-simulation.yml`: `tools.change_simulation` uygulamasiz degisiklik simule etme, kanal sayisi farki, SHA256 geri donus parmak izi ve korunan playlist degismedi kapisi. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- Toplam 36 eski workflow inceleme bulgusu kaydedildi; tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md degistirildi.
