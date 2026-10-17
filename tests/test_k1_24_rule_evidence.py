@@ -5,8 +5,8 @@ class K124RuleEvidenceTests(unittest.TestCase):
     def test_documented_rules(self):
         result = audit()
         self.assertTrue(result["rule_count_valid"])
-        self.assertEqual(len(result["rows"]), 24)
-        self.assertEqual(set(EVIDENCE), set(range(1, 25)))
+        self.assertEqual(len(result["rows"]), 26)
+        self.assertEqual(set(EVIDENCE), set(range(1, 27)))
 
     def test_unverified_rules_are_not_marked_complete(self):
         result = audit()
