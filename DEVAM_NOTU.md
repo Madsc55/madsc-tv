@@ -3301,3 +3301,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `kanal-kararlilik.yml`: `oncelikli_kanal_dogrula.py` + `kanal_kararlilik_takip.py`, cache restore/save KARARLILIK_GECMISI.json, CSV/JSON artifact. 02/03 merkezi workflowda bu scriptler ve cache yok; esdegerlik eksik.
 - `oncelikli-kanal-dogrulama.yml`: `oncelikli_kanal_dogrula.py` ffprobe ve CSV/JSON artifact. 02/03 merkezi workflowda ayni script yok; esdegerlik eksik.
 - Toplam 12 eski workflow karsilastirma bulgusu; 0/92 tam davranissal parity. Yalniz kodda script adi aramak tam islev kaniti degildir; eksik davranislar ileride bagimsiz testle dogrulanmali. Korunan playlist/yedek dosyalarina dokunulmadi.
+
+
+### 17 Ekim 2026 — DDTD / kaynak puanlama ve tarama dort eski workflow karsilastirmasi
+- `kaynak-puanlama-kontrol.yml`: `kaynak_guven_puani.py` py_compile ve `tests/test_kaynak_guven_puani.py` unittest. Merkezi 01/02/03 workflowlarinda bu testler dogrudan cagrilmiyor.
+- `akilli-aday-puanlama.yml`: `yeni_kanal_tara.py` (SCAN_BATCH=-1), `oncelikli_kanal_dogrula.py`, `akilli_aday_puanla.py` ve 30 gun CSV/JSON artifact. Merkezi 03 kategori puanlama araci var ama eski tam zincirin birebir cagirilmasi yok.
+- `genis-kanal-tarama.yml`: main dalinda `.github/commands/genel-guncelleme.txt` push/dispatch, `genis_kanal_tara.py`, 30 gun CSV artifact. Merkezi 02 `wide_source_scan.py` kullanir, eski script ve main push tetigi esdegerligi kanitlanmadi.
+- `yeni-kanal-arama-2026.yml`: `yeni_kanal_tara.py` SCAN_BATCH=1 ve CSV/TXT artifact. Merkezi 02 bu scripti dogrudan cagirmiyor; rapor ve batch paritesi eksik.
+- Toplam 16 eski workflow icin somut inceleme bulgulari belgelendi; davranissal parity 0/92. Eski workflowlar veya korunan kanal listeleri degistirilmedi.
