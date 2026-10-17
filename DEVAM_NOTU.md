@@ -3537,3 +3537,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `.github/workflows/madsc-05-genel-bakim.yml` `push.branches` entegrasyon dalini ve `push.paths` hem `scripts/five_category_92_workflow_audit.py` (satir 34) hem `tests/test_five_category_92_workflow_audit.py` (satir 44) dosyalarini kapsiyor. Dolayisiyla ilgili commitler genel bakim toplu testini tetiklemeye uygun; bu **gercek run basari kaniti degildir**.
 - `.github/workflows/k1-protected-write-tests.yml` `push.paths` listesi bu iki dosyayi KAPSAMIYOR. K1 ayrica `workflow_dispatch` ile manuel tetiklenebilir. K1'in bu degisiklikler nedeniyle otomatik calistigi iddia edilemez.
 - Kademe 1 kabul eksigi: genel bakim guvenlik isi ve K1 negatif testinin gercek run ID, sonuc, job/step loglari ve korunan dosya butunlugu kanitlari. K1 path listesini degistirme adayi ayri kullanici izni gerektirir; su anda workflow degistirilmedi.
+
+
+## 17 Ekim 2026 — K1 negatif test tetikleyici duzeltmesi
+- Kullanici `De` diyerek onerilen K1 workflow tetikleme duzeltmesine izin verdi. `.github/workflows/k1-protected-write-tests.yml` `push.paths` listesine `scripts/five_category_92_workflow_audit.py` ve `tests/test_five_category_92_workflow_audit.py` eklendi; commit `38f9162b1bc547fb13d3a94ad8fb13861d2e20b5`.
+- K1 workflow dosyasinin kendisi zaten `push.paths` kapsaminda. Bu yalnizca otomatik tetikleme TANIMIDIR; test sonucu degildir.
+- Son commit icin combined-status ve PR-run filtresinden sonuc donmedi. Run ID, is/step loglari, basari ve korunan dosya kaniti HENUZ DOGRULANMADI. Kademe 1 acik kalir.
+- Playlistler, YEDEKLER, HEPSI ve legacy workflow'lar degistirilmedi.
