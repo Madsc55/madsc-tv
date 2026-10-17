@@ -51,6 +51,28 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertEqual(report["protected_write_review_count"], 1)
             self.assertIn("VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK", item["required_acceptance_checks"])
 
+    def test_api_dispatch_without_git_push_is_reviewed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github" / "workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "legacy-dispatch.yml").write_text(
+                "name: Dispatch\non:\n  workflow_dispatch:\njobs:\n  dispatch:\n    steps:\n"
+                "      - run: gh api repos/owner/repo/actions/workflows/next.yml/dispatches -X POST\n",
+                encoding="utf-8",
+            )
+            for number in range(91):
+                (workflows / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
+                    encoding="utf-8",
+                )
+            report = inspect(root)
+            item = next(x for x in report["items"] if x["file"] == "legacy-dispatch.yml")
+            self.assertEqual(item["git_push_command_count"], 0)
+            self.assertTrue(item["write_permission_parity_unverified"])
+            self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
+            self.assertEqual(report["api_write_or_dispatch_review_count"], 1)
+
     def test_exact_schedule_match_and_unmatched_schedule(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
