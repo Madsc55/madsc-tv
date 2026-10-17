@@ -3394,3 +3394,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - test-33-all-write-paths.yml: tum workflowlarda ust ve job seviyesinde write izinleri ile git/API yazma sinyalleri; HIGH/REVIEW risk raporu. Basarili tarama risklerin duzeldigi anlamina gelmez.
 - test-34-protected-write-regression.yml: bes belirli eski workflow icinde contents:write, git push/commit ve yenilere-aktar kaliplari yasagi; belirli dosyalar icin statik regresyon.
 - Bu dort testin besli merkezde ayni guvenlik kabul kriterleriyle karsilandigi kanitlanmadi. Toplam 52/92 incelendi; kalan 40; tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md guncellendi; guncel sohbet devri 52/92.
+
+
+### 17 Ekim 2026 DDTD — 35-38 eski workflow incelemesi
+- test-35-remaining-write-gate.yml: aday-bekletme workflowunda contents:write, git push/commit/reset yasagi; artifact upload ve checkout persist-credentials:false zorunlulugu. Yalniz kaynak metni kontrol eder.
+- test-36-system-integration-audit.yml: tum workflow YAML/jobs, ust ve job izinleri, git commit/push, belirli korunan yazma kaliplari ve schedule sayisi; risk varsa FAIL, yoksa PASS_WITH_REVIEW; system-audit-36.json artifact. Dolayli Python yazmalari kapsanmaz.
+- test-37-indirect-write-audit.yml: workflowlarin dogrudan python script cagrilarini regex ile bulup script satirlarinda korunan dosya yazma veya git komut sinyallerini arar; eksik scriptleri raporlar; REVIEW_REQUIRED olsa bile workflow kendisi fail etmez. Dolayli/dinamik cagrilar kacabilir.
+- test-38-audit-selftest.yml: 32-37 dosyalarinin checkout, read izinleri, rapor artifact iskeleti ve sentetik kotu/iyi metin tespiti. Gercek koruma enforcement testi degildir; protected target assert'i tautolojiktir.
+- Bu eski davranislarin merkezi sistemde birebir karsiligi henuz kanitlanmadi. Toplam 56/92 incelendi, kalan 36, tam davranissal parity 0/92. Sadece DEVAM_NOTU.md degistirildi. Yeni sohbet devri 56/92.
