@@ -119,6 +119,28 @@ class TopluMerkezTesti(unittest.TestCase):
                          "MERKEZI_PUSH_TETIKLEME_EKSIK")
         self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
 
+    def test_92_workflow_parity_requires_all_verified(self):
+        import json
+        for verified, expected in ((0, "DAVRANISSAL_ESDEGERLIK_EKSIK_0_92"),
+                                   (91, "DAVRANISSAL_ESDEGERLIK_EKSIK_91_92"),
+                                   (92, "DAVRANISSAL_ESDEGERLIK_DOGRULANDI")):
+            with self.subTest(verified=verified), tempfile.TemporaryDirectory() as tmp:
+                folder = Path(tmp)
+                (folder / "92_workflow_gorev_ve_kategori_haritasi.json").write_text(
+                    json.dumps({"total": 92, "behavioral_parity_verified_count": verified}),
+                    encoding="utf-8")
+                report = acceptance(folder)
+                row = next(x for x in report["kriterler"]
+                           if x["alan"] == "92 eski workflow davranissal esdegerligi")
+                self.assertEqual(row["durum"], expected)
+                self.assertEqual(report["genel_kabul"], "HENUZ_ONAYLANMADI")
+                todo = pending_tasks(report)
+                parity_task = next(x for x in todo["isler"]
+                                   if x["alan"] == "92 eski workflow davranissal esdegerligi")
+                self.assertFalse(parity_task["tamamlandi"])
+                if verified < 92:
+                    self.assertFalse(parity_task["kanit_mevcut"])
+
     def test_kalan_isler_kanitli_ve_onaysizdir(self):
         with tempfile.TemporaryDirectory() as tmp:
             report = acceptance(Path(tmp))
