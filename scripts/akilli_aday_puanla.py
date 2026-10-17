@@ -28,7 +28,7 @@ def main():
     candidates={}
     evidence={}
     for path in args.inputs:
-        if not ("ONCELIKLI_KANAL_TEK_NIK_RAPORU" in path or "GENEL_ADAY_GERCEK_MEDYA_RAPORU" in path): continue
+        if Path(path).stem not in {"ONCELIKLI_KANAL_TEK_NIK_RAPOR", "ONCELIKLI_KANAL_TEK_NIK_RAPORU", "GENEL_ADAY_GERCEK_MEDYA_RAPORU"}: continue
         with open(path,encoding="utf-8-sig",newline="") as handle:
             for row in csv.DictReader(handle):
                 url=value(row,"YAYIN_URL")

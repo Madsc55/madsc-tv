@@ -11,6 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   kesif:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -92,6 +93,7 @@ jobs:
               exit 0
             fi
             git commit -m "Update MADSC discovery reports"
+            python3 tools/protected_write_gate.py --base origin/main
             if git push origin HEAD:main; then
               echo "Raporlar kaydedildi"
               exit 0

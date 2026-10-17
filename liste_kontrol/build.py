@@ -4,18 +4,16 @@ import argparse, hashlib, json, re
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from channel_name_normalization import normalize_channel_name
 
 def attribute(line, name):
     match = re.search(r'\b' + re.escape(name) + r'="([^"]*)"', line)
     return match.group(1) if match else ''
 
 def name_key(name):
-    name = re.sub(r'\([^)]*\)|\[[^]]*\]', '', name).strip()
-    name = re.sub(r'\s+(?:aday|alternatif|yedek|hd|fhd|uhd|sd)$', '', name, flags=re.I).strip()
-    if not re.fullmatch(r'(?:TRT|BRT|TV|Tele|Kanal|Tivi)\s+\d+', name, flags=re.I):
-        name = re.sub(r'\s+\d+$', '', name)
-    name = name.casefold().translate(str.maketrans('ıİşçğüö', 'iiscguo'))
-    return re.sub(r'[^a-z0-9]', '', name)
+    return normalize_channel_name(name, profile="list_control")
 
 def parse(text):
     entries, pending = [], None

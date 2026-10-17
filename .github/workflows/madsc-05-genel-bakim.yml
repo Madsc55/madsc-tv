@@ -1,0 +1,304 @@
+name: MADSC 05 - Genel Bakim Toplu
+on:
+  workflow_dispatch:
+    inputs:
+      wide_scan_mode:
+        description: Genis kaynak taramasi
+        type: choice
+        options: [none, weekly, monthly, both]
+        default: none
+  schedule:
+    - cron: '30 1 * * *'
+  push:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-05-genel-bakim.yml'
+      - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'scripts/category_evidence_collect.py'
+      - 'scripts/category_candidate_scoring.py'
+      - 'scripts/category_candidate_media.py'
+      - 'scripts/oncelikli_kanal_dogrula.py'
+      - 'scripts/genel_aday_medya_test.py'
+      - 'yeni_kanal_tara.py'
+      - 'scripts/category_stability_history.py'
+      - 'scripts/akilli_aday_puanla.py'
+      - 'scripts/birlesik_aday_raporu.py'
+      - 'scripts/kanal_kararlilik_takip.py'
+      - 'scripts/wide_source_scan.py'
+      - 'tools/genis_kaynak_taramasi.py'
+      - 'tools/logo_epg_audit.py'
+      - 'scripts/discovery_history_restore.py'
+      - 'scripts/five_category_permission_gate.py'
+      - 'scripts/five_category_preflight.py'
+      - 'scripts/five_category_92_workflow_audit.py'
+      - 'test_five_category_permission_gate.py'
+      - 'scripts/central_protected_write_gate.py'
+      - 'test_central_protected_write_gate.py'
+      - 'scripts/central_consolidation_audit.py'
+      - 'test_central_consolidation_audit.py'
+      - 'scripts/central_*.py'
+      - 'test_central_*.py'
+      - 'test_tek_merkez_tetikleme.py'
+      - 'test_five_category_*.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: madsc-genel-bakim-tek-kosu
+  cancel-in-progress: false
+jobs:
+  kademe-1-guvenlik:
+    name: 1 - Guvenlik tek toplu kosu
+    if: ${{ always() }}
+    uses: ./.github/workflows/madsc-01-guvenlik.yml
+    permissions:
+      contents: read
+      actions: read
+  kademe-2-kesif:
+    name: 2 - Kesif tek toplu kosu
+    needs: kademe-1-guvenlik
+    if: ${{ always() }}
+    uses: ./.github/workflows/madsc-02-kesif.yml
+    with:
+      # Code-change acceptance exercises both modes; schedules keep the manual default.
+      wide_scan_mode: ${{ github.event_name == 'push' && 'both' || inputs.wide_scan_mode || 'none' }}
+    permissions:
+      contents: read
+      actions: read
+  kademe-3-kanal-test:
+    name: 3 - Kanal testleri tek toplu kosu
+    needs: kademe-2-kesif
+    if: ${{ always() }}
+    uses: ./.github/workflows/madsc-03-kanal-test.yml
+    permissions:
+      contents: read
+      actions: read
+  kademe-4-arsiv-yedek:
+    name: 4 - Arsiv ve yedek tek toplu kosu
+    needs: kademe-3-kanal-test
+    if: ${{ always() }}
+    uses: ./.github/workflows/madsc-04-arsiv-yedek.yml
+    permissions:
+      contents: read
+      actions: read
+  genel-bakim:
+    needs: [kademe-1-guvenlik, kademe-2-kesif, kademe-3-kanal-test, kademe-4-arsiv-yedek]
+    if: ${{ always() }}
+    name: MADSC 05 - Genel Bakim Toplu - tek kosuda butun denetimler
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Cron denetimi regresyon testi
+        run: python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
+      - name: Korunan dosyalarin baslangic ozeti
+        run: |
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Ayni kosunun dort basarili kategori kanitini guvenle al
+        id: category_evidence
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/category_evidence_collect.py
+      - name: Actions durum ve hata kanitlarini salt okunur al
+        id: actions_evidence
+        if: ${{ steps.category_evidence.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/central_actions_evidence.py
+      - name: Kategoriye ait tum rapor kontrolleri
+        id: audit_1
+        if: ${{ steps.category_evidence.outcome == 'success' && steps.actions_evidence.outcome == 'success' }}
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p madsc_merkezi_denetim
+          failed=0
+          : > madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
+          for script in scripts/five_category_preflight.py scripts/five_category_92_workflow_audit.py scripts/central_workflow_inventory.py scripts/central_source_reconciliation.py scripts/central_duplicate_test_audit.py scripts/central_backup_evidence.py scripts/central_identity_epg_logo_audit.py scripts/central_ibo_review_queue.py scripts/central_run_status.py scripts/central_failure_stage_report.py scripts/central_consolidation_audit.py scripts/central_eight_task_audit.py scripts/central_eighteen_task_audit.py scripts/central_all_remaining_tasks.py scripts/central_management_summary.py scripts/central_open_gaps.py scripts/central_single_screen_report.py; do
+            echo "::group::Denetim: ${script}"
+            if python3 scripts/category_evidence_collect.py --run-report "${script}"; then
+              printf '%s\\t%s\\n' "${script}" "success" >> madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
+            else
+              status=$?
+              printf '%s\\t%s\\t%s\\n' "${script}" "failure" "${status}" >> madsc_merkezi_denetim/bagimsiz_denetim_sonuclari.tsv
+              echo "::error::Denetim basarisiz: ${script} (cikis: ${status})"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "${failed}"
+      - name: 92 satirlik toplu esdegerlik matrisi kabul kapisi
+        id: audit_2
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import csv
+          from pathlib import Path
+          path = Path("madsc_merkezi_denetim/92_workflow_esdegerlik_kabul_matrisi.csv")
+          with path.open(encoding="utf-8", newline="") as stream:
+              rows = list(csv.DictReader(stream))
+          assert len(rows) == 92, f"Expected 92 legacy rows, got {len(rows)}"
+          assert len({r["legacy_workflow"] for r in rows}) == 92, "Duplicate workflow in review matrix"
+          assert all(r["migration_decision"] == "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE" for r in rows), "Unsafe migration approval"
+          print("92 legacy workflows documented; migration remains blocked pending parity evidence")
+          PY
+      - name: Toplu gecis kuyruklari ve koruma kabul kapisi
+        id: audit_3
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          folder = Path("madsc_merkezi_denetim")
+          queues = json.loads((folder / "bes_kategori_toplu_eksik_is_kuyrugu.json").read_text(encoding="utf-8"))
+          priorities = json.loads((folder / "92_workflow_oncelikli_gecis_isleri.json").read_text(encoding="utf-8"))
+          audit = json.loads((folder / "92_workflow_gorev_ve_kategori_haritasi.json").read_text(encoding="utf-8"))
+          assert len(queues) == 5, "Expected five category queues"
+          assert sum(category["count"] for category in queues.values()) == 92, "Category queue lost a legacy workflow"
+          assert priorities["total"] == 92 and len(priorities["ordered_workflows"]) == 92
+          assert audit["migration_blocked_count"] == 92, "Unsafe legacy retirement"
+          assert "legacy_workflows_with_missing_script_file" in audit, "Missing legacy script check not run"
+          assert audit["legacy_workflows_with_missing_script_file"] >= 0
+          assert audit["behavioral_parity_verified_count"] == 0, "Unverified parity must never be marked complete"
+          assert len(audit["items"]) == 92, "Missing detailed legacy evidence"
+          assert all(not item["behavioral_parity_verified"] for item in audit["items"]), "Unproven parity accepted"
+          assert all("missing_legacy_script_files" in item for item in audit["items"]), "Missing script file evidence absent"
+          assert all(item["migration_gap_reasons"] for item in audit["items"]), "A legacy workflow has no review reason"
+          assert sum(audit["integration_evidence_counts"].values()) == 92, "Evidence classification lost workflows"
+          assert len({x["file"] for x in priorities["ordered_workflows"]}) == 92
+          assert all(x["gaps"] for x in priorities["ordered_workflows"]), "Missing migration gap evidence"
+          assert all(x["priority"] in ("HIGH", "NORMAL") for x in priorities["ordered_workflows"])
+          assert all(category["count"] == len(category["workflows"]) for category in queues.values())
+          print("Five categories and all 92 outstanding workflows accounted for; no legacy workflow retired.")
+          PY
+      - name: Kesif zamanlamasi ve salt okunur yetki kabul kontrolu
+        id: audit_4
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          text = Path(".github/workflows/madsc-02-kesif.yml").read_text()
+          assert "cron: '17 5,17 * * *'" in text, "Twice-daily discovery schedule missing"
+          assert "contents: read" in text, "Read-only permission missing"
+          assert "contents: write" not in text, "Discovery must not gain write permission"
+          assert "workflow_call:" in text and "workflow_dispatch:" in text
+          print("Discovery shadow schedule configured; activation requires default branch.")
+          PY
+      - name: EPG Pages ve yedek kabul kapilari kategoriye baglandi
+        id: audit_5
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          from scripts.five_category_permission_gate import main
+          main()
+          print("Both shadow acceptance gates linked; no live migration authorization.")
+          PY
+      - name: EPG Pages ve yedek izin kapisi regresyon testleri
+        id: audit_6
+        continue-on-error: true
+        run: python3 -m unittest test_five_category_permission_gate -v
+      - name: Kategoriye ait tum regresyon testleri
+        id: audit_7
+        continue-on-error: true
+        run: python3 -m unittest test_central_workflow_inventory test_central_eighteen_task_audit test_central_all_remaining_tasks test_central_open_gaps test_central_single_screen_report test_central_management_summary test_five_category_evidence_transfer test_five_category_actions_evidence test_five_category_priority_csv test_central_run_status test_central_failure_stage_report -v
+      - name: Tek merkez push regresyon testleri
+        id: audit_8
+        continue-on-error: true
+        run: python3 -m unittest test_central_consolidation_audit test_tek_merkez_tetikleme -v
+      - name: Esdegerlik kapisi regresyon testleri
+        id: audit_9
+        continue-on-error: true
+        run: python3 -m unittest test_five_system_migration_audit test_five_category_92_workflow_audit -v
+      - name: Dort onceki kategori de basarili olmali
+        if: always()
+        env:
+          SECURITY_RESULT: ${{ needs.kademe-1-guvenlik.result }}
+          DISCOVERY_RESULT: ${{ needs.kademe-2-kesif.result }}
+          CHANNEL_RESULT: ${{ needs.kademe-3-kanal-test.result }}
+          ARCHIVE_RESULT: ${{ needs.kademe-4-arsiv-yedek.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in SECURITY DISCOVERY CHANNEL ARCHIVE; do
+            key="${name}_RESULT"
+            value="${!key}"
+            echo "${name}: ${value}"
+            if [[ "${value}" != "success" ]]; then
+              echo "::error::${name} category did not pass: ${value}"
+              exit 1
+            fi
+          done
+      - name: Korunan dosyalar degismedi
+        if: always()
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
+          python3 scripts/category_evidence_collect.py --verify
+      - name: Toplu test sonuc ozeti ve hata listesi
+        if: always()
+        env:
+          AUDIT_RESULTS: ${{ toJSON(steps) }}
+          SECURITY_RESULT: ${{ needs.kademe-1-guvenlik.result }}
+          DISCOVERY_RESULT: ${{ needs.kademe-2-kesif.result }}
+          CHANNEL_RESULT: ${{ needs.kademe-3-kanal-test.result }}
+          ARCHIVE_RESULT: ${{ needs.kademe-4-arsiv-yedek.result }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          data = json.loads(os.environ["AUDIT_RESULTS"])
+          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
+          categories = {name: os.environ[name] for name in ["SECURITY_RESULT", "DISCOVERY_RESULT", "CHANNEL_RESULT", "ARCHIVE_RESULT"]}
+          result = {"audit_steps": audits, "categories": categories}
+          folder = Path("madsc_merkezi_denetim")
+          folder.mkdir(exist_ok=True)
+          (folder / "toplu_test_sonuc_ozeti.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+          print(json.dumps(result, indent=2, ensure_ascii=False))
+          PY
+      - name: Toplu test hata kapisi
+        if: always()
+        env:
+          AUDIT_RESULTS: ${{ toJSON(steps) }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          data = json.loads(os.environ["AUDIT_RESULTS"])
+          names = ["category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
+          failures = [name for name in names if data.get(name, {}).get("outcome") != "success"]
+          if failures:
+              print("::error::Failed or skipped consolidated audits: " + ", ".join(failures))
+              sys.exit(1)
+          print("All consolidated audits passed.")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-genel-bakim-tek-kosu-rapor
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.

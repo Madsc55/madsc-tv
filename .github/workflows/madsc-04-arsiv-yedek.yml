@@ -1,0 +1,94 @@
+name: MADSC 04 - Arsiv Yedek Toplu
+on:
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: madsc-arsiv-yedek-tek-kosu
+  cancel-in-progress: false
+jobs:
+  arsiv-yedek:
+    name: MADSC 04 - Arsiv Yedek Toplu - tek kosuda butun denetimler
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Korunan dosyalarin baslangic ozeti
+        run: |
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_isolated_git_restore.py scripts/central_backup_evidence.py scripts/central_archive_consistency.py scripts/disaster_recovery_dry_run.py; do
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
+      - name: Yedek kurtarma ve uzak kopya ayrimi kabul kontrolu
+        id: acceptance
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("madsc_merkezi_denetim/yedek_ve_korunan_dosyalar_kanit.json").read_text(encoding="utf-8"))
+          recovery = json.loads(Path("DISASTER-RECOVERY-REPORT.json").read_text(encoding="utf-8"))
+          assert recovery["status"] == "PASS"
+          assert {item["file"] for item in recovery["files"]} == {"CALISANLAR.m3u", "YENILER.m3u"}
+          assert all(item["restore"] == "PASS" and item["original_untouched"] for item in recovery["files"])
+          assert not report["protected_missing"], "Protected files missing"
+          assert report["off_github_copy"] == "DOGRULANMADI", "Offsite copy must not be inferred"
+          assert report["historical_recovery_verified"] is False, "Historical restore not independently verified"
+          print("Isolated restore evidence checked; offsite/historical recovery remains blocked.")
+          PY
+      - name: Kategoriye ait tum regresyon testleri
+        id: regressions
+        continue-on-error: true
+        run: python3 -m unittest test_central_isolated_git_restore test_central_backup_evidence test_central_archive_consistency test_five_category_disaster_behavior -v
+      - name: Korunan dosyalar degismedi
+        if: always()
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Arsiv ve yedek basarisizlik kapisi
+        if: always()
+        shell: bash
+        run: |
+          failed=0
+          for outcome in "${{ steps.reports.outcome }}" "${{ steps.acceptance.outcome }}" "${{ steps.regressions.outcome }}"; do
+            if [[ "${outcome}" != "success" ]]; then
+              echo "::error::Arsiv/yedek denetimi basarisiz veya atlandi: ${outcome}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-arsiv-yedek-tek-kosu-rapor
+          path: |
+            madsc_merkezi_denetim/
+            DISASTER-RECOVERY-REPORT.json
+          if-no-files-found: warn
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.

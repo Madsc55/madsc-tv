@@ -7,6 +7,7 @@ permissions:
   contents: write
 jobs:
   apply:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -23,5 +24,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CALISANLAR.m3u madsc_kesif/ibo_kullanici_kararlari.csv madsc_kesif/ibo_ilk_239_ayirma_raporu.json
+          python3 tools/protected_write_gate.py --base origin/main
           git commit -m "Save user IBO results and archive removed backup positions"
           git push origin HEAD:main

@@ -3,19 +3,18 @@
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+try:
+    from scripts.evidence_reader import read_json_evidence
+except ModuleNotFoundError:
+    from evidence_reader import read_json_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "madsc_merkezi_denetim"
 OUT.mkdir(exist_ok=True)
 
 def read(filename):
-    path = OUT / filename
-    if not path.is_file():
-        return None
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (ValueError, UnicodeError):
-        return None
+    state, data = read_json_evidence(OUT / filename)
+    return data if state == "present" else None
 
 def render(workflows, tasks, errors, management=None):
     counts = workflows.get("classifications", {}) if isinstance(workflows, dict) else {}

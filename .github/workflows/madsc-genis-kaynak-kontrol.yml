@@ -9,6 +9,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   audit:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -54,7 +55,9 @@ jobs:
             cp -a "${RUNNER_TEMP}/source-audit/." madsc_genis_tarama/
             git add madsc_genis_tarama/
             if git diff --cached --quiet; then exit 0; fi
+            python3 tools/protected_write_gate.py --base origin/main
             git commit -m "Update source change audit"
+            python3 tools/protected_write_gate.py --base origin/main
             if git push origin HEAD:main; then exit 0; fi
             sleep $((attempt * 2))
           done

@@ -127,14 +127,16 @@ print(f"Merkezi oncelik raporu: {len(priority)} is akisi, {sum(x['risk']=='YUKSE
 # Bu salt okunur eslestirme; mevcut tetikleyicileri ve izinleri degistirmez.
 def five_stage(item):
     category = classify(item)
-    if category in ("YEDEK_VE_KURTARMA", "GUVENLIK"):
+    if category == "GUVENLIK":
         return 1
+    if category == "YEDEK_VE_KURTARMA":
+        return 4
     if category == "KESIF":
         return 2
     if category == "ADAY_TEST":
         return 3
     if category in ("LOGO", "EPG"):
-        return 4
+        return 3
     return 5
 
 # Kritik kaynaklar dosya adina gore yanlis siniflanabilir. Bunlari raporda
@@ -151,7 +153,7 @@ stage_names = {
     1: "Guvenlik ve sistem sagligi",
     2: "Kanal kesfi ve kaynak guvenilirligi",
     3: "Toplu yayin testleri",
-    4: "Logo EPG ve kanal kimligi",
+    4: "Arsiv yedek ve kurtarma",
     5: "Sonuclar saglik raporlari ve uyarilar",
 }
 stage_workflows = {str(n): [] for n in range(1, 6)}

@@ -76,20 +76,28 @@ def main():
  known={key(x["url"]) for x in base};ids={x["id"].lower() for x in base if x["id"]};names={name(x["name"]) for x in base}
  state=OUT/"gecmis.json"
  # Never forget previous tests when history is unreadable.
- history=json.loads(state.read_text(encoding="utf-8")).get("history")
- if not isinstance(history,dict):raise RuntimeError("Invalid discovery history; scanning stopped")
+ if state.exists() and state.stat().st_size > 0:
+  history=json.loads(state.read_text(encoding="utf-8")).get("history")
+  if not isinstance(history,dict):raise RuntimeError("Invalid discovery history; scanning stopped")
+ elif state.exists() and state.stat().st_size == 0:
+  raise RuntimeError("Empty discovery history; restore from verified artifact before scanning")
+ else:
+  history={}
  # Only unfinished main-playlist checks, at least six hours apart.
  # Independent state: three successful checks >=6 hours apart.
  audit_state=OUT/"ana_liste_test_gecmisi.json"
- try:audit=json.loads(audit_state.read_text(encoding="utf-8")).get("channels",{})
- except Exception:audit={}
- if not isinstance(audit,dict):audit={}
+ if audit_state.exists():
+  audit=json.loads(audit_state.read_text(encoding="utf-8")).get("channels")
+  if not isinstance(audit,dict):raise RuntimeError("Invalid main-playlist test history; scanning stopped")
+ else:
+  audit={}
  audit_now=datetime.datetime.now(datetime.timezone.utc)
  unique={}
  for idx,ch in enumerate(parse(master)):
   uid=str(idx+1)+"|"+key(ch["url"])
   unique[uid]=ch
- audit={k:v for k,v in audit.items() if k in unique}
+ # Preserve historical checks for entries no longer in the current playlist.
+ # Only current UIDs participate in the active report and due-check selection.
  def health_check_due(previous):
   if int(previous.get("successful_runs",0))>=3:return False
   last=previous.get("last_test")

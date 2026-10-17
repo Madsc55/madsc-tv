@@ -5,6 +5,8 @@ on:
       - "kaynak_degisiklik_raporu.py"
       - ".github/workflows/test-13-kaynak-degisiklik.yml"
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest

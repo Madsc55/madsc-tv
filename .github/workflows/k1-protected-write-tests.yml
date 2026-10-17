@@ -1,0 +1,65 @@
+name: K1 - Protected Write Gate Negative Tests
+on:
+  push:
+    paths:
+      - '.github/workflows/k1-protected-write-tests.yml'
+      - 'tools/protected_write_gate.py'
+      - 'tests/test_protected_write_gate.py'
+      - 'scripts/audit_workflow_security.py'
+      - 'tests/test_workflow_security_audit.py'
+      - 'tests/test_k1_failure_gate.py'
+      - 'tools/workflow_failure_gate.py'
+      - 'scripts/k1_workflow_risk_inventory.py'
+      - 'scripts/k1_24_rule_evidence.py'
+      - 'tests/test_k1_24_rule_evidence.py'
+      - 'tests/test_k1_workflow_risk_inventory.py'
+      - 'scripts/k1_protected_integrity.py'
+      - '.github/workflows/madsc-ibo-354-classify.yml'
+      - '.github/workflows/madsc-birlesik-kesif.yml'
+      - 'tests/test_k1_legacy_writer_guards.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  negative-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run isolated negative tests without touching playlists
+        run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
+      - name: Run protected write gate negative tests
+        run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
+      - name: Run Rule 24 circuit breaker negative tests
+        run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
+      - name: Run workflow push risk inventory regression tests
+        run: python -m unittest discover -s tests -p 'test_k1_workflow_risk_inventory.py' -v
+      - name: Check 24-rule evidence matrix
+        run: |
+          python -m unittest discover -s tests -p 'test_k1_24_rule_evidence.py' -v
+          python scripts/k1_24_rule_evidence.py > k1-24-rule-evidence.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: k1-24-rule-evidence
+          path: k1-24-rule-evidence.json
+          retention-days: 30
+      - name: Compare all tracked protected paths against main
+        run: |
+          git fetch --no-tags origin main
+          python scripts/k1_protected_integrity.py
+      - name: Produce full 98-workflow risk inventory
+        run: |
+          python scripts/k1_workflow_risk_inventory.py > k1-workflow-risk-inventory.json
+          python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98; assert r['tiers'].get('CRITICAL_UNGATED_PUSH',0) == 0"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: k1-workflow-risk-inventory
+          path: k1-workflow-risk-inventory.json
+          retention-days: 30
+      - name: Verify workflow inventory count without executing workflows
+        run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"

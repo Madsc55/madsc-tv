@@ -7,6 +7,7 @@ permissions:
   contents: write
 jobs:
   archive:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,5 +21,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CALISANLAR.m3u madsc_kesif/ibo_398_16_49_yabanci_arsiv.m3u madsc_kesif/ibo_398_16_49_rapor.json
+          python3 tools/protected_write_gate.py --base origin/main
           git commit -m "Archive user-identified foreign backups 16-49"
           git push origin HEAD:main
