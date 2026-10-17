@@ -3278,3 +3278,10 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `.github/workflows/automatic-png-logos.yml`: manuel dispatch, logo olusturma/visual evidence, artifact yukleme, korunan CALISANLAR.m3u degisikligini engelleme.
 - `.github/workflows/madsc-ana-liste-saglik.yml`: cron `40 6 1,15 * *`, salt okunur ana liste batch/ffmpeg saglik taramasi ve artifact.
 - Bu dort workflow icin tetikleyici, izin, yan etki, artifact ve dagitim paritesi henuz kanitlanmadi; 0/92 aynen kalir. Ozellikle EPG push/Pages deploy eski akislarda korunur; korunan dosyalara yazma izni verilmedi.
+
+
+### 17 Ekim 2026 — DDTD / ilk dort workflow ile besli sistem karsilastirmasi
+- `madsc-03-kanal-test.yml` gercekten `scripts/ana_liste_saglik.py --batch-size 50 --timeout 15` calistiriyor, JSON/Markdown kapsam kontrolu ve artifact raporu var. Ancak eski `madsc-ana-liste-saglik.yml` cron `40 6 1,15 * *` birebir tasinmis degil; parity ONAYLANMADI.
+- `madsc-03-kanal-test.yml` `tools/logo_epg_audit.py` ile kalite denetimi ve eski EPG/Pages dosyalarinin varligini salt-okunur inceliyor; `scripts/build_epg.py`, `scripts/build_ibo_epg_test.py` veya `actions/deploy-pages@v4` islevini calistirmiyor. EPG olusturma/commit ve Pages dagitimi parity ONAYLANMADI.
+- `madsc-02-kesif.yml` logo kutuphanelerini kuruyor ve logo rapor regresyonunu calistiriyor, ancak `scripts/automatic_png_logos.py` ve `scripts/logo_visual_evidence.py` islemlerini cagirmiyor; logo olusturma ve goruntu artifact parity ONAYLANMADI.
+- Salt-okunur denetimlerin kismi kapsami kabul edilir ama uretim, yayim, yazma yetkisi, takvim ve artifact davranislarinin tamamini esdeger saymayiz. 0/92; eski workflowlar ve korunan dosyalar aynen kalir.
