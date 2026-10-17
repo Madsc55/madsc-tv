@@ -712,3 +712,121 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 **Bulgular:** Beş merkezi workflow dosyası var; davranışsal eşdeğerlik kanıtı eksik. Tarihsel IBO arşiv/karar workflow'ları canlı listelere yazma riski taşır. EPG ve bakım akışlarında yazma izleri görüldü. Koruma kapısının varlığı tek başına tüm dolaylı yazma yollarını kapattığını ispatlamaz. Çalışma zamanı testi yapılmadı; yalnız not dosyası güncellendi.
 
 **YENİ SAYAÇ: 100/810 İNCELENDİ, 710 KALDI.** Sonraki batch özgün Git tree'de 101–200. Eski 361 sayacı geçersiz.
+
+## SIFIRDAN TARAMA — BATCH 002 (özgün tree #101–200) — 18 Ekim
+
+**Dürüst tamamlanma:** Bu 100 dosyalık grubun 73 metin/kod/veri dosyasının gerçek içeriği GitHub fetch_file ile açıldı. 27 dosya henüz açılmadı: 20 PNG ikili dosyası ve 7 büyük metin/veri dosyası. Bu tur **100 tamamlandı denmez**. Önceki batch 100/810; yeni benzersiz 73 => **173/810 tamam, 637 kaldı**.
+
+### İçeriği açılan ve kayıtlanan yollar
+- [x] `AGENTS.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `BES_SISTEM_GECIS_KONTROL.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `BES_SISTEM_TOPLU_IS_DEFTERI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `CALISANLAR.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `CALISMAYANLAR.txt` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `DEVIR_NOTU_2026-10-15.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `GUVENLIK_KURALLARI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `IPTV_PROJE_HAFIZASI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `MADSC_TV_47_LISTE_ADAY.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `MERKEZI_ARSIV_HARITASI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `OZELLIK_ENVANTERI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `SEKIZ_GOREV_TOPLU_DENETIM.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `TEST_RAPORU.csv` — CSV geçmiş test/kaynak raporu; güncel başarı sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `TOPLU_DURUM_RAPORU.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `YABANCI_KANALLAR.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `YENILER.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_bekletme.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_bekletme/GELISMIS_MEDYA_TESTI.csv` — CSV geçmiş test/kaynak raporu; güncel başarı sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_bekletme/KAYNAK_GUVEN_PUANLARI.csv` — CSV geçmiş test/kaynak raporu; güncel başarı sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_bekletme/TEKRAR_EDEN_ADAYLAR.csv` — CSV geçmiş test/kaynak raporu; güncel başarı sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_hata_siniflandirma.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_hazirlik/ibo_alternatif_10_2026-10-12.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_hazirlik/ibo_alternatif_10_2026-10-12.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_hazirlik/ibo_kimlik_destekli_2026-10-12.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_oncelik_raporu.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `aday_tekrar_raporu.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `akilli_tekrar_test_takvimi.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `altinci_aday_tekrar_test.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `arastirma/bes_site_katalog_2026-10-12.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `arastirma/lyngsat_arama_oncelikleri.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `arastirma/uydu_arama_oncelikleri.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `arastirma/uydu_karsilastir.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `channel_name_normalization.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `discovery_m3u_parser.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `docs/MADSC-92-WORKFLOW-ESDEGERLIK-KONTROL-2026-10-14.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `docs/MADSC-IKI-TOPLU-KABUL-PLANI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg/ibo-test-epg.xml` — XMLTV içerik/kanal kimliği; cihaz ve yayın doğrulaması bekliyor. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg/report.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg_deneme/README.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg_deneme/build.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg_deneme/liste.m3u` — M3U gerçek metni açıldı; kanal listesi salt okunur, teknik durum IBO onayı değil. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg_deneme/rapor.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg_deneme/rehber.xml` — XMLTV içerik/kanal kimliği; cihaz ve yayın doğrulaması bekliyor. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `epg_deneme/yayim_kontrol.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `final_validation.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `final_validation_manifest.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `gelismis_medya_testi.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `genis_kanal_tara.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `iptv_test.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `kaynak_degisiklik_raporu.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `kaynak_guven_puani.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `kaynak_kesfet.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `kontrol_notlari/2026-10-12_ekol_basa_sarma.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `kontrol_notlari/DEVAM_GECMISI_2026-10-12_1947.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `liste_kontrol/README.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `liste_kontrol/build.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `liste_kontrol/rapor.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/HAZIRLIK_NOTLARI.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/README.md` — Proje belge/karar; eski tarihli talimatları yeni izin sayma. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/approved_repairs.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/audit.py` — Kod; yan etkileri, çıktı dosyaları ve merkezi sistem eşdeğerliği incelenecek. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/candidates/diyanet.svg` — SVG XML kaynak metni; logo görünürlüğü IBO'da ayrıca doğrulanmalı. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/candidates/sources.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/ozet.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/png_automation.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/verified_sources.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+- [x] `logo_deneme/visual_review.json` — JSON kanıt/rapor; tarih ve kaynak provenance gerekli. **Yapılacak:** ilgili beşli merkezi sisteme görev/kanıt/koruma eşlemesi. **Yapılmayacak:** onaysız liste/yedek/workflow değişikliği.
+
+### İçeriği henüz açılamayan / sayılmayan yollar
+- [ ] `DEVAM_NOTU.md` — 661331 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `aday_bekletme/ADAY_DURUM_RAPORU.csv` — 955356 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `aday_bekletme/ADAY_ONCELIK_RAPORU.csv` — 1115398 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `aday_bekletme/gecmis.json` — 2034771 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `aday_hazirlik/uc_asama_2026-10-12_1037.json` — 1793359 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `epg/madsc-epg.xml` — 8840899 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `logo_deneme/candidates/akustik.png` — 38135 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logo_deneme/candidates/baku.png` — 4368 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logo_deneme/candidates/dream.png` — 10387 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logo_deneme/candidates/slow.png` — 32691 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logo_deneme/candidates/taptaze.png` — 38003 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logo_deneme/candidates/tlc.png` — 5395 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logo_deneme/rapor.json` — 579615 byte; büyük dosya; parça parça içerik erişimi gerekiyor
+- [ ] `logos/auto/041e37594c71899c9e381aee.png` — 17149 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/048131bc742d8064c301a096.png` — 131405 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/0779b126a79286a57a25dd0f.png` — 95749 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/0e5df2c3c4939ed146058c3d.png` — 18720 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/14dd38545017604dea57019b.png` — 10717 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/239908e80daba409c3959221.png` — 27637 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/44195e35f88c8190bcaa9ca9.png` — 13512 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/466feaf99e11e9e6b5a13624.png` — 13123 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/5effb3739213b20377cdcf7a.png` — 7936 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/a1354a385cc3a0bbf4806757.png` — 18493 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/a19eb811872c0b7b898df7a3.png` — 14804 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/a806902047a6662fcd26bdf3.png` — 1518 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/b118b37c38a98c811a93ec15.png` — 5797 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+- [ ] `logos/auto/b1aeb5844a1583bbae02bb26.png` — 44386 byte; ikili PNG; GitHub UTF-8 erişimi gerçek görseli vermiyor
+
+### Öncelikli durum raporu
+- `CALISANLAR.m3u`, `YENILER.m3u`, `YABANCI_KANALLAR.m3u` gerçek içerikleri açıldı; sırayla tarihsel ana liste, 58 YENILER ve 740 yabancı/arşiv EXTINF kaydı görüldü. Liste içeriğine müdahale edilmedi.
+- `MADSC_TV_47_LISTE_ADAY.m3u` 1183 aday kaydı; IBO onayı yok, doğrudan ana listeye alınmaz.
+- Beşli sistem geçiş ve 92 workflow belgeleri tetikleyici envanterinin davranışsal eşdeğerlik kanıtı olmadığını doğruluyor.
+- `epg/report.json` eski 1039 kayıt, 730 eşleşme, 309 eksik raporu; `epg_deneme` 5 kanallık pilot ve cihaz onayı ayrı.
+- `logo_deneme/approved_repairs.json` önceki onayların kanıtıdır, bu tur yeni logo değişikliği izni değildir. SVG metni açıldı; PNG'ler açılmadı.
+- Test, keşif, kaynak güveni, geçmiş kararlılık ve kanal isim normalizasyonu kodları var; rapor üretmek ve ana listeye yazmak ayrı izin/etki alanları olmalı.
+
+**Yalnız `810 dosya notu.md` değiştirildi.** Eski 361 sayacı kullanılmıyor. Sonraki turda #101–200 grubunun 27 erişim engeli ayrıca çözülmeli; yeni batch başlatılırsa bunlar açık bekleyen olarak korunmalı.
