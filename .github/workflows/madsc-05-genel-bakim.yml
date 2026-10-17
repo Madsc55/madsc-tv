@@ -41,6 +41,7 @@ on:
       - 'test_central_*.py'
       - 'test_tek_merkez_tetikleme.py'
       - 'test_five_category_*.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
 permissions:
   contents: read
   actions: read
