@@ -77,8 +77,11 @@ class CentralCronRegressionTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
         health = (root / ".github/workflows/madsc-03-kanal-test.yml").read_text(encoding="utf-8")
+        self.assertIn("cron: '17 5,17 * * *'", discovery)
         self.assertIn("cron: '0 6,18 * * *'", discovery)
         self.assertIn("cron: '40 6 1,15 * *'", health)
+        self.assertIn("workflow_call:", discovery)
+        self.assertIn("workflow_call:", health)
         self.assertIn("contents: read", discovery)
         self.assertIn("contents: read", health)
 
