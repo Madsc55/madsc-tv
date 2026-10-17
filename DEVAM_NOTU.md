@@ -3244,3 +3244,9 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Guncel degisiklikler: 92 workflow denetiminde ilave yazma riski komut isaretleri ve regresyon fixture duzeltmesi. Bu degisiklikler davranissal entegrasyon kaniti DEGIL; 92/92 kabul 0.
 - SONRAKI: `39016688439` nihai sonucunu ve job/artifact kayitlarini dogrula; hata varsa kok nedeni duzelt; 26 guvenlik kuralini ve 92 workflow'un gercek davranis aktarimini islev bazinda ilerlet. Her turda somut degisiklik+SHA+test kaniti kaydet.
 - KORUMA: main degistirme, PR #71 merge etme, eski workflow kapatma, korunan IPTV/EPG/logo/yedek dosyalarina dokunma. IBO oynatma testi kullanicida.
+
+
+### 17 Ekim 2026 — DDTD / 5/5 CI BASARISI DOGRULANDI
+- `MADSC 05 - Genel Bakim Toplu` run `39019377764`, commit `52d3c8b6a6b39deda4f03e66e56996917e897462`: GitHub Actions `completed/success`; 01 Guvenlik, 02 Kesif, 03 Kanal Testleri, 04 Arsiv/Yedek, 05 Genel Bakim islerinin besi de `completed/success`. Kanit: https://github.com/Madsc55/madsc-tv/actions/runs/39019377764
+- Onceki `audit_9` curl risk algilama hatasi icin yapilan duzeltmenin CI kabul kapisi gecti. Bu, 92 eski workflow'un davranissal aktariminin tamamlandigini KANITLAMAZ; kabul hala 0/92.
+- Siradaki somut is: 92 workflow'un gercek script giris noktalari, cron/workflow_run tetikleyicileri, rapor/artifact ve yazma yetkilerini 01-05 ile tek tek karsilastirip guvenli eksikleri entegre etmek. Eski workflow'lar ve korunan IPTV/EPG/logo/yedek dosyalari degistirilmez; PR71 merge/main degisikligi yok.
