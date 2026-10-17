@@ -3518,3 +3518,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Kullanici acikca bildirdi: `📦 YEDEKLER (2)` icindeki `TRT 1 1440P QHD` ve `DHA CANLI 720P HD` kayitlari YERINDE KALACAK. Bu kayitlar silinirse IPTV oynaticisinda YEDEKLER kategorisi gorunmuyor. Dolayisiyla bu iki kayit kategoriyi gorunur tutan KORUNAN kayitlardir.
 - HEPSI URL kapsam denetiminde bu iki yedek URL'sinin HEPSI'de bulunmamasi **bilincli ve onayli istisna** olarak raporlanir; otomatik eksik kanal diye HEPSI'ye eklenmez, silinmez, tasinmaz, URL/ad/kategori degistirilmez.
 - YEDEKLER kategorisini bosaltan otomatik temizleme, deduplikasyon, kategori birlestirme veya tasima yasak; gelecekteki ilgili degisiklikler icin yeni acik kullanici izni gerekir. `CALISANLAR.m3u` ve diger korunan veriler bu not kaydinda degistirilmedi.
+
+
+## 17 Ekim 2026 — 92 workflow denetiminde somut korunan-yazma tespit kusuru
+- `scripts/five_category_92_workflow_audit.py` `inspect()` fonksiyonunda satir 39-67 arasinda `raw` her legacy workflow icin okunur; satir 78'de `for item in items` basladiginda `raw` tekrar item bazinda okunmaz. Buna ragmen satir 153 `requires_protected_write_review` hesabinda `("CALISANLAR.m3u" in raw or "YENILER.m3u" in raw or "yedekler/" in raw)` kullanir. Boylece 92 item icin son okunan legacy workflow metni kullanilabilir ve korunan dosyaya yazma riskleri yanlis negatif/pozitif raporlanabilir.
+- Duzeltme adayi: her item icin kendi workflow icerigini kullanmak (`(folder / item["file"]).read_text(...)` veya item uzerinde saklanan path referanslari); buna yonelik en az iki farkli workflow iceren regresyon testi eklemek. **Henuz kod degisikligi yapilmadi, test calistirilmadi.** Playlist ve yedekler degismedi.
+- Bu tespit, 92/92 davranissal esdegerlik kanitinin yerine gecmez; migration gate BLOCKED kalmali.
