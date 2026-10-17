@@ -3531,3 +3531,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Bir kademe ancak ilgili gorevlerin eksiksiz karsilanmasi, gercek Actions test basarisi ve korunan dosyalarin degismediginin kaniti ile tamamlandi sayilacak. Eksik kanit durumunda kademe ACIK kalir.
 - Simdiki tek odak 1. Guvenlik: `scripts/five_category_92_workflow_audit.py` korunan yazma tespit duzeltmesi commit `33c4257`, regresyon testi commit `8181b1d`. Bu son commit icin baglanti aracinin PR-run filtresi ve combined status sorgusu bos dondu; CI basarisi DOGRULANMADI. Calisma baslatildigi iddia edilmiyor.
 - HEPSI ana kanal deposu, YEDEKLER iki gorunurluk kaydi, tum playlistler ve eski workflow'lar korunacak; izinsiz tasima/silme/yazma yok. Taslak PR #71 birlestirilmeyecek.
+
+
+## 17 Ekim 2026 — Kademe 1 test tetikleyicisi ayrimi (dogrulandi)
+- `.github/workflows/madsc-05-genel-bakim.yml` `push.branches` entegrasyon dalini ve `push.paths` hem `scripts/five_category_92_workflow_audit.py` (satir 34) hem `tests/test_five_category_92_workflow_audit.py` (satir 44) dosyalarini kapsiyor. Dolayisiyla ilgili commitler genel bakim toplu testini tetiklemeye uygun; bu **gercek run basari kaniti degildir**.
+- `.github/workflows/k1-protected-write-tests.yml` `push.paths` listesi bu iki dosyayi KAPSAMIYOR. K1 ayrica `workflow_dispatch` ile manuel tetiklenebilir. K1'in bu degisiklikler nedeniyle otomatik calistigi iddia edilemez.
+- Kademe 1 kabul eksigi: genel bakim guvenlik isi ve K1 negatif testinin gercek run ID, sonuc, job/step loglari ve korunan dosya butunlugu kanitlari. K1 path listesini degistirme adayi ayri kullanici izni gerektirir; su anda workflow degistirilmedi.
