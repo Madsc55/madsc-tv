@@ -62,6 +62,12 @@ jobs:
             fi
             echo "::endgroup::"
           done
+          if python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v; then
+            echo 'PASS 92-workflow guvenlik regresyonlari'
+          else
+            echo '::error::FAIL 92-workflow guvenlik regresyonlari'
+            failed=1
+          fi
           exit "${failed}"
       - name: Korunan dosyalar degismedi
         if: always()
