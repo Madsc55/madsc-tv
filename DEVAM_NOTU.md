@@ -3512,3 +3512,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `CALISANLAR.m3u` tam dosya blob SHA `b40aaf6615b120eac7bd936ccf022dc4a14025ae`: HEPSI 374 kayit, diger kategoriler 665 kayit. Diger kategorilerin 665 `#EXTINF` kaydinin yayin URL'leri HEPSI URL kumesiyle birebir karsilastirildi.
 - 663 kategori kaydinin URL'si HEPSI'de mevcut; **2 farkli URL** HEPSI'de yok, ikisi de `📦 YEDEKLER (2)` grubunda: `TRT 1 1440P QHD` ve `DHA CANLI 720P HD`. Bu, kanal kimligi/alternatif URL esdegerligi kaniti degildir; YEDEKLER'in HEPSI'ye birebir dahil olmasi gerekip gerekmedigi kullanici kararina tabidir.
 - Kapsam farki salt okunur raporlandi; YEDEKLER ve HEPSI dahil hicbir playlist kaydi degistirilmedi. Korunan yedeklere otomatik ekleme izni halen IPTAL.
+
+
+## 17 Ekim 2026 — Kullanici onayli YEDEKLER kategori gorunurlugu koruma karari
+- Kullanici acikca bildirdi: `📦 YEDEKLER (2)` icindeki `TRT 1 1440P QHD` ve `DHA CANLI 720P HD` kayitlari YERINDE KALACAK. Bu kayitlar silinirse IPTV oynaticisinda YEDEKLER kategorisi gorunmuyor. Dolayisiyla bu iki kayit kategoriyi gorunur tutan KORUNAN kayitlardir.
+- HEPSI URL kapsam denetiminde bu iki yedek URL'sinin HEPSI'de bulunmamasi **bilincli ve onayli istisna** olarak raporlanir; otomatik eksik kanal diye HEPSI'ye eklenmez, silinmez, tasinmaz, URL/ad/kategori degistirilmez.
+- YEDEKLER kategorisini bosaltan otomatik temizleme, deduplikasyon, kategori birlestirme veya tasima yasak; gelecekteki ilgili degisiklikler icin yeni acik kullanici izni gerekir. `CALISANLAR.m3u` ve diger korunan veriler bu not kaydinda degistirilmedi.
