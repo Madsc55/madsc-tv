@@ -3285,3 +3285,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `madsc-03-kanal-test.yml` `tools/logo_epg_audit.py` ile kalite denetimi ve eski EPG/Pages dosyalarinin varligini salt-okunur inceliyor; `scripts/build_epg.py`, `scripts/build_ibo_epg_test.py` veya `actions/deploy-pages@v4` islevini calistirmiyor. EPG olusturma/commit ve Pages dagitimi parity ONAYLANMADI.
 - `madsc-02-kesif.yml` logo kutuphanelerini kuruyor ve logo rapor regresyonunu calistiriyor, ancak `scripts/automatic_png_logos.py` ve `scripts/logo_visual_evidence.py` islemlerini cagirmiyor; logo olusturma ve goruntu artifact parity ONAYLANMADI.
 - Salt-okunur denetimlerin kismi kapsami kabul edilir ama uretim, yayim, yazma yetkisi, takvim ve artifact davranislarinin tamamini esdeger saymayiz. 0/92; eski workflowlar ve korunan dosyalar aynen kalir.
+
+
+### 17 Ekim 2026 — DDTD / yedek kurtarma dort eski workflow karsilastirmasi
+- `felaket-kurtarma-tatbikati.yml`: dispatch/push, `scripts/disaster_recovery_dry_run.py`, `DISASTER-RECOVERY-REPORT.json` artifact. `madsc-04-arsiv-yedek.yml` ayni dry-run scriptini ve rapor artifactini cagiriyor; tetikleyici ve artifact adi esdegerligi henuz onaylanmadi.
+- `yedek-geri-yukleme-tatbikat.yml`: dispatch/push, `scripts/restore_dry_run.py`, `RESTORE-DRY-RUN-REPORT.json`. Besli 04 dosyasinda script cagrisi yok; davranis eksik.
+- `madsc-tum-sistem-yedek.yml`: `40 5 1,15 * *` takviminde `repository_settings_inventory.py`, `full_system_backup.py`, 30 gun tutulan tar.gz ve JSON artifact. Besli 04 dosyasinda bu cagrilar ve arsiv artifacti yok; tam yedek davranisi eksik.
+- `madsc-arsiv-yedek-aktarim.yml`: sadece manuel, onay gerektiren korunan playlist mutasyonu devre disi oldugunu bildiren dry-run; otomatik aktarim varmis gibi yorumlanmadi.
+- 8 eski workflow icin karsilastirma bulgulari belgelendi; davranissal parity ONAYI 0/92. Yazma yetkisi, eski workflow devre disi birakma, korunan dosya degisikligi yok.
