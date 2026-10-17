@@ -3333,3 +3333,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `besinci-zaman-asimi-test.yml`: `gelismis_medya_testi.check` icin 65 saniye timeout'un bozuk degil TEKRAR_TEST_BEKLIYOR sayildigini mock ile dogrular. Merkezi 01/02/03'te ayni script dogrudan yok.
 - `dokuzuncu-akilli-tekrar-test.yml`: `test_akilli_tekrar_test_takvimi.py` unittest. Merkezi 01/02/03'te dogrudan cagrilmiyor.
 - Merkezi 03 genel aday medya regresyonu barindirir, ancak bu dort eski testin ayni kabul kriterlerini karsiladigi kanitlanmadi. Toplam 28 eski workflow incelendi, 0/92 davranissal tam parity. Yalniz not guncellendi.
+
+
+### 17 Ekim 2026 — DDTD / tekrarlar, hata sinifi, kaynak farki ve istikrar dort eski workflow
+- `sekizinci-tekrar-raporu-test.yml`: `aday_tekrar_raporu.py` izole CSV fixture ile kaynaklar arasi ve ayni kaynak duplicate baglantilari, tekrar sayisi ve kaynak adlari beklentisi. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- `onikinci-hata-siniflandirma-test.yml`: `aday_hata_siniflandirma.py` HTTP403/token, cografi engel, timeout/gecici erisim, video/ses basarisi, belirsiz hata ve CSV rapor fixture testleri. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- `test-13-kaynak-degisiklik.yml`: `kaynak_degisiklik_raporu.py` eski/yeni M3U icin added/changed/removed ve otomatik rollback YOK guvenlik notu; fixture dosyalari korunur. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- `test-14-istikrar.yml`: `tools/channel_stability.py` 7/30 gun test/success oranlari, hic test edilmemis aralik ve son basari zamani beklentileri. Merkezi 01/02/03'te dogrudan cagrisi yok.
+- Toplam 32 eski workflowun inceleme bulgulari kaydedildi; 0/92 tam davranissal esdegerlik. Kod, playlist ve eski workflow degisikligi yok.
