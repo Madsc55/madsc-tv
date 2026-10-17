@@ -3293,3 +3293,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `madsc-tum-sistem-yedek.yml`: `40 5 1,15 * *` takviminde `repository_settings_inventory.py`, `full_system_backup.py`, 30 gun tutulan tar.gz ve JSON artifact. Besli 04 dosyasinda bu cagrilar ve arsiv artifacti yok; tam yedek davranisi eksik.
 - `madsc-arsiv-yedek-aktarim.yml`: sadece manuel, onay gerektiren korunan playlist mutasyonu devre disi oldugunu bildiren dry-run; otomatik aktarim varmis gibi yorumlanmadi.
 - 8 eski workflow icin karsilastirma bulgulari belgelendi; davranissal parity ONAYI 0/92. Yazma yetkisi, eski workflow devre disi birakma, korunan dosya degisikligi yok.
+
+
+### 17 Ekim 2026 — DDTD / IBO ve kanal kararliligi dort eski workflow karsilastirmasi
+- `ibo-epg-kimlik-denetimi.yml`: `ibo_epg_kimlik_denetimi.py` ile CALISANLAR/5-kanal pilot XMLTV eslesmesi ve 14 gun artifact. `madsc-03-kanal-test.yml` logo/EPG denetimi yapiyor ancak bu scripti cagirmiyor; esdegerlik eksik.
+- `ibo-yedek-kalite.yml`: `yedekler/ibo_yedek_kalite_tespit.py` ile ffprobe kalite CSV artifact. 02/03 merkezi workflowda ayni script yok; esdegerlik eksik.
+- `kanal-kararlilik.yml`: `oncelikli_kanal_dogrula.py` + `kanal_kararlilik_takip.py`, cache restore/save KARARLILIK_GECMISI.json, CSV/JSON artifact. 02/03 merkezi workflowda bu scriptler ve cache yok; esdegerlik eksik.
+- `oncelikli-kanal-dogrulama.yml`: `oncelikli_kanal_dogrula.py` ffprobe ve CSV/JSON artifact. 02/03 merkezi workflowda ayni script yok; esdegerlik eksik.
+- Toplam 12 eski workflow karsilastirma bulgusu; 0/92 tam davranissal parity. Yalniz kodda script adi aramak tam islev kaniti degildir; eksik davranislar ileride bagimsiz testle dogrulanmali. Korunan playlist/yedek dosyalarina dokunulmadi.
