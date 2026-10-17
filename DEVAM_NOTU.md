@@ -3589,3 +3589,15 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - 26 onayli kural `GUVENLIK_KURALLARI.md` 1-24 ve `AGENTS.md` 25-26; diger dosyalardaki ek kurallari onayli 27+ diye otomatik numaralandirma, onerileri ayri tut.
 - Siradaki denetim: kalan md/txt belgelerinin tumunu, sonra 98 workflow YAML ve 190 Python kodunu icerik bazinda; JSON/CSV/M3U/XML verilerini semantik olarak; logo/gorselleri ayrica varlik/format/kimlik olarak incele. Her bulgu icin kaynak dosya, gorev, mevcut karsilik, kanit, eksik, onay gereksinimi ve kategori kaydi olustur. Tamamlanmadan 810/810 icerik okundu DEME.
 - Yalniz DEVAM_NOTU.md guncellendi. Playlistler, eski workflowlar, kurallar, main ve PR #71 degismedi.
+
+
+## 18 Ekim 2026 — 810 dosya icerik taramasi: ek 6 belge, ayri bulgular
+- Bu tur 6 belge tam metin okundu: `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md`, `logo_deneme/HAZIRLIK_NOTLARI.md`, `vod/IBO-AYRI-KURULUM.md`, `docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md`, `epg_deneme/README.md`, `raporlar/IBO_TCL55C655_UYUMLULUK_DENETIMI.md`.
+- AYRI ACIK TALEP: Eurostar kullanici IBO'da acilmadigini bildirmis, 12 Ekim silme commit'i `bfc6c384`; sonraki yeni kanal aramasinda yasal calisan alternatif ara, otomatik listeye ekleme yok.
+- EPG YAYIN RISKI: `logo_deneme/HAZIRLIK_NOTLARI.md` GITHUB_TOKEN ile EPG push sonrasi push workflow tetiklenmemesi ihtimalini belgeliyor; Pages yayin zinciri dogrudan canli kanitla incelenmeli. Pilot EPG saat dilimi ve gece yarisi sure onarimi notlari korunacak.
+- GIZLILIK RISKI: `tools/workflow_safety.py` URL query maskeleyebilir fakat URL yolunda gizli erisim bilgisi olabilir; `scripts/birlesik_aday_raporu.py` YAYIN_URL alanini acik yaziyor. Kod/rapor ciktilari hassas URL ifsasina karsi daha sonra degerlendirilecek.
+- VOD SINIRI: `vod/IBO-AYRI-KURULUM.md` statik M3U test videosunun IBO Filmler sekmesine otomatik dusmedigini; Xtream uyumlu gercek VOD API gerektirebilecegini belirtiyor. TV ana listesine film/dizi eklenmeyecek; bu dosya yeni servis kurma izni degil.
+- ESKI RAPOR EKSIGI: `scripts/birlesik_aday_raporu.py` uc denemeli yeni `madsc_dogrulama/state.json` gecmisini okumuyor olabilir; mevcut kodla dogrulanacak. 3/3 teknik sonuc kimlik/IBO onayi degil.
+- IBO UYUMLULUK: TCL 55C655, Ibo Player Pro 2128.0 `com.storeahim.obiproplay` paketine dair 13 Ekim tarihli uyumluluk notu var; baska IBO uygulamalariyla ayni kabul edilmeyecek. XMLTV/PNG/WebP/codec kaniti cihaz onayi degil.
+- `docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md` salt statik 92 sayimi ve `migration_complete` boolean'inin davranissal esdegerlik olmadigini acikca vurguluyor. 92/92 hala BLOCKED.
+- Bu bulgular tarihsel kaynak dosyalardaki talepler ve risklerdir; canli teknik dogrulama yapilmadi. Kullanici talimati geregi hicbir yeni kural 27+ olarak otomatik kabul edilmedi, playlist/EPG/otomasyon degistirilmedi. Taranan dosyalarin TAMAMI icin henuz 810/810 iddiasi yok.
