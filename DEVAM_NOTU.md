@@ -3544,3 +3544,12 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - K1 workflow dosyasinin kendisi zaten `push.paths` kapsaminda. Bu yalnizca otomatik tetikleme TANIMIDIR; test sonucu degildir.
 - Son commit icin combined-status ve PR-run filtresinden sonuc donmedi. Run ID, is/step loglari, basari ve korunan dosya kaniti HENUZ DOGRULANMADI. Kademe 1 acik kalir.
 - Playlistler, YEDEKLER, HEPSI ve legacy workflow'lar degistirilmedi.
+
+
+## 18 Ekim 2026 — Kullanici onceligi: mevcut altyapiyla hizli, toplu ilerleme
+- Kullanici yeni platform/ajan kurmak icin saatler harcanmasini istemiyor. Mevcut GitHub Actions ve bes merkezi workflow **silinmeden** kullanilacak. Hedef, eski 92 workflow'un davranislarini ve korunan verileri kaybetmeden bes merkezi sisteme gecis; eksiklerin somut duzeltilmesi, toplu test ve dogrulanmis kabul.
+- Calisma sirasi degismez: 1 Guvenlik → 2 Kesif → 3 Kanal Test/EPG/Logo → 4 Arsiv/Yedek → 5 Genel Bakim/Kabul. Her tur once AGENTS.md, OZELLIK_ENVANTERI.md, bu not ve son Actions kanitini oku; ayni isi yeniden kurma. Bagimsiz testleri mumkunse toplu/paralel calistir, test beklerken baska guvenli isleri yap. Kucuk ve sik commitlerle bekleyen Actions runlarini iptal ettirme; mantikli toplu degisiklikler yap.
+- Son dogrulanmis kod commitleri: `142f66d` K1 PyYAML kurulumu; `fd6a368` MADSC 01'e 92 workflow regresyonu; `e1e5aee` MADSC 01'e dort K1 regresyon grubu; `0463a85` K1 push path listesine MADSC 01 dosyasi eklendi. **Bu SHA'larin hicbiri icin gercek Actions run ID ve basari sonucu bu oturumda dogrulanmadi; kademe 1 ACIK.**
+- Saatlik ChatGPT gelistirme ve hata izleme otomasyonlari etkinlestirildi; bu kesintisiz 7/24 gelistirme garantisi degildir. GitHub Actions kendi basina test calistirabilir; otomatik guvenli kod duzeltme ve yeniden test ajani tam olarak kurulmus/dogrulanmis DEGIL. Kullaniciya varmis gibi anlatma.
+- Koruma: main ve taslak PR #71 birlestirilmez; 92 eski workflow, CALISANLAR.m3u, HEPSI, ULUSAL, FAVORILER, YENILER, YEDEKLER, EPG, logolar ve yedekler izinsiz degismez. HEPSI ana kategori; YEDEKLER'deki TRT 1 1440P QHD ve DHA CANLI 720P HD gorunurluk kayitlari korunur; IBO testi kullanicida.
+- Sonraki somut adim: son SHA icin gercek Actions run/job/log sonuclarini mumkun olan yetkili kanaldan kontrol et; mevcut bes workflow'un tetik ve test baglantilarindaki gercek eksikleri gruplayarak duzelt. Run kaniti yoksa basarili sayma. 92/92 davranissal esdegerlik olmadan eski workflowlari kapatma.
