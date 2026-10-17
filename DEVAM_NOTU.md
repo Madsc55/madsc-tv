@@ -3250,3 +3250,9 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `MADSC 05 - Genel Bakim Toplu` run `39019377764`, commit `52d3c8b6a6b39deda4f03e66e56996917e897462`: GitHub Actions `completed/success`; 01 Guvenlik, 02 Kesif, 03 Kanal Testleri, 04 Arsiv/Yedek, 05 Genel Bakim islerinin besi de `completed/success`. Kanit: https://github.com/Madsc55/madsc-tv/actions/runs/39019377764
 - Onceki `audit_9` curl risk algilama hatasi icin yapilan duzeltmenin CI kabul kapisi gecti. Bu, 92 eski workflow'un davranissal aktariminin tamamlandigini KANITLAMAZ; kabul hala 0/92.
 - Siradaki somut is: 92 workflow'un gercek script giris noktalari, cron/workflow_run tetikleyicileri, rapor/artifact ve yazma yetkilerini 01-05 ile tek tek karsilastirip guvenli eksikleri entegre etmek. Eski workflow'lar ve korunan IPTV/EPG/logo/yedek dosyalari degistirilmez; PR71 merge/main degisikligi yok.
+
+
+### 17 Ekim 2026 — DDTD / YENI 5/5 TEST DOGRULANDI
+- `b2b135bdd33fd27d82b6d18f14b5cb9372704fd1` commit icin Actions run `39020343335` tamamlandi: `completed/success`. Bes jobun her biri 01 Guvenlik, 02 Kesif, 03 Kanal Test, 04 Arsiv/Yedek, 05 Genel Bakim `completed/success` olarak API'den ayri dogrulandi. https://github.com/Madsc55/madsc-tv/actions/runs/39020343335
+- Onceki `36980731` run `39020240817` basarisizdi; test_central_consolidation_audit.py `test_kalan_isler_kanitli_ve_onaysizdir` kanit sayimi hatasi `b2b135bd` ile duzeltildi ve yeni CI gecti.
+- 92 eski workflow davranissal kabul hala 0/92; yesil testler tam entegrasyon veya gercek TV yayin kabul kaniti degil. Siradaki is script/trigger/artifact/izin davranis eslestirmesi ve kanitli tasima. Eski workflow'lari kapatma, main/PR71, korunan playlist/EPG/yedek dosyalarina dokunma.
