@@ -149,7 +149,7 @@ def inspect(root=ROOT):
             trigger for trigger, status in item["trigger_coverage_signals"].items()
             if status["legacy"] and not status["replacement_declares"]
         ]
-        item["write_permission_parity_unverified"] = item["contents_write"]
+        item["write_permission_parity_unverified"] = bool(item["contents_write"] or item["git_push_command_count"])
         item["required_acceptance_checks"] = [
             "COMPARE_LEGACY_AND_REPLACEMENT_JOB_STEPS",
             "VERIFY_TRIGGER_EQUIVALENCE",
