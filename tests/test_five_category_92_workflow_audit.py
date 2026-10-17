@@ -30,6 +30,27 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", item["required_acceptance_checks"])
 
+    def test_protected_playlist_write_requires_manual_review(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github" / "workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "legacy-protected.yml").write_text(
+                "name: Protected\non:\n  workflow_dispatch:\njobs:\n  save:\n    steps:\n"
+                "      - run: git add CALISANLAR.m3u && git push origin HEAD:main\n",
+                encoding="utf-8",
+            )
+            for number in range(91):
+                (workflows / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
+                    encoding="utf-8",
+                )
+            report = inspect(root)
+            item = next(x for x in report["items"] if x["file"] == "legacy-protected.yml")
+            self.assertTrue(item["requires_protected_write_review"])
+            self.assertEqual(report["protected_write_review_count"], 1)
+            self.assertIn("VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK", item["required_acceptance_checks"])
+
     def test_exact_schedule_match_and_unmatched_schedule(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
