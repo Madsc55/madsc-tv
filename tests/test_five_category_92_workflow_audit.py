@@ -85,6 +85,20 @@ class CentralCronRegressionTests(unittest.TestCase):
         self.assertIn("contents: read", discovery)
         self.assertIn("contents: read", health)
 
+    def test_shadow_crons_do_not_count_as_verified_behavior(self):
+        root = Path(__file__).resolve().parents[1]
+        discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
+        health = (root / ".github/workflows/madsc-03-kanal-test.yml").read_text(encoding="utf-8")
+        self.assertIn("madsc_akilli_kesif.py", discovery)
+        self.assertIn("ana_liste_saglik.py --batch-size 50 --timeout 15", health)
+        self.assertIn("contents: read", discovery)
+        self.assertIn("contents: read", health)
+        report = inspect(root)
+        self.assertEqual(report["total"], 92)
+        self.assertEqual(report["behavioral_parity_verified_count"], 0)
+        self.assertEqual(report["migration_blocked_count"], 92)
+        self.assertTrue(all(not item["behavioral_parity_verified"] for item in report["items"]))
+
     def test_exact_schedule_match_and_unmatched_schedule(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
