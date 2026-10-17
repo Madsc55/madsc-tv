@@ -3506,3 +3506,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `CALISANLAR.m3u` blob SHA `b40aaf6615b120eac7bd936ccf022dc4a14025ae` TAMAMI okundu: 258371 karakter, 2087 satir, `#EXTINF` toplam 1039 kategori kaydi. Bu 1039 benzersiz kanal sayisi DEGIL; kategoriler arasi tekrarlar var.
 - Grup kayitlari: `📺 HEPSİ (374)`=374; `🇹🇷 ULUSAL (281)`=281; `📺 HABER (72)`=72; `📍 YEREL (70)`=70; `⭐ FAVORİLER (66)`=66; `⭐ FAVORİLER 1 (62)`=62; `🎧 MÜZİK (34)`=34; `⚽️ SPOR (22)`=22; `🧸 ÇOCUK (20)`=20; `🕌 DİNİ (17)`=17; `🌍 BELGESEL (13)`=13; `🎬 SİNEMA (5)`=5; `📦 YEDEKLER (2)`=2; `⭐ FAVORİLER 2 (1)`=1.
 - Kullanici kararina uygun olarak HEPSI gercek dosyada ANA DEPO ve sayim kategorisidir; ULUSAL ayri kategoridir. HEPSI 374 kayit varligi, diger tum kategori kayitlarinin HEPSI icinde kapsandigi kaniti degildir; kimlik/URL bazli kapsam karsilastirmasi ayri acik. Liste degistirilmedi.
+
+
+## 17 Ekim 2026 — HEPSI tum kategori URL kapsam karsilastirmasi (salt okunur)
+- `CALISANLAR.m3u` tam dosya blob SHA `b40aaf6615b120eac7bd936ccf022dc4a14025ae`: HEPSI 374 kayit, diger kategoriler 665 kayit. Diger kategorilerin 665 `#EXTINF` kaydinin yayin URL'leri HEPSI URL kumesiyle birebir karsilastirildi.
+- 663 kategori kaydinin URL'si HEPSI'de mevcut; **2 farkli URL** HEPSI'de yok, ikisi de `📦 YEDEKLER (2)` grubunda: `TRT 1 1440P QHD` ve `DHA CANLI 720P HD`. Bu, kanal kimligi/alternatif URL esdegerligi kaniti degildir; YEDEKLER'in HEPSI'ye birebir dahil olmasi gerekip gerekmedigi kullanici kararina tabidir.
+- Kapsam farki salt okunur raporlandi; YEDEKLER ve HEPSI dahil hicbir playlist kaydi degistirilmedi. Korunan yedeklere otomatik ekleme izni halen IPTAL.
