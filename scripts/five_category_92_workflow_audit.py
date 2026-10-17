@@ -155,7 +155,7 @@ def inspect(root=ROOT):
             "VERIFY_TRIGGER_EQUIVALENCE",
             "VERIFY_OUTPUT_AND_ARTIFACT_EQUIVALENCE",
             "VERIFY_PROTECTED_PATHS_UNCHANGED",
-        ] + (["VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK"] if item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"] else []) + (["VERIFY_NO_DUPLICATE_PUSH"] if item["multiple_push_command_signal"] else [])
+        ] + (["VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK"] if item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"] else []) + (["VERIFY_NO_DUPLICATE_PUSH"] if item["multiple_push_command_signal"] else []) + (["VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY"] if item["write_risk_commands"] else [])
 
         if item["unmatched_trigger_signals"]:
             item["migration_gap_reasons"].append("UNMATCHED_TRIGGER_SIGNALS")
