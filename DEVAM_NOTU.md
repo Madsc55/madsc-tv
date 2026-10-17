@@ -3436,3 +3436,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Uc yazici da git reset --hard origin/main ve YABANCI_KANALLAR.m3u degismeme kontrolu kullanir; gate varligi kullanicinin her yazmaya onay verdiginin kaniti degil. Kullanici izni olmadan calistirilmadi.
 - madsc-otomatik-devam.yml: sadece manuel workflow_dispatch, contents read; echo mesajlari disinda islem yapmaz. Otomatik yeniden tetikleme veya pipeline devamini gercekte saglamaz.
 - Besli merkezde birebir davranissal esdegerlik kanitlanmadi. Toplam 72/92 incelendi, 20 kaldi, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md guncellendi; yeni sohbet devri 72/92.
+
+
+### 17 Ekim 2026 DDTD — kural24, saglik ve son kontrol workflow incelemesi
+- madsc-rule24-test.yml: workflow_failure_gate.py ve unittest dosyasi degisince veya manuel; test_workflow_failure_gate unittest, contents read. Gercek uretim zinciri enforcement kaniti degil.
+- madsc-sistem-saglik-denetimi.yml: ayin 1 ve 15'i 05:17 UTC veya manuel; tum workflow YAML Ruby parse, unittest, tools/sistem_saglik_denetimi.py, son 100 Actions run API raporu, iki JSON artifact; audit step continue-on-error ama sonraki kritik-hata step'i audit failure ise FAIL verir.
+- madsc-son-kontrol-kurtarma-teshis.yml: manuel veya YAML push, test_final_validation, kayitli summary/results ve son kontrolun son Actions run API sorgusu; gercek akis testi veya zincir tetigi yapmaz.
+- madsc-son-kontrol.yml: gunluk 06:10 UTC, manuel veya uc asamali dogrulama tamamlaninca; contents/actions write, rule24 gate, ffmpeg ile final_validation.py bes dakikalik goruntu/ses testi, 30 gun artifact. Korunan playlist/yedekler degismeme kontrolu sonrasi sadece madsc_son_kontrol JSON raporlarini main'e en fazla 10 denemeyle push eder, protected_write_gate.py var; basarisiz workflow_run zinciri atlanir. Yazma yetkisi ve uzun sureli calisma ozel inceleme gerektirir.
+- Besli merkezde tetikler, gercek medya testi, hata kapisi ve rapor devam semantigi birebir kanitlanmadi. Toplam 76/92 incelendi, 16 kaldi, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md degistirildi; yeni sohbet devri 76/92.
