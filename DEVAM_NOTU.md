@@ -3309,3 +3309,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `genis-kanal-tarama.yml`: main dalinda `.github/commands/genel-guncelleme.txt` push/dispatch, `genis_kanal_tara.py`, 30 gun CSV artifact. Merkezi 02 `wide_source_scan.py` kullanir, eski script ve main push tetigi esdegerligi kanitlanmadi.
 - `yeni-kanal-arama-2026.yml`: `yeni_kanal_tara.py` SCAN_BATCH=1 ve CSV/TXT artifact. Merkezi 02 bu scripti dogrudan cagirmiyor; rapor ve batch paritesi eksik.
 - Toplam 16 eski workflow icin somut inceleme bulgulari belgelendi; davranissal parity 0/92. Eski workflowlar veya korunan kanal listeleri degistirilmedi.
+
+
+### 17 Ekim 2026 — DDTD / aday bekletme ve onay kapisi dort eski workflow karsilastirmasi
+- `aday-bekletme.yml`: `yeni_kanal_tara.py`, `aday_tekrar_raporu.py`, `gelismis_medya_testi.py`, `aday_bekletme.py`, `akilli_tekrar_test_takvimi.py`, `altinci_aday_tekrar_test.py` (RETEST_LIMIT=5), `kaynak_guven_puani.py`, `aday_oncelik_raporu.py` ve coklu CSV/JSON artifact zinciri. Merkezi 02/03 dosyalarinda bu scriptler dogrudan cagrilmiyor; tam zincir esdegerligi yok.
+- `aday-oncelik-kontrol.yml`: `aday_oncelik_raporu.py` py_compile ve izole ornek veride oncelik 1/5 beklentisini test eder. Merkezi 02/03 dosyalarinda ayni script yok.
+- `aday-logo-epg-test.yml`: `candidate_epg_logo_join.py`, pilot 5 EPG kanali ve adaylarin playlist onayi olmadigi kontrolu; merkezi 02/03'te ayni script cagrisi yok.
+- `aday-yedekleme.yml`: main `.github/commands/aday-yedekleme.txt` push/dispatch, `yedekler/teknik_adaylari_aktar.py`, onay bekleyen M3U artifact. Merkezi 02/03/04 dosyalarinda ayni script yok. Korumali YEDEKLER dosyasina yazma icin kullanicidan acik izin alinmadi, bu islem otomatiklestirilmemeli.
+- Toplam 20 eski workflow icin karsilastirma bulgusu; 0/92 davranissal tam esdegerlik. Yalniz DEVAM_NOTU.md guncellendi; eski workflowlar ve korunan listeler degismedi.
