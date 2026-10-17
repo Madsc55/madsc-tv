@@ -1,7 +1,7 @@
 name: MADSC CI Hata Raporu
 on:
   workflow_run:
-    workflows: ["MADSC 15dk CI"]
+    workflows: ["MADSC 15 Dakika Gelistirme Dali Testi"]
     types: [completed]
 permissions:
   actions: read
