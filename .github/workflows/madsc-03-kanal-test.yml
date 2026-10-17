@@ -1,5 +1,8 @@
 name: MADSC 03 - Kanal Testleri Toplu
 on:
+  schedule:
+    # Legacy main-playlist health-check cadence (UTC); read-only shadow run.
+    - cron: '40 6 1,15 * *'
   workflow_dispatch:
   workflow_call:
 permissions:
