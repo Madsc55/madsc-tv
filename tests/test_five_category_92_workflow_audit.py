@@ -51,6 +51,32 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertEqual(report["protected_write_review_count"], 1)
             self.assertIn("VERIFY_WRITE_AUTHORIZATION_AND_ROLLBACK", item["required_acceptance_checks"])
 
+    def test_protected_write_review_is_scoped_to_each_workflow(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github" / "workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "legacy-00-protected.yml").write_text(
+                "name: Protected first\non:\n  workflow_dispatch:\njobs:\n  save:\n    steps:\n"
+                "      - run: git add CALISANLAR.m3u && git push origin HEAD:main\n",
+                encoding="utf-8",
+            )
+            (workflows / "legacy-01-ordinary-write.yml").write_text(
+                "name: Ordinary write\non:\n  workflow_dispatch:\njobs:\n  save:\n    steps:\n"
+                "      - run: git push origin HEAD:review\n",
+                encoding="utf-8",
+            )
+            for number in range(90):
+                (workflows / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
+                    encoding="utf-8",
+                )
+            report = inspect(root)
+            items = {item["file"]: item for item in report["items"]}
+            self.assertTrue(items["legacy-00-protected.yml"]["requires_protected_write_review"])
+            self.assertFalse(items["legacy-01-ordinary-write.yml"]["requires_protected_write_review"])
+            self.assertEqual(report["protected_write_review_count"], 1)
+
     def test_api_dispatch_without_git_push_is_reviewed(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
