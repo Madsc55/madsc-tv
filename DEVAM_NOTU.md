@@ -3418,3 +3418,12 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - iptv-test.yml: carsamba 06:30 UTC ve main komut degisikligi veya manuel; main checkout, iptv_test.py ile MADSC_TV_47_LISTE_ADAY.m3u testi, CALISANLAR.m3u dahil runner artifact, 30 gun; repositoryye commit yok. Artifactin adi korunan playlistle ayni olsa da depoya yazma kaniti degildir.
 - ibo-bagimsiz-test-listesi.yml: yeni_kanal_tara.py SCAN_BATCH=-1, ffprobe medya testi, izole IBO aday M3U/CSV/JSON artifact; 30 gun saklama; IBO cihaz oynatmasi ayrica kullanici testi gerektirir.
 - Besli merkezi workflowlarda bu tetik, matrix, ffprobe ve artifact davranislarinin birebir esdegerligi henuz kanitlanmadi. Toplam 64/92 incelendi, kalan 28, tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md guncellendi; yeni sohbet devri 64/92.
+
+
+### 17 Ekim 2026 DDTD — dort IBO arsiv yazici workflow incelemesi
+- madsc-ibo-364-355-364.yml: yalniz main dalinda workflow YAML push tetigi; contents write; scripts/archive_backups_355_364.py; CALISANLAR.m3u ve kesif arsiv/raporunu git add, protected_write_gate.py --base origin/main ardindan main push.
+- madsc-ibo-398-16-49.yml: ayni yazma modeliyle scripts/archive_backups_16_49.py; CALISANLAR.m3u ve 16-49 arsiv/raporu.
+- madsc-ibo-530-archive.yml: scripts/archive_backups_399_onward.py; CALISANLAR.m3u ve 399 sonrasi arsiv/raporu; main push.
+- madsc-ibo-6115-second.yml: manuel veya YAML push, main kosulu, concurrency, scripts/apply_ibo_6115_second.py; CALISANLAR.m3u ve ikinci oturum arsiv/karar/raporunu main'e yazar.
+- Dordu de git reset --hard origin/main, YABANCI_KANALLAR.m3u icin git diff --exit-code ve protected_write_gate.py cagrisi icerir. Bu, kullanici onayinin gercekten zorlandigini tek basina kanitlamaz. Yuksek riskli yazma davranislari besli merkezde kullanici izni olmadan calistirilmamali; workflowlar calistirilmadi.
+- Toplam 68/92 incelendi, 24 kaldi, tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md degistirildi; guncel sohbet devri 68/92.
