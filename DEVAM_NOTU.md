@@ -3256,3 +3256,9 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `b2b135bdd33fd27d82b6d18f14b5cb9372704fd1` commit icin Actions run `39020343335` tamamlandi: `completed/success`. Bes jobun her biri 01 Guvenlik, 02 Kesif, 03 Kanal Test, 04 Arsiv/Yedek, 05 Genel Bakim `completed/success` olarak API'den ayri dogrulandi. https://github.com/Madsc55/madsc-tv/actions/runs/39020343335
 - Onceki `36980731` run `39020240817` basarisizdi; test_central_consolidation_audit.py `test_kalan_isler_kanitli_ve_onaysizdir` kanit sayimi hatasi `b2b135bd` ile duzeltildi ve yeni CI gecti.
 - 92 eski workflow davranissal kabul hala 0/92; yesil testler tam entegrasyon veya gercek TV yayin kabul kaniti degil. Siradaki is script/trigger/artifact/izin davranis eslestirmesi ve kanitli tasima. Eski workflow'lari kapatma, main/PR71, korunan playlist/EPG/yedek dosyalarina dokunma.
+
+
+### 17 Ekim 2026 — DDTD / 5ef824a4 regresyon testi basarili
+- GitHub Actions run `39021293541`, SHA `5ef824a4`: tamamlandi, sonuc `success`; 01 Guvenlik, 02 Kesif, 03 Kanal Testleri, 04 Arsiv/Yedek, 05 Genel Bakim joblarinin tamami ayri ayri `completed/success` olarak dogrulandi. https://github.com/Madsc55/madsc-tv/actions/runs/39021293541
+- `.github/workflows` dal dizininde 98 YAML workflow dosyasi goruldu. Bu sayi 92 eski workflow icin davranissal esdegerlik kaniti degildir; merkezi workflow'lar ve diger dosyalarla farkin tek tek envanterlenmesi gerekir.
+- 0/92 davranissal esdegerlik dogrulamasi devam ediyor; yalniz CI basarisi ile eski workflow kapatma/silme yok. Korunan liste, EPG, logo ve yedeklere dokunulmadi.
