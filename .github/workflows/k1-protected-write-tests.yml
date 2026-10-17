@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/k1-protected-write-tests.yml'
+      - '.github/workflows/madsc-01-guvenlik.yml'
       - 'tools/protected_write_gate.py'
       - 'tests/test_protected_write_gate.py'
       - 'scripts/audit_workflow_security.py'
