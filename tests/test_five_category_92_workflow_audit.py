@@ -13,7 +13,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             workflows = root / ".github" / "workflows"
             workflows.mkdir(parents=True)
             (workflows / "legacy-matched.yml").write_text(
-                "name: Matched\non:\n  schedule:\n    - cron: '15 4 * * *'\njobs: {}\n",
+                "name: Matched\non:\n  schedule:\n    - cron: '15 4 * * *'\njobs:\n  check:\n    steps:\n      - run: python3 scripts/cron_shared.py\n",
                 encoding="utf-8",
             )
             (workflows / "legacy-unmatched.yml").write_text(
@@ -24,9 +24,9 @@ class CentralCronRegressionTests(unittest.TestCase):
                 "name: Central\non:\n  schedule:\n    - cron: '15 4 * * *'\njobs: {}\n",
                 encoding="utf-8",
             )
-            # A matching cron in another central category must count as covered.
+            # Cron coverage requires a shared script linking legacy and central jobs.
             (workflows / "madsc-02-kesif.yml").write_text(
-                "name: Discovery\\non:\\n  schedule:\\n    - cron: '15 4 * * *'\\njobs: {}\\n".replace("\\n", "\n"),
+                "name: Discovery\non:\n  schedule:\n    - cron: '15 4 * * *'\njobs:\n  check:\n    steps:\n      - run: python3 scripts/cron_shared.py\n",
                 encoding="utf-8",
             )
             # The inventory enforces 92 legacy workflows, including in fixtures.
@@ -38,6 +38,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             report = inspect(root)
             items = {row["file"]: row for row in report["items"]}
             self.assertEqual(report["total"], 92)
+            self.assertIn("madsc-02-kesif.yml", items["legacy-matched.yml"]["possible_replacement_workflows"])
             self.assertEqual(items["legacy-matched.yml"]["unmatched_cron_expressions"], [])
             self.assertEqual(
                 items["legacy-unmatched.yml"]["unmatched_cron_expressions"],
