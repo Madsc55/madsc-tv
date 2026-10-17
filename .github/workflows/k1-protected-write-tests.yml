@@ -14,6 +14,8 @@ on:
       - 'tests/test_k1_24_rule_evidence.py'
       - 'tests/test_k1_workflow_risk_inventory.py'
       - 'scripts/k1_protected_integrity.py'
+      - 'scripts/five_category_92_workflow_audit.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
