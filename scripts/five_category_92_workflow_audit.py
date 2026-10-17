@@ -150,6 +150,7 @@ def inspect(root=ROOT):
             if status["legacy"] and not status["replacement_declares"]
         ]
         item["write_permission_parity_unverified"] = bool(item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"])
+        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and ("CALISANLAR.m3u" in raw or "YENILER.m3u" in raw or "yedekler/" in raw))
         item["required_acceptance_checks"] = [
             "COMPARE_LEGACY_AND_REPLACEMENT_JOB_STEPS",
             "VERIFY_TRIGGER_EQUIVALENCE",
