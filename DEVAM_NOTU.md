@@ -3317,3 +3317,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `aday-logo-epg-test.yml`: `candidate_epg_logo_join.py`, pilot 5 EPG kanali ve adaylarin playlist onayi olmadigi kontrolu; merkezi 02/03'te ayni script cagrisi yok.
 - `aday-yedekleme.yml`: main `.github/commands/aday-yedekleme.txt` push/dispatch, `yedekler/teknik_adaylari_aktar.py`, onay bekleyen M3U artifact. Merkezi 02/03/04 dosyalarinda ayni script yok. Korumali YEDEKLER dosyasina yazma icin kullanicidan acik izin alinmadi, bu islem otomatiklestirilmemeli.
 - Toplam 20 eski workflow icin karsilastirma bulgusu; 0/92 davranissal tam esdegerlik. Yalniz DEVAM_NOTU.md guncellendi; eski workflowlar ve korunan listeler degismedi.
+
+
+### 17 Ekim 2026 — DDTD / birlesik rapor ve medya dort eski workflow karsilastirmasi
+- `birlesik-aday-raporu.yml`: SCAN_BATCH=-1 kesif, oncelikli ffprobe, ADAY_TEST_GRUBU=0 gercek medya, akilli puanlama, cache'den kararlilik gecmisi, birlesik aday onay raporu, 30 gun artifact. Merkezi 05'in `paths` tetikleyici listesinde bazi ilgili script adlari mevcut; bu calistirildiklari anlamina gelmez. Merkezi 02/03 bu eski zinciri dogrudan cagirmiyor.
+- `birlesik-durum-raporu.yml`: main push/dispatch; `guncel_test_durum_ozeti.py`, `eksik_turk_kanal_takibi.py`, `kaynak_kapsam_denetimi.py`, `genel_sistem_bakimi.py`, 30 gun snapshot artifact. Merkezi 02/03/05 bu scriptleri dogrudan cagirmiyor.
+- `genel-aday-medya-test.yml`: SCAN_BATCH=-1 `yeni_kanal_tara.py` + ADAY_TEST_GRUBU=0 `genel_aday_medya_test.py` ve 30 gun rapor. Merkezi 05 sadece bu scripti `push.paths` listesinde sayiyor; gercek isletim degil.
+- `yeni-aday-on-test.yml`: main komut push/dispatch, `yeni_aday_on_test.py`, CSV artifact; merkezi 02/03/05'te dogrudan cagrilmiyor.
+- Toplam 24 eski workflow icin inceleme bulgusu; tam davranissal parity 0/92. Korunan dosyalara ve eski workflowlara dokunulmadi.
