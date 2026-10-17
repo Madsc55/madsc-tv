@@ -3500,3 +3500,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 ## 17 Ekim 2026 — Salt okunur gercek playlist ilk kisim ve 26 kural metni kontrolu
 - `CALISANLAR.m3u` mevcut blob SHA `b40aaf6615b120eac7bd936ccf022dc4a14025ae`; ilk 120 satir okundu, baslangicta `⭐ FAVORİLER (66)` grup kayitlari var. Bu HEPSI toplam sayisi ya da HEPSI grup varligi kaniti DEGIL; tum playlist henuz sayilmadi.
 - `GUVENLIK_KURALLARI.md` 1–24 numarali metin ve `AGENTS.md` 25–26 numarali metin tekrar okundu. Kural 3 HEPSI/FAVORILER siralarini korur. `AGENTS.md` 13. satirda eski '23 maddelik' ifadesi guncel 24+2 sayisiyla celisir; belge tutarsizligi acik. Korunan liste degistirilmedi.
+
+
+## 17 Ekim 2026 — Tam ana playlist salt okunur kategori sayimi (DOG RULANDI)
+- `CALISANLAR.m3u` blob SHA `b40aaf6615b120eac7bd936ccf022dc4a14025ae` TAMAMI okundu: 258371 karakter, 2087 satir, `#EXTINF` toplam 1039 kategori kaydi. Bu 1039 benzersiz kanal sayisi DEGIL; kategoriler arasi tekrarlar var.
+- Grup kayitlari: `📺 HEPSİ (374)`=374; `🇹🇷 ULUSAL (281)`=281; `📺 HABER (72)`=72; `📍 YEREL (70)`=70; `⭐ FAVORİLER (66)`=66; `⭐ FAVORİLER 1 (62)`=62; `🎧 MÜZİK (34)`=34; `⚽️ SPOR (22)`=22; `🧸 ÇOCUK (20)`=20; `🕌 DİNİ (17)`=17; `🌍 BELGESEL (13)`=13; `🎬 SİNEMA (5)`=5; `📦 YEDEKLER (2)`=2; `⭐ FAVORİLER 2 (1)`=1.
+- Kullanici kararina uygun olarak HEPSI gercek dosyada ANA DEPO ve sayim kategorisidir; ULUSAL ayri kategoridir. HEPSI 374 kayit varligi, diger tum kategori kayitlarinin HEPSI icinde kapsandigi kaniti degildir; kimlik/URL bazli kapsam karsilastirmasi ayri acik. Liste degistirilmedi.
