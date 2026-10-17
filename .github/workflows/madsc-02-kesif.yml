@@ -2,6 +2,8 @@ name: MADSC 02 - Kanal Kesfi Toplu
 on:
   schedule:
     - cron: '17 5,17 * * *'
+    # Legacy combined discovery cadence (UTC); read-only shadow run.
+    - cron: '0 6,18 * * *'
   workflow_dispatch:
     inputs:
       wide_scan_mode:
