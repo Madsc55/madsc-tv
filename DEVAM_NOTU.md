@@ -3524,3 +3524,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `scripts/five_category_92_workflow_audit.py` `inspect()` fonksiyonunda satir 39-67 arasinda `raw` her legacy workflow icin okunur; satir 78'de `for item in items` basladiginda `raw` tekrar item bazinda okunmaz. Buna ragmen satir 153 `requires_protected_write_review` hesabinda `("CALISANLAR.m3u" in raw or "YENILER.m3u" in raw or "yedekler/" in raw)` kullanir. Boylece 92 item icin son okunan legacy workflow metni kullanilabilir ve korunan dosyaya yazma riskleri yanlis negatif/pozitif raporlanabilir.
 - Duzeltme adayi: her item icin kendi workflow icerigini kullanmak (`(folder / item["file"]).read_text(...)` veya item uzerinde saklanan path referanslari); buna yonelik en az iki farkli workflow iceren regresyon testi eklemek. **Henuz kod degisikligi yapilmadi, test calistirilmadi.** Playlist ve yedekler degismedi.
 - Bu tespit, 92/92 davranissal esdegerlik kanitinin yerine gecmez; migration gate BLOCKED kalmali.
+
+
+## 17 Ekim 2026 — Kullanici onayli kesin besli sistem calisma sirasi
+- Bundan sonra is plani SIRALI: **1 Guvenlik → 2 Kanal Kesfi → 3 Kanal Testleri + EPG + Logo → 4 Arsiv/Yedek → 5 Genel Bakim/Toplu Kabul**. Mevcut bes workflow silinip bastan yazilmayacak. 92 legacy workflow ait oldugu kademede davranissal esdegerlik kaniti ile incelenecek; 5. kademe tum kademelerin toplu kabulunu yapacak.
+- Bir kademe ancak ilgili gorevlerin eksiksiz karsilanmasi, gercek Actions test basarisi ve korunan dosyalarin degismediginin kaniti ile tamamlandi sayilacak. Eksik kanit durumunda kademe ACIK kalir.
+- Simdiki tek odak 1. Guvenlik: `scripts/five_category_92_workflow_audit.py` korunan yazma tespit duzeltmesi commit `33c4257`, regresyon testi commit `8181b1d`. Bu son commit icin baglanti aracinin PR-run filtresi ve combined status sorgusu bos dondu; CI basarisi DOGRULANMADI. Calisma baslatildigi iddia edilmiyor.
+- HEPSI ana kanal deposu, YEDEKLER iki gorunurluk kaydi, tum playlistler ve eski workflow'lar korunacak; izinsiz tasima/silme/yazma yok. Taslak PR #71 birlestirilmeyecek.
