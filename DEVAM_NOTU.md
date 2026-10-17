@@ -3262,3 +3262,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - GitHub Actions run `39021293541`, SHA `5ef824a4`: tamamlandi, sonuc `success`; 01 Guvenlik, 02 Kesif, 03 Kanal Testleri, 04 Arsiv/Yedek, 05 Genel Bakim joblarinin tamami ayri ayri `completed/success` olarak dogrulandi. https://github.com/Madsc55/madsc-tv/actions/runs/39021293541
 - `.github/workflows` dal dizininde 98 YAML workflow dosyasi goruldu. Bu sayi 92 eski workflow icin davranissal esdegerlik kaniti degildir; merkezi workflow'lar ve diger dosyalarla farkin tek tek envanterlenmesi gerekir.
 - 0/92 davranissal esdegerlik dogrulamasi devam ediyor; yalniz CI basarisi ile eski workflow kapatma/silme yok. Korunan liste, EPG, logo ve yedeklere dokunulmadi.
+
+
+### 17 Ekim 2026 — DDTD / tetikleyici esdegerligi ilk inceleme
+- `.github/workflows` dal dizininde 98 YAML dosyasi listelendi. 5 kategori workflowu (`madsc-01`...`madsc-05`) ve `madsc-aylik-merkezi-denetim.yml` tetikleyicileri okundu.
+- `madsc-05-genel-bakim.yml`: dal `madsc/bes-sistem-toplu-birlestirme` icin sinirli push paths, `schedule: 30 1 * * *`, `workflow_dispatch`; 01..04 reusable workflow_call ile sirali cagirilir.
+- `madsc-02-kesif.yml`: ayrica `schedule: 17 5,17 * * *`, workflow_dispatch ve workflow_call mevcut.
+- `madsc-aylik-merkezi-denetim.yml`: `main` dalinda secili push paths ve workflow_dispatch bulunuyor. Eski workflowlarla trigger/cron/permissions/artifact/side-effect esdegerligi henüz dogrulanmadi.
+- Bu bulgular kanitli inceleme baslangicidir; davranissal parity sayaci 0/92 olarak kalir. Eski workflowlar kapatilmadi; korunan playlist/EPG/logo/yedekler degistirilmedi.
