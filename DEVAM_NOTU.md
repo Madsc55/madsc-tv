@@ -3270,3 +3270,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `madsc-02-kesif.yml`: ayrica `schedule: 17 5,17 * * *`, workflow_dispatch ve workflow_call mevcut.
 - `madsc-aylik-merkezi-denetim.yml`: `main` dalinda secili push paths ve workflow_dispatch bulunuyor. Eski workflowlarla trigger/cron/permissions/artifact/side-effect esdegerligi henüz dogrulanmadi.
 - Bu bulgular kanitli inceleme baslangicidir; davranissal parity sayaci 0/92 olarak kalir. Eski workflowlar kapatilmadi; korunan playlist/EPG/logo/yedekler degistirilmedi.
+
+
+### 17 Ekim 2026 — DDTD / ilk dort eski workflow davranis farki
+- `.github/workflows/epg-gunluk.yml`: schedule `25 3 * * *`, dispatch, contents:write; build_epg.py ve build_ibo_epg_test.py calistirir, EPG dosyalarini git commit/push ile yayin dalina yazar. Bu yazma davranisi yalniz salt-okunur EPG denetimiyle esdeger degildir.
+- `.github/workflows/epg-pages.yml`: `workflow_run` EPG Gunluk Guncelleme success/main sonrasinda GitHub Pages deploy, pages:write/id-token:write. Yayinlama ayri davranistir.
+- `.github/workflows/automatic-png-logos.yml`: manuel dispatch, logo olusturma/visual evidence, artifact yukleme, korunan CALISANLAR.m3u degisikligini engelleme.
+- `.github/workflows/madsc-ana-liste-saglik.yml`: cron `40 6 1,15 * *`, salt okunur ana liste batch/ffmpeg saglik taramasi ve artifact.
+- Bu dort workflow icin tetikleyici, izin, yan etki, artifact ve dagitim paritesi henuz kanitlanmadi; 0/92 aynen kalir. Ozellikle EPG push/Pages deploy eski akislarda korunur; korunan dosyalara yazma izni verilmedi.
