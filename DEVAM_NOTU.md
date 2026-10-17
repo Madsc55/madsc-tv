@@ -3378,3 +3378,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - test-25-full-project-readonly.yml: butun projede salt okunur envanter ve korunan listelerin hash kontrolu. Canli oynatma ve tum otomasyon davranislari kanitlanmaz.
 - test-26-automation-safety.yml: workflow izin ve olasi yazma riskleri icin statik envanter, JSON raporu. Workflowlarin gercekten birbirini calistirdigini test etmez.
 - Merkezi 01/03/05 dosyalarinda bu dort eski workflowun ayni rapor zinciri birebir dogrulanmadi. Toplam 44/92 incelendi, kalan 48, tam davranissal esdegerlik 0/92. Bu turda yalniz not guncellendi. Yeni sohbet devir sayisi 44/92.
+
+
+### 17 Ekim 2026 DDTD — 27-30 eski workflow karsilastirmasi
+- test-27-pipeline-contract.yml: kesif, aday testi, tekrar, yedek ve entegrasyon kategorilerinde eski workflow dosyalarinin varligini, Python AST'yi ve korunan M3U SHA256 degerlerini kontrol eden statik sozlesme; gercek capraz workflow calismasi kaniti degil.
+- test-28-approval-gate.yml: bes aday durumu ve unknown sayimi, protected M3U hash; kendisi tum uretim workflowlarinda onay zorlamasini kanitlamadigini belirtiyor.
+- test-29-write-path-audit.yml: tum workflow YAML icinde yazma yetkisi, git push/commit, API yazma, protected hedef ve onay kelimelerini statik arar; onay kelimesi gercek yetkilendirme kaniti degil; JSON artifact.
+- test-30-write-risk-report.yml: yazma yetkileri ve mutasyon sinyallerinden HIGH/REVIEW risk envanteri ve JSON artifact; runtime onay zorlamasi kanitlanmaz.
+- Bu dort eski davranisin merkezi sistemde ayni kabul kriterleri ve artifactlariyla calistigi henuz kanitlanmadi. Toplam 48/92 incelendi, 44 kaldi, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md guncellendi. Yeni sohbet icin guncel sayi 48/92.
