@@ -24,6 +24,11 @@ class CentralCronRegressionTests(unittest.TestCase):
                 "name: Central\non:\n  schedule:\n    - cron: '15 4 * * *'\njobs: {}\n",
                 encoding="utf-8",
             )
+            # A matching cron in another central category must count as covered.
+            (workflows / "madsc-02-kesif.yml").write_text(
+                "name: Discovery\\non:\\n  schedule:\\n    - cron: '15 4 * * *'\\njobs: {}\\n".replace("\\n", "\n"),
+                encoding="utf-8",
+            )
             # The inventory enforces 92 legacy workflows, including in fixtures.
             for number in range(90):
                 (workflows / f"legacy-filler-{number:02d}.yml").write_text(
