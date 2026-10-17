@@ -68,3 +68,11 @@ Henüz incelenmeyen dosyalara devam et; önceden okunan dosyaları sayma. Her ye
 - **KANIT BEKLEYEN:** EPG Pages 11 Ekim başarılı tek yayın, günlük takip CONFIGURED_NOT_YET_OBSERVED; IBO NOT_VERIFIED. VOD bölüm takvimi oynatma bağlantısı değil. Keşif katalog adları yayın URL'si veya kimlik kanıtı değil. 92 eski workflow davranışsal eşdeğerliği halen açık.
 - **YAPILMAYACAK:** Eski IBO 3-5281 / 6115 / 530 sıra kararlarını güncel YEDEKLER'e yeniden uygulama. 10 alternatif aday raporu SUPERSEDED_AFTER_IMAGE_IDENTITY_REVIEW, otomatik hazır sayma. Tarihsel FTV TÜRK / Red Bull TV kimlik uyumsuzluğuna bakmadan düzeltme/taşıma yapma. Korunan playlistler, workflow'lar, güvenlik ve PR #71 değişmedi.
 - Bu tur salt okunur inceleme yaptı; yalnız bu not dosyasına inceleme kaydı ekleniyor. Sonraki iş: özgün 810 tree dosya yolları ile 361 sayacını uzlaştırıp gerçek yeni dosyalardan yaklaşık 50'lik tur.
+
+## 18 Ekim 2026 — 10 belge yeniden kontrolü
+
+- Salt okunur doğrulanan dosyalar: docs/MADSC-IKI-TOPLU-KABUL-PLANI.md; docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md; BES_SISTEM_TOPLU_IS_DEFTERI.md; BES_SISTEM_GECIS_KONTROL.md; GUVENLIK_KURALLARI.md; OZELLIK_ENVANTERI.md; kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md; kontrol_notlari/2026-10-12_ekol_basa_sarma.md; kontrol_notlari/DEVAM_GECMISI_2026-10-12_1947.md; MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md.
+- Bu kaynaklar önceki incelemelerde zaten anılıyor; **yeni benzersiz dosya olarak sayılmadı**. Sayaç halen 361/810; 449 kalanın kesin listesi için özgün tree ile okunan-yol matrisi gerekiyor.
+- YAPILACAK: 92 eski workflow'un davranışsal eşdeğerliğini girdi/çıktı/tetik/izin/artifact ile kanıtla; 26 güvenlik kuralı uçtan uca doğrulama; iki aşamalı toplu kabul; Ekol TV/Sports durgun HLS parça ilerleme testi; Eurostar resmî/uygun alternatif araştırması; harici yedek ve IBO kanıtını ayrı tut.
+- YAPILMAYACAK: geçmiş Eurostar silme kararını tekrar uygulama; Ekol URL'lerini sırf HTTP 200 gördü diye sağlam sayma; eski 3082 kalan aday snapshot'ını güncel sayı olarak gösterme; kullanıcı izni olmadan playlist/YEDEKLER/workflow değişikliği, PR #71 merge yapma.
+- KANIT BEKLEYEN: 14 Ekim 5/5 CI teknik zinciri, 92/92 parity veya canlı IBO kabulü anlamına gelmez. Özgün 810 envanterinin eksik yol listesi halen elde edilmedi. Bu tur kaynak kodunu değiştirmedi.
