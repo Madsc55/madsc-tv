@@ -99,6 +99,24 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertEqual(report["api_write_or_dispatch_review_count"], 1)
 
+    def test_central_stages_stop_after_failed_dependency(self):
+        """Stages 2-4 must not bypass a failed upstream security gate."""
+        root = Path(__file__).resolve().parents[1]
+        workflow = (root / ".github/workflows/madsc-05-genel-bakim.yml").read_text(encoding="utf-8")
+        import re
+        for stage, predecessor, called in (
+            ("kademe-2-kesif", "kademe-1-guvenlik", "madsc-02-kesif.yml"),
+            ("kademe-3-kanal-test", "kademe-2-kesif", "madsc-03-kanal-test.yml"),
+            ("kademe-4-arsiv-yedek", "kademe-3-kanal-test", "madsc-04-arsiv-yedek.yml"),
+        ):
+            match = re.search(r"^  " + re.escape(stage) + r":\\n(?P<body>.*?)(?=^  [a-z][\\w-]*:|\\Z)", workflow, re.M | re.S)
+            self.assertIsNotNone(match, stage)
+            body = match.group("body")
+            self.assertIn("needs: " + predecessor, body)
+            self.assertIn("needs." + predecessor + ".result == 'success'", body)
+            self.assertNotIn("always()", body)
+            self.assertIn("uses: ./.github/workflows/" + called, body)
+
     def test_central_shadow_schedules_preserve_legacy_cadence(self):
         root = Path(__file__).resolve().parents[1]
         discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
