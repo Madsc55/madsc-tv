@@ -3410,3 +3410,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - toplu-sistem-kontrol.yml: tum Python AST/YAML/M3U ve yedek envanteri, iki korunan listenin SHA256, her listeden azami 8 HTTP akis ornegi, iki unittest discovery, tek JSON artifact. HTTP erisimi oynatma kaniti degil; Isvec IBO testi yok.
 - vod-guncelle.yml: gunluk 07:17 UTC schedule ve manuel tetik; yalniz main dalinda VOD metadata scripti, contents write, sadece vod/guncel-bolumler.json git add, push oncesi protected_write_gate.py kontrolu. Korumali listeyi degistirme izni olarak yorumlanmamali.
 - Bu davranislarin besli merkezde tam karsiligi henuz kanitlanmadi. Toplam 60/92 incelendi, kalan 32, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md guncellendi. Yeni sohbet devri 60/92.
+
+
+### 17 Ekim 2026 DDTD — dort ek eski workflow incelemesi
+- yedekler-yeniler-medya-kontrol.yml: manuel veya betik/workflow degisince 70 dakika ffprobe ile YEDEKLER ve YENILER medya testi; ayri CSV/JSON artifact, 30 gun saklama, contents read.
+- yeniler-guvenli-arama.yml: main komut dosyasi degisikligi veya manuel tetik; kaynak kesfi sonrasi 34-99 dahil 66 matrix batch ffprobe/HLS aday taramasi; her batch ayri rapor artifact, 30 gun saklama; contents read.
+- iptv-test.yml: carsamba 06:30 UTC ve main komut degisikligi veya manuel; main checkout, iptv_test.py ile MADSC_TV_47_LISTE_ADAY.m3u testi, CALISANLAR.m3u dahil runner artifact, 30 gun; repositoryye commit yok. Artifactin adi korunan playlistle ayni olsa da depoya yazma kaniti degildir.
+- ibo-bagimsiz-test-listesi.yml: yeni_kanal_tara.py SCAN_BATCH=-1, ffprobe medya testi, izole IBO aday M3U/CSV/JSON artifact; 30 gun saklama; IBO cihaz oynatmasi ayrica kullanici testi gerektirir.
+- Besli merkezi workflowlarda bu tetik, matrix, ffprobe ve artifact davranislarinin birebir esdegerligi henuz kanitlanmadi. Toplam 64/92 incelendi, kalan 28, tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md guncellendi; yeni sohbet devri 64/92.
