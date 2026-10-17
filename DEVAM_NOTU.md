@@ -3427,3 +3427,12 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - madsc-ibo-6115-second.yml: manuel veya YAML push, main kosulu, concurrency, scripts/apply_ibo_6115_second.py; CALISANLAR.m3u ve ikinci oturum arsiv/karar/raporunu main'e yazar.
 - Dordu de git reset --hard origin/main, YABANCI_KANALLAR.m3u icin git diff --exit-code ve protected_write_gate.py cagrisi icerir. Bu, kullanici onayinin gercekten zorlandigini tek basina kanitlamaz. Yuksek riskli yazma davranislari besli merkezde kullanici izni olmadan calistirilmamali; workflowlar calistirilmadi.
 - Toplam 68/92 incelendi, 24 kaldi, tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md degistirildi; guncel sohbet devri 68/92.
+
+
+### 17 Ekim 2026 DDTD — IBO karar yazicilari ve otomatik devam incelemesi
+- madsc-ibo-ilk-239.yml: main dalinda workflow YAML push ile, contents write; scripts/apply_ibo_first_239_decisions.py; CALISANLAR.m3u ve kullanici kararlari CSV/raporunu main'e commit/push; protected_write_gate.py cagrisi var.
+- madsc-ibo-kararlar-grup1.yml: main dalinda YAML push, concurrency; scripts/apply_ibo_decisions_group1.py; CALISANLAR.m3u ve grup1 JSON/CSV/arsiv M3U dosyalarini main'e yazabilir; staged diff yoksa cikis; gate var.
+- madsc-ibo-second-voice.yml: YAML push veya manuel, main kosulu ve concurrency; scripts/apply_ibo_second_voice.py; CALISANLAR.m3u ile ikinci sesli arsiv/karar/raporunu main'e yazar; gate var.
+- Uc yazici da git reset --hard origin/main ve YABANCI_KANALLAR.m3u degismeme kontrolu kullanir; gate varligi kullanicinin her yazmaya onay verdiginin kaniti degil. Kullanici izni olmadan calistirilmadi.
+- madsc-otomatik-devam.yml: sadece manuel workflow_dispatch, contents read; echo mesajlari disinda islem yapmaz. Otomatik yeniden tetikleme veya pipeline devamini gercekte saglamaz.
+- Besli merkezde birebir davranissal esdegerlik kanitlanmadi. Toplam 72/92 incelendi, 20 kaldi, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md guncellendi; yeni sohbet devri 72/92.
