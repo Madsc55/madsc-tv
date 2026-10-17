@@ -7,6 +7,29 @@ from scripts.five_category_92_workflow_audit import inspect
 
 
 class CentralCronRegressionTests(unittest.TestCase):
+    def test_write_side_effects_without_explicit_permissions_are_reviewed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github" / "workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "legacy-api-push.yml").write_text(
+                "name: API push\non:\n  push:\njobs:\n  write:\n    steps:\n"
+                "      - run: |\n          git push origin HEAD:main\n"
+                "          gh api repos/owner/repo/actions/workflows/test.yml/dispatches -X POST\n",
+                encoding="utf-8",
+            )
+            for number in range(91):
+                (workflows / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
+                    encoding="utf-8",
+                )
+            report = inspect(root)
+            item = next(x for x in report["items"] if x["file"] == "legacy-api-push.yml")
+            self.assertTrue(item["write_permission_parity_unverified"])
+            self.assertEqual(item["review_priority"], "HIGH")
+            self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
+            self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", item["required_acceptance_checks"])
+
     def test_exact_schedule_match_and_unmatched_schedule(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
