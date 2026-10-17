@@ -119,6 +119,26 @@ class BulkCoverageTests(unittest.TestCase):
             self.assertIn("FORCE_PUSH_COMMAND_REVIEW", by_name["legacy-00.yml"]["migration_gap_reasons"])
             self.assertEqual(report["migration_blocked_count"], 92)
 
+    def test_additional_write_risk_commands_are_reported_without_parity(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for n in range(92):
+                command = ("gh api repos/owner/repo/dispatches -X POST" if n == 0
+                           else "curl -X DELETE https://example.invalid/resource" if n == 1
+                           else "echo safe")
+                (folder / f"legacy-{n:02d}.yml").write_text(
+                    f"name: Legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  audit:\\n"
+                    f"    steps:\\n      - run: {command}\\n".replace("\\\\n", "\\n")
+                )
+            report = inspect(root)
+            rows = {row["file"]: row for row in report["items"]}
+            self.assertTrue(rows["legacy-00.yml"]["write_risk_commands"])
+            self.assertTrue(rows["legacy-01.yml"]["write_risk_commands"])
+            self.assertFalse(rows["legacy-02.yml"]["write_risk_commands"])
+            self.assertEqual(report["behavioral_parity_verified_count"], 0)
+
     def test_write_risk_queue_has_consistent_evidence(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
