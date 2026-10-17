@@ -68,7 +68,7 @@ jobs:
             echo '::error::FAIL 92-workflow guvenlik regresyonlari'
             failed=1
           fi
-          for pattern in test_protected_write_gate.py test_k1_failure_gate.py test_k1_24_rule_evidence.py test_k1_workflow_risk_inventory.py; do
+          for pattern in test_protected_write_gate.py test_k1_failure_gate.py test_k1_24_rule_evidence.py test_k1_workflow_risk_inventory.py test_k1_legacy_writer_guards.py test_workflow_security_audit.py; do
             echo "::group::K1 guvenlik regresyonu: ${pattern}"
             if python3 -m unittest discover -s tests -p "${pattern}" -v; then
               echo "PASS ${pattern}"
