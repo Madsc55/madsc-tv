@@ -3495,3 +3495,8 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - **EN GUNCEL VE GECERLI KULLANICI TALIMATI:** `HEPSI`, kullanicinin BUTUN kanallarini bir arada tuttugu ve toplam kanal kaydi sayisini bildigi ana depodur. `ULUSAL` gecmiste ana depo islevindeydi; kullanici sonradan bu islevi `HEPSI` kategorisine tasidi ve karisiklik olmasin diye HEPSI adini secti. ULUSAL artik ayri bir kategoridir; tum kanallari barindirma zorunlulugu yoktur.
 - `IPTV_PROJE_HAFIZASI.md` 2026-10-12 'ULUSAL ana depo' ve 'HEPSI kaldirildi' ifadeleri TARIHSEL / GECERSIZ DURUMU yansitir; bu son talimati gecersiz kilmaz. Eski notlardan otomatik olarak ULUSAL'a tasima/kopyalama/silme yapilmaz.
 - HEPSI ana depo ve sayim yeri korunur; bir kanali baska kategoriye eklemek HEPSI kaydini silme yetkisi vermez. HEPSI'ye ekleme/silme/tasima/siralama ve playlist degisikligi icin kullanicinin acik izni gerekir. Mevcut playlist fiili kategori yapisi ve toplam sayisi ayrica salt okunur dogrulanmadan varsayilmaz.
+
+
+## 17 Ekim 2026 — Salt okunur gercek playlist ilk kisim ve 26 kural metni kontrolu
+- `CALISANLAR.m3u` mevcut blob SHA `b40aaf6615b120eac7bd936ccf022dc4a14025ae`; ilk 120 satir okundu, baslangicta `⭐ FAVORİLER (66)` grup kayitlari var. Bu HEPSI toplam sayisi ya da HEPSI grup varligi kaniti DEGIL; tum playlist henuz sayilmadi.
+- `GUVENLIK_KURALLARI.md` 1–24 numarali metin ve `AGENTS.md` 25–26 numarali metin tekrar okundu. Kural 3 HEPSI/FAVORILER siralarini korur. `AGENTS.md` 13. satirda eski '23 maddelik' ifadesi guncel 24+2 sayisiyla celisir; belge tutarsizligi acik. Korunan liste degistirilmedi.
