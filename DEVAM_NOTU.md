@@ -3370,3 +3370,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `test-21-functional-e2e.yml`: sentetik duplicate aday, HTTP403 hata sinifi, durum sayimi, URL redact, kaynak degisimi, logo/EPG ve degisiklik dry-run SHA256; gercek IPTV akis testi degil. Merkezi dosyalarda dogrudan cagrilmiyor.
 - `test-22-real-playlist.yml`: gercek CALISANLAR/YENILER M3U header, kanal sayisi, logo/EPG audit, degismeyen simulasyon ve SHA256; canli erisilebilirlik/EPG indirme/oynatici testi degil. Merkezi dosyalarda dogrudan cagrilmiyor.
 - Toplam 40/92 eski workflow kaynaklari incelendi; kalan 52; tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md degisti. Yeni sohbet devir durumu artik 40/92; onceki 36/92 devir basligi tarihsel kayittir.
+
+
+### 17 Ekim 2026 DDTD: 23-26 eski workflow incelemesi
+- test-23-live-stream.yml: CALISANLAR ve YENILER dosyalarinda ilk 15 akisa HTTP erisim denemesi; sonuc siniflari, 7 saniye timeout ve dosya SHA256 degismezligi. Gercek oynatma kaniti degildir.
+- test-24-system-audit.yml: Python ve YAML statik denetimi, M3U ve yedek envanteri, birim testleri, JSON raporu.
+- test-25-full-project-readonly.yml: butun projede salt okunur envanter ve korunan listelerin hash kontrolu. Canli oynatma ve tum otomasyon davranislari kanitlanmaz.
+- test-26-automation-safety.yml: workflow izin ve olasi yazma riskleri icin statik envanter, JSON raporu. Workflowlarin gercekten birbirini calistirdigini test etmez.
+- Merkezi 01/03/05 dosyalarinda bu dort eski workflowun ayni rapor zinciri birebir dogrulanmadi. Toplam 44/92 incelendi, kalan 48, tam davranissal esdegerlik 0/92. Bu turda yalniz not guncellendi. Yeni sohbet devir sayisi 44/92.
