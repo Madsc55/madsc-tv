@@ -3402,3 +3402,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - test-37-indirect-write-audit.yml: workflowlarin dogrudan python script cagrilarini regex ile bulup script satirlarinda korunan dosya yazma veya git komut sinyallerini arar; eksik scriptleri raporlar; REVIEW_REQUIRED olsa bile workflow kendisi fail etmez. Dolayli/dinamik cagrilar kacabilir.
 - test-38-audit-selftest.yml: 32-37 dosyalarinin checkout, read izinleri, rapor artifact iskeleti ve sentetik kotu/iyi metin tespiti. Gercek koruma enforcement testi degildir; protected target assert'i tautolojiktir.
 - Bu eski davranislarin merkezi sistemde birebir karsiligi henuz kanitlanmadi. Toplam 56/92 incelendi, kalan 36, tam davranissal parity 0/92. Sadece DEVAM_NOTU.md degistirildi. Yeni sohbet devri 56/92.
+
+
+### 17 Ekim 2026 DDTD — sonraki dort eski workflow incelemesi
+- test-39-protected-playlist.yml: CALISANLAR/YENILER/AGENTS.md/koruma betigi degisikliklerinde push ve pull_request, ayrica manuel tetik; salt okunur scripts/protected_playlist_audit.py cagrisi. Merkezi entegrasyonda PR tetigi ve gercek script davranisi korunmali.
+- test-kanal-adaylari.yml: main dalinda belirli aday M3U/betik/workflow degisince veya manuel tetikte scripts/test_kanal_adaylari.py calistirir; aday test M3U ve JSON raporunu manuel onay icin artifact olarak yukler; checkout credentials kapali, contents read. Betigin yan etkileri ayrica incelenmeli.
+- toplu-sistem-kontrol.yml: tum Python AST/YAML/M3U ve yedek envanteri, iki korunan listenin SHA256, her listeden azami 8 HTTP akis ornegi, iki unittest discovery, tek JSON artifact. HTTP erisimi oynatma kaniti degil; Isvec IBO testi yok.
+- vod-guncelle.yml: gunluk 07:17 UTC schedule ve manuel tetik; yalniz main dalinda VOD metadata scripti, contents write, sadece vod/guncel-bolumler.json git add, push oncesi protected_write_gate.py kontrolu. Korumali listeyi degistirme izni olarak yorumlanmamali.
+- Bu davranislarin besli merkezde tam karsiligi henuz kanitlanmadi. Toplam 60/92 incelendi, kalan 32, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md guncellendi. Yeni sohbet devri 60/92.
