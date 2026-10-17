@@ -3386,3 +3386,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - test-29-write-path-audit.yml: tum workflow YAML icinde yazma yetkisi, git push/commit, API yazma, protected hedef ve onay kelimelerini statik arar; onay kelimesi gercek yetkilendirme kaniti degil; JSON artifact.
 - test-30-write-risk-report.yml: yazma yetkileri ve mutasyon sinyallerinden HIGH/REVIEW risk envanteri ve JSON artifact; runtime onay zorlamasi kanitlanmaz.
 - Bu dort eski davranisin merkezi sistemde ayni kabul kriterleri ve artifactlariyla calistigi henuz kanitlanmadi. Toplam 48/92 incelendi, 44 kaldi, tam davranissal parity 0/92. Yalniz DEVAM_NOTU.md guncellendi. Yeni sohbet icin guncel sayi 48/92.
+
+
+### 17 Ekim 2026 DDTD — 31-34 eski guvenlik workflow incelemesi
+- test-31-protected-write-gate.yml: tum workflow YAML yazma izni/git mutasyon sinyali, korunan hedef ve environment marker envanteri; MANUAL_REVIEW_REQUIRED raporu. Statik tarama gercek onay zorlamasini kanitlamaz.
+- test-32-unapproved-write-regression.yml: yeni-kanal-arama-2026 ve aday-yedekleme icin git push + yedekler/ + environment onay kapisi yoklugu halinde FAIL veren somut regresyon; salt okunur JSON artifact.
+- test-33-all-write-paths.yml: tum workflowlarda ust ve job seviyesinde write izinleri ile git/API yazma sinyalleri; HIGH/REVIEW risk raporu. Basarili tarama risklerin duzeldigi anlamina gelmez.
+- test-34-protected-write-regression.yml: bes belirli eski workflow icinde contents:write, git push/commit ve yenilere-aktar kaliplari yasagi; belirli dosyalar icin statik regresyon.
+- Bu dort testin besli merkezde ayni guvenlik kabul kriterleriyle karsilandigi kanitlanmadi. Toplam 52/92 incelendi; kalan 40; tam davranissal esdegerlik 0/92. Yalniz DEVAM_NOTU.md guncellendi; guncel sohbet devri 52/92.
