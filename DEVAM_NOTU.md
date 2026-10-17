@@ -1,3 +1,16 @@
+## 810 DOSYA İNCELEMESİ — BAĞLANTI VE DEVİR (18 Ekim 2026)
+
+**Ana proje hafızası bu DEVAM_NOTU.md dosyasıdır.** Ayrıntılı inceleme defteri: [810 dosya notu.md](810%20dosya%20notu.md). Yeni sohbetlerde **önce buradaki güncel devir kaydı, ardından 810 dosya notu** okunur. Ayrıntılı bulgular tek tek bu ana dosyaya kopyalanmaz; bağlantılı defterde tutulur.
+
+- Başlangıç envanteri: **810 dosya**, Git tree `14862b7cb894b375b51448a621490dd8f9ae1ea7`. İnceleme sayacı son bildirilen **361/810**, kalan **449**; yeni incelemede benzersiz dosya yollarıyla kontrol edilmeli. Yeni oluşturulan not dosyası özgün 810 sayımına dahil değildir.
+- İlk turda 190 Python ve 98 workflow tarandı; ayrıca belgeler ve raporlar incelendi. Büyük JSON, M3U, CSV ve görsellerin derin kontrolü sürüyor. Yarım kalan son 17 dosyalık okuma sonuçlanmadığından **sayılmadı**.
+- Beşli merkez: 01 Güvenlik, 02 Keşif, 03 Kanal testi, 04 Arşiv/Yedek, 05 Genel bakım. Eski 92 işin gerçek davranışsal eşdeğerliği **henüz kanıtlanmadı**; yeşil Actions sonucu tek başına yeterli değildir.
+- **Yapılacak:** 810 dosyayı tamamla; işlevsel eşdeğerliği, korunan yazma kapılarını, kaynak keşfi geçmişini, EPG/Pages yayınını, IBO onay ayrımını, bağımsız yedek kanıtını ve tekrar eden tetikleri incele. Küçük tekrar testleri yerine toplu kabul yaklaşımını koru.
+- **Yapılmayacak:** Kullanıcının yeni açık izni olmadan CALISANLAR.m3u, YENILER, YEDEKLER, HEPSI, FAVORILER, diğer listeler, URL/logo/kimlik/sıralama, güvenlik kuralları ve workflow'lar değiştirilmez. Eski IBO kararları yeniden otomatik uygulanmaz. PR #71 birleştirilmez.
+- **Sohbet geçişi:** Yeni sohbette `D` veya “devam” denince önce iki notu oku, sonra sıradaki benzersiz dosyalardan yaklaşık 50 tanesini incele. Bulguları **YAPILACAK / YAPILMAYACAK / KANIT BEKLEYEN** olarak sınıflandır. Ana not ve inceleme defteri birbirini tamamlar.
+
+---
+
 ## 15 EKIM 2026 — BUYUK DOSYALAR YENIDEN ERISIM DENEMESI (SOHBET DEVAMI)
 
 - Kullanici kalan acilamayan dosyalari yeniden okumayi ve onceki basarili okumayi tekrarlamamayi istedi. Bu islem salt okunur kaynak denetimidir; korunan playlistler degismedi.
