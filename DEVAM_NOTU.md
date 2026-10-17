@@ -3325,3 +3325,11 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - `genel-aday-medya-test.yml`: SCAN_BATCH=-1 `yeni_kanal_tara.py` + ADAY_TEST_GRUBU=0 `genel_aday_medya_test.py` ve 30 gun rapor. Merkezi 05 sadece bu scripti `push.paths` listesinde sayiyor; gercek isletim degil.
 - `yeni-aday-on-test.yml`: main komut push/dispatch, `yeni_aday_on_test.py`, CSV artifact; merkezi 02/03/05'te dogrudan cagrilmiyor.
 - Toplam 24 eski workflow icin inceleme bulgusu; tam davranissal parity 0/92. Korunan dosyalara ve eski workflowlara dokunulmadi.
+
+
+### 17 Ekim 2026 — DDTD / aday tekrar testleri dort eski workflow karsilastirmasi
+- `390-aday-tekrar-test.yml`: `yedekler/tekrar_test_390.py`, TEST_WORKERS=10, 20 saniyelik paralel ses/video denemeleri, CSV ve teknik dogrulanan aday M3U artifact. Merkezi 01/02/03'te ayni script cagrisi yok.
+- `altinci-aday-tekrar-test.yml`: eligible/HLS iki segment/ffprobe false-positive birim testleri, RETEST_LIMIT=5 gercek tekrar denemesi ve CSV artifact. Merkezi 01/02/03'te ayni script cagrisi yok.
+- `besinci-zaman-asimi-test.yml`: `gelismis_medya_testi.check` icin 65 saniye timeout'un bozuk degil TEKRAR_TEST_BEKLIYOR sayildigini mock ile dogrular. Merkezi 01/02/03'te ayni script dogrudan yok.
+- `dokuzuncu-akilli-tekrar-test.yml`: `test_akilli_tekrar_test_takvimi.py` unittest. Merkezi 01/02/03'te dogrudan cagrilmiyor.
+- Merkezi 03 genel aday medya regresyonu barindirir, ancak bu dort eski testin ayni kabul kriterlerini karsiladigi kanitlanmadi. Toplam 28 eski workflow incelendi, 0/92 davranissal tam parity. Yalniz not guncellendi.
