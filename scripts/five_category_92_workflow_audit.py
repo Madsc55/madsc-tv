@@ -35,6 +35,7 @@ def classify(filename, commands):
 def inspect(root=ROOT):
     folder = root / ".github" / "workflows"
     items = []
+    legacy_contents = {}
     new_category_files = {f"madsc-0{n}-" for n in range(1, 6)}
     for path in sorted(folder.glob("*.y*ml")):
         if path.name == "k1-protected-write-tests.yml":
@@ -42,6 +43,7 @@ def inspect(root=ROOT):
         if any(path.name.startswith(prefix) for prefix in new_category_files):
             continue  # Five new category workflows are not among the original 92.
         raw = path.read_text(encoding="utf-8")
+        legacy_contents[path.name] = raw
         commands = list(dict.fromkeys(re.findall(r"(?:(?:python3?|bash|sh)\s+(?:-m\s+\w+\s+)?)([\w./-]+\.(?:py|sh))", raw)))
         uses = list(dict.fromkeys(re.findall(r"^\s+-?\s*uses:\s*([^\s#]+)", raw, re.M)))
         cron = [x.strip() for x in re.findall(r"^\s+-\s*cron:\s*['\"]?([^'\"\n#]+)", raw, re.M)]
@@ -150,7 +152,8 @@ def inspect(root=ROOT):
             if status["legacy"] and not status["replacement_declares"]
         ]
         item["write_permission_parity_unverified"] = bool(item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"])
-        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and ("CALISANLAR.m3u" in raw or "YENILER.m3u" in raw or "yedekler/" in raw))
+        item_raw = legacy_contents[item["file"]]
+        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and ("CALISANLAR.m3u" in item_raw or "YENILER.m3u" in item_raw or "yedekler/" in item_raw))
         item["required_acceptance_checks"] = [
             "COMPARE_LEGACY_AND_REPLACEMENT_JOB_STEPS",
             "VERIFY_TRIGGER_EQUIVALENCE",
