@@ -3235,3 +3235,12 @@ Bu bölüm 21:32 devrinden sonraki “Devam et” çalışmasını günceller. E
 - Testler cron regresyonu ve merkezi birlestirme regresyonlarini calistiracak, rapor artifact yukleyecek. ILK GITHUB ACTIONS CALISMASI VE BASARISI HENUZ DOGRULANMADI. GitHub schedule zamanlamasi gecikebilir; garanti 15 dakikada tamamlanma yoktur.
 - Saatlik MADSC TV Gece Gelistirme gorevi ayri aktiftir. Sohbet dolmasi bu kayitli gorevleri kendiliginden durdurmaz; fakat otomatik kod duzeltme ve surekli ajan calismasi garanti degildir.
 - SONRAKI: 15dk workflow Actions run, job log ve artifact dogrula; hata varsa izinli dalda duzelt; 92 eski workflow'un davranissal entegrasyonuna devam et. Kabul 0/92; eski workflow kapatma, playlist/EPG/yedek degistirme, PR71 merge yok.
+
+
+### 17 Ekim 2026 — 7/24 otomatik gelistirme kontrol noktasi
+- Saatlik `MADSC TV 7/24 Otomatik Gelistirme` otomasyonu yeniden etkinlestirildi. Bu kesintisiz 60 dakika calisan ajan DEGIL; saat basi bir gelistirme turudur.
+- Son kod SHA `4c3b0c8b`: MADSC05 Actions run `39016688439` kontrolunde 01 Guvenlik ve 02 Kesif basarili, 03 Kanal testleri devam ediyor. Nihai 5/5 sonucu HENUZ YOK.
+- Onceki SHA `b3ca24c2` Actions run `39016556649` basarili; `2f51b542` run `39016628136` iptal edildi.
+- Guncel degisiklikler: 92 workflow denetiminde ilave yazma riski komut isaretleri ve regresyon fixture duzeltmesi. Bu degisiklikler davranissal entegrasyon kaniti DEGIL; 92/92 kabul 0.
+- SONRAKI: `39016688439` nihai sonucunu ve job/artifact kayitlarini dogrula; hata varsa kok nedeni duzelt; 26 guvenlik kuralini ve 92 workflow'un gercek davranis aktarimini islev bazinda ilerlet. Her turda somut degisiklik+SHA+test kaniti kaydet.
+- KORUMA: main degistirme, PR #71 merge etme, eski workflow kapatma, korunan IPTV/EPG/logo/yedek dosyalarina dokunma. IBO oynatma testi kullanicida.
