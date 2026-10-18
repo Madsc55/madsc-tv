@@ -3813,3 +3813,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `ae32bbc1794676a7328d5393f18677141791cb7b`: `tests/test_protected_write_gate.py` mock Git cevabinda ignored `cache/HEPSI/ignored.txt` eklenerek 5 komut cagrisi ve tum korunan path'lerin gorunmesi beklendi.
 - Son SHA `ae32bbc17` K1 run `39127524366` queued, MADSC 05 `39127524378` pending. Onceki SHA `0c7484292` K1 `39127514911` in_progress, MADSC 05 `39127514878` cancelled, 19 kontrol `39127514807` success. Henuz yeni SHA icin tamamlanmis test kaniti yok.
 - 26/26 runtime uygulama kapanmadi; IBO cihaz, branch protection, gercek restore, writer yollari acik. Korunan listeler/main/PR #71 degismedi.
+
+
+## 18 Ekim 2026 — K1 ignored-path gate dogrulama ve toplu calisma karari
+- `ae32bbc1794676a7328d5393f18677141791cb7b` SHA icin K1 run `39127524366` completed/success. `0c7484292` ara SHA K1 run `39127514911` failure; sonraki test duzeltmesiyle K1 yesil, eski failure kaydi korunur.
+- Ayni `ae32bbc17` SHA MADSC 05 run `39127524378` son sorguda pending. `8dee326a9` SHA MADSC 05 `39127454624` cancelled. Bu run'lar basarili diye isaretlenmez.
+- K1 pre-push gate'in mevcut kodu tekrar okundu: base..HEAD + staged + unstaged + untracked + ignored Git yollarini toplar ve protected path'leri engeller. Ancak gate cagrilmayan yazma yollari icin merkezi enforcement kaniti yok; branch rulesets/permission denetimi API 403.
+- Kullanici 26 kuralin gercek uygulamasinin tek seferde topluca denetlenmesini ve K1'in 5 gorevinin sirayla tamamlanmasini istiyor. Daha fazla parca parca kisa test/rapor yerine mevcut test kanitlari ile acik runtime risklerin toplu kontrolu esas alinacak.
+- Korunan listeler, main, PR #71 degismedi. IBO cihaz testi kullanicida; K1 26/26 kapanmadi.
