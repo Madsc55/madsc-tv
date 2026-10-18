@@ -7,7 +7,10 @@ import urllib.request
 import urllib.parse
 
 def should_stop(runs, current_id, threshold=2):
-    prior = [r for r in runs if r.get("id") != current_id and r.get("status") == "completed"]
+    current_run = next((r for r in runs if r.get("id") == current_id), None)
+    current_created = current_run.get("created_at") if current_run else None
+    prior = [r for r in runs if r.get("id") != current_id and r.get("status") == "completed"
+             and (not current_created or r.get("created_at", "") <= current_created)]
     prior.sort(key=lambda r: (r.get("created_at", ""), r.get("id", 0)), reverse=True)
     streak = 0
     for run in prior:
