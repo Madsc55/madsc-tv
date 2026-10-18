@@ -156,8 +156,8 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertEqual(report["api_write_or_dispatch_review_count"], 1)
 
-    def test_central_stages_stop_after_failed_dependency(self):
-        """Stages 2-4 must not bypass a failed upstream security gate."""
+    def test_central_stages_continue_read_only_after_failed_dependency(self):
+        """Stages 2-4 continue evidence collection, without granting central approval."""
         root = Path(__file__).resolve().parents[1]
         workflow = (root / ".github/workflows/madsc-05-genel-bakim.yml").read_text(encoding="utf-8")
         import re
@@ -173,6 +173,11 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("needs." + predecessor + ".result != 'cancelled'", body)
             self.assertIn("always()", body)
             self.assertIn("uses: ./.github/workflows/" + called, body)
+
+        # K5 must still reject any unsuccessful category at its final gate.
+        for category in ("SECURITY", "DISCOVERY", "CHANNEL", "ARCHIVE"):
+            self.assertIn(category + "_RESULT:", workflow)
+        self.assertIn('if [[ "${value}" != "success" ]]', workflow)
 
     def test_central_discovery_cadence_and_daily_health_rotation(self):
         root = Path(__file__).resolve().parents[1]
