@@ -125,8 +125,15 @@ def main():
     parser.add_argument("--require-full-acceptance", action="store_true")
     args = parser.parse_args()
     report = execute()
-    Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "test_suites"}, ensure_ascii=False))
+    for suite in report["test_suites"]:
+        if not suite["passed"]:
+            print(f"::error title=Acceptance failure::{suite[\'suite\']} failed; see acceptance artifact")
+    for issue in report.get("audit_errors", []):
+        print(f"::error title=Inventory audit::{issue[\'audit\']}: {issue[\'error\']}")
     if not all(row["passed"] for row in report["test_suites"]) or not report["static_security_clean"]:
         return 1
     if args.require_full_acceptance and not report["acceptance_complete"]:
