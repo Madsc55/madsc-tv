@@ -56,7 +56,9 @@ def inspect(path):
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
-    if read_only_audit_exemption:
+    if pushes and gates < pushes and not read_only_audit_exemption:
+        tier = "CRITICAL_UNGATED_PUSH"
+    elif read_only_audit_exemption:
         tier = "READ_ONLY_AUDIT_TEXT"
     elif pushes and gates < pushes:
         tier = "CRITICAL_UNGATED_PUSH"
@@ -84,6 +86,7 @@ def inspect(path):
         "pushes_without_prior_gate_signal": pushes_without_prior_gate,
         "push_gate_order_static_signal_only": True,
         "audit_text_exemption_requires_review": read_only_audit_exemption,
+        "unverified_push_execution": bool(pushes),
         "risky_trigger": risky_triggers,
     }
 
