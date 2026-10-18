@@ -42,3 +42,13 @@ Bu belge **geçiş yetkisi değildir**. Mevcut üretim listeleri, EPG, logo, yed
 Kullanıcı kararı: mevcut ve yeni EPG dosyaları **aynen korunacak**. EPG üretimi, dosya düzeltmesi, içerik güncellemesi, silme, reset ve EPG/Pages geçiş kabulü şimdilik **ERTELENDİ**. EPG ile ilgili önceden yapılmış işler geri alınmayacak. Korunan EPG farkları bilinen açık konu olarak raporda kalır; kullanıcı onayı olmadan çözüm amaçlı dosya değiştirilmez. EPG işlerini daha sonra aynı mevcut dosyalar üzerinden sürdür.
 
 Öncelik K1/K2/K3/K4/K5'in EPG dışındaki altyapısı, 92 eski workflow'un davranışsal eşleştirmesi, CI ve yedek kanıtlarıdır. EPG gerektirmeyen gölge denetimler devam edebilir. EPG/Pages doğrulaması tamamlanmış gösterilmez ve nihai üretim geçişi otomatik onaylanmaz. Eski workflow'lar, main ve korunan yayın listeleri korunur.
+
+
+## 18 Ekim 2026 — K1-K5 calisma devri ve sonraki isler
+- Dal: `madsc/bes-sistem-toplu-birlestirme`. `main`, PR #71, eski uretim workflow'lari, korunan kanal listeleri, EPG, logolar ve arsivler degistirilmez.
+- Ortak statik denetim: `scripts/five_category_shared_controls.py`. K1-K5 icin korunan dosya snapshot/check ve SHA-256 referanslari; K5 icin kategori kaniti ve gecis hazirligi referanslari kontrol edilir. `tests/test_five_category_shared_controls.py` regresyonlari hizli on kontrolde ve K5'te calistirilmak uzere baglidir.
+- Son kaydedilen test: K2 snapshot eksikliginde BLOCKED, commit `bf60b5111a0835a3c4f1d9f9d87fc64c954f2a9c`. K3 checksum eksikligi testi `005a693f55210afed9fbcdd9114003cb5d488d7a`. K4 check eksikligi testi denendi ama guvenlik kontrolu engelledi, kaydedilmedi.
+- Statik denetim gercek komut calistirma kaniti DEGILDIR; 26 kuralin gercek uygulama kaniti ve 92 legacy davranissal esdegerligi hala acik. Son bilinen 0/26 tam dogrulama ve 0/92 esdegerlik, yeni sonuc olarak yorumlanmaz.
+- Guncel GitHub Actions basarisi dogrulanmadi. Commit workflow run sorgusu yalniz PR kaynakli kayitlari gosterebilir; bos sonuc CI calismadi anlamina gelmez.
+- Sonraki odak: (1) gercek CI run/job/artifact kanitlarini ayni SHA ile teyit et; (2) ortak denetimin snapshot/check/sha256 komutlarini yalniz metin varligi degil gercek komut eslesmesi olarak dogrulamasini sagla; (3) 92 eski workflow icin tetik, izin, komut, cikti, hata, rollback ve uretim yazicisi esdegerligini kategori bazinda kanitla; (4) 26 K1 kuralini tek tek runtime kanitina bagla. K1 degisikliginin K2-K5 etkisini birlikte ele al; ufak tekrarci testlerle yetinme.
+- EPG kapsam disi ertelenmistir; mevcut ve yeni EPG dosyalarina dokunma, farklarini dogrulanmis sayma. Nihai cutover, eski workflow kapatma ve uretim yazma izni verilmedi.
