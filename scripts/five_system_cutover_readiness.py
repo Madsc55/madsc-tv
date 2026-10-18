@@ -15,7 +15,6 @@ REQUIRED = (
     "92_LEGACY_BEHAVIOR_PARITY",
     "CURRENT_SHA_FIVE_CATEGORY_CI",
     "NO_DUPLICATE_PRODUCTION_WRITERS",
-    "EPG_PAGES_END_TO_END",
     "INDEPENDENT_OFFSITE_RESTORE",
     "IBO_DEVICE_ACCEPTANCE",
     "EXPLICIT_USER_CUTOVER_APPROVAL",
@@ -38,6 +37,8 @@ def inspect(root=ROOT):
         "CATEGORY_CALL_ORDER_PRESENT": orchestration,
         "SHADOW_WORKFLOWS_READ_ONLY": safe_permissions and all(present.values()),
     }
+    # EPG is deferred by user decision; it is NOT silently marked verified.
+    deferred = ["EPG_PAGES_END_TO_END", "EPG_PROTECTED_DIFFERENCES_RECONCILED"]
     # Neither a static check nor the existence of an artifact is runtime proof.
     blockers = list(REQUIRED)
     if not all(checks.values()):
@@ -45,13 +46,17 @@ def inspect(root=ROOT):
     return {
         "schema_version": 1,
         "mode": "READ_ONLY_SHADOW",
+        "epg_scope": "DEFERRED_PRESERVE_EXISTING_FILES",
+        "deferred_checks": deferred,
+        "non_epg_infrastructure_ready": all(checks.values()),
         "migration_approved": False,
         "cutover_allowed": False,
+        "non_epg_cutover_allowed": False,
         "legacy_workflows_retirement_allowed": False,
         "static_checks": checks,
         "category_files": present,
         "blockers": blockers,
-        "next_action": "Collect per-SHA CI and 92-workflow behavioral parity evidence; obtain explicit approval before cutover.",
+        "next_action": "Finish non-EPG category infrastructure and behavioral parity; preserve EPG files for later validation.",
         "warning": "Static checks do not establish production readiness or authorize changes.",
     }
 
