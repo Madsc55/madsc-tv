@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read-only cross-category impact map; shared controls must cover all consumers."""
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,7 +27,10 @@ def inspect(root=ROOT):
         consumers = {}
         for category in spec["categories"]:
             path = folder / CATEGORIES[category]
-            present = path.is_file() and spec["script"] in path.read_text(encoding="utf-8")
+            raw = path.read_text(encoding="utf-8") if path.is_file() else ""
+            # A comment or a bare filename is not executable coverage.
+            command = r"(?m)^\\s*(?:-\\s*)?(?:run:\\s*)?(?:python3?\\s+)" + re.escape(spec["script"]) + r"(?:\\s|$)"
+            present = bool(re.search(command, raw))
             consumers[category] = present
             if not present:
                 missing.append({"control": control, "category": category, "workflow": CATEGORIES[category]})
