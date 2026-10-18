@@ -35,10 +35,16 @@ class FailureGateTests(unittest.TestCase):
                 run(7, None, status="in_progress", created="2026-10-18T07:00:00Z")]
         self.assertEqual(should_stop(runs, 7), (False, 0))
 
-    def test_undated_prior_runs_are_not_counted(self):
+    def test_undated_prior_runs_fail_closed(self):
         runs = [run(4, None, "in_progress"),
                 run(3, "failure", created=None),
                 run(2, "failure", created=None)]
+        with self.assertRaisesRegex(ValueError, "missing creation timestamp"):
+            should_stop(runs, 4)
+
+    def test_undated_active_runs_do_not_block_completed_history(self):
+        runs = [run(4, None, "in_progress"), run(3, None, "in_progress", created=None),
+                run(2, "success")]
         self.assertEqual(should_stop(runs, 4), (False, 0))
 
     def test_missing_current_run_metadata_fails_closed(self):
