@@ -3844,3 +3844,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Son kodlar: 38ea3e74 gate EPG/logolar/arsiv/; 0ebce132 negatif test; e8f59b7d nested klasorler gate; 809e7b37 negatif test; 2cd00636 runtime integrity EPG/logolar/arsiv/ ve nested; 34e585e7 runtime negatif test. Onceki k1 risk inventory ve testleri 5286652f89 dahil.
 - 26 kural matrisi scripts/k1_24_rule_evidence.py: 26 dokumante, fully_verified_rules=0; dosya/test varligi gercek enforcement kaniti degil. 92 eski workflow davranissal parity=0. Tum writer yollarinda gate enforce, main branch protection API 403, production restore ve IBO cihaz kanitlari eksik. K1 tamamlanmadan K2'ye gecme.
 - Siradaki is: once epg/ 4 farkin kaynagini ve guvenlik politikasini kanitla, izinsiz dosya degistirmeden guvenli yol belirle. Sonra 26 kural ve 98 workflow risk raporundaki somut yazma aciklarini toplu kapat; tek SHA'ya ait K1 + 5 kategori Actions sonucunu kanitla. main, PR #71, HEPSI, FAVORILER, YENILER, YEDEKLER, ana kanal listeleri, EPG, logolar, arsiv ve cihaz favorilerine dokunma; legacy workflowlari kanitsiz kapatma.
+
+
+## 18 Ekim 2026 — EPG farklari GitHub dosya kimlikleriyle teyit edildi
+- K1 run 39132848699 SHA ed05497d6a FAILURE; 'Korunan dosya farki varsa toplu testi basarisiz bitir' adimi dogru sekilde fail-closed. K1 39130866604 FAILURE; MADSC 05 39130866571 SUCCESS (ayri SHA/test).
+- main / calisma dali blob SHA: epg/ibo-test-epg.xml 02866ab382e8 / 0625db5377e3; epg/madsc-epg.xml 440aba6639da / 19b9bc6c62ce; epg/report.json 10c43855be7b / fa252476d3dd. epg/tv_kontrol_bekliyor.json main'de f14d4d862bd2, calisma dalinda GitHub 404 (yok). Bu dort farki izin olmadan degistirme, geri yukleme, yok sayma veya CI bypass yapma.
+- Yeni sohbet sonrasi oncelik: EPG dosyalarinin commit gecmisini ve degisiklik yetkisini kanitla; sonra diger gercek enforcement aciklarini toplu ele al. 26/26 tamam degil. Kullanici kisa tekil testler degil, anlamli toplu uygulama istiyor.
