@@ -401,3 +401,9 @@ Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir madd
 - `71c3ed359044db771526035718b8769b6981f47e`: eski workflow'ların yazma-risk denetimi `HEPSI`, `FAVORILER`, `EPG/`, `logolar/`, `arsiv/` ve mevcut korunan playlist/yedek işaretlerini kapsayacak şekilde genişletildi. Bu bir statik tespit iyileştirmesidir, otomatik yazma engelleme kanıtı değildir.
 - `4ad5cbfb2d9e330dda83a9864fbeee72c47fe53d` ve `3e24cb28352c34914aef13cd9f0dc803dcbcadeb`: `FAVORILER` için regresyon fixture'ı eklendi ve satır sonları düzeltildi.
 - **Bekleyen:** Bu SHA'lar için Actions koşusu ve test başarısı henüz doğrulanmadı. Güvenlik kategorisi tamamlandı sayılmaz; 92/92 davranışsal eşdeğerlik açık.
+
+## 18 Ekim 2026 — Güvenlik önceliği: manuel API yazmaları
+
+- `e75fe0a9d282f630fb343f7f810b16ff4ed9782b`: yazma/API/dispatch sinyali olan manuel workflow'lar da `HIGH` inceleme önceliği alıyor; zamanlayıcı olmaması yazma riskini ortadan kaldırmaz.
+- `865903c5a49494440879cd588c487f4d62000f4e`: API-only regresyon testi yüksek öncelik beklentisini doğrulayacak şekilde güncellendi.
+- **Test sonucu bekleniyor:** bu SHA için GitHub Actions koşusu doğrulanmadan güvenlik kategorisi tamamlandı sayılmaz.
