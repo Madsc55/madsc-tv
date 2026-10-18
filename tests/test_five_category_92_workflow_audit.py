@@ -26,6 +26,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             report = inspect(root)
             item = next(x for x in report["items"] if x["file"] == "legacy-api-push.yml")
             self.assertTrue(item["write_permission_parity_unverified"])
+            self.assertTrue(item["write_permission_inherited_or_unknown"])
             self.assertEqual(item["review_priority"], "HIGH")
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", item["required_acceptance_checks"])
