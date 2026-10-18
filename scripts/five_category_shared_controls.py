@@ -29,7 +29,7 @@ def inspect(root=ROOT):
             path = folder / CATEGORIES[category]
             raw = path.read_text(encoding="utf-8") if path.is_file() else ""
             # A comment or a bare filename is not executable coverage.
-            command = r"(?m)^(?:[ ]*python3[ ]+|[ ]*run:[ ]*python3[ ]+|[ ]*if[ ]+python3[ ]+)" + re.escape(spec["script"]) + r"(?:[ ]|$)"
+            command = r"(?m)^(?:[ ]*python3[ ]+|[ ]*-?[ ]*run:[ ]*python3[ ]+|[ ]*if[ ]+python3[ ]+)" + re.escape(spec["script"]) + r"(?:[ ]|$)"
             present = bool(re.search(command, raw))
             consumers[category] = present
             if not present:
