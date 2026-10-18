@@ -29,6 +29,24 @@ class LegacyWriterGuards(unittest.TestCase):
         self.assertIn("python3 tools/protected_write_gate.py --base origin/main", source)
         self.assertIn("git push origin HEAD:main", source)
 
+    def test_epg_writer_is_main_only_and_protected_outputs_remain_blocked(self):
+        from tools.protected_write_gate import blocked_paths
+        source = (ROOT / "epg-gunluk.yml").read_text(encoding="utf-8-sig")
+        self.assertRegex(source, r"(?m)^    if: github\\.ref == 'refs/heads/main'$")
+        self.assertIn("tools/protected_write_gate.py", source)
+        outputs = ("epg/madsc-epg.xml", "epg/ibo-test-epg.xml",
+                   "epg/report.json", "epg/tv_kontrol_bekliyor.json")
+        self.assertEqual(blocked_paths(outputs), list(outputs),
+                         "EPG outputs require explicit authorization; no silent bypass")
+
+    def test_png_writer_outputs_remain_blocked(self):
+        from tools.protected_write_gate import blocked_paths
+        source = (ROOT / "publish-iptv-png-logos.yml").read_text(encoding="utf-8-sig")
+        self.assertRegex(source, r"(?m)^    if: github\\.ref == 'refs/heads/main'$")
+        self.assertIn("tools/protected_write_gate.py", source)
+        self.assertEqual(blocked_paths(["logos/duzeltilmis-ornek.png"]),
+                         ["logos/duzeltilmis-ornek.png"])
+
     def test_report_missing_explicit_permissions(self):
         from scripts.k1_workflow_risk_inventory import audit
         report = audit()
