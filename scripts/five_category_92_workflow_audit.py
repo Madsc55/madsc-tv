@@ -231,7 +231,7 @@ def main():
             "write_permission_inherited_or_unknown",
             "requires_protected_write_review", "write_risk_commands",
             "required_acceptance_checks", "script_entrypoint_coverage_ratio",
-            "unmatched_cron_expressions",
+            "unmatched_cron_expressions", "cron_requires_default_branch_activation",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -269,6 +269,7 @@ def main():
                 "required_acceptance_checks": "; ".join(item["required_acceptance_checks"]),
                 "script_entrypoint_coverage_ratio": item["script_entrypoint_coverage_ratio"],
                 "unmatched_cron_expressions": "; ".join(item["unmatched_cron_expressions"]),
+                "cron_requires_default_branch_activation": bool(item["cron_utc"]),
                 "missing_legacy_script_files": "; ".join(item["missing_legacy_script_files"]),
             })
     # Five actionable queues in one artifact; no legacy workflow is mutated.
