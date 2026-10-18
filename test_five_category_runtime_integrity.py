@@ -141,6 +141,28 @@ class RuntimeIntegrityTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(protected_file.read_bytes()).hexdigest(), expected)
             self.assertEqual(run("check").returncode, 0)
 
+    def test_ignored_nested_protected_file_is_detected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            def git(*args):
+                subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
+            git("init", "-q")
+            (root / "AGENTS.md").write_text("policy")
+            (root / ".gitignore").write_text("cache/\\n")
+            git("add", "AGENTS.md", ".gitignore")
+            git("-c", "user.name=Test", "-c", "user.email=test@example.test", "commit", "-qm", "fixture")
+            manifest = root / "baseline.json"
+            def run(mode):
+                return subprocess.run([sys.executable, str(SCRIPT), "--mode", mode,
+                                       "--manifest", str(manifest)], cwd=root, capture_output=True, text=True)
+            self.assertEqual(run("snapshot").returncode, 0)
+            path = root / "cache" / "HEPSI" / "state.json"
+            path.parent.mkdir(parents=True)
+            path.write_text("ignored protected")
+            result = run("check")
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("cache/HEPSI/state.json", json.loads(result.stdout)["changed_paths"])
+
     def test_general_maintenance_baseline_precedes_regression(self):
         workflow = (ROOT / '.github/workflows/madsc-05-genel-bakim.yml').read_text(encoding='utf-8')
         job = workflow.split('  genel-bakim:', 1)[1]
