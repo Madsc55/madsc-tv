@@ -17,7 +17,8 @@ def should_stop(runs, current_id, threshold=2):
            and not r.get("created_at") for r in runs):
         raise ValueError("Completed workflow run missing creation timestamp")
     prior = [r for r in runs if r.get("id") != current_id and r.get("status") == "completed"
-             and r["created_at"] <= current_created]
+             and (r["created_at"] < current_created
+                  or (r["created_at"] == current_created and r.get("id", 0) < current_id))]
     prior.sort(key=lambda r: (r["created_at"], r.get("id", 0)), reverse=True)
     streak = 0
     for run in prior:
