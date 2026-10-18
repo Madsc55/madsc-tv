@@ -3722,3 +3722,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `7202d8ed62695217fe382132c559a44dcae2d41d` ile `tests/test_k1_failure_gate.py` icinde sahte GitHub Actions API cevabinda diger dal hatalarinin yok sayilmasi ve slash'li branch URL kodlamasi icin negatif test eklendi.
 - Son kontrol: K1 run `39124666010` SHA `7202d8ed6` in_progress; eski K1 run `39124655501` in_progress; MADSC 05 `39124655500` SHA `3d2bfa37a` in_progress; 24. kural ayri test run `39124655491` SHA `3d2bfa37a` success. Yeni test SHA'si icin tamamlanmis sonuc henuz YOK, basarili diye raporlanmayacak.
 - IBO Player gercek cihaz dogrulamasi kullanicida; korunan kanal dosyalari degismedi. K1'in diger gercek uygulama denetimleri acik.
+
+
+## 18 Ekim 2026 — K1 toplu denetim: gercek koruma kapsaminda iki duzeltme
+- Kural 24: branch-izole devre kesici testi K1 run `39124666010` SHA `7202d8ed62695217fe382132c559a44dcae2d41d` completed/success; onceki `39124655501` de success. MADSC 05 `39124655500` son kontrolde in_progress; bitmis sayilmaz.
+- Kural 1/2/17/21: `scripts/k1_protected_integrity.py` protected() fonksiyonu yazma kapisiyla uyumsuzdu: ic klasorlerdeki HEPSI/FAVORILER/yedekler ve .m3u8 korumaya dahil degildi. `ef6bc7685d0eb9493f220f1b421e780a0ed50c4a` commit'iyle siniflandirma genisletildi.
+- `test_five_category_runtime_integrity.py` dosyasina yeni nested klasor + m3u8 siniflandirma regresyon testi `c57ffecee5959bef24ebb617ff4ce9a9ac979a22` commit'iyle eklendi. Son SHA icin Actions sonucu HENUZ teyit edilmedi; yeni test basarili diye isaretlenmeyecek.
+- GitHub Actions run `39125035782` SHA `ef6bc7685` in_progress idi; MADSC 05 `39125035870` ayni SHA icin cancelled. Bu eski SHA'dir; son test commit'i icin yeniden sorgulama gerekiyor.
+- IBO Player cihaz testini kullanici yapacak. Korunan kanal listeleri, yedekler, main ve PR #71 degistirilmedi. 26 kuralin tam runtime denetimi henuz kapanmadi.
