@@ -12,7 +12,7 @@ import sys
 EXACT = ("CALISANLAR.m3u", "CALISMAYANLAR.txt", "YENILER.m3u",
          "YABANCI_KANALLAR.m3u", "GUVENLIK_KURALLARI.md", "AGENTS.md")
 PREFIXES = ("yedekler/", "YEDEKLER/", "FAVORILER/", "HEPSI/",
-            "EPG/", "logolar/", "arsiv/")
+            "EPG/", "logolar/", "logos/", "arsiv/")
 
 
 def git(*args):
@@ -24,7 +24,7 @@ def protected(path):
     return (folded in {name.casefold() for name in EXACT}
             or any(folded.startswith(prefix.casefold()) for prefix in PREFIXES)
             or folded.endswith((".m3u", ".m3u8"))
-            or any(part in ("favoriler", "hepsi", "yedekler", "epg", "logolar", "arsiv") for part in folded.split("/"))
+            or any(part in ("favoriler", "hepsi", "yedekler", "epg", "logolar", "logos", "arsiv") for part in folded.split("/"))
             or Path(folded).stem in {"favoriler", "favorites", "hepsi"})
 
 
