@@ -3869,3 +3869,8 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `tools/protected_write_gate.py`: `logos/` hem prefix hem path component koruma listesine eklendi. Commit `d7de40de5a9bbc3e6a9b4f67eeda07e4660f7c42`.
 - `scripts/k1_protected_integrity.py`: `logos/` hem prefix hem path component koruma listesine eklendi. Commit `9f8ec3edcd41e9c33bfeec4d2881d0b3813269dd`.
 - Kodlar sadece çalışma dalında değişti; `logos/` içindeki dosyalar, korunan listeler, main ve PR71 değiştirilmedi. **Bu değişiklikler için gerçek GitHub Actions run sonucu henüz doğrulanmadı; K1 açık.** Sonraki adım: bir toplu negatif regresyon + 26 kural kanıt matrisi ve push sırası/dolaylı yazma yolları denetimi.
+
+
+### 18 Ekim K1 gerçek güvenlik regresyon testi iyileştirmesi
+- `.github/workflows/test-38-audit-selftest.yml` içindeki kendisiyle karşılaştırılan sabit korunan hedef testi kaldırıldı; `tools.protected_write_gate.blocked_paths` ve `scripts.k1_protected_integrity.protected` gerçek fonksiyonları korunan M3U, yedek, logo (`logos/`, `logolar/`), EPG ve korumasız normal dosya örnekleriyle denetleniyor. Commit `31af22c655f2eb4f704119b17b56f6cdd55068c2`.
+- **Henüz yeni toplu Actions run sonucu doğrulanmadı.** 26/26 K1 kabulü ve K2 geçişi yok. Korunan veri dosyaları ve main değiştirilmedi.
