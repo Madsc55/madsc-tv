@@ -3,6 +3,13 @@ on:
   schedule:
     # Read-only rolling health check: daily batches cover the list without changing it.
     - cron: '40 6 * * *'
+  push:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-03-kanal-test.yml'
+      - 'scripts/ana_liste_saglik.py'
+      - 'test_ana_liste_saglik.py'
   workflow_dispatch:
   workflow_call:
 permissions:
