@@ -15,6 +15,7 @@ on:
     paths:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - '.github/workflows/madsc-0[1-4]-*.yml'
+      - 'docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md'
       - 'scripts/category_evidence_collect.py'
       - 'scripts/category_candidate_scoring.py'
       - 'scripts/category_candidate_media.py'
@@ -172,6 +173,9 @@ jobs:
           queues = json.loads((folder / "bes_kategori_toplu_eksik_is_kuyrugu.json").read_text(encoding="utf-8"))
           priorities = json.loads((folder / "92_workflow_oncelikli_gecis_isleri.json").read_text(encoding="utf-8"))
           audit = json.loads((folder / "92_workflow_gorev_ve_kategori_haritasi.json").read_text(encoding="utf-8"))
+          risks = json.loads((folder / "92_workflow_yazma_risk_inceleme_kuyrugu.json").read_text(encoding="utf-8"))
+          assert risks["total_review_items"] == len(risks["items"]), "Write-risk queue count mismatch"
+          assert risks["review_only"] is True and risks["no_migration_authorized"] is True, "Unsafe write-risk decision"
           assert len(queues) == 5, "Expected five category queues"
           assert sum(category["count"] for category in queues.values()) == 92, "Category queue lost a legacy workflow"
           assert priorities["total"] == 92 and len(priorities["ordered_workflows"]) == 92
