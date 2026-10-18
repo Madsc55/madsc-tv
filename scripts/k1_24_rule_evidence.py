@@ -38,6 +38,18 @@ EVIDENCE = {
     26: ("AGENTS.md", "Turkish user-visible workflow job and step names for new or edited tests"),
 }
 
+
+# Test files provide inspectable automated evidence, not proof of production enforcement.
+TEST_EVIDENCE = {
+    1: ("tests/test_protected_write_gate.py",),
+    2: ("test_five_category_runtime_integrity.py",),
+    17: ("tests/test_protected_write_gate.py",),
+    21: ("tests/test_k1_legacy_writer_guards.py", "tests/test_protected_write_gate.py"),
+    24: ("tests/test_k1_failure_gate.py",),
+    25: ("tests/test_k1_24_rule_evidence.py",),
+}
+
+
 def audit():
     source = RULES.read_text(encoding="utf-8")
     numbered = {int(n) for n in re.findall(r"(?m)^(\d{1,2})\.\s", source)}
@@ -47,10 +59,15 @@ def audit():
     for number in range(1, 27):
         artifact, missing = EVIDENCE[number]
         exists = bool(artifact and (ROOT / artifact).is_file())
+        test_paths = TEST_EVIDENCE.get(number, ())
+        tests_present = [p for p in test_paths if (ROOT / p).is_file()]
         rows.append({
             "rule": number,
             "evidence_candidate": artifact,
             "evidence_file_exists": exists,
+            "automated_test_candidates": list(test_paths),
+            "automated_test_files_present": tests_present,
+            "runtime_enforcement_verified": False,
             "status": "PARTIAL_EVIDENCE" if exists else "NEEDS_EVIDENCE",
             "outstanding_verification": missing,
         })
@@ -60,7 +77,7 @@ def audit():
         "rule_count_valid": numbered == set(range(1, 25)) and agent_numbered == {25, 26},
         "rows": rows,
         "fully_verified_rules": 0,
-        "limitations": "File existence is NOT enforcement proof; this audit intentionally makes no fully verified claims.",
+        "limitations": "File and test existence is NOT enforcement proof. Device, live authorization, restoration and Actions run evidence remain separate.",
     }
 
 if __name__ == "__main__":
