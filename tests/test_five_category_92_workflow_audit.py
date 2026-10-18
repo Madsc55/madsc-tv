@@ -30,6 +30,24 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", item["required_acceptance_checks"])
 
+    def test_protected_favorites_write_is_flagged(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            workflows = root / ".github" / "workflows"
+            workflows.mkdir(parents=True)
+            (workflows / "legacy-favorites.yml").write_text(
+                "name: Favorites\\non:\\n  workflow_dispatch:\\njobs:\\n  write:\\n"
+                "    steps:\\n      - run: echo FAVORILER && git push origin HEAD:main\\n",
+                encoding="utf-8",
+            )
+            for number in range(91):
+                (workflows / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\\non:\\n  workflow_dispatch:\\njobs: {{}}\\n",
+                    encoding="utf-8",
+                )
+            item = next(x for x in inspect(root)["items"] if x["file"] == "legacy-favorites.yml")
+            self.assertTrue(item["requires_protected_write_review"])
+
     def test_api_only_write_is_in_risk_queue(self):
         # A workflow may dispatch or mutate through gh api without git push.
         import json
