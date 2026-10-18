@@ -3647,3 +3647,14 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Bu toplu committe yalniz `scripts/k1_protected_integrity.py` NUL ayraci `split("\\0")` yapilir ve `test_five_category_runtime_integrity.py` icindeki 5 M3U fixture satir-sonu sabiti dogrulanir. Korunan dosyalar, eski 92 workflow, main ve PR #71 degistirilmez.
 - Bu kayit yazildigi anda DUZELTME ICIN YENI CI RUN/SONUC HENUZ YOKTUR. Bu commitin SHA'si dalin Git gecmisinden bagimsiz dogrulanmalidir. Basarisiz eski run'lari ayni hatali SHA ile tekrar baslatma; yeni push testini bekle. Davranissal kabul 0/92.
 - Sonraki is: yeni commitin K1 ve MADSC 05 run ID, job/step loglari, artifact head_sha ve korunan dosya butunlugunu dogrula; kirmiziysa kok nedeni ayir. Sonra guvenlikte yok sayilan yeni korunan yollar / devre kesici ve 92 legacy davranissal parity kuyruguna gec.
+
+
+## 18 Ekim 2026 — K1 26 kural gercek uygulama denetimi, guncel devir
+- Kullanici karari: besli sistemin sadece 1. sistemi (Guvenlik ve Saglik) tamamlanana kadar diger sistemlere gecilmez. Siradaki is 26 guvenlik kuralinin gercek uygulama denetimi; 92 legacy workflow riskleri daha sonraki ayrica ele alinacak maddedir.
+- 1. madde kaniti: MADSC 05 #198, push commit `db8462b5291e0384928f2bce7a417c30e6ee68cf`, GitHub ekrani `Success`, 6m56s, 5 artifact, bes yesil kademe. Bu basari SONRAKI commitleri kapsamaz.
+- K1 26 kural raporu `scripts/k1_24_rule_evidence.py`: 1–24 `GUVENLIK_KURALLARI.md`, 25–26 `AGENTS.md`; 26 satir, `fully_verified_rules=0`. Dosya varligi gercek uygulama kaniti DEGIL. IBO cihaz kontrolu kullaniciya ait.
+- `9b0b90c573172756a7eeca66b11d257a05dd88a0`: K1 guvenlik basarisizlik kapisi 26-kural kanit adimi basarisizsa FAIL verir.
+- `b5f140bd32d791507c8a5c6997acc98d595bf972`: `tools/protected_write_gate.py` artik `AGENTS.md` yolunu da korur.
+- `c94683570869fba0ffbe0e6ceb20e088280fcdab`: `tests/test_protected_write_gate.py` iki guvenlik politikasi dosyasinin yazma reddi regresyonunu ekler. Bu son commitin gercek Actions run/SHA/sonucu henuz dogrulanmadi.
+- Onemli aciklar: 26 kuralin gercek runtime uygulama kanitlari; eski writer'larin koruma kapisini cagirmasi; cihaz/geri yukleme; branch ruleset; iki ardisik hatada devre kesici ve gercek testler. Korunan playlist/EPG/logo/yedekler, main, PR #71, 92 eski workflow degistirilmedi.
+- SONRAKI IS: once yeni SHA icin gercek CI run sonucunu dogrula; 26 kuralin her birine ayri gercek test/kanit esle; eksikleri korunan verilere dokunmadan gider; her committen sonra Actions sonucu kontrol et. Kanitsiz hicbir kurali tamamlandi sayma.
