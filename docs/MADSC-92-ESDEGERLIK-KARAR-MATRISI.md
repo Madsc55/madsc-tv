@@ -383,3 +383,9 @@ Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir madd
 - Beş artifact mevcut ve `expired=false`: `madsc-kesif-tek-kosu-rapor` (12119885163), `madsc-genel-bakim-tek-kosu-rapor` (12119322760), `madsc-guvenlik-tek-kosu-rapor` (12119232510), `madsc-arsiv-yedek-tek-kosu-rapor` (12119039361), `madsc-kanal-test-tek-kosu-rapor` (12118748759).
 - Bu kanıt yalnız belirtilen koşunun beş aşamasının başarı durumunu doğrular; 92/92 davranışsal eşdeğerlik, canlı Pages dağıtımı, dış yedek restore ve gerçek IBO cihaz kabulü doğrulanmış değildir.
 - Sıradaki açık kapı: 92 eski workflow'un yazma/API/dispatch risklerini artifact içeriğinden dosya bazında doğrula ve kabul matrisini güncelle. Eski workflow'ları kapatma veya korunan dosyalara yazma izni verilmedi.
+
+## 18 Ekim 2026 — Risk kuyruğu kanıtı iyileştirmesi
+
+- `085211b4b75380a8fa30e44dbd321a90dac81bf0`: 92-workflow yazma-risk kuyruğu artık `write_risk_commands` komut kanıtlarını da içeriyor; salt okunur rapor üretimi, korunan dosyaya yazma yok.
+- `2f964bdceff62e4c0b4c328c2cee44bca5b3c1de`: API-only workflow fixture'ında komut kanıtının JSON'a taşındığını denetleyen regresyon assertion eklendi.
+- **Bekleyen doğrulama:** bu iki commit sonrası GitHub Actions run ve regresyon sonucu henüz teyit edilmedi; eski 92 workflow için davranışsal eşdeğerlik onaylanmadı.
