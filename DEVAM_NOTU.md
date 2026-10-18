@@ -3738,3 +3738,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `6e529f3ad25e9dba798d389237e312b38e55cad5` ile gecici git deposunda yeni untracked `tmp/HEPSI/state.json` olusumunu yakalayan negatif runtime testi eklendi. Bu yeni SHA icin tamamlanmis Actions sonucu henuz yok; basarili denemez.
 - `39125707038` K1 ve `39125706855` MADSC 05, onceki `ef6d8b05a` SHA'si icin son sorguda in_progress. Son test commit'i icin yeniden bakilacak.
 - IBO Player kullanicida; branch protection API 403 ve canli backup/restore ile tum production writer denetimi halen acik. Kanal listeleri/main/PR #71 degismedi.
+
+
+## 18 Ekim 2026 — K1 kanit matrisi genisletildi, runtime kanitla karistirilmadi
+- SHA `6e529f3ad25e9dba798d389237e312b38e55cad5` icin K1 run `39125716306` completed/success. MADSC 05 run `39125716343` son kontrolde pending; bitis sonucu yok.
+- `ab9fcfffeaa7d8cd2304168bf8d15722f3b39a73`: `scripts/k1_24_rule_evidence.py` TEST_EVIDENCE icinde kurallar 3,4,5,19,22,26 icin mevcut test dosyalari referanslandi. Bunlar YALNIZCA otomatik test adayi/dosya kaniti; gercek IBO Player, canli yetki ve runtime enforcement kaniti degildir. `fully_verified_rules=0` gercek kanit gelene kadar degistirilmedi.
+- 26 kuralin tumunu bitirdik iddiasi yok. IBO kullanicida, main branch koruma API 403, backup restore drill ve tum production writer gercek calisma yollari acik.
+- Korunan kanal listeleri/main/PR #71 degistirilmedi.
