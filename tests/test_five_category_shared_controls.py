@@ -10,6 +10,15 @@ class SharedControlsTests(unittest.TestCase):
         self.assertEqual(set(report["shared_controls"]["protected_integrity"]["consumers"]), set(CATEGORIES))
         self.assertEqual(report["status"], "STATIC_READY", report["missing_consumers"])
 
+    def test_five_integrity_phases(self):
+        root = Path(__file__).resolve().parents[1]
+        for name in CATEGORIES.values():
+            raw = (root / ".github" / "workflows" / name).read_text(encoding="utf-8")
+            with self.subTest(name=name):
+                self.assertIn("--mode snapshot", raw)
+                self.assertIn("--mode check", raw)
+                self.assertIn("sha256sum -c", raw)
+
     def test_comments_do_not_count_as_executed_controls(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
