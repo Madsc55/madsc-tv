@@ -52,3 +52,8 @@ Kullanıcı kararı: mevcut ve yeni EPG dosyaları **aynen korunacak**. EPG üre
 - Guncel GitHub Actions basarisi dogrulanmadi. Commit workflow run sorgusu yalniz PR kaynakli kayitlari gosterebilir; bos sonuc CI calismadi anlamina gelmez.
 - Sonraki odak: (1) gercek CI run/job/artifact kanitlarini ayni SHA ile teyit et; (2) ortak denetimin snapshot/check/sha256 komutlarini yalniz metin varligi degil gercek komut eslesmesi olarak dogrulamasini sagla; (3) 92 eski workflow icin tetik, izin, komut, cikti, hata, rollback ve uretim yazicisi esdegerligini kategori bazinda kanitla; (4) 26 K1 kuralini tek tek runtime kanitina bagla. K1 degisikliginin K2-K5 etkisini birlikte ele al; ufak tekrarci testlerle yetinme.
 - EPG kapsam disi ertelenmistir; mevcut ve yeni EPG dosyalarina dokunma, farklarini dogrulanmis sayma. Nihai cutover, eski workflow kapatma ve uretim yazma izni verilmedi.
+
+## 18 Ekim 2026 — K1'e geri dönüş
+Kullanıcı kararı: beşli sistemin ilk kategorisi olan K1 Güvenlik ve Sağlık önceliklidir. K2-K5 ilerlemesi korunur. K5 test commitleri: 00d5ba7, d5c58a6, 47975af. K3 test commitleri: 90ea2bc, ed213a4, bffde80, 329fce3, 85747a4.
+
+K1 öncelikleri: aynı SHA üzerinde Actions run ve artifact doğrulaması; 26 kuralın gerçek uygulama kanıtı; korunan dosya bütünlüğü ve yazma kapıları; hata zinciri ve sağlık denetimi; eksiklerin toplu kapatılması. Son bilinen gerçek doğrulama 0/26, eski iş akışı eşdeğerliği 0/92. CI başarı sonucu doğrulanmış değildir. EPG ertelenmiştir; korunan dosyalar, main ve eski üretim akışları değiştirilmez.
