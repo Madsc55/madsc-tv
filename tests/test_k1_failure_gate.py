@@ -35,6 +35,11 @@ class FailureGateTests(unittest.TestCase):
                 run(7, None, status="in_progress", created="2026-10-18T07:00:00Z")]
         self.assertEqual(should_stop(runs, 7), (False, 0))
 
+    def test_same_timestamp_newer_run_is_not_prior_history(self):
+        runs = [run(8, "failure"), run(7, "failure"), run(6, None, "in_progress"),
+                run(5, "success")]
+        self.assertEqual(should_stop(runs, 6), (False, 0))
+
     def test_undated_prior_runs_fail_closed(self):
         runs = [run(4, None, "in_progress"),
                 run(3, "failure", created=None),
