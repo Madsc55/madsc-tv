@@ -28,6 +28,22 @@ class FailureGateTests(unittest.TestCase):
         stop, streak = should_stop([run(4, "failure"), run(3, None, "in_progress"), run(2, "failure")], 4)
         self.assertEqual((stop, streak), (False, 1))
 
+    def test_manual_dispatch_does_not_bypass_open_circuit(self):
+        payload = {"workflow_runs": [
+            dict(run(3, "failure"), head_branch="main"),
+            dict(run(2, "timed_out"), head_branch="main"),
+        ]}
+        response = io.BytesIO(json.dumps(payload).encode())
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "4", "GITHUB_REF_NAME": "main",
+               "GITHUB_EVENT_NAME": "workflow_dispatch", "GH_TOKEN": "fake"}
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", return_value=response) as mocked:
+            with self.assertRaises(SystemExit) as caught:
+                main()
+        self.assertEqual(caught.exception.code, 1)
+        mocked.assert_called_once()
+
     def test_main_filters_other_branches_and_encodes_branch(self):
         payload = {"workflow_runs": [
             dict(run(3, "failure"), head_branch="main"),
