@@ -3484,3 +3484,27 @@ Bu turda kaynak içeriği yeniden açılan sekiz dosya: `.github/workflows/madsc
 - **Yapılmayacak:** eski IBO sıra numaralarını yeni listeye uygulamak, yedi workflow'u tetiklemek, geçmiş kararları yeniden üretim listesine yazmak, kullanıcı izni olmadan korunan listeyi değiştirmek.
 
 **Durum:** Kaynak okumasına dayalı risk tespiti; workflow çalıştırılmadı, üretim değişmedi. Eski 810 manifest ve önceki bulgular aynen korundu.
+
+
+## 19 EKİM 2026 — TOPLU KAYNAK OKUMASI: 30 ESKİ WORKFLOW VE YENİ BULGULAR
+
+Bu turda `.github/workflows/` altında aşağıdaki **30 dosyanın içeriği GitHub'dan açılıp** tetikleyici, izin, çalıştırılan komut, artifact ve korunan yazma yönünden okundu. Önceki 23 ile yeni derin okuma **53/450**; **397 dosya kaldı**. Bu 100/150 tamamlandı anlamına gelmez.
+
+**Grup A (15):** `390-aday-tekrar-test.yml`, `aday-bekletme.yml`, `aday-logo-epg-test.yml`, `aday-oncelik-kontrol.yml`, `akilli-aday-puanlama.yml`, `altinci-aday-tekrar-test.yml`, `automatic-png-logos.yml`, `besinci-zaman-asimi-test.yml`, `birlesik-aday-raporu.yml`, `birlesik-durum-raporu.yml`, `dokuzuncu-akilli-tekrar-test.yml`, `genel-aday-medya-test.yml`, `genis-kanal-tarama.yml`, `ibo-epg-kimlik-denetimi.yml`, `ibo-yedek-kalite.yml`.
+
+**Grup B (15):** `iptv-test.yml`, `k1-protected-write-tests.yml`, `kanal-kararlilik.yml`, `kaynak-puanlama-kontrol.yml`, `madsc-11599-yedek-geri-yukle.yml`, `madsc-ana-liste-saglik.yml`, `madsc-arsiv-yedek-aktarim.yml`, `madsc-cuma-ana-liste-denetimi.yml`, `madsc-documentation-check.yml`, `madsc-genis-kaynak-kontrol.yml`, `madsc-otomatik-devam.yml`, `madsc-rule24-test.yml`, `madsc-tum-sistem-yedek.yml`, `madsc-yedekler-sayi-duzelt.yml`, `madsc-turk-kanal-geri-sec.yml`.
+
+### Unutulmaması gereken işler ve gerçek çakışma adayları
+1. **Aday hattı birden çok eski workflow'da yineleniyor:** `aday-bekletme`, `akilli-aday-puanlama`, `birlesik-aday-raporu`, `genel-aday-medya-test` aynı `yeni_kanal_tara.py` ve `oncelikli_kanal_dogrula.py` gibi betikleri çağırıyor. **Risk:** tekrarlanan ağ taraması, çelişen rapor anlık görüntüleri, ffmpeg maliyeti. K2/K3'te tek üretim, paylaşılmış artifact ve tarihli kaynak kimliği tasarlanmalı.
+2. **Aday iş akışı kapsamı yalnız kanal açılıyor mu değil:** tekrar deneme (390 ve altıncı), bekletme, akıllı zamanlama, kaynak güven puanı, öncelik raporu, birleşik medya ve istikrar geçmişi, logo/EPG kimlik birleştirme ve IBO yedek kalitesi de korunacak işlevlerdir.
+3. **Birleşik durum raporu dört ayrı araç kullanıyor:** `tools/guncel_test_durum_ozeti.py`, `tools/eksik_turk_kanal_takibi.py`, `tools/kaynak_kapsam_denetimi.py`, `tools/genel_sistem_bakimi.py`. Beşli K5 yalnız statik envanterle bunların gerçek çıktılarının yerine geçtiğini iddia etmemeli.
+4. **Görsel dosyaları inceleme dışı, ama logo otomasyonunun kodu inceleme içinde:** `automatic-png-logos.yml` `git restore -- CALISANLAR.m3u` kullanıyor; logonun geçici denetimi ve korunan listeyi eski haline getirme mekanizması güvenli kalmalı.
+5. **Haftalık ve ayın 1/15'i tetikleri:** `iptv-test.yml` çarşamba UTC 06:30, `madsc-ana-liste-saglik.yml` ayın 1/15'i UTC 06:40, `madsc-tum-sistem-yedek.yml` ayın 1/15'i UTC 05:40. K2/K3/K4 geçişinde bu ayrı takvimler ve yedek saklama koşulları unutulmamalı.
+6. **11599 yedek 'geri yükle' adındaki workflow gerçekte `scripts/diagnose_11599_backups.py` çağırıyor:** dosya adına bakarak gerçek restore yapıldığı varsayılamaz.
+7. **Korunan listeye yazan ek eski workflow'lar:** `madsc-yedekler-sayi-duzelt.yml` ve `madsc-turk-kanal-geri-sec.yml` `contents: write`, `main` koşulu, `git add CALISANLAR.m3u`, `protected_write_gate` ve `git push origin HEAD:main` içeriyor. **Kritik:** kategori sayaç düzeltmesi veya eski ülke sınıflandırması yeni playlist'e onaysız tekrar uygulanmamalı.
+8. **Geniş kaynak kontrolünde yazma izni:** `madsc-genis-kaynak-kontrol.yml` `contents: write`, `main` koşulu, iki kaynak taraması ve `madsc_genis_tarama/` rapor commit'i kullanıyor. Çalışma alanı reset, kaynak rapor branch'i ve koruma kapısı sırası ayrıntılı davranış testine muhtaç.
+9. **K1 güvenlik testi** `acceptance_26_92.py`, korunan SHA snapshot ve kontrol, workflow sayısı >=97 testi ve bazı `continue-on-error` adımları içeriyor. **Risk:** eski 26 güvenlik kuralı sayısını workflow adındaki 'rule24' ile karıştırmak veya hata toleransını kabul kararı saymak.
+10. **Arşiv aktarımı workflow'u yalnız 'automatic mutation disabled' mesajı veriyor:** gerçek aktarım yapıldığı iddia edilmemeli. `full_system_backup.py` artifact üretimi de bağımsız restore kanıtı değildir.
+11. **IBO EPG kimlik denetimi** test XMLTV `epg/ibo-test-epg.xml` kullanıyor; üretim `epg/madsc-epg.xml` ve cihaz görünürlüğü için ayrı denetim gerekir.
+
+**Yapılmayacak:** bu inceleme sırasında eski workflow tetiklemek, korunan playlist'e commit yapmak, 26/92 kabulünü yeşil varsaymak. **Yapılacak:** her eski otomasyonun komut/çıktı/cron/izin/çalışma zamanı davranışını beşli K1–K5 matrisiyle eşleştirmek; gerçek üretim yazma yolları kullanıcı onayı olmadan çalıştırılmayacak.
