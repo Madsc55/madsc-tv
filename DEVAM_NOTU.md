@@ -3745,3 +3745,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `ab9fcfffeaa7d8cd2304168bf8d15722f3b39a73`: `scripts/k1_24_rule_evidence.py` TEST_EVIDENCE icinde kurallar 3,4,5,19,22,26 icin mevcut test dosyalari referanslandi. Bunlar YALNIZCA otomatik test adayi/dosya kaniti; gercek IBO Player, canli yetki ve runtime enforcement kaniti degildir. `fully_verified_rules=0` gercek kanit gelene kadar degistirilmedi.
 - 26 kuralin tumunu bitirdik iddiasi yok. IBO kullanicida, main branch koruma API 403, backup restore drill ve tum production writer gercek calisma yollari acik.
 - Korunan kanal listeleri/main/PR #71 degistirilmedi.
+
+
+## 18 Ekim 2026 — K1 20/23 izole restore drill testi
+- `1f6291b1fd77fdc21800725927f9bdc690bb5f93`: `test_five_category_runtime_integrity.py` icinde gecici git deposunda sahte YENILER.m3u icin byte-exact SHA256 yedek, bozulma algilama, backup'tan geri kopyalama ve baseline tekrar dogrulama testi eklendi. Gercek kanal listesi degistirilmedi; gercek uretim yedegi restore edilmedi.
+- K1 run `39125933949` queued ve MADSC 05 run `39125933984` pending; SHA `1f6291b1f`. Bitmis/basarili diye raporlanmayacak.
+- Onceki `ab9fcfffe` SHA'si icin K1 run `39125783724` success; MADSC 05 `39125783783` cancelled. K1 26 kuralin gercek uygulanma denetimi cihaz, yetki, uretim restore ve canli writer yollarinda acik.
+- IBO Player kullanicida. main/PR #71/korunan kanal listelerine dokunulmadi.
