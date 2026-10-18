@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 
 def entries(path):
     rows = []
@@ -66,7 +67,8 @@ def probe(row, timeout=15):
 def run(playlist, output, date, size, timeout):
     rows = entries(playlist)
     selected, group, groups = batch(rows, date, size)
-    results = [probe(row, timeout) for row in selected]
+    with ThreadPoolExecutor(max_workers=min(8, max(1, len(selected)))) as pool:
+        results = list(pool.map(lambda row: probe(row, timeout), selected))
     summary = {"tarih": date.isoformat(), "asama": 3, "ana_liste_toplam": len(rows),
                "bu_kosuda_test_edilen": len(results), "grup": group,
                "toplam_grup": groups, "tum_liste_bu_kosuda_test_edildi": len(results) == len(rows),
