@@ -9,7 +9,9 @@ DIRECTORY = ROOT / ".github" / "workflows"
 PROTECTED = re.compile(r"(?:CALISANLAR\.m3u|CALISMAYANLAR\.txt|YENILER\.m3u|YABANCI_KANALLAR\.m3u|HEPSI|FAVORILER|YEDEKLER/|EPG/|epg\.xml|logolar/|arsiv/)", re.I)
 WRITE = re.compile(r"(?:\bgit\s+push\b|curl[^\n]*(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))", re.I)
 GH_API = re.compile(r"\bgh\s+api\b[^\n]*", re.I)
-GH_CLI_MUTATION = re.compile(r"\bgh\s+(?:workflow\s+(?:run|enable|disable)|run\s+rerun)\b", re.I)
+GH_CLI_MUTATION = re.compile(r"\bgh\s+(?:workflow\s+(?:run|enable|disable)|run\s+rerun|release\s+(?:create|delete|edit|upload)|repo\s+(?:create|delete|edit)|pr\s+(?:merge|create|close)|issue\s+(?:create|close|edit))\b", re.I)
+GIT_MUTATION = re.compile(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+)*(?:push|reset\s+--hard|clean\s+-[A-Za-z]*f|checkout\s+--|restore\b)\b", re.I)
+PYTHON_MUTATION = re.compile(r"\b(?:python3?|bash|sh)\s+(?:\S+/)*\S*(?:publish|upload|update|write|sync|deploy|delete|restore)\S*\.(?:py|sh)\b", re.I)
 # Only the existing monthly audit\u0027s known GET-only Actions report calls are exempt.
 READ_ONLY_ACTIONS_API = re.compile(r"\brepos/\$\{GITHUB_REPOSITORY\}/actions/(?:runs|workflows)(?:\?[^\s\"]*)?", re.I)
 GH_API_MUTATION_FLAGS = re.compile(r"(?<!\w)(?:-X|--method|-f|-F|--field|--raw-field|--input)(?:\s|=|$)", re.I)
@@ -30,7 +32,8 @@ def inspect(path):
         or "graphql" in call.casefold()
         for call in api_calls
     )
-    has_write = bool(WRITE.search(s)) or api_write or bool(GH_CLI_MUTATION.search(s))
+    has_write = (bool(WRITE.search(s)) or api_write or bool(GH_CLI_MUTATION.search(s))
+                 or bool(GIT_MUTATION.search(s)) or bool(PYTHON_MUTATION.search(s)))
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
