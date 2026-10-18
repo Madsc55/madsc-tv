@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read-only cross-category impact map; shared controls must cover all consumers."""
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
