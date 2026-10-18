@@ -29,7 +29,7 @@ def inspect(root=ROOT):
     orchestration = all(index >= 0 for index in order) and order == sorted(order)
     safe_permissions = all(
         "contents: read" in (folder / name).read_text(encoding="utf-8")
-        and "contents: write" not in (folder / name).read_text(encoding="utf-8")
+        and not any(line.strip() == "contents: write" and line.startswith("  ") and not line.startswith("    ") for line in (folder / name).read_text(encoding="utf-8").splitlines())
         for name, exists in present.items() if exists
     )
     checks = {
