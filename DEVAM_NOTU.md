@@ -3752,3 +3752,12 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - K1 run `39125933949` queued ve MADSC 05 run `39125933984` pending; SHA `1f6291b1f`. Bitmis/basarili diye raporlanmayacak.
 - Onceki `ab9fcfffe` SHA'si icin K1 run `39125783724` success; MADSC 05 `39125783783` cancelled. K1 26 kuralin gercek uygulanma denetimi cihaz, yetki, uretim restore ve canli writer yollarinda acik.
 - IBO Player kullanicida. main/PR #71/korunan kanal listelerine dokunulmadi.
+
+
+## 18 Ekim 2026 — Kullanici talimati: K1 26 kural toplu bitirme ve not tutma
+- Kullanici 26 guvenlik kuralinin gercek uygulanma denetimini bitirip sonra gorevlere sirayla gecilmesini, kisa kisa test yerine toplu testler yapilmasini ve her adimin DEVAM_NOTU.md dosyasina kaydedilmesini tekrar istedi. Bu calisma modeli esas alinacak.
+- K1 `39125933949` SHA `1f6291b1fd77fdc21800725927f9bdc690bb5f93` completed/success. Bu run gecici Git deposunda bozulma algilama ve byte-exact restore drill negatif testini de kapsiyor; gercek uretim yedegi restore edilmedi.
+- MADSC 05 `39125933984` ayni SHA icin son kontrolde pending, tamamlandi diye gosterilmeyecek.
+- IBO Player fiziksel/uygulama kontrolu kullanicida; kullanici Flex IPTV telefon uygulamasinda kategorilerin korundugunu bildirdi. Flex kontrolu IBO kaniti degildir.
+- Acik: tum 26 kuralin runtime davranissal kaniti; branch protection API 403; uretim writer yollari ve gercek restore kaniti. K1 tamamlanmadan sonraki gorevler tamamlandi sayilmayacak.
+- Ana listeler/YEDEKLER/YENILER/FAVORILER/cihaz favorileri, main ve PR #71 korunacak; kullanici izni olmadan degistirilmeyecek.
