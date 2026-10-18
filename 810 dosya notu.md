@@ -3374,3 +3374,19 @@ Bu manifest dosyaları tekrar saymadan kalıcı referans sağlar. Ayrıntılı i
 4. Yalnız **`810 dosya notu.md`** dosyasına bulgu ve devir ekle. Her başarılı değişikliğin gerçek commit SHA'sını bildir; hata olursa kaydedildi deme. Sohbeti şişirecek gereksiz ara test/tekrar yapma. Kısa, doğrudan Türkçe cevap ver.
 
 **DEVRİN SONU:** Bu bölüm kaydedildikten sonra yeni sohbetten devam edilecek. Kullanıcı yeni sohbette `810 dosya notu.md son devir notunu oku ve sadece 437 görsel olmayan dosyanın mevcut inceleme kayıtlarından dosya bazlı nihai içerik/işlev raporunu tamamla; PNG'lere dokunma, daha önce incelenen dosyaları tekrar açma` diyebilir.
+
+
+## 18 EKİM 2026 — YENİ SOHBETTE İŞLEVSEL NİHAİ RAPORUN İLK KONSOLİDASYONU
+Bu bölüm yalnız önceki D2 kayıtlarından türetilmiştir; kaynak dosyaları tekrar açılmadı, yeni çalışma testi yapılmadı. Kullanıcının kapsamı: 810 manifestin görsel olmayan 437 dosyasının ne iş yaptığını ve risklerini nihai dosya-bazlı rapora dönüştürmek. 373 görsel kapsam dışı.
+
+### İşlev kümeleri ve somut bulgular
+- **Orkestrasyon / CI (98 YAML):** 92 eski workflow'un ilk kaynak envanteri mevcut; 5 merkezi kategoriye davranışsal eşdeğerlik kabulü 0/92. Ayrı K1 risk envanteri 98 workflow içeriyor; bunlar aynı kapsam sayısı olarak karıştırılmamalı. Yazma ve tetikleme sırası, dolaylı alt betik etkileri ve üretim izinleri açık.
+- **Güvenlik / yazma kapıları:** `tools/protected_write_gate.py` korunan yolları ve Git değişikliklerini tarıyor; çağrılmadığı yolda güvence sağlamaz. `scripts/k1_protected_integrity.py` korunan dosyaların dal/main farklarını izliyor. 26 kural matrisi önceki kanıtta 0 FULLY VERIFIED, 14 PARTIAL_EVIDENCE, 12 NEEDS_EVIDENCE; bu durum kaynak kodu hiç yok demek değildir.
+- **EPG üretimi ve yayın:** `.github/workflows/epg-gunluk.yml` EPG oluşturma betiklerini çağırıp `epg/` dosyalarını commit/push etmeyi hedefliyor. Koruma kapısı `EPG/` önekini casefold ile koruduğundan işlevsel çatışma ihtimali var. Main/dal arasında dört EPG yolu farklı; köken ve yetkili karar açık, hiçbir dosyaya dokunulmadı.
+- **Keşif / adaylar:** `madsc-birlesik-kesif.yml` keşif ve aday birleştirme betiklerini çağırıyor. Aday kimliği, kaynağı, yinelenme ve onay zincirinin gerçek davranışsal doğrulaması açık; 11.557 arşiv adayı ve 3.800 kimliği onaysız aday önceki kayıtlarda risk/inceleme havuzudur, doğrulanmış kanal sayısı değildir.
+- **IBO kararları / arşiv / yedek:** #041–048 workflow grubu karar uygulama ve arşivleme betiklerine bağlı; #056, #058, #060 kurtarma/ayırma/sayı senkronizasyonu görevlerini çağırıyor. Korunan listelere dolaylı yazma ve gerçek restore güvenliği ayrı kanıt gerektiriyor. IBO Player cihaz testi kullanıcıya ait.
+- **Logo yayın:** `publish-iptv-png-logos.yml` yazma riski kaydı var; bu yalnız workflow kaynak bulgusudur, görsel dosyaları incelenmeyecek. `logos/` koruma kapsamı önceki K1 çalışmalarında güçlendirilmiş; nihai üretim kabulü yok.
+- **VOD / son kontrol:** `vod-guncelle.yml`, `madsc-son-kontrol.yml`, `madsc-uc-asama.yml` alt betik çağrısı ve push/koruma kapısı denetimi gerektiren yazma yollarıdır. Metinde gate görünmesi çalışma sırası ve etkin koruma kanıtı değildir.
+
+### Dosya bazlı nihai rapor için kalan iş
+437 D2 dosyanın tekil satırları önceki manifestte kayıtlıdır. Şimdi yalnız bu mevcut kayıtlardan her satıra görev, çağrı bağı, bulgu, güvenlik etkisi, kanıt düzeyi ve açık iş sütunları oluşturulmalı; kanıt yoksa 'belirlenmedi' denmeli. Aynı 437 dosyayı yeniden okuyup yeni D2 sayılmamalı. PNG/görsel açılmayacak. Bu ek kayıt gerçek D3 veya yeni davranışsal test iddiası değildir.
