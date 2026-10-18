@@ -3693,3 +3693,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `fe840a06a3092813e7e6b2aad8da8cee4508d988`: `tests/test_protected_write_gate.py` nested korunan klasor ve m3u8 negatif testini ekledi. K1 run `39122794844` queued, MADSC 05 run `39122794885` pending; bu SHA icin henuz basari kaniti yok.
 - 26 kural raporunda 1,2,17,21,24,25 icin gercek test dosyasi adaylari raporlaniyor; runtime enforcement_verified tum kurallarda false; kanitsiz tamamlama iddiasi yok.
 - Sonraki adim: `fe840a0` SHA K1 ve MADSC 05 run sonucunu kontrol et; kirmiziysa log incele, duzelt; yesilse kural 21 tum production writer yollarinin korunmasi ve diger kural kanitlarini tek tek incele. Gercek IBO cihaz ve geri yukleme testleri kullanici onayi/erisim olmadan tamamlanmis sayilmaz. Korunan listeler/main/PR #71 degistirilmedi.
+
+
+## 18 Ekim 2026 — IBO Player dogrulama gorev ayrimi (kullanici acik onayi)
+- Kullanici isyerinde, evde degil. Gercek IBO Player cihaz testi (ozellikle kural 3, 8, 15 ve cihazla ilgili kural 6/13/14 kontrolleri) kullanicida; kullanici aksama dogru sonuc bildirecek. Simdi telefondan test yapmasi istenmeyecek.
+- Asistan diger tum otomatik ve kodla denetlenebilir guvenlik kurallarini bekletmeden sirayla inceleyecek; IBO testleri `KULLANICI_CIHAZ_DOGRULAMASI_BEKLENIYOR` olarak acik kalacak, gerceklesti diye raporlanmayacak.
+- K1 `39122794844` commit `fe840a06a3092813e7e6b2aad8da8cee4508d988` completed/success; kanit ve risk envanteri artifactleri uretildi. MADSC 05 `39122794885` ayni commit icin en son kontrolde in_progress; bitmeden yesil sayilmaz.
+- Korunan kanal/EPG/logo/yedek dosyalarina, main'e, PR #71'e dokunulmayacak. Her degisiklik sonrasi gercek SHA/run sonucu kontrol edilecek.
