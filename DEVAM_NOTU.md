@@ -3821,3 +3821,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - K1 pre-push gate'in mevcut kodu tekrar okundu: base..HEAD + staged + unstaged + untracked + ignored Git yollarini toplar ve protected path'leri engeller. Ancak gate cagrilmayan yazma yollari icin merkezi enforcement kaniti yok; branch rulesets/permission denetimi API 403.
 - Kullanici 26 kuralin gercek uygulamasinin tek seferde topluca denetlenmesini ve K1'in 5 gorevinin sirayla tamamlanmasini istiyor. Daha fazla parca parca kisa test/rapor yerine mevcut test kanitlari ile acik runtime risklerin toplu kontrolu esas alinacak.
 - Korunan listeler, main, PR #71 degismedi. IBO cihaz testi kullanicida; K1 26/26 kapanmadi.
+
+
+## 18 Ekim 2026 — Ekran goruntuleri ve 26 kuralin toplu kanit siniflandirmasi
+- Kullanici ekran goruntulerinde K1 #91 (SHA `0c74842`) failure, K1 #92 (SHA `ae32bbc`) success; MADSC 05 #215/#216 cancelled ve #217 pending gosterdi. API ile son kontrol: K1 run `39127524366` SHA `ae32bbc17` completed/success; MADSC 05 `39127524378` pending. K1 `39127514911` SHA `0c7484292` failure olarak kayitta kalir.
+- `scripts/k1_24_rule_evidence.py` gercek okuma: 26 kuralin hepsi kayitli fakat `fully_verified_rules=0` ve tum `runtime_enforcement_verified=False` — bu ihtiyatli durum dogrudur; mevcut testler tek basina 26/26 production enforcement kaniti degildir.
+- Otomatik test adaylari olan kurallar: 1,2,3,4,5,17,19,21,22,24,25,26 (12). Yalniz kanit dosyasi adayi olan: 6,15 (2). Dosya adayi dahi olmayan: 7,8,9,10,11,12,13,14,16,18,20,23 (12). Bu sayilar audit matrisinin kapsamini gosterir, uygulamanin kesinlikle bulunmadigini kanitlamaz.
+- Sirali toplu calisma: once kanitsiz 12 kural icin gercek kod ve veri akislarini, tum 92 workflow dolayli yazma yollarini dosya/davranis bazinda eslestir; sonra yetki, gercek backup restore ve IBO ayri dis bagimliliklar. Testler toplu, tek SHA'ya ait Actions kanitlariyla dogrulanacak. Korunan listeler/main/PR #71 degismeyecek.
