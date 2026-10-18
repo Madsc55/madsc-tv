@@ -1,3 +1,18 @@
+## 18 EKİM 2026 — YENİ SOHBETE DEVİR: K1–K5 VE 92 WORKFLOW (EN GÜNCEL)
+
+**Yeni sohbet ilk işi:** Bu kaydı oku; `D` = doğrudan somut inceleme/düzeltme/commit yap, aynı teşhisi ve kullanıcıdan ekran görüntüsü istemeyi tekrarlama. Kullanıcı beşli sistemi ve 92 eski workflow'un gerçek davranışsal entegrasyonunu bitirmek istiyor; EPG'yi özellikle ERTELEDİ.
+
+- Repo `Madsc55/madsc-tv`; **yalnız** `madsc/bes-sistem-toplu-birlestirme` dalında çalış. `main`, PR #71, korunan M3U/listeler, EPG XML/JSON, favoriler, yedekler, logolar ve arşivlere dokunma. Üretime geçiş, eski workflow emekliliği, yazma izni açılması ve güvenlik kapısının kaldırılması yasak; kullanıcıdan ayrıca açık onay gerekir.
+- K1'deki eski başarısızlık: `origin/main` ile dal arasında **dört tarihsel EPG farkı**: `epg/ibo-test-epg.xml`, `epg/madsc-epg.xml`, `epg/report.json`, `epg/tv_kontrol_bekliyor.json` (sonuncusu dalda yok). Bunlar çalışma anı mutasyonu değildir. EPG dosyaları değiştirilmedi.
+- Yapılan K1 commitleri: `ead92e51` farkları dosya bazında işaretler; `132e935c` fark logunu artifact yapar; `683a6c93`, `6bb88bf1` karşılaştırmayı raporlama düzeyine alır; `5aa0be84` K1 testlerinin başına `--mode snapshot`, sonuna `--mode check` koyar; `6d6d5d26` beklenmeyen karşılaştırma hatalarında fail-closed kalmayı hedefler. K1–K5 beş kategori workflow'unda da snapshot/check vardır; `contents: read` kullanılır.
+- K5 geçiş hazırlık betiği `scripts/five_system_cutover_readiness.py` test metnindeki `contents: write` sözünü gerçek izin sanıyordu. `e5ee96f2` yalnız izin satırlarını denetleyecek şekilde düzeltti; `37e1a5f8` regresyon testi ekledi; **son kod commit `842a989b15373b574a90b881dd85c5a41937a0c1`** bu testi K1 CI akışına bağladı.
+- **Önemli: Bu commitlerin güncel GitHub Actions sonucu doğrulanmış DEĞİL.** `fetch_commit_workflow_runs` bağlayıcısı yalnız PR run'larını getirdiğinden boş yanıt başarı/başarısızlık kanıtı değildir. Run ID/job log/artifact varsa gerçek sonuçları incele. Önce K1/K5'te gerçek test hatası olup olmadığını tespit et, sonra kodla düzelt.
+- 26 güvenlik kuralı: **0/26 runtime verified**, 14 kısmi kanıt, 12 kanıt eksik. 21 negatif test geçmesi 26 kuralın kabulü değildir. `scripts/k1_24_rule_evidence.py` bilerek `runtime_enforcement_verified=False` tutar. `scripts/five_system_cutover_readiness.py` üretime geçişi bilerek kapalı tutar.
+- 92 eski workflow: envanter mevcut (`scripts/five_category_92_workflow_audit.py`), fakat **0/92 davranışsal eşdeğerlik doğrulandı**. Sıradaki ASIL İŞ: K1'e gereksiz yere yeniden takılmadan K2–K5 ve 92 eski workflow için giriş noktası, trigger/cron, izin, artifact, yan etki, çift tetikleme, geri dönüş ve salt-okunur eşdeğerlik kanıtını dosya dosya tamamla; güvenli, somut kod/test/commit üret. EPG görevlerini ertele. `810 dosya notu.md` içindeki ayrı inceleme sayacı ile bu 92-workflow sayacını karıştırma.
+- Kullanıcı tekrarlı açıklama ve ekran görüntüsü taleplerinden yoruldu: kısa, gerçek ilerleme ve commit SHA bildir; yeşil CI, 26/26 veya 92/92 kanıtlanmadan tamamlandı deme. Gerekirse devir notunu tekrar güncelle.
+
+---
+
 ## 810 DOSYA İNCELEMESİ — BAĞLANTI VE DEVİR (18 Ekim 2026)
 
 **Ana proje hafızası bu DEVAM_NOTU.md dosyasıdır.** Ayrıntılı inceleme defteri: [810 dosya notu.md](810%20dosya%20notu.md). Yeni sohbetlerde **önce buradaki güncel devir kaydı, ardından 810 dosya notu** okunur. Ayrıntılı bulgular tek tek bu ana dosyaya kopyalanmaz; bağlantılı defterde tutulur.
