@@ -44,6 +44,15 @@ class ProtectedWriteGateTests(unittest.TestCase):
                  "backups/arsiv/history.json"]
         self.assertEqual(blocked_paths(paths), paths)
 
+    def test_logos_directory_is_denied_for_all_case_variants(self):
+        from scripts.k1_protected_integrity import protected
+        paths = ["logos/duzeltilmis-ornek.png", "LOGOS/test.svg",
+                 "cache/logos/image.png", "logolar/logo.png"]
+        self.assertEqual(blocked_paths(paths), paths)
+        for path in paths:
+            with self.subTest(path=path):
+                self.assertTrue(protected(path))
+
     def test_reports_are_allowed(self):
         self.assertEqual(blocked_paths(["madsc_kesif/report.json", "DEVAM_NOTU.md"]), [])
 
