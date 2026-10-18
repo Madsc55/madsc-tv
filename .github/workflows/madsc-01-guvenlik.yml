@@ -45,6 +45,14 @@ jobs:
             echo "::endgroup::"
           done
           exit "${failed}"
+      - name: 26 guvenlik kurali kanit raporu ve belge kontrolu
+        id: rule_evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/k1_24_rule_evidence.py > madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json
+          python3 -m json.tool madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json > /dev/null
+          echo "26 kural belgelendi; uygulama dogrulamasi eksikleri raporda acikca gosterilir."
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         shell: bash
