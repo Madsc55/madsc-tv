@@ -91,6 +91,27 @@ class RuntimeIntegrityTests(unittest.TestCase):
                 self.assertTrue(protected(name))
         self.assertFalse(protected("madsc_kesif/report.json"))
 
+    def test_untracked_nested_protected_file_detected_in_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            def git(*args):
+                subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
+            git("init", "-q")
+            (root / "AGENTS.md").write_text("policy")
+            git("add", "AGENTS.md")
+            git("-c", "user.name=Test", "-c", "user.email=test@example.test", "commit", "-qm", "fixture")
+            manifest = root / "baseline.json"
+            def run(mode):
+                return subprocess.run([sys.executable, str(SCRIPT), "--mode", mode,
+                                       "--manifest", str(manifest)], cwd=root, capture_output=True, text=True)
+            self.assertEqual(run("snapshot").returncode, 0)
+            nested = root / "tmp" / "HEPSI" / "state.json"
+            nested.parent.mkdir(parents=True)
+            nested.write_text("new")
+            result = run("check")
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("tmp/HEPSI/state.json", json.loads(result.stdout)["changed_paths"])
+
     def test_general_maintenance_baseline_precedes_regression(self):
         workflow = (ROOT / '.github/workflows/madsc-05-genel-bakim.yml').read_text(encoding='utf-8')
         job = workflow.split('  genel-bakim:', 1)[1]
