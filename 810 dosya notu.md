@@ -2397,3 +2397,11 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 - YAPILACAK: 11.762 geçmiş kayıt ile aday/test snapshotlarını tarih bazlı karşılaştır; 11.557 ayrılan kanalın ülke kimliğini ayrı doğrula; 3.800 kimlik bekleyen kaydı otomatik onaylama.
 - YAPILMAYACAK: M3U/CSV kaynakları, YEDEKLER/HEPSI/YENILER/FAVORILER, logo, EPG, workflow, kod veya main değiştirme; PR #71 birleştirme.
 - KANIT BEKLEYEN: Bugünkü canlı URL/IBO testleri, gerçek ülke/istasyon kimliği, güncel üretim restore ve 92 workflow davranışsal eşdeğerliği. Bu dört dosyanın içerik erişim engeli çözüldü; eski toplam sayaçlar uzlaştırılmadı.
+
+
+## 18 Ekim — PNG dışı sekiz dosyanın gerçek içerik incelemesi
+- #568 `madsc_kesif/eski_bozuk_linkler.csv`: 469.521 karakter, `kanal,url,durum` alanları ve `YENIDEN_TEST_ARSIVI` kayıtları; güncel canlı test sonucu değil.
+- #570–572: `ibo_354_335_354_yabanci_arsiv.m3u` 20 EXTINF; `ibo_354_3_334_turk_calismaz_arsiv.m3u` 332 EXTINF; JSON raporunda 354→2 ve 332 için `KULLANICI_BILDIRIMI_TEST_EDILMEDI` yazıyor.
+- #573–574: 364→354 tarihsel arşiv, 10 EXTINF; oynatma `BELIRTILMEDI`.
+- #575–576: 398→364 tarihsel arşiv, 34 EXTINF; oynatma `BELIRTILMEDI`.
+- Bulgular: rapor sayıları M3U giriş sayılarıyla eşleşiyor; bu kullanıcı kararı/arsiv kayıtları canlı kanal kimliği veya oynatma kanıtı değildir. Geçmiş sıralı taşıma/silme tekrar uygulanmayacak. PNG taraması kullanıcı isteğiyle durduruldu. URL ve tokenlar rapora aktarılmadı.
