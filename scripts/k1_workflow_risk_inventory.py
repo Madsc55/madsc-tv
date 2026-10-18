@@ -10,7 +10,7 @@ PROTECTED = re.compile(r"(?:CALISANLAR\.m3u|CALISMAYANLAR\.txt|YENILER\.m3u|YABA
 WRITE = re.compile(r"(?:\bgit\s+push\b|curl[^\n]*(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))", re.I)
 GH_API = re.compile(r"\bgh\s+api\b[^\n]*", re.I)
 GH_CLI_MUTATION = re.compile(r"\bgh\s+(?:workflow\s+(?:run|enable|disable)|run\s+rerun|release\s+(?:create|delete|edit|upload)|repo\s+(?:create|delete|edit)|pr\s+(?:merge|create|close)|issue\s+(?:create|close|edit))\b", re.I)
-GIT_MUTATION = re.compile(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+)*(?:push|reset\s+--hard|clean\s+-[A-Za-z]*f|checkout\s+--|restore\b)\b", re.I)
+GIT_MUTATION = re.compile(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+)*(?:push|reset\s+--hard|clean\s+-(?=[A-Za-z]*f)[A-Za-z]+|checkout\s+--|restore\b)\b", re.I)
 PYTHON_MUTATION = re.compile(r"\b(?:python3?|bash|sh)\s+(?:\S+/)*\S*(?:publish|upload|update|write|sync|deploy|delete|restore)\S*\.(?:py|sh)\b", re.I)
 # Only the existing monthly audit\u0027s known GET-only Actions report calls are exempt.
 READ_ONLY_ACTIONS_API = re.compile(r"\brepos/\$\{GITHUB_REPOSITORY\}/actions/(?:runs|workflows)(?:\?[^\s\"]*)?", re.I)
