@@ -55,6 +55,8 @@ class CentralCronRegressionTests(unittest.TestCase):
                 main()
             queue = json.loads((root / "madsc_merkezi_denetim" / "92_workflow_yazma_risk_inceleme_kuyrugu.json").read_text())
             self.assertIn("legacy-api-only.yml", [item["file"] for item in queue["items"]])
+            api_entry = next(item for item in queue["items"] if item["file"] == "legacy-api-only.yml")
+            self.assertTrue(any("gh api" in cmd for cmd in api_entry["write_risk_commands"]))
             self.assertEqual(queue["total_review_items"], len(queue["items"]))
 
     def test_protected_playlist_write_requires_manual_review(self):
