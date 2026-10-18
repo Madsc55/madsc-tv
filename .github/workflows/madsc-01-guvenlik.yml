@@ -56,8 +56,11 @@ jobs:
           import json
           from pathlib import Path
           report = json.loads(Path("madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json").read_text())
-          print("26 kural kanit raporu uretildi; tam runtime kabul denetimi gerekir.")
-          # Do not treat report generation alone as 26/26 verified.
+          rows = report.get("rows", [])
+          verified = [row["rule"] for row in rows if row.get("runtime_enforcement_verified") is True]
+          print(f"Gercek uygulama kaniti: {len(verified)}/26; dogrulanan: {verified}")
+          if len(rows) != 26 or len(verified) != 26 or not report.get("rule_count_valid"):
+              raise SystemExit("K1 KABUL REDDI: 26/26 gercek uygulama kaniti tamamlanmadi")
           PY
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
