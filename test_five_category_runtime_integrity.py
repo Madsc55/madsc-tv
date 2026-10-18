@@ -56,7 +56,7 @@ class RuntimeIntegrityTests(unittest.TestCase):
             def git(*args):
                 subprocess.run(['git', *args], cwd=root, check=True, capture_output=True)
             git('init', '-q')
-            (root / 'YENILER.m3u').write_bytes(b'#EXTM3U\\n')
+            (root / 'YENILER.m3u').write_bytes(b'#EXTM3U\n')
             git('add', 'YENILER.m3u')
             git('-c', 'user.name=Test', '-c', 'user.email=test@example.test', 'commit', '-qm', 'fixture')
             manifest = root / 'baseline.json'
@@ -66,19 +66,19 @@ class RuntimeIntegrityTests(unittest.TestCase):
             self.assertEqual(run('snapshot').returncode, 0)
             candidate = root / 'madsc_kesif' / 'candidate.m3u'
             candidate.parent.mkdir()
-            candidate.write_bytes(b'#EXTM3U\\n')
+            candidate.write_bytes(b'#EXTM3U\n')
             self.assertEqual(run('check').returncode, 0)
             backup = root / 'YEDEKLER' / 'new.m3u'
             backup.parent.mkdir()
-            backup.write_bytes(b'#EXTM3U\\n')
+            backup.write_bytes(b'#EXTM3U\n')
             result = run('check')
             self.assertNotEqual(result.returncode, 0)
             self.assertIn('YEDEKLER/new.m3u', json.loads(result.stdout)['changed_paths'])
-            self.assertEqual(backup.read_bytes(), b'#EXTM3U\\n')
+            self.assertEqual(backup.read_bytes(), b'#EXTM3U\n')
             backup.unlink()
             self.assertEqual(run('check').returncode, 0)
             root_playlist = root / 'FAVORILER.m3u'
-            root_playlist.write_bytes(b'#EXTM3U\\n')
+            root_playlist.write_bytes(b'#EXTM3U\n')
             result = run('check')
             self.assertNotEqual(result.returncode, 0)
             self.assertIn('FAVORILER.m3u', json.loads(result.stdout)['changed_paths'])

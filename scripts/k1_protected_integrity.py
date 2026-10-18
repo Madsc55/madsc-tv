@@ -44,7 +44,7 @@ def working_snapshot():
     tracked = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
     # Include newly created protected files, even when they are not in the index.
     # Keep generated nested candidate M3U reports outside protected collections.
-    untracked = subprocess.check_output(["git", "ls-files", "--others", "-z"]).decode().split("\\0")
+    untracked = subprocess.check_output(["git", "ls-files", "--others", "-z"]).decode().split("\0")
     def protected_untracked(name):
         folded = name.casefold()
         return protected(name) and (
