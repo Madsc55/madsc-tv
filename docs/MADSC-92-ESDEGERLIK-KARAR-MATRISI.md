@@ -108,3 +108,144 @@ Bu bölüm bilinen ek kabul konularını sıralar; keşfedilecek yeni sorunlar i
 - [ ] **50 — Son açık işler taraması:** çözülmemiş bug, TODO, risk, başarısız test ve yeni gereksinimleri yeniden kuyruğa al.
 
 **Öncelik kuralı:** Güvenlik açığı, veri kaybı veya üretim kesintisi saptanırsa numara sırasından önce güvenli durdurma/onarım yapılır. Riskli değişiklikler açık onay gerektirir. 02–34 maddelerinin bitmesi bu yeni maddelerin de bittiği anlamına gelmez.
+
+## Genişletilmiş uygulama kuyruğu — 51–100
+
+Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir maddeyle örtüşen işler ayrı tekrar koşu yerine aynı kanıtla birleştirilir. Otomatik koşulabilen kontroller GitHub Actions'a ayrıca bağlanmadıkça yalnız plan olarak kalır.
+
+### Test altyapısı ve kanıt
+- [ ] **51 — T:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **52 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **53 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **54 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **55 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **56 — f:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **57 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **58 — x:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **59 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **60 — u:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **61 — r:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **62 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **63 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **64 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **65 — z:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **66 — o:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **67 — l:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **68 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **69 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **70 — y:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **71 — o:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **72 — n:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **73 — u:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+
+### İş akışı dayanıklılığı
+- [ ] **74 — J:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **75 — o:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **76 — b:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **77 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **78 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **79 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **80 — m:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **81 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **82 — o:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **83 — u:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **84 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **85 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **86 — p:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **87 — o:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **88 — l:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **89 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **90 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **91 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **92 — k:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **93 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **94 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **95 — ı:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+
+### Yayın veri hattı
+- [ ] **96 — M:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **97 — 3:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **98 — U:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **99 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **100 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **101 — ö:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **102 — z:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **103 — d:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **104 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **105 — z:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **106 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **107 — m:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **108 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **109 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **110 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **111 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **112 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **113 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **114 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+
+### Yedek ve veri yönetimi
+- [ ] **115 — Y:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **116 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **117 — d:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **118 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **119 — k:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **120 — l:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **121 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **122 — m:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **123 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **124 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **125 — k:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **126 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **127 — p:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **128 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **129 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **130 — m:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **131 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **132 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **133 — n:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **134 — v:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **135 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **136 — n:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **137 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **138 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **139 — r:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **140 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+
+### İşletim ve üretim kabulü
+- [ ] **141 — O:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **142 — p:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **143 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **144 — r:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **145 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **146 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **147 — y:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **148 — o:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **149 — n:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **150 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **151 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **152 — a:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **153 — ğ:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **154 — l:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **155 — ı:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **156 — k:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **157 —  :** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **158 — g:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **159 — ö:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **160 — s:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **161 — t:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **162 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **163 — r:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **164 — g:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **165 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **166 — l:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **167 — e:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **168 — r:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+- [ ] **169 — i:** kapsamı doğrula, otomatik test/rapor ekle, koşu kimliği ve kabul kanıtı kaydet; üretim yazması varsa onay kapısı uygula.
+
+### Çalıştırma ve bitiş koşulları
+
+1. İlk açık, teknik olarak yapılabilir maddeyi al; önceki madde başarısızsa nedeni raporla ve güvenli şekilde dur.
+2. Her değişiklik için test, Actions koşu kimliği, artifact ve commit kanıtı oluştur; doğrulanmamış işi tamamlandı diye işaretleme.
+3. 92 eski workflow için tek tek davranışsal kanıt olmadan emeklilik yok; korunan playlist/EPG/logo/yedek dosyalarına izinsiz yazma yok.
+4. Gerçek cihaz, default-branch üretim dağıtımı ve riskli yazmalar kullanıcı onayı gerektirir.
+5. Bu belge bir iş planıdır; kendiliğinden gece boyunca çalışan ajan değildir. Mevcut beşli GitHub Actions zinciri kendi tanımlı görevlerini yürütür, tüm 100 maddeyi değil.
