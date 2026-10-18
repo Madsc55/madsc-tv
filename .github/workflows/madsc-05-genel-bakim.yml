@@ -17,6 +17,8 @@ on:
       - '.github/workflows/madsc-0[1-4]-*.yml'
       - 'docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md'
       - 'scripts/category_evidence_collect.py'
+      - 'scripts/ana_liste_saglik.py'
+      - 'test_ana_liste_saglik.py'
       - 'scripts/category_candidate_scoring.py'
       - 'scripts/category_candidate_media.py'
       - 'scripts/oncelikli_kanal_dogrula.py'
