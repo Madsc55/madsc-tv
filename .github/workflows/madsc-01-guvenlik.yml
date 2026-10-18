@@ -66,6 +66,7 @@ jobs:
               raise SystemExit("K1 KABUL REDDI: 26/26 gercek uygulama kaniti tamamlanmadi")
           PY
       - name: Kategoriye ait tum regresyon testleri
+        if: always()
         id: regressions
         shell: bash
         run: |
