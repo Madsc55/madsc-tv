@@ -6,6 +6,7 @@ on:
       - '.github/workflows/madsc-01-guvenlik.yml'
       - 'tools/protected_write_gate.py'
       - 'tests/test_protected_write_gate.py'
+      - 'tests/test_protected_gate_integration.py'
       - 'scripts/audit_workflow_security.py'
       - 'tests/test_workflow_security_audit.py'
       - 'tests/test_k1_failure_gate.py'
@@ -58,6 +59,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_legacy_permission_gap.py' -v
       - name: Korunan dosya yazma kapisi negatif testleri
         run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
+      - name: Gercek Git deposunda korunan yazma kapisi entegrasyon testleri
+        run: python -m unittest discover -s tests -p 'test_protected_gate_integration.py' -v
       - name: Kural 24 devre kesici negatif testleri
         run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
       - name: Workflow push risk envanteri regresyon testleri
