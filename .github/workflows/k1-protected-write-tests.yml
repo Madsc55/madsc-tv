@@ -19,6 +19,7 @@ on:
       - 'tests/test_k1_runtime_workflow_guard.py'
       - 'scripts/five_category_92_workflow_audit.py'
       - 'tests/test_five_category_92_workflow_audit.py'
+      - 'tests/test_legacy_permission_gap.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
@@ -53,6 +54,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
       - name: 92 eski workflow guvenlik regresyon testleri
         run: python -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
+      - name: Eski workflow izin mirasi regresyon testleri
+        run: python -m unittest discover -s tests -p 'test_legacy_permission_gap.py' -v
       - name: Korunan dosya yazma kapisi negatif testleri
         run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
       - name: Kural 24 devre kesici negatif testleri
