@@ -70,6 +70,21 @@ class SharedControlsTests(unittest.TestCase):
             self.assertEqual(result["status"], "BLOCKED")
             self.assertEqual(result["missing_consumers"], [{"control": "category_evidence", "category": "K5", "workflow": CATEGORIES["K5"]}])
 
+    def test_missing_checksum_blocks_gate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for name in CATEGORIES.values():
+                lines = ["python3 scripts/k1_protected_integrity.py --mode snapshot", "python3 scripts/k1_protected_integrity.py --mode check", "sha256sum -c checksum.txt"]
+                if name == CATEGORIES["K3"]:
+                    lines.pop()
+                if name == CATEGORIES["K5"]:
+                    lines.extend(["python3 scripts/category_evidence_collect.py", "python3 scripts/five_system_cutover_readiness.py"])
+                (folder / name).write_text(chr(10).join(lines), encoding="utf-8")
+            report = inspect(Path(tmp))
+            self.assertEqual(report["status"], "BLOCKED")
+            self.assertFalse(report["shared_controls"]["protected_integrity"]["consumers"]["K3"])
+
     def test_missing_consumer_blocks_all_category_acceptance(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
