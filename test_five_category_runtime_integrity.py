@@ -112,6 +112,35 @@ class RuntimeIntegrityTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("tmp/HEPSI/state.json", json.loads(result.stdout)["changed_paths"])
 
+    def test_isolated_backup_restore_drill_preserves_original_bytes(self):
+        """Rule 20/23: restore drill uses temporary files, never production playlists."""
+        import hashlib
+        import shutil
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            def git(*args):
+                subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
+            git("init", "-q")
+            protected_file = root / "YENILER.m3u"
+            original = b"#EXTM3U\\n#EXTINF:-1,Ornek\\nhttps://example.invalid/stream\\n"
+            protected_file.write_bytes(original)
+            git("add", "YENILER.m3u")
+            git("-c", "user.name=Test", "-c", "user.email=test@example.test", "commit", "-qm", "fixture")
+            manifest = root / "baseline.json"
+            def run(mode):
+                return subprocess.run([sys.executable, str(SCRIPT), "--mode", mode,
+                                       "--manifest", str(manifest)], cwd=root, capture_output=True, text=True)
+            self.assertEqual(run("snapshot").returncode, 0)
+            backup = root / "restore-drill-copy.bin"
+            shutil.copyfile(protected_file, backup)
+            expected = hashlib.sha256(original).hexdigest()
+            self.assertEqual(hashlib.sha256(backup.read_bytes()).hexdigest(), expected)
+            protected_file.write_bytes(b"corrupted")
+            self.assertNotEqual(run("check").returncode, 0)
+            shutil.copyfile(backup, protected_file)
+            self.assertEqual(hashlib.sha256(protected_file.read_bytes()).hexdigest(), expected)
+            self.assertEqual(run("check").returncode, 0)
+
     def test_general_maintenance_baseline_precedes_regression(self):
         workflow = (ROOT / '.github/workflows/madsc-05-genel-bakim.yml').read_text(encoding='utf-8')
         job = workflow.split('  genel-bakim:', 1)[1]
