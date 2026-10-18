@@ -312,6 +312,7 @@ def main():
             "git_push_command_count": item["git_push_command_count"],
             "force_push_command_count": item["force_push_command_count"],
             "push_signal_lines": item["push_signal_lines"],
+            "write_risk_commands": item["write_risk_commands"],
             "contents_write": item["contents_write"],
             "automatic_triggers": {
                 "cron_utc": item["cron_utc"],
