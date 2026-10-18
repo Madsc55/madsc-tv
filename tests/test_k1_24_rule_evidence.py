@@ -18,6 +18,12 @@ class K124RuleEvidenceTests(unittest.TestCase):
                                  rows[number]["automated_test_candidates"])
                 self.assertFalse(rows[number]["runtime_enforcement_verified"])
 
+    def test_evidence_counts_are_consistent(self):
+        report = audit()
+        self.assertEqual(report["partial_evidence_count"] + report["needs_evidence_count"], 26)
+        self.assertEqual(report["runtime_unverified_rule_numbers"], list(range(1, 27)))
+        self.assertFalse(report["runtime_acceptance_allowed"])
+
     def test_unverified_rules_are_not_marked_complete(self):
         result = audit()
         self.assertEqual(result["fully_verified_rules"], 0)
