@@ -72,6 +72,12 @@ class CentralCronRegressionTests(unittest.TestCase):
             original_inspect = audit.inspect
             with patch.object(audit, "ROOT", root), patch.object(audit, "inspect", side_effect=lambda: original_inspect(root)):
                 main()
+            import csv
+            with (root / "madsc_merkezi_denetim" / "92_workflow_esdegerlik_kabul_matrisi.csv").open(newline="", encoding="utf-8") as stream:
+                csv_rows = list(csv.DictReader(stream))
+            self.assertEqual(len(csv_rows), 92)
+            self.assertIn("write_permission_inherited_or_unknown", csv_rows[0])
+            self.assertEqual(next(row for row in csv_rows if row["legacy_workflow"] == "legacy-api-only.yml")["write_permission_inherited_or_unknown"], "True")
             queue = json.loads((root / "madsc_merkezi_denetim" / "92_workflow_yazma_risk_inceleme_kuyrugu.json").read_text())
             self.assertIn("legacy-api-only.yml", [item["file"] for item in queue["items"]])
             api_entry = next(item for item in queue["items"] if item["file"] == "legacy-api-only.yml")
