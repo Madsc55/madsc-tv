@@ -313,6 +313,9 @@ def main():
             "force_push_command_count": item["force_push_command_count"],
             "push_signal_lines": item["push_signal_lines"],
             "write_risk_commands": item["write_risk_commands"],
+            "review_priority": item["review_priority"],
+            "requires_protected_write_review": item["requires_protected_write_review"],
+            "required_acceptance_checks": item["required_acceptance_checks"],
             "contents_write": item["contents_write"],
             "automatic_triggers": {
                 "cron_utc": item["cron_utc"],
