@@ -7,19 +7,22 @@ permissions:
   contents: write
 jobs:
   update-epg:
+    name: Gunluk EPG uretimi ve korunan yazma kontrolu
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build independent EPG and coverage report
+      - name: Bagimsiz EPG ve kapsama raporu olustur
         run: |
           python3 scripts/build_epg.py
           python3 scripts/build_ibo_epg_test.py
-      - name: Verify five-channel XMLTV and record pending TV test
+      - name: Bes kanal XMLTV ve bekleyen TV testini dogrula
         run: python3 scripts/epg_tv_readiness.py
-      - name: Commit EPG output only
+      - name: Yalnizca EPG ciktilarini kontrollu kaydet
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
