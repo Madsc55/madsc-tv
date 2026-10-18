@@ -1,4 +1,4 @@
-name: Publish IPTV PNG logos
+name: IPTV PNG logolarini yayimla
 on:
   workflow_dispatch:
   push:
@@ -6,13 +6,15 @@ on:
       - 'logos/duzeltilmis-*.svg'
 jobs:
   publish:
+    name: PNG logo uretimi ve korunan yazma kontrolu
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - name: Convert SVG logos to PNG
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+      - name: SVG logolarini PNG bicimine donustur
         run: |
           python -m pip install cairosvg
           python - <<'PY'
@@ -20,7 +22,7 @@ jobs:
           for p in glob.glob('logos/duzeltilmis-*.svg'):
               cairosvg.svg2png(url=p,write_to=p[:-4]+'.png',output_width=320,output_height=320)
           PY
-      - name: Commit PNG logos
+      - name: PNG logolarini kontrollu kaydet
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
