@@ -34,6 +34,8 @@ def inspect(path):
     )
     has_write = (bool(WRITE.search(s)) or api_write or bool(GH_CLI_MUTATION.search(s))
                  or bool(GIT_MUTATION.search(s)) or bool(PYTHON_MUTATION.search(s)))
+    # A gate reference alone does not prove it runs before an indirect writer.
+    indirect_write = bool(PYTHON_MUTATION.search(s) or GH_CLI_MUTATION.search(s) or api_write)
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
@@ -59,6 +61,9 @@ def inspect(path):
         "multiple_push_signal": pushes > 1,
         "gate_reference_count": gates,
         "write_command_signal": has_write,
+        "indirect_write_signal": indirect_write,
+        "indirect_write_without_gate_reference": indirect_write and gates == 0,
+        "runtime_gate_order_verified": False,
         "risky_trigger": risky_triggers,
     }
 
@@ -74,6 +79,8 @@ def audit():
         "force_push_commands": sum(r["force_push_count"] for r in records),
         "workflows_with_multiple_push_signals": [r["path"] for r in records if r["multiple_push_signal"]],
         "gate_references": sum(r["gate_reference_count"] for r in records),
+        "indirect_writers_without_gate_reference": [r["path"] for r in records if r["indirect_write_without_gate_reference"]],
+        "runtime_gate_order_verified_workflows": 0,
         "records": records,
         "limitations": "Static signals only: YAML context, scripts, action side effects, branch rules and runtime enforcement need separate verification.",
     }
