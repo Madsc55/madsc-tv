@@ -56,11 +56,9 @@ def inspect(path):
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
-    if pushes and gates < pushes and not read_only_audit_exemption:
-        tier = "CRITICAL_UNGATED_PUSH"
-    elif read_only_audit_exemption:
+    if read_only_audit_exemption:
         tier = "READ_ONLY_AUDIT_TEXT"
-    elif pushes and gates < pushes:
+    elif pushes and (gates < pushes or pushes_without_prior_gate):
         tier = "CRITICAL_UNGATED_PUSH"
     elif has_write and (protected or risky_triggers):
         tier = "HIGH_WRITE_OR_TRIGGER"
@@ -107,6 +105,7 @@ def audit():
         "audit_text_exemption_review_paths": [r["path"] for r in records if r["audit_text_exemption_requires_review"]],
         "pushes_without_prior_gate_signal": sum(r["pushes_without_prior_gate_signal"] for r in records),
         "push_order_review_paths": [r["path"] for r in records if r["pushes_without_prior_gate_signal"]],
+        "unverified_push_execution_paths": [r["path"] for r in records if r["unverified_push_execution"]],
         "records": records,
         "limitations": "Static signals only: YAML context, scripts, action side effects, branch rules and runtime enforcement need separate verification.",
     }
