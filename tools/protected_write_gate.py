@@ -34,7 +34,8 @@ def blocked_paths(paths):
         if (folded in {item.casefold() for item in PROTECTED_EXACT}
                 or any(folded.startswith(prefix.casefold()) for prefix in PROTECTED_PREFIXES)
                 or PurePosixPath(name).suffix.lower() in (".m3u", ".m3u8")
-                or any(part.casefold() in ("favoriler", "hepsi", "yedekler") for part in parts)):
+                or any(part.casefold() in ("favoriler", "hepsi", "yedekler",
+                                            "epg", "logolar", "arsiv") for part in parts)):
             blocked.append(name)
     return blocked
 
