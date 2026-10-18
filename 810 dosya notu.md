@@ -3390,3 +3390,32 @@ Bu bölüm yalnız önceki D2 kayıtlarından türetilmiştir; kaynak dosyaları
 
 ### Dosya bazlı nihai rapor için kalan iş
 437 D2 dosyanın tekil satırları önceki manifestte kayıtlıdır. Şimdi yalnız bu mevcut kayıtlardan her satıra görev, çağrı bağı, bulgu, güvenlik etkisi, kanıt düzeyi ve açık iş sütunları oluşturulmalı; kanıt yoksa 'belirlenmedi' denmeli. Aynı 437 dosyayı yeniden okuyup yeni D2 sayılmamalı. PNG/görsel açılmayacak. Bu ek kayıt gerçek D3 veya yeni davranışsal test iddiası değildir.
+
+
+## 18 EKİM 2026 — MADSC55-TV YENİ DAL: ESKİ 810 DOSYA + 13 EK DOSYA UZLAŞTIRMASI
+
+**Kanıt:** GitHub Git Trees API, `madsc55-tv-yeniden-kurulum` dalı, commit `c9436afe269eec0e9ca847ad04ea24f76e6ed7d5`; bu kayıt öncesi tam ağaç 823 blob, 27 klasör, `truncated=false`. Yukarıdaki özgün 810 satırlı tekil manifest ile yol bazında karşılaştırma: **810/810 dosya halen mevcut; eksik=0; ek=13.** Orijinal manifestteki D2=595, D1=215, D3=0 değerleri değiştirilmedi. Bu 13 yeni dosya, özgün 810'a dahil edilmedi; 810/810 yeniden okundu iddiası yok.
+
+### Ek 13 dosyanın işlevsel bulguları
+1. `.github/workflows/madsc-hizli-on-kontrol.yml` — manuel ve belirli dal/path push tetikli hızlı beşli kontrol; geçiş engelleri, ortak K1–K5 kuralları, 92 envanteri ve rapor artifact adımları var. **Açık:** gerçek Actions çalıştırma/sonuç kanıtı; yeni yeniden-kurulum dalı push kapsamına girmeyebilir.
+2. `810 dosya notu.md` — özgün 810 manifest, D1/D2 bulguları ve önceki devirlerin korunan asıl kaydı; **silinmeyecek, eski bölümler korunacak**.
+3. `MADSC55_TV_YENI_KURULUM.md` — yeni dalın veri koruma ve yeniden kurulum sırası.
+4. `YENIDEN_KURULUM_KORUMA_PLANI.md` — silme öncesi yedek, manifest, restore ve bağımlılık kontrolü zorunlulukları.
+5. `docs/BESLI_SISTEM_GECIS_RUNBOOK.md` — K1–K5 geçiş işletim planı; **üretim geçiş onayı değildir**.
+6. `scripts/acceptance_26_92.py` — çoklu regresyon suite çalıştırıcısı ve 26/92 kanıt raporu; **açık:** gerçek çalışma zamanı ve 92 davranış kanıtları; kod geçişi onaylamıyor.
+7. `scripts/five_category_shared_controls.py` — beş kategori arası ortak kontrol bağımlılıklarının salt okunur envanteri; gerçek davranış kanıtı değil.
+8. `scripts/five_system_cutover_readiness.py` — geçiş hazırlık/engel raporu; otomatik geçiş yapmaz.
+9. `tests/test_five_category_shared_controls.py` — beş kategori ortak kontrol regresyon testleri; GitHub Actions sonucu ayrıca gerekli.
+10. `tests/test_five_system_cutover_readiness.py` — geçiş kapısının kendiliğinden onay vermemesini denetleyen testler.
+11. `tests/test_k1_runtime_workflow_guard.py` — K1 workflow koruma adımlarının kaynak düzeyi regresyon denetimi; cihaz/üretim kanıtı değil.
+12. `tests/test_legacy_permission_gap.py` — eski workflow izinlerinin bilinmediği durumda eşdeğerliğin bloke edilmesini denetler.
+13. `tests/test_protected_gate_integration.py` — geçici izole Git deposunda korunan yazma kapısı entegrasyon senaryoları; üretim yazma izni değildir.
+
+### Eski 810 için korunacak işlevsel bulgu grupları
+- **98 workflow YAML:** tetikleme, cron, dolaylı push/dispatch, yazma izinleri, koruma kapısı sırası; 92 eski workflow ile toplam workflow sayısı farklı kavramlardır.
+- **190 Python:** keşif, kanal testi, aday tekrar testi, IBO karar uygulama, arşiv/restore, EPG/logo ve yayın; doğrudan veya dolaylı korunan dosya yazan çağrılar temiz kurulumda özel kapıya bağlanmalı.
+- **51 JSON, 26 CSV, 27 M3U, 7 TXT, 3 XML, 35 MD:** geçmiş ölçüm, kaynak, aday, kanal/kategori, program, yedek, talimat ve denetim verileri; tek tek köken ve bağımlılık envanteri silmeden önce korunmalı.
+- **373 görsel:** önceki kullanıcı kararı gereği yeni PNG/JPG/WebP/SVG görsel kimlik incelemesi yapılmadı; 215 D1 görselin durumu değiştirilmedi.
+
+### Yeni kurulum için kritik sonuç
+Eski 810 dosya için ilk inceleme kanıtı **810/810**, semantik ilk inceleme **595/810**, kalan **215 görsel** kullanıcı kararıyla askıda; görsel olmayan **437/437 D2** önceki notlarda kayıtlıdır. Bu turda 13 ek dosyanın metin işlevleri incelendi; **D3=0**, 26/26 güvenlik ve 92/92 davranış kabulü kanıtlanmadı. **Hiçbir kanal, M3U, kategori, EPG, logo, yedek, eski workflow veya üretim dosyası değiştirilmedi.** Yeni temizliğe başlamadan bağımsız geri yüklenebilir yedek ve SHA256 manifesti hâlâ gereklidir.
