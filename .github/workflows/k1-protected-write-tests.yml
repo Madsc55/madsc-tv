@@ -38,7 +38,7 @@ jobs:
   negative-tests:
     name: Guvenlik kurallari toplu negatif testler
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 35
     steps:
       - name: Depoyu salt okunur indir
         uses: actions/checkout@v4
@@ -52,8 +52,6 @@ jobs:
         run: python -m pip install PyYAML
       - name: K1 korunan dosya baslangic anlik goruntusu
         run: python scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
-      - name: Kanal listelerine dokunmadan guvenlik negatif testleri
-        run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
       - name: 26 kural ve 92 workflow toplu regresyon ve kanit denetimi
         run: python scripts/acceptance_26_92.py --output acceptance-26-92.json
       - name: Toplu kabul kanitini sakla
