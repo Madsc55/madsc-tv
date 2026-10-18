@@ -3874,3 +3874,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 ### 18 Ekim K1 gerçek güvenlik regresyon testi iyileştirmesi
 - `.github/workflows/test-38-audit-selftest.yml` içindeki kendisiyle karşılaştırılan sabit korunan hedef testi kaldırıldı; `tools.protected_write_gate.blocked_paths` ve `scripts.k1_protected_integrity.protected` gerçek fonksiyonları korunan M3U, yedek, logo (`logos/`, `logolar/`), EPG ve korumasız normal dosya örnekleriyle denetleniyor. Commit `31af22c655f2eb4f704119b17b56f6cdd55068c2`.
 - **Henüz yeni toplu Actions run sonucu doğrulanmadı.** 26/26 K1 kabulü ve K2 geçişi yok. Korunan veri dosyaları ve main değiştirilmedi.
+
+
+### 18 Ekim K1 toplu kabul kapısı ve logos regresyonu
+- `.github/workflows/madsc-01-guvenlik.yml`: 26 kural raporu üretiminin başarı sayılması kaldırıldı; `rule_count_valid`, 26 satır ve her satırda `runtime_enforcement_verified=true` aranıyor. Aksi durumda toplu K1 **fail-closed**. Commit `839f048f3f11f3fb3bb9391cb94af8e2eb5f4404` (önceki açıklama commit `b183b84a`). Mevcut kanıt matrisi 0/26 runtime verified olduğu için toplu kabul kasıtlı başarısız olacaktır; kanıt olmadan 26/26 ilan edilemez.
+- `tests/test_protected_write_gate.py`: `logos/`, `LOGOS/`, nested `cache/logos/` ve `logolar/` hem `blocked_paths` hem `protected` gerçek fonksiyonlarıyla toplu regresyona eklendi. Commit `9eb41358c04349abdef872a33c51a09f52489d02`.
+- Son kod değişiklikleri için güncel GitHub Actions run ID/sonucu bu oturumda doğrulanamadı. Eski run `39132848699` önceki SHA'ya aittir; yeni kodu kanıtlamaz. K1 açık, K2 bekliyor. Korunan liste ve main değiştirilmedi.
