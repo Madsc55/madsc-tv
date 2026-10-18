@@ -72,6 +72,20 @@ class ProtectedWriteGateTests(unittest.TestCase):
         self.assertEqual(main(["--base", "deadbeef"]), 0)
 
     @patch("tools.protected_write_gate.subprocess.run")
+    def test_ignored_protected_paths_are_included(self, run):
+        from tools.protected_write_gate import git_changed_paths
+        values = [b"", b"", b"", b"", b"EPG/hidden.xml\\x00"]
+        run.side_effect = [subprocess.CompletedProcess([], 0, stdout=value) for value in values]
+        paths = git_changed_paths("trusted")
+        self.assertEqual(paths, ["EPG/hidden.xml"])
+        self.assertEqual(blocked_paths(paths), paths)
+
+    @patch("tools.protected_write_gate.subprocess.run")
+    def test_git_diff_failure_fails_closed(self, run):
+        run.side_effect = subprocess.CalledProcessError(128, ["git", "diff"])
+        self.assertEqual(main(["--base", "missing-ref"]), 2)
+
+    @patch("tools.protected_write_gate.subprocess.run")
     def test_unstaged_and_untracked_paths_are_included(self, run):
         from tools.protected_write_gate import git_changed_paths
         import subprocess
