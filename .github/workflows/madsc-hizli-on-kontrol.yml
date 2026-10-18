@@ -11,6 +11,7 @@ on:
       - 'tests/test_five_system_cutover_readiness.py'
       - 'scripts/five_category_preflight.py'
       - 'scripts/five_category_92_workflow_audit.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
       - 'scripts/five_category_shared_controls.py'
       - 'tests/test_five_category_shared_controls.py'
 permissions:
@@ -42,6 +43,8 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_five_category_shared_controls.py' -v
       - name: 92 eski workflow esdegerlik envanterini uret
         run: python3 scripts/five_category_92_workflow_audit.py
+      - name: 92 eski workflow regresyonlarini calistir
+        run: python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
       - name: Bes kategori altyapi on kontrolu
         run: python3 scripts/five_category_preflight.py
       - name: Besli sistem raporunu yukle
