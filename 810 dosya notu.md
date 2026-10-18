@@ -3338,3 +3338,14 @@ Bu manifest dosyaları tekrar saymadan kalıcı referans sağlar. Ayrıntılı i
 **Toplu kaynak sayımı:** 25/25 açıldı; 21 dosyada `contents: write` ifadesi, 20 dosyada `git push` metni, 21 dosyada `protected_write_gate` adı görüldü (bunlar düz metin arama sonuçlarıdır, çalıştırma/etkin izin sonucu değildir). **Yeni bulgu:** #051 sağlık denetimi önceki genel yazma-risk sınıfına rağmen doğrudan `contents:write` veya `git push` içermiyor; #085 ve #094'te `git push` var ama `contents:write` yok, test bağlamı ve etkin izinler ayrıca denetlenmeli. 
 
 **YAPILACAK:** özellikle IBO arşiv/karar işleyen #041–048, #056, #058, #060 ve PNG yayın #063 için çağrılan betiğin gerçek hedef yolları ile koruma kapısı sırasını satır bazında incele. `contents:write` veya `git push` varlığını tek başına açık ihlal sayma; çalıştırma yok. **KAYIT:** 810 benzersiz dosya sayımı değişmedi; 215 D1 görsel hâlâ gerçek piksel/kimlik incelemesi bekliyor. Kaynak dosyası değiştirilmedi.
+
+
+## 18 EKİM 2026 — KULLANICI KAPSAM KARARI: GÖRSELLERİ BIRAK, 810 ESKİ DOSYANIN İŞLEVSEL İÇERİĞİNE ODAKLAN
+**Açık talimat:** Kullanıcı 215 görselin/pikselin incelenmesini istemiyor; PNG/JPG/WebP ve diğer görsel incelemeleri durduruldu. Daha önce incelenen kaynakları tekrar tekrar açma; yalnız eksik içerik kanıtı ve 810 dosyanın içindeki işlev, veri, risk, çağrı zinciri üzerinde ilerle. Kod/workflow/playlist değiştirme yok; yalnız bu nota bulgu kaydı.
+
+**Orijinal 810 yolun tekil manifesti üzerinden yeniden hesaplanan kapsam:**
+- **Görsel olmayan dosya: 437/437 D2 ilk içerik incelemesi kayıtlı; D1=0.** Uzantılar: **190 `.py`, 98 `.yml`, 51 `.json`, 35 `.md`, 27 `.m3u`, 26 `.csv`, 7 `.txt`, 3 `.xml`**. Toplam **437**. Burada 'D2', önceki kaynak/metin/veri inceleme kaydıdır; davranışsal doğrulama, her satırın kusursuzluğu veya D3 kabulü değildir.
+- **Görseller: 373 yol** = 330 `.png` (118 D2, 212 D1) + 40 `.svg` (40 D2) + 2 `.jpg` (2 D1) + 1 `.webp` (1 D1). Görsel içerik ve kimlik incelemesi **kullanıcı kararıyla kapsam dışı**. Bunların daha önceki kayıtları silinmez.
+- **810/810 toplam = 437 görsel olmayan + 373 görsel.** Eski manifestte görsel olmayan hiçbir dosya 'hiç açılmamış' D0/D1 durumda değil. Dolayısıyla 'kalan 215' bir kod/metin inceleme kuyruğu değildir; 212 PNG, 2 JPG, 1 WebP'dir.
+- **Tekrarı önle:** 437 D2 metin dosyasını sırf ilerleme göstermek için baştan açma. Bunların içinde tespit edilmiş somut açık kanıt boşlukları (yazma yolu/çağrı zinciri, güvenlik kapısı, workflow/EPG davranışı, veri kökeni) önceki notlarda açık. İlgili yeni kanıt gerekirse hedefli aç, fakat bunu 'ilk defa incelendi' diye kaydetme.
+- **Bu turdaki yeni sonuç** gerçek kalan kapsamı belirleyen bu kesin sınıflandırmadır. D3=0, çünkü hiçbir uçtan uca davranışsal kabul bu sınıflandırmadan çıkmaz. Kullanıcının odağı yalnız **eski 810 dosyanın içerik ve işlev envanteri**; görsel incelemesini tekrar gündeme getirme.
