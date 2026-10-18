@@ -43,7 +43,7 @@ def inspect(root=ROOT):
     legacy_contents = {}
     new_category_files = {f"madsc-0{n}-" for n in range(1, 6)}
     for path in sorted(folder.glob("*.y*ml")):
-        if path.name == "k1-protected-write-tests.yml":
+        if path.name in ("k1-protected-write-tests.yml", "madsc-hizli-on-kontrol.yml"):
             continue  # New K1 security CI, not one of the original 92 legacy workflows.
         if any(path.name.startswith(prefix) for prefix in new_category_files):
             continue  # Five new category workflows are not among the original 92.
