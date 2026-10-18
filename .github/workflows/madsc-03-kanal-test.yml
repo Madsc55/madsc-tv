@@ -115,6 +115,7 @@ jobs:
       - name: Ana listeyi salt okunur 100 kanallik partide kontrol et
         id: playlist
         continue-on-error: true
+        timeout-minutes: 12
         run: python3 scripts/ana_liste_saglik.py --batch-size 100 --timeout 10
       - name: Kanal saglik raporunu ve test kapsamini dogrula
         id: coverage
