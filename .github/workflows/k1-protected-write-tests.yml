@@ -21,6 +21,12 @@ on:
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
+      - '.github/workflows/epg-gunluk.yml'
+      - '.github/workflows/publish-iptv-png-logos.yml'
+      - '.github/workflows/vod-guncelle.yml'
+      - '.github/workflows/madsc-02-kesif.yml'
+      - '.github/workflows/toplu-sistem-kontrol.yml'
+      - '.github/workflows/yedek-geri-yukleme-tatbikat.yml'
   workflow_dispatch:
 permissions:
   contents: read
