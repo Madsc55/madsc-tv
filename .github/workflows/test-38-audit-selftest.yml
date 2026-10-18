@@ -8,13 +8,15 @@ permissions:
   contents: read
 jobs:
   selftest:
+    name: Denetim testlerinin gercek koruma kontrolu
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
-      - uses: actions/checkout@v4
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Validate audit coverage and failure sensitivity
+      - name: Denetim kapsamını ve gerçek koruma işlevlerini doğrula
         run: |
           python3 - <<'PY'
           from pathlib import Path
