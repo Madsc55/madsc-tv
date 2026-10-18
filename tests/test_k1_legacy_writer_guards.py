@@ -32,7 +32,7 @@ class LegacyWriterGuards(unittest.TestCase):
     def test_epg_writer_is_main_only_and_protected_outputs_remain_blocked(self):
         from tools.protected_write_gate import blocked_paths
         source = (ROOT / "epg-gunluk.yml").read_text(encoding="utf-8-sig")
-        self.assertRegex(source, r"(?m)^    if: github\\.ref == 'refs/heads/main'$")
+        self.assertRegex(source, r"(?m)^    if: github\.ref == 'refs/heads/main'$")
         self.assertIn("tools/protected_write_gate.py", source)
         outputs = ("epg/madsc-epg.xml", "epg/ibo-test-epg.xml",
                    "epg/report.json", "epg/tv_kontrol_bekliyor.json")
@@ -42,7 +42,7 @@ class LegacyWriterGuards(unittest.TestCase):
     def test_png_writer_outputs_remain_blocked(self):
         from tools.protected_write_gate import blocked_paths
         source = (ROOT / "publish-iptv-png-logos.yml").read_text(encoding="utf-8-sig")
-        self.assertRegex(source, r"(?m)^    if: github\\.ref == 'refs/heads/main'$")
+        self.assertRegex(source, r"(?m)^    if: github\.ref == 'refs/heads/main'$")
         self.assertIn("tools/protected_write_gate.py", source)
         self.assertEqual(blocked_paths(["logos/duzeltilmis-ornek.png"]),
                          ["logos/duzeltilmis-ornek.png"])
