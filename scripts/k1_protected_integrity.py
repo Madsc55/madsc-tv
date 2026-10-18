@@ -103,6 +103,12 @@ def main():
     for path in paths:
         print(f"{path}: {'MISMATCH' if path in mismatches else 'MATCH'}")
     print(f"Protected tracked paths: {len(paths)}, mismatches: {len(mismatches)}")
+    if mismatches:
+        print("K1 PROTECTED MISMATCH SUMMARY (main vs HEAD):")
+        for path in mismatches:
+            state = ("BRANCH_ONLY" if path not in baseline else
+                     "MAIN_ONLY" if path not in current else "CONTENT_DIFF")
+            print(f"::error file={path}::K1 protected {state}: {path}")
     return 1 if mismatches else 0
 
 
