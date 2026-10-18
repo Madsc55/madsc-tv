@@ -62,6 +62,21 @@ class LegacyWriterGuards(unittest.TestCase):
         self.assertLess(script.index("tools/protected_write_gate.py --base origin/main"),
                         script.index("git push"))
 
+    def test_all_three_publishers_gate_before_commit_and_after_rebase(self):
+        for name in ("epg-gunluk.yml", "publish-iptv-png-logos.yml", "vod-guncelle.yml"):
+            with self.subTest(workflow=name):
+                source = (ROOT / name).read_text(encoding="utf-8-sig")
+                script = source.split("git diff --cached --quiet ||", 1)[1]
+                first_gate = script.index("tools/protected_write_gate.py --base HEAD")
+                commit = script.index("git commit -m")
+                rebase = script.index("git pull --rebase origin main")
+                second_gate = script.index("tools/protected_write_gate.py --base origin/main")
+                push = script.index("git push")
+                self.assertLess(first_gate, commit)
+                self.assertLess(commit, rebase)
+                self.assertLess(rebase, second_gate)
+                self.assertLess(second_gate, push)
+
     def test_report_missing_explicit_permissions(self):
         from scripts.k1_workflow_risk_inventory import audit
         report = audit()
