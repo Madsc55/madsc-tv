@@ -86,7 +86,9 @@ class RuntimeIntegrityTests(unittest.TestCase):
     def test_nested_protected_paths_and_m3u8_are_classified(self):
         from scripts.k1_protected_integrity import protected
         for name in ("tmp/HEPSI/order.json", "archive/FAVORILER/list.txt",
-                     "cache/yedekler/old.txt", "streams/list.m3u8"):
+                     "cache/yedekler/old.txt", "streams/list.m3u8",
+                     "cache/EPG/tv.xml", "tmp/logolar/logo.png",
+                     "old/arsiv/history.json"):
             with self.subTest(path=name):
                 self.assertTrue(protected(name))
         self.assertFalse(protected("madsc_kesif/report.json"))
