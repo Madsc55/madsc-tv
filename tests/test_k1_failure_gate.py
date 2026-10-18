@@ -13,15 +13,15 @@ def run(run_id, conclusion, status="completed", created="2026-10-16T00:00:00Z"):
 
 class FailureGateTests(unittest.TestCase):
     def test_two_failures_open_circuit(self):
-        stop, streak = should_stop([run(3, "failure"), run(2, "timed_out")], 4)
+        stop, streak = should_stop([run(4, None, "in_progress"), run(3, "failure"), run(2, "timed_out")], 4)
         self.assertEqual((stop, streak), (True, 2))
 
     def test_success_resets_failure_streak(self):
-        stop, streak = should_stop([run(3, "failure"), run(2, "success"), run(1, "failure")], 4)
+        stop, streak = should_stop([run(4, None, "in_progress"), run(3, "failure"), run(2, "success"), run(1, "failure")], 4)
         self.assertEqual((stop, streak), (False, 1))
 
     def test_cancelled_run_breaks_streak(self):
-        stop, streak = should_stop([run(3, "failure"), run(2, "cancelled"), run(1, "failure")], 4)
+        stop, streak = should_stop([run(4, None, "in_progress"), run(3, "failure"), run(2, "cancelled"), run(1, "failure")], 4)
         self.assertEqual((stop, streak), (False, 1))
 
     def test_active_and_current_runs_ignored(self):
@@ -41,6 +41,7 @@ class FailureGateTests(unittest.TestCase):
 
     def test_manual_dispatch_does_not_bypass_open_circuit(self):
         payload = {"workflow_runs": [
+            dict(run(4, None, "in_progress"), head_branch="main"),
             dict(run(3, "failure"), head_branch="main"),
             dict(run(2, "timed_out"), head_branch="main"),
         ]}
@@ -57,6 +58,7 @@ class FailureGateTests(unittest.TestCase):
 
     def test_main_filters_other_branches_and_encodes_branch(self):
         payload = {"workflow_runs": [
+            dict(run(4, None, "in_progress"), head_branch="madsc/bes-sistem-toplu-birlestirme"),
             dict(run(3, "failure"), head_branch="main"),
             dict(run(2, "failure"), head_branch="main"),
             dict(run(1, "success"), head_branch="madsc/bes-sistem-toplu-birlestirme"),
