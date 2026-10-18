@@ -3715,3 +3715,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - GitHub repository rulesets GET `[]` dondu. `main` branch protection GET ise 403 `Resource not accessible by integration` dondu: branch korumasi dogrulanamadi. Uydurma kanit yok.
 - K1 kural 21 eski writer tum runtime yollarinin kapatilmasi, kural 20/23 gercek restore drill ve diger 26 kuralin canli uygulama kanitlari icin ilave inceleme gerekiyor; tam bitis iddiasi yok.
 - Islem korunan playlist/EPG/logo/yedeklere dokunmadan, yalnizca devir notuna eklendi. K1 disindaki sistemlere sirasiz gecilmedi.
+
+
+## 18 Ekim 2026 — Kural 24 branch izolasyonu somut duzeltme
+- `tools/workflow_failure_gate.py` onceki uygulamada tum dallarin gecmisini API'den cekip devre kesiciye veriyordu; diger dal hatalari yanlis bloklamaya yol acabiliyordu. `3d2bfa37a6d732e162c295d4342b042fa632b21e` ile `GITHUB_REF_NAME` uzerinden URL-encoded branch API filtresi ve sonuc `head_branch` dogrulamasi eklendi.
+- `7202d8ed62695217fe382132c559a44dcae2d41d` ile `tests/test_k1_failure_gate.py` icinde sahte GitHub Actions API cevabinda diger dal hatalarinin yok sayilmasi ve slash'li branch URL kodlamasi icin negatif test eklendi.
+- Son kontrol: K1 run `39124666010` SHA `7202d8ed6` in_progress; eski K1 run `39124655501` in_progress; MADSC 05 `39124655500` SHA `3d2bfa37a` in_progress; 24. kural ayri test run `39124655491` SHA `3d2bfa37a` success. Yeni test SHA'si icin tamamlanmis sonuc henuz YOK, basarili diye raporlanmayacak.
+- IBO Player gercek cihaz dogrulamasi kullanicida; korunan kanal dosyalari degismedi. K1'in diger gercek uygulama denetimleri acik.
