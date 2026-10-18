@@ -100,6 +100,7 @@ jobs:
           done
           exit "${failed}"
       - name: Korunan dosyalar degismedi
+        id: protected_integrity
         if: always()
         run: |
           set -euo pipefail
@@ -116,6 +117,10 @@ jobs:
           fi
           if [[ "${{ steps.rule_evidence.outcome }}" != "success" ]]; then
             echo "::error::26 guvenlik kurali kanit raporu olusturulamadi veya atlandi."
+            failed=1
+          fi
+          if [[ "${{ steps.protected_integrity.outcome }}" != "success" ]]; then
+            echo "::error::Korunan dosya butunluk kontrolu basarisiz veya atlandi."
             failed=1
           fi
           if [[ "${{ steps.regressions.outcome }}" != "success" ]]; then
