@@ -9,7 +9,7 @@ import urllib.parse
 def should_stop(runs, current_id, threshold=2):
     current_run = next((r for r in runs if r.get("id") == current_id), None)
     current_created = current_run.get("created_at") if current_run else None
-    if current_created is None and any(r.get("id") != current_id for r in runs):
+    if current_created is None:
         # Missing current run metadata cannot establish which runs are earlier.
         # Deny rather than accidentally counting later failures as history.
         raise ValueError("Current workflow run missing from failure history")
