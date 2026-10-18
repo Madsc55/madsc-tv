@@ -21,6 +21,7 @@ on:
       - 'scripts/five_category_92_workflow_audit.py'
       - 'tests/test_five_category_92_workflow_audit.py'
       - 'tests/test_legacy_permission_gap.py'
+      - 'scripts/acceptance_26_92.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
@@ -53,34 +54,16 @@ jobs:
         run: python scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
       - name: Kanal listelerine dokunmadan guvenlik negatif testleri
         run: python -m unittest discover -s tests -p 'test_*security_audit.py' -v
-      - name: 92 eski workflow guvenlik regresyon testleri
-        run: python -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
-      - name: Eski workflow izin mirasi regresyon testleri
-        run: python -m unittest discover -s tests -p 'test_legacy_permission_gap.py' -v
-      - name: Korunan dosya yazma kapisi negatif testleri
-        run: python -m unittest discover -s tests -p 'test_protected_write_gate.py' -v
-      - name: Gercek Git deposunda korunan yazma kapisi entegrasyon testleri
-        run: python -m unittest discover -s tests -p 'test_protected_gate_integration.py' -v
-      - name: Kural 24 devre kesici negatif testleri
-        run: python -m unittest discover -s tests -p 'test_k1_failure_gate.py' -v
-      - name: Workflow push risk envanteri regresyon testleri
-        run: python -m unittest discover -s tests -p 'test_k1_workflow_risk_inventory.py' -v
-      - name: 26 guvenlik kurali kanit matrisi
-        run: |
-          python -m unittest discover -s tests -p 'test_k1_24_rule_evidence.py' -v
-          python scripts/k1_24_rule_evidence.py > k1-26-rule-evidence.json
-      - name: Yirmi alti kural kanitini sakla
+      - name: 26 kural ve 92 workflow toplu regresyon ve kanit denetimi
+        run: python scripts/acceptance_26_92.py --output acceptance-26-92.json
+      - name: Toplu kabul kanitini sakla
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: k1-26-rule-evidence
-          path: k1-26-rule-evidence.json
+          name: acceptance-26-92
+          path: acceptance-26-92.json
+          if-no-files-found: warn
           retention-days: 30
-      - name: Eski yazicilarin izin ve koruma regresyon testleri
-        run: python -m unittest discover -s tests -p 'test_k1_legacy_writer_guards.py' -v
-      - name: K1 runtime koruma workflow regresyon testleri
-        run: python -m unittest discover -s tests -p 'test_k1_runtime_workflow_guard.py' -v
-      - name: Korunan dosya calisma ani regresyon testleri
-        run: python3 -m unittest test_five_category_runtime_integrity -v
       - name: Korunan dosyalari ana dal ile karsilastir
         id: protected_integrity
         continue-on-error: true
@@ -109,8 +92,6 @@ jobs:
           retention-days: 30
       - name: Workflow calistirmadan envanter sayisini dogrula
         run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
-      - name: Besli sistem gecis kapisi regresyon testleri
-        run: python -m unittest discover -s tests -p 'test_five_system_cutover_readiness.py' -v
       - name: K1 korunan dosya calisma sonu butunluk kontrolu
         if: always()
         run: python scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
