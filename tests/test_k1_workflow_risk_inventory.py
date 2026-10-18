@@ -93,6 +93,17 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                 self.assertTrue(record["write_command_signal"], command)
                 self.assertEqual(record["tier"], "HIGH_WRITE_OR_TRIGGER")
 
+    def test_indirect_writer_without_gate_is_reported_not_runtime_verified(self):
+        record = self.inspect_text("permissions:\n  contents: read\nsteps:\n  - run: python3 scripts/publish_channels.py\n")
+        self.assertTrue(record["indirect_write_signal"])
+        self.assertTrue(record["indirect_write_without_gate_reference"])
+        self.assertFalse(record["runtime_gate_order_verified"])
+
+    def test_gate_reference_is_not_runtime_order_proof(self):
+        record = self.inspect_text("steps:\n  - run: python3 scripts/publish_channels.py\n  - run: python3 tools/protected_write_gate.py --base HEAD~1\n")
+        self.assertFalse(record["indirect_write_without_gate_reference"])
+        self.assertFalse(record["runtime_gate_order_verified"])
+
     def test_other_protected_paths_are_identified(self):
         for path in ("HEPSI", "FAVORILER", "YEDEKLER/backup.m3u", "EPG/tv.xml", "logolar/x.png", "arsiv/archive.json"):
             with self.subTest(path=path):
