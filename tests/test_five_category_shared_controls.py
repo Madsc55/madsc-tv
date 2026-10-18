@@ -47,6 +47,20 @@ class SharedControlsTests(unittest.TestCase):
             result = inspect(root)
             self.assertEqual(result["status"], "STATIC_READY", result["missing_consumers"])
 
+    def test_missing_k5_evidence_blocks_shared_gate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for name in CATEGORIES.values():
+                commands = ["python3 scripts/k1_protected_integrity.py --mode snapshot"]
+                if name == CATEGORIES["K5"]:
+                    commands += ["python3 scripts/five_system_cutover_readiness.py"]
+                (folder / name).write_text(chr(10).join(commands) + chr(10), encoding="utf-8")
+            result = inspect(root)
+            self.assertEqual(result["status"], "BLOCKED")
+            self.assertEqual(result["missing_consumers"], [{"control": "category_evidence", "category": "K5", "workflow": CATEGORIES["K5"]}])
+
     def test_missing_consumer_blocks_all_category_acceptance(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
