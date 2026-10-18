@@ -3761,3 +3761,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - IBO Player fiziksel/uygulama kontrolu kullanicida; kullanici Flex IPTV telefon uygulamasinda kategorilerin korundugunu bildirdi. Flex kontrolu IBO kaniti degildir.
 - Acik: tum 26 kuralin runtime davranissal kaniti; branch protection API 403; uretim writer yollari ve gercek restore kaniti. K1 tamamlanmadan sonraki gorevler tamamlandi sayilmayacak.
 - Ana listeler/YEDEKLER/YENILER/FAVORILER/cihaz favorileri, main ve PR #71 korunacak; kullanici izni olmadan degistirilmeyecek.
+
+
+## 18 Ekim 2026 — K1 26 kural toplu runtime denetimi: kanit ve engel ayrimi
+- Son kontrol: `1f6291b1f` K1 run `39125933949` completed/success; ayni SHA MADSC 05 run `39125933984` pending. `ab9fcfffe` K1 run `39125783724` success, MADSC 05 run `39125783783` cancelled. `6e529f3ad` K1 `39125716306` success, MADSC 05 `39125716343` cancelled. Bunlar 26 kuralin gercek uretimde tamamlandigi anlamina gelmez.
+- K1 toplu test workflow'u `k1-protected-write-tests.yml`: protected gate, 92 workflow statik denetimi, failure gate, workflow risk inventory, 26-rule evidence matrix, protected integrity ve temp restore testi tek job icinde; artefaktlar `k1-26-rule-evidence` ve `k1-workflow-risk-inventory`. Kanit matrisi tum `runtime_enforcement_verified` alanlarini false tutuyor, `fully_verified_rules=0`.
+- Statik risk envanterinde `CRITICAL_UNGATED_PUSH==0` kontrolu yalnizca metindeki push/gate sayimidir; tum shell dallarinin ve dolayli script/action yazma yollarinin gercek kontrolunu kanitlamaz. K1 gorev 3 (92 workflow yazma yolu denetimi) bu nedenle acik.
+- Sirali kapanis engelleri: (1) 26 kuralin production davranis kaniti ve test kapsami; (2) 92 workflow dolayli yazma yollarinin ayrintili denetimi; (3) branch protection API 403, canli yedek/restore ve cihaz testleri; (4) tekrarli push/trigger denetimi; sonra K2-K5. IBO Player testini kullanici sonra yapacak, simdi isteme.
+- Kullanici kisa kisa test ve parca parca rapor yerine toplu is ve toplu dogrulama istiyor. Korunan listeler, main, PR #71 degismeyecek. Aciklari kanitsiz kapatma.
