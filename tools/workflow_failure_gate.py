@@ -14,7 +14,7 @@ def should_stop(runs, current_id, threshold=2):
         # Deny rather than accidentally counting later failures as history.
         raise ValueError("Current workflow run missing from failure history")
     prior = [r for r in runs if r.get("id") != current_id and r.get("status") == "completed"
-             and r.get("created_at", "") <= current_created]
+             and r.get("created_at") and r["created_at"] <= current_created]
     prior.sort(key=lambda r: (r.get("created_at", ""), r.get("id", 0)), reverse=True)
     streak = 0
     for run in prior:
