@@ -44,6 +44,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Python ortamını hazırla
         uses: actions/setup-python@v5
         with:
@@ -66,7 +67,6 @@ jobs:
         id: protected_integrity
         continue-on-error: true
         run: |
-          git fetch --no-tags origin main
           python scripts/k1_protected_integrity.py | tee k1-protected-diff.log || { status=${PIPESTATUS[0]}; test "$status" -eq 1 && grep -q 'K1 PROTECTED MISMATCH SUMMARY' k1-protected-diff.log; }
           # Branch-to-main drift is evidence, not a runtime mutation.
           # Runtime protected-file snapshot/check remains enforced in K1-K5.
