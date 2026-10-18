@@ -3469,3 +3469,18 @@ Yeni içerik okuması yapılan dosyalar: `kontrol_notlari/YENI_KANAL_ARAMA_TALEP
 8. **Önceden yeşil olan beşli test:** Run 38630252033 geçmişte 5/5 job success; sonraki commitler veya 92/92 davranışsal eşdeğerlik için geçerli kabul kanıtı değildir.
 
 **İşlem sınırı:** Bu bölüm yalnız kaynak notlarından görev geri kazanımıdır; M3U, EPG, workflow, görseller ve diğer üretim verileri değiştirilmedi. 823 dosyanın tümünün yeniden ayrıntılı okunduğu iddia edilmez.
+
+ 
+## 19 EKİM 2026 — ESKİ IBO WORKFLOW'LARINDA YAZMA/TETİK ÇAKIŞMASI: 8 DOSYA KAYNAK İNCELEMESİ
+
+Bu turda kaynak içeriği yeniden açılan sekiz dosya: `.github/workflows/madsc-ibo-3-5281.yml`, `madsc-ibo-354-classify.yml`, `madsc-ibo-364-355-364.yml`, `madsc-ibo-398-16-49.yml`, `madsc-ibo-530-archive.yml`, `madsc-ibo-6115-second.yml`, `madsc-ibo-ilk-239.yml`, `madsc-ibo-kararlar-grup1.yml` (hepsi `.github/workflows/` altında). **Yeni yeniden okuma: 23/450; kalan 427.** Bu sayı 150 dosyalık tamamlanmış tur değildir.
+
+### Kritik somut bulgular
+- **Yedi geçmiş IBO karar workflow'unda `contents: write` ve `main` dalında koşullu uygulama var:** 354-classify, 364-355-364, 398-16-49, 530-archive, 6115-second, ilk-239, kararlar-grup1. Kaynaklar `scripts/archive_backups_*.py` veya `scripts/apply_ibo_*.py` çalıştırıyor; `CALISANLAR.m3u` ve arşiv/karar raporlarına `git add` + commit + `git push origin HEAD:main` yapmayı hedefliyor. **Risk:** geçmişte alınmış IBO sıra/kararlarının gelecekteki playlist'e yeniden uygulanması, yanlış kanal ayırma veya korunmuş veriye yazma.
+- Yedi dosyada `tools/protected_write_gate.py --base origin/main` çağrısı mevcut; **ancak bu kapının gerçek güvenliği, önceki yazma etkileri, kapsamı ve geçiş sırası çalıştırılarak doğrulanmış değil**. Kapı varlığı tek başına güvenli üretim anlamına gelmez.
+- 364/398/530/6115/ilk239/grup1 kaynaklarında `git diff --exit-code -- YABANCI_KANALLAR.m3u` gibi kontrol var. Bu tek korunan yolun değişmediğini denetler; `CALISANLAR.m3u` yazımına ayrıca onay ve kapı gerekir.
+- **3-5281 farklı:** `contents: read`, `workflow_dispatch` ve push tetikleyicisi var, yalnız `Safe dry-run notice` adımı görülüyor. Geçmiş kararı otomatik uygulayan diğer workflow'larla aynı güvenlik statüsüne sokulamaz.
+- **Yapılacak:** yedi yazan workflow'un her biri için push tetik `paths` kapsamı, main dalındaki tetiklenebilirlik, idempotence, eski karar veri sürümü, hedef playlist snapshot'ı, protected gate gerçek davranışı ve onay kaydı incelenmeli. Beşli sistem bunları körlemesine tekrar çalıştırmamalı; önce salt okunur davranış matrisi oluşturulmalı.
+- **Yapılmayacak:** eski IBO sıra numaralarını yeni listeye uygulamak, yedi workflow'u tetiklemek, geçmiş kararları yeniden üretim listesine yazmak, kullanıcı izni olmadan korunan listeyi değiştirmek.
+
+**Durum:** Kaynak okumasına dayalı risk tespiti; workflow çalıştırılmadı, üretim değişmedi. Eski 810 manifest ve önceki bulgular aynen korundu.
