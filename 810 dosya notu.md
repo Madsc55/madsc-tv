@@ -3279,3 +3279,10 @@ Bu manifest dosyaları tekrar saymadan kalıcı referans sağlar. Ayrıntılı i
 ### YENİ SOHBETE KESİN DEVİR
 - 810/810 yol uzlaştırıldı, D2 595, D1 215, D0 0, D3 kanıtlı 0. İlk erişimi bekleyen dosya yok; semantik ilk incelemesi bekleyen 215 görsel var, kullanıcı PNG istemiyor. Gerçek 26 güvenlik kuralı/92 workflow/EPG/restore/IBO kanıtları açık.
 - Önce bu bölüm ve önceki ayrıntılı kayıtları oku; aynı dosyaları yeni inceleme diye tekrar sayma. D2/D3 kapsam farkını koru. Kaynak, workflow veya playlist değiştirmeden önce kullanıcıdan açık izin al.
+
+
+## 18 EKİM 2026 — KALAN 215 GÖRSEL İÇİN SHA BAZLI DERİNLEŞTİRME VE ERİŞİM ENGELİ
+- 810 dosyalık son manifestte D1 olan **215/215 görselin** özgün tree kaynaklı 40 karakterlik Git blob SHA kaydı eski notlardan tekil yol ile eşleştirilip bulundu; SHA kaydı bulunamayan **0**. Bu metadata/kanıt uzlaştırmasıdır, görselin piksellerinin incelenmesi değildir.
+- **Gerçek mükerrer blob bulgusu:** #189 `logos/auto/0779b126a79286a57a25dd0f.png` ve #300 `madsc_kesif/candidate_pngs/0779b126a79286a57a25dd0f.png` aynı blob SHA `b243ce8f90c725dff71886e5842eedf3cf5620e6` taşıyor. **YAPILACAK:** aday/logo referanslarının bilinçli tekrar mı yoksa gereksiz kopya mı olduğunu kanal kimliği ve referans kullanımıyla doğrula. **YAPILMAYACAK:** sadece aynı SHA nedeniyle logo silme veya playlist eşleşmesini değiştirme.
+- **ERİŞİM ENGELİ:** `logo_deneme/candidates/akustik.png` için hem GitHub `fetch_file` hem SHA ile `fetch_blob` çağrısı `UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89` verdi. Dosyanın PNG imza baytı `0x89` UTF-8 metin olarak çözülemiyor; bu durum **PNG'nin bozuk olduğuna kanıt değildir**, araçtaki ikili aktarım engelidir. Bu turda 215 görselin pikselleri görülmedi, D2 sayısı artırılmadı. Gerekirse ikili dosyaları bozmadan taşıyan ZIP/yerel kopya veya görüntü destekli erişim yöntemiyle devam edilmeli.
+- **DEĞİŞMEYEN KESİN SAYIM:** 810/810 ilk erişim kaydı; D2 595, D1 215, D0 0, D3 kabul kanıtlı 0. SHA eşleştirme D1'i D2 yapmaz. Kullanıcının son `Kalanları devam et` komutuyla inceleme sürdürülüyor; korunan dosyalar değiştirilmedi.
