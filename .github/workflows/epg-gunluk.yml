@@ -8,6 +8,7 @@ permissions:
 jobs:
   update-epg:
     name: Gunluk EPG uretimi ve korunan yazma kontrolu
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Depoyu indir
