@@ -321,7 +321,7 @@ def main():
             "migration_decision": item["migration_decision"],
         }
         for item in report["items"]
-        if item["git_push_command_count"] or item["contents_write"]
+        if item["git_push_command_count"] or item["contents_write"] or item["write_risk_commands"]
     ]
     push_review.sort(key=lambda item: (
         -item["force_push_command_count"],
