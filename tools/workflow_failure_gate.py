@@ -4,6 +4,7 @@ import json
 import os
 import sys
 import urllib.request
+import urllib.parse
 
 def should_stop(runs, current_id, threshold=2):
     prior = [r for r in runs if r.get("id") != current_id and r.get("status") == "completed"]
@@ -25,13 +26,17 @@ def main():
     if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
         print("Elle başlatılan kurtarma çalışması: devre kesici geçmişi kontrol edilmeden denemeye izin verildi.")
         return
-    url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/runs?per_page=100"
+    branch = os.environ["GITHUB_REF_NAME"]
+    url = (f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/runs"
+           f"?per_page=100&branch={urllib.parse.quote(branch, safe='')}")
     req = urllib.request.Request(url, headers={
         "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28"})
     with urllib.request.urlopen(req, timeout=25) as response:
         runs = json.load(response)["workflow_runs"]
+    # GitHub branch query is an API-side filter; verify returned data as well.
+    runs = [r for r in runs if r.get("head_branch") == branch]
     stop, streak = should_stop(runs, current)
     print(f"Previous consecutive failed/timed-out runs: {streak}; threshold: 2")
     if stop:
