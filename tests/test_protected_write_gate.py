@@ -59,11 +59,11 @@ class ProtectedWriteGateTests(unittest.TestCase):
     def test_unstaged_and_untracked_paths_are_included(self, run):
         from tools.protected_write_gate import git_changed_paths
         import subprocess
-        values = [b"", b"", b"YENILER.m3u\x00", b"yedekler/new.txt\x00"]
+        values = [b"", b"", b"YENILER.m3u\x00", b"yedekler/new.txt\x00", b"cache/HEPSI/ignored.txt\x00"]
         run.side_effect = [subprocess.CompletedProcess([], 0, stdout=value) for value in values]
         paths = git_changed_paths("trusted")
-        self.assertEqual(paths, ["YENILER.m3u", "yedekler/new.txt"])
-        self.assertEqual(len(run.call_args_list), 4)
+        self.assertEqual(paths, ["YENILER.m3u", "yedekler/new.txt", "cache/HEPSI/ignored.txt"])
+        self.assertEqual(len(run.call_args_list), 5)
 
 
 from tests.test_k1_legacy_writer_guards import LegacyWriterGuards  # included in CI discovery; checks explicit permissions
