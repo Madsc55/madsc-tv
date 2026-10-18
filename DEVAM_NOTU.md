@@ -3863,3 +3863,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 ### 18 Ekim K1 artifact içeriği — kural bazlı gerçek sayım
 - Run `39132848699`, SHA `ed05497d6aacfb51082e495bfe6f3e7b4b47c4f9`, artifact `k1-26-rule-evidence` (12137774437) ZIP içindeki `k1-26-rule-evidence.json` doğrudan okundu: **26 belgelenmiş kural, 0 FULLY VERIFIED, 14 PARTIAL_EVIDENCE, 12 NEEDS_EVIDENCE**. Bütün satırlarda `runtime_enforcement_verified=false`. Kısmi: 1,2,3,4,5,6,15,17,19,21,22,24,25,26. Eksik: 7,8,9,10,11,12,13,14,16,18,20,23. Dosya/test varlığı gerçek runtime kanıtı değildir.
 - Öncelik: yazma kapısı ve `logos/` açığı; 4 korunan farkın nedeni; çapraz-run devre kesici; sonra aday geçmişi/restore ve gerçek cihazın kullanıcıya bırakılan kararları. K1 kabul edilmedi, K2 bekliyor. Bu ekleme yalnız nottur; kod ve workflow değişmedi.
+
+
+### 18 Ekim K1 `logos/` koruma açığı kod düzeltmesi
+- `tools/protected_write_gate.py`: `logos/` hem prefix hem path component koruma listesine eklendi. Commit `d7de40de5a9bbc3e6a9b4f67eeda07e4660f7c42`.
+- `scripts/k1_protected_integrity.py`: `logos/` hem prefix hem path component koruma listesine eklendi. Commit `9f8ec3edcd41e9c33bfeec4d2881d0b3813269dd`.
+- Kodlar sadece çalışma dalında değişti; `logos/` içindeki dosyalar, korunan listeler, main ve PR71 değiştirilmedi. **Bu değişiklikler için gerçek GitHub Actions run sonucu henüz doğrulanmadı; K1 açık.** Sonraki adım: bir toplu negatif regresyon + 26 kural kanıt matrisi ve push sırası/dolaylı yazma yolları denetimi.
