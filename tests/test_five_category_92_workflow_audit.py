@@ -221,6 +221,23 @@ class CentralCronRegressionTests(unittest.TestCase):
         self.assertEqual(len(set(groups_seen)), 3)
         self.assertEqual(batch(rows, start, 100)[1], batch(rows, start + timedelta(days=3), 100)[1])
 
+    def test_daily_health_rotation_handles_exact_and_short_batches(self):
+        from datetime import date, timedelta
+        from scripts.ana_liste_saglik import batch
+
+        start = date(2026, 10, 18)
+        for count, expected_groups in ((1, 1), (100, 1), (101, 2), (200, 2), (201, 3)):
+            rows = list(range(count))
+            visited = []
+            for day in range(expected_groups):
+                selected, group, total_groups = batch(rows, start + timedelta(days=day), 100)
+                self.assertEqual(total_groups, expected_groups)
+                self.assertLess(group, expected_groups)
+                self.assertLessEqual(len(selected), 100)
+                visited.extend(selected)
+            self.assertCountEqual(visited, rows)
+            self.assertEqual(len(visited), count)
+
     def test_shadow_crons_do_not_count_as_verified_behavior(self):
         root = Path(__file__).resolve().parents[1]
         discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
