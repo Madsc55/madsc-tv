@@ -22,6 +22,22 @@ class LegacyPermissionGapTests(unittest.TestCase):
             ))
             self.assertEqual(report["behavioral_parity_verified_count"], 0)
 
+    def test_job_write_override_is_flagged_even_with_workflow_read(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for i in range(92):
+                (folder / f"legacy-{i:02}.yml").write_text(
+                    "name: legacy\non:\n  workflow_dispatch:\npermissions:\n  contents: read\njobs:\n  writer:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - run: echo ok\n", encoding="utf-8",
+                )
+            report = inspect(Path(tmp))
+            self.assertTrue(all(row["contents_write"] for row in report["items"]))
+            self.assertTrue(all(
+                "MIXED_READ_WRITE_PERMISSION_REQUIRES_REVIEW" in row["migration_gap_reasons"]
+                for row in report["items"]
+            ))
+            self.assertEqual(report["behavioral_parity_verified_count"], 0)
+
     def test_inherited_permissions_are_reported_as_gap(self):
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp) / ".github" / "workflows"
