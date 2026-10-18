@@ -80,7 +80,7 @@ jobs:
         continue-on-error: true
         run: |
           git fetch --no-tags origin main
-          python scripts/k1_protected_integrity.py | tee k1-protected-diff.log || test "${PIPESTATUS[0]}" -eq 1
+          python scripts/k1_protected_integrity.py | tee k1-protected-diff.log || { status=${PIPESTATUS[0]}; test "$status" -eq 1 && grep -q 'K1 PROTECTED MISMATCH SUMMARY' k1-protected-diff.log; }
           # Branch-to-main drift is evidence, not a runtime mutation.
           # Runtime protected-file snapshot/check remains enforced in K1-K5.
       - name: Korunan dosya farki kanitini sakla
