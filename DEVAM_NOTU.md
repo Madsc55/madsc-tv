@@ -3730,3 +3730,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `test_five_category_runtime_integrity.py` dosyasina yeni nested klasor + m3u8 siniflandirma regresyon testi `c57ffecee5959bef24ebb617ff4ce9a9ac979a22` commit'iyle eklendi. Son SHA icin Actions sonucu HENUZ teyit edilmedi; yeni test basarili diye isaretlenmeyecek.
 - GitHub Actions run `39125035782` SHA `ef6bc7685` in_progress idi; MADSC 05 `39125035870` ayni SHA icin cancelled. Bu eski SHA'dir; son test commit'i icin yeniden sorgulama gerekiyor.
 - IBO Player cihaz testini kullanici yapacak. Korunan kanal listeleri, yedekler, main ve PR #71 degistirilmedi. 26 kuralin tam runtime denetimi henuz kapanmadi.
+
+
+## 18 Ekim 2026 — K1 runtime dosya butunlugu ve toplu test kaniti
+- SHA `c57ffecee5959bef24ebb617ff4ce9a9ac979a22`: K1 run `39125046235` success; MADSC 05 run `39125046336` success. Iki toplu test de ayni SHA icin gercek Actions sonucuyla teyit edildi.
+- Yeni gercek eksik: `scripts/k1_protected_integrity.py` icindeki `protected_untracked` filtresi `tmp/HEPSI/state.json` gibi ic ice korunan dizinde yeni olusturulan dosyayi kontrol disinda birakiyordu. `ef6d8b05a536e288d8165e55e0afd6a070e0e0ba` ile nested korunan klasorleri de kapsayacak sekilde duzeltildi; `git ls-files --others --exclude-standard` kullanildi.
+- `6e529f3ad25e9dba798d389237e312b38e55cad5` ile gecici git deposunda yeni untracked `tmp/HEPSI/state.json` olusumunu yakalayan negatif runtime testi eklendi. Bu yeni SHA icin tamamlanmis Actions sonucu henuz yok; basarili denemez.
+- `39125707038` K1 ve `39125706855` MADSC 05, onceki `ef6d8b05a` SHA'si icin son sorguda in_progress. Son test commit'i icin yeniden bakilacak.
+- IBO Player kullanicida; branch protection API 403 ve canli backup/restore ile tum production writer denetimi halen acik. Kanal listeleri/main/PR #71 degismedi.
