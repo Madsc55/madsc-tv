@@ -3886,3 +3886,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - GitHub Actions job `117691373954` logundan birebir: `epg/ibo-test-epg.xml`, `epg/madsc-epg.xml`, `epg/report.json`, `epg/tv_kontrol_bekliyor.json` **MISMATCH**. Toplam 47 korunan takipli yol, 4 farklı. Bu 4 EPG yoluna dokunulmadı; farkın kök nedeni ve yetkili değişiklik politikası incelenmeli.
 - Run 39132848699 eski SHA için failure; son kod commit `9eb41358` için PR tabanlı workflow run araması boş döndü; bu sorgu push/dispatch koşularını kapsamadığından güncel CI yoktur diye kesin sonuç çıkarılamaz.
 - K1 kabul kapısı 26/26 runtime kanıtı arıyor; halen kanıtlar tamamlanmadı.
+
+
+### 18 Ekim K1 Kural 24 — manuel dispatch devre kesici açığı kapatıldı
+- `tools/workflow_failure_gate.py`: `GITHUB_EVENT_NAME=workflow_dispatch` için kontrolsüz erken `return` kaldırıldı. Manuel başlatılan iş de aynı dal/workflow geçmişi için başarısızlık zinciri kontrolüne giriyor. Commit `2437f77f251ba8b7e4c5248312c21bff771b222e`.
+- `tests/test_k1_failure_gate.py`: iki geçmiş failure/timed_out sonrası manuel dispatch çağrısının `SystemExit(1)` ile engellendiğini ve API kontrolünün yapıldığını doğrulayan negatif regresyon eklendi. Commit `0cf61f4af18e7c11556c83aa522a737523c6236d`.
+- Gerçek Actions koşusunda doğrulanmadı; 26/26 runtime kabulü henüz yok. Korunan veri dosyaları değiştirilmedi.
