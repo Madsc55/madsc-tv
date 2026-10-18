@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: madsc-protected-publish-main
+  cancel-in-progress: false
 jobs:
   update:
     name: VOD meta veri guncellemesi ve yazma denetimi
