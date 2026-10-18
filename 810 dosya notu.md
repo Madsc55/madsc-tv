@@ -2098,7 +2098,7 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 
 
 ## 18 EKİM 2026 — ÜÇÜNCÜ 100 DOSYALIK TOPLU TEKNİK/VERİ TARAMASI
-- **100 ayrı dosyaya erişim:** #451–526 arasındaki 76 PNG dosyası base64 olarak açıldı ve IHDR çözünürlük/8-bit RGBA/PNG imzası doğrulandı; #568–605 arasındaki önceki turda ele alınmayan 24 rapor/veri dosyasının içerik erişimi denendi. **Büyük #569, #598, #599 ve #603 dosyaları içerik okuma arayüzünde boş döndüğü için tam okunmadı.** Bunları tamamlanmış içerik incelemesi sayma. PNG'ler de piksel düzeyinde görsel logo incelemesi sayılmaz.
+- **100 ayrı dosyaya erişim:** #451–526 arasındaki 76 PNG dosyası base64 olarak açıldı ve IHDR çözünürlük/8-bit RGBA/PNG imzası doğrulandı; #568–605 arasındaki önceki turda ele alınmayan 23 rapor/veri dosyasının içerik erişimi denendi; ayrıca #606 logo/spor raporu okundu. **Büyük #569, #598, #599 ve #603 dosyaları içerik okuma arayüzünde boş döndüğü için tam okunmadı.** Bunları tamamlanmış içerik incelemesi sayma. PNG'ler de piksel düzeyinde görsel logo incelemesi sayılmaz.
 - **#568** `madsc_kesif/eski_bozuk_linkler.csv` — 469632 bayt, blob `58ced31a5f1a`. Eski bozuk URL CSV: YENIDEN_TEST_ARSIVI; bozukluk kalıcı karar değil.
 - **#569** `madsc_kesif/gecmis.json` — 4801000 bayt, blob `6d9164b0f38e`. 4.8 MB geçmiş JSON: içerik bu araçla boş döndü; tam okunmadı, yeniden erişim şart.
 - **#572** `madsc_kesif/ibo_354_iki_kategori_rapor.json` — 413 bayt, blob `4930e9b2ef8d`. 354 kayıt: 332 kullanıcı çalışmıyor bildirimi +20 yabancı; son 2 korundu.
@@ -2122,6 +2122,7 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 - **#603** `madsc_son_kontrol/results.json` — 4842506 bayt, blob `779f7d97ce79`. 4.84 MB final results JSON: büyük dosya içeriği boş döndü, tam okunmadı.
 - **#604** `madsc_son_kontrol/summary.json` — 632 bayt, blob `99792033326d`. 3800 tamamlanmış teknik aday: 255 continuity fail, 1055 content review, 2332 identity pending, 158 timeout; ready=0.
 - **#605** `madsc_uc_asama.py` — 2755 bayt, blob `095fdb241c54`. Üç aşama ffmpeg/ffprobe doğrulama; playlist yazmaz, 6 saat aralık ve 30 sn medya kontrolü.
+- **#606** `raporlar/ANA_LISTE_LOGO_SPOR_2026-10-12.json` — 3978 bayt, blob `dbdc4462d9ed`. 12 Ekim tarihli açık kullanıcı izni kapsamındaki dört mevcut logo (Diyanet, Deniz, BBC, Bakü) için kaynak URL, SHA256 ve çözünürlük kanıtı; ayrıca iki spor kategorisi ekleme kaydı. Tarihsel işlem raporu yeni değişiklik yetkisi değildir; PNG'lerin gerçek görsel kimliği ayrı doğrulanmalı.
 - **#451** `madsc_kesif/candidate_pngs/a04b4cea5e9e50a0ee24af8f.png` — 640×427, PNG imzası geçerli, 8-bit RGBA (renk türü 6), 37785 bayt, blob `62bb801d7bc6`. **Görsel logo kimliği, şeffaflık kalitesi ve telif kontrolü yapılmadı.**
 - **#452** `madsc_kesif/candidate_pngs/a1681b4088c66996b4db4029.png` — 210×146, PNG imzası geçerli, 8-bit RGBA (renk türü 6), 10603 bayt, blob `da7fe346a9e4`. **Görsel logo kimliği, şeffaflık kalitesi ve telif kontrolü yapılmadı.**
 - **#453** `madsc_kesif/candidate_pngs/a186d8a6e20502d20605f25b.png` — 512×512, PNG imzası geçerli, 8-bit RGBA (renk türü 6), 12332 bayt, blob `51f6b74f5d55`. **Görsel logo kimliği, şeffaflık kalitesi ve telif kontrolü yapılmadı.**
