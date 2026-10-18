@@ -102,6 +102,10 @@ jobs:
             echo "::error::Guvenlik rapor denetimi basarisiz veya atlandi."
             failed=1
           fi
+          if [[ "${{ steps.rule_evidence.outcome }}" != "success" ]]; then
+            echo "::error::26 guvenlik kurali kanit raporu olusturulamadi veya atlandi."
+            failed=1
+          fi
           if [[ "${{ steps.regressions.outcome }}" != "success" ]]; then
             echo "::error::Guvenlik regresyon testleri basarisiz veya atlandi."
             failed=1
