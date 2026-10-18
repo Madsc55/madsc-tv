@@ -3706,3 +3706,12 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Kullanici telefondaki Flex IPTV uygulamasini bizzat kontrol etti ve kategorilerin aynen yerinde durdugunu bildirdi. Bu, Flex IPTV'de kategori gorunumunun korunduguna dair kullanici beyanidir; bagimsiz teknik log veya IBO Player kaniti degildir.
 - IBO Player gercek cihaz kontrolu halen bekliyor; Flex IPTV sonucu IBO Player testi yerine gecmez. Kullanici aksam bakabilir; su anda baska cihaz kontrolu istenmeyecek.
 - Asistanin diger 26-kural kod/Actions/koruma/yedek denetimleri devam edecek. Korunan yayin listelerine dokunulmayacak.
+
+
+## 18 Ekim 2026 — K1 toplu testler yesil; cihaz ve yonetim kanitlari ayri
+- Son dogrulanan K1 test run `39122794844`, SHA `fe840a06a3092813e7e6b2aad8da8cee4508d988`, completed/success; `k1-26-rule-evidence` ve `k1-workflow-risk-inventory` artifactleri mevcut.
+- MADSC 05 run `39122794885`, AYNI SHA, completed/success; 5/5 job success: guvenlik, kesif, kanal testi, arsiv/yedek, genel denetim. Bu otomatik testler tamamlandi; 26 kuralin tum gercek dunya senaryolari tamamlandi anlamina gelmez.
+- Kullanici Flex IPTV telefon uygulamasinda kategorilerin aynen durdugunu dogruladi; IBO Player gercek cihaz testini kendisi yapacak. IBO kural 15 ve ilgili cihaz gereklilikleri BEKLIYOR.
+- GitHub repository rulesets GET `[]` dondu. `main` branch protection GET ise 403 `Resource not accessible by integration` dondu: branch korumasi dogrulanamadi. Uydurma kanit yok.
+- K1 kural 21 eski writer tum runtime yollarinin kapatilmasi, kural 20/23 gercek restore drill ve diger 26 kuralin canli uygulama kanitlari icin ilave inceleme gerekiyor; tam bitis iddiasi yok.
+- Islem korunan playlist/EPG/logo/yedeklere dokunmadan, yalnizca devir notuna eklendi. K1 disindaki sistemlere sirasiz gecilmedi.
