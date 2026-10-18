@@ -30,6 +30,32 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", item["required_acceptance_checks"])
 
+    def test_api_only_write_is_in_risk_queue(self):
+        # A workflow may dispatch or mutate through gh api without git push.
+        import json
+        from unittest.mock import patch
+        from scripts.five_category_92_workflow_audit import main
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "legacy-api-only.yml").write_text(
+                "name: API only\\non:\\n  workflow_dispatch:\\njobs:\\n  api:\\n    steps:\\n"
+                "      - run: gh api repos/o/r/actions/workflows/other.yml/dispatches -X POST\\n",
+                encoding="utf-8",
+            )
+            for number in range(91):
+                (folder / f"legacy-filler-{number:02d}.yml").write_text(
+                    f"name: Filler {number}\\non:\\n  workflow_dispatch:\\njobs: {{}}\\n",
+                    encoding="utf-8",
+                )
+            from scripts import five_category_92_workflow_audit as audit
+            with patch.object(audit, "ROOT", root):
+                main()
+            queue = json.loads((root / "madsc_merkezi_denetim" / "92_workflow_yazma_risk_inceleme_kuyrugu.json").read_text())
+            self.assertIn("legacy-api-only.yml", [item["file"] for item in queue["items"]])
+            self.assertEqual(queue["total_review_items"], len(queue["items"]))
+
     def test_protected_playlist_write_requires_manual_review(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
