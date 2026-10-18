@@ -36,7 +36,7 @@ class SharedControlsTests(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             for name in CATEGORIES.values():
-                lines = ["name: fixture", "run: |", "  python3 scripts/k1_protected_integrity.py --mode snapshot"]
+                lines = ["name: fixture", "run: |", "  python3 scripts/k1_protected_integrity.py --mode snapshot", "  python3 scripts/k1_protected_integrity.py --mode check", "  sha256sum -c checksum.txt"]
                 if name == CATEGORIES["K5"]:
                     lines += ["  python3 scripts/category_evidence_collect.py", "  python3 scripts/five_system_cutover_readiness.py"]
                 (folder / name).write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
@@ -49,7 +49,7 @@ class SharedControlsTests(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             for name in CATEGORIES.values():
-                lines = ["name: fixture", "run: |", "  python3 scripts/k1_protected_integrity.py --mode snapshot"]
+                lines = ["name: fixture", "run: |", "  python3 scripts/k1_protected_integrity.py --mode snapshot", "  python3 scripts/k1_protected_integrity.py --mode check", "  sha256sum -c checksum.txt"]
                 if name == CATEGORIES["K5"]:
                     lines += ["- run: python3 scripts/category_evidence_collect.py", "  python3 scripts/five_system_cutover_readiness.py"]
                 (folder / name).write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
@@ -62,7 +62,7 @@ class SharedControlsTests(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             for name in CATEGORIES.values():
-                commands = ["python3 scripts/k1_protected_integrity.py --mode snapshot"]
+                commands = ["python3 scripts/k1_protected_integrity.py --mode snapshot", "python3 scripts/k1_protected_integrity.py --mode check", "sha256sum -c checksum.txt"]
                 if name == CATEGORIES["K5"]:
                     commands += ["python3 scripts/five_system_cutover_readiness.py"]
                 (folder / name).write_text(chr(10).join(commands) + chr(10), encoding="utf-8")
