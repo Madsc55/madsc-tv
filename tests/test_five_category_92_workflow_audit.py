@@ -76,6 +76,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             with (root / "madsc_merkezi_denetim" / "92_workflow_esdegerlik_kabul_matrisi.csv").open(newline="", encoding="utf-8") as stream:
                 csv_rows = list(csv.DictReader(stream))
             self.assertEqual(len(csv_rows), 92)
+            self.assertIn("cron_requires_default_branch_activation", csv_rows[0])
             self.assertIn("write_permission_inherited_or_unknown", csv_rows[0])
             self.assertEqual(next(row for row in csv_rows if row["legacy_workflow"] == "legacy-api-only.yml")["write_permission_inherited_or_unknown"], "True")
             queue = json.loads((root / "madsc_merkezi_denetim" / "92_workflow_yazma_risk_inceleme_kuyrugu.json").read_text())
