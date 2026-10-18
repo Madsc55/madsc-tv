@@ -21,6 +21,19 @@ class SharedControlsTests(unittest.TestCase):
             self.assertEqual(report["status"], "BLOCKED")
             self.assertFalse(report["shared_controls"]["protected_integrity"]["all_consumers_present"])
 
+    def test_real_python_invocations_are_recognized(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for name in CATEGORIES.values():
+                lines = ["name: fixture", "run: |", "  python3 scripts/k1_protected_integrity.py --mode snapshot"]
+                if name == CATEGORIES["K5"]:
+                    lines += ["  python3 scripts/category_evidence_collect.py", "  python3 scripts/five_system_cutover_readiness.py"]
+                (folder / name).write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+            result = inspect(root)
+            self.assertEqual(result["status"], "STATIC_READY", result["missing_consumers"])
+
     def test_missing_consumer_blocks_all_category_acceptance(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
