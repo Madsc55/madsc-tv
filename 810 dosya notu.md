@@ -1989,3 +1989,109 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 - **#725** `test_final_validation.py` (tree blob `2b0477ed9cea`, 5433 bayt): Final validation süreklilik kanıtı sınır testleri.
 - **Toplu risk özeti:** #626, #628, #682, #686, #688, #690, #691 ve #696 doğrudan korunan playlist/YENILER yazma riski taşıyor. #636–639 ve #665 artifact/subprocess bağımlılığıyla dolaylı yazma/provenance riski taşıyor. #655/#678–680 statik K1 taramaları runtime 26 kural doğrulaması değil. #663/#674/#689 restore/backup kanıtı harici bağımsız yedek ve gerçek üretim restore ile eşit tutulmamalı. #699–725 test dosyaları incelendi fakat çalıştırılmadı; yeşil Actions kanıtı iddia edilmiyor.
 - **Sayım:** önceki **332/810** ilk içerik incelemesi + bu tur **100 yeni benzersiz dosya** = **432/810 ilk içerik incelemesi**, **378 kalan**. #626–725 tamamı içerik okunmuş, **sıradaki kod/test #726**. Önceki eksik #301–567 PNG görsel değerlendirmesi ve #568–605 veri incelemeleri ayrıca bekliyor. Tam davranışsal/cihaz onayı sayacı ile karıştırma. Korunan hiçbir dosya değiştirilmedi.
+
+
+## 18 EKİM 2026 — İKİNCİ 100 DOSYALIK TOPLU İÇERİK İNCELEMESİ
+- GitHub branch üzerinden **100 yeni benzersiz dosya içeriği açıldı**: **#726–810 (85 dosya)** + **#570,#571,#574,#576,#577,#578,#581,#582,#583,#586,#587,#588,#589,#591,#592 (15 dosya)**. Hepsi bu turda okunmuştur; sabit tree blob SHA ve byte sayıları aşağıdadır. Test/işlem çalıştırılmadı.
+- **#570** `madsc_kesif/ibo_354_335_354_yabanci_arsiv.m3u` — blob `f0d263f78555`, 3042 B. **İçerik bulgusu:** 20 yabancı arşiv girdisi; playback bilinmiyor.
+- **#571** `madsc_kesif/ibo_354_3_334_turk_calismaz_arsiv.m3u` — blob `56800f2d7595`, 60323 B. **İçerik bulgusu:** 332 kullanıcı bildirimiyle çalışmayan Türk arşivi; oynatıcıda bu tur test edilmedi.
+- **#574** `madsc_kesif/ibo_364_355_364_yabanci_arsiv.m3u` — blob `a7dbcf285071`, 1300 B. **İçerik bulgusu:** 10 yabancı arşiv girdisi; sınıflandırma playback değil.
+- **#576** `madsc_kesif/ibo_398_16_49_yabanci_arsiv.m3u` — blob `605d52a07558`, 5062 B. **İçerik bulgusu:** 34 yabancı arşiv girdisi; orijinal URL ve sıra korunmalı.
+- **#577** `madsc_kesif/ibo_3_5281_ayrilanlar.m3u` — blob `f241557d8d48`, 852900 B. **İçerik bulgusu:** 5252 arşiv M3U kaydı; 3–5281 kullanıcı kararıyla karşılaştır.
+- **#578** `madsc_kesif/ibo_3_5281_kararlar.csv` — blob `10642c564481`, 755489 B. **İçerik bulgusu:** 11367 snapshot sıra temelli karar CSV'si; 5280 veri satırı, yeni liste sırası ile karıştırma.
+- **#581** `madsc_kesif/ibo_530_399_sonrasi_yabanci_arsiv.m3u` — blob `2eafd94ae0ac`, 20785 B. **İçerik bulgusu:** 132 yabancı arşiv girdisi; TV/kanal kimliği ayrı.
+- **#582** `madsc_kesif/ibo_6115_ikinci_ayrilanlar.m3u` — blob `e41211baab52`, 899705 B. **İçerik bulgusu:** 5585 arşiv M3U kaydı; kayıpsız korunmalı.
+- **#583** `madsc_kesif/ibo_6115_ikinci_kararlar.csv` — blob `4b72f25a643c`, 724121 B. **İçerik bulgusu:** 6115 snapshot sıra temelli karar CSV; gömülü satır sonu olan kanal isimleri var, satır sayısı CSV kayıt sayısı değildir.
+- **#586** `madsc_kesif/ibo_kullanici_kararlari.csv` — blob `e41291f4d941`, 27921 B. **İçerik bulgusu:** 233 satırlık kullanıcı kararı CSV; cihaz bildirimi otomatik test sonucu değil.
+- **#587** `madsc_kesif/ibo_kullanici_secimi_2026-10-13_3-5281.md` — blob `de265489ccb7`, 1744 B. **İçerik bulgusu:** 3–5281 kapsamı ve dokunulmaz 1–2/5282 sonrası açık; sıra snapshot şart.
+- **#588** `madsc_kesif/kaynak_erisim_raporu.csv` — blob `9a308605286b`, 1359 B. **İçerik bulgusu:** 15 kaynak erişim satırı; anlık erişim süreklilik/IBO kanıtı değil.
+- **#589** `madsc_kesif/kaynak_guncelligi.csv` — blob `048b87f09e5a`, 14707 B. **İçerik bulgusu:** 157 kaynak güncellik satırı; geçmiş tarih bugünkü canlı erişim değil.
+- **#591** `madsc_kesif/logo_candidates.json` — blob `404b896fde3d`, 23410 B. **İçerik bulgusu:** logo adayları ve stream SHA eşlemesi; URL/kanal kimliği görsel doğrulanmalı.
+- **#592** `madsc_kesif/ozet.json` — blob `a8469cb72478`, 20928 B. **İçerik bulgusu:** 2026-10-14 keşif özeti 1039 ana liste bildiriyor; tarihsel snapshot, güncel kanal sayısı değil.
+- **#726** `test_five_category_92_workflow_audit.py` — blob `798f347b7889`, 14374 B. **İçerik bulgusu:** 92 eski workflow regresyonu; eksik davranışsal eşdeğerlik BLOCKED.
+- **#727** `test_five_category_actions_evidence.py` — blob `557da38744cf`, 3501 B. **İçerik bulgusu:** Actions koşu kanıtı/başarısızlık gizlememe testleri.
+- **#728** `test_five_category_candidate_media.py` — blob `9d0920e8dc03`, 12737 B. **İçerik bulgusu:** K3 medya zaman/SHA/önbellek hata güvenliği testleri.
+- **#729** `test_five_category_candidate_scoring.py` — blob `850db7d35973`, 7198 B. **İçerik bulgusu:** K2 puanlama ve 24 saat kararlılık, otomatik onay yok.
+- **#730** `test_five_category_disaster_behavior.py` — blob `489da6f0dcca`, 2303 B. **İçerik bulgusu:** İzole Git felaket kurtarma tatbikatı testleri; harici yedek değil.
+- **#731** `test_five_category_discovery_behavior.py` — blob `0429a8720f01`, 3579 B. **İçerik bulgusu:** İzole keşif arşiv yaşam döngüsü testleri.
+- **#732** `test_five_category_discovery_history.py` — blob `aefcf6478ee8`, 8349 B. **İçerik bulgusu:** Keşif geçmişi merge, ata SHA ve bozuk artifact koruma testleri.
+- **#733** `test_five_category_evidence_transfer.py` — blob `140d696ae6b4`, 9613 B. **İçerik bulgusu:** Kanıt aktarımı aynı run/commit/branch ve çakışma koruması testleri.
+- **#734** `test_five_category_logo_quality.py` — blob `6dc34d96f506`, 2103 B. **İçerik bulgusu:** Logo kalite uyarısı regresyonu; görsel doğrulama değil.
+- **#735** `test_five_category_permission_gate.py` — blob `a86f0d7860da`, 1465 B. **İçerik bulgusu:** Shadow workflow izinleri ve kapı testleri.
+- **#736** `test_five_category_priority_csv.py` — blob `6a1e1c80215c`, 2272 B. **İçerik bulgusu:** Öncelikli medya CSV başarısızlık/URL/sütun koruma testleri.
+- **#737** `test_five_category_runtime_integrity.py` — blob `0285bd75900e`, 2742 B. **İçerik bulgusu:** Korunan yol değişiklikleri ve izole restore testleri.
+- **#738** `test_five_category_stability_history.py` — blob `b35343aff233`, 8484 B. **İçerik bulgusu:** 25 saatlik kararlılık/ara başarısızlık zaman kanıtı testleri.
+- **#739** `test_five_category_wide_scan.py` — blob `8cb7ade0371d`, 7913 B. **İçerik bulgusu:** Geniş tarama kuyruk/hash/üç yönlü birleştirme testleri.
+- **#740** `test_five_system_migration_audit.py` — blob `91166d6c0b9d`, 1939 B. **İçerik bulgusu:** Beş workflow varlığı eşdeğerlik sayılmama testi.
+- **#741** `test_sistem_saglik_denetimi.py` — blob `1ea03c460930`, 6328 B. **İçerik bulgusu:** Sistem sağlık/izin/kod ve rapor uyarı testleri.
+- **#742** `test_tek_merkez_tetikleme.py` — blob `8028008a0977`, 5257 B. **İçerik bulgusu:** Tek merkez tetikleme ve gereksiz push engeli testleri.
+- **#743** `test_toplu_durum_raporu.py` — blob `27b0e7118230`, 1057 B. **İçerik bulgusu:** Beş aşama açık kabul raporu testi.
+- **#744** `test_verification_pipeline.py` — blob `b1e4f9eb42f7`, 2519 B. **İçerik bulgusu:** Doğrulama ffmpeg süre/frameler ve batch hata testleri.
+- **#745** `test_workflow_failure_gate.py` — blob `120f226468aa`, 855 B. **İçerik bulgusu:** Ardışık iki başarısızlık devre kesici testi.
+- **#746** `test_yedekler_teknik_aktar.py` — blob `eecc32a81b41`, 1093 B. **İçerik bulgusu:** YEDEKLER teknik aday/kimlik izin sınırı testi.
+- **#747** `tests/test_channel_name_normalization.py` — blob `cf90fa4a0f72`, 2436 B. **İçerik bulgusu:** Kanal adı normalizasyonu farklı profil regresyonu.
+- **#748** `tests/test_discovery_m3u_parser.py` — blob `a6ccc9a54e46`, 1481 B. **İçerik bulgusu:** M3U ayrıştırıcı metadata ve URL durum regresyonu.
+- **#749** `tests/test_evidence_reader.py` — blob `bb3d0563103f`, 1353 B. **İçerik bulgusu:** JSON kanıt okuyucu missing/invalid ayrımı testi.
+- **#750** `tests/test_five_category_92_workflow_audit.py` — blob `0fb23c9fa38f`, 10815 B. **İçerik bulgusu:** 92 workflow korunan yazma/cron davranışsal fixture testleri.
+- **#751** `tests/test_gelismis_medya_zaman_asimi.py` — blob `903e75708f61`, 778 B. **İçerik bulgusu:** Timeout bozuk kanal değildir regresyon testi.
+- **#752** `tests/test_k1_24_rule_evidence.py` — blob `dcc31c030516`, 651 B. **İçerik bulgusu:** 26 güvenlik kuralı matrisini runtime ispatı saymama testi.
+- **#753** `tests/test_k1_failure_gate.py` — blob `7780fdc764ac`, 1194 B. **İçerik bulgusu:** K1 ardışık başarısızlık/branch devre kesici testleri.
+- **#754** `tests/test_k1_legacy_writer_guards.py` — blob `95f1db4d441f`, 2209 B. **İçerik bulgusu:** 15 eski writer için main-only statik gate testi.
+- **#755** `tests/test_k1_workflow_risk_inventory.py` — blob `f7d2b68474cb`, 3132 B. **İçerik bulgusu:** force push ve API mutation risk envanteri testleri.
+- **#756** `tests/test_kaynak_guven_puani.py` — blob `86e296f1e90b`, 2927 B. **İçerik bulgusu:** Kaynak güven puanı ve test edilmemiş aday ayrımı testleri.
+- **#757** `tests/test_protected_write_gate.py` — blob `3f4dc1ead486`, 2607 B. **İçerik bulgusu:** Korunan yol fail-closed olumsuz güvenlik testleri.
+- **#758** `tests/test_refactor_syntax.py` — blob `e674f419c595`, 969 B. **İçerik bulgusu:** Refactor AST sözdizimi testi; çalıştırma kanıtı değil.
+- **#759** `tests/test_workflow_security_audit.py` — blob `f7e22d8a9e7c`, 2566 B. **İçerik bulgusu:** Workflow write/token/force push statik tarama testleri.
+- **#760** `tools/candidate_status_summary.py` — blob `88a73837d76f`, 1907 B. **İçerik bulgusu:** Aday durum raporlayıcı; salt okunur kaynak, çıktı opsiyonel.
+- **#761** `tools/change_simulation.py` — blob `657cac88b528`, 1421 B. **İçerik bulgusu:** Playlist değişiklik simülasyonu/rollback planı; uygulama değil.
+- **#762** `tools/channel_stability.py` — blob `c420578d47ed`, 2215 B. **İçerik bulgusu:** 7/30 günlük JSONL kararlılık raporu; geçmiş örnek sınırlı.
+- **#763** `tools/cuma_denetim_uyari_ozeti.py` — blob `09a5db996b4f`, 2243 B. **İçerik bulgusu:** Cuma denetimi uyarı özeti; kanallara yazmaz.
+- **#764** `tools/eksik_turk_kanal_takibi.py` — blob `fe63daf98b67`, 2148 B. **İçerik bulgusu:** Eksik Türk kanalları watchlist; gerçek oynatma testi yok.
+- **#765** `tools/genel_sistem_bakimi.py` — blob `05dcd6a1e2e5`, 1527 B. **İçerik bulgusu:** Haftalık sistem dosya/sağlık raporu; canlı kanal değil.
+- **#766** `tools/genis_kaynak_taramasi.py` — blob `d0330c0fca9a`, 6268 B. **İçerik bulgusu:** 155 kaynak haftalık/aylık metadata taraması; stream kimliği değil.
+- **#767** `tools/guncel_test_durum_ozeti.py` — blob `39e5b1301e98`, 2726 B. **İçerik bulgusu:** Mevcut test durum raporu; test başlatmaz.
+- **#768** `tools/haftalik_ana_liste_denetimi.py` — blob `1c7e87aebe73`, 4480 B. **İçerik bulgusu:** Haftalık ffprobe ve EPG teknik denetimi; cihaz onayı değil.
+- **#769** `tools/kaynak_kapsam_denetimi.py` — blob `f76608b5c7ba`, 1600 B. **İçerik bulgusu:** Kaynak kapsamı statik envanteri; erişim kanıtı değil.
+- **#770** `tools/logo_epg_audit.py` — blob `b8ac681c42b5`, 1585 B. **İçerik bulgusu:** M3U logo/EPG kimlik kalite statik denetimi.
+- **#771** `tools/protected_write_gate.py` — blob `eb0275957b80`, 2909 B. **İçerik bulgusu:** Önerilen Git değişikliklerinde korunan yol fail-closed kontrolü; tüm runtime writer'ları kendiliğinden engellemez.
+- **#772** `tools/sistem_saglik_denetimi.py` — blob `24add22d795c`, 8977 B. **İçerik bulgusu:** Repo sistem sağlık denetimi; rapor yazar, playlist değil.
+- **#773** `tools/son_kontrol_yedekler_aktar.py` — blob `41fa55347797`, 2944 B. **İçerik bulgusu:** 3/3 ve 5dk teknik kanıtla YEDEKLER'e yazabilen araç; KORUNAN WRITER, izin gerekir.
+- **#774** `tools/test_adaylarini_yedege_hazirla.py` — blob `bdcf7c42be94`, 1904 B. **İçerik bulgusu:** Teknik adayları ayrı M3U hazırlar; onay değil.
+- **#775** `tools/workflow_failure_gate.py` — blob `f9d5cbcc824d`, 1772 B. **İçerik bulgusu:** Actions iki başarısızlık fail-chain gate; API hatasında fail-closed.
+- **#776** `tools/workflow_safety.py` — blob `86b493c67d88`, 1797 B. **İçerik bulgusu:** Hız sınırı/retry ve hassas URL parametre maskeleme yardımcıları.
+- **#777** `tools/yedekler_guvenli_ekle.py` — blob `7144545982f5`, 3035 B. **İçerik bulgusu:** Kimlik+üç aşama kanıtlı adayı YEDEKLER'e ekleyebilir; KORUNAN WRITER.
+- **#778** `verification_pipeline.py` — blob `32537a5fb54e`, 5791 B. **İçerik bulgusu:** Kalıcı aday doğrulama ffmpeg pipeline; medya kanıtı kimlik değil.
+- **#779** `vod/IBO-AYRI-KURULUM.md` — blob `d3b21e408bfa`, 1154 B. **İçerik bulgusu:** IBO ayrı VOD kurulum belgesi; 968 sayısı tarihsel.
+- **#780** `vod/README.md` — blob `b2842e42b91b`, 1084 B. **İçerik bulgusu:** VOD çalışma alanı ana TV listesinden ayrı.
+- **#781** `vod/TEST-FILMLER.m3u` — blob `f7430ccbae83`, 240 B. **İçerik bulgusu:** Big Buck Bunny yasal 30sn ayrı VOD deneme M3U.
+- **#782** `vod/guncel-bolumler.json` — blob `be5fbe6a2f2c`, 10605 B. **İçerik bulgusu:** Dizi bölüm takvimi JSON; oynatma linki değil.
+- **#783** `vod/katalog.json` — blob `16dc63aeeb87`, 1725 B. **İçerik bulgusu:** VOD katalog şeması; test klibi ile üretim içerik ayrımı.
+- **#784** `vod/kategoriler.json` — blob `9885af475081`, 6607 B. **İçerik bulgusu:** VOD kategori sözlüğü; gerçek katalog/IBO onayı değil.
+- **#785** `yanlis_pozitif_koruma.py` — blob `f4d270f11001`, 2001 B. **İçerik bulgusu:** HLS yanlış pozitif koruması; aralıklı test tek başına kimlik değil.
+- **#786** `yedekler/ADAY_KANALLAR_2026-10-09.txt` — blob `aaedfe3d9d92`, 2323 B. **İçerik bulgusu:** YEDEK yeni aday TXT/M3U; yayın/cihaz onayı yok.
+- **#787** `yedekler/CALISANLAR_ONCESI_YENILER_2026-10-10.m3u` — blob `7f08824f68f1`, 151864 B. **İçerik bulgusu:** YENILER öncesi 2026-10-10 ana playlist snapshot; değiştirme.
+- **#788** `yedekler/GECMIS_KANAL_KARARLARI_KORUMA_2026-10-09.md` — blob `ff45c8f9a5d3`, 3292 B. **İçerik bulgusu:** Geçmiş kanal kararları kısmi envanter; eksiksiz değil.
+- **#789** `yedekler/IBO_BAGIMSIZ_TEST_ADAYLARI_2026-10-10.m3u` — blob `a79ce9f4c13c`, 1112 B. **İçerik bulgusu:** IBO bağımsız test adayları; onay yok.
+- **#790** `yedekler/IBO_ESKI_CALISMAYANLAR_2026-10-09.m3u` — blob `6646085708ab`, 11495 B. **İçerik bulgusu:** Eski çalışmayanlar arşiv M3U; geçmiş etiket güncel başarısızlık değil.
+- **#791** `yedekler/IBO_TEKNIK_TEST_GECMEYENLER_2026-10-09.m3u` — blob `dba30ee4af3c`, 41772 B. **İçerik bulgusu:** Teknik test geçmeyenler arşivi; timeout kalıcı bozukluk değil.
+- **#792** `yedekler/IBO_TUM_KONTROL_ADAYLARI_2026-10-09.m3u` — blob `85c9bd5f4719`, 41981 B. **İçerik bulgusu:** IBO toplu kontrol adayları M3U; test sonucu değil.
+- **#793** `yedekler/IBO_YEDEK_EKSIK_KANALLAR_2026-10-09.txt` — blob `3d663d731c7c`, 714 B. **İçerik bulgusu:** Eski çalışmayanlardan URL bulunamayan adlar; otomatik silme yok.
+- **#794** `yedekler/IBO_YEDEK_KALITE_RAPORU_2026-10-09.csv` — blob `9067d3e64a8e`, 35320 B. **İçerik bulgusu:** Yedek kalite CSV; DOGRULANAMADI ile çalışmıyor ayrılmalı.
+- **#795** `yedekler/KORUMA_ONCESI_YEDEKLER_YENILER_2026-10-10.m3u` — blob `5bc2aa703371`, 206250 B. **İçerik bulgusu:** Koruma öncesi YEDEKLER/YENILER snapshot; orijinal sıra/URL koru.
+- **#796** `yedekler/SOZCU_AKIT_OZEL_TEST_2026-10-09.csv` — blob `947292d3cd2b`, 4054 B. **İçerik bulgusu:** Sözcü/Akit ffprobe CSV; DNS hatası kalıcı kanal kimliği değil.
+- **#797** `yedekler/TARAMA-TEST-SONUCLARI.m3u` — blob `19c4d86e3217`, 11163 B. **İçerik bulgusu:** İlk HTTP/HLS geçiş M3U; IBO oynatma onayı yok.
+- **#798** `yedekler/TUM_TEKNIK_TEST_ADAYLARI_2026-10-09.m3u` — blob `234e3f4e9f2f`, 70269 B. **İçerik bulgusu:** Teknik test adayları M3U; kimlik doğrulanmadı.
+- **#799** `yedekler/TV5_ADAY_2026-10-09.m3u` — blob `212f1ad82ba7`, 127 B. **İçerik bulgusu:** TV5 tek aday M3U; cihaz testi bekliyor.
+- **#800** `yedekler/YENILER-SILINEN-TEST-ADAYLARI-2026-10-10.m3u` — blob `4355988510f5`, 11674 B. **İçerik bulgusu:** Kullanıcı silinmesini istediği YENILER test adayları arşivi; koru.
+- **#801** `yedekler/YENILER_KAYNAK_HATALARI_2026-10-09.txt` — blob `5432fc32dc8e`, 187 B. **İçerik bulgusu:** YENILER kaynak DNS hata TXT; geçici olabilir.
+- **#802** `yedekler/YENILER_KAYNAK_HATALARI_2026-10-09_GRUP1.txt` — blob `5432fc32dc8e`, 187 B. **İçerik bulgusu:** #801 ile aynı Git blob; iki ayrı dosya ama birebir içerik.
+- **#803** `yedekler/YENILER_TARAMA_RAPORU_2026-10-09.csv` — blob `3f558355546b`, 760880 B. **İçerik bulgusu:** YENILER geniş tarama CSV; 9 kolon, teknik/medya sonuçları ayrı.
+- **#804** `yedekler/YENILER_TARAMA_RAPORU_2026-10-09_GRUP1.csv` — blob `29b81e42695f`, 800122 B. **İçerik bulgusu:** YENILER grup1 CSV; 10 kolon, logo adayı var; #803 ile şema farkı.
+- **#805** `yedekler/ibo_yedek_kalite_tespit.py` — blob `3539c625acc1`, 2500 B. **İçerik bulgusu:** YEDEKLER kalite ffprobe aracı; isimleri düzenleyebilir, yazma riski kontrol et.
+- **#806** `yedekler/sozcu_akit_ozel_test.py` — blob `bad8bdc771d5`, 1824 B. **İçerik bulgusu:** Sözcü/Akit özel ffprobe test betiği; ağ/cihaz sonuçları farklı.
+- **#807** `yedekler/teknik_adaylari_aktar.py` — blob `0caf202e1dd5`, 3392 B. **İçerik bulgusu:** Actions artifact teknik adaylarını ayrı M3U aktarır; run/provenance kontrolü.
+- **#808** `yedekler/tekrar_test_390.py` — blob `6ac44e5c4c17`, 2790 B. **İçerik bulgusu:** 390 kanal tekrar ffprobe testi; ana listeyi değiştirmediği iddiası kodla doğrulanmalı.
+- **#809** `yeni_aday_on_test.py` — blob `e88c3c3e8e69`, 2682 B. **İçerik bulgusu:** Yeni aday URL/ffprobe ön testi; stream kimliği değil.
+- **#810** `yeni_kanal_tara.py` — blob `9dcbdfa078a5`, 8609 B. **İçerik bulgusu:** Çok kaynaklı yeni kanal tarama; rapor yazar, ana listeyi okur.
+- **Toplu kritik riskler:** #773 ve #777 YEDEKLER'e korunan playlist üzerinden yazabilen araçlar; #805 kalite isim değişimi yapabilir. #577 5252 arşiv, #582 5585 arşiv; kayıpsız korunmalı. #578 ve #583 sıra-temelli kullanıcı kararları geçmiş snapshot'a bağlı; yeniden uygulama yasak. #801/#802 birebir aynı blob. #803/#804 CSV şeması farklı. 26 kural statik testleri gerçek runtime uygulaması değildir. EPG/VOD/IBO cihaz sonuçları otomatik onay değildir.
+- **İlk içerik okuması sayacı:** önceki **432/810** + **100 yeni** = **532/810**; **278 benzersiz dosyanın ilk içerik incelemesi kaldı**. #726–810 artık içerik açısından incelendi; geride ağırlıkla **#301–567 arasındaki 267 PNG görsel dosyası** ve **#568–605 arasından bu tur veya önceki tur okunmamış 11 veri dosyası** var. PNG'ler teknik SHA/imza envanterine sahip olsa da görsel kimlik/kanal eşleşmesi değerlendirilmedi; tamamlandı sayma. **Sıradaki yeni içerik incelemesi: #568** (büyük CSV), ayrıca #569 (4.8 MB JSON), #593, #594, #598–603 ve #605 gibi bekleyenler; sonra #301–567 görseller. Korunan hiçbir depo dosyası değiştirilmedi; yalnızca bu not.
