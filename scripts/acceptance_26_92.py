@@ -139,9 +139,9 @@ def main():
     print(json.dumps({k: v for k, v in report.items() if k != "test_suites"}, ensure_ascii=False))
     for suite in report["test_suites"]:
         if not suite["passed"]:
-            print(f"::error title=Acceptance failure::{suite[\'suite\']} failed; see acceptance artifact")
+            print("::error title=Toplu test hatasi::{} failed; see acceptance artifact".format(suite["suite"]))
     for issue in report.get("audit_errors", []):
-        print(f"::error title=Inventory audit::{issue[\'audit\']}: {issue[\'error\']}")
+        print("::error title=Envanter denetimi::{}: {}".format(issue["audit"], issue["error"]))
     if not all(row["passed"] for row in report["test_suites"]) or report.get("audit_errors"):
         return 1
     if args.require_full_acceptance and not report["acceptance_complete"]:
