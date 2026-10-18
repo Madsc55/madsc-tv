@@ -3302,3 +3302,39 @@ Bu manifest dosyaları tekrar saymadan kalıcı referans sağlar. Ayrıntılı i
 3. **KORUMA KAPISI DAVRANIŞI:** `blocked_paths` tam korunan adları, klasör öneklerini ve `.m3u/.m3u8` uzantılarını reddediyor; mutlak/boş/`.`/`..` segmentlerini de reddediyor. `git_changed_paths` HEAD diff + staged + unstaged + untracked + ignored dosyaları kapsıyor. Bu fail-closed tasarım lehine kanıt; fakat üretim branch ruleset/gerçek workflow kanıtı değil.
 4. **AÇIK KABUL TESTİ:** Salt okunur izole ortamda `blocked_paths(['epg/report.json'])` sonucu `['epg/report.json']` beklenir; EPG workflow'un gerçekten değişiklik ürettiği bir koşuda push öncesi DENY'nin tetiklenip tetiklenmediği kontrol edilmeli. Kullanıcıdan kaynak değişikliği izni alınmadan gate gevşetilmemeli; korunan EPG yolunu serbest bırakmak güvenlik politikası kararıdır.
 5. **GÖRSEL DURUMU:** 215 D1 görseli açmak için kullanılan GitHub connector PNG ikili verisini UTF-8'e çeviremiyor; konteynerden `raw.githubusercontent.com` DNS/bağlantı hatası alındı. Bu turda PNG içerik D2 ilerlemesi 0. Sayım D2 595 / D1 215 / D3 0 olarak kaldı.
+
+
+## 18 EKİM 2026 — 25 WORKFLOW'UN GERÇEK KAYNAĞI YENİDEN AÇILDI / DOSYA İNCELEMESİ
+**Kapsam:** Batch 001'de `YAZMA RİSKİ` işaretli 25 ayrı workflow YAML'nin GitHub dalındaki gerçek metni bu turda tekrar açıldı. İnceleme yalnız kaynak, `contents: write`, doğrudan `git push`, `protected_write_gate` çağrısı ve Python alt betik adlarını kapsar. Gerçek çalıştırma veya alt betiklerin davranışsal güvenlik kanıtı değildir. Kaynak değişmedi.
+
+| No | Workflow | `contents:write` | Doğrudan `git push` | Gate adı geçiyor | Başlıca çağrı / not |
+|---|---|---|---|---|---|
+|015|epg-gunluk.yml|evet|evet|evet|EPG çıktısı ile `EPG/` koruma kuralı çakışması, önceki bölümde ayrıntılı|
+|031|madsc-05-genel-bakim.yml|evet|hayır|evet|`k1_protected_integrity.py`, `category_evidence_collect.py`, `central_actions_evidence.py`|
+|035|madsc-aylik-merkezi-denetim.yml|hayır|hayır|evet|`central_protected_write_gate.py`, çoklu merkezi denetim betikleri|
+|036|madsc-birlesik-kesif.yml|evet|evet|evet|`discovery_archive.py`, `madsc_akilli_kesif.py`, `candidate_epg_logo_join.py`|
+|039|madsc-genis-kaynak-kontrol.yml|evet|evet|evet|`genis_kaynak_taramasi.py`|
+|041|madsc-ibo-354-classify.yml|evet|evet|evet|`archive_backups_354_classified.py`|
+|042|madsc-ibo-364-355-364.yml|evet|evet|evet|`archive_backups_355_364.py`|
+|043|madsc-ibo-398-16-49.yml|evet|evet|evet|`archive_backups_16_49.py`|
+|044|madsc-ibo-530-archive.yml|evet|evet|evet|`archive_backups_399_onward.py`|
+|045|madsc-ibo-6115-second.yml|evet|evet|evet|`apply_ibo_6115_second.py`|
+|046|madsc-ibo-ilk-239.yml|evet|evet|evet|`apply_ibo_first_239_decisions.py`|
+|047|madsc-ibo-kararlar-grup1.yml|evet|evet|evet|`apply_ibo_decisions_group1.py`|
+|048|madsc-ibo-second-voice.yml|evet|evet|evet|`apply_ibo_second_voice.py`|
+|051|madsc-sistem-saglik-denetimi.yml|hayır|hayır|hayır|`sistem_saglik_denetimi.py`; önceki genel 'yazma riski' etiketi doğrudan push kanıtı değildir|
+|053|madsc-son-kontrol.yml|evet|evet|evet|`final_validation.py`|
+|056|madsc-turk-kanal-geri-sec.yml|evet|evet|evet|`recover_turkish_backups.py`|
+|057|madsc-uc-asama.yml|evet|evet|evet|`verification_pipeline.py`|
+|058|madsc-yedek-turk-ayir.yml|evet|evet|evet|`keep_turkish_backups.py`|
+|060|madsc-yedekler-sayi-duzelt.yml|evet|evet|evet|`sync_yedekler_category_count.py`|
+|063|publish-iptv-png-logos.yml|evet|evet|evet|PNG yayın adımı; gerçek hedef dosya ayrıca doğrulanmalı|
+|077|test-24-system-audit.yml|evet|hayır|hayır|`contents:write` mevcut; doğrudan push görülmedi|
+|085|test-32-unapproved-write-regression.yml|hayır|evet|hayır|`git push` metinde geçiyor; bunun test/yorum/gerçek yürütme olduğuna ilişkin bağlam incelemesi gerekli|
+|091|test-38-audit-selftest.yml|evet|evet|evet|push ve gate mevcut; test izolasyonu doğrulanmalı|
+|094|toplu-sistem-kontrol.yml|hayır|evet|hayır|`git push` metinde geçiyor; yetki/çalıştırma bağlamı ayrıca incelenmeli|
+|095|vod-guncelle.yml|evet|evet|evet|`vod_guncelle.py`|
+
+**Toplu kaynak sayımı:** 25/25 açıldı; 21 dosyada `contents: write` ifadesi, 20 dosyada `git push` metni, 21 dosyada `protected_write_gate` adı görüldü (bunlar düz metin arama sonuçlarıdır, çalıştırma/etkin izin sonucu değildir). **Yeni bulgu:** #051 sağlık denetimi önceki genel yazma-risk sınıfına rağmen doğrudan `contents:write` veya `git push` içermiyor; #085 ve #094'te `git push` var ama `contents:write` yok, test bağlamı ve etkin izinler ayrıca denetlenmeli. 
+
+**YAPILACAK:** özellikle IBO arşiv/karar işleyen #041–048, #056, #058, #060 ve PNG yayın #063 için çağrılan betiğin gerçek hedef yolları ile koruma kapısı sırasını satır bazında incele. `contents:write` veya `git push` varlığını tek başına açık ihlal sayma; çalıştırma yok. **KAYIT:** 810 benzersiz dosya sayımı değişmedi; 215 D1 görsel hâlâ gerçek piksel/kimlik incelemesi bekliyor. Kaynak dosyası değiştirilmedi.
