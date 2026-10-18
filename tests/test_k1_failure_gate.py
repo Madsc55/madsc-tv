@@ -35,6 +35,10 @@ class FailureGateTests(unittest.TestCase):
                 run(7, None, status="in_progress", created="2026-10-18T07:00:00Z")]
         self.assertEqual(should_stop(runs, 7), (False, 0))
 
+    def test_missing_current_run_metadata_fails_closed(self):
+        with self.assertRaisesRegex(ValueError, "Current workflow run missing"):
+            should_stop([run(3, "failure"), run(2, "failure")], 4)
+
     def test_manual_dispatch_does_not_bypass_open_circuit(self):
         payload = {"workflow_runs": [
             dict(run(3, "failure"), head_branch="main"),
