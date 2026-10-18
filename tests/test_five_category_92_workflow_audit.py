@@ -57,6 +57,9 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("legacy-api-only.yml", [item["file"] for item in queue["items"]])
             api_entry = next(item for item in queue["items"] if item["file"] == "legacy-api-only.yml")
             self.assertTrue(any("gh api" in cmd for cmd in api_entry["write_risk_commands"]))
+            self.assertEqual(api_entry["review_priority"], "HIGH")
+            self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", api_entry["required_acceptance_checks"])
+            self.assertFalse(api_entry["requires_protected_write_review"])
             self.assertEqual(queue["total_review_items"], len(queue["items"]))
 
     def test_protected_playlist_write_requires_manual_review(self):
