@@ -35,6 +35,12 @@ class FailureGateTests(unittest.TestCase):
                 run(7, None, status="in_progress", created="2026-10-18T07:00:00Z")]
         self.assertEqual(should_stop(runs, 7), (False, 0))
 
+    def test_undated_prior_runs_are_not_counted(self):
+        runs = [run(4, None, "in_progress"),
+                run(3, "failure", created=None),
+                run(2, "failure", created=None)]
+        self.assertEqual(should_stop(runs, 4), (False, 0))
+
     def test_missing_current_run_metadata_fails_closed(self):
         with self.assertRaisesRegex(ValueError, "Current workflow run missing"):
             should_stop([run(3, "failure"), run(2, "failure")], 4)
