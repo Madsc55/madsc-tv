@@ -44,11 +44,12 @@ def execute():
             tests.append({"suite": name, "passed": False, "returncode": None,
                           "log_tail": str(exc)})
     try:
-        runtime = subprocess.run([sys.executable, "-m", "unittest",
-                                  "test_five_category_runtime_integrity", "-v"],
+        runtime = subprocess.run([sys.executable, "-m", "unittest", "discover",
+                                  "-s", ".", "-p", "test_five_category_runtime_integrity.py", "-v"],
                                  cwd=ROOT, capture_output=True, text=True, timeout=240)
         tests.append({"suite": "test_five_category_runtime_integrity",
-                      "passed": runtime.returncode == 0, "returncode": runtime.returncode,
+                      "passed": runtime.returncode == 0 and bool(re.search(r"Ran [1-9][0-9]* tests? in ", runtime.stdout + runtime.stderr)),
+                      "returncode": runtime.returncode,
                       "log_tail": (runtime.stdout + runtime.stderr)[-8000:]})
     except (subprocess.TimeoutExpired, OSError) as exc:
         tests.append({"suite": "test_five_category_runtime_integrity",
