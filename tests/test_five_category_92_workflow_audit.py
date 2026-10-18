@@ -197,6 +197,7 @@ class CentralCronRegressionTests(unittest.TestCase):
         # legacy twice-monthly behavior equivalence; keep parity blocked.
         self.assertIn("cron: '40 6 * * *'", health)
         self.assertIn("ana_liste_saglik.py --batch-size 100 --timeout 10", health)
+        self.assertIn("timeout-minutes: 12", health)
         self.assertIn("workflow_call:", discovery)
         self.assertIn("workflow_call:", health)
         self.assertIn("contents: read", discovery)
