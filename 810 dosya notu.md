@@ -2386,3 +2386,14 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 - YAPILACAK: #413 simgesinin hangi kanala ait olduğunu bağımsız eşleşmeyle doğrula; #407 küçük yazı/ölçek, #408/#411/#416 beyaz logo koyu arka plan ihtiyacı, #418 sarı logo kontrastı IBO arayüzünde kontrol bekler.
 - YAPILMAYACAK: Görünür logo yazısını kanal/EPG/akış/marka hakkı/IBO eşleşmesi kanıtı sayma; logo veya liste değiştirme.
 - KANIT BEKLEYEN: #419–500 kalan 82 PNG'nin gerçek görüntü incelemesi, #501–567 diğer 67 PNG ve dört büyük veri dosyası. Bu tur sadece #401–418 gerçek görüntü incelemesi tamamlandı; önceki çelişkili toplam sayaçlar otomatik yükseltilmedi.
+
+
+## 18 Ekim 2026 — PNG hariç dört büyük veri dosyasının tam içerik analizi
+- Kullanıcının güncel talimatı: PNG'leri inceleme; kalan veri/kod dosyalarının içini oku. Bu tur yalnız dört büyük dosya GitHub blob SHA üzerinden tam metin olarak açılıp içerik yapısı/sayımları doğrulandı.
+- #569 `madsc_kesif/gecmis.json`: 4.800.877 karakterlik JSON parse edildi; `history` altında **11.762** URL anahtarlı geçmiş kayıt var. Her kayıtta `first_seen`, `last_test`, `runs`, `successful_runs`, `channel`, `url` alanları bulunuyor. Geçmiş gözlem kanıtı; bugün canlı oynatma/kanal kimliği onayı değil.
+- #598 `madsc_kesif/yedek_ulke_inceleme.csv`: 1.232.586 karakter; başlık `channel,url,status`; yaklaşık 11.557 veri kaydı. `FOREIGN_ARCHIVE` ve `COUNTRY_NOT_VERIFIED` sınıfları var. Ülke kimliği belirsiz kayıtları otomatik yabancı sayma/silme.
+- #599 `madsc_kesif/yedeklerden_ayrilanlar_20261013T170042Z.m3u`: 1.856.086 karakter; gerçek içerikte **11.557 `#EXTINF`** kaydı sayıldı. Tarihsel ayrılan arşiv; mevcut YEDEKLER'e otomatik geri yazma/taşıma yapılmadı.
+- #603 `madsc_son_kontrol/results.json`: 4.842.503 karakter; **3.800** JSON kayıt parse edildi. Kayıt alanları candidate_id, label, selection_reason, checked_utc, station_identity, ibo_sweden, video, audio, continuity, review_events, status, image_evidence. **3.800/3.800 `station_identity=REVIEW_REQUIRED`**; teknik sonuç veya görüntü yolu gerçek kanal kimliği/IBO kabulü değildir.
+- YAPILACAK: 11.762 geçmiş kayıt ile aday/test snapshotlarını tarih bazlı karşılaştır; 11.557 ayrılan kanalın ülke kimliğini ayrı doğrula; 3.800 kimlik bekleyen kaydı otomatik onaylama.
+- YAPILMAYACAK: M3U/CSV kaynakları, YEDEKLER/HEPSI/YENILER/FAVORILER, logo, EPG, workflow, kod veya main değiştirme; PR #71 birleştirme.
+- KANIT BEKLEYEN: Bugünkü canlı URL/IBO testleri, gerçek ülke/istasyon kimliği, güncel üretim restore ve 92 workflow davranışsal eşdeğerliği. Bu dört dosyanın içerik erişim engeli çözüldü; eski toplam sayaçlar uzlaştırılmadı.
