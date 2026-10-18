@@ -107,6 +107,7 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
     def test_gate_after_push_cannot_protect_earlier_write(self):
         record = self.inspect_text("steps:\n  - run: git push origin HEAD:main\n  - run: python3 tools/protected_write_gate.py --base origin/main\n")
         self.assertEqual(record["pushes_without_prior_gate_signal"], 1)
+        self.assertEqual(record["tier"], "CRITICAL_UNGATED_PUSH")
         self.assertFalse(record["runtime_gate_order_verified"])
 
     def test_gate_before_push_is_only_static_order_signal(self):
