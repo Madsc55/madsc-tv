@@ -60,7 +60,7 @@ def inspect(root=ROOT):
             "workflow_call": bool(re.search(r"^\s*workflow_call:", raw, re.M)),
             "contents_write": bool(re.search(r"^\s*contents:\s*write\s*(?:#.*)?$", raw, re.M | re.I)),
             "write_permission_declared": bool(re.search(r"^\s*contents:\s*write\s*(?:#.*)?$", raw, re.M | re.I)),
-            "write_permission_inherited_or_unknown": not bool(re.search(r"^\s*contents:\s*(?:read|write|none)\s*(?:#.*)?$", raw, re.M | re.I)), 
+            "write_permission_inherited_or_unknown": not bool(re.search(r"^\s*contents:\s*(?:read|write|none)\s*(?:#.*)?$", raw, re.M | re.I)),
             "write_risk_commands": [line.strip()[:240] for line in raw.splitlines() if re.search(r"\b(?:git\s+push|gh\s+api|curl\s+[^\n]*?(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))\b", line, re.I)],
             "commands": commands, "actions": uses, "output_hints": outputs,
             "git_push_command_count": len(push_commands),
