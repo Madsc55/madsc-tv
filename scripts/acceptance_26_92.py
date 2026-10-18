@@ -10,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SUITES = [
+    "test_*security_audit.py",
     "test_protected_write_gate.py",
     "test_protected_gate_integration.py",
     "test_k1_failure_gate.py",
@@ -29,19 +30,27 @@ def execute():
 
     tests = []
     for name in SUITES:
-        result = subprocess.run(
-            [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", name, "-v"],
-            cwd=ROOT, capture_output=True, text=True, timeout=240,
-        )
-        tests.append({"suite": name, "passed": result.returncode == 0,
-                      "returncode": result.returncode,
-                      "log_tail": (result.stdout + result.stderr)[-8000:]})
-    runtime = subprocess.run([sys.executable, "-m", "unittest",
-                              "test_five_category_runtime_integrity", "-v"],
-                             cwd=ROOT, capture_output=True, text=True, timeout=240)
-    tests.append({"suite": "test_five_category_runtime_integrity",
-                  "passed": runtime.returncode == 0, "returncode": runtime.returncode,
-                  "log_tail": (runtime.stdout + runtime.stderr)[-8000:]})
+        try:
+            result = subprocess.run(
+                [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", name, "-v"],
+                cwd=ROOT, capture_output=True, text=True, timeout=240,
+            )
+            tests.append({"suite": name, "passed": result.returncode == 0,
+                          "returncode": result.returncode,
+                          "log_tail": (result.stdout + result.stderr)[-8000:]})
+        except (subprocess.TimeoutExpired, OSError) as exc:
+            tests.append({"suite": name, "passed": False, "returncode": None,
+                          "log_tail": str(exc)})
+    try:
+        runtime = subprocess.run([sys.executable, "-m", "unittest",
+                                  "test_five_category_runtime_integrity", "-v"],
+                                 cwd=ROOT, capture_output=True, text=True, timeout=240)
+        tests.append({"suite": "test_five_category_runtime_integrity",
+                      "passed": runtime.returncode == 0, "returncode": runtime.returncode,
+                      "log_tail": (runtime.stdout + runtime.stderr)[-8000:]})
+    except (subprocess.TimeoutExpired, OSError) as exc:
+        tests.append({"suite": "test_five_category_runtime_integrity",
+                      "passed": False, "returncode": None, "log_tail": str(exc)})
     rules = security_audit()
     workflows = inspect(ROOT)
     risks = risk_audit()
