@@ -3797,3 +3797,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `tools/protected_write_gate.py` kaynak kodu okundu: HEAD ile base diff, staged, unstaged ve exclude-standard untracked dosyalar `--no-renames` ile taraniyor; korunan tam adlar, ic ice FAVORILER/HEPSI/yedekler ve M3U/M3U8 reddediliyor. Git komutu hatasinda fail-closed donuyor. Bu sadece gate'in cagrildigi writer'lar icin koruma; disaridan yapilan GitHub API write, checkout/action yan etkileri veya gate atlanmasi otomatik engellenmez.
 - Yeni acik risk: `git ls-files --others --exclude-standard` .gitignore kapsamindaki korunan untracked dosyalari atlar. Bu dosyalar Git'e eklenemeyebilir ama runtime butunluk takibi icin ayri denetim gerektirir. Bu oturumda korunan dosya veya yazma kapisi degistirilmedi.
 - K1 gorev 2 gercek runtime 26/26 onayi yok. MADSC 05 `39125933984` son kontrolde in_progress; cihaz testi kullanicida. Sonraki isler toplu, sirali ve kanitli yapilacak.
+
+
+## 18 Ekim 2026 — K1 ignored korunan dosya acigi kapatma
+- MADSC 05 run `39125933984` SHA `1f6291b1f` completed/success, K1 run `39126376347` SHA `402498cb9` completed/success. Bu farkli SHA'larin testleridir, 26/26 runtime onayi degildir.
+- `a08cfe411a0381b5a2654c138af0a822f209036a`: `scripts/k1_protected_integrity.py` untracked taramasinda `--exclude-standard` kaldirildi; .gitignore ile yok sayilan ic ice korunan klasor dosyalarini da runtime snapshot/check gorebilsin. Korunan listeler degismedi.
+- `8dee326a9feeb758595b48392103ffd22f8bade5`: gecici Git deposunda `.gitignore` ile ignore edilen `cache/HEPSI/state.json` dosyasinin snapshot sonrasi eklenmesini saptayan regresyon testi eklendi.
+- Son SHA `8dee326a9` K1 run `39127454781` queued, MADSC 05 `39127454624` pending; henuz success kaniti yok. Onceki `a08cfe411` run'lari `39127441360` K1 ve `39127441392` MADSC 05 in_progress.
+- Acik: 26 kuralin production runtime uygulanmasi, tum 92 workflow dolayli writer yollari, branch protection API 403, gercek backup restore, IBO Player cihaz testi. K1 tamamlandi denmeyecek; sonraki gorevlere gecilmeyecek. Kullanici toplu test ve not istiyor.
