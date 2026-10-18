@@ -1,6 +1,10 @@
 """Read-only tests for the Rule 24 failure circuit breaker."""
 import unittest
-from tools.workflow_failure_gate import should_stop
+from unittest.mock import patch, MagicMock
+import io
+import json
+import os
+from tools.workflow_failure_gate import should_stop, main
 
 
 def run(run_id, conclusion, status="completed", created="2026-10-16T00:00:00Z"):
@@ -23,6 +27,22 @@ class FailureGateTests(unittest.TestCase):
     def test_active_and_current_runs_ignored(self):
         stop, streak = should_stop([run(4, "failure"), run(3, None, "in_progress"), run(2, "failure")], 4)
         self.assertEqual((stop, streak), (False, 1))
+
+    def test_main_filters_other_branches_and_encodes_branch(self):
+        payload = {"workflow_runs": [
+            dict(run(3, "failure"), head_branch="main"),
+            dict(run(2, "failure"), head_branch="main"),
+            dict(run(1, "success"), head_branch="madsc/bes-sistem-toplu-birlestirme"),
+        ]}
+        response = io.BytesIO(json.dumps(payload).encode())
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/madsc/bes-sistem-toplu-birlestirme",
+               "GITHUB_RUN_ID": "4", "GITHUB_REF_NAME": "madsc/bes-sistem-toplu-birlestirme",
+               "GITHUB_EVENT_NAME": "push", "GH_TOKEN": "fake"}
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", return_value=response) as mocked:
+            main()
+        url = mocked.call_args.args[0].full_url
+        self.assertIn("branch=madsc%2Fbes-sistem-toplu-birlestirme", url)
 
 
 if __name__ == "__main__":
