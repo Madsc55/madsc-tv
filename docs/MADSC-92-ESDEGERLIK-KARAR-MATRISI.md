@@ -45,3 +45,28 @@ Bu liste uygulama sırasıdır, tamamlandı iddiası değildir. Her madde kanıt
 - [ ] **12 — TCL 55C655 / Ibo Player Pro cihaz kabulü:** kullanıcıyla gerçek oynatma, EPG, logo ve kanal kararlılığı doğrulaması; onaysız 7/24 sorunsuz kabulü yok.
 
 **Sıradaki aktif iş: 02.** Bu listenin işaretleri yalnız doğrulanmış kanıtlarla güncellenir.
+
+## 18 Ekim 2026 — Sonraki aşamalar: 13–26 (mevcut 00–12 kuyruğunun devamı)
+
+Bu maddeler uygulanacak iş sırasıdır, tamamlandı işareti değildir. 12 numaralı cihaz kabulünden sonra sırayla değerlendirilir. Güvenli, salt okunur testler otomatik yürütülebilir; yayın listesi, EPG, logo veya yedek yazmaları ayrı onay ve koruma kapısı gerektirir.
+
+- [ ] **13 — Canlı kanal taraması:** kaynakların periyodik taranması, cron/dispatch ve çıktı kanıtı; otomatik yayın listesi değişikliği yok.
+- [ ] **14 — Bozuk kanal tespiti:** çoklu ölçüm ve yanlış-pozitif filtresi; güvenli onarım önerileri, izinsiz kanal değiştirme yok.
+- [ ] **15 — Yeni kanal adayları:** kaynak, oynatma, kimlik ve süreklilik doğrulaması; aday havuzuna kayıt, korunan listeye otomatik terfi yok.
+- [ ] **16 — Tekrar ve eşleşme denetimi:** kanal ID, URL, ülke, EPG ve logo çakışmalarını raporla; otomatik silme yok.
+- [ ] **17 — EPG ve logo güncelliği:** üretim, dağıtım, erişilebilirlik ve eksik görsel raporu; yazma için izin kapısı.
+- [ ] **18 — IBO Player Pro uyumluluğu:** M3U, EPG, logo, kanal geçişi ve gerçek cihaz doğrulaması.
+- [ ] **19 — Yayın listesi ve yedek bütünlüğü:** checksum, sürüm, erişim ve bozulma denetimi.
+- [ ] **20 — Hata uyarısı ve güvenli kurtarma:** tekil hata raporu, tekrarlı alarm filtresi, izole geri yükleme; korunan dosyaya onaysız yazma yok.
+- [ ] **21 — Günlük/haftalık/aylık bakım:** cron çakışmaları, tekrar eden işler, artifact saklama ve tek merkezden raporlama.
+- [ ] **22 — Eski otomasyonları kontrollü emekliye ayır:** yalnız 92/92 davranışsal eşdeğerlik ve kullanıcı onayından sonra, geri alma planıyla.
+- [ ] **23 — 24 saat kararlılık:** planlanan tetikler, hata oranı, yeniden denemeler ve yayın sağlığı kanıtı.
+- [ ] **24 — 7 gün kararlılık:** günlük kanıtlar, kaçan cron'lar, yedek ve EPG erişilebilirliği.
+- [ ] **25 — Son güvenlik ve performans:** asgari izinler, korunan yollar, işlem süreleri, gereksiz ağ çağrıları, restore provası.
+- [ ] **26 — Üretim kabulü ve sürekli takip:** gerçek cihaz onayı, 7/24 takip göstergeleri ve olay müdahale kılavuzu.
+
+### Otomasyon sınırları
+- `madsc-05-genel-bakim.yml` mevcut beş aşamalı toplu test zinciridir; 13–26 maddeleri otomatik tamamlanmış değildir.
+- 92/92 eşdeğerlik ve canlı üretim doğrulanmadan eski workflow'lar kapatılmaz.
+- GitHub Actions cron tetikleri yalnız varsayılan dalda işler; özellik dalındaki cron tek başına 7/24 üretim kanıtı değildir.
+- IBO gerçek cihaz kabulü ve riskli üretim değişiklikleri kullanıcı onayı gerektirir.
