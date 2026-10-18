@@ -40,9 +40,9 @@ def inspect(path):
     # This remains a static signal, not proof of runtime execution or authorization.
     lines = s.splitlines()
     push_line_numbers = [i for i, line in enumerate(lines)
-                         if re.search(r"\\bgit\\s+(?:(?:-c|--config)\\s+\\S+\\s+|(?:-[A-Za-z]+|--[\\w-]+(?:=\\S+)?)\\s+)*push\\b", line)]
+                         if re.search(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b", line)]
     gate_line_numbers = [i for i, line in enumerate(lines)
-                         if re.search(r"\\bpython3?\\s+tools/protected_write_gate\\.py\\b", line)]
+                         if re.search(r"\bpython3?\s+tools/protected_write_gate\.py\b", line)]
     pushes_without_prior_gate = sum(not any(g < p for g in gate_line_numbers)
                                     for p in push_line_numbers)
     has_permission = bool(PERMISSION.search(s))
