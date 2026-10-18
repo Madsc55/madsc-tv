@@ -1883,3 +1883,109 @@ Bu 10 dosya **bu turda doğrudan açılıp okundu**; daha önce 190 Python'un il
 - **#625** `scripts/archive_backups_355_364.py` (1f01c548): 364 → 354; 10 yabancı kaydı arşivler ve ana listeyi yeniden yazar. **Risk:** değişiklik için yeni kullanıcı izni gerekir.
 - **Önemli ortak bulgu:** bu betiklerin birçoğu salt okunur değil; `CALISANLAR.m3u` ve arşivleri yazıyor. Sadece geçmişte kullanıcı kararlarının kaydı olması güncel çalıştırma izni değildir. Bu tur **hiçbiri çalıştırılmadı**, korunan dosyalara dokunulmadı.
 - **Sayım:** önceki **322/810** ilk içerik incelemesine **10 yeni** eklendi: **332/810 ilk içerik okuması, 478 ilk inceleme kalan**. Tam görsel/cihaz/davranışsal kapanış sayacı ayrıca tutulur. **Sıradaki kod dosyası #626**. PNG #301 görsel kimlik doğrulaması bekliyor; PNG teknik yeniden doğrulama #349'da.
+
+
+## 18 EKİM 2026 — 100 DOSYALIK TOPLU İÇERİK İNCELEMESİ #626–725
+- Bu turda **100/100 dosyanın gerçek GitHub içerikleri ayrı ayrı açıldı**, kod/rapor/test görevleri ve yazma riskleri okundu. Aşağıdaki blob SHA'ları sabit 810 tree'ye aittir; içerik fetch sonuçları alınmıştır. Kod çalıştırılmadı, test tetiklenmedi.
+- **#626** `scripts/archive_backups_399_onward.py` (tree blob `f166cc4bacc5`, 1738 bayt): 530 YEDEKLER'in 399–530 aralığını arşivleyip ana M3U yazar; onaysız çalıştırma.
+- **#627** `scripts/audit_workflow_security.py` (tree blob `97fdd41816a3`, 3118 bayt): Actions güvenlik statik envanteri; gerçek runtime kapısı değil.
+- **#628** `scripts/automatic_png_logos.py` (tree blob `51cb734691ed`, 8484 bayt): IPTV-org eşleşmesiyle logo indirir ve ana playlist yazar; KORUNAN WRITER.
+- **#629** `scripts/birlesik_aday_raporu.py` (tree blob `0a57d7f3e4f6`, 1866 bayt): Aday CSV birleştirir ve JSON rapor yazar; kanal onayı değil.
+- **#630** `scripts/build_epg.py` (tree blob `f2738ecfc3b6`, 7982 bayt): EPG XMLTV oluşturur; korunan EPG çıktısı için izin kapısı gerekir.
+- **#631** `scripts/build_ibo_epg_test.py` (tree blob `1bebbf27ae15`, 1406 bayt): IBO için küçük EPG test XML'i; cihaz sonucu değil.
+- **#632** `scripts/bulk_integrity_gate.py` (tree blob `7cc9f0b422cc`, 2812 bayt): Ana/foreign/archive bütünlük JSON raporu; bağımsız kurtarma değil.
+- **#633** `scripts/candidate_epg_logo_join.py` (tree blob `d62a513375c2`, 2676 bayt): Keşif/EPG/logo kanıtı birleştirir; kimlik otomatik onaylanmaz.
+- **#634** `scripts/candidate_logo_missing_report.py` (tree blob `cf92df7cb824`, 3324 bayt): Eksik aday logo envanteri JSON raporu.
+- **#635** `scripts/candidate_logo_report.py` (tree blob `7b5fec0275e9`, 4188 bayt): Aday logo dosyası kopyalar ve rapor üretir; cihaz görünürlüğü belirsiz.
+- **#636** `scripts/category_candidate_media.py` (tree blob `0686bb49be9c`, 9736 bayt): K3 medya kontrolü: gh artifact veya izole subprocess; köken/SHA kontrolü şart.
+- **#637** `scripts/category_candidate_scoring.py` (tree blob `2a4bba5009fd`, 9808 bayt): K2 aday puanlama ve subprocess; puan kimlik kanıtı değil.
+- **#638** `scripts/category_evidence_collect.py` (tree blob `c8006d31f21e`, 11383 bayt): Kategori kanıtı indirir ve yazar; dolaylı writer/provenance riski.
+- **#639** `scripts/category_stability_history.py` (tree blob `fab3ea73d9b6`, 4779 bayt): K3 geçmiş artifact aktarımı; ata SHA/doğrulama gerekir.
+- **#640** `scripts/central_actions_evidence.py` (tree blob `1f7366ae7d11`, 4611 bayt): Actions örneklerini alıp yerel rapor üretir; örnek tam kanıt değil.
+- **#641** `scripts/central_all_remaining_tasks.py` (tree blob `1006a73e7074`, 14099 bayt): Kalan işler tek tabloda; rapor varlığı tamamlanma değil.
+- **#642** `scripts/central_archive_consistency.py` (tree blob `eaa987998d3a`, 678 bayt): YEDEKLER kategori sayısı tutarlılık yardımcı fonksiyonu.
+- **#643** `scripts/central_backup_evidence.py` (tree blob `be445a569f79`, 2679 bayt): Korunan dosya ve yedek kanıtı; harici restore eksik.
+- **#644** `scripts/central_consolidation_audit.py` (tree blob `3dd9258bdc8d`, 12988 bayt): Beş aşama merkezi statik eşdeğerlik/çakışma analizi.
+- **#645** `scripts/central_duplicate_test_audit.py` (tree blob `eadc0266c908`, 3220 bayt): Tekrarlı test analizi; geçmiş kaynak bütünlüğü şart.
+- **#646** `scripts/central_eight_task_audit.py` (tree blob `1f80c324c5e1`, 3422 bayt): Sekiz görev raporu; gerçek davranışsal kabul eksik.
+- **#647** `scripts/central_eighteen_task_audit.py` (tree blob `d92c12f1dba2`, 3317 bayt): 18 görev beş aşama raporu; fiilî başarı değil.
+- **#648** `scripts/central_failure_stage_report.py` (tree blob `c517e0f47442`, 1830 bayt): Actions hata aşaması özeti; kök neden tahmini yapmamalı.
+- **#649** `scripts/central_ibo_review_queue.py` (tree blob `124ec02c0f74`, 3006 bayt): IBO kullanıcı inceleme kuyruğu; otomatik onay yok.
+- **#650** `scripts/central_identity_epg_logo_audit.py` (tree blob `283f89ca737b`, 2739 bayt): Kimlik/EPG/logo kanıtı toplar; görsel/cihaz doğrulama eksik.
+- **#651** `scripts/central_isolated_git_restore.py` (tree blob `c64b177f5405`, 2152 bayt): Git HEAD'den izole restore; harici bağımsız yedek değil.
+- **#652** `scripts/central_main_playlist_run_evidence.py` (tree blob `6416a0431128`, 1945 bayt): Ana liste Actions koşu kanıtı bağlama; yeşil koşu kanal onayı değil.
+- **#653** `scripts/central_management_summary.py` (tree blob `46248508a1e6`, 9746 bayt): Yönetim özetini birleştirir; kaynak raporların güncelliği şart.
+- **#654** `scripts/central_open_gaps.py` (tree blob `8f180ce288be`, 2068 bayt): Açık kanıt ve görev boşluklarını raporlar.
+- **#655** `scripts/central_protected_write_gate.py` (tree blob `e5663a6e57bb`, 4783 bayt): Workflow yazma kapısını statik tarar; dolaylı writer atlanabilir.
+- **#656** `scripts/central_run_status.py` (tree blob `c3e8da37f488`, 2279 bayt): Actions koşu sınıflandırması; eksik kanıt başarı değil.
+- **#657** `scripts/central_short_status.py` (tree blob `696cf1ab88c6`, 4527 bayt): Kısa merkezi durum özeti; cron değiştirmez.
+- **#658** `scripts/central_single_screen_report.py` (tree blob `cb42c1f5050e`, 11674 bayt): Beş aşama tek ekran JSON/MD; eksik rapor kabul edilmez.
+- **#659** `scripts/central_six_area_audit.py` (tree blob `43292590ce7b`, 3240 bayt): Altı konu tek denetim raporu; statik kapsam.
+- **#660** `scripts/central_source_reconciliation.py` (tree blob `425d8c9003a6`, 6299 bayt): Keşif kaynak-hedef statik mutabakat; canlı tarama değil.
+- **#661** `scripts/central_workflow_inventory.py` (tree blob `9223ae1759ae`, 10616 bayt): Workflow envanteri/çakışma raporları; 92/92 runtime eşdeğerlik değil.
+- **#662** `scripts/diagnose_11599_backups.py` (tree blob `5e31a34b71c0`, 2095 bayt): 11599 yedek farkını salt okunur araştırır.
+- **#663** `scripts/disaster_recovery_dry_run.py` (tree blob `a9ba4b5d21e5`, 2668 bayt): Git tabanlı izole felaket tatbikatı; dış yedek değil.
+- **#664** `scripts/discovery_archive.py` (tree blob `22274f17f34a`, 3963 bayt): Keşif URL geçmişini yazar; ana playlist'e dokunmaz.
+- **#665** `scripts/discovery_history_restore.py` (tree blob `b56a17a8b4c9`, 7748 bayt): Actions artifact üzerinden keşif geçmişi restore; provenance/çıkış yolu kontrolü.
+- **#666** `scripts/epg_tv_readiness.py` (tree blob `5ca591ef7db2`, 3183 bayt): XMLTV teknik hazırlık raporu; IBO onayı yok.
+- **#667** `scripts/evidence_reader.py` (tree blob `e15a78495e3b`, 472 bayt): Yan etkisiz ortak JSON kanıt okuyucu.
+- **#668** `scripts/export_ibo_two_stage_trial.py` (tree blob `64a0ef2bbbe4`, 3426 bayt): İzole IBO deneme M3U dışa aktarır; ana listeye eklemez.
+- **#669** `scripts/five_category_92_workflow_audit.py` (tree blob `2de91a0a3627`, 22979 bayt): 92 workflow kategori statik haritası; davranışsal parity kanıtı değil.
+- **#670** `scripts/five_category_permission_gate.py` (tree blob `d7dc3b71525f`, 2164 bayt): Shadow workflow izin tanımları statik kontrolü.
+- **#671** `scripts/five_category_preflight.py` (tree blob `c4ec135e119a`, 3113 bayt): Beş kategori preflight; statik varlık/izin kontrolleri.
+- **#672** `scripts/five_system_migration_audit.py` (tree blob `ca617a0c6fcc`, 2743 bayt): Beşli sistem geçiş statik denetimi.
+- **#673** `scripts/four_stage_discovery_report.py` (tree blob `c8d0ece165ee`, 2950 bayt): Dört aşama keşif raporu; EPG ertelenmiş.
+- **#674** `scripts/full_system_backup.py` (tree blob `b9d7b71f97b3`, 3603 bayt): Git tracked dosyalardan snapshot oluşturur; dış kopya/restore teyidi gerekir.
+- **#675** `scripts/genel_aday_medya_test.py` (tree blob `bdaca46d5630`, 3342 bayt): ffprobe aday medya örnekleme; oynatıcı kimlik onayı değil.
+- **#676** `scripts/ibo_bagimsiz_test_listesi.py` (tree blob `539c17c8a876`, 1702 bayt): İzole IBO aday listesi üretir; kullanıcı cihaz kararı bekler.
+- **#677** `scripts/ibo_epg_kimlik_denetimi.py` (tree blob `7d056e54536d`, 3213 bayt): M3U/XMLTV kimlik uyumu; cihaz onayı değil.
+- **#678** `scripts/k1_24_rule_evidence.py` (tree blob `b05861c1ab67`, 3646 bayt): 26 kural kanıt matrisi; envanter başarısı uygulama kanıtı değil.
+- **#679** `scripts/k1_protected_integrity.py` (tree blob `ffa253aba213`, 3596 bayt): origin/main korunan dosya farkı; cihaz favorilerini kapsamaz.
+- **#680** `scripts/k1_workflow_risk_inventory.py` (tree blob `001a738b7204`, 4117 bayt): Workflow yazma risk envanteri; dolaylı subprocess writer riski.
+- **#681** `scripts/kanal_kararlilik_takip.py` (tree blob `1c21d48734e7`, 5374 bayt): Kanal kararlılık geçmişini yazar; ölçüm tekrarları ayrılmalı.
+- **#682** `scripts/keep_turkish_backups.py` (tree blob `665b2af03a4e`, 4146 bayt): Türk YEDEKLER ayırıp CALISANLAR.m3u yazar; KORUNAN WRITER.
+- **#683** `scripts/logo_visual_evidence.py` (tree blob `c70ea7b5444b`, 2281 bayt): Yayın karesi alır; logo kimliği otomatik doğrulanmaz.
+- **#684** `scripts/oncelikli_kanal_dogrula.py` (tree blob `d72fcddfa001`, 4923 bayt): ffprobe öncelikli aday kontrolü; cihaz onayı değil.
+- **#685** `scripts/protected_playlist_audit.py` (tree blob `3beb025ef844`, 1019 bayt): Korunan M3U varlık/sözdizimi kontrolü; onay kapısı değil.
+- **#686** `scripts/recover_turkish_backups.py` (tree blob `33c030524d80`, 4653 bayt): Türk YEDEKLER geri alıp ana liste yazar; KORUNAN WRITER.
+- **#687** `scripts/repository_settings_inventory.py` (tree blob `06fae3b9401a`, 2517 bayt): Repo ayar envanteri; secrets/izin kapsamı sınırlı.
+- **#688** `scripts/restore_all_11599_backups.py` (tree blob `697073c83914`, 2609 bayt): 11599 YEDEKLER geri yükler ve ana liste yazar; KORUNAN WRITER.
+- **#689** `scripts/restore_dry_run.py` (tree blob `5985b9fc48e4`, 2974 bayt): Geçici klasörde restore tatbikatı; gerçek üretim restore değil.
+- **#690** `scripts/stage_archive_to_backups.py` (tree blob `f9b46ff29df0`, 2127 bayt): Arşivden YEDEKLER'e kanal aktarır; KORUNAN WRITER.
+- **#691** `scripts/sync_yedekler_category_count.py` (tree blob `eaff5a0f54b8`, 672 bayt): YEDEKLER kategori sayısını ana listede yazar; KORUNAN WRITER.
+- **#692** `scripts/test_kanal_adaylari.py` (tree blob `3269d4055786`, 2390 bayt): Aday URL ilk HTTP/HLS tarama; player testi değil.
+- **#693** `scripts/vod_guncelle.py` (tree blob `94f83bb6a04d`, 1222 bayt): TVMaze VOD yayın takvimi; stream adresi değil.
+- **#694** `scripts/wide_source_scan.py` (tree blob `2d66fd296314`, 6206 bayt): İzole haftalık/aylık kaynak taraması ve artifact taşıma; köken kontrolü.
+- **#695** `scripts/yedekler_yeniler_medya_kontrol.py` (tree blob `0cf25cb23914`, 2706 bayt): YEDEKLER/YENILER ffprobe teknik kontrolü; cihaz onayı değil.
+- **#696** `scripts/yeniler_aktar.py` (tree blob `422e6c1d53fb`, 3077 bayt): YENILER.m3u aday listesi oluşturur; KORUNAN WRITER, kullanıcı izni gerekir.
+- **#697** `tarama/iptv-org-tr-adaylar-2026-10-10.m3u` (tree blob `1d017ff0e242`, 18570 bayt): iptv-org TR aday M3U; kaynak var ama yayın testi yapılmamış.
+- **#698** `tarama/son-test-raporu.json` (tree blob `9b7cea65d066`, 39585 bayt): 149 aday ilk HTTP/HLS raporu; 86 geçiş, IBO onayı yok.
+- **#699** `test_akilli_tekrar_test_takvimi.py` (tree blob `daac764d7a7c`, 2427 bayt): Tekrar test takvimi unittest; canlı cron/Actions kanıtı değil.
+- **#700** `test_ana_liste_saglik.py` (tree blob `e572e97acec9`, 2071 bayt): Ana liste sağlık birim testleri; gerçek URL başarısı değil.
+- **#701** `test_bes_is_tek_dosya.py` (tree blob `877d2dad068c`, 6199 bayt): Beş görev merkezi sözleşme testi; cihaz/stream testi değil.
+- **#702** `test_candidate_logo_missing_report.py` (tree blob `cbabb428db42`, 4038 bayt): Eksik logo raporu birim testleri; gerçek logo kimliği değil.
+- **#703** `test_central_all_remaining_tasks.py` (tree blob `9b7cb86fa5f3`, 2423 bayt): Kalan iş tablosu testleri; rapor varlığı kapanış değil.
+- **#704** `test_central_archive_consistency.py` (tree blob `af4cad941d8f`, 848 bayt): YEDEKLER gerçek sayı testi; tarihsel sabit kabul etmez.
+- **#705** `test_central_backup_evidence.py` (tree blob `68227c24de87`, 1104 bayt): Yedek kanıt testleri; bağımsız harici geri yükleme değil.
+- **#706** `test_central_consolidation_audit.py` (tree blob `dec586a0c3e2`, 9966 bayt): Merkezi entegrasyon/çakışma testleri; gerçek Actions sonucu değil.
+- **#707** `test_central_duplicate_test_audit.py` (tree blob `3327ecd99877`, 651 bayt): Tekrar test sayacı birim testi.
+- **#708** `test_central_eight_task_audit.py` (tree blob `d327a147db53`, 1514 bayt): Sekiz görev raporu unittest.
+- **#709** `test_central_eighteen_task_audit.py` (tree blob `aecb4a66783b`, 1276 bayt): 18 görev dağılımı unittest.
+- **#710** `test_central_failure_stage_report.py` (tree blob `9bf647b15e0f`, 1514 bayt): Hata aşaması raporu testi; kök neden varsayımı yok.
+- **#711** `test_central_ibo_review_queue.py` (tree blob `051309705c53`, 1309 bayt): IBO kuyruğu onaysız/tekrarsızlık testi.
+- **#712** `test_central_identity_epg_logo_audit.py` (tree blob `29ebb880d238`, 903 bayt): Kimlik/EPG/logo otomatik onay yasağı testi.
+- **#713** `test_central_isolated_git_restore.py` (tree blob `07a3ede93a9e`, 473 bayt): İzole HEAD restore testi; dış yedek false.
+- **#714** `test_central_main_playlist_run_evidence.py` (tree blob `b896ade1ccc4`, 1530 bayt): Ana liste koşu kanıtı yoksa başarı saymama testi.
+- **#715** `test_central_management_summary.py` (tree blob `24dcb85e0e2f`, 4493 bayt): Yönetim özeti eksik kanıt testi.
+- **#716** `test_central_open_gaps.py` (tree blob `040684f1b584`, 1020 bayt): Açık iş raporu tamamlanma ayrımı testi.
+- **#717** `test_central_protected_write_gate.py` (tree blob `93033030c25e`, 6138 bayt): Korunan workflow statik yazma kapısı testleri; gerçek runtime kapısı ayrı.
+- **#718** `test_central_run_status.py` (tree blob `c3af1aa24bf1`, 2951 bayt): Actions koşu sınıflandırma testi.
+- **#719** `test_central_short_status.py` (tree blob `b367f639c98f`, 1592 bayt): Kısa durum başarısızlık gösterimi testi.
+- **#720** `test_central_single_screen_report.py` (tree blob `9eb68744db88`, 6079 bayt): Beş aşama tek ekran eksik kanıt testi.
+- **#721** `test_central_source_reconciliation.py` (tree blob `d4e428b650f4`, 1113 bayt): Keşif kaynak hedef mutabakat testi.
+- **#722** `test_central_workflow_inventory.py` (tree blob `06f37a87737c`, 5094 bayt): Workflow envanter raporu sözleşme testi.
+- **#723** `test_epg_pilot.py` (tree blob `f5b764a94078`, 968 bayt): EPG gece yarısı rollover testi.
+- **#724** `test_epg_tv_readiness.py` (tree blob `1156464b6df0`, 2127 bayt): EPG teknik hazır olsa da TV onayı bekleme testi.
+- **#725** `test_final_validation.py` (tree blob `2b0477ed9cea`, 5433 bayt): Final validation süreklilik kanıtı sınır testleri.
+- **Toplu risk özeti:** #626, #628, #682, #686, #688, #690, #691 ve #696 doğrudan korunan playlist/YENILER yazma riski taşıyor. #636–639 ve #665 artifact/subprocess bağımlılığıyla dolaylı yazma/provenance riski taşıyor. #655/#678–680 statik K1 taramaları runtime 26 kural doğrulaması değil. #663/#674/#689 restore/backup kanıtı harici bağımsız yedek ve gerçek üretim restore ile eşit tutulmamalı. #699–725 test dosyaları incelendi fakat çalıştırılmadı; yeşil Actions kanıtı iddia edilmiyor.
+- **Sayım:** önceki **332/810** ilk içerik incelemesi + bu tur **100 yeni benzersiz dosya** = **432/810 ilk içerik incelemesi**, **378 kalan**. #626–725 tamamı içerik okunmuş, **sıradaki kod/test #726**. Önceki eksik #301–567 PNG görsel değerlendirmesi ve #568–605 veri incelemeleri ayrıca bekliyor. Tam davranışsal/cihaz onayı sayacı ile karıştırma. Korunan hiçbir dosya değiştirilmedi.
