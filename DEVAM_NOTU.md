@@ -3658,3 +3658,12 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `c94683570869fba0ffbe0e6ceb20e088280fcdab`: `tests/test_protected_write_gate.py` iki guvenlik politikasi dosyasinin yazma reddi regresyonunu ekler. Bu son commitin gercek Actions run/SHA/sonucu henuz dogrulanmadi.
 - Onemli aciklar: 26 kuralin gercek runtime uygulama kanitlari; eski writer'larin koruma kapisini cagirmasi; cihaz/geri yukleme; branch ruleset; iki ardisik hatada devre kesici ve gercek testler. Korunan playlist/EPG/logo/yedekler, main, PR #71, 92 eski workflow degistirilmedi.
 - SONRAKI IS: once yeni SHA icin gercek CI run sonucunu dogrula; 26 kuralin her birine ayri gercek test/kanit esle; eksikleri korunan verilere dokunmadan gider; her committen sonra Actions sonucu kontrol et. Kanitsiz hicbir kurali tamamlandi sayma.
+
+
+## 18 Ekim 2026 — GitHub Actions dogrudan run API ile kesin dogrulama
+- Push run'lari `mcp__GitHub__fetch` uzerinden `https://api.github.com/repos/Madsc55/madsc-tv/actions/runs?branch=madsc%2Fbes-sistem-toplu-birlestirme` GET ile gorulebiliyor; `fetch_commit_workflow_runs` sadece PR filtresi nedeniyle bos donebiliyor. Artik kullanicidan ekran goruntusu istemeden run ID kontrol edilebilir.
+- MADSC 05 #200: run ID `39114953442`, commit `fd90ce3aef55ee05fed7ad5cf0a3e183db6ccab1`, completed/success, bes job da success.
+- K1 #71: run ID `39115560402`, commit `8d9ed3d10df1f5609df69a53129509757450d17b`, completed/success, Guvenlik kurallari toplu negatif testler job success.
+- K1 #70 commit `c946835` run `39114501258` success; #69 commit `b5f140b` run `39114497947` success; MADSC 05 #199 commit `9b0b90c` run `39114388912` success.
+- 26 kuralin belge varligi ve negatif testlerinin gecmesi tum 26 kuralin runtime uygulamasinin dogrulandigi anlamina gelmez. Cihaz, onayli gercek yazma, geri yukleme, branch ruleset ve legacy writer parity ayrica kanitlanacak.
+- SONRAKI: 26 kural icin somut kanit/eksik matrisi, gercek writer entegrasyonu, kurtarma ve IBO cihaz testleri; her degisiklikte yeni SHA'ya ait run kontrolu. Korunan dosyalara dokunma.
