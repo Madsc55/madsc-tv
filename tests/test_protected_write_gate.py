@@ -39,7 +39,9 @@ class ProtectedWriteGateTests(unittest.TestCase):
 
     def test_epg_logos_and_archive_are_denied(self):
         paths = ["EPG/tv.xml", "epg/guide.json", "logolar/logo.png",
-                 "ARSIV/old.json", "arsiv/restore.txt"]
+                 "ARSIV/old.json", "arsiv/restore.txt",
+                 "cache/EPG/guide.xml", "tmp/LOGOLAR/logo.png",
+                 "backups/arsiv/history.json"]
         self.assertEqual(blocked_paths(paths), paths)
 
     def test_reports_are_allowed(self):
