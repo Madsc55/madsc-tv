@@ -14,6 +14,7 @@ PROTECTED_EXACT = frozenset({
     "YENILER.m3u",
     "YABANCI_KANALLAR.m3u",
     "GUVENLIK_KURALLARI.md",
+    "AGENTS.md",
 })
 PROTECTED_PREFIXES = ("yedekler/", "YEDEKLER/", "FAVORILER/", "HEPSI/")
 
