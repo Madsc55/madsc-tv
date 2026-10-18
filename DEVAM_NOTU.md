@@ -3805,3 +3805,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `8dee326a9feeb758595b48392103ffd22f8bade5`: gecici Git deposunda `.gitignore` ile ignore edilen `cache/HEPSI/state.json` dosyasinin snapshot sonrasi eklenmesini saptayan regresyon testi eklendi.
 - Son SHA `8dee326a9` K1 run `39127454781` queued, MADSC 05 `39127454624` pending; henuz success kaniti yok. Onceki `a08cfe411` run'lari `39127441360` K1 ve `39127441392` MADSC 05 in_progress.
 - Acik: 26 kuralin production runtime uygulanmasi, tum 92 workflow dolayli writer yollari, branch protection API 403, gercek backup restore, IBO Player cihaz testi. K1 tamamlandi denmeyecek; sonraki gorevlere gecilmeyecek. Kullanici toplu test ve not istiyor.
+
+
+## 18 Ekim 2026 — K1 pre-push gate ignored dosya kapsaminda duzeltme
+- SHA `8dee326a9feeb758595b48392103ffd22f8bade5` K1 run `39127454781` completed/success; MADSC 05 `39127454624` son kontrolde pending.
+- `0c748429293d5fb241a90968008f862ce25173ad`: `tools/protected_write_gate.py` icinde git ignored/untracked dosyalar `git ls-files --others --ignored --exclude-standard -z` ile ek olarak taranacak sekilde genisletildi. Bu kontrol fail-closed pre-push kapisina dahildir; production writer gate cagirmiyorsa korunma saglanmaz.
+- `ae32bbc1794676a7328d5393f18677141791cb7b`: `tests/test_protected_write_gate.py` mock Git cevabinda ignored `cache/HEPSI/ignored.txt` eklenerek 5 komut cagrisi ve tum korunan path'lerin gorunmesi beklendi.
+- Son SHA `ae32bbc17` K1 run `39127524366` queued, MADSC 05 `39127524378` pending. Onceki SHA `0c7484292` K1 `39127514911` in_progress, MADSC 05 `39127514878` cancelled, 19 kontrol `39127514807` success. Henuz yeni SHA icin tamamlanmis test kaniti yok.
+- 26/26 runtime uygulama kapanmadi; IBO cihaz, branch protection, gercek restore, writer yollari acik. Korunan listeler/main/PR #71 degismedi.
