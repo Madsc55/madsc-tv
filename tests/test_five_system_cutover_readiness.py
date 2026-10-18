@@ -21,6 +21,18 @@ class CutoverReadinessTests(unittest.TestCase):
             self.assertIn("FIVE_WORKFLOW_FILES_PRESENT", result["blockers"])
             self.assertFalse(result["cutover_allowed"])
 
+    def test_negative_permission_assertion_does_not_count_as_write_access(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for name in CATEGORIES:
+                calls = "".join("      - uses: ./.github/workflows/" + child + "\n" for child in CATEGORIES[:-1]) if name == CATEGORIES[-1] else ""
+                (folder / name).write_text("permissions:\n  contents: read\n" + calls + "      - run: echo 'contents: write'\n", encoding="utf-8")
+            result = inspect(root)
+            self.assertTrue(result["static_checks"]["SHADOW_WORKFLOWS_READ_ONLY"])
+            self.assertFalse(result["cutover_allowed"])
+
     def test_all_five_category_workflows_exist(self):
         result = inspect()
         self.assertEqual(set(result["category_files"]), set(CATEGORIES))
