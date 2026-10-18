@@ -23,9 +23,7 @@ def main():
     repo = os.environ["GITHUB_REPOSITORY"]
     workflow = os.environ["GITHUB_WORKFLOW_REF"].split("/.github/workflows/", 1)[1].split("@", 1)[0]
     current = int(os.environ["GITHUB_RUN_ID"])
-    if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
-        print("Elle başlatılan kurtarma çalışması: devre kesici geçmişi kontrol edilmeden denemeye izin verildi.")
-        return
+    # Manual dispatch must not bypass a circuit already opened by failures.
     branch = os.environ["GITHUB_REF_NAME"]
     url = (f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/runs"
            f"?per_page=100&branch={urllib.parse.quote(branch, safe='')}")
