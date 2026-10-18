@@ -98,11 +98,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
-      - uses: actions/checkout@v4
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Korunan dosyalarin baslangic ozeti
@@ -306,7 +308,8 @@ jobs:
               sys.exit(1)
           print("All consolidated audits passed.")
           PY
-      - uses: actions/upload-artifact@v4
+      - name: Genel bakım toplu raporlarını yükle
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: madsc-genel-bakim-tek-kosu-rapor
