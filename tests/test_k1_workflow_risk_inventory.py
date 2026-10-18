@@ -116,6 +116,20 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
         self.assertTrue(record["push_gate_order_static_signal_only"])
         self.assertFalse(record["runtime_gate_order_verified"])
 
+    def test_same_line_gate_before_push_is_detected(self):
+        record = self.inspect_text(
+            "steps:\\n  - run: python3 tools/protected_write_gate.py --base HEAD && git push origin main\\n"
+        )
+        self.assertEqual(record["pushes_without_prior_gate_signal"], 0)
+        self.assertFalse(record["runtime_gate_order_verified"])
+
+    def test_same_line_gate_after_push_is_still_critical(self):
+        record = self.inspect_text(
+            "steps:\\n  - run: git push origin main && python3 tools/protected_write_gate.py --base HEAD\\n"
+        )
+        self.assertEqual(record["pushes_without_prior_gate_signal"], 1)
+        self.assertEqual(record["tier"], "CRITICAL_UNGATED_PUSH")
+
     def test_other_protected_paths_are_identified(self):
         for path in ("HEPSI", "FAVORILER", "YEDEKLER/backup.m3u", "EPG/tv.xml", "logolar/x.png", "arsiv/archive.json"):
             with self.subTest(path=path):
