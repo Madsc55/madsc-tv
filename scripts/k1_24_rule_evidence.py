@@ -43,8 +43,14 @@ EVIDENCE = {
 TEST_EVIDENCE = {
     1: ("tests/test_protected_write_gate.py",),
     2: ("test_five_category_runtime_integrity.py",),
+    3: ("test_five_category_runtime_integrity.py",),
+    4: ("tests/test_protected_write_gate.py",),
+    5: ("test_five_category_runtime_integrity.py",),
     17: ("tests/test_protected_write_gate.py",),
+    19: ("tests/test_k1_24_rule_evidence.py",),
     21: ("tests/test_k1_legacy_writer_guards.py", "tests/test_protected_write_gate.py"),
+    22: ("test_five_category_runtime_integrity.py",),
+    26: ("tests/test_k1_legacy_writer_guards.py",),
     24: ("tests/test_k1_failure_gate.py",),
     25: ("tests/test_k1_24_rule_evidence.py",),
 }
