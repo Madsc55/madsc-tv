@@ -32,6 +32,11 @@ class ProtectedWriteGateTests(unittest.TestCase):
         ]
         self.assertEqual(blocked_paths(suspicious), suspicious)
 
+    def test_nested_protected_folders_and_m3u8_are_denied(self):
+        paths = ["archive/FAVORILER/list.txt", "tmp/HEPSI/order.json",
+                 "cache/yedekler/old.txt", "streams/list.m3u8"]
+        self.assertEqual(blocked_paths(paths), paths)
+
     def test_reports_are_allowed(self):
         self.assertEqual(blocked_paths(["madsc_kesif/report.json", "DEVAM_NOTU.md"]), [])
 
