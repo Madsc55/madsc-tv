@@ -13,8 +13,11 @@ def should_stop(runs, current_id, threshold=2):
         # Missing current run metadata cannot establish which runs are earlier.
         # Deny rather than accidentally counting later failures as history.
         raise ValueError("Current workflow run missing from failure history")
+    if any(r.get("id") != current_id and r.get("status") == "completed"
+           and not r.get("created_at") for r in runs):
+        raise ValueError("Completed workflow run missing creation timestamp")
     prior = [r for r in runs if r.get("id") != current_id and r.get("status") == "completed"
-             and r.get("created_at") and r["created_at"] <= current_created]
+             and r["created_at"] <= current_created]
     prior.sort(key=lambda r: (r["created_at"], r.get("id", 0)), reverse=True)
     streak = 0
     for run in prior:
