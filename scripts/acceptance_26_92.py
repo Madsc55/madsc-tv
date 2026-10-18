@@ -12,7 +12,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SUITES = [
     "test_*security_audit.py",
-    "test_workflow_security_audit.py",
     "test_protected_write_gate.py",
     "test_protected_gate_integration.py",
     "test_k1_failure_gate.py",
@@ -143,7 +142,7 @@ def main():
             print(f"::error title=Acceptance failure::{suite[\'suite\']} failed; see acceptance artifact")
     for issue in report.get("audit_errors", []):
         print(f"::error title=Inventory audit::{issue[\'audit\']}: {issue[\'error\']}")
-    if not all(row["passed"] for row in report["test_suites"]) or not report["static_security_clean"]:
+    if not all(row["passed"] for row in report["test_suites"]) or report.get("audit_errors"):
         return 1
     if args.require_full_acceptance and not report["acceptance_complete"]:
         return 2
