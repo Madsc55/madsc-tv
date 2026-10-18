@@ -28,6 +28,13 @@ class FailureGateTests(unittest.TestCase):
         stop, streak = should_stop([run(4, "failure"), run(3, None, "in_progress"), run(2, "failure")], 4)
         self.assertEqual((stop, streak), (False, 1))
 
+    def test_later_runs_do_not_count_against_rerun_of_older_job(self):
+        runs = [run(10, "failure", created="2026-10-18T10:00:00Z"),
+                run(9, "failure", created="2026-10-18T09:00:00Z"),
+                run(8, "success", created="2026-10-18T08:00:00Z"),
+                run(7, None, status="in_progress", created="2026-10-18T07:00:00Z")]
+        self.assertEqual(should_stop(runs, 7), (False, 0))
+
     def test_manual_dispatch_does_not_bypass_open_circuit(self):
         payload = {"workflow_runs": [
             dict(run(3, "failure"), head_branch="main"),
