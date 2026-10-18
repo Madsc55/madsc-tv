@@ -13,6 +13,12 @@ class ProtectedWriteGateTests(unittest.TestCase):
             ["CALISANLAR.m3u", "YENILER.m3u", "YABANCI_KANALLAR.m3u"],
         )
 
+    def test_security_policy_files_are_denied(self):
+        self.assertEqual(
+            blocked_paths(["AGENTS.md", "GUVENLIK_KURALLARI.md", "agents.MD"]),
+            ["AGENTS.md", "GUVENLIK_KURALLARI.md", "agents.MD"],
+        )
+
     def test_backups_and_nested_m3u_are_denied(self):
         self.assertEqual(blocked_paths(["yedekler/old.txt", "test/backup.m3u"]),
                          ["yedekler/old.txt", "test/backup.m3u"])
