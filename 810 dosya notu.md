@@ -3430,3 +3430,26 @@ Eski 810 dosya için ilk inceleme kanıtı **810/810**, semantik ilk inceleme **
 **Çıkarılacak nihai matris:** dosya yolu, görev/özellik, içeriğindeki kesin talimat ve bekleyen iş, girdi/çıktı ve çağıran/çağrılan dosyalar, diğer dosyayla tekrar/çakışma, güvenlik/yazma riski, korunacak veri, kanıt ve uygulanacak karar (koru/birleştir/yeniden yaz/ayrıca onay iste). Özellikle `EPG/` koruması ile EPG üretim push çatışması; 92 eski workflow ve beşli cron/dispatch çakışmaları; playlist'e doğrudan yazan betikler; IBO eski kararlarının tekrar uygulanması; gerçek harici yedek/restore; 26 güvenlik kuralının uygulama kanıtı; aday kanal kimliği/IBO onayı; test/artifact kökeni çapraz karşılaştırılacak. Bunlar **önceki bulgulardan aday konular**, yeni tamamlanmış derin denetim değildir.
 
 **Güvenlik:** bu görev yalnız analiz ve not güncellemesidir. Korunan listeler, kategori, M3U, EPG, logo, yedek, workflow ve üretim kodu değiştirilmeyecek. 15 dakikada bitirme veya bütün 450 dosyanın yeni derin taramasının tamamlandığı iddia edilmeyecek.
+
+
+## 18 EKİM 2026 — YENİ TALEP: 823 DOSYANIN İŞLEVSEL DERİN TARAMASI / İLK YENİ KANIT TURU
+
+**Kapsam kararı:** Mevcut dalda Git Trees API ile **823 dosya** doğrulandı: **450 görsel olmayan** (198 Python, 99 YAML, 51 JSON, 39 Markdown, 27 M3U, 26 CSV, 7 TXT, 3 XML), **373 görsel** (inceleme dışı). Kullanıcı eski/yeni tüm metin/kod/veri dosyalarında unutulmuş kuralları, sistemleri, yapılacakları, raporları, çakışmaları ve bağımlılıkları bulmamızı istiyor. Eski D2 kayıtları korunur, ama bu görev için yeni dosya-içi kanıtlar ayrı sayılır. **Bu turda gerçek kaynak içeriği yeniden açılan 10 dosya; kalan 440 görsel olmayan dosya.** 150'lik tur hedefi henüz tamamlanmadı; 150 incelendi iddiası yok.
+
+### Kaynak içeriğinden yeni somut bulgular (10 dosya)
+1. `.github/workflows/epg-gunluk.yml`: UTC 03:25 zamanlayıcı ve `contents: write` var; EPG commit/push zinciri `tools/protected_write_gate.py` denetimini çağırıyor. **Potansiyel çatışma:** EPG yazımı ile korunan `epg/` yolu kapısı; kapının onaylı EPG yayınını nasıl ayırdığı davranışsal olarak doğrulanmalı. `git pull --rebase origin main` sonrası yeniden denetim var, ama eşzamanlı çalışma ve yetki politikası da gözden geçirilmeli.
+2. `.github/workflows/epg-pages.yml`: `workflow_run` ile ana dalda başarılı önceki koşuya bağlı yayın koşulu ve `contents: read` var. **Olası eksik:** `GITHUB_TOKEN` ile push edilen EPG güncellemesi beklenen `workflow_run` zincirini tetiklemeyebilir; yayımlanan XMLTV ve Pages kaynağı ayrıca kanıtlanmalı.
+3. `.github/workflows/aday-yedekleme.yml`: `contents: read`, teknik aday yedek aktarım betiği ve artifact kaydı var. **Kontrol:** yazma etkisinin yalnız çalışma alanı/artifact mı yoksa korunan yedekleri de etkileyip etkilemediği, alt betik düzeyinde doğrulanmalı.
+4. `.github/workflows/ibo-bagimsiz-test-listesi.yml`: salt okunur manuel IBO test listesi ve artifact üretimi. **Eksik kanıt:** gerçek IBO cihaz sonucu ayrı.
+5. `.github/workflows/felaket-kurtarma-tatbikati.yml`: manuel salt okunur felaket kurtarma tatbikatı ve artifact. **Eksik kanıt:** bağımsız yedekten gerçek izole restore.
+6. `.github/workflows/madsc-01-guvenlik.yml`: K1, `contents: read`, rapor artifact'ı ve `continue-on-error` kullanımı var. **Kontrol:** hata yutulan adımların kategori sonuç/kapı kararına etkisi.
+7. `.github/workflows/madsc-02-kesif.yml`: K2, UTC `17 5,17 * * *` ve `0 6,18 * * *` cron'ları; salt okunur ve çoklu `continue-on-error`. **Kontrol:** eski keşif cronlarıyla çift çalışma, başarısız keşfin başarı gibi raporlanması ve gerçek aday üretimi.
+8. `.github/workflows/madsc-03-kanal-test.yml`: K3, UTC `40 6 * * *` günlük cron, çoklu `continue-on-error`, medya/ffmpeg adımları. **Kontrol:** 1 ve 15'teki eski sağlık tetikleriyle zamanlama eşdeğerliği iddia edilmemeli; test hatası rapora yansıyor mu doğrulanmalı.
+9. `.github/workflows/madsc-04-arsiv-yedek.yml`: K4, salt okunur, çoklu `continue-on-error`, artifact raporu. **Eksik:** salt okunur envanter, üretim yedeği veya doğrulanmış geri yükleme değildir.
+10. `.github/workflows/madsc-05-genel-bakim.yml`: K5, UTC `30 1 * * *`, dört kategoriyi `needs` ile çağırıyor, fakat sonraki kademelerde `always() && previous.result != 'cancelled'` kullanıyor. **KRİTİK İNCELENECEK ÇATIŞMA:** önceki kademe `failure` olsa bile sonraki kademeye geçme ihtimali var. Fail-closed güvenlik kapısı için gerçek koşul değerlendirmesi ve test gerekli. Ayrıca K5 içindeki `continue-on-error` başarı sinyalini maskeleyebilir.
+
+### Eksik işler ve sınırlamalar
+- 10 dosya kaynak içeriği bu turda açıldı; bu yalnız hedefli kaynak incelemesi, tüm 823 dosyanın derin analizi değildir.
+- **Kalan: 440 metin/kod/veri dosyası.** 373 görsel kullanıcı kararıyla hariçtir; dosya toplamından gizlenmez.
+- Eski 810 notundaki bütün karar ve bulgular korunmuştur. Bu tur hiçbir üretim, kanal listesi, cron veya kod dosyasını değiştirmedi.
+- Sonraki turda kalan kaynaklar üzerinde dosya başına amaç, girdi/çıktı, çağrı zinciri, kullanıcı kararı, yazma riski, çakışma, eksik kanıt ve yeniden kurulumdaki karşılığı kaydedilmeli. Yeni inceleme kanıtı olmadan sayaç yükseltilmemeli.
