@@ -31,6 +31,10 @@ def inspect(root=ROOT):
             # A comment or a bare filename is not executable coverage.
             command = r"(?m)^(?:[ ]*python3[ ]+|[ ]*-?[ ]*run:[ ]*python3[ ]+|[ ]*if[ ]+python3[ ]+)" + re.escape(spec["script"]) + r"(?:[ ]|$)"
             present = bool(re.search(command, raw))
+            if control == "protected_integrity":
+                present = present and all(
+                    token in raw for token in ("--mode snapshot", "--mode check", "sha256sum -c")
+                )
             consumers[category] = present
             if not present:
                 missing.append({"control": control, "category": category, "workflow": CATEGORIES[category]})
