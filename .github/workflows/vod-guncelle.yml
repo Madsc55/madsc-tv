@@ -1,4 +1,4 @@
-name: VOD metadata update
+name: VOD meta veri guncelleme
 on:
   schedule:
     - cron: '17 7 * * *'
@@ -7,16 +7,19 @@ permissions:
   contents: write
 jobs:
   update:
+    name: VOD meta veri guncellemesi ve yazma denetimi
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch permitted TV episode schedule metadata
+      - name: Izinli TV bolum takvimi bilgilerini al
         run: python scripts/vod_guncelle.py
-      - name: Commit VOD metadata only
+      - name: Yalnizca VOD meta verisini kontrollu kaydet
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
