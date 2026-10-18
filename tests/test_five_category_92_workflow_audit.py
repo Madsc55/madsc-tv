@@ -178,6 +178,10 @@ class CentralCronRegressionTests(unittest.TestCase):
         for category in ("SECURITY", "DISCOVERY", "CHANNEL", "ARCHIVE"):
             self.assertIn(category + "_RESULT:", workflow)
         self.assertIn('if [[ "${value}" != "success" ]]', workflow)
+        self.assertIn("if: ${{ always() }}", workflow)
+        self.assertIn("needs: [kademe-1-guvenlik, kademe-2-kesif, kademe-3-kanal-test, kademe-4-arsiv-yedek]", workflow)
+        for result in ("SECURITY_RESULT", "DISCOVERY_RESULT", "CHANNEL_RESULT", "ARCHIVE_RESULT"):
+            self.assertIn(result + ": ${{ needs.", workflow)
 
     def test_central_discovery_cadence_and_daily_health_rotation(self):
         root = Path(__file__).resolve().parents[1]
