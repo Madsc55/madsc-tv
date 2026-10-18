@@ -3685,3 +3685,11 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 ### 18 Ekim 2026 — Güvenlik CI hata ve onarım kaydı
 - `562b2477be7ac3d6b43ac0aea197586e8f0c7a04` commitinde K1 run `39122430755` (job `117660567798`) başarısız; MADSC 05 run `39122430776` güvenlik job `117660568357` başarısız. Gerçek log: `scripts/five_category_92_workflow_audit.py:18` Python `SyntaxError` (`//` açıklama satırı). Diğer kademe jobları atlandı; başarılı sayılmaz.
 - Açıklama satırı Python `#` sözdizimine çevrildi; işlevsel kod ve regresyon testleri korunuyor. Yeni commitin run/job/artifact sonucu henüz doğrulanmadı. Önce bu CI düzeltmesini kontrol et, ardından 02–04 risk kuyruğuna dön. 92/92 davranışsal kabul 0/92.
+
+
+## 18 Ekim 2026 — K1 kural 21 koruma kapsami, negatif testler ve son kosular
+- `87e8006f92facf575b840854c0a7000d5db84673` K1 #72 run `39122561511` completed/success, job `117660944532` success. Ayni SHA MADSC 05 run `39122561504` completed/cancelled; basarili sayilmaz.
+- `b9a0b3e110c85a71438528519a30ea1d8f7dde99`: `tools/protected_write_gate.py` nested FAVORILER/HEPSI/yedekler klasorleri ve `.m3u8` degisikliklerini reddedecek sekilde genisletildi.
+- `fe840a06a3092813e7e6b2aad8da8cee4508d988`: `tests/test_protected_write_gate.py` nested korunan klasor ve m3u8 negatif testini ekledi. K1 run `39122794844` queued, MADSC 05 run `39122794885` pending; bu SHA icin henuz basari kaniti yok.
+- 26 kural raporunda 1,2,17,21,24,25 icin gercek test dosyasi adaylari raporlaniyor; runtime enforcement_verified tum kurallarda false; kanitsiz tamamlama iddiasi yok.
+- Sonraki adim: `fe840a0` SHA K1 ve MADSC 05 run sonucunu kontrol et; kirmiziysa log incele, duzelt; yesilse kural 21 tum production writer yollarinin korunmasi ve diger kural kanitlarini tek tek incele. Gercek IBO cihaz ve geri yukleme testleri kullanici onayi/erisim olmadan tamamlanmis sayilmaz. Korunan listeler/main/PR #71 degistirilmedi.
