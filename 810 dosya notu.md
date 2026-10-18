@@ -3453,3 +3453,19 @@ Eski 810 dosya için ilk inceleme kanıtı **810/810**, semantik ilk inceleme **
 - **Kalan: 440 metin/kod/veri dosyası.** 373 görsel kullanıcı kararıyla hariçtir; dosya toplamından gizlenmez.
 - Eski 810 notundaki bütün karar ve bulgular korunmuştur. Bu tur hiçbir üretim, kanal listesi, cron veya kod dosyasını değiştirmedi.
 - Sonraki turda kalan kaynaklar üzerinde dosya başına amaç, girdi/çıktı, çağrı zinciri, kullanıcı kararı, yazma riski, çakışma, eksik kanıt ve yeniden kurulumdaki karşılığı kaydedilmeli. Yeni inceleme kanıtı olmadan sayaç yükseltilmemeli.
+
+
+## 19 EKİM 2026 — ESKİ NOTLARDAN GERİ KAZANILAN UNUTULABİLİR GÖREVLER (5 KAYNAK)
+
+Yeni içerik okuması yapılan dosyalar: `kontrol_notlari/YENI_KANAL_ARAMA_TALEPLERI.md`, `docs/MADSC-TAM-DURUM-VE-YOL-HARITASI-2026-10-14.md`, `docs/MADSC-92-ESDEGERLIK-KARAR-MATRISI.md`, `raporlar/IBO_TCL55C655_UYUMLULUK_DENETIMI.md`, `madsc_kesif/NOT_EKSIK_TURK_KANALLARI.md`. Önceki 10 kaynakla birlikte **yeni kaynak yeniden okuması toplam 15/450**, kalan **435/450**; bu 150'lik tamamlanmış parti değildir. Daha önce kaydedilmiş D2 kanıtlarını silme, bu yeni okumaları önceki 'ilk kez tarandı' sayacına ekleme.
+
+1. **Eurostar talebi:** Eski bozuk Eurostar kullanıcı talimatıyla listeden çıkarılmış; sonraki keşifte doğrulanmış yeni Eurostar alternatifi araştırılacak. 404 vermiş eski URL yeniden canlı diye eklenmeyecek. Kimlik, HLS segment, görüntü/ses ve süreklilik doğrulanmadan ve kullanıcı onayı olmadan listeye ekleme yok.
+2. **Eksik ücretsiz Türk kanalları:** Türksat ücretsiz kanal kataloğu ile mevcut liste/arşiv farkı; yalnız resmî/yasal internet yayınları, İsveç erişimi, tekrar/alternatif ayrımı ve kullanıcı onayı. **Bu keşif talebi henüz çalıştırılmamış**; sıfırdan kurulum görev listesine taşınmalı.
+3. **IBO cihaz ayrıntısı:** TCL 55C655 Google TV, Ibo Player Pro 2128.0, paket `com.storeahim.obiproplay`. Benzer isimli başka uygulamaların davranışı bu paket için kanıt değildir. TV'de EPG URL/yenileme, XMLTV indirme, kanal kimliği, logo Content-Type ve codec ayrı cihaz testi gerektirir. 5 kanallık pilot, üretim EPG'si yerine geçmez.
+4. **EPG veri snapshot farkı:** Eski raporun 1039 EPG girişi, 728 eşleşme, 311 eşleşmeme, 17811 program gibi sayıları aynı tarihli 944 tvg-id'li playlist snapshot'ıyla karıştırılmamalı. Aynı commit üzerinden güncel M3U/XMLTV tutarlılık denetimi gerekli.
+5. **92 workflow ve beşli devrin açık işleri:** Eski belgede 9 zamanlanmış eski workflow; 06:00/18:00 keşif, günlük EPG/Pages, VOD, aylık 1/15 sağlık/yedek ve otomatik yazma bağımlılıkları belirtiliyor. Statik 92 matrisi 92 davranış kanıtı değildir; özellikle `migration_complete` yalnız dosya/dispatch varlığına göre true olabiliyorsa **yanlış kabul riski**. Her iş için eski/yeni komut, tetik, çıktı, hata, artifact, izin ve kullanıcı onayı karşılaştırılmalı.
+6. **Yedek ve gerçek restore:** Git HEAD'den geçici geri dönüş bağımsız dış yedek değildir; izole offsite restore ve bütünlük manifesti gerekir.
+7. **Aday kalite kuyruğu:** Eski yol haritasında 75 aday, 51 yeniden test, 24 ffprobe başarısızı ve 4 alternatif açık olarak kayıtlı; tarihsel sayı oldukları için güncel başarı veya eksik sayısı gibi gösterilmez.
+8. **Önceden yeşil olan beşli test:** Run 38630252033 geçmişte 5/5 job success; sonraki commitler veya 92/92 davranışsal eşdeğerlik için geçerli kabul kanıtı değildir.
+
+**İşlem sınırı:** Bu bölüm yalnız kaynak notlarından görev geri kazanımıdır; M3U, EPG, workflow, görseller ve diğer üretim verileri değiştirilmedi. 823 dosyanın tümünün yeniden ayrıntılı okunduğu iddia edilmez.
