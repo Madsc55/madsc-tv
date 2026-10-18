@@ -103,6 +103,8 @@ jobs:
           retention-days: 30
       - name: Workflow calistirmadan envanter sayisini dogrula
         run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
+      - name: Besli sistem gecis kapisi regresyon testleri
+        run: python -m unittest discover -s tests -p 'test_five_system_cutover_readiness.py' -v
       - name: K1 korunan dosya calisma sonu butunluk kontrolu
         if: always()
         run: python scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
