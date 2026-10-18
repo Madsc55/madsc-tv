@@ -3880,3 +3880,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `.github/workflows/madsc-01-guvenlik.yml`: 26 kural raporu üretiminin başarı sayılması kaldırıldı; `rule_count_valid`, 26 satır ve her satırda `runtime_enforcement_verified=true` aranıyor. Aksi durumda toplu K1 **fail-closed**. Commit `839f048f3f11f3fb3bb9391cb94af8e2eb5f4404` (önceki açıklama commit `b183b84a`). Mevcut kanıt matrisi 0/26 runtime verified olduğu için toplu kabul kasıtlı başarısız olacaktır; kanıt olmadan 26/26 ilan edilemez.
 - `tests/test_protected_write_gate.py`: `logos/`, `LOGOS/`, nested `cache/logos/` ve `logolar/` hem `blocked_paths` hem `protected` gerçek fonksiyonlarıyla toplu regresyona eklendi. Commit `9eb41358c04349abdef872a33c51a09f52489d02`.
 - Son kod değişiklikleri için güncel GitHub Actions run ID/sonucu bu oturumda doğrulanamadı. Eski run `39132848699` önceki SHA'ya aittir; yeni kodu kanıtlamaz. K1 açık, K2 bekliyor. Korunan liste ve main değiştirilmedi.
+
+
+### 18 Ekim K1 toplu run 39132848699 — 4 korunan farkın kesin yolları
+- GitHub Actions job `117691373954` logundan birebir: `epg/ibo-test-epg.xml`, `epg/madsc-epg.xml`, `epg/report.json`, `epg/tv_kontrol_bekliyor.json` **MISMATCH**. Toplam 47 korunan takipli yol, 4 farklı. Bu 4 EPG yoluna dokunulmadı; farkın kök nedeni ve yetkili değişiklik politikası incelenmeli.
+- Run 39132848699 eski SHA için failure; son kod commit `9eb41358` için PR tabanlı workflow run araması boş döndü; bu sorgu push/dispatch koşularını kapsamadığından güncel CI yoktur diye kesin sonuç çıkarılamaz.
+- K1 kabul kapısı 26/26 runtime kanıtı arıyor; halen kanıtlar tamamlanmadı.
