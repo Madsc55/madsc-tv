@@ -171,7 +171,7 @@ def inspect(root=ROOT):
             item["migration_gap_reasons"].append("UNMATCHED_TRIGGER_SIGNALS")
         if item["unmatched_cron_expressions"]:
             item["migration_gap_reasons"].append("UNMATCHED_CRON_EXPRESSIONS")
-        item["behavioral_parity_verified"] = False
+        if item["write_permission_inherited_or_unknown"]:\n            item["migration_gap_reasons"].append("INHERITED_PERMISSION_REQUIRES_REVIEW")\n        item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
         item["migration_decision"] = "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE"
