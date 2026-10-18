@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SUITES = [
     "test_*security_audit.py",
+    "test_workflow_security_audit.py",
     "test_protected_write_gate.py",
     "test_protected_gate_integration.py",
     "test_k1_failure_gate.py",
@@ -52,9 +53,32 @@ def execute():
     except (subprocess.TimeoutExpired, OSError) as exc:
         tests.append({"suite": "test_five_category_runtime_integrity",
                       "passed": False, "returncode": None, "log_tail": str(exc)})
-    rules = security_audit()
-    workflows = inspect(ROOT)
-    risks = risk_audit()
+    audit_errors = []
+    rules = None
+    workflows = None
+    risks = None
+    for label, fn in (("security", security_audit), ("workflows", lambda: inspect(ROOT)),
+                      ("risks", risk_audit)):
+        try:
+            result = fn()
+            if label == "security":
+                rules = result
+            elif label == "workflows":
+                workflows = result
+            else:
+                risks = result
+        except Exception as exc:
+            audit_errors.append({"audit": label, "error": str(exc)})
+    if audit_errors:
+        return {"generated_utc": datetime.now(timezone.utc).isoformat(),
+                "git_sha": os.environ.get("GITHUB_SHA"),
+                "github_run_id": os.environ.get("GITHUB_RUN_ID"),
+                "test_suites": tests,
+                "audit_errors": audit_errors,
+                "regression_suites_passed": sum(row["passed"] for row in tests),
+                "regression_suites_total": len(tests),
+                "static_security_clean": False, "acceptance_complete": False,
+                "security_runtime_verified": 0, "legacy_behavior_verified": 0}
     if len(rules["rows"]) != 26 or workflows["total"] != 92:
         raise ValueError("Expected 26 rules and 92 legacy workflows")
     critical_risks = risks["tiers"].get("CRITICAL_UNGATED_PUSH", 0)
