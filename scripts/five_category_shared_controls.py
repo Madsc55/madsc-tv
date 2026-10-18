@@ -34,9 +34,9 @@ def inspect(root=ROOT):
             if control == "protected_integrity":
                 commands = [line.strip() for line in raw.splitlines() if not line.lstrip().startswith("#")]
                 present = present and all(
-                    any(re.match(r"^(?:-? ?run: |if )?python3 scripts/k1_protected_integrity\\.py --mode " + mode + r"(?:\\s|$)", line) for line in commands)
+                    any(re.match(r"^(?:-? ?run: |if )?python3 scripts/k1_protected_integrity.py --mode " + mode + r"(?: |$)", line) for line in commands)
                     for mode in ("snapshot", "check")
-                ) and any(re.match(r"^(?:-? ?run: |if )?sha256sum -c\\s+", line) for line in commands)
+                ) and any(re.match(r"^(?:-? ?run: |if )?sha256sum -c +", line) for line in commands)
             consumers[category] = present
             if not present:
                 missing.append({"control": control, "category": category, "workflow": CATEGORIES[category]})
