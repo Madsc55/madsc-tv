@@ -52,7 +52,13 @@ jobs:
           set -euo pipefail
           python3 scripts/k1_24_rule_evidence.py > madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json
           python3 -m json.tool madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json > /dev/null
-          echo "26 kural belgelendi; uygulama dogrulamasi eksikleri raporda acikca gosterilir."
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json").read_text())
+          print("26 kural kanit raporu uretildi; tam runtime kabul denetimi gerekir.")
+          # Do not treat report generation alone as 26/26 verified.
+          PY
       - name: Kategoriye ait tum regresyon testleri
         id: regressions
         shell: bash
