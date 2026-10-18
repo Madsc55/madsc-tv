@@ -50,7 +50,8 @@ class CentralCronRegressionTests(unittest.TestCase):
                     encoding="utf-8",
                 )
             from scripts import five_category_92_workflow_audit as audit
-            with patch.object(audit, "ROOT", root):
+            original_inspect = audit.inspect
+            with patch.object(audit, "ROOT", root), patch.object(audit, "inspect", side_effect=lambda: original_inspect(root)):
                 main()
             queue = json.loads((root / "madsc_merkezi_denetim" / "92_workflow_yazma_risk_inceleme_kuyrugu.json").read_text())
             self.assertIn("legacy-api-only.yml", [item["file"] for item in queue["items"]])
