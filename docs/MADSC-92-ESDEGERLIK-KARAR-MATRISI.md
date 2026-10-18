@@ -414,3 +414,8 @@ Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir madd
 - `e75fe0a9d282f630fb343f7f810b16ff4ed9782b`: yazma/API/dispatch sinyali olan manuel workflow'lar da `HIGH` inceleme önceliği alıyor; zamanlayıcı olmaması yazma riskini ortadan kaldırmaz.
 - `865903c5a49494440879cd588c487f4d62000f4e`: API-only regresyon testi yüksek öncelik beklentisini doğrulayacak şekilde güncellendi.
 - **Test sonucu bekleniyor:** bu SHA için GitHub Actions koşusu doğrulanmadan güvenlik kategorisi tamamlandı sayılmaz.
+
+
+### 18 Ekim 2026 — Güvenlik CI hata ve onarım kaydı
+- `562b2477be7ac3d6b43ac0aea197586e8f0c7a04` commitinde K1 run `39122430755` (job `117660567798`) başarısız; MADSC 05 run `39122430776` güvenlik job `117660568357` başarısız. Gerçek log: `scripts/five_category_92_workflow_audit.py:18` Python `SyntaxError` (`//` açıklama satırı). Diğer kademe jobları atlandı; başarılı sayılmaz.
+- Açıklama satırı Python `#` sözdizimine çevrildi; işlevsel kod ve regresyon testleri korunuyor. Yeni commitin run/job/artifact sonucu henüz doğrulanmadı. Önce bu CI düzeltmesini kontrol et, ardından 02–04 risk kuyruğuna dön. 92/92 davranışsal kabul 0/92.

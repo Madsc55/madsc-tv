@@ -15,7 +15,7 @@ CATEGORIES = {
     4: ("Arsiv ve yedek", ("yedek", "backup", "arsiv", "archive", "restore", "kurtarma", "geri-yukle")),
     5: ("Genel bakim", ("rapor", "report", "denetim", "audit", "kontrol", "maintenance", "otomatik-devam", "vod", "guncelle")),
 }
-// Static risk indicators; detecting a command does NOT prove it ran.
+# Static risk indicators; detecting a command does NOT prove it ran.
 WRITE_SIDE_EFFECT = re.compile(
     r"\b(?:git\s+push|gh\s+api|gh\s+(?:workflow\s+(?:run|enable|disable)|run\s+rerun)|"
     r"curl\s+[^\n]*?(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))\b", re.I

@@ -3678,3 +3678,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Bu turda hazırlanan değişiklik tek toplu commit olarak dalda yayımlanırsa yeni SHA ve Actions run ID'si **sonraki turda ayrıca doğrulanacak**; şu an için doğrulanmış yeni run ID **yok**. 02–04 açık, 92/92 davranışsal kabul **0/92**, IBO cihaz testi bekliyor. Eski workflow, korunan veri, main ve PR #71 değiştirilmedi.
 
 - İlk açık iş: 02 (güncel SHA ile Actions run/job/log/artifact doğrulaması); ardından 03 risk sayıları ve 04 çift tetikleme/korunan yazma yolları. Yeni kodun tam CI kanıtı henüz yoktur.
+
+
+## 18 Ekim 2026 — 13:16 CEST / Güvenlik CI hata düzeltmesi
+
+### 18 Ekim 2026 — Güvenlik CI hata ve onarım kaydı
+- `562b2477be7ac3d6b43ac0aea197586e8f0c7a04` commitinde K1 run `39122430755` (job `117660567798`) başarısız; MADSC 05 run `39122430776` güvenlik job `117660568357` başarısız. Gerçek log: `scripts/five_category_92_workflow_audit.py:18` Python `SyntaxError` (`//` açıklama satırı). Diğer kademe jobları atlandı; başarılı sayılmaz.
+- Açıklama satırı Python `#` sözdizimine çevrildi; işlevsel kod ve regresyon testleri korunuyor. Yeni commitin run/job/artifact sonucu henüz doğrulanmadı. Önce bu CI düzeltmesini kontrol et, ardından 02–04 risk kuyruğuna dön. 92/92 davranışsal kabul 0/92.
