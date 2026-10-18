@@ -54,6 +54,14 @@ class LegacyWriterGuards(unittest.TestCase):
                 self.assertIn("group: madsc-protected-publish-main", source)
                 self.assertIn("cancel-in-progress: false", source)
 
+    def test_vod_revalidates_after_rebase_before_push(self):
+        source = (ROOT / "vod-guncelle.yml").read_text(encoding="utf-8-sig")
+        script = source.split("git diff --cached --quiet ||", 1)[1]
+        self.assertLess(script.index("git pull --rebase origin main"),
+                        script.index("tools/protected_write_gate.py --base origin/main"))
+        self.assertLess(script.index("tools/protected_write_gate.py --base origin/main"),
+                        script.index("git push"))
+
     def test_report_missing_explicit_permissions(self):
         from scripts.k1_workflow_risk_inventory import audit
         report = audit()
