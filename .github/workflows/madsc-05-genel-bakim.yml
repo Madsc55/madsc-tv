@@ -101,13 +101,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Cron denetimi regresyon testi
-        run: python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
       - name: Korunan dosyalarin baslangic ozeti
         run: |
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
           python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Cron denetimi regresyon testi
+        run: python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
       - name: Ayni kosunun dort basarili kategori kanitini guvenle al
         id: category_evidence
         continue-on-error: true

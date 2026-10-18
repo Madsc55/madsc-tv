@@ -15,6 +15,7 @@ on:
       - 'tests/test_k1_24_rule_evidence.py'
       - 'tests/test_k1_workflow_risk_inventory.py'
       - 'scripts/k1_protected_integrity.py'
+      - 'test_five_category_runtime_integrity.py'
       - 'scripts/five_category_92_workflow_audit.py'
       - 'tests/test_five_category_92_workflow_audit.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
@@ -55,6 +56,8 @@ jobs:
           name: k1-24-rule-evidence
           path: k1-24-rule-evidence.json
           retention-days: 30
+      - name: Korunan dosya calisma ani regresyon testleri
+        run: python3 -m unittest test_five_category_runtime_integrity -v
       - name: Compare all tracked protected paths against main
         run: |
           git fetch --no-tags origin main
