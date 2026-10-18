@@ -3776,3 +3776,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `8ce474e669bb2802b2bd7aa3112f72ad3da2ae50`: bu sinyaller icin negatif regresyon testi eklendi. Bu bir statik envanterdir; tum dolayli writer'larin gercek davranissal audit'inin kapandigi anlamina gelmez.
 - Son sorguda yeni K1 run `39126215169` SHA `8ce474e66` queued; onceki `39126197620` SHA `c53f05fb8` in_progress. Tamamlandi/basarili diye isaretlenmeyecek.
 - `39125933949` SHA `1f6291b1f` K1 completed/success; MADSC 05 `39125933984` ayni SHA icin in_progress. Korunan listeler/main/PR #71 degismedi.
+
+
+## 18 Ekim 2026 — K1 toplu testte gercek hata ve duzeltme
+- Kullanici ekran goruntusuyle `8ce474e66` SHA K1 run `39126215169` failure bildirdi; Actions job adimlariyla teyit edildi. Hata `Workflow push risk envanteri regresyon testleri` adiminda, sonraki testler skipped. Bu run BASARISIZ olarak kalir.
+- Yeni `git clean -fd` negatif testine karsilik `GIT_MUTATION` regex `clean\\s+-[A-Za-z]*f` flag siralamasinda `-fd` eslesmesini kaciriyordu. `402498cb9f4ad87fd669fb26faab5a5765c8f3e2` ile `clean\\s+-(?=[A-Za-z]*f)[A-Za-z]+` duzeltildi. Kod degisikligi yalnizca statik denetleyicide.
+- Duzeltme icin K1 run `39126376347` son kontrolde queued, sonuc HENUZ yok. MADSC 05 `39125933984` onceki SHA icin in_progress.
+- Kullanici 26 kuralin gercek uygulanma denetimini toplu bitirmeyi ve not tutmayi istiyor. IBO Player testini kullanici sonra yapacak; main, PR #71 ve korunan listeler degismedi.
