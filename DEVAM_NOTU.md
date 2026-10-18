@@ -3783,3 +3783,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Yeni `git clean -fd` negatif testine karsilik `GIT_MUTATION` regex `clean\\s+-[A-Za-z]*f` flag siralamasinda `-fd` eslesmesini kaciriyordu. `402498cb9f4ad87fd669fb26faab5a5765c8f3e2` ile `clean\\s+-(?=[A-Za-z]*f)[A-Za-z]+` duzeltildi. Kod degisikligi yalnizca statik denetleyicide.
 - Duzeltme icin K1 run `39126376347` son kontrolde queued, sonuc HENUZ yok. MADSC 05 `39125933984` onceki SHA icin in_progress.
 - Kullanici 26 kuralin gercek uygulanma denetimini toplu bitirmeyi ve not tutmayi istiyor. IBO Player testini kullanici sonra yapacak; main, PR #71 ve korunan listeler degismedi.
+
+
+## 18 Ekim 2026 — K1 hatali toplu test duzeltmesi kanitlandi
+- `402498cb9f4ad87fd669fb26faab5a5765c8f3e2` SHA icin K1 Actions run `39126376347` completed/success. `git clean -fd` risk taramasi regresyonu dahil toplu K1 test basarili.
+- Onceki `8ce474e66` SHA run `39126215169` failure kaydi korunur; sonradan basarili gibi yeniden etiketlenmez.
+- MADSC 05 `39125933984` SHA `1f6291b1f` son kontrolde in_progress; SHA'lar farkli, yeni K1 basarisi onun yerine gecmez.
+- 26 kuralin tamaminda production runtime enforcement kaniti henuz yok; K1 sirali denetim acik. IBO Player testini kullanici yapacak. Korunan listeler/main/PR #71 degismedi.
