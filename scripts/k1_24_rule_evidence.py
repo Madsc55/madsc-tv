@@ -79,6 +79,10 @@ def audit():
         })
     return {
         "documented_rules": sorted(numbered | agent_numbered),
+        "partial_evidence_count": sum(row["status"] == "PARTIAL_EVIDENCE" for row in rows),
+        "needs_evidence_count": sum(row["status"] == "NEEDS_EVIDENCE" for row in rows),
+        "runtime_unverified_rule_numbers": [row["rule"] for row in rows if not row["runtime_enforcement_verified"]],
+        "runtime_acceptance_allowed": all(row["runtime_enforcement_verified"] for row in rows),
         "expected_rule_count": 26,
         "rule_count_valid": numbered == set(range(1, 25)) and agent_numbered == {25, 26},
         "rows": rows,
