@@ -43,8 +43,18 @@ def inspect(path):
                          if re.search(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b", line)]
     gate_line_numbers = [i for i, line in enumerate(lines)
                          if re.search(r"\bpython3?\s+tools/protected_write_gate\.py\b", line)]
-    pushes_without_prior_gate = sum(not any(g < p for g in gate_line_numbers)
-                                    for p in push_line_numbers)
+    # Same-line shell chains are common: count a gate before push on that
+    # line as an ordering signal, but never as runtime authorization proof.
+    # A later gate on the same line cannot protect an earlier push.
+    gate_pattern = re.compile(r"\\bpython3?\\s+tools/protected_write_gate\\.py\\b")
+    push_pattern = re.compile(r"\\bgit\\s+(?:(?:-c|--config)\\s+\\S+\\s+|(?:-[A-Za-z]+|--[\\w-]+(?:=\\S+)?)\\s+)*push\\b")
+    pushes_without_prior_gate = 0
+    for i, line in enumerate(lines):
+        for match in push_pattern.finditer(line):
+            prior_line_gate = any(g < i for g in gate_line_numbers)
+            same_line_gate = any(g.start() < match.start() for g in gate_pattern.finditer(line))
+            if not (prior_line_gate or same_line_gate):
+                pushes_without_prior_gate += 1
     # An audit-text exemption is not a security exemption: flag any executable
     # push text in the same file for manual review, even with read-only tokens.
     read_only_audit_exemption = (pushes > 0 and path.name in {
