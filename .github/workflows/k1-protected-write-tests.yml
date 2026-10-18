@@ -66,7 +66,7 @@ jobs:
       - name: Tum workflow risk envanterini olustur
         run: |
           python scripts/k1_workflow_risk_inventory.py > k1-workflow-risk-inventory.json
-          python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98; assert r['tiers'].get('CRITICAL_UNGATED_PUSH',0) == 0"
+          python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98; assert r['tiers'].get('CRITICAL_UNGATED_PUSH',0) == 0; print('PUSH BEFORE GATE:',r['push_order_review_paths']); print('INDIRECT WITHOUT GATE:',r['indirect_writers_without_gate_reference'])"
       - uses: actions/upload-artifact@v4
         with:
           name: k1-workflow-risk-inventory
