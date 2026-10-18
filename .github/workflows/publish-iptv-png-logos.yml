@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'logos/duzeltilmis-*.svg'
+concurrency:
+  group: madsc-protected-publish-main
+  cancel-in-progress: false
 jobs:
   publish:
     name: PNG logo uretimi ve korunan yazma kontrolu
