@@ -16,7 +16,8 @@ PROTECTED_EXACT = frozenset({
     "GUVENLIK_KURALLARI.md",
     "AGENTS.md",
 })
-PROTECTED_PREFIXES = ("yedekler/", "YEDEKLER/", "FAVORILER/", "HEPSI/")
+PROTECTED_PREFIXES = ("yedekler/", "YEDEKLER/", "FAVORILER/", "HEPSI/",
+                      "EPG/", "logolar/", "arsiv/")
 
 
 def blocked_paths(paths):
