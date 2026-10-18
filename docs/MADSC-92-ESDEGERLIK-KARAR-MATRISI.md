@@ -85,3 +85,26 @@ Aşağıdaki işler 26'dan sonra uygulanır; öncesinde ilgili güvenlik bulgusu
 - [ ] **34 — Periyodik yeniden kabul:** haftalık başarısızlık taraması, aylık eşdeğerlik ve erişim denetimi; yeni iş kuyruğuna ekleme.
 
 **Tek kuyruk ilkesi:** Önce 02–12, ardından 13–26, ardından 27–34. GitHub Actions tek koşuda yalnız teknik olarak otomatik yapılabilen salt-okunur denetimleri yapar. Gerçek cihaz, üretim yazmaları ve eski workflow emekliliği için kullanıcı onayı şarttır. Bu belge zamanlayıcı değildir; yalnızca GitHub Actions'a açıkça bağlanan adımlar kendiliğinden çalışır.
+
+## Tamamlayıcı iş kuyruğu — 35–50
+
+Bu bölüm bilinen ek kabul konularını sıralar; keşfedilecek yeni sorunlar ilgili en erken aşamaya eklenir. Sıra otomatik çalıştırma garantisi değildir; her adımın kanıtı gerekir.
+
+- [ ] **35 — Varsayılan dal ve dağıtım topolojisi:** aktif default branch, cron ve Pages yayın kaynağı kanıtı.
+- [ ] **36 — GitHub Actions concurrency:** aynı anda tetiklenen push, cron, dispatch ve workflow_call yarışlarını engelleyen gruplar.
+- [ ] **37 — Workflow çağrı zinciri:** reusable workflow inputs, outputs, needs, if/always ve hata yayılımı doğrulaması.
+- [ ] **38 — Eşzamanlı dosya yazma çatışmaları:** yarış, kilit, atomik güncelleme ve tekrar denenebilirlik denetimi.
+- [ ] **39 — Idempotency ve tekrar çalıştırma:** aynı girdiyle yinelenen koşunun güvenli ve tutarlı çıktı üretmesi.
+- [ ] **40 — Sır ve kimlik bilgisi yaşam döngüsü:** sızıntı taraması, izin sınırları, yenileme prosedürü; sırları rapora yazma yok.
+- [ ] **41 — Kaynak güvenilirliği ve erişim koşulları:** URL kaynaklarının yetki, oran limiti ve kararlılık değerlendirmesi.
+- [ ] **42 — Ağ arızası ve timeout senaryoları:** 429, 5xx, DNS, bağlantı kesintisi, backoff ve kısmi sonuç davranışı.
+- [ ] **43 — Çıktı şema ve veri kalite sözleşmeleri:** M3U/EPG/JSON/CSV doğrulama, encoding, sıralama ve bozuk veri karantinası.
+- [ ] **44 — Kanal kimliği ve tarihçe tutarlılığı:** TVG ID, ülke, grup, URL değişimi, geçmiş ve tekrarların izlenmesi.
+- [ ] **45 — EPG zaman dilimi ve veri tazeliği:** XMLTV doğruluğu, saat kayması, geçmiş ve gelecek program kapsamı.
+- [ ] **46 — Logo dosyası ve erişim testi:** PNG/JPEG doğruluğu, kırık bağlantı, boyut, isimlendirme ve önbellek.
+- [ ] **47 — Pages/CDN önbellek ve erişilebilirlik:** public URL, MIME, yönlendirme, HTTPS, önbellek ve güncelleme gecikmesi.
+- [ ] **48 — Playlist istemci uyumluluğu:** IBO yanında standart M3U oynatıcılarla yalnız teknik ayrıştırma testi.
+- [ ] **49 — Rapor tutarlılığı ve kanıt izi:** 92 görev için dosya, commit, run, artifact, karar, eksik kanıt ve sahibi alanları.
+- [ ] **50 — Son açık işler taraması:** çözülmemiş bug, TODO, risk, başarısız test ve yeni gereksinimleri yeniden kuyruğa al.
+
+**Öncelik kuralı:** Güvenlik açığı, veri kaybı veya üretim kesintisi saptanırsa numara sırasından önce güvenli durdurma/onarım yapılır. Riskli değişiklikler açık onay gerektirir. 02–34 maddelerinin bitmesi bu yeni maddelerin de bittiği anlamına gelmez.
