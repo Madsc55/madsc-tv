@@ -239,6 +239,11 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertCountEqual(visited, rows)
             self.assertEqual(len(visited), count)
 
+    def test_empty_channel_rotation(self):
+        from datetime import date
+        from scripts.ana_liste_saglik import batch
+        self.assertEqual(batch([], date(2026, 10, 18), 100), ([], 0, 0))
+
     def test_shadow_crons_do_not_count_as_verified_behavior(self):
         root = Path(__file__).resolve().parents[1]
         discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
