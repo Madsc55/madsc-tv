@@ -38,6 +38,17 @@ class LegacyPermissionGapTests(unittest.TestCase):
             ))
             self.assertEqual(report["behavioral_parity_verified_count"], 0)
 
+    def test_missing_legacy_workflow_blocks_inventory(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for i in range(91):
+                (folder / f"legacy-{i:02}.yml").write_text(
+                    "name: legacy\non:\n  workflow_dispatch:\npermissions:\n  contents: read\njobs: {}\n", encoding="utf-8",
+                )
+            with self.assertRaisesRegex(SystemExit, "expected 92, found 91"):
+                inspect(Path(tmp))
+
     def test_inherited_permissions_are_reported_as_gap(self):
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp) / ".github" / "workflows"
