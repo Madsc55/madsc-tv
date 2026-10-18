@@ -241,6 +241,7 @@ def main():
                 "workflow_call": item["workflow_call"],
                 "manual": item["manual"],
                 "contents_write": item["contents_write"],
+            "write_permission_inherited_or_unknown": item["write_permission_inherited_or_unknown"],
                 "git_push_command_count": item["git_push_command_count"],
                 "force_push_command_count": item["force_push_command_count"],
                 "multiple_push_command_signal": item["multiple_push_command_signal"],
