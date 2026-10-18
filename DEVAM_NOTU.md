@@ -3828,3 +3828,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - `scripts/k1_24_rule_evidence.py` gercek okuma: 26 kuralin hepsi kayitli fakat `fully_verified_rules=0` ve tum `runtime_enforcement_verified=False` — bu ihtiyatli durum dogrudur; mevcut testler tek basina 26/26 production enforcement kaniti degildir.
 - Otomatik test adaylari olan kurallar: 1,2,3,4,5,17,19,21,22,24,25,26 (12). Yalniz kanit dosyasi adayi olan: 6,15 (2). Dosya adayi dahi olmayan: 7,8,9,10,11,12,13,14,16,18,20,23 (12). Bu sayilar audit matrisinin kapsamini gosterir, uygulamanin kesinlikle bulunmadigini kanitlamaz.
 - Sirali toplu calisma: once kanitsiz 12 kural icin gercek kod ve veri akislarini, tum 92 workflow dolayli yazma yollarini dosya/davranis bazinda eslestir; sonra yetki, gercek backup restore ve IBO ayri dis bagimliliklar. Testler toplu, tek SHA'ya ait Actions kanitlariyla dogrulanacak. Korunan listeler/main/PR #71 degismeyecek.
+
+
+## 18 Ekim 2026 — 92 workflow dolayli yazma riski toplu envanter guclendirme
+- `aebf80f2e43356cbef777cba79c595deb287b8b6`: `scripts/k1_workflow_risk_inventory.py` dolayli writer sinyali, gate referansi olmayan dolayli writer listesi ve `runtime_gate_order_verified=False` alanlari eklendi. Gate referans sayisi runtime enforcement kaniti degildir.
+- `12cad4715baff609fa0c31a063fbddd29605e61c`: `tests/test_k1_workflow_risk_inventory.py` iki regresyon testi: dolayli writer gate yoksa isaretlenir; gate komutu writer'dan sonra yazili olsa bile runtime sira dogrulanmis sayilmaz.
+- K1 `39128048469` SHA `aebf80f2e` completed/success. Son SHA `12cad4715` K1 `39128061223` son sorguda in_progress, success denemez. MADSC 05 `39127524378` SHA `ae32bbc17` in_progress. Yeni kod production writer'lari otomatik durdurmaz; tespit kapsamindadir.
+- 26/26 production runtime enforcement halen acik, branch protection ve IBO/gercek restore bagimliliklari ayri. Korunan listeler/main/PR #71 degismedi.
