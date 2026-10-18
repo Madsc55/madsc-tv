@@ -395,3 +395,9 @@ Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir madd
 - `bdc1601ed235049433721df6d876a7ff7ced71cc`: `92_workflow_yazma_risk_inceleme_kuyrugu.json` artık her riskli eski workflow için `review_priority`, `requires_protected_write_review`, `required_acceptance_checks` alanlarını taşır.
 - `320fdc19e6df2d8b4ef74c57f1bb6f6964c0a689`: API-only workflow'un yüksek öncelik ve dispatch idempotency kabul kontrolünü doğrulayan regresyon assertion'ları eklendi.
 - **Açık:** Bu commit'ler için Actions test sonucu henüz doğrulanmadı. Bu statik risk sınıflandırması 92/92 davranışsal eşdeğerlik kanıtı değildir.
+
+## 18 Ekim 2026 — Güvenlik kategorisi: korunan yol risk tespiti
+
+- `71c3ed359044db771526035718b8769b6981f47e`: eski workflow'ların yazma-risk denetimi `HEPSI`, `FAVORILER`, `EPG/`, `logolar/`, `arsiv/` ve mevcut korunan playlist/yedek işaretlerini kapsayacak şekilde genişletildi. Bu bir statik tespit iyileştirmesidir, otomatik yazma engelleme kanıtı değildir.
+- `4ad5cbfb2d9e330dda83a9864fbeee72c47fe53d` ve `3e24cb28352c34914aef13cd9f0dc803dcbcadeb`: `FAVORILER` için regresyon fixture'ı eklendi ve satır sonları düzeltildi.
+- **Bekleyen:** Bu SHA'lar için Actions koşusu ve test başarısı henüz doğrulanmadı. Güvenlik kategorisi tamamlandı sayılmaz; 92/92 davranışsal eşdeğerlik açık.
