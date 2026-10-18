@@ -30,7 +30,7 @@ class SharedControlsTests(unittest.TestCase):
                 lines = ["name: fixture", "run: |", "  python3 scripts/k1_protected_integrity.py --mode snapshot"]
                 if name == CATEGORIES["K5"]:
                     lines += ["  python3 scripts/category_evidence_collect.py", "  python3 scripts/five_system_cutover_readiness.py"]
-                (folder / name).write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+                (folder / name).write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
             result = inspect(root)
             self.assertEqual(result["status"], "STATIC_READY", result["missing_consumers"])
 
