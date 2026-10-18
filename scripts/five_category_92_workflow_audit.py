@@ -153,7 +153,7 @@ def inspect(root=ROOT):
         ]
         item["write_permission_parity_unverified"] = bool(item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"])
         item_raw = legacy_contents[item["file"]]
-        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and ("CALISANLAR.m3u" in item_raw or "YENILER.m3u" in item_raw or "yedekler/" in item_raw))
+        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and any(token in item_raw.lower() for token in ("calisanlar.m3u", "yeniler", "yedekler/", "hepsi", "favoriler", "epg/", "logolar/", "arsiv/")))
         item["required_acceptance_checks"] = [
             "COMPARE_LEGACY_AND_REPLACEMENT_JOB_STEPS",
             "VERIFY_TRIGGER_EQUIVALENCE",
