@@ -3419,3 +3419,14 @@ Bu bölüm yalnız önceki D2 kayıtlarından türetilmiştir; kaynak dosyaları
 
 ### Yeni kurulum için kritik sonuç
 Eski 810 dosya için ilk inceleme kanıtı **810/810**, semantik ilk inceleme **595/810**, kalan **215 görsel** kullanıcı kararıyla askıda; görsel olmayan **437/437 D2** önceki notlarda kayıtlıdır. Bu turda 13 ek dosyanın metin işlevleri incelendi; **D3=0**, 26/26 güvenlik ve 92/92 davranış kabulü kanıtlanmadı. **Hiçbir kanal, M3U, kategori, EPG, logo, yedek, eski workflow veya üretim dosyası değiştirilmedi.** Yeni temizliğe başlamadan bağımsız geri yüklenebilir yedek ve SHA256 manifesti hâlâ gereklidir.
+
+
+## 18 EKİM 2026 — KULLANICININ YENİ KESİN GÖREVİ: 823 DOSYADAN 450 METİN/VERİ DOSYASININ DERİN İŞLEV DENETİMİ
+
+**Talimat:** Yeni `Madsc55-Tv` beşli sisteminin kurulumu öncesinde 823 dosyanın tamamının envanteri temel alınacak. 373 görsel dosyası açılmayacak; kalan **450 dosyanın içindeki** yapılacak işler, geçmiş kararlar, kurallar, raporlar, planlar, eksik özellikler, karşılıklı bağımlılıklar, mükerrer ve çelişen görevler aranacak. Daha önce incelenmiş dosyalar da karşılaştırmaya dahil; önceki okumalar yeni derin inceleme diye sayılmayacak. Bulunanlar bu nota eklenecek. Kullanıcı her 150'lik grubun ardından '150 incelendi, N kaldı' biçiminde gerçek ilerleme raporu istiyor; tahmini veya varsayılan ilerleme yasak.
+
+**Yeni dal Git tree sayımı:** 823 blob = 450 görsel olmayan (198 Python, 99 YAML, 51 JSON, 39 Markdown, 27 M3U, 26 CSV, 7 TXT, 3 XML) + 373 görsel. Özgün 810 manifest dosyalarının tümü halen var; 13 ek dosya önceki bölümde listelendi. **İlerleme: yeni 150'lik derin tarama tamamlanan grup 0/3.** 150 dosyayı eşzamanlı içerik çekme denemesi araç çağrı sınırına takıldı; bu işlem 150 dosyanın okunduğu veya denetlendiği anlamına gelmez. Önceki 810 dosya ilk inceleme kayıtları saklıdır.
+
+**Çıkarılacak nihai matris:** dosya yolu, görev/özellik, içeriğindeki kesin talimat ve bekleyen iş, girdi/çıktı ve çağıran/çağrılan dosyalar, diğer dosyayla tekrar/çakışma, güvenlik/yazma riski, korunacak veri, kanıt ve uygulanacak karar (koru/birleştir/yeniden yaz/ayrıca onay iste). Özellikle `EPG/` koruması ile EPG üretim push çatışması; 92 eski workflow ve beşli cron/dispatch çakışmaları; playlist'e doğrudan yazan betikler; IBO eski kararlarının tekrar uygulanması; gerçek harici yedek/restore; 26 güvenlik kuralının uygulama kanıtı; aday kanal kimliği/IBO onayı; test/artifact kökeni çapraz karşılaştırılacak. Bunlar **önceki bulgulardan aday konular**, yeni tamamlanmış derin denetim değildir.
+
+**Güvenlik:** bu görev yalnız analiz ve not güncellemesidir. Korunan listeler, kategori, M3U, EPG, logo, yedek, workflow ve üretim kodu değiştirilmeyecek. 15 dakikada bitirme veya bütün 450 dosyanın yeni derin taramasının tamamlandığı iddia edilmeyecek.
