@@ -82,6 +82,17 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                 self.assertFalse(record["write_command_signal"])
                 self.assertEqual(record["tier"], "LOW_STATIC_SIGNAL")
 
+    def test_indirect_writer_and_additional_cli_mutations_are_flagged(self):
+        commands = ("python3 scripts/publish_channels.py", "bash tools/deploy.sh",
+                    "gh release upload v1 artifact.zip", "gh pr merge 71",
+                    "git reset --hard HEAD", "git clean -fd")
+        for command in commands:
+            with self.subTest(command=command):
+                record = self.inspect_text("permissions:\\n  contents: read\\nsteps:\\n  - run: " + command
+                                           + "\\n  - run: cat CALISANLAR.m3u\\n")
+                self.assertTrue(record["write_command_signal"], command)
+                self.assertEqual(record["tier"], "HIGH_WRITE_OR_TRIGGER")
+
     def test_other_protected_paths_are_identified(self):
         for path in ("HEPSI", "FAVORILER", "YEDEKLER/backup.m3u", "EPG/tv.xml", "logolar/x.png", "arsiv/archive.json"):
             with self.subTest(path=path):
