@@ -57,6 +57,9 @@ def execute():
     risks = risk_audit()
     if len(rules["rows"]) != 26 or workflows["total"] != 92:
         raise ValueError("Expected 26 rules and 92 legacy workflows")
+    critical_risks = risks["tiers"].get("CRITICAL_UNGATED_PUSH", 0)
+    missing_permissions = risks["missing_explicit_permissions"]
+    static_security_clean = critical_risks == 0 and missing_permissions == 0
     report = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "git_sha": os.environ.get("GITHUB_SHA"),
@@ -71,8 +74,12 @@ def execute():
         "legacy_behavior_verified": workflows["behavioral_parity_verified_count"],
         "legacy_behavior_blocked": workflows["migration_blocked_count"],
         "workflow_risk_count": risks["workflow_count"],
+        "critical_ungated_push_count": critical_risks,
+        "missing_explicit_permission_count": missing_permissions,
+        "static_security_clean": static_security_clean,
         "acceptance_complete": bool(
             all(row["passed"] for row in tests)
+            and static_security_clean
             and rules["runtime_acceptance_allowed"]
             and workflows["behavioral_parity_verified_count"] == 92
         ),
@@ -88,7 +95,7 @@ def main():
     report = execute()
     Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "test_suites"}, ensure_ascii=False))
-    if not all(row["passed"] for row in report["test_suites"]):
+    if not all(row["passed"] for row in report["test_suites"]) or not report["static_security_clean"]:
         return 1
     if args.require_full_acceptance and not report["acceptance_complete"]:
         return 2
