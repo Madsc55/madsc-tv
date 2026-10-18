@@ -40,6 +40,8 @@ jobs:
         run: |
           python3 scripts/five_category_shared_controls.py
           python3 -m unittest discover -s tests -p 'test_five_category_shared_controls.py' -v
+      - name: 92 eski workflow esdegerlik envanterini uret
+        run: python3 scripts/five_category_92_workflow_audit.py
       - name: Bes kategori altyapi on kontrolu
         run: python3 scripts/five_category_preflight.py
       - name: Besli sistem raporunu yukle
@@ -51,4 +53,6 @@ jobs:
             madsc_merkezi_denetim/besli_sistem_gecis_hazirlik.json
             madsc_merkezi_denetim/bes_kategori_on_kontrol.json
             madsc_merkezi_denetim/besli_ortak_kural_etki_haritasi.json
+            madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json
+            madsc_merkezi_denetim/92_workflow_esdegerlik_kabul_matrisi.csv
           if-no-files-found: warn
