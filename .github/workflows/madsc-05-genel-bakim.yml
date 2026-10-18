@@ -32,6 +32,8 @@ on:
       - 'scripts/discovery_history_restore.py'
       - 'scripts/five_category_permission_gate.py'
       - 'scripts/five_category_preflight.py'
+      - 'scripts/five_system_cutover_readiness.py'
+      - 'tests/test_five_system_cutover_readiness.py'
       - 'scripts/five_category_92_workflow_audit.py'
       - 'tests/test_five_category_92_workflow_audit.py'
       - 'tools/protected_write_gate.py'
@@ -270,6 +272,11 @@ jobs:
           sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
           python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
           python3 scripts/category_evidence_collect.py --verify
+      - name: Besli sistem gecis hazirligi ve engel raporu
+        if: always()
+        run: |
+          python3 scripts/five_system_cutover_readiness.py
+          python3 -m unittest discover -s tests -p 'test_five_system_cutover_readiness.py' -v
       - name: Toplu test sonuc ozeti ve hata listesi
         if: always()
         env:
