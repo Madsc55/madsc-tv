@@ -5,6 +5,9 @@ on:
     - cron: '25 3 * * *'
 permissions:
   contents: write
+concurrency:
+  group: madsc-protected-publish-main
+  cancel-in-progress: false
 jobs:
   update-epg:
     name: Gunluk EPG uretimi ve korunan yazma kontrolu
