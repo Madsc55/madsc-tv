@@ -70,3 +70,18 @@ Bu maddeler uygulanacak iş sırasıdır, tamamlandı işareti değildir. 12 num
 - 92/92 eşdeğerlik ve canlı üretim doğrulanmadan eski workflow'lar kapatılmaz.
 - GitHub Actions cron tetikleri yalnız varsayılan dalda işler; özellik dalındaki cron tek başına 7/24 üretim kanıtı değildir.
 - IBO gerçek cihaz kabulü ve riskli üretim değişiklikleri kullanıcı onayı gerektirir.
+
+## Ek kabul ve operasyon kuyruğu — 27–34
+
+Aşağıdaki işler 26'dan sonra uygulanır; öncesinde ilgili güvenlik bulgusu çıkarsa öne çekilir. İşaretler yalnız somut test kanıtıyla değişir.
+
+- [ ] **27 — İş akışı izin matrisi:** GITHUB_TOKEN, üçüncü taraf sırlar, en az ayrıcalık ve fork/PR güvenlik sınırları.
+- [ ] **28 — Bağımlılık ve tedarik zinciri:** action sürümlerini sabitleme, Python bağımlılıklarını tarama ve güncelleme testi.
+- [ ] **29 — Gözlemlenebilirlik:** merkezi günlükler, başarısız aşama sınıflandırması, saklama süresi ve anlaşılır durum ekranı.
+- [ ] **30 — Maliyet ve kota denetimi:** Actions dakika/artifact tüketimi, gereksiz paralel koşular, dış servis oran sınırları.
+- [ ] **31 — Felaket kurtarma tatbikatı:** bağımsız dış yedekten izole kurtarma, geri dönüş süresi ve bütünlük kanıtı.
+- [ ] **32 — Üretim geri alma planı:** workflow, yayın ve Pages için sürümlü rollback; yazma işlemleri onay kapılı.
+- [ ] **33 — Belgeler ve devir notu:** kurulum, günlük işletim, hata müdahalesi, cihaz doğrulama ve yeni sohbetten devam kılavuzu.
+- [ ] **34 — Periyodik yeniden kabul:** haftalık başarısızlık taraması, aylık eşdeğerlik ve erişim denetimi; yeni iş kuyruğuna ekleme.
+
+**Tek kuyruk ilkesi:** Önce 02–12, ardından 13–26, ardından 27–34. GitHub Actions tek koşuda yalnız teknik olarak otomatik yapılabilen salt-okunur denetimleri yapar. Gerçek cihaz, üretim yazmaları ve eski workflow emekliliği için kullanıcı onayı şarttır. Bu belge zamanlayıcı değildir; yalnızca GitHub Actions'a açıkça bağlanan adımlar kendiliğinden çalışır.
