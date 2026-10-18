@@ -56,8 +56,13 @@ def git_changed_paths(base):
         ["git", "ls-files", "--others", "--exclude-standard", "-z"],
         check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
     )
+    # Include ignored files so protected runtime paths cannot hide in .gitignore.
+    ignored = subprocess.run(
+        ["git", "ls-files", "--others", "--ignored", "--exclude-standard", "-z"],
+        check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
     return [p.decode("utf-8", errors="strict") for p in
-            (result.stdout + staged.stdout + unstaged.stdout + untracked.stdout).split(bytes([0])) if p]
+            (result.stdout + staged.stdout + unstaged.stdout + untracked.stdout + ignored.stdout).split(bytes([0])) if p]
 
 
 def main(argv=None):
