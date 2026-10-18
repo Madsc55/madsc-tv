@@ -389,3 +389,9 @@ Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir madd
 - `085211b4b75380a8fa30e44dbd321a90dac81bf0`: 92-workflow yazma-risk kuyruğu artık `write_risk_commands` komut kanıtlarını da içeriyor; salt okunur rapor üretimi, korunan dosyaya yazma yok.
 - `2f964bdceff62e4c0b4c328c2cee44bca5b3c1de`: API-only workflow fixture'ında komut kanıtının JSON'a taşındığını denetleyen regresyon assertion eklendi.
 - **Bekleyen doğrulama:** bu iki commit sonrası GitHub Actions run ve regresyon sonucu henüz teyit edilmedi; eski 92 workflow için davranışsal eşdeğerlik onaylanmadı.
+
+## 18 Ekim 2026 — Yazma-risk kuyruğu kabul alanları
+
+- `bdc1601ed235049433721df6d876a7ff7ced71cc`: `92_workflow_yazma_risk_inceleme_kuyrugu.json` artık her riskli eski workflow için `review_priority`, `requires_protected_write_review`, `required_acceptance_checks` alanlarını taşır.
+- `320fdc19e6df2d8b4ef74c57f1bb6f6964c0a689`: API-only workflow'un yüksek öncelik ve dispatch idempotency kabul kontrolünü doğrulayan regresyon assertion'ları eklendi.
+- **Açık:** Bu commit'ler için Actions test sonucu henüz doğrulanmadı. Bu statik risk sınıflandırması 92/92 davranışsal eşdeğerlik kanıtı değildir.
