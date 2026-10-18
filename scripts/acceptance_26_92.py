@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -35,7 +36,7 @@ def execute():
                 [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", name, "-v"],
                 cwd=ROOT, capture_output=True, text=True, timeout=240,
             )
-            tests.append({"suite": name, "passed": result.returncode == 0,
+            tests.append({"suite": name, "passed": result.returncode == 0 and bool(re.search(r"Ran [1-9][0-9]* tests? in ", result.stdout + result.stderr)),
                           "returncode": result.returncode,
                           "log_tail": (result.stdout + result.stderr)[-8000:]})
         except (subprocess.TimeoutExpired, OSError) as exc:
