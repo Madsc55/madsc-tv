@@ -47,6 +47,13 @@ class LegacyWriterGuards(unittest.TestCase):
         self.assertEqual(blocked_paths(["logos/duzeltilmis-ornek.png"]),
                          ["logos/duzeltilmis-ornek.png"])
 
+    def test_epg_and_png_writers_serialize_protected_publication(self):
+        for name in ("epg-gunluk.yml", "publish-iptv-png-logos.yml"):
+            with self.subTest(workflow=name):
+                source = (ROOT / name).read_text(encoding="utf-8-sig")
+                self.assertIn("group: madsc-protected-publish-main", source)
+                self.assertIn("cancel-in-progress: false", source)
+
     def test_report_missing_explicit_permissions(self):
         from scripts.k1_workflow_risk_inventory import audit
         report = audit()
