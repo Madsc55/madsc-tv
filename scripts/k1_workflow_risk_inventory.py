@@ -52,11 +52,11 @@ def inspect(path):
         "test-38-audit-selftest.yml",
         "toplu-sistem-kontrol.yml",
     } and "persist-credentials: false" in s
-        and bool(re.search(r"(?m)^  contents: read\\s*$", s)))
+        and bool(re.search(r"(?m)^  contents: read\s*$", s)))
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
-    if pushes and path.name in {"test-32-unapproved-write-regression.yml", "test-38-audit-selftest.yml", "toplu-sistem-kontrol.yml"} and "persist-credentials: false" in s and re.search(r"(?m)^  contents: read\s*$", s):
+    if read_only_audit_exemption:
         tier = "READ_ONLY_AUDIT_TEXT"
     elif pushes and gates < pushes:
         tier = "CRITICAL_UNGATED_PUSH"
