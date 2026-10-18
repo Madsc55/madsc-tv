@@ -33,6 +33,7 @@ on:
       - 'scripts/five_category_permission_gate.py'
       - 'scripts/five_category_preflight.py'
       - 'scripts/five_category_92_workflow_audit.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
       - 'scripts/k1_24_rule_evidence.py'
       - 'tests/test_k1_24_rule_evidence.py'
       - 'test_five_category_permission_gate.py'
