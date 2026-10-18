@@ -9,10 +9,12 @@ permissions:
   contents: read
 jobs:
   restore-rehearsal:
+    name: Yedekleri izole ortamda geri yukleme tatbikati
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Yedekleri gecici dizine geri yukleyerek dogrula
