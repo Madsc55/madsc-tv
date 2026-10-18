@@ -37,3 +37,8 @@ Bu belge **geçiş yetkisi değildir**. Mevcut üretim listeleri, EPG, logo, yed
 - 92 legacy davranışsal eşdeğerlik: onaylanmış 0/92.
 - `epg/ibo-test-epg.xml`, `epg/madsc-epg.xml`, `epg/report.json`, `epg/tv_kontrol_bekliyor.json` dallar arasında farklı.
 - Yeni kodun güncel GitHub Actions sonucu henüz doğrulanmadı. **Üretim geçişi engelli**.
+
+## 18 Ekim 2026 — EPG erteleme ve mevcut durumu koruma kararı
+Kullanıcı kararı: mevcut ve yeni EPG dosyaları **aynen korunacak**. EPG üretimi, dosya düzeltmesi, içerik güncellemesi, silme, reset ve EPG/Pages geçiş kabulü şimdilik **ERTELENDİ**. EPG ile ilgili önceden yapılmış işler geri alınmayacak. Korunan EPG farkları bilinen açık konu olarak raporda kalır; kullanıcı onayı olmadan çözüm amaçlı dosya değiştirilmez. EPG işlerini daha sonra aynı mevcut dosyalar üzerinden sürdür.
+
+Öncelik K1/K2/K3/K4/K5'in EPG dışındaki altyapısı, 92 eski workflow'un davranışsal eşleştirmesi, CI ve yedek kanıtlarıdır. EPG gerektirmeyen gölge denetimler devam edebilir. EPG/Pages doğrulaması tamamlanmış gösterilmez ve nihai üretim geçişi otomatik onaylanmaz. Eski workflow'lar, main ve korunan yayın listeleri korunur.
