@@ -174,7 +174,7 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertNotIn("always()", body)
             self.assertIn("uses: ./.github/workflows/" + called, body)
 
-    def test_central_shadow_schedules_preserve_legacy_cadence(self):
+    def test_central_discovery_cadence_and_daily_health_rotation(self):
         root = Path(__file__).resolve().parents[1]
         discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
         health = (root / ".github/workflows/madsc-03-kanal-test.yml").read_text(encoding="utf-8")
@@ -183,11 +183,32 @@ class CentralCronRegressionTests(unittest.TestCase):
         self.assertIn("python3 scripts/candidate_epg_logo_join.py", discovery)
         self.assertLess(discovery.index("python3 scripts/discovery_archive.py after"), discovery.index("python3 scripts/candidate_epg_logo_join.py"))
         self.assertLess(discovery.index("python3 scripts/candidate_epg_logo_join.py"), discovery.index("python3 scripts/four_stage_discovery_report.py"))
-        self.assertIn("cron: '40 6 1,15 * *'", health)
+        # The new read-only daily rolling check is deliberately NOT proof of
+        # legacy twice-monthly behavior equivalence; keep parity blocked.
+        self.assertIn("cron: '40 6 * * *'", health)
+        self.assertIn("ana_liste_saglik.py --batch-size 50 --timeout 15", health)
         self.assertIn("workflow_call:", discovery)
         self.assertIn("workflow_call:", health)
         self.assertIn("contents: read", discovery)
         self.assertIn("contents: read", health)
+
+    def test_daily_health_rotation_covers_every_batch_without_repeats(self):
+        from datetime import date, timedelta
+        from scripts.ana_liste_saglik import batch
+
+        rows = list(range(123))
+        start = date(2026, 10, 18)
+        selected_all = []
+        groups_seen = []
+        for offset in range(3):
+            selected, group, total_groups = batch(rows, start + timedelta(days=offset), 50)
+            self.assertEqual(total_groups, 3)
+            groups_seen.append(group)
+            selected_all.extend(selected)
+        self.assertCountEqual(selected_all, rows)
+        self.assertEqual(len(selected_all), len(rows))
+        self.assertEqual(len(set(groups_seen)), 3)
+        self.assertEqual(batch(rows, start, 50)[1], batch(rows, start + timedelta(days=3), 50)[1])
 
     def test_shadow_crons_do_not_count_as_verified_behavior(self):
         root = Path(__file__).resolve().parents[1]
