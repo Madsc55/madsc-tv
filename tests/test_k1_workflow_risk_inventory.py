@@ -118,14 +118,14 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
 
     def test_same_line_gate_before_push_is_detected(self):
         record = self.inspect_text(
-            "steps:\\n  - run: python3 tools/protected_write_gate.py --base HEAD && git push origin main\\n"
+            "steps:\n  - run: python3 tools/protected_write_gate.py --base HEAD && git push origin main\n"
         )
         self.assertEqual(record["pushes_without_prior_gate_signal"], 0)
         self.assertFalse(record["runtime_gate_order_verified"])
 
     def test_same_line_gate_after_push_is_still_critical(self):
         record = self.inspect_text(
-            "steps:\\n  - run: git push origin main && python3 tools/protected_write_gate.py --base HEAD\\n"
+            "steps:\n  - run: git push origin main && python3 tools/protected_write_gate.py --base HEAD\n"
         )
         self.assertEqual(record["pushes_without_prior_gate_signal"], 1)
         self.assertEqual(record["tier"], "CRITICAL_UNGATED_PUSH")
