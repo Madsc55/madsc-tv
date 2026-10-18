@@ -30,10 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Guvenlik test bagimliligini kur
@@ -52,7 +54,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_k1_24_rule_evidence.py' -v
           python scripts/k1_24_rule_evidence.py > k1-26-rule-evidence.json
-      - uses: actions/upload-artifact@v4
+      - name: Yirmi alti kural kanitini sakla
+        uses: actions/upload-artifact@v4
         with:
           name: k1-26-rule-evidence
           path: k1-26-rule-evidence.json
@@ -69,7 +72,8 @@ jobs:
         run: |
           python scripts/k1_workflow_risk_inventory.py > k1-workflow-risk-inventory.json
           python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98; assert r['tiers'].get('CRITICAL_UNGATED_PUSH',0) == 0; print('PUSH BEFORE GATE:',r['push_order_review_paths']); print('INDIRECT WITHOUT GATE:',r['indirect_writers_without_gate_reference'])"
-      - uses: actions/upload-artifact@v4
+      - name: Workflow risk envanterini sakla
+        uses: actions/upload-artifact@v4
         with:
           name: k1-workflow-risk-inventory
           path: k1-workflow-risk-inventory.json
