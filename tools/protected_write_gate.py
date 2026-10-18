@@ -17,7 +17,7 @@ PROTECTED_EXACT = frozenset({
     "AGENTS.md",
 })
 PROTECTED_PREFIXES = ("yedekler/", "YEDEKLER/", "FAVORILER/", "HEPSI/",
-                      "EPG/", "logolar/", "arsiv/")
+                      "EPG/", "logolar/", "logos/", "arsiv/")
 
 
 def blocked_paths(paths):
@@ -35,7 +35,7 @@ def blocked_paths(paths):
                 or any(folded.startswith(prefix.casefold()) for prefix in PROTECTED_PREFIXES)
                 or PurePosixPath(name).suffix.lower() in (".m3u", ".m3u8")
                 or any(part.casefold() in ("favoriler", "hepsi", "yedekler",
-                                            "epg", "logolar", "arsiv") for part in parts)):
+                                            "epg", "logolar", "logos", "arsiv") for part in parts)):
             blocked.append(name)
     return blocked
 
