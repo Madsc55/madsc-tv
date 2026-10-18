@@ -375,3 +375,11 @@ Bu 50 madde, 00–50 sırasındaki mevcut işlerin devamıdır. Önceki bir madd
 - [ ] **200 — Geçiş kabulü: uçtan uca kabul kanıtı** — İlgili kaynakları karşılaştır; uygulanabilir salt-okunur otomatik test ve rapor ekle; GitHub run/artifact/commit kanıtını kaydet. Korunan dosyalara yazma ve eski workflow kapatma için ayrıca onay gerekir.
 
 **Yürütme:** İlk açık işten sırayla ilerle; güvenlik ve veri kaybı riski öne alınır. 92/92 davranışsal eşdeğerlik ve kullanıcı onayı olmadan eski workflow kapatılmaz. Gerçek cihaz testi uzaktan tamamlandı sayılmaz.
+
+## 18 Ekim 2026 — 09:57 (Europe/Stockholm) doğrulanmış Actions durumu
+
+- GitHub Actions run: https://github.com/Madsc55/madsc-tv/actions/runs/39082013826
+- Beş job'ın tamamı `completed/success`: 01 Güvenlik, 02 Keşif, 03 Kanal testleri, 04 Arşiv-yedek, 05 Genel bakım.
+- Beş artifact mevcut ve `expired=false`: `madsc-kesif-tek-kosu-rapor` (12119885163), `madsc-genel-bakim-tek-kosu-rapor` (12119322760), `madsc-guvenlik-tek-kosu-rapor` (12119232510), `madsc-arsiv-yedek-tek-kosu-rapor` (12119039361), `madsc-kanal-test-tek-kosu-rapor` (12118748759).
+- Bu kanıt yalnız belirtilen koşunun beş aşamasının başarı durumunu doğrular; 92/92 davranışsal eşdeğerlik, canlı Pages dağıtımı, dış yedek restore ve gerçek IBO cihaz kabulü doğrulanmış değildir.
+- Sıradaki açık kapı: 92 eski workflow'un yazma/API/dispatch risklerini artifact içeriğinden dosya bazında doğrula ve kabul matrisini güncelle. Eski workflow'ları kapatma veya korunan dosyalara yazma izni verilmedi.
