@@ -195,7 +195,7 @@ class CentralCronRegressionTests(unittest.TestCase):
         # The new read-only daily rolling check is deliberately NOT proof of
         # legacy twice-monthly behavior equivalence; keep parity blocked.
         self.assertIn("cron: '40 6 * * *'", health)
-        self.assertIn("ana_liste_saglik.py --batch-size 50 --timeout 15", health)
+        self.assertIn("ana_liste_saglik.py --batch-size 100 --timeout 10", health)
         self.assertIn("workflow_call:", discovery)
         self.assertIn("workflow_call:", health)
         self.assertIn("contents: read", discovery)
@@ -205,26 +205,26 @@ class CentralCronRegressionTests(unittest.TestCase):
         from datetime import date, timedelta
         from scripts.ana_liste_saglik import batch
 
-        rows = list(range(123))
+        rows = list(range(223))
         start = date(2026, 10, 18)
         selected_all = []
         groups_seen = []
         for offset in range(3):
-            selected, group, total_groups = batch(rows, start + timedelta(days=offset), 50)
+            selected, group, total_groups = batch(rows, start + timedelta(days=offset), 100)
             self.assertEqual(total_groups, 3)
             groups_seen.append(group)
             selected_all.extend(selected)
         self.assertCountEqual(selected_all, rows)
         self.assertEqual(len(selected_all), len(rows))
         self.assertEqual(len(set(groups_seen)), 3)
-        self.assertEqual(batch(rows, start, 50)[1], batch(rows, start + timedelta(days=3), 50)[1])
+        self.assertEqual(batch(rows, start, 100)[1], batch(rows, start + timedelta(days=3), 100)[1])
 
     def test_shadow_crons_do_not_count_as_verified_behavior(self):
         root = Path(__file__).resolve().parents[1]
         discovery = (root / ".github/workflows/madsc-02-kesif.yml").read_text(encoding="utf-8")
         health = (root / ".github/workflows/madsc-03-kanal-test.yml").read_text(encoding="utf-8")
         self.assertIn("madsc_akilli_kesif.py", discovery)
-        self.assertIn("ana_liste_saglik.py --batch-size 50 --timeout 15", health)
+        self.assertIn("ana_liste_saglik.py --batch-size 100 --timeout 10", health)
         self.assertIn("contents: read", discovery)
         self.assertIn("contents: read", health)
         report = inspect(root)
