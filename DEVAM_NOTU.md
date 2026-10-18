@@ -3769,3 +3769,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Statik risk envanterinde `CRITICAL_UNGATED_PUSH==0` kontrolu yalnizca metindeki push/gate sayimidir; tum shell dallarinin ve dolayli script/action yazma yollarinin gercek kontrolunu kanitlamaz. K1 gorev 3 (92 workflow yazma yolu denetimi) bu nedenle acik.
 - Sirali kapanis engelleri: (1) 26 kuralin production davranis kaniti ve test kapsami; (2) 92 workflow dolayli yazma yollarinin ayrintili denetimi; (3) branch protection API 403, canli yedek/restore ve cihaz testleri; (4) tekrarli push/trigger denetimi; sonra K2-K5. IBO Player testini kullanici sonra yapacak, simdi isteme.
 - Kullanici kisa kisa test ve parca parca rapor yerine toplu is ve toplu dogrulama istiyor. Korunan listeler, main, PR #71 degismeyecek. Aciklari kanitsiz kapatma.
+
+
+## 18 Ekim 2026 — K1 92 workflow dolayli yazma sinyalleri genisletildi
+- `c53f05fb800d39cf85a0015a99ef5231c1fb85cf`: `scripts/k1_workflow_risk_inventory.py` git push disinda `gh release/repo/pr/issue` mutasyonlari, `git reset --hard`, `git clean -f`, `git checkout --`, `git restore`, python/bash ile publish/upload/update/write/sync/deploy/delete/restore adli betiklerin calistirilmasi icin statik risk sinyalleri ekledi.
+- `8ce474e669bb2802b2bd7aa3112f72ad3da2ae50`: bu sinyaller icin negatif regresyon testi eklendi. Bu bir statik envanterdir; tum dolayli writer'larin gercek davranissal audit'inin kapandigi anlamina gelmez.
+- Son sorguda yeni K1 run `39126215169` SHA `8ce474e66` queued; onceki `39126197620` SHA `c53f05fb8` in_progress. Tamamlandi/basarili diye isaretlenmeyecek.
+- `39125933949` SHA `1f6291b1f` K1 completed/success; MADSC 05 `39125933984` ayni SHA icin in_progress. Korunan listeler/main/PR #71 degismedi.
