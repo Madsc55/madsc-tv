@@ -45,6 +45,14 @@ def inspect(path):
                          if re.search(r"\bpython3?\s+tools/protected_write_gate\.py\b", line)]
     pushes_without_prior_gate = sum(not any(g < p for g in gate_line_numbers)
                                     for p in push_line_numbers)
+    # An audit-text exemption is not a security exemption: flag any executable
+    # push text in the same file for manual review, even with read-only tokens.
+    read_only_audit_exemption = (pushes > 0 and path.name in {
+        "test-32-unapproved-write-regression.yml",
+        "test-38-audit-selftest.yml",
+        "toplu-sistem-kontrol.yml",
+    } and "persist-credentials: false" in s
+        and bool(re.search(r"(?m)^  contents: read\\s*$", s)))
     has_permission = bool(PERMISSION.search(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
@@ -75,6 +83,7 @@ def inspect(path):
         "runtime_gate_order_verified": False,
         "pushes_without_prior_gate_signal": pushes_without_prior_gate,
         "push_gate_order_static_signal_only": True,
+        "audit_text_exemption_requires_review": read_only_audit_exemption,
         "risky_trigger": risky_triggers,
     }
 
@@ -92,6 +101,7 @@ def audit():
         "gate_references": sum(r["gate_reference_count"] for r in records),
         "indirect_writers_without_gate_reference": [r["path"] for r in records if r["indirect_write_without_gate_reference"]],
         "runtime_gate_order_verified_workflows": 0,
+        "audit_text_exemption_review_paths": [r["path"] for r in records if r["audit_text_exemption_requires_review"]],
         "pushes_without_prior_gate_signal": sum(r["pushes_without_prior_gate_signal"] for r in records),
         "push_order_review_paths": [r["path"] for r in records if r["pushes_without_prior_gate_signal"]],
         "records": records,
