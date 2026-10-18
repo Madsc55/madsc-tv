@@ -73,7 +73,7 @@ jobs:
   kademe-2-kesif:
     name: 2 - Kesif tek toplu kosu
     needs: kademe-1-guvenlik
-    if: ${{ needs.kademe-1-guvenlik.result == 'success' }}
+    if: ${{ always() && needs.kademe-1-guvenlik.result != 'cancelled' }}
     uses: ./.github/workflows/madsc-02-kesif.yml
     with:
       # Code-change acceptance exercises both modes; schedules keep the manual default.
@@ -84,7 +84,7 @@ jobs:
   kademe-3-kanal-test:
     name: 3 - Kanal testleri tek toplu kosu
     needs: kademe-2-kesif
-    if: ${{ needs.kademe-2-kesif.result == 'success' }}
+    if: ${{ always() && needs.kademe-2-kesif.result != 'cancelled' }}
     uses: ./.github/workflows/madsc-03-kanal-test.yml
     permissions:
       contents: read
@@ -92,7 +92,7 @@ jobs:
   kademe-4-arsiv-yedek:
     name: 4 - Arsiv ve yedek tek toplu kosu
     needs: kademe-3-kanal-test
-    if: ${{ needs.kademe-3-kanal-test.result == 'success' }}
+    if: ${{ always() && needs.kademe-3-kanal-test.result != 'cancelled' }}
     uses: ./.github/workflows/madsc-04-arsiv-yedek.yml
     permissions:
       contents: read
