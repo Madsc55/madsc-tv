@@ -3790,3 +3790,10 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Onceki `8ce474e66` SHA run `39126215169` failure kaydi korunur; sonradan basarili gibi yeniden etiketlenmez.
 - MADSC 05 `39125933984` SHA `1f6291b1f` son kontrolde in_progress; SHA'lar farkli, yeni K1 basarisi onun yerine gecmez.
 - 26 kuralin tamaminda production runtime enforcement kaniti henuz yok; K1 sirali denetim acik. IBO Player testini kullanici yapacak. Korunan listeler/main/PR #71 degismedi.
+
+
+## 18 Ekim 2026 — K1 yazma kapisi davranis denetimi
+- `402498cb9` K1 run `39126376347` completed/success, onceki `8ce474e` run `39126215169` failure (duzeltildi ama gecmis kayit silinmez).
+- `tools/protected_write_gate.py` kaynak kodu okundu: HEAD ile base diff, staged, unstaged ve exclude-standard untracked dosyalar `--no-renames` ile taraniyor; korunan tam adlar, ic ice FAVORILER/HEPSI/yedekler ve M3U/M3U8 reddediliyor. Git komutu hatasinda fail-closed donuyor. Bu sadece gate'in cagrildigi writer'lar icin koruma; disaridan yapilan GitHub API write, checkout/action yan etkileri veya gate atlanmasi otomatik engellenmez.
+- Yeni acik risk: `git ls-files --others --exclude-standard` .gitignore kapsamindaki korunan untracked dosyalari atlar. Bu dosyalar Git'e eklenemeyebilir ama runtime butunluk takibi icin ayri denetim gerektirir. Bu oturumda korunan dosya veya yazma kapisi degistirilmedi.
+- K1 gorev 2 gercek runtime 26/26 onayi yok. MADSC 05 `39125933984` son kontrolde in_progress; cihaz testi kullanicida. Sonraki isler toplu, sirali ve kanitli yapilacak.
