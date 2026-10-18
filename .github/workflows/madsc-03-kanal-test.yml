@@ -105,10 +105,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 scripts/category_candidate_scoring.py
-      - name: Ana listeyi salt okunur 50 kanallik partide kontrol et
+      - name: Ana listeyi salt okunur 100 kanallik partide kontrol et
         id: playlist
         continue-on-error: true
-        run: python3 scripts/ana_liste_saglik.py --batch-size 50 --timeout 15
+        run: python3 scripts/ana_liste_saglik.py --batch-size 100 --timeout 10
       - name: Kanal saglik raporunu ve test kapsamini dogrula
         id: coverage
         continue-on-error: true
