@@ -3700,3 +3700,9 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - Asistan diger tum otomatik ve kodla denetlenebilir guvenlik kurallarini bekletmeden sirayla inceleyecek; IBO testleri `KULLANICI_CIHAZ_DOGRULAMASI_BEKLENIYOR` olarak acik kalacak, gerceklesti diye raporlanmayacak.
 - K1 `39122794844` commit `fe840a06a3092813e7e6b2aad8da8cee4508d988` completed/success; kanit ve risk envanteri artifactleri uretildi. MADSC 05 `39122794885` ayni commit icin en son kontrolde in_progress; bitmeden yesil sayilmaz.
 - Korunan kanal/EPG/logo/yedek dosyalarina, main'e, PR #71'e dokunulmayacak. Her degisiklik sonrasi gercek SHA/run sonucu kontrol edilecek.
+
+
+## 18 Ekim 2026 — Kullanici Flex IPTV kategori gorunum kontrolu
+- Kullanici telefondaki Flex IPTV uygulamasini bizzat kontrol etti ve kategorilerin aynen yerinde durdugunu bildirdi. Bu, Flex IPTV'de kategori gorunumunun korunduguna dair kullanici beyanidir; bagimsiz teknik log veya IBO Player kaniti degildir.
+- IBO Player gercek cihaz kontrolu halen bekliyor; Flex IPTV sonucu IBO Player testi yerine gecmez. Kullanici aksam bakabilir; su anda baska cihaz kontrolu istenmeyecek.
+- Asistanin diger 26-kural kod/Actions/koruma/yedek denetimleri devam edecek. Korunan yayin listelerine dokunulmayacak.
