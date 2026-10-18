@@ -244,5 +244,53 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertFalse(items["legacy-unmatched.yml"]["behavioral_parity_verified"])
 
 
+    def test_gh_cli_dispatch_enable_disable_rerun_require_review(self):
+        commands = ("gh workflow run next.yml --ref main",
+                    "gh workflow enable next.yml",
+                    "gh workflow disable next.yml",
+                    "gh run rerun 12345")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            (folder / "legacy-gh-cli.yml").write_text(
+                "name: CLI\non:\n  workflow_dispatch:\njobs:\n  dispatch:\n    steps:\n"
+                "      - run: |\n" + "".join(f"          {cmd}\n" for cmd in commands),
+                encoding="utf-8",
+            )
+            for i in range(91):
+                (folder / f"legacy-filler-{i:02d}.yml").write_text(
+                    f"name: Filler {i}\non:\n  workflow_dispatch:\njobs: {{}}\n",
+                    encoding="utf-8",
+                )
+            item = next(x for x in inspect(root)["items"] if x["file"] == "legacy-gh-cli.yml")
+            self.assertEqual(item["git_push_command_count"], 0)
+            self.assertEqual(len(item["write_risk_commands"]), len(commands))
+            self.assertEqual(item["review_priority"], "HIGH")
+            self.assertTrue(item["write_permission_parity_unverified"])
+            self.assertIn("VERIFY_API_DISPATCH_TARGET_AND_IDEMPOTENCY", item["required_acceptance_checks"])
+            self.assertFalse(item["behavioral_parity_verified"])
+
+    def test_protected_legacy_outputs_are_flagged(self):
+        names = ("CALISMAYANLAR.txt", "YABANCI_KANALLAR.m3u", "epg.xml")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            folder = root / ".github" / "workflows"
+            folder.mkdir(parents=True)
+            for i, name in enumerate(names):
+                (folder / f"legacy-protected-{i}.yml").write_text(
+                    f"name: Protected {i}\non:\n  workflow_dispatch:\njobs:\n  write:\n"
+                    f"    steps:\n      - run: git add {name} && git push origin HEAD:main\n",
+                    encoding="utf-8",
+                )
+            for i in range(92 - len(names)):
+                (folder / f"legacy-filler-{i:02d}.yml").write_text(
+                    f"name: Filler {i}\non:\n  workflow_dispatch:\njobs: {{}}\n",
+                    encoding="utf-8",
+                )
+            report = inspect(root)
+            self.assertEqual(report["protected_write_review_count"], len(names))
+            self.assertEqual(report["behavioral_parity_verified_count"], 0)
+
 if __name__ == "__main__":
     unittest.main()

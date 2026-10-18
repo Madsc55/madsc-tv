@@ -60,5 +60,38 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
         self.assertEqual(record["force_push_count"], 0)
         self.assertFalse(record["multiple_push_signal"])
 
+    def test_gh_cli_mutations_are_write_signals(self):
+        for command in ("gh workflow run next.yml --ref main",
+                        "gh workflow enable next.yml",
+                        "gh workflow disable next.yml",
+                        "gh run rerun 12345"):
+            with self.subTest(command=command):
+                record = self.inspect_text(
+                    "permissions:\n  contents: read\nsteps:\n  - run: " + command
+                    + "\n  - run: cat CALISANLAR.m3u\n"
+                )
+                self.assertTrue(record["write_command_signal"])
+                self.assertEqual(record["tier"], "HIGH_WRITE_OR_TRIGGER")
+
+    def test_gh_cli_read_only_commands_remain_read_only(self):
+        for command in ("gh workflow list", "gh run list", "gh workflow view next.yml"):
+            with self.subTest(command=command):
+                record = self.inspect_text(
+                    "permissions:\n  contents: read\nsteps:\n  - run: " + command + "\n"
+                )
+                self.assertFalse(record["write_command_signal"])
+                self.assertEqual(record["tier"], "LOW_STATIC_SIGNAL")
+
+    def test_other_protected_paths_are_identified(self):
+        for path in ("HEPSI", "FAVORILER", "YEDEKLER/backup.m3u", "EPG/tv.xml", "logolar/x.png", "arsiv/archive.json"):
+            with self.subTest(path=path):
+                record = self.inspect_text(
+                    "permissions:\n  contents: read\nsteps:\n"
+                    "  - run: gh workflow run next.yml\n"
+                    + "  - run: echo " + path + "\n"
+                )
+                self.assertTrue(record["protected_reference"])
+                self.assertEqual(record["tier"], "HIGH_WRITE_OR_TRIGGER")
+
 if __name__ == "__main__":
     unittest.main()

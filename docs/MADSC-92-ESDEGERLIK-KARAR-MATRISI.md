@@ -44,7 +44,14 @@ Bu liste uygulama sırasıdır, tamamlandı iddiası değildir. Her madde kanıt
 - [ ] **11 — Üretime geçiş kararı:** GitHub Actions schedule yalnız varsayılan dalda etkinleşir; dal/default-branch durumunu ve canlı cron kanıtını doğrula. Ancak tüm geçiş kapıları geçildikten ve kullanıcı onayından sonra eski workflow'ları kontrollü kapat.
 - [ ] **12 — TCL 55C655 / Ibo Player Pro cihaz kabulü:** kullanıcıyla gerçek oynatma, EPG, logo ve kanal kararlılığı doğrulaması; onaysız 7/24 sorunsuz kabulü yok.
 
-**Sıradaki aktif iş: 02.** Bu listenin işaretleri yalnız doğrulanmış kanıtlarla güncellenir.
+**Sıradaki aktif iş: 02.**
+
+### 18 Ekim 2026 — 13:09 CEST / güvenlik risk kapsama turu
+- Dalın işlem öncesi doğrulanmış HEAD'i: `049bfabb25b68d79666af13169fd05a61ff7c4fd`. Bu SHA için Actions listesinde eşleşen koşu bulunmadı; 02 kapısı **açık**.
+- Önceki SHA `8d9ed3d10df1f5609df69a53129509757450d17b`: K1 run `39115560402`, 1/1 job success, iki artifact. Önceki SHA `fd90ce3aef55ee05fed7ad5cf0a3e183db6ccab1`: MADSC 05 run `39114953442`, 5/5 job success, beş artifact. Job logları kontrol edildi. Bunlar yeni düzeltmenin CI kanıtı değildir.
+- 04 kapsamında salt-okunur denetleyicilerde `gh workflow run/enable/disable`, `gh run rerun` mutasyon sinyali ve `CALISMAYANLAR.txt`, `YABANCI_KANALLAR.m3u`, `epg.xml`, HEPSI/FAVORILER/YEDEKLER/EPG/logo/arşiv korunan yol sinyali eklendi; iki regresyon dosyasında testler. Risk sinyali **gerçek yazma engeli veya davranışsal parity kanıtı değildir**.
+- Bu turda hazırlanan değişiklik tek toplu commit olarak dalda yayımlanırsa yeni SHA ve Actions run ID'si **sonraki turda ayrıca doğrulanacak**; şu an için doğrulanmış yeni run ID **yok**. 02–04 açık, 92/92 davranışsal kabul **0/92**, IBO cihaz testi bekliyor. Eski workflow, korunan veri, main ve PR #71 değiştirilmedi.
+ Bu listenin işaretleri yalnız doğrulanmış kanıtlarla güncellenir.
 
 ## 18 Ekim 2026 — Sonraki aşamalar: 13–26 (mevcut 00–12 kuyruğunun devamı)
 

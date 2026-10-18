@@ -15,6 +15,11 @@ CATEGORIES = {
     4: ("Arsiv ve yedek", ("yedek", "backup", "arsiv", "archive", "restore", "kurtarma", "geri-yukle")),
     5: ("Genel bakim", ("rapor", "report", "denetim", "audit", "kontrol", "maintenance", "otomatik-devam", "vod", "guncelle")),
 }
+// Static risk indicators; detecting a command does NOT prove it ran.
+WRITE_SIDE_EFFECT = re.compile(
+    r"\b(?:git\s+push|gh\s+api|gh\s+(?:workflow\s+(?:run|enable|disable)|run\s+rerun)|"
+    r"curl\s+[^\n]*?(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))\b", re.I
+)
 # Prefer a workflow's explicit subject; preserve cross-category dependencies as secondary tags.
 def classify(filename, commands):
     title = filename.lower()
@@ -60,7 +65,7 @@ def inspect(root=ROOT):
             "workflow_call": bool(re.search(r"^\s*workflow_call:", raw, re.M)),
             "contents_write": bool(re.search(r"^\s*contents:\s*write\s*(?:#.*)?$", raw, re.M | re.I)),
             "write_permission_inherited_or_unknown": not bool(re.search(r"^\s*contents:\s*(?:read|write|none)\s*(?:#.*)?$", raw, re.M | re.I)),
-            "write_risk_commands": [line.strip()[:240] for line in raw.splitlines() if re.search(r"\b(?:git\s+push|gh\s+api|curl\s+[^\n]*?(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))\b", line, re.I)],
+            "write_risk_commands": [line.strip()[:240] for line in raw.splitlines() if WRITE_SIDE_EFFECT.search(line)],
             "commands": commands, "actions": uses, "output_hints": outputs,
             "git_push_command_count": len(push_commands),
             "push_signal_lines": push_signal_lines,
@@ -154,7 +159,7 @@ def inspect(root=ROOT):
         ]
         item["write_permission_parity_unverified"] = bool(item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"])
         item_raw = legacy_contents[item["file"]]
-        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and any(token in item_raw.lower() for token in ("calisanlar.m3u", "yeniler", "yedekler/", "hepsi", "favoriler", "epg/", "logolar/", "arsiv/")))
+        item["requires_protected_write_review"] = bool(item["write_permission_parity_unverified"] and any(token in item_raw.lower() for token in ("calisanlar.m3u", "calismayanlar.txt", "yabanci_kanallar.m3u", "yeniler", "yedekler/", "hepsi", "favoriler", "epg/", "epg.xml", "logolar/", "arsiv/")))
         item["required_acceptance_checks"] = [
             "COMPARE_LEGACY_AND_REPLACEMENT_JOB_STEPS",
             "VERIFY_TRIGGER_EQUIVALENCE",

@@ -3667,3 +3667,14 @@ SIRADAKI DDTD: (1) Bu belgeyi GitHub'dan oku ve Actions run/SHA/job durumunu kon
 - K1 #70 commit `c946835` run `39114501258` success; #69 commit `b5f140b` run `39114497947` success; MADSC 05 #199 commit `9b0b90c` run `39114388912` success.
 - 26 kuralin belge varligi ve negatif testlerinin gecmesi tum 26 kuralin runtime uygulamasinin dogrulandigi anlamina gelmez. Cihaz, onayli gercek yazma, geri yukleme, branch ruleset ve legacy writer parity ayrica kanitlanacak.
 - SONRAKI: 26 kural icin somut kanit/eksik matrisi, gercek writer entegrasyonu, kurtarma ve IBO cihaz testleri; her degisiklikte yeni SHA'ya ait run kontrolu. Korunan dosyalara dokunma.
+
+
+## 18 Ekim 2026 — 13:09 CEST / 200 sıra güvenlik denetimi
+
+### 18 Ekim 2026 — 13:09 CEST / güvenlik risk kapsama turu
+- Dalın işlem öncesi doğrulanmış HEAD'i: `049bfabb25b68d79666af13169fd05a61ff7c4fd`. Bu SHA için Actions listesinde eşleşen koşu bulunmadı; 02 kapısı **açık**.
+- Önceki SHA `8d9ed3d10df1f5609df69a53129509757450d17b`: K1 run `39115560402`, 1/1 job success, iki artifact. Önceki SHA `fd90ce3aef55ee05fed7ad5cf0a3e183db6ccab1`: MADSC 05 run `39114953442`, 5/5 job success, beş artifact. Job logları kontrol edildi. Bunlar yeni düzeltmenin CI kanıtı değildir.
+- 04 kapsamında salt-okunur denetleyicilerde `gh workflow run/enable/disable`, `gh run rerun` mutasyon sinyali ve `CALISMAYANLAR.txt`, `YABANCI_KANALLAR.m3u`, `epg.xml`, HEPSI/FAVORILER/YEDEKLER/EPG/logo/arşiv korunan yol sinyali eklendi; iki regresyon dosyasında testler. Risk sinyali **gerçek yazma engeli veya davranışsal parity kanıtı değildir**.
+- Bu turda hazırlanan değişiklik tek toplu commit olarak dalda yayımlanırsa yeni SHA ve Actions run ID'si **sonraki turda ayrıca doğrulanacak**; şu an için doğrulanmış yeni run ID **yok**. 02–04 açık, 92/92 davranışsal kabul **0/92**, IBO cihaz testi bekliyor. Eski workflow, korunan veri, main ve PR #71 değiştirilmedi.
+
+- İlk açık iş: 02 (güncel SHA ile Actions run/job/log/artifact doğrulaması); ardından 03 risk sayıları ve 04 çift tetikleme/korunan yazma yolları. Yeni kodun tam CI kanıtı henüz yoktur.
