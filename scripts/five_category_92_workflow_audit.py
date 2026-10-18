@@ -170,8 +170,7 @@ def inspect(root=ROOT):
     for item in items:
         item["migration_decision"] = "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE"
         item["review_priority"] = (
-            "HIGH" if (item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"]) and
-            (item["cron_utc"] or item["push"] or item["workflow_run"])
+            "HIGH" if (item["contents_write"] or item["git_push_command_count"] or item["write_risk_commands"])
             else "HIGH" if item["workflow_run"] or item["cron_utc"]
             else "NORMAL"
         )
