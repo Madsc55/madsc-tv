@@ -56,6 +56,24 @@ class FailureGateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Current workflow run missing"):
             should_stop([run(3, "failure"), run(2, "failure")], 4)
 
+    def test_github_api_failure_does_not_allow_execution(self):
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "4", "GITHUB_REF_NAME": "main", "GH_TOKEN": "fake"}
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", side_effect=OSError("API unavailable")):
+            with self.assertRaises(OSError):
+                main()
+
+    def test_missing_current_run_is_not_interpreted_as_success(self):
+        payload = {"workflow_runs": [dict(run(3, "failure"), head_branch="main"),
+                                     dict(run(2, "failure"), head_branch="main")]}
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "4", "GITHUB_REF_NAME": "main", "GH_TOKEN": "fake"}
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", return_value=io.BytesIO(json.dumps(payload).encode())):
+            with self.assertRaisesRegex(ValueError, "Current workflow run missing"):
+                main()
+
     def test_manual_dispatch_does_not_bypass_open_circuit(self):
         payload = {"workflow_runs": [
             dict(run(4, None, "in_progress"), head_branch="main"),
