@@ -3530,3 +3530,28 @@ Bu turda 45 ayrı `.github/workflows/*.yml` dosyası GitHub'dan açıldı; workf
 11. **Sistem sağlığı ve raporların ayrımı:** `toplu-sistem-kontrol.yml` salt okunur toplu denetim; `madsc-toplu-butunluk.yml` ayrı bütünlük kapısı; `madsc-son-kontrol-kurtarma-teshis.yml` son doğrulama teşhisi. Benzer adlar aynı çıktı sözleşmesi demek değildir.
 
 **Yapılmayacak:** Bu inceleme sırasında `workflow_dispatch`, geçmiş IBO kararı uygulama, canlı push, üretim playlist yazma veya eski iş akışlarını kapatma. **Eksik:** kalan 352 görsel olmayan dosyanın kaynak okuması ve tüm workflow→betik→veri bağımlılıklarının davranışsal karşılaştırması.
+
+
+## 19 EKİM 2026 — 15 PROJE BELGESİNDEN KURAL/KARAR ÇATIŞMASI VE EKSİK İŞ KAZANIMI
+
+GitHub'dan içeriği yeniden açılan 15 dosya: `AGENTS.md`, `BES_SISTEM_92_WORKFLOW_TETIK_ENVANTERI.md`, `BES_SISTEM_GECIS_KONTROL.md`, `BES_SISTEM_TOPLU_IS_DEFTERI.md`, `DEVAM_NOTU.md`, `DEVIR_NOTU_2026-10-15.md`, `GUVENLIK_KURALLARI.md`, `IPTV_PROJE_HAFIZASI.md`, `MADSC55_TV_YENI_KURULUM.md`, `MADSC_2026-10-13_KALAN_ISLER_DEVAM_KAYDI.md`, `MERKEZI_ARSIV_HARITASI.md`, `ONCELIK_1_BES_MERKEZI_OTOMASYON_PLANI.md`, `OZELLIK_ENVANTERI.md`, `SEKIZ_GOREV_TOPLU_DENETIM.md`, `TOPLU_DURUM_RAPORU.md`. Önceki 98 ile yeni içerik okuması **113/450**, kalan **337**. `DEVAM_NOTU.md` çok uzun (3925 satır); bu tur tüm satırların bağımsız davranışsal doğrulaması değil, kaynak okuma ve karar/eksik çıkarımıdır.
+
+### Çok önemli gerçek belge çakışmaları
+1. **K4/K5 rol çakışması:** `MERKEZI_ARSIV_HARITASI.md` K4'ü EPG/logo/kimlik, K5'i arşiv/bakım olarak tarif ediyor. Oysa güncel beşli `madsc-04-arsiv-yedek.yml` K4 arşiv/yedek; `madsc-03-kanal-test.yml` K3 EPG/logo dahil test; `madsc-05-genel-bakim.yml` K5 bakım. **Karar:** eski belge tarihsel plan olarak korunmalı, canlı kategori şemasını değiştirmek için kullanılmamalı. İki şemanın farkı yeniden kurulumda açıkça not edilmeli.
+2. **YEDEKLER ekleme izninde tarihsel geri alma:** `DEVIR_NOTU_2026-10-15.md` ilk bölümünde kullanıcı iki/üç aşamalı adayları mevcut YEDEKLER'e eklemeye onay vermiş gibi kaydediyor; **dosyanın sonundaki 'SON KULLANICI TALIMATI — YEDEKLER GERİ ALINDI'** bölümünde bu istek açıkça **İPTAL** edilmiş. **Güncel geçerli karar:** kullanıcı yeniden istemedikçe ekleme YAPMA; geçmiş 12 ek kaydın çıkarıldığı, ilk iki yedeğin korunduğu tarihsel kayıt esas. Önceki talimatı uygulamak ciddi veri riski.
+3. **Güvenlik kuralı sürüm farkı:** `GUVENLIK_KURALLARI.md` 19+4=23, ardından 24. kuralı tanımlıyor; `AGENTS.md` 25. değişiklik sonrası Actions testi, 26. Türkçe workflow/job/step isimleri kuralını tanımlıyor. Eski belgelerde '23', '24' veya 'rule24' geçmesi toplam güncel politika sayısını düşürmez. **26 ayrı kuralın runtime uygulanması ayrıca kanıtlanmalı.**
+4. **Eski dosya ve sayı snapshot'ları:** `IPTV_PROJE_HAFIZASI.md` 9 Ekim'de 587 kayıt, `DEVIR_NOTU_2026-10-15.md` 15 Ekim'de 1039 EXTINF ve YEDEKLER (2) diyor. Bunlar çelişkili güncel sayı değil, farklı tarihler. Güncel ana listeye bakmadan sayıları yeni gerçek kabul etme.
+5. **GitHub dalı tarihsel talimatı:** `DEVAM_NOTU.md` başında eski `madsc/bes-sistem-toplu-birlestirme` dalında çalışma talimatı var; bu yeni inceleme yalnız `madsc55-tv-yeniden-kurulum` dalında, `main` ve eski PR değişmeden sürdürülür.
+
+### Kaçırılmaması gereken kurallar ve yapılacaklar
+- **Kural 24:** ardışık başarısız otomatik denemeleri güvenle durduracak ortak devre kesici henüz kanıtlanmamış. On push retry sayısı ile birbirini izleyen başarısız workflow koşularını durdurmak aynı şey değildir.
+- **Kural 25:** kod değişikliğinde ilgili gerçek GitHub Actions run ID ve sonucu doğrulanmalı; yeşil diye uydurulmamalı.
+- **Kural 26:** kullanıcıya görünen yeni/değiştirilen workflow, job ve step isimleri Türkçe; çalışan dosya yolu ve test fonksiyonunu sırf çeviri için değiştirme.
+- **Ulusal ana depo kararı:** `IPTV_PROJE_HAFIZASI.md` 12 Ekim kaydına göre ULUSAL bütün kanalların ana deposudur; başka kategoriye ekleme Ulusal kaydını kaldırma izni değildir. Bu kural otomatik toplu kopyalama yetkisi de vermez.
+- **Özellik envanteri ön kontrolü:** `OZELLIK_ENVANTERI.md` okunmadan yeni özellik/script/workflow tekrar kurulmaz; var ve başarılı işi koru, eksik kısmı düzelt.
+- **Gerçek branch protection kanıtı eksik:** `SEKIZ_GOREV_TOPLU_DENETIM.md` GitHub API 403 nedeniyle ruleset/branch protection durumunun doğrulanamadığını söylüyor. Korunuyor varsayma.
+- **Kaynak ve yayın hakkı:** teknik decode, kanal kimliği, lisans, logo, coğrafi erişim ve İsveç'teki IBO cihaz onayı farklı kanıt kapılarıdır.
+- **Kayıt ve sohbet devri:** `AGENTS.md` her önemli karar/sonuç sonrası güncel devir notuna commit/run/tarih/kalan iş eklenmesini istiyor; bu kaynak denetimi yalnız `810 dosya notu.md` dosyasını güncelliyor, dolayısıyla sonraki gerçek üretim işinde devir dosyası ayrıca güncellenmeli.
+- **92 eski workflow:** statik tetik envanteri tamamlanmış olsa da 92/92 görev/çıktı/izin/yazma eşdeğerliği ve canlı kabul yok; beşli sistemin hazır olduğuna tek başına delil değildir.
+
+**Koruma:** hiçbir üretim playlisti, EPG, workflow veya kullanıcı kararı değiştirilmedi. Bu kayıt yeni dosya açılarak elde edilmiş bulgular ve tarihsel kural çatışması ayrımıdır.
