@@ -46,8 +46,8 @@ def inspect(path):
     # Same-line shell chains are common: count a gate before push on that
     # line as an ordering signal, but never as runtime authorization proof.
     # A later gate on the same line cannot protect an earlier push.
-    gate_pattern = re.compile(r"\\bpython3?\\s+tools/protected_write_gate\\.py\\b")
-    push_pattern = re.compile(r"\\bgit\\s+(?:(?:-c|--config)\\s+\\S+\\s+|(?:-[A-Za-z]+|--[\\w-]+(?:=\\S+)?)\\s+)*push\\b")
+    gate_pattern = re.compile(r"\bpython3?\s+tools/protected_write_gate\.py\b")
+    push_pattern = re.compile(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b")
     pushes_without_prior_gate = 0
     for i, line in enumerate(lines):
         for match in push_pattern.finditer(line):
