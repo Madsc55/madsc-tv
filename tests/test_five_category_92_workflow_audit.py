@@ -40,13 +40,13 @@ class CentralCronRegressionTests(unittest.TestCase):
             folder = root / ".github" / "workflows"
             folder.mkdir(parents=True)
             (folder / "legacy-api-only.yml").write_text(
-                "name: API only\\non:\\n  workflow_dispatch:\\njobs:\\n  api:\\n    steps:\\n"
-                "      - run: gh api repos/o/r/actions/workflows/other.yml/dispatches -X POST\\n",
+                "name: API only\non:\n  workflow_dispatch:\njobs:\n  api:\n    steps:\n"
+                "      - run: gh api repos/o/r/actions/workflows/other.yml/dispatches -X POST\n",
                 encoding="utf-8",
             )
             for number in range(91):
                 (folder / f"legacy-filler-{number:02d}.yml").write_text(
-                    f"name: Filler {number}\\non:\\n  workflow_dispatch:\\njobs: {{}}\\n",
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
                     encoding="utf-8",
                 )
             from scripts import five_category_92_workflow_audit as audit
