@@ -170,8 +170,8 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIsNotNone(match, stage)
             body = match.group("body")
             self.assertIn("needs: " + predecessor, body)
-            self.assertIn("needs." + predecessor + ".result == 'success'", body)
-            self.assertNotIn("always()", body)
+            self.assertIn("needs." + predecessor + ".result != 'cancelled'", body)
+            self.assertIn("always()", body)
             self.assertIn("uses: ./.github/workflows/" + called, body)
 
     def test_central_discovery_cadence_and_daily_health_rotation(self):
