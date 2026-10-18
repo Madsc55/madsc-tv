@@ -12,7 +12,7 @@ class LegacyPermissionGapTests(unittest.TestCase):
             folder.mkdir(parents=True)
             for i in range(92):
                 (folder / f"legacy-{i:02}.yml").write_text(
-                    "name: legacy\\non:\\n  workflow_dispatch:\\njobs:\\n  test:\\n    runs-on: ubuntu-latest\\n    steps:\\n      - run: echo ok\\n",
+                    "name: legacy\non:\n  workflow_dispatch:\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo ok\n",
                     encoding="utf-8",
                 )
             report = inspect(Path(tmp))
