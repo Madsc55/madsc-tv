@@ -60,6 +60,8 @@ jobs:
       - name: Korunan dosya calisma ani regresyon testleri
         run: python3 -m unittest test_five_category_runtime_integrity -v
       - name: Korunan dosyalari ana dal ile karsilastir
+        id: protected_integrity
+        continue-on-error: true
         run: |
           git fetch --no-tags origin main
           python scripts/k1_protected_integrity.py
@@ -74,3 +76,8 @@ jobs:
           retention-days: 30
       - name: Workflow calistirmadan envanter sayisini dogrula
         run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
+      - name: Korunan dosya farki varsa toplu testi basarisiz bitir
+        if: always() && steps.protected_integrity.outcome == 'failure'
+        run: |
+          echo "::error::Korunan dosyalarda ana dal ile fark var; raporlar toplandi ama guvenlik kapisi acik kaldi."
+          exit 1
