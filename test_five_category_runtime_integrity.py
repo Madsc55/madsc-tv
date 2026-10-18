@@ -83,6 +83,14 @@ class RuntimeIntegrityTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertIn('FAVORILER.m3u', json.loads(result.stdout)['changed_paths'])
 
+    def test_nested_protected_paths_and_m3u8_are_classified(self):
+        from scripts.k1_protected_integrity import protected
+        for name in ("tmp/HEPSI/order.json", "archive/FAVORILER/list.txt",
+                     "cache/yedekler/old.txt", "streams/list.m3u8"):
+            with self.subTest(path=name):
+                self.assertTrue(protected(name))
+        self.assertFalse(protected("madsc_kesif/report.json"))
+
     def test_general_maintenance_baseline_precedes_regression(self):
         workflow = (ROOT / '.github/workflows/madsc-05-genel-bakim.yml').read_text(encoding='utf-8')
         job = workflow.split('  genel-bakim:', 1)[1]
