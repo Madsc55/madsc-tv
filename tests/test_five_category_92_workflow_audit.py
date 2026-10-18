@@ -36,13 +36,13 @@ class CentralCronRegressionTests(unittest.TestCase):
             workflows = root / ".github" / "workflows"
             workflows.mkdir(parents=True)
             (workflows / "legacy-favorites.yml").write_text(
-                "name: Favorites\\non:\\n  workflow_dispatch:\\njobs:\\n  write:\\n"
-                "    steps:\\n      - run: echo FAVORILER && git push origin HEAD:main\\n",
+                "name: Favorites\non:\n  workflow_dispatch:\njobs:\n  write:\n"
+                "    steps:\n      - run: echo FAVORILER && git push origin HEAD:main\n",
                 encoding="utf-8",
             )
             for number in range(91):
                 (workflows / f"legacy-filler-{number:02d}.yml").write_text(
-                    f"name: Filler {number}\\non:\\n  workflow_dispatch:\\njobs: {{}}\\n",
+                    f"name: Filler {number}\non:\n  workflow_dispatch:\njobs: {{}}\n",
                     encoding="utf-8",
                 )
             item = next(x for x in inspect(root)["items"] if x["file"] == "legacy-favorites.yml")
