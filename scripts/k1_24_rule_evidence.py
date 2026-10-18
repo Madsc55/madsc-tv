@@ -57,7 +57,7 @@ def audit():
     return {
         "documented_rules": sorted(numbered | agent_numbered),
         "expected_rule_count": 26,
-        "rule_count_valid": numbered == set(range(1, 25)),
+        "rule_count_valid": numbered == set(range(1, 25)) and agent_numbered == {25, 26},
         "rows": rows,
         "fully_verified_rules": 0,
         "limitations": "File existence is NOT enforcement proof; this audit intentionally makes no fully verified claims.",
