@@ -88,8 +88,8 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                     "git reset --hard HEAD", "git clean -fd")
         for command in commands:
             with self.subTest(command=command):
-                record = self.inspect_text("permissions:\\n  contents: read\\nsteps:\\n  - run: " + command
-                                           + "\\n  - run: cat CALISANLAR.m3u\\n")
+                record = self.inspect_text("permissions:\n  contents: read\nsteps:\n  - run: " + command
+                                           + "\n  - run: cat CALISANLAR.m3u\n")
                 self.assertTrue(record["write_command_signal"], command)
                 self.assertEqual(record["tier"], "HIGH_WRITE_OR_TRIGGER")
 
