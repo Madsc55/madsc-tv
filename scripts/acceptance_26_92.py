@@ -67,7 +67,7 @@ def execute():
                 workflows = result
             else:
                 risks = result
-        except Exception as exc:
+        except (Exception, SystemExit) as exc:
             audit_errors.append({"audit": label, "error": str(exc)})
     if audit_errors:
         return {"generated_utc": datetime.now(timezone.utc).isoformat(),
@@ -80,7 +80,15 @@ def execute():
                 "static_security_clean": False, "acceptance_complete": False,
                 "security_runtime_verified": 0, "legacy_behavior_verified": 0}
     if len(rules["rows"]) != 26 or workflows["total"] != 92:
-        raise ValueError("Expected 26 rules and 92 legacy workflows")
+        audit_errors.append({"audit": "inventory", "error": "Expected 26 rules and 92 legacy workflows"})
+        return {"generated_utc": datetime.now(timezone.utc).isoformat(),
+                "git_sha": os.environ.get("GITHUB_SHA"),
+                "github_run_id": os.environ.get("GITHUB_RUN_ID"),
+                "test_suites": tests, "audit_errors": audit_errors,
+                "regression_suites_passed": sum(row["passed"] for row in tests),
+                "regression_suites_total": len(tests),
+                "static_security_clean": False, "acceptance_complete": False,
+                "security_runtime_verified": 0, "legacy_behavior_verified": 0}
     critical_risks = risks["tiers"].get("CRITICAL_UNGATED_PUSH", 0)
     missing_permissions = risks["missing_explicit_permissions"]
     static_security_clean = critical_risks == 0 and missing_permissions == 0
