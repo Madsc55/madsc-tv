@@ -335,7 +335,7 @@ def main():
             "review_only": True,
             "no_migration_authorized": True,
             "items": push_review,
-        }, ensure_ascii=False, indent=2) + "\\n",
+        }, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     (out / "92_workflow_oncelikli_gecis_isleri.json").write_text(
