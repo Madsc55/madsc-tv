@@ -232,7 +232,8 @@ class CentralCronRegressionTests(unittest.TestCase):
             for day in range(expected_groups):
                 selected, group, total_groups = batch(rows, start + timedelta(days=day), 100)
                 self.assertEqual(total_groups, expected_groups)
-                self.assertLess(group, expected_groups)
+                self.assertGreaterEqual(group, 1)
+                self.assertLessEqual(group, expected_groups)
                 self.assertLessEqual(len(selected), 100)
                 visited.extend(selected)
             self.assertCountEqual(visited, rows)
