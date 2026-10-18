@@ -33,6 +33,8 @@ on:
       - 'scripts/five_category_permission_gate.py'
       - 'scripts/five_category_preflight.py'
       - 'scripts/five_system_cutover_readiness.py'
+      - 'scripts/five_category_shared_controls.py'
+      - 'tests/test_five_category_shared_controls.py'
       - 'tests/test_five_system_cutover_readiness.py'
       - 'scripts/five_category_92_workflow_audit.py'
       - 'tests/test_five_category_92_workflow_audit.py'
@@ -114,6 +116,10 @@ jobs:
           mkdir -p madsc_merkezi_denetim
           sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
           python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: K1-K5 ortak kural ve bagimlilik kapisi
+        run: |
+          python3 scripts/five_category_shared_controls.py
+          python3 -m unittest discover -s tests -p 'test_five_category_shared_controls.py' -v
       - name: Cron denetimi regresyon testi
         run: python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
       - name: Ayni kosunun dort basarili kategori kanitini guvenle al
