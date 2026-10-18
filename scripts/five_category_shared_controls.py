@@ -32,11 +32,11 @@ def inspect(root=ROOT):
             command = r"(?m)^(?:[ ]*python3[ ]+|[ ]*-?[ ]*run:[ ]*python3[ ]+|[ ]*if[ ]+python3[ ]+)" + re.escape(spec["script"]) + r"(?:[ ]|$)"
             present = bool(re.search(command, raw))
             if control == "protected_integrity":
-                commands = raw.splitlines()
+                commands = [line.strip() for line in raw.splitlines() if not line.lstrip().startswith("#")]
                 present = present and all(
-                    any(line.lstrip().startswith("python3 scripts/k1_protected_integrity.py --mode " + mode) for line in commands)
+                    any(re.match(r"^(?:-? ?run: |if )?python3 scripts/k1_protected_integrity\\.py --mode " + mode + r"(?:\\s|$)", line) for line in commands)
                     for mode in ("snapshot", "check")
-                ) and any(line.lstrip().startswith("sha256sum -c ") for line in commands)
+                ) and any(re.match(r"^(?:-? ?run: |if )?sha256sum -c\\s+", line) for line in commands)
             consumers[category] = present
             if not present:
                 missing.append({"control": control, "category": category, "workflow": CATEGORIES[category]})
