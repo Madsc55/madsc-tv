@@ -30,7 +30,9 @@ class K1RuntimeWorkflowGuardTests(unittest.TestCase):
         text = self.workflow
         self.assertIn("k1-protected-diff.log", text)
         self.assertIn("name: k1-protected-diff", text)
-        self.assertIn('test "${PIPESTATUS[0]}" -eq 1', text)
+        self.assertIn("id: protected_integrity", text)
+        self.assertIn("continue-on-error: true", text)
+        self.assertIn("steps.protected_integrity.outcome == 'failure'", text)
 
 
 if __name__ == "__main__":
