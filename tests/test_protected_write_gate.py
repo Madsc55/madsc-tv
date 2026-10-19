@@ -74,7 +74,7 @@ class ProtectedWriteGateTests(unittest.TestCase):
     @patch("tools.protected_write_gate.subprocess.run")
     def test_ignored_protected_paths_are_included(self, run):
         from tools.protected_write_gate import git_changed_paths
-        values = [b"", b"", b"", b"", b"EPG/hidden.xml\\x00"]
+        values = [b"", b"", b"", b"", b"EPG/hidden.xml\x00"]
         run.side_effect = [subprocess.CompletedProcess([], 0, stdout=value) for value in values]
         paths = git_changed_paths("trusted")
         self.assertEqual(paths, ["EPG/hidden.xml"])
