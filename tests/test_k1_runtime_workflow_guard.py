@@ -32,7 +32,9 @@ class K1RuntimeWorkflowGuardTests(unittest.TestCase):
         self.assertIn("name: k1-protected-diff", text)
         self.assertIn("id: protected_integrity", text)
         self.assertIn("continue-on-error: true", text)
-        self.assertIn("steps.protected_integrity.outcome == 'failure'", text)
+        self.assertIn("steps.protected_integrity.outcome", text)
+        self.assertIn("Ana dal farkini ayri raporla", text)
+        self.assertIn("K1 korunan dosya calisma sonu butunluk kontrolu", text)
 
 
 if __name__ == "__main__":
