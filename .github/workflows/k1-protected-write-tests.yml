@@ -54,7 +54,7 @@ jobs:
       - name: K1 korunan dosya baslangic anlik goruntusu
         run: python scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
       - name: 26 kural ve 92 workflow toplu regresyon ve kanit denetimi
-        run: python scripts/acceptance_26_92.py --output acceptance-26-92.json
+        run: python -m scripts.acceptance_26_92 --output acceptance-26-92.json
       - name: Toplu kabul kanitini sakla
         if: always()
         uses: actions/upload-artifact@v4
