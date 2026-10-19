@@ -14,7 +14,7 @@ class K1RuntimeWorkflowGuardTests(unittest.TestCase):
         text = self.workflow
         self.assertIn("--mode snapshot --manifest", text)
         self.assertLess(text.index("--mode snapshot --manifest"),
-                        text.index("Kanal listelerine dokunmadan guvenlik negatif testleri"))
+                        text.index("26 kural ve 92 workflow toplu regresyon ve kanit denetimi"))
 
     def test_check_always_runs_after_inventory(self):
         text = self.workflow
