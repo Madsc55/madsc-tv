@@ -77,6 +77,18 @@ class LegacyWriterGuards(unittest.TestCase):
                 self.assertLess(rebase, second_gate)
                 self.assertLess(second_gate, push)
 
+    def test_all_legacy_push_writers_have_gate_reference(self):
+        """Detect unguarded publishers across the full legacy inventory."""
+        from scripts.five_category_92_workflow_audit import inspect
+        report = inspect()
+        offenders = []
+        for item in report["items"]:
+            if item["git_push_command_count"] and not item["file"].startswith("test-"):
+                source = (ROOT / item["file"]).read_text(encoding="utf-8-sig")
+                if "tools/protected_write_gate.py" not in source:
+                    offenders.append(item["file"])
+        self.assertEqual(offenders, [], "Review legacy writers without gate: " + ", ".join(offenders))
+
     def test_report_missing_explicit_permissions(self):
         from scripts.k1_workflow_risk_inventory import audit
         report = audit()
