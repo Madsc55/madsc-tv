@@ -25,6 +25,9 @@ on:
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
+      - 'scripts/k1_reviewed_readonly_scanner.py'
+      - 'tests/test_k1_reviewed_readonly_scanner.py'
+      - 'tests/test_k1_k5_ci_evidence.py'
       - '.github/workflows/epg-gunluk.yml'
       - '.github/workflows/publish-iptv-png-logos.yml'
       - '.github/workflows/vod-guncelle.yml'
@@ -64,6 +67,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Korunan dosyalari ana dal ile karsilastir
+        if: ${{ !cancelled() }}
         id: protected_integrity
         continue-on-error: true
         run: |
@@ -80,16 +84,19 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
       - name: Tum workflow risk envanterini olustur
+        if: ${{ !cancelled() }}
         run: |
           python scripts/k1_workflow_risk_inventory.py > k1-workflow-risk-inventory.json
           python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98; assert r['tiers'].get('CRITICAL_UNGATED_PUSH',0) == 0; print('PUSH BEFORE GATE:',r['push_order_review_paths']); print('INDIRECT WITHOUT GATE:',r['indirect_writers_without_gate_reference'])"
       - name: Workflow risk envanterini sakla
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: k1-workflow-risk-inventory
           path: k1-workflow-risk-inventory.json
           retention-days: 30
       - name: Workflow calistirmadan envanter sayisini dogrula
+        if: ${{ !cancelled() }}
         run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
       - name: K1 korunan dosya calisma sonu butunluk kontrolu
         if: always()

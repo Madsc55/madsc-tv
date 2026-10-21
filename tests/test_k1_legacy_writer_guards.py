@@ -2,6 +2,7 @@
 import re
 import unittest
 from pathlib import Path
+from scripts.k1_reviewed_readonly_scanner import is_reviewed_readonly_scanner
 
 ROOT = Path(__file__).resolve().parents[1] / ".github" / "workflows"
 WRITERS = (
@@ -85,9 +86,14 @@ class LegacyWriterGuards(unittest.TestCase):
         for item in report["items"]:
             if item["git_push_command_count"] and not item["file"].startswith("test-"):
                 source = (ROOT / item["file"]).read_text(encoding="utf-8-sig")
-                if "tools/protected_write_gate.py" not in source:
+                if ("tools/protected_write_gate.py" not in source
+                        and not is_reviewed_readonly_scanner(item["file"], source)):
                     offenders.append(item["file"])
         self.assertEqual(offenders, [], "Review legacy writers without gate: " + ", ".join(offenders))
+
+    def test_pinned_readonly_scanner_source_unchanged(self):
+        source = (ROOT / 'toplu-sistem-kontrol.yml').read_text(encoding='utf-8-sig')
+        self.assertTrue(is_reviewed_readonly_scanner('toplu-sistem-kontrol.yml', source))
 
     def test_report_missing_explicit_permissions(self):
         from scripts.k1_workflow_risk_inventory import audit

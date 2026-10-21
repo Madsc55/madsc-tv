@@ -18,6 +18,8 @@ SUITES = [
     "test_k1_24_rule_evidence.py",
     "test_k1_workflow_risk_inventory.py",
     "test_k1_legacy_writer_guards.py",
+    "test_k1_reviewed_readonly_scanner.py",
+    "test_k1_k5_ci_evidence.py",
     "test_k1_runtime_workflow_guard.py",
     "test_five_category_92_workflow_audit.py",
     "test_legacy_permission_gap.py",
