@@ -157,8 +157,8 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIn("WRITE_SIDE_EFFECTS_UNVERIFIED", item["migration_gap_reasons"])
             self.assertEqual(report["api_write_or_dispatch_review_count"], 1)
 
-    def test_central_stages_continue_read_only_after_failed_dependency(self):
-        """Stages 2-4 continue evidence collection, without granting central approval."""
+    def test_central_stages_stop_after_failed_dependency(self):
+        """Stages 2-4 must not run after an unsuccessful predecessor; K5 audits independently."""
         root = Path(__file__).resolve().parents[1]
         workflow = (root / ".github/workflows/madsc-05-genel-bakim.yml").read_text(encoding="utf-8")
         import re
@@ -171,10 +171,13 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertIsNotNone(match, stage)
             body = match.group("body")
             self.assertIn("needs: " + predecessor, body)
-            self.assertIn("needs." + predecessor + ".result != 'cancelled'", body)
+            self.assertIn("needs." + predecessor + ".result == 'success'", body)
+            self.assertNotIn("needs." + predecessor + ".result != 'cancelled'", body)
             self.assertIn("always()", body)
             self.assertIn("uses: ./.github/workflows/" + called, body)
 
+        # Independent read-only inventory runs even when stages 2-4 are skipped.
+        self.assertIn("id: inventory_92\n        if: always()", workflow)
         # K5 must still reject any unsuccessful category at its final gate.
         for category in ("SECURITY", "DISCOVERY", "CHANNEL", "ARCHIVE"):
             self.assertIn(category + "_RESULT:", workflow)
