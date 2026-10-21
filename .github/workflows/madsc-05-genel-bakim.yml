@@ -289,7 +289,9 @@ jobs:
           set -euo pipefail
           sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
           python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
-          python3 scripts/category_evidence_collect.py --verify
+      - name: Kategori kanit aktarimini ayri dogrula
+        if: always()
+        run: python3 scripts/category_evidence_collect.py --verify
       - name: Besli sistem gecis hazirligi ve engel raporu
         if: always()
         run: |

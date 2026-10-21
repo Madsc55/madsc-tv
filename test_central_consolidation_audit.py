@@ -38,6 +38,13 @@ class TopluMerkezTesti(unittest.TestCase):
             # than incorrectly asserting that it does not exist.
             if case["islem"] == "Merkezi denetim kodu":
                 expected = ["madsc-05-genel-bakim.yml", *expected]
+            if case["islem"] == "Ana liste yayın kodu":
+                # Cross-branch static match: K3+K5 feature-branch, monthly main.
+                # Keep all triggers visible; this is NOT proof of one live run.
+                expected = ["madsc-03-kanal-test.yml",
+                            "madsc-05-genel-bakim.yml",
+                            "madsc-aylik-merkezi-denetim.yml"]
+                self.assertFalse(case["tek_merkez_hedefi_saglandi"])
             self.assertEqual(case["push_is_akislari"], expected, case["islem"])
 
     def test_not_degisikligi_agir_merkezi_push_baslatmaz(self):

@@ -33,6 +33,15 @@ class EvidenceContinuityTests(unittest.TestCase):
         self.assertEqual(source.count('"inventory_92"'), 2)
         self.assertIn('if [[ "${value}" != "success" ]]', source)
 
+    def test_protected_integrity_is_not_confused_with_missing_category_evidence(self):
+        source = K5.read_text(encoding="utf-8")
+        protected = source.split("      - name: Korunan dosyalar degismedi", 1)[1].split("      - name:", 1)[0]
+        self.assertIn("if: always()", protected)
+        self.assertIn("--mode check --manifest", protected)
+        self.assertNotIn("category_evidence_collect.py --verify", protected)
+        self.assertIn("      - name: Kategori kanit aktarimini ayri dogrula\\n        if: always()".replace("\\\\n", "\\n"), source)
+        self.assertIn("python3 scripts/category_evidence_collect.py --verify", source)
+
     def test_runtime_rule_acceptance_is_not_waived(self):
         source = SECURITY.read_text(encoding="utf-8")
         self.assertIn("if len(verified) != 26:", source)
