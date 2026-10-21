@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-20T21:15:55.210006+00:00",
+  "checked_utc": "2026-10-21T11:11:24.285590+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -11649,6 +11649,88 @@
       "conversion": "png_ready",
       "png_file": "madsc_kesif/candidate_pngs/66e5e9cf4e7bb8ea2882e222.png",
       "png_sha256": "0a138aedf3b5c7abc9c0e0b82cf6a0949a6081c9da416eb94e2975146a362dda"
+    },
+    {
+      "channel": "AMC Europe",
+      "stream_sha256": "6946b9097dcd73cbf3874dde165eb46d6a4d765964cfac09df867803d332ad88",
+      "channel_id": "AMCEurope.uk",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/95485d98360a9192aad4c80a.png",
+      "png_sha256": "99f7ef33fffc838c3a0e7230b612a7903c9fcc9a498f2e7be85e03b0101a5e85"
+    },
+    {
+      "channel": "American Ninja Warrior (1080p)",
+      "stream_sha256": "d7d2a4d5f454349fd6050643714e61c418aea707d8ca811c9cd8ae3f59e22065",
+      "channel_id": "AmericanNinjaWarrior.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://raw.githubusercontent.com/RoqueDJ/iptv-svg/main/1792421696158.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/01eefbcac497fc530330626f.png",
+      "png_sha256": "86354b748a9ea45ae50db7734e34be0595a9d34cfb581b4d4661e1e00e93af4a"
+    },
+    {
+      "channel": "BBC Earth (1080p)",
+      "stream_sha256": "410619192268de253f1529aa02a2227d0db054d76b6295b42a7a22ac954b330a",
+      "channel_id": "BBCEarth.uk",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://upload.wikimedia.org/wikipedia/commons/7/7e/BBC_Earth_2023.svg",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/4c96ca77dc336e0618e2e4b8.png",
+      "png_sha256": "2b3e00a141766e75b0405fecc327f1e1296f883f3ce43c974e3245442f37f619"
+    },
+    {
+      "channel": "Botflix Radioo (1080p)",
+      "stream_sha256": "5090667f700d584002c3db3fed7ea20ee0a25eaf09e6a6ade99afbc3b55b0be8",
+      "channel_id": "BotflixRadioo.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "Botflix TV (1080p)",
+      "stream_sha256": "4b89c2f4a863304ccba97c7cf903d7f58ba9d720b3f12f4b03944a86bc901a54",
+      "channel_id": "BotflixTV.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "RTR-Planeta (720p)",
+      "stream_sha256": "09e25e753c096f0cd979ccff1ffdc7e00b04b957700a7cb2caace6c6dc6571d5",
+      "channel_id": "RTRPlaneta.ru",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/0YEahxs.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/491ace3fa317fb4d0980130c.png",
+      "png_sha256": "ead38d6019245d7360307278f6a70f9ae7b30eba8ca41756cf046e09d875adca"
+    },
+    {
+      "channel": "Willow Sports (1080p)",
+      "stream_sha256": "c6a8fc01b3af5887716ab3aba57d1d2fe5505baa7fa12843910d19ee50f810ec",
+      "channel_id": "WillowSports.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
     }
   ],
   "limits": "PNG preparation only; visual identity and IBO approval required. No playlist edits."

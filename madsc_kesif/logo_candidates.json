@@ -1,98 +1,58 @@
 [
   {
     "channel": "AMC Europe",
-    "stream_sha256": "b3fd8a48b85ae27ba2d1680ddb298de5195b9a7f19ec1f7c844139d6f4666c45",
+    "stream_sha256": "6946b9097dcd73cbf3874dde165eb46d6a4d765964cfac09df867803d332ad88",
     "source": "dearbulut-language-eng",
     "channel_id": "AMCEurope.uk",
     "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/AMC_logo_2019.svg/960px-AMC_logo_2019.svg.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "FILMBOX+ One (576p)",
-    "stream_sha256": "b1ce5b07089689bc7180a85a1a4417850c129bf6914edaf37927726957781685",
+    "channel": "American Ninja Warrior (1080p)",
+    "stream_sha256": "d7d2a4d5f454349fd6050643714e61c418aea707d8ca811c9cd8ae3f59e22065",
     "source": "dearbulut-language-eng",
-    "channel_id": "FILMBOXPlusOne.pl",
+    "channel_id": "AmericanNinjaWarrior.us",
+    "logo_url": "https://raw.githubusercontent.com/RoqueDJ/iptv-svg/main/1792421696158.png",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "BBC Earth (1080p)",
+    "stream_sha256": "410619192268de253f1529aa02a2227d0db054d76b6295b42a7a22ac954b330a",
+    "source": "dearbulut-language-eng",
+    "channel_id": "BBCEarth.uk",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/BBC_Earth_2023.svg",
+    "logo_source_review_required": false
+  },
+  {
+    "channel": "Botflix Radioo (1080p)",
+    "stream_sha256": "5090667f700d584002c3db3fed7ea20ee0a25eaf09e6a6ade99afbc3b55b0be8",
+    "source": "dearbulut-language-eng",
+    "channel_id": "BotflixRadioo.us",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Fox (576i)",
-    "stream_sha256": "9c65bd9d32c70ac15273975151279832f7263569e312a22f7ed80f8f0bf3d53e",
+    "channel": "Botflix TV (1080p)",
+    "stream_sha256": "4b89c2f4a863304ccba97c7cf903d7f58ba9d720b3f12f4b03944a86bc901a54",
     "source": "dearbulut-language-eng",
-    "channel_id": "Fox.pl",
-    "logo_url": "https://i.imgur.com/hSDN9YQ.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "History (576i)",
-    "stream_sha256": "200364803f1930bc3c883198ce2c4f8519c827852566750700a1e06a0d9c4b99",
-    "source": "dearbulut-language-eng",
-    "channel_id": "History.pl",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Ice Pilots",
-    "stream_sha256": "a879f66de83a5f860fc2563f1c0f932d8cad687cd68f13f13523a9436ad404cd",
-    "source": "dearbulut-language-eng",
-    "channel_id": "IcePilots.us",
-    "logo_url": "https://i.imgur.com/F8GBYq3.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "NatureTime (1080p)",
-    "stream_sha256": "68b6b075071209fc0677453d7c1c846adca829cc48d3f0c2cba56e709b20604d",
-    "source": "dearbulut-language-eng",
-    "channel_id": "NatureTime.ca",
+    "channel_id": "BotflixTV.us",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Nicktoons",
-    "stream_sha256": "9a964f95e18c5b424c24e854e603f1dc01d810c8621814f0d207feca1f9c6154",
+    "channel": "RTR-Planeta (720p)",
+    "stream_sha256": "09e25e753c096f0cd979ccff1ffdc7e00b04b957700a7cb2caace6c6dc6571d5",
     "source": "dearbulut-language-eng",
-    "channel_id": "Nicktoons.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Nicktoons_Logo_2023.svg",
+    "channel_id": "RTRPlaneta.ru",
+    "logo_url": "https://i.imgur.com/0YEahxs.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "People Are Awesome (720p)",
-    "stream_sha256": "e6f958a13979b4ceb994cf6decaeb63ccf1b80a25a0ce3f594ebc1506dfce04c",
+    "channel": "Willow Sports (1080p)",
+    "stream_sha256": "c6a8fc01b3af5887716ab3aba57d1d2fe5505baa7fa12843910d19ee50f810ec",
     "source": "dearbulut-language-eng",
-    "channel_id": "PeopleAreAwesome.us",
-    "logo_url": "https://i.imgur.com/MsIx7Ax.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Pluto TV John Wayne",
-    "stream_sha256": "766aaa514bc7a090b519b34202b3071ee715203ed3286169c885441e0a2dcfc3",
-    "source": "dearbulut-ISVEC",
-    "channel_id": "PlutoTVJohnWayne.se",
+    "channel_id": "WillowSports.us",
     "logo_url": "",
     "logo_source_review_required": true
-  },
-  {
-    "channel": "Pluto TV Teen (720p)",
-    "stream_sha256": "e1f4935105fde64019ca7732aa658c71b6531387ea93de9154dc20537e5586d4",
-    "source": "dearbulut-ALMANYA",
-    "channel_id": "PlutoTVTeen.de",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "TV3",
-    "stream_sha256": "275b4076f523b8ff45fe79afe1e41b340e223609bd5d8f6f159c0377f3306dae",
-    "source": "dearbulut-language-eng",
-    "channel_id": "TV3.gh",
-    "logo_url": "https://i.imgur.com/8t967Hq.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "World Poker Tour (1080p)",
-    "stream_sha256": "4b1627fa16d28741e25739bb43df7c85e4a032b3073b7856a783df0de8018e8b",
-    "source": "dearbulut-language-eng",
-    "channel_id": "WorldPokerTour.us",
-    "logo_url": "https://i.imgur.com/98kLMjj.png",
-    "logo_source_review_required": false
   }
 ]
