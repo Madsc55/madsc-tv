@@ -1,23 +1,33 @@
 {
-  "total_candidates": 7,
+  "total_candidates": 11,
   "category_counts": {
-    "LOGO_KAYNAGI_GUVENLIK_INCELEMESI": 3,
-    "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 4
+    "LOGO_KAYNAGI_GUVENLIK_INCELEMESI": 4,
+    "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 7
   },
   "candidates": [
     {
-      "channel": "AMC Europe",
-      "stream_sha256": "6946b9097dcd73cbf3874dde165eb46d6a4d765964cfac09df867803d332ad88",
+      "channel": "ARTFLIX Movie Classics (720p)",
+      "stream_sha256": "c627897c73ad5469b09e54740f64797477733d062567cd5f136721bb23bc11de",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Al Jazeera (1080p)",
+      "stream_sha256": "276a74945aa524a08015a2bfc39dd6da6c1ce9d32ccf6fdda7baedcb198d7c94",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false
     },
     {
       "channel": "American Ninja Warrior (1080p)",
-      "stream_sha256": "d7d2a4d5f454349fd6050643714e61c418aea707d8ca811c9cd8ae3f59e22065",
+      "stream_sha256": "4cbba6edbc7af8344314a7fc9097e750a003bc0a95a1c0c20060f1a325c86300",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -26,8 +36,18 @@
       "playlist_approved": false
     },
     {
-      "channel": "BBC Earth (1080p)",
-      "stream_sha256": "410619192268de253f1529aa02a2227d0db054d76b6295b42a7a22ac954b330a",
+      "channel": "Approval TV (720p)",
+      "stream_sha256": "e027de83277a78951432b10a3d73e617af8e84b1ddc9abca4ae7c389f7a941bd",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "CBC Television (720p)",
+      "stream_sha256": "152458d50ec189d27cc565b21e96d2df25b5319f04e065533e9fe1174dcf3fd2",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -36,28 +56,8 @@
       "playlist_approved": false
     },
     {
-      "channel": "Botflix Radioo (1080p)",
-      "stream_sha256": "5090667f700d584002c3db3fed7ea20ee0a25eaf09e6a6ade99afbc3b55b0be8",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Botflix TV (1080p)",
-      "stream_sha256": "4b89c2f4a863304ccba97c7cf903d7f58ba9d720b3f12f4b03944a86bc901a54",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "RTR-Planeta (720p)",
-      "stream_sha256": "09e25e753c096f0cd979ccff1ffdc7e00b04b957700a7cb2caace6c6dc6571d5",
+      "channel": "FIFA+ (720p)",
+      "stream_sha256": "b5d78f8701c591799019d343e7d73933003f291d696234eb477962772e98b5c8",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -66,11 +66,51 @@
       "playlist_approved": false
     },
     {
-      "channel": "Willow Sports (1080p)",
-      "stream_sha256": "c6a8fc01b3af5887716ab3aba57d1d2fe5505baa7fa12843910d19ee50f810ec",
+      "channel": "INFAST (1080p)",
+      "stream_sha256": "9c134d0ce562e68d079253cdfc2cb3fed1dff8954cdce2bbe101893534c7dedb",
       "source": "dearbulut-language-eng",
       "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
       "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "NBC (1080p)",
+      "stream_sha256": "a670f4c507579a6e0e7fa4232121d5bb2944d8063cf423841f9a7c04e452da36",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Nosey (1080p)",
+      "stream_sha256": "919b3edc978ba169e61426de8e2740663e5dd38bc5ade45cb359b963bcb5997f",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Red Bull TV (1080p)",
+      "stream_sha256": "1b66e5f705446118f018be862fcb91c46c19e04563a861f5f0258ae6ba710b49",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Walker Texas Ranger",
+      "stream_sha256": "ddc9c91e9552c56c4f2550b2e5fd0502e80830e71ef2aea85e8558ab27d0556e",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false
