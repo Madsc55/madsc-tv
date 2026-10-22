@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — SON DOĞRULANMIŞ: Kural24 sayfalama açığı ve eski test onarımı
+
+- Son kod SHA **1b4474da5ecd2b548b99bd6b39654039907b4eca** (sayfalama kodu önceki **28fe1550e79360d9b5f95323af4d4ae6309b1398** commitinde). K1 run [39766742769](https://github.com/Madsc55/madsc-tv/actions/runs/39766742769) **completed/success**, job **119783961896**: **15/15 toplu paket**, korunan 136 dosyada changed_paths=[]. Artifact acceptance **12420856508**, risk **12420412500**, tarihsel korunan fark **12420856510**. Ayrı Kural24 run **39766742707 success**, job **119783961571**.
+- Kapanan gerçek açık: ilk 100 koşu aktif/yeni olduğunda eski iki hata ikinci sayfada kalıp devre kesiciye görünmüyordu. Karar için yeterli geçmiş artık sayfalardan alınır; eksik/API hatalı/bozuk/erken biten veya 10 sayfa sınırında yetersiz geçmiş çalışmayı açmaz. İki negatif senaryo önce üretildi; eski rerun, başarıyla kesilme ve hata senaryoları dahil 17 yeni/mevcut test ile dört eski root testi (21 toplam) geçiyor. Eski root testlerin üç eksik mevcut-koşu fixture'ı onarıldı, dört test toplu pakete dahil edildi.
+- Aynı SHA beşli run **39766742710 completed/failure**: K1 job **119783962527** gerçek 26 kural kanıtı eksik olduğundan failure, K2–K4 skipped. K5 job **119784103543** kategori bağımlılığı/kanıtı eksik. 0/26 runtime kabulü, 0/92 davranışsal kabul değişmedi; devre kesicinin bütün writer yollarına bağlandığı kabul edilmedi. Yeni test başarısı production kanıtı değildir.
+- Sıradaki somut iş: tüm writer/dispatch yollarındaki Kural24 kapsamını ve 92 işin gerçek davranışsal entegrasyonunu incele; son kapı kapsamı/referans çözümü/sayfalama düzeltmeleri yeniden yazılmayacak. Korunan veri/main/PR71/eski workflow/cron/izinler değiştirilmedi. EPG içerik ve IBO cihaz işi ertelendi. Dal yazımı önceki HEAD kontrolü ve dosya SHA ile yapıldı; başka sohbetten yeni commit görülmedi.
+
+---
+
 ## 22 Ekim 2026 — Kural 24 ayrı eski testinin veri hatası giderildi
 
 - Sayfalama kodu **28fe1550e79360d9b5f95323af4d4ae6309b1398** için K1 run **39766493266 success**. Ayrı Kural 24 run **39766493278 failure**, job **119783126599** logunda üç eski testin mevcut koşu metadata'sını vermediği görüldü: Current workflow run missing from failure history. Bu mevcut güvenli duruş sözleşmesidir, kaldırılmadı.
