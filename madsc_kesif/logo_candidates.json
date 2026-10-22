@@ -1,137 +1,49 @@
 [
   {
-    "channel": "ABC News Live (720p)",
-    "stream_sha256": "f0621b653b1b9923c5759c8229f16fab2bb885622835c6eada86167f5ccb52a6",
+    "channel": "ABC News (720p)",
+    "stream_sha256": "0cc60be7dc54b647a2379a96922c389dda164a7892102a7c33de2b18e645f2db",
     "source": "dearbulut-language-eng",
-    "channel_id": "ABCNewsLive.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/ABC_News_Live_logo_2021.svg/960px-ABC_News_Live_logo_2021.svg.png",
+    "channel_id": "ABCNews.au",
+    "logo_url": "https://i.imgur.com/BrW7gk8.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "ARD-alpha (720p)",
-    "stream_sha256": "f64d203b045b7bd158763a2ebcb27e6352ca50e2589f55f52534ba0dc4d5d82b",
-    "source": "dearbulut-ALMANYA",
-    "channel_id": "ARDalpha.de",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/ARD_alpha.svg/960px-ARD_alpha.svg.png",
+    "channel": "BBC Earth (1080p)",
+    "stream_sha256": "7d4955049a03efd994b333a26e1b75c7534cf7a0b138156f4ef165f0527ba602",
+    "source": "dearbulut-language-eng",
+    "channel_id": "BBCEarth.uk",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/BBC_Earth_2023.svg",
     "logo_source_review_required": false
   },
   {
-    "channel": "Aneflix Live (720p)",
-    "stream_sha256": "fb14234582e22ef9c4ecf491a73a6c196874c718c0261ed2cdb82a55a6e834ec",
+    "channel": "CNN International (1080p)",
+    "stream_sha256": "18111b76512f1829102828b04b9272543377a3587fbd284b9f8f8d8b1891d481",
     "source": "dearbulut-language-eng",
-    "channel_id": "AneflixLive.us",
+    "channel_id": "CNNInternational.us",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "Bull",
-    "stream_sha256": "0d7e262cf82ae52831bf2090f853d86d5a6ee6beaddcaaccb51b633f84b87e79",
-    "source": "dearbulut-ISVEC",
-    "channel_id": "Bull.se",
+    "channel": "DD Sports (1080p)",
+    "stream_sha256": "9cae771b7084b47a1d4a9ea7fd7306c8e6fe08a55c4df6159e6809bf10ed11fd",
+    "source": "dearbulut-language-eng",
+    "channel_id": "DDSports.in",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "CBS Sports HQ (720p)",
-    "stream_sha256": "056592c7786df5b6dda483d041282def19b37e3add12adb0934e62941caadb8e",
+    "channel": "NHK World-Japan (1080p)",
+    "stream_sha256": "245aedf02646503be57e41dbba92976d46a62cf8867e0c33ea1d66a4c4bde97c",
     "source": "dearbulut-language-eng",
-    "channel_id": "CBSSportsHQ.us",
-    "logo_url": "https://i.imgur.com/q8BENJg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Cartoon Network",
-    "stream_sha256": "12d6531931e1d700b9163c5a8578f1f64a5a12e1ded3a27a2a69172496170c49",
-    "source": "dearbulut-language-eng",
-    "channel_id": "CartoonNetwork.pk",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/960px-Cartoon_Network_2010_logo.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Das Erste (1080p)",
-    "stream_sha256": "5099db7c3f7fb0c7bcdadcf95dd7c0fd47dbe49eb2d375f8678461d181d2a836",
-    "source": "dearbulut-ALMANYA",
-    "channel_id": "DasErste.de",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/ARD_Dachmarke_2014.svg/960px-ARD_Dachmarke_2014.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "FIFA+ (720p)",
-    "stream_sha256": "fff58044dbdae8989f274bbcb702c0864d5997cc2f37b25507c54eabc1c0988b",
-    "source": "dearbulut-language-eng",
-    "channel_id": "FIFAPlus.uk",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B_(2025).svg/960px-FIFA%2B_(2025).svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "FX (720p)",
-    "stream_sha256": "e8c957bf45deabcb612dd8b14938e08ffb8a9eab6882e4876b87cdbcba91e581",
-    "source": "dearbulut-language-eng",
-    "channel_id": "FX.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/FX_International_logo.svg/960px-FX_International_logo.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Fox Sports 2 (720p)",
-    "stream_sha256": "620037899dc5217996fc58852988cb29da4c1ae6d204e4aacb599840072b8177",
-    "source": "dearbulut-language-eng",
-    "channel_id": "FoxSports2.us",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/FS2_logo_2015.svg/960px-FS2_logo_2015.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "GB News (1080p)",
-    "stream_sha256": "59b1ea40668a8acdad6100c54a5b9167094ad46c1ca7ef562acaab0c04e49698",
-    "source": "dearbulut-language-eng",
-    "channel_id": "GBNews.uk",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/GB_News_Logo.svg/960px-GB_News_Logo.svg.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Homes Under Hammer (720p)",
-    "stream_sha256": "e3b333fabfd2411ba39794a72e285c4444ca364ddfc32b1978950ed5793caca6",
-    "source": "dearbulut-language-eng",
-    "channel_id": "HomesUnderHammer.us",
-    "logo_url": "https://i.imgur.com/P5Haaln.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Mega Extreno HD (720p)",
-    "stream_sha256": "ceaa2dbd5282326b9a1522c03662c7fd657d4d6caabf7c34a392b4699947fd6e",
-    "source": "dearbulut-language-eng",
-    "channel_id": "MegaExtrenoHD.us",
+    "channel_id": "NHKWorldJapan.jp",
     "logo_url": "",
     "logo_source_review_required": true
   },
   {
-    "channel": "One Piece",
-    "stream_sha256": "eb21cde0387521ede98846ef10c26557a6066ee5ebe49042413dd2f7ccd728dd",
+    "channel": "NewsX (576p)",
+    "stream_sha256": "9c58439dfe8b2cf058417cb62b878b277d1089a22edbb08b23924ff753368cf0",
     "source": "dearbulut-language-eng",
-    "channel_id": "OnePiece.us",
-    "logo_url": "",
-    "logo_source_review_required": true
-  },
-  {
-    "channel": "RTEjr",
-    "stream_sha256": "ddff6e83623a5d1fe1a2dda14d66a1998932ef8bc570cadca76c84de6472a76b",
-    "source": "dearbulut-language-eng",
-    "channel_id": "RTEjr.ie",
-    "logo_url": "https://i.imgur.com/E3jxqu9.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "Telesur (1080p)",
-    "stream_sha256": "b5bcf91552bf31a965558079e3ce2a143a34791bee9a440f5285ceb4d0762962",
-    "source": "dearbulut-language-eng",
-    "channel_id": "Telesur.ve",
-    "logo_url": "https://i.imgur.com/P50VjRX.png",
-    "logo_source_review_required": false
-  },
-  {
-    "channel": "The Price Is Right",
-    "stream_sha256": "53135d07275207443548c2ed0a059d72a68f48cce00fc1062192130fffe7f2fc",
-    "source": "dearbulut-language-eng",
-    "channel_id": "ThePriceIsRight.us",
+    "channel_id": "NewsX.in",
     "logo_url": "",
     "logo_source_review_required": true
   }
