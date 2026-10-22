@@ -44,17 +44,18 @@ def execute():
         except (subprocess.TimeoutExpired, OSError) as exc:
             tests.append({"suite": name, "passed": False, "returncode": None,
                           "log_tail": str(exc)})
-    try:
-        runtime = subprocess.run([sys.executable, "-m", "unittest", "discover",
-                                  "-s", ".", "-p", "test_five_category_runtime_integrity.py", "-v"],
-                                 cwd=ROOT, capture_output=True, text=True, timeout=240)
-        tests.append({"suite": "test_five_category_runtime_integrity",
-                      "passed": runtime.returncode == 0 and bool(re.search(r"Ran [1-9][0-9]* tests? in ", runtime.stdout + runtime.stderr)),
-                      "returncode": runtime.returncode,
-                      "log_tail": (runtime.stdout + runtime.stderr)[-8000:]})
-    except (subprocess.TimeoutExpired, OSError) as exc:
-        tests.append({"suite": "test_five_category_runtime_integrity",
-                      "passed": False, "returncode": None, "log_tail": str(exc)})
+    for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate"):
+        try:
+            runtime = subprocess.run([sys.executable, "-m", "unittest", "discover",
+                                      "-s", ".", "-p", name + ".py", "-v"],
+                                     cwd=ROOT, capture_output=True, text=True, timeout=240)
+            tests.append({"suite": name,
+                          "passed": runtime.returncode == 0 and bool(re.search(r"Ran [1-9][0-9]* tests? in ", runtime.stdout + runtime.stderr)),
+                          "returncode": runtime.returncode,
+                          "log_tail": (runtime.stdout + runtime.stderr)[-8000:]})
+        except (subprocess.TimeoutExpired, OSError) as exc:
+            tests.append({"suite": name,
+                          "passed": False, "returncode": None, "log_tail": str(exc)})
     audit_errors = []
     rules = None
     workflows = None

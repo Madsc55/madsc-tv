@@ -1,3 +1,11 @@
+## 22 Ekim 2026 — Kural 24 ayrı eski testinin veri hatası giderildi
+
+- Sayfalama kodu **28fe1550e79360d9b5f95323af4d4ae6309b1398** için K1 run **39766493266 success**. Ayrı Kural 24 run **39766493278 failure**, job **119783126599** logunda üç eski testin mevcut koşu metadata'sını vermediği görüldü: Current workflow run missing from failure history. Bu mevcut güvenli duruş sözleşmesidir, kaldırılmadı.
+- Yalnız test_workflow_failure_gate.py içindeki üç fixture'a çağrıda verilen mevcut koşu id/tarih/status kaydı eklendi. scripts/acceptance_26_92.py mevcut root testleri de çalıştırır; eski dört kural testi artık tek toplu kabul paketinden kaçmaz. Yerelde 21 devre kesici testi ve **15/15 toplu paket** başarılı. Test/kanıt başarısı tüm production writer yollarının kural24 kabulü değildir.
+- Bu düzeltme commitinden sonra aynı SHA üzerinde K1, Kural24 ve beşli run/job/artifact sonuçları kontrol edilecek. 0/26 runtime kabulü ve 0/92 davranışsal kabul değişmedi; korunan veri/main/PR71/eski workflow/cron/izinler değiştirilmedi.
+
+---
+
 ## 22 Ekim 2026 — Kural 24 geçmiş sayfalama düzeltmesi / CI bekleniyor
 
 - İşlem öncesi dal HEAD **8d31fd3dddf81f8a2948408c057d553c7a111303**; başka yeni commit görünmedi. tools/workflow_failure_gate.py yalnız ilk 100 koşuyu okuyordu. Mevcut koşu + 99 aktif koşu ilk sayfayı doldurduğunda ikinci sayfadaki iki failure/timed_out görülmüyor, yanlışlıkla devam ediliyordu. İkinci sayfanın API hatası da sorgulanmadığı için güvenli duruş üretmiyordu. Bu iki hata önce testte yeniden üretildi.
