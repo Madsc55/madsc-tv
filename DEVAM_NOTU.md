@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — SON DOĞRULANMIŞ: 99 workflow Kural24 kapsam kuyruğu
+
+- Kod **ebb3550172521057cf0704b2940b27b46169a2b8**. K1 run [39767234769](https://github.com/Madsc55/madsc-tv/actions/runs/39767234769) **completed/success**, job **119785617800**: **15/15 paket**, 136 korunan dosyada changed_paths=[]. Artifact acceptance **12421190293**, risk **12420427422**, tarihsel korunan fark **12420945718**. Gerçek logdaki kapsam alanları: failure_gate_call_signal_workflows=3, failure_circuit_scope_review_paths=24.
+- Yeni somut çıktı: devre kesici dosyasının push-path/test/yorum/echo içinde geçmesi çağrı sayılmaz; mevcut risk ve toplu kabul artifact'lerinde çağrı metni görülen üç workflow ve 24 kapsam inceleme kaydı görünür. Kuyruk 22 eski workflow + K2/K5'tir. Bu 24 kesin aktif açık değildir; salt-okunur/test metni, dolaylı script ve farklı job bağlamları ayrıca incelenecek. Runtime doğrulama sayısı sıfır tutulur.
+- Aynı SHA beşli run **39767234973 completed/failure**: K1 job **119785618434** gerçek 26 kural kanıtı eksik; K2–K4 skipped; K5 job **119785726965** kategori bağımlılığı/kanıtı eksik. 0/26 runtime kabulü, 0/92 davranışsal kabul değişmedi. Korunan veri/main/PR71/eski workflow/cron/izin değişmedi.
+- **Sıradaki somut iş:** 24 kapsam kaydını job/step ve çağrılan script davranışına göre ayrıştır; ilk adaylar vod-guncelle ile IBO tarihsel writer'ları (çalıştırmadan), ayrıca K2/K5 salt-okunur false-positive ayrımı. Kural24'ü tüm writer'larda uygulanıyor sayma; başarılı kapı kapsamı/referans çözümü/sayfalama geliştirmelerini tekrar yazma. EPG içerik ve IBO cihaz işi ertelendi. Dal ve dosya SHA kontrolüyle çalışıldı, başka sohbetten yeni commit görülmedi.
+
+---
+
 ## 22 Ekim 2026 — Kural24 kapsam kuyruğu mevcut toplu rapora bağlandı / CI bekleniyor
 
 - İşlem öncesi HEAD **ad8e4f209df1ee082c1e6775d3bbc7a65da680fb**. 99 workflow mevcut risk envanteriyle tarandı. Salt dosya adı/trigger filtresi veya echo yorumunu devre kesici çağrısı saymayan statik çağrı sinyali eklendi. Gerçek çağrı metni yalnız madsc-birlesik-kesif.yml, madsc-son-kontrol.yml ve madsc-uc-asama.yml içinde saptandı; bu runtime doğrulama değildir.
