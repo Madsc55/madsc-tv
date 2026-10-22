@@ -1,3 +1,13 @@
+## 22 Ekim 2026 — 24 kapsam kaydı job/step düzeyine indirildi / CI bekleniyor
+
+- İşlem öncesi dal HEAD **ac6bf963c1e818bff7d545a71200a007c4788b7a**. Mevcut k1_workflow_risk_inventory raporuna kaynak satırı, job/step, job if koşulu, reusable workflow işareti, aynı job'da önceki hata kapısı ve continue-on-error sinyali eklendi. Komutlar çalıştırılmadı; ham komut/URL/env içerikleri rapora kopyalanmadı.
+- Önceki 24 inceleme kaydının **18'inde** run bağlamında komut veya script-adı yazma sinyali, **6'sında** bu seviyede sinyal yok. Altı: automatic-png-logos.yml, madsc-05-genel-bakim.yml, test-24-system-audit.yml, test-32-unapproved-write-regression.yml, test-38-audit-selftest.yml, toplu-sistem-kontrol.yml. Bunlar güvenli/eksiksiz ilan edilmedi; dolaylı Python/action/reusable etkileri ayrıca incelenecek. K2'de discovery_history_restore, aylık denetimde restore, VOD ve IBO writer'ları satırlarıyla görünür.
+- Devre kesici farklı job'da/sonraki adımda/continue-on-error ise önceki mutasyonu koruyor sayılmıyor. Yorum/echo/Python test dizgesi komut sayılmaz; bilinen GET-only Actions raporu POST/dispatch ile karışmaz, aynı satırdaki write GET istisnasıyla gizlenmez. Bu statik bağlam raporudur; YAML/shell yorumlayıcısı veya runtime izin kapısı değildir, karmaşık/dinamik söz dizimi manuel inceleme gerektirir.
+- Mevcut testlere yedi job/step regresyonu eklendi; yerel toplu **15/15 paket** başarılı. failure_circuit_job_scope_review hem risk artifact'ine hem acceptance_26_92 artifact'ine taşındı. Yeni SHA gerçek CI sonucu committen sonra doğrulanacak. 0/26 runtime, 0/92 davranışsal kabul ve üretim kapıları değişmedi.
+- Workflow/cron/izin/main/PR71/korunan veriler değişmedi. Sıradaki somut iş: 18 sinyal kaydındaki gerçek betik yan etkileri ve korunan yazma öncesi yetki ayrımı; altı sinyalsiz kaydı güvenli sayma. EPG içerik ve IBO cihaz işi ertelendi. Başka sohbetten yeni commit görülmedi, dal yazımı beklenen HEAD ile yapılır.
+
+---
+
 ## 22 Ekim 2026 — SON DOĞRULANMIŞ: 99 workflow Kural24 kapsam kuyruğu
 
 - Kod **ebb3550172521057cf0704b2940b27b46169a2b8**. K1 run [39767234769](https://github.com/Madsc55/madsc-tv/actions/runs/39767234769) **completed/success**, job **119785617800**: **15/15 paket**, 136 korunan dosyada changed_paths=[]. Artifact acceptance **12421190293**, risk **12420427422**, tarihsel korunan fark **12420945718**. Gerçek logdaki kapsam alanları: failure_gate_call_signal_workflows=3, failure_circuit_scope_review_paths=24.

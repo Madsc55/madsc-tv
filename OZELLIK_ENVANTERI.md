@@ -93,3 +93,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 22 Ekim Kural24 eski root testleri: mevcut koşu kaydı eksik üç fixture onarıldı; test_workflow_failure_gate artık acceptance_26_92 toplu paketinde de çalışır. Yerelde 21 devre kesici testi ve 15/15 paket başarılı; aynı SHA gerçek CI sonucu DEVAM_NOTU.md'de izlenir.
 
 - 22 Ekim Kural24 kapsam raporu: mevcut k1_workflow_risk_inventory ve acceptance_26_92, çağrı metni görünen workflowları ve yazma/izin sinyali olup çağrı görülmeyen inceleme kuyruğunu birlikte raporlar. 99 dosyada üç çağrı sinyali, 24 inceleme kaydı (22 legacy+K2/K5); runtime_verified=0. Test/yorum/trigger dosya adı çağrı sayılmaz; 15/15 yerel paket, Actions kanıtı DEVAM_NOTU.md'de izlenir.
+
+- 22 Ekim Kural24 job/step kapsamı: mevcut risk ve acceptance raporunda satır/job/adım/if/reusable/continue-on-error ve aynı-job önceki gate sinyali var. 24 kapsam kaydında 18 komut/script-adı sinyalli, altı bu bağlamda sinyalsiz; dolaylı etkiler manuel inceleme bekler. Yedi bağlam regresyonu, yerel 15/15 paket; runtime kabulü verilmez.

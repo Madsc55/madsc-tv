@@ -22,6 +22,86 @@ FAILURE_GATE_CALL = re.compile(
     r"(?m)^\s*(?:-\s*)?(?:run:\s*)?python3?\s+tools/workflow_failure_gate\.py(?:\s|$)"
 )
 
+
+def job_scope(source):
+    """Conservative context for the repository's block-style jobs/steps.
+
+    This is source evidence, not YAML/shell execution. Never grants clearance.
+    Only command-shaped lines in run blocks count; embedded code still needs review.
+    """
+    jobs = []
+    job = step = None
+    run_indent = None
+    in_jobs = False
+    command = re.compile(r"(?:^|[;&|()])\s*(?:git\s+(?:(?:-c|--config)\s+\S+\s+)*push\b|gh\s+(?:workflow\s+(?:run|enable|disable)|run\s+rerun|api\b)|curl\b[^\n]*(?:-X|--request)\s*(?:POST|PUT|PATCH|DELETE))")
+    for number, line in enumerate(source.splitlines(), 1):
+        if re.match(r"^jobs:\s*(?:#.*)?$", line):
+            in_jobs = True
+            continue
+        if re.match(r"^\S", line) and not line.startswith("#"):
+            in_jobs = False
+            job = step = None
+        if not in_jobs:
+            continue
+        job_match = re.match(r"^  ([\w-]+):\s*$", line)
+        if job_match:
+            job = {"job": job_match[1], "line": number, "condition_signal": None, "steps": []}
+            jobs.append(job)
+            step = None
+            run_indent = None
+            continue
+        if job is None:
+            continue
+        condition = re.match(r"^    if:\s*(.*)$", line)
+        if condition:
+            job["condition_signal"] = condition[1]
+        reusable = re.match(r"^    uses:\s*(.*)$", line)
+        if reusable:
+            job["reusable_workflow_signal"] = reusable[1]
+        step_match = re.match(r"^      - (name|uses|run):\s*(.*)$", line)
+        if step_match:
+            step = {"line": number, "name": step_match[2] if step_match[1] == "name" else "(unnamed)",
+                    "failure_gate_call_lines": [], "mutation_signal_lines": [],
+                    "script_mutation_name_lines": [], "continue_on_error_signal": False}
+            job["steps"].append(step)
+            run_indent = None
+        if step is None:
+            continue
+        if re.match(r"^        continue-on-error:\s*true\s*(?:#.*)?$", line):
+            step["continue_on_error_signal"] = True
+        run_match = re.match(r"^(?:      - |        )run:\s*(.*)$", line)
+        if run_match:
+            body = run_match[1]
+            run_indent = 8 if re.fullmatch(r"[|>][-+]?\s*(?:#.*)?", body) else None
+            if run_indent is not None:
+                continue
+        elif run_indent is not None and (not line.strip() or len(line) - len(line.lstrip()) > run_indent):
+            body = line.strip()
+        else:
+            run_indent = None
+            continue
+        if body.startswith("#"):
+            continue
+        if re.match(r"^python3?\s+tools/workflow_failure_gate\.py(?:\s|$)", body):
+            step["failure_gate_call_lines"].append(number)
+        readonly_api = (GH_API.search(body) and READ_ONLY_ACTIONS_API.search(body)
+                        and not GH_API_MUTATION_FLAGS.search(body) and "graphql" not in body.casefold()
+                        and not GIT_MUTATION.search(body) and not GH_CLI_MUTATION.search(body)
+                        and not WRITE.search(body))
+        if command.search(body) and not readonly_api:
+            step["mutation_signal_lines"].append(number)
+        if PYTHON_MUTATION.match(body):
+            step["script_mutation_name_lines"].append(number)
+    for job in jobs:
+        gates = [line for step in job["steps"] if not step["continue_on_error_signal"]
+                 for line in step["failure_gate_call_lines"]]
+        mutations = [line for step in job["steps"]
+                     for line in step["mutation_signal_lines"] + step["script_mutation_name_lines"]]
+        job["mutation_lines_without_prior_failure_gate_signal"] = [line for line in mutations
+                                                                   if not any(gate < line for gate in gates)]
+        job["runtime_verified"] = False
+    return jobs
+
 def inspect(path):
     s = path.read_text(encoding="utf-8-sig")
     triggers = sorted(set(TRIGGER.findall(s)))
@@ -96,6 +176,7 @@ def inspect(path):
         "mutation_or_write_permission_without_failure_gate_signal":
             (has_write or has_permission) and failure_gate_calls == 0,
         "failure_circuit_runtime_verified": False,
+        "failure_circuit_job_scope": job_scope(s),
         "indirect_write_signal": indirect_write,
         "indirect_write_without_gate_reference": indirect_write and gates == 0,
         "runtime_gate_order_verified": False,
@@ -122,6 +203,10 @@ def audit():
         "failure_circuit_scope_review_paths": [r["path"] for r in records
                                                if r["mutation_or_write_permission_without_failure_gate_signal"]],
         "failure_circuit_runtime_verified_workflows": 0,
+        "failure_circuit_job_scope_review": [
+            {"path": r["path"], "jobs": r["failure_circuit_job_scope"]}
+            for r in records if r["mutation_or_write_permission_without_failure_gate_signal"]
+        ],
         "indirect_writers_without_gate_reference": [r["path"] for r in records if r["indirect_write_without_gate_reference"]],
         "runtime_gate_order_verified_workflows": 0,
         "audit_text_exemption_review_paths": [r["path"] for r in records if r["audit_text_exemption_requires_review"]],

@@ -119,6 +119,7 @@ def execute():
         "workflow_risk_count": risks["workflow_count"],
         "failure_gate_call_signal_workflows": risks["failure_gate_call_signal_workflows"],
         "failure_circuit_scope_review_paths": risks["failure_circuit_scope_review_paths"],
+        "failure_circuit_job_scope_review": risks["failure_circuit_job_scope_review"],
         "failure_circuit_runtime_verified_workflows": risks["failure_circuit_runtime_verified_workflows"],
         "critical_ungated_push_count": critical_risks,
         "missing_explicit_permission_count": missing_permissions,
