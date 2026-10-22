@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — K1 karşılaştırma referansı açığı düzeltildi / CI bekleniyor
+
+- İşlem öncesi HEAD **69cc533099762261c7f3223f220e0ce16718e7d8**. tools/protected_write_gate.py --base değerini doğrudan git diff argümanına ekliyordu. Geçici gerçek Git deposunda commit edilmiş AGENTS.md değişikliği varken --base=--relative=outside ve --base=--output=gate-side-effect yanlış ALLOW üretti; ikinci örnek geçici depoda çıktı dosyası da oluşturabildi. Üretim deposunda bu girdiler çalıştırılmadı.
+- Düzeltme: git rev-parse --verify --end-of-options ile yalnız commit nesnesi çözülüyor, çıktı 40/64 haneli hex SHA olarak doğrulanıyor; git diff yalnız bu SHA'yı kullanıyor. Geçersiz referans/seçenek/tree nesnesi DENY (exit 2). Normal SHA, HEAD~1 ve annotated tag ile korunan commit farkı yine DENY (exit 1). Yetki veya güvenlik istisnası eklenmedi.
+- Önce iki kaçış negatif testte yeniden üretildi; düzeltme ve geçerli referans/yan etki yokluğu kontrollerinden sonra toplu yerel 14/14 paket başarılı. Yeni kodun gerçek Actions sonucu commit sonrası doğrulanacak; yerel başarı runtime 26/26 veya davranışsal 92/92 kabulü değildir.
+- Kapsam yalnız mevcut kapı, iki mevcut test dosyası ve notlar; main/PR71/eski workflow/cron/izinler/korunan veriler değiştirilmedi. EPG içerik işi ertelendi. Sıradaki iş gerçek CI sonucunu kaydetmek, sonra kalan writer/dispatch/devre kesici kapsamını tamamlamak.
+
+---
+
 ## 22 Ekim 2026 — SON DOĞRULANMIŞ İŞ: iki K1 koruma açığı kapandı
 
 - Kod SHA **ebf7e25e5b11b4dd3c6225301f42bb1b3de11c6c**. K1 run [39765478676](https://github.com/Madsc55/madsc-tv/actions/runs/39765478676) **completed/success**, job **119779731588**: **14/14 paket**, 136 korunan dosyada changed_paths=[]. Artifact: acceptance-26-92 **12420435666**, risk **12420390878**, tarihsel EPG farkları **12420181265**. Aynı SHA bütünleşik güvenli kontrol run **39765478696 success**.

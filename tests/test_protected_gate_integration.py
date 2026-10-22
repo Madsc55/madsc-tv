@@ -67,6 +67,33 @@ class ProtectedGateIntegrationTests(unittest.TestCase):
                 self.assertIn(name, result.stderr)
                 path.unlink()
 
+    def test_option_like_baseline_cannot_hide_committed_protected_change(self):
+        (self.repo / "AGENTS.md").write_text("protected policy", encoding="utf-8")
+        self.git("add", "AGENTS.md")
+        self.git("commit", "-qm", "protected fixture")
+        for option in ("--relative=outside", "--output=gate-side-effect"):
+            with self.subTest(base=option):
+                result = subprocess.run(
+                    [sys.executable, str(GATE), "--base=" + option],
+                    cwd=self.repo, text=True, capture_output=True)
+                self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+                self.assertFalse((self.repo / "gate-side-effect..HEAD").exists())
+
+    def test_commit_baseline_detects_committed_protected_change(self):
+        self.git("tag", "-am", "trusted fixture", "trusted-baseline", self.base)
+        (self.repo / "AGENTS.md").write_text("protected policy", encoding="utf-8")
+        self.git("add", "AGENTS.md")
+        self.git("commit", "-qm", "protected fixture")
+        for base in (self.base, "HEAD~1", "trusted-baseline"):
+            with self.subTest(base=base):
+                result = self.gate(base)
+                self.assertEqual(result.returncode, 1, result.stderr)
+                self.assertIn("AGENTS.md", result.stderr)
+
+    def test_tree_object_is_not_accepted_as_commit_baseline(self):
+        result = self.gate("HEAD^{tree}")
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()

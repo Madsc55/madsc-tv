@@ -74,7 +74,7 @@ class ProtectedWriteGateTests(unittest.TestCase):
     @patch("tools.protected_write_gate.subprocess.run")
     def test_ignored_protected_paths_are_included(self, run):
         from tools.protected_write_gate import git_changed_paths
-        values = [b"", b"", b"", b"", b"EPG/hidden.xml\x00"]
+        values = [b"a" * 40 + b"\n", b"", b"", b"", b"", b"EPG/hidden.xml\x00"]
         run.side_effect = [subprocess.CompletedProcess([], 0, stdout=value) for value in values]
         paths = git_changed_paths("trusted")
         self.assertEqual(paths, ["EPG/hidden.xml"])
@@ -86,14 +86,23 @@ class ProtectedWriteGateTests(unittest.TestCase):
         self.assertEqual(main(["--base", "missing-ref"]), 2)
 
     @patch("tools.protected_write_gate.subprocess.run")
+    def test_invalid_resolved_commit_is_denied_before_diff(self, run):
+        run.return_value = subprocess.CompletedProcess([], 0, stdout=b"--output=unexpected\n")
+        self.assertEqual(main(["--base", "trusted"]), 2)
+        run.assert_called_once()
+
+    @patch("tools.protected_write_gate.subprocess.run")
     def test_unstaged_and_untracked_paths_are_included(self, run):
         from tools.protected_write_gate import git_changed_paths
         import subprocess
-        values = [b"", b"", b"YENILER.m3u\x00", b"yedekler/new.txt\x00", b"cache/HEPSI/ignored.txt\x00"]
+        values = [b"a" * 40 + b"\n", b"", b"", b"YENILER.m3u\x00", b"yedekler/new.txt\x00", b"cache/HEPSI/ignored.txt\x00"]
         run.side_effect = [subprocess.CompletedProcess([], 0, stdout=value) for value in values]
         paths = git_changed_paths("trusted")
         self.assertEqual(paths, ["YENILER.m3u", "yedekler/new.txt", "cache/HEPSI/ignored.txt"])
-        self.assertEqual(len(run.call_args_list), 5)
+        self.assertEqual(len(run.call_args_list), 6)
+        self.assertEqual(run.call_args_list[0].args[0],
+                         ["git", "rev-parse", "--verify", "--end-of-options", "trusted^{commit}"])
+        self.assertEqual(run.call_args_list[1].args[0][-1], "a" * 40 + "..HEAD")
 
 
 from tests.test_k1_legacy_writer_guards import LegacyWriterGuards  # included in CI discovery; checks explicit permissions

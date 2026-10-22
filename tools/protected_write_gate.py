@@ -4,6 +4,7 @@ This module never writes a playlist or changes Git state. Call before any push.
 A successful check is not a substitute for GitHub branch rulesets.
 """
 import argparse
+import re
 import subprocess
 import sys
 from pathlib import PurePosixPath
@@ -43,8 +44,16 @@ def blocked_paths(paths):
 
 def git_changed_paths(base):
     """Read changes between base and HEAD; fail on missing or invalid Git base."""
+    # Resolve with option parsing explicitly ended; never interpolate caller input
+    # into git diff, where --relative/--output could suppress evidence or write.
+    resolved = subprocess.run(
+        ["git", "rev-parse", "--verify", "--end-of-options", f"{base}^{{commit}}"],
+        check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    ).stdout.decode("ascii").strip()
+    if not re.fullmatch(r"(?:[0-9a-f]{40}|[0-9a-f]{64})", resolved):
+        raise ValueError("Invalid resolved baseline commit")
     result = subprocess.run(
-        ["git", "diff", "--name-only", "-z", "--no-renames", f"{base}..HEAD"],
+        ["git", "diff", "--name-only", "-z", "--no-renames", f"{resolved}..HEAD"],
         check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
     )
     staged = subprocess.run(
