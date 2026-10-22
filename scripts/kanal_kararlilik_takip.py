@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read-only longitudinal IPTV evidence tracker. Requires observations >=24h apart."""
 import csv,json,os,datetime,collections
+from kararlilik_gecmis import normalize_history
 from pathlib import Path
 NOW=datetime.datetime.now(datetime.timezone.utc)
 SRC=Path("ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv")
@@ -18,22 +19,7 @@ for row in current:
  state=row.get("TEKNIK_MEDYA","")
  old=history.get(url,[])
  if not isinstance(old,list):old=[]
- old=[x for x in old if isinstance(x,dict) and x.get("at") and x.get("state")]
- # Keep only timezone-aware observations in the past seven days. A future
- # timestamp must never inflate the 24-hour stability span.
- valid_old=[]
- for item in old:
-  try:
-   stamp=datetime.datetime.fromisoformat(str(item["at"]).replace("Z","+00:00"))
-  except (TypeError,ValueError):
-   continue
-  if stamp.tzinfo is None:
-   continue
-  stamp=stamp.astimezone(datetime.timezone.utc)
-  age=(NOW-stamp).total_seconds()
-  if 0 <= age <= 7*86400:
-   valid_old.append({"at":stamp.isoformat(),"state":str(item["state"])})
- old=valid_old
+ old=normalize_history(old,NOW)
  old.append({"at":NOW.isoformat(),"state":state})
  history[url]=old[-40:]
  good=[datetime.datetime.fromisoformat(x["at"]) for x in old if x["state"]=="VIDEO_SES_VAR"]
