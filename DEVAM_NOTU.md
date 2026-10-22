@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — Kural 24 geçmiş sayfalama düzeltmesi / CI bekleniyor
+
+- İşlem öncesi dal HEAD **8d31fd3dddf81f8a2948408c057d553c7a111303**; başka yeni commit görünmedi. tools/workflow_failure_gate.py yalnız ilk 100 koşuyu okuyordu. Mevcut koşu + 99 aktif koşu ilk sayfayı doldurduğunda ikinci sayfadaki iki failure/timed_out görülmüyor, yanlışlıkla devam ediliyordu. İkinci sayfanın API hatası da sorgulanmadığı için güvenli duruş üretmiyordu. Bu iki hata önce testte yeniden üretildi.
+- Mevcut kapı karar için yeterli eski tamamlanmış koşu ya da tüm geçmiş alınana kadar sayfaları okuyor. Eksik geçmiş, erken boş sayfa, geçersiz cevap, API hatası veya 10 sayfada kanıt bulunamaması izin vermez. Mevcut iki başarısızlık eşiği, başarı/iptal davranışı, dal filtresi ve yeniden koşunun sonraki kayıtları saymaması korunuyor; writer workflowları değiştirilmedi.
+- Testler: ikinci sayfadaki iki başarısızlık, ikinci sayfa API hatası, eski yeniden koşu kimliğinin ikinci sayfada bulunması ve eski başarının zinciri kesmesi, kesik/bozuk/aşırı geçmiş. Devre kesici 17 test; mevcut toplu yerel paket 14/14 başarılı. Gerçek GitHub run sonucu committen sonra doğrulanacak; bu kuralın tüm production yollarında uygulandığını kanıtlamaz.
+- Korunan veriler/main/PR71/eski workflow/cron/izinler değişmedi. 0/26 runtime ve 0/92 davranışsal kabul sayıları değiştirilmedi. Sonraki iş yeni SHA Actions run/job/artifact doğrulaması ve kalan writer/dispatch kapsamı.
+
+---
+
 ## 22 Ekim 2026 — SON DOĞRULANAN: Git karşılaştırma girdisi kaçışı kapandı
 
 - Kod **d0ec63a5759b7da44b4e57a3bf4b09964bf9c510**. K1 run [39765945224](https://github.com/Madsc55/madsc-tv/actions/runs/39765945224) **completed/success**, job **119781295164**: **14/14 paket**, korunan 136 dosyada changed_paths=[]. Artifact acceptance **12419878598**, risk **12420067353**, tarihsel korunan fark **12419883383**. Bütünleşik kontrol run **39765945418 success**.

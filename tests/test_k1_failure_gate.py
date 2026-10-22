@@ -108,6 +108,63 @@ class FailureGateTests(unittest.TestCase):
         url = mocked.call_args.args[0].full_url
         self.assertIn("branch=madsc%2Fbes-sistem-toplu-birlestirme", url)
 
+    def test_failures_on_second_history_page_still_open_circuit(self):
+        first = [dict(run(i, None, "in_progress"), head_branch="main") for i in range(102, 2, -1)]
+        second = [dict(run(2, "failure"), head_branch="main"),
+                  dict(run(1, "timed_out"), head_branch="main")]
+        responses = [io.BytesIO(json.dumps({"total_count": 102, "workflow_runs": rows}).encode())
+                     for rows in (first, second)]
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "102", "GITHUB_REF_NAME": "main", "GH_TOKEN": "fake"}
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", side_effect=responses) as mocked:
+            with self.assertRaises(SystemExit) as caught:
+                main()
+        self.assertEqual(caught.exception.code, 1)
+        self.assertEqual(mocked.call_count, 2)
+        self.assertIn("page=2", mocked.call_args.args[0].full_url)
+
+    def test_second_history_page_api_failure_does_not_allow_execution(self):
+        rows = [dict(run(i, None, "in_progress"), head_branch="main") for i in range(102, 2, -1)]
+        first = io.BytesIO(json.dumps({"total_count": 102, "workflow_runs": rows}).encode())
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "102", "GITHUB_REF_NAME": "main", "GH_TOKEN": "fake"}
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", side_effect=[first, OSError("API unavailable")]):
+            with self.assertRaises(OSError):
+                main()
+
+    def test_rerun_current_record_and_success_can_be_on_later_page(self):
+        first = [dict(run(i, "failure"), head_branch="main") for i in range(104, 4, -1)]
+        second = [dict(run(4, None, "in_progress"), head_branch="main"),
+                  dict(run(3, "failure"), head_branch="main"),
+                  dict(run(2, "success"), head_branch="main"),
+                  dict(run(1, "failure"), head_branch="main")]
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "4", "GITHUB_REF_NAME": "main", "GH_TOKEN": "fake"}
+        responses = [io.BytesIO(json.dumps({"total_count": 104, "workflow_runs": rows}).encode())
+                     for rows in (first, second)]
+        with patch.dict(os.environ, env), patch("urllib.request.urlopen", side_effect=responses) as mocked:
+            main()
+        self.assertEqual(mocked.call_count, 2)
+
+    def test_truncated_or_unbounded_history_fails_closed(self):
+        env = {"GITHUB_REPOSITORY": "Madsc55/madsc-tv",
+               "GITHUB_WORKFLOW_REF": "Madsc55/madsc-tv/.github/workflows/test.yml@refs/heads/main",
+               "GITHUB_RUN_ID": "4", "GITHUB_REF_NAME": "main", "GH_TOKEN": "fake"}
+        for payload, message in (
+            ({"total_count": 1000, "workflow_runs": []}, "ended before reported total"),
+            ({"total_count": 1000, "workflow_runs": [dict(run(4, None, "in_progress"), head_branch="main")]},
+             "page limit"),
+            ({"total_count": "invalid", "workflow_runs": []}, "Invalid workflow history"),
+        ):
+            with self.subTest(payload=payload), patch.dict(os.environ, env), \
+                 patch("tools.workflow_failure_gate.MAX_HISTORY_PAGES", 1), \
+                 patch("urllib.request.urlopen", return_value=io.BytesIO(json.dumps(payload).encode())):
+                with self.assertRaisesRegex(ValueError, message):
+                    main()
+
 
 if __name__ == "__main__":
     unittest.main()

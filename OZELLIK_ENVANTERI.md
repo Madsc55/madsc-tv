@@ -87,3 +87,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 22 Ekim K1 koruma kapsamı: favoriler/favorites/hepsi metadata dosyaları push kapısına; iç içe yeni ve ignored EPG/logo/arşiv/favori dosyaları runtime snapshot/check kapsamına alındı. Geçici Git depolarında önce 8 kaçış yeniden üretildi, düzeltme sonrası toplu 14/14 paket başarılı. Gerçek CI sonucu DEVAM_NOTU.md'de izlenecek; 26/92 toplu kabulü değildir.
 
 - 22 Ekim K1 karşılaştırma girdisi: protected_write_gate --base artık seçenek olarak git diff'e geçmiyor; --end-of-options ile commit SHA çözümü ve biçim kontrolü var. Gerçek geçici Git deposunda iki ALLOW kaçışı önce üretildi; geçerli SHA/ref/tag, geçersiz tree ve dosya yazmama regresyonlarıyla yerel 14/14 paket başarılı. Actions sonucu DEVAM_NOTU.md'de izlenecek.
+
+- 22 Ekim Kural 24: workflow_failure_gate geçmişi ilk 100 koşuyla sınırlamaz; yeterli eski tamamlanmış koşu veya tam geçmiş için sayfalama yapar. İkinci sayfa başarısızlıkları ve API/eksik geçmişte durma regresyonları eklendi. 17 devre kesici testi ve yerel toplu 14/14 paket başarılı; gerçek CI DEVAM_NOTU.md'de izlenecek. Tüm writer kapsamı henüz kabul edilmedi.
