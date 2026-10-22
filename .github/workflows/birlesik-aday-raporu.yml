@@ -22,6 +22,8 @@ jobs:
           key: birlesik-rapor-${{ github.run_id }}
           restore-keys: |
             kanal-kararlilik-
+      - name: Validate longitudinal history normalization
+        run: python3 -m unittest discover -s tests -p 'test_kararlilik_gecmis.py' -v
       - name: Install ffprobe
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Candidate discovery
