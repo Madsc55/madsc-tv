@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — SON DOĞRULANAN: Git karşılaştırma girdisi kaçışı kapandı
+
+- Kod **d0ec63a5759b7da44b4e57a3bf4b09964bf9c510**. K1 run [39765945224](https://github.com/Madsc55/madsc-tv/actions/runs/39765945224) **completed/success**, job **119781295164**: **14/14 paket**, korunan 136 dosyada changed_paths=[]. Artifact acceptance **12419878598**, risk **12420067353**, tarihsel korunan fark **12419883383**. Bütünleşik kontrol run **39765945418 success**.
+- Gerçek güvenlik düzeltmesi: --base girdisinin Git seçeneğine dönüşerek commit edilmiş korunan değişikliği gizlemesi ve çıktı dosyası yaratması engellendi. --end-of-options ile commit çözümü, 40/64 haneli SHA doğrulaması; diff'e yalnız SHA geçer. İki negatif kaçış önce gerçek geçici Git deposunda yeniden üretildi; SHA/HEAD~1/annotated tag, tree reddi, yan etki olmaması ve çözüm hatasında kapalı kalma testleri geçiyor. Üretim verisi değiştirilmedi.
+- Aynı SHA beşli run **39765945244**: K1 job **119781296369 failure**, 26 runtime kanıtı eksik; K2–K4 skipped. K5 job **119781399886 failure**, kategori bağımlılığı/kanıtı eksik. K1 kod regresyon başarısı 26/26 kabul değildir; 0/26 runtime verified, 0/92 behavioral verified. Tarihsel EPG farkları hâlâ ayrı, onaylanmadı.
+- Sonraki somut iş: mevcut writer/dispatch/devre kesici yollarında gerçek kapsam ve kalan uygulama açıkları. Son iki turdaki koruma kapsamı ve bu referans çözümü yeniden yazılmayacak; başarılı CI kayıtları yukarıda. Eski workflow/cron/izin/main/PR71/korunan veri değişikliği yok. Başka sohbetten değişiklik olup olmadığı HEAD ve dosya SHA ile kontrol edildi; dal yazımı beklenen HEAD ile yapıldı.
+
+---
+
 ## 22 Ekim 2026 — K1 karşılaştırma referansı açığı düzeltildi / CI bekleniyor
 
 - İşlem öncesi HEAD **69cc533099762261c7f3223f220e0ce16718e7d8**. tools/protected_write_gate.py --base değerini doğrudan git diff argümanına ekliyordu. Geçici gerçek Git deposunda commit edilmiş AGENTS.md değişikliği varken --base=--relative=outside ve --base=--output=gate-side-effect yanlış ALLOW üretti; ikinci örnek geçici depoda çıktı dosyası da oluşturabildi. Üretim deposunda bu girdiler çalıştırılmadı.
