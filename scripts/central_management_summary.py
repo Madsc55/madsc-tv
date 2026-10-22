@@ -3,11 +3,24 @@
 import json
 from datetime import datetime, timezone
 from pathlib import Path
+try:
+    from scripts.evidence_reader import read_json_evidence
+except ModuleNotFoundError:
+    from evidence_reader import read_json_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "madsc_merkezi_denetim"
 OUT.mkdir(exist_ok=True)
 SOURCES = {
+    "kategori_aktarimi": "kategori_kanit_aktarimi.json",
+    "kesif_gecmis_devamliligi": "kesif_gecmis_devamliligi.json",
+    "genis_kaynak": "genis_kaynak_kabul.json",
+    "logo_epg_kalite": "logo_epg_kalite.json",
+    "aday_puanlama": "aday_puanlama_kabul.json",
+    "ana_liste_teknik_sonuc": "ana_liste_saglik_teknik_sonuc.json",
+    "izole_geri_yukleme": "izole_git_geri_yukleme_kaniti.json",
+    "felaket_tatbikati": "felaket_kurtarma_tatbikati.json",
+    "aday_logo_raporu": "candidate_logo_missing_report.json",
     "sekiz_gorev": "sekiz_gorev_tek_merkezi_rapor.json",
     "on_sekiz_gorev": "on_sekiz_gorev_bes_asama_kanit.json",
     "kaynak_mutabakati": "kaynak_hedef_mutabakati.json",
@@ -28,15 +41,13 @@ SOURCES = {
 def build(folder):
     sections = {}
     for key, filename in SOURCES.items():
-        path = folder / filename
-        if not path.is_file():
+        state, data = read_json_evidence(folder / filename)
+        if state == "missing":
             sections[key] = {"status": "KANIT_YOK", "file": filename}
-            continue
-        try:
-            data = json.loads(path.read_text(encoding="utf-8"))
-            sections[key] = {"status": "RAPOR_VAR", "file": filename, "data": data}
-        except (ValueError, UnicodeError):
+        elif state == "invalid":
             sections[key] = {"status": "GECERSIZ_RAPOR", "file": filename}
+        else:
+            sections[key] = {"status": "RAPOR_VAR", "file": filename, "data": data}
     missing = [key for key, row in sections.items() if row["status"] != "RAPOR_VAR"]
     # Kritik sinyalleri buyuk raporu acmadan gorunur kil; veri yoksa sifir varsayma.
     source_data = sections["kaynak_mutabakati"].get("data", {})

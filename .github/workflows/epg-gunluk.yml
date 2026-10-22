@@ -5,23 +5,30 @@ on:
     - cron: '25 3 * * *'
 permissions:
   contents: write
+concurrency:
+  group: madsc-protected-publish-main
+  cancel-in-progress: false
 jobs:
   update-epg:
+    name: Gunluk EPG uretimi ve korunan yazma kontrolu
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build independent EPG and coverage report
+      - name: Bagimsiz EPG ve kapsama raporu olustur
         run: |
           python3 scripts/build_epg.py
           python3 scripts/build_ibo_epg_test.py
-      - name: Verify five-channel XMLTV and record pending TV test
+      - name: Bes kanal XMLTV ve bekleyen TV testini dogrula
         run: python3 scripts/epg_tv_readiness.py
-      - name: Commit EPG output only
+      - name: Yalnizca EPG ciktilarini kontrollu kaydet
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add epg/madsc-epg.xml epg/ibo-test-epg.xml epg/report.json epg/tv_kontrol_bekliyor.json
-          git diff --cached --quiet || (git commit -m "Update EPG guide and coverage report" && git pull --rebase origin main && git push)
+          git diff --cached --quiet || (python3 tools/protected_write_gate.py --base HEAD && git commit -m "Update EPG guide and coverage report" && git pull --rebase origin main && python3 tools/protected_write_gate.py --base origin/main && git push)

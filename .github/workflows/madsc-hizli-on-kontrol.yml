@@ -1,0 +1,64 @@
+name: MADSC - Hizli Besli Sistem On Kontrol
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-0*.yml'
+      - '.github/workflows/madsc-hizli-on-kontrol.yml'
+      - 'scripts/five_system_cutover_readiness.py'
+      - 'tests/test_five_system_cutover_readiness.py'
+      - 'scripts/five_category_preflight.py'
+      - 'scripts/five_category_92_workflow_audit.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
+      - 'scripts/five_category_shared_controls.py'
+      - 'tests/test_five_category_shared_controls.py'
+permissions:
+  contents: read
+concurrency:
+  group: madsc-hizli-on-kontrol-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  on-kontrol:
+    name: Besli sistem salt okunur hizli altyapi denetimi
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Besli sistem gecis engellerini raporla
+        run: python3 scripts/five_system_cutover_readiness.py
+      - name: Gecis kapisi regresyonlarini calistir
+        run: python3 -m unittest discover -s tests -p 'test_five_system_cutover_readiness.py' -v
+      - name: Ortak K1-K5 kurallarini ve testlerini birlikte denetle
+        run: |
+          python3 scripts/five_category_shared_controls.py
+          python3 -m unittest discover -s tests -p 'test_five_category_shared_controls.py' -v
+      - name: 92 eski workflow esdegerlik envanterini uret
+        run: python3 scripts/five_category_92_workflow_audit.py
+      - name: 92 eski workflow regresyonlarini calistir
+        run: python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v
+      - name: Bes kategori altyapi on kontrolu
+        run: python3 scripts/five_category_preflight.py
+      - name: Besli sistem raporunu yukle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-hizli-gecis-on-kontrol
+          path: |
+            madsc_merkezi_denetim/besli_sistem_gecis_hazirlik.json
+            madsc_merkezi_denetim/bes_kategori_on_kontrol.json
+            madsc_merkezi_denetim/besli_ortak_kural_etki_haritasi.json
+            madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json
+            madsc_merkezi_denetim/92_workflow_esdegerlik_kabul_matrisi.csv
+            madsc_merkezi_denetim/92_workflow_yazma_risk_inceleme_kuyrugu.json
+            madsc_merkezi_denetim/92_workflow_oncelikli_gecis_isleri.json
+            madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.md
+          if-no-files-found: warn

@@ -4,6 +4,9 @@ import argparse, hashlib, json, re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from channel_name_normalization import normalize_channel_name
 
 class Rows(HTMLParser):
     def __init__(self):
@@ -19,13 +22,7 @@ class Rows(HTMLParser):
         if tag=='tr' and self.row is not None: self.rows.append(self.row); self.row=None
 
 def key(name, playlist=False):
-    name=re.sub(r'\([^)]*\)|\[[^]]*\]', '', name).strip()
-    name=re.sub(r'\b(?:HD|FHD|UHD|SD)\b', '', name, flags=re.I).strip().rstrip('.')
-    name=re.sub(r'\s+(?:ADAY|ALTERNATİF)$', '', name, flags=re.I).strip()
-    if playlist and not re.fullmatch(r'(?:TRT|BRT|TV|Tele|Kanal|Tivi)\s+\d+', name, flags=re.I) and name!='Imam Hussein TV 5':
-        name=re.sub(r'\s+\d+$', '', name)
-    name=name.casefold().translate(str.maketrans('ıİşçğüö','iiscguo'))
-    return re.sub(r'[^a-z0-9]', '', name)
+    return normalize_channel_name(name, profile="satellite_playlist" if playlist else "satellite")
 
 ALIASES={'24':'24tv','show':'showtv','lalegul':'lalegultv','semerkandtv':'semerkandtv','powerturk':'powerturktv','thturkhaber':'turkhaber','van65':'van65tv','trtkurd':'trtkurdi','ordualtastv':'altastv'}
 REVIEW={'alzahratv':'Al-Zahra TV Turkic','cantempotv':'TEMPO TV','kkardelentv':'KARDELEN TV','kontv':'KONYA KTV','ulusal1tv':'ULUSAL KANAL','cartonnetwork':'Cartoon Network','flashtv':'FLASH HABER','as':'Bursa AS TV'}

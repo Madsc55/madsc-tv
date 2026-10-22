@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   apply:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -28,5 +29,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CALISANLAR.m3u madsc_kesif/ibo_kullanici_kararlari_20261013_grup1.json madsc_kesif/ibo_kullanici_kararlari_20261013_grup1.csv madsc_kesif/ibo_yedeklerden_ayrilanlar_20261013_grup1.m3u
           git diff --cached --quiet && exit 0
+          python3 tools/protected_write_gate.py --base origin/main
           git commit -m "Record 36 nonworking Turkish and 197 foreign IBO backup decisions"
           git push origin HEAD:main

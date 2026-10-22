@@ -106,7 +106,16 @@ def acceptance(folder):
     runs = load("son_100_kosu.json")
     protected = load("protected-write-gate-report.json")
     duplicates = load("tek_islem_coklu_push_analizi.json")
+    parity = load("92_workflow_gorev_ve_kategori_haritasi.json") or {}
+    verified = parity.get("behavioral_parity_verified_count", 0)
+    total = parity.get("total", 0)
+    parity_status = ("DAVRANISSAL_ESDEGERLIK_DOGRULANDI" if total == 92 and verified == 92
+                     else f"DAVRANISSAL_ESDEGERLIK_EKSIK_{verified}_92" if total == 92
+                     else "92_WORKFLOW_KANITI_EKSIK")
     criteria = [
+        {"alan": "92 eski workflow davranissal esdegerligi",
+         "kanit": "92_workflow_gorev_ve_kategori_haritasi.json",
+         "durum": parity_status},
         {"alan": "Beş aşama workflow envanteri", "kanit": "bes_asama_tum_workflow_eslestirmesi.json",
          "durum": "ENVANTER_VAR_KAPSAM_ONAYSIZ" if stages.get("mapped_count") and not stages.get("unmapped") else "KANIT_EKSIK"},
         {"alan": "Ana liste canlı yayın kontrolü", "kanit": "ana_liste_saglik_kosu_kaniti.json",
@@ -153,7 +162,7 @@ def pending_tasks(acceptance_report):
             action = "Son 100 koşu ile daha eski başarısız testlerin arşiv kanıtlarını karşılaştır."
         else:
             action = "18 geliştirme ve 26 koruma kuralının uçtan uca kabul kanıtlarını tamamla."
-        evidence_present = status not in ("KANIT_EKSIK", "KANIT_EKSIK_VEYA_HATALI", "UCA_UCA_KANIT_EKSIK", "KULLANICI_ONAYI_BEKLENIYOR")
+        evidence_present = status not in ("KANIT_EKSIK", "KANIT_EKSIK_VEYA_HATALI", "UCA_UCA_KANIT_EKSIK", "KULLANICI_ONAYI_BEKLENIYOR", "92_WORKFLOW_KANITI_EKSIK") and not status.startswith("DAVRANISSAL_ESDEGERLIK_EKSIK_")
         tasks.append({"sira": index, "alan": item["alan"], "durum": status,
                       "kanit_mevcut": evidence_present,
                       "kanit": item["kanit"], "sonraki_is": action,

@@ -8,18 +8,21 @@ permissions:
   contents: read
 jobs:
   comprehensive:
+    name: Toplu sistem saglik ve guvenlik denetimi
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
-      - uses: actions/checkout@v4
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install audit dependency
+      - name: Denetim bagimliligini kur
         run: python -m pip install --quiet pyyaml
-      - name: Complete repository audit and sample stream reachability
+      - name: Depo ve ornek yayin erisilebilirligi denetimi
         run: |
           python - <<'PY'
           import ast,hashlib,json,re,urllib.request,urllib.error
@@ -88,11 +91,11 @@ jobs:
           print(json.dumps({"status":report["status"],"inventory":report["inventory"],"errors":report["errors"],"warnings":report["warnings"],"stream_probes":report["stream_probes"]},ensure_ascii=False,indent=2))
           if report["errors"]:raise SystemExit(1)
           PY
-      - name: Run all existing unit tests
+      - name: Tum mevcut birim testlerini topluca calistir
         run: |
           python -m unittest discover -s tests -p 'test_*.py' -v
           python -m unittest discover -s . -p 'test_*.py' -v
-      - name: Preserve one consolidated report
+      - name: Tek birlesik raporu sakla
         if: always()
         uses: actions/upload-artifact@v4
         with:

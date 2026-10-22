@@ -1,32 +1,15 @@
-name: MADSC - 11599 Yedegi Tam Geri Yukle
+name: MADSC - 11599 Yedek Fark Teshisi (Salt Okunur)
 on:
-  push:
-    paths:
-      - '.github/workflows/madsc-11599-yedek-geri-yukle.yml'
+  workflow_dispatch:
 permissions:
-  contents: write
-concurrency:
-  group: madsc-11599-yedek-geri-yukle
-  cancel-in-progress: false
+  contents: read
 jobs:
-  restore:
+  diagnose:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: En guncel liste
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: 11599 yedegi eski arsivden geri yukle
-        run: python3 scripts/restore_all_11599_backups.py
-      - name: Korunan gruplari bozmadan kaydet
-        run: |
-          set -euo pipefail
-          git diff --exit-code -- YABANCI_KANALLAR.m3u madsc_kesif/yedeklerden_ayrilanlar_20261013T170042Z.m3u
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CALISANLAR.m3u madsc_kesif/yedek_11599_geri_yukleme_raporu.json
-          git diff --cached --quiet && exit 0
-          git commit -m "Restore all 11599 backups for user IBO classification"
-          git push origin HEAD:main
+        with:
+          persist-credentials: false
+      - name: 11599 yedek farkini yazmadan hesapla
+        run: python3 scripts/diagnose_11599_backups.py

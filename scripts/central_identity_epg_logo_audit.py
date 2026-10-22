@@ -2,19 +2,22 @@
 """Logo EPG kimlik ve teknik gecmis kanitlarini tek salt okunur rapora al."""
 import json
 from pathlib import Path
+try:
+    from scripts.evidence_reader import read_json_evidence
+except ModuleNotFoundError:
+    from evidence_reader import read_json_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "madsc_merkezi_denetim"
 OUT.mkdir(exist_ok=True)
 
 def load(relative):
-    path = ROOT / relative
-    if not path.is_file():
+    state, data = read_json_evidence(ROOT / relative)
+    if state == "missing":
         return {"available": False, "path": relative, "data": None}
-    try:
-        return {"available": True, "path": relative, "data": json.loads(path.read_text(encoding="utf-8"))}
-    except (ValueError, UnicodeError):
+    if state == "invalid":
         return {"available": False, "path": relative, "error": "INVALID_JSON", "data": None}
+    return {"available": True, "path": relative, "data": data}
 
 sources = {
     "final_validation": load("madsc_son_kontrol/summary.json"),

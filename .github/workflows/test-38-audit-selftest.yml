@@ -8,13 +8,15 @@ permissions:
   contents: read
 jobs:
   selftest:
+    name: Denetim testlerinin gercek koruma kontrolu
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
-      - uses: actions/checkout@v4
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Validate audit coverage and failure sensitivity
+      - name: Denetim kapsamını ve gerçek koruma işlevlerini doğrula
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -40,8 +42,16 @@ jobs:
               return bool(re.search(r"contents:\s*write",s) and re.search(r"\bgit\s+push\b",s))
           assert unsafe("permissions:\n  contents: write\nrun: git push origin main")
           assert not unsafe("permissions:\n  contents: read\nrun: echo report")
-          # Protected targets should be recognized as strings by the detector.
-          for target in ("CALISANLAR.m3u","YENILER.m3u","yedekler/"):
-              assert target in ("CALISANLAR.m3u","YENILER.m3u","yedekler/")
+          # Exercise the actual two security guards, including the logos/ regression.
+          from tools.protected_write_gate import blocked_paths
+          from scripts.k1_protected_integrity import protected
+          targets = ("CALISANLAR.m3u", "YENILER.m3u", "yedekler/test.txt",
+                     "logos/duzeltilmis-ornek.png", "logolar/ornek.png", "epg/ornek.xml")
+          for target in targets:
+              assert target in blocked_paths([target]), f"Write gate missed {target}"
+              assert protected(target), f"Integrity guard missed {target}"
+          for target in ("scripts/ordinary.py", "reports/summary.json"):
+              assert not blocked_paths([target]), f"Write gate false positive {target}"
+              assert not protected(target), f"Integrity guard false positive {target}"
           print("PASS: audit scaffolding and synthetic positive/negative cases")
           PY

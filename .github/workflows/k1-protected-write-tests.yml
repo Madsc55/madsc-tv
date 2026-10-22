@@ -1,0 +1,110 @@
+name: K1 - Korunan Yazma Kapisi Guvenlik Testleri
+on:
+  push:
+    paths:
+      - '.github/workflows/k1-protected-write-tests.yml'
+      - '.github/workflows/madsc-01-guvenlik.yml'
+      - 'tools/protected_write_gate.py'
+      - 'tests/test_protected_write_gate.py'
+      - 'tests/test_protected_gate_integration.py'
+      - 'scripts/audit_workflow_security.py'
+      - 'tests/test_workflow_security_audit.py'
+      - 'tests/test_k1_failure_gate.py'
+      - 'tools/workflow_failure_gate.py'
+      - 'scripts/k1_workflow_risk_inventory.py'
+      - 'scripts/k1_24_rule_evidence.py'
+      - 'tests/test_k1_24_rule_evidence.py'
+      - 'tests/test_k1_workflow_risk_inventory.py'
+      - 'scripts/k1_protected_integrity.py'
+      - 'test_five_category_runtime_integrity.py'
+      - 'tests/test_k1_runtime_workflow_guard.py'
+      - 'scripts/five_category_92_workflow_audit.py'
+      - 'tests/test_five_category_92_workflow_audit.py'
+      - 'tests/test_legacy_permission_gap.py'
+      - 'scripts/acceptance_26_92.py'
+      - '.github/workflows/madsc-ibo-354-classify.yml'
+      - '.github/workflows/madsc-birlesik-kesif.yml'
+      - 'tests/test_k1_legacy_writer_guards.py'
+      - 'scripts/k1_reviewed_readonly_scanner.py'
+      - 'tests/test_k1_reviewed_readonly_scanner.py'
+      - 'tests/test_k1_k5_ci_evidence.py'
+      - '.github/workflows/epg-gunluk.yml'
+      - '.github/workflows/publish-iptv-png-logos.yml'
+      - '.github/workflows/vod-guncelle.yml'
+      - '.github/workflows/madsc-02-kesif.yml'
+      - '.github/workflows/toplu-sistem-kontrol.yml'
+      - '.github/workflows/yedek-geri-yukleme-tatbikat.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  negative-tests:
+    name: Guvenlik kurallari toplu negatif testler
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Guvenlik test bagimliligini kur
+        run: python -m pip install PyYAML
+      - name: K1 korunan dosya baslangic anlik goruntusu
+        run: python scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
+      - name: 26 kural ve 92 workflow toplu regresyon ve kanit denetimi
+        run: python -m scripts.acceptance_26_92 --output acceptance-26-92.json
+      - name: Toplu kabul kanitini sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: acceptance-26-92
+          path: acceptance-26-92.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Korunan dosyalari ana dal ile karsilastir
+        if: ${{ !cancelled() }}
+        id: protected_integrity
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python scripts/k1_protected_integrity.py | tee k1-protected-diff.log
+          # Branch-to-main drift is evidence, not a runtime mutation.
+          # Runtime protected-file snapshot/check remains enforced in K1-K5.
+      - name: Korunan dosya farki kanitini sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k1-protected-diff
+          path: k1-protected-diff.log
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Tum workflow risk envanterini olustur
+        if: ${{ !cancelled() }}
+        run: |
+          python scripts/k1_workflow_risk_inventory.py > k1-workflow-risk-inventory.json
+          python -c "import json; r=json.load(open('k1-workflow-risk-inventory.json')); print('Total:',r['workflow_count'],'Tiers:',r['tiers'],'Missing permissions:',r['missing_explicit_permissions']); print('CRITICAL FILES:',[(x['path'],x['git_push_count'],x['gate_reference_count']) for x in r['records'] if x['tier']=='CRITICAL_UNGATED_PUSH']); assert r['workflow_count'] >= 98; assert r['tiers'].get('CRITICAL_UNGATED_PUSH',0) == 0; print('PUSH BEFORE GATE:',r['push_order_review_paths']); print('INDIRECT WITHOUT GATE:',r['indirect_writers_without_gate_reference'])"
+      - name: Workflow risk envanterini sakla
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k1-workflow-risk-inventory
+          path: k1-workflow-risk-inventory.json
+          retention-days: 30
+      - name: Workflow calistirmadan envanter sayisini dogrula
+        if: ${{ !cancelled() }}
+        run: python -c "from scripts.audit_workflow_security import audit; r=audit(); print('Workflow count:',r['workflow_count']); assert r['workflow_count'] >= 97"
+      - name: K1 korunan dosya calisma sonu butunluk kontrolu
+        if: always()
+        run: python scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/k1-protected-snapshot.json"
+      - name: Ana dal farkini ayri raporla; calisma zamani korumasini zorunlu tut
+        if: always()
+        run: |
+          if [ "${{ steps.protected_integrity.outcome }}" = failure ]; then
+            echo "::warning::Ana dal ile korunan dosya farki var. Bu farklar ayri artifact'te; mevcut kosuda yazma oldugunun kaniti degildir."
+          fi
+          echo "Calisma zamani snapshot/check adimi ayri ve zorunlu guvenlik kontroludur."

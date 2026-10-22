@@ -8,7 +8,7 @@ def inspect(root):
     import yaml
     rows = []
     errors = []
-    files = sorted((root / ".github/workflows").glob("*.yml"))
+    files = sorted(p for p in (root / ".github/workflows").iterdir() if p.suffix in (".yml", ".yaml"))
     for p in files:
         try:
             content = p.read_text(encoding="utf-8-sig")
@@ -16,20 +16,60 @@ def inspect(root):
             if not isinstance(data, dict) or not isinstance(data.get("jobs"), dict):
                 errors.append(f"Invalid workflow: {p.name}")
                 continue
+            # A central workflow without explicit permissions inherits repository
+            # defaults; do not treat that unknown default as read-only.
+            if re.match(r"madsc-0[1-5]-", p.name) and "permissions" not in data:
+                errors.append(f"Central workflow missing explicit permissions: {p.name}")
             permissions = data.get("permissions", {})
             writes = (permissions == "write-all" or
                       (isinstance(permissions, dict) and any(v == "write" for v in permissions.values())) or
                       bool(re.search(r"git\s+(?:push|commit)|create-pull-request", content, re.I)))
-            if not writes:
+            # Job-level permissions override workflow-level defaults.
+            for job in data["jobs"].values():
+                if not isinstance(job, dict):
+                    continue
+                grant = job.get("permissions", {})
+                if grant == "write-all" or (
+                    isinstance(grant, dict) and any(value == "write" for value in grant.values())
+                ):
+                    writes = True
+            # Legacy jobs can inherit unknown token defaults or mutate files
+            # without an explicit repository upload command. Report risks; never execute them.
+            inherited = "permissions" not in data
+            risky_commands = sorted(set(re.findall(
+                r"(?im)(?:git\s+(?:push|commit|reset|clean)|rm\s+-[rfRF]+|sed\s+-i|curl\s+[^\n]*\|\s*(?:sh|bash))",
+                content,
+            )))
+            if not writes and not inherited and not risky_commands and not re.search(
+                r"(?m)(?:>>?|\btee\s+|\b(?:cp|mv)\s+|\bsed\s+-i)", content
+            ):
                 continue
             protected = bool(re.search(r"CALISANLAR\.m3u|YENILER\.m3u|yedekler/", content, re.I))
-            gate = bool(re.search(r"environment:\s*[^\s]+", content))
-            rows.append({"workflow": str(p.relative_to(root)), "write_capability": True,
+            # Salt okunur komut ipuclari: hedefler manuel inceleme icindir,
+            # izin/onay kaniti olarak yorumlanamaz.
+            target_patterns = {
+                "SHELL_REDIRECT": r"(?m)(?:>>?|tee\s+(?:-a\s+)?)\s*([^\s;&|]+)",
+                "COPY_MOVE": r"(?m)\b(?:cp|mv)\s+(?:-[^\s]+\s+)*[^\s]+\s+([^\s;&|]+)",
+                "IN_PLACE_EDIT": r"(?m)\bsed\s+-i(?:\S*)?\s+[^\n]*?\s+([^\s;&|]+)$",
+            }
+            write_target_hints = [
+                {"kind": kind, "target": match.group(1)}
+                for kind, pattern in target_patterns.items()
+                for match in re.finditer(pattern, content)
+            ]
+            gate = bool(re.search(r"(?m)^\s*environment:\s*(?:[^\s#]+|\n\s+name:\s*[^\s#]+)", content))
+            rows.append({"workflow": str(p.relative_to(root)), "write_capability": writes, "inherited_permissions": inherited,
+                         "risky_commands": risky_commands, "write_target_hints": write_target_hints,
                          "protected_path_reference": protected, "environment_gate_marker": gate,
                          "status": "MANUAL_REVIEW_REQUIRED"})
         except Exception as exc:
             errors.append(f"{p.name}: {exc}")
+    central_violations = [
+        row["workflow"] for row in rows
+        if row["write_capability"] and re.match(r"madsc-0[1-5]-", Path(row["workflow"]).name)
+    ]
     return {"workflows_scanned": len(files), "review_required": rows, "review_count": len(rows),
+            "central_write_violations": central_violations,
             "errors": errors, "limitations": ["Static heuristic cannot prove authorization enforcement",
                                               "No channel files or workflows were executed"]}
 
@@ -42,7 +82,7 @@ def main():
         json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Korunan liste yazma denetimi: {result['workflows_scanned']} workflow, "
           f"{result['review_count']} manuel inceleme, {len(result['errors'])} hata.")
-    if result["errors"]:
+    if result["errors"] or result["central_write_violations"]:
         raise SystemExit(1)
 
 if __name__ == "__main__":

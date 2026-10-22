@@ -24,6 +24,18 @@ class AnaListeSaglikTest(unittest.TestCase):
         self.assertNotIn("url", result)
         self.assertNotIn("https://", json.dumps(result))
 
+    def test_parallel_probe_results_keep_playlist_order(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            playlist = Path(tmp) / "CALISANLAR.m3u"
+            playlist.write_text("#EXTM3U\\n" + "".join(f"#EXTINF:-1,Kanal {n}\\nhttps://example.org/{n}\\n" for n in range(12)), encoding="utf-8")
+            original = playlist.read_bytes()
+            def fake_probe(row, timeout):
+                return {"sira": row["sira"], "kanal": row["kanal"], "teknik_durum": "DOGRULANAMADI", "gerekce": "fixture"}
+            with patch("scripts.ana_liste_saglik.probe", side_effect=fake_probe):
+                report = run(playlist, Path(tmp) / "report", dt.date(2026, 10, 18), 100, 10)
+            self.assertEqual([x["sira"] for x in report["sonuclar"]], list(range(1, 13)))
+            self.assertEqual(playlist.read_bytes(), original)
+
     def test_sadece_rapor_ana_listeye_dokunma(self):
         with tempfile.TemporaryDirectory() as tmp:
             playlist = Path(tmp) / "CALISANLAR.m3u"

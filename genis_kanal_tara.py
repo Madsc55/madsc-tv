@@ -1,3 +1,5 @@
+from channel_name_normalization import normalize_channel_name
+from discovery_m3u_parser import parse_discovery_m3u
 import csv,re,urllib.request,concurrent.futures,subprocess,unicodedata
 SOURCES={
 'iptv-org':'https://raw.githubusercontent.com/iptv-org/iptv/master/streams/tr.m3u',
@@ -16,18 +18,11 @@ def fetch(item):
   return name,urllib.request.urlopen(req,timeout=22).read().decode('utf-8-sig','replace'),'OK'
  except Exception as e:return name,'',str(e)[:100]
 def parse(text):
- rows=[];meta=None
- for l in text.splitlines():
-  l=l.strip()
-  if l.startswith('#EXTINF:'):meta=l
-  elif l.startswith(('http://','https://')) and meta:
-   rows.append((meta.split(',',1)[-1],l,meta));meta=None
- return rows
+ return parse_discovery_m3u(text, profile="wide_scan")
+
 def norm(s):
- s=re.sub(r'\[[^]]*\]|\([^)]*\)','',s).casefold()
- s=''.join(c for c in unicodedata.normalize('NFKD',s.replace('ı','i')) if not unicodedata.combining(c))
- s=re.sub(r'\b(4k|uhd|fhd|hd|sd|hq|1440p|1080p|720p|576p|480p|360p|270p|aday|alternatif|tr)\b','',s)
- return re.sub(r'[^a-z0-9]','',s)
+    return normalize_channel_name(s, profile="wide_scan")
+
 old=parse(open('CALISANLAR.m3u',encoding='utf-8-sig').read())
 knownurls={u for n,u,m in old}
 knownnames={norm(n) for n,u,m in old}

@@ -5,6 +5,8 @@ on:
       - 'tools/logo_epg_audit.py'
       - '.github/workflows/test-15-logo-epg.yml'
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   audit-test:
     runs-on: ubuntu-latest

@@ -1,0 +1,183 @@
+name: MADSC 03 - Kanal Testleri Toplu
+on:
+  schedule:
+    # Read-only rolling health check: daily batches cover the list without changing it.
+    - cron: '40 6 * * *'
+  push:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-03-kanal-test.yml'
+      - 'scripts/ana_liste_saglik.py'
+      - 'test_ana_liste_saglik.py'
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: madsc-kanal-test-tek-kosu
+  cancel-in-progress: false
+jobs:
+  kanal-test:
+    name: MADSC 03 - Kanal Testleri Toplu - tek kosuda butun denetimler
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Korunan dosyalarin baslangic ozeti
+        run: |
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_identity_epg_logo_audit.py scripts/central_main_playlist_run_evidence.py; do
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
+      - name: Mevcut logo ve EPG kalite denetimini calistir
+        id: logo_quality
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/logo_epg_audit.py CALISANLAR.m3u > madsc_merkezi_denetim/logo_epg_kalite.json
+          python3 - <<'PYTHON'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("madsc_merkezi_denetim/logo_epg_kalite.json").read_text())
+          count = sum(line.startswith("#EXTINF:") for line in Path("CALISANLAR.m3u").read_text(encoding="utf-8-sig").splitlines())
+          assert report["channels_checked"] == count > 0, "Logo/EPG denetim kapsami eksik"
+          assert isinstance(report["warnings"], list)
+          print("Logo/EPG kalite kapsami:", count, "uyari:", len(report["warnings"]))
+          PYTHON
+      - name: EPG ve Pages yayin baglantisi salt okunur kabul kontrolu
+        id: epg
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          folder = Path(".github/workflows")
+          old = [p for p in folder.glob("*.yml") if not p.name.startswith("madsc-0")]
+          epg = [(p.name, p.read_text(encoding="utf-8")) for p in old if "epg" in p.name.lower() or "pages" in p.name.lower()]
+          assert epg, "No legacy EPG or Pages workflow found"
+          print("Legacy EPG/Pages workflow sources:", [name for name, _ in epg])
+          for name, raw in epg:
+              print(name, "workflow_run=", "workflow_run:" in raw, "deploy=", "deploy-pages" in raw,
+                    "write=", "contents:" + " write" in raw, "cron=", "cron:" in raw)
+          print("Read-only shadow check; live Pages publication and IBO playback not verified.")
+          PY
+      - name: IBO adaylarini ayri artefakta hazirla
+        id: ibo
+        continue-on-error: true
+        run: python3 scripts/export_ibo_two_stage_trial.py --limit 50
+      - name: Yayin testi icin ffmpeg aracini kur
+        id: ffmpeg
+        continue-on-error: true
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Mevcut oncelikli ve genel medya olcumlerini tekillik ve zamanla hazirla
+        id: media
+        if: ${{ steps.ffmpeg.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/category_candidate_media.py
+      - name: K2 ve medya olcumlerini gecmisi koruyarak puanla ve inceleme raporunu olustur
+        id: scoring
+        if: ${{ steps.media.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/category_candidate_scoring.py
+      - name: Ana listeyi salt okunur 100 kanallik partide kontrol et
+        id: playlist
+        continue-on-error: true
+        timeout-minutes: 12
+        run: python3 scripts/ana_liste_saglik.py --batch-size 100 --timeout 10
+      - name: Kanal saglik raporunu ve test kapsamini dogrula
+        id: coverage
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          folder = Path('madsc_ana_liste_saglik')
+          report = json.loads((folder / 'ana_liste_saglik.json').read_text(encoding='utf-8'))
+          assert (folder / 'ana_liste_saglik.md').is_file(), 'Kanal Markdown raporu yok'
+          assert report['bu_kosuda_test_edilen'] == len(report['sonuclar']), 'Kanal sonuc sayisi uyusmuyor'
+          assert report['ana_liste_toplam'] >= report['bu_kosuda_test_edilen'] > 0, 'Kanal kapsam hatasi'
+          assert report['otomatik_kanal_degisikligi'] is False, 'Korunan liste degisikligi yasak'
+          print('Kanal test raporu:', report['bu_kosuda_test_edilen'], '/', report['ana_liste_toplam'])
+          print('Tum liste kapsandi:', report['tum_liste_bu_kosuda_test_edildi'])
+          PY
+      - name: Kategoriye ait tum regresyon testleri
+        id: regressions
+        continue-on-error: true
+        run: python3 -m unittest test_ana_liste_saglik test_central_identity_epg_logo_audit test_epg_tv_readiness test_central_main_playlist_run_evidence test_five_category_logo_quality test_five_category_candidate_scoring test_five_category_stability_history test_five_category_candidate_media test_five_category_priority_csv -v
+      - name: Korunan dosyalar degismedi
+        if: always()
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Kanal testleri basarisizlik kapisi
+        if: always()
+        shell: bash
+        env:
+          REPORTS: ${{ steps.reports.outcome }}
+          SCORING: ${{ steps.scoring.outcome }}
+          MEDIA: ${{ steps.media.outcome }}
+          LOGO_QUALITY: ${{ steps.logo_quality.outcome }}
+          EPG: ${{ steps.epg.outcome }}
+          IBO: ${{ steps.ibo.outcome }}
+          FFMPEG: ${{ steps.ffmpeg.outcome }}
+          PLAYLIST: ${{ steps.playlist.outcome }}
+          COVERAGE: ${{ steps.coverage.outcome }}
+          REGRESSIONS: ${{ steps.regressions.outcome }}
+        run: |
+          failed=0
+          for name in REPORTS LOGO_QUALITY EPG IBO FFMPEG PLAYLIST COVERAGE MEDIA SCORING REGRESSIONS; do
+            value="${!name}"
+            if [[ "${value}" != "success" ]]; then
+              echo "::error::Kanal denetimi basarisiz veya atlandi: ${name}=${value}"
+              failed=1
+            fi
+          done
+          exit "${failed}"
+      - name: Kanal testleri toplu raporlarını yükle
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-kanal-test-tek-kosu-rapor
+          path: |
+            madsc_merkezi_denetim/
+            madsc_ana_liste_saglik/
+            madsc_aday_puanlama/
+            madsc_aday_medya/
+          if-no-files-found: warn
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.

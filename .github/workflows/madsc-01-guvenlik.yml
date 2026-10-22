@@ -1,0 +1,144 @@
+name: MADSC 01 - Guvenlik Toplu
+on:
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: madsc-guvenlik-tek-kosu
+  cancel-in-progress: false
+jobs:
+  guvenlik:
+    name: MADSC 01 - Guvenlik Toplu - tek kosuda butun denetimler
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Depoyu salt okunur indir
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Guvenlik bagimliliklarini kur
+        run: python3 -m pip install PyYAML
+      - name: Korunan dosyalarin baslangic ozeti
+        run: |
+          mkdir -p madsc_merkezi_denetim
+          sha256sum CALISANLAR.m3u AGENTS.md GUVENLIK_KURALLARI.md > "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode snapshot --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Kategoriye ait tum rapor kontrolleri
+        id: reports
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -uo pipefail
+          failed=0
+          for script in scripts/central_protected_write_gate.py scripts/central_consolidation_audit.py scripts/five_category_92_workflow_audit.py; do
+            echo "::group::${script}"
+            if python3 "${script}"; then
+              echo "PASS ${script}"
+            else
+              echo "::error::FAIL ${script}"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "${failed}"
+      - name: 26 guvenlik kurali kanit raporu ve belge kontrolu
+        id: rule_evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/k1_24_rule_evidence.py > madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json
+          python3 -m json.tool madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json > /dev/null
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("madsc_merkezi_denetim/k1-26-guvenlik-kurali-raporu.json").read_text())
+          rows = report.get("rows", [])
+          verified = [row["rule"] for row in rows if row.get("runtime_enforcement_verified") is True]
+          partial = [row["rule"] for row in rows if row.get("status") == "PARTIAL_EVIDENCE"]
+          missing = [row["rule"] for row in rows if row.get("status") == "NEEDS_EVIDENCE"]
+          print(f"26 KURAL DURUMU: dogrulanmis={len(verified)}, kismi_kanit={len(partial)}, kanit_eksik={len(missing)}")
+          print(f"Kismi kanit kurallari: {partial}; kanit eksik kurallari: {missing}")
+          if len(rows) != 26 or not report.get("rule_count_valid"):
+              raise SystemExit("K1 BELGE HATASI: 26 kuralin envanteri gecersiz")
+          if len(verified) != 26:
+              raise SystemExit("K1 KANIT EKSIKLIGI: 26/26 gercek uygulama dogrulanmadi; regresyon test hatasi degil")
+          PY
+      - name: Kategoriye ait tum regresyon testleri
+        if: always()
+        id: regressions
+        shell: bash
+        run: |
+          set -uo pipefail
+          failed=0
+          for suite in test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory test_five_category_runtime_integrity; do
+            echo "::group::Regresyon: ${suite}"
+            if python3 -m unittest "${suite}" -v; then
+              echo "PASS ${suite}"
+            else
+              code=$?
+              echo "::error title=Guvenlik regresyonu::FAIL ${suite} (exit ${code})"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          if python3 -m unittest discover -s tests -p 'test_five_category_92_workflow_audit.py' -v; then
+            echo 'PASS 92-workflow guvenlik regresyonlari'
+          else
+            echo '::error::FAIL 92-workflow guvenlik regresyonlari'
+            failed=1
+          fi
+          for pattern in test_protected_write_gate.py test_k1_failure_gate.py test_k1_24_rule_evidence.py test_k1_workflow_risk_inventory.py test_k1_legacy_writer_guards.py test_workflow_security_audit.py; do
+            echo "::group::K1 guvenlik regresyonu: ${pattern}"
+            if python3 -m unittest discover -s tests -p "${pattern}" -v; then
+              echo "PASS ${pattern}"
+            else
+              echo "::error::FAIL ${pattern}"
+              failed=1
+            fi
+            echo '::endgroup::'
+          done
+          exit "${failed}"
+      - name: Korunan dosyalar degismedi
+        id: protected_integrity
+        if: always()
+        run: |
+          set -euo pipefail
+          sha256sum -c "${RUNNER_TEMP}/madsc-protected.sha256"
+          python3 scripts/k1_protected_integrity.py --mode check --manifest "${RUNNER_TEMP}/madsc-protected.json"
+      - name: Guvenlik basarisizlik kapisi
+        if: always()
+        shell: bash
+        run: |
+          failed=0
+          if [[ "${{ steps.reports.outcome }}" != "success" ]]; then
+            echo "::error::Guvenlik rapor denetimi basarisiz veya atlandi."
+            failed=1
+          fi
+          if [[ "${{ steps.rule_evidence.outcome }}" != "success" ]]; then
+            echo "::error::26 guvenlik kurali kanit raporu olusturulamadi veya atlandi."
+            failed=1
+          fi
+          if [[ "${{ steps.protected_integrity.outcome }}" != "success" ]]; then
+            echo "::error::Korunan dosya butunluk kontrolu basarisiz veya atlandi."
+            failed=1
+          fi
+          if [[ "${{ steps.regressions.outcome }}" != "success" ]]; then
+            echo "::error::Guvenlik regresyon testleri basarisiz veya atlandi."
+            failed=1
+          fi
+          exit "${failed}"
+      - name: Toplu güvenlik kanıtlarını yükle
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: madsc-guvenlik-tek-kosu-rapor
+          path: madsc_merkezi_denetim/
+          if-no-files-found: warn
+# Tek workflow_dispatch tum kategori denetimlerini calistirir; mevcut canli eski is akislari korunur.

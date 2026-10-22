@@ -5,6 +5,8 @@ on:
     paths:
       - '.github/workflows/besinci-zaman-asimi-test.yml'
       - 'gelismis_medya_testi.py'
+permissions:
+  contents: read
 jobs:
   zaman-asimi:
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Read-only focused IPTV checks; output artifacts only."""
-import csv, json, re, subprocess, urllib.request
+import csv, json, re, subprocess, urllib.request, datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -62,12 +62,12 @@ with ThreadPoolExecutor(max_workers=10) as pool:
  for found in pool.map(fetch,sources):
   for entry in found: entries.setdefault(entry[2],entry)
 print("UNIQUE_PRIORITY_URLS",len(entries),flush=True)
-def probe(entry):
+def probe_media(entry):
  label,name,url,source=entry
  if not url.startswith(("http://","https://")):return (label,name,"GECERSIZ_URL","","","",url,source)
  try:
   p=subprocess.run(["ffprobe","-v","error","-rw_timeout","10000000","-analyzeduration","2500000","-probesize","1500000","-show_entries","stream=codec_type,codec_name,width,height","-of","json",url],capture_output=True,text=True,timeout=18)
-  if p.returncode:return (label,name,"DOGRULANAMADI","","","",(p.stderr or "")[:160],url,source)
+  if p.returncode:return (label,name,"DOGRULANAMADI","","",(p.stderr or "")[:160],url,source)
   streams=json.loads(p.stdout).get("streams",[])
   video=next((x for x in streams if x.get("codec_type")=="video"),None)
   audio=next((x for x in streams if x.get("codec_type")=="audio"),None)
@@ -75,6 +75,9 @@ def probe(entry):
   resolution=("%sx%s"%(video.get("width",""),video.get("height",""))) if video else ""
   return (label,name,state,resolution,str(bool(audio)), "",url,source)
  except Exception as e:return (label,name,"DOGRULANAMADI","","",str(e)[:160],url,source)
+def probe(entry):
+ measured_at=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ return (*probe_media(entry), measured_at)
 rows=[]
 with ThreadPoolExecutor(max_workers=6) as pool:
  futures=[pool.submit(probe,e) for e in entries.values()]
@@ -82,7 +85,7 @@ with ThreadPoolExecutor(max_workers=6) as pool:
   row=future.result();rows.append(row);print("RESULT",row[0],row[1],row[2],flush=True)
 rows.sort()
 with open("ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv","w",newline="",encoding="utf-8-sig") as f:
- w=csv.writer(f);w.writerow(["GRUP","KANAL","TEKNIK_MEDYA","COZUNURLUK","SES_IZI","HATA","YAYIN_URL","KAYNAK"]);w.writerows(rows)
+ w=csv.writer(f);w.writerow(["GRUP","KANAL","TEKNIK_MEDYA","COZUNURLUK","SES_IZI","HATA","YAYIN_URL","KAYNAK","OLCUM_ZAMANI"]);w.writerows(rows)
 counts=dict(__import__("collections").Counter(x[2] for x in rows))
 Path("ONCELIKLI_OZET.json").write_text(json.dumps({"toplam":len(rows),"sonuclar":counts,"uyari":"ffprobe codec detection is not verified IBO playback or channel identity"},ensure_ascii=False,indent=2),encoding="utf-8")
 print("SUMMARY",json.dumps(counts),flush=True)
