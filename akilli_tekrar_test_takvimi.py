@@ -18,7 +18,10 @@ def plan(records, now):
         successes = record.get("successful_runs") or []
         last = record.get("last_seen") or record.get("first_seen")
         try:
-            tested = datetime.fromisoformat(last.replace("Z", "+00:00")).astimezone(timezone.utc) if last else now
+            parsed = datetime.fromisoformat(last.replace("Z", "+00:00")) if last else now
+            # Naive timestamps depend on the runner's local timezone; do not let
+            # that environment-dependent interpretation trigger an early retry.
+            tested = parsed.astimezone(timezone.utc) if parsed.tzinfo is not None else now
         except (ValueError, AttributeError):
             tested = now
         passed = record.get("technical") == "TEKNIK_AKIS_VAR" and record.get("media") == "VIDEO_SES_VAR"
