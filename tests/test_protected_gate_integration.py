@@ -56,6 +56,17 @@ class ProtectedGateIntegrationTests(unittest.TestCase):
         self.assertEqual(result.returncode, 2, result.stderr)
         self.assertIn("DENY", result.stderr)
 
+    def test_real_git_denies_favorite_and_hepsi_metadata(self):
+        for name in ("FAVORILER.json", "nested/favorites.csv", "cache/HEPSI.txt"):
+            with self.subTest(path=name):
+                path = self.repo / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("protected metadata", encoding="utf-8")
+                result = self.gate()
+                self.assertEqual(result.returncode, 1, result.stderr)
+                self.assertIn(name, result.stderr)
+                path.unlink()
+
 
 if __name__ == "__main__":
     unittest.main()

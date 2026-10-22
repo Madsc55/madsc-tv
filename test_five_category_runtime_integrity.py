@@ -150,7 +150,7 @@ class RuntimeIntegrityTests(unittest.TestCase):
                 subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
             git("init", "-q")
             (root / "AGENTS.md").write_text("policy")
-            (root / ".gitignore").write_text("cache/\\n")
+            (root / ".gitignore").write_text("cache/\n")
             git("add", "AGENTS.md", ".gitignore")
             git("-c", "user.name=Test", "-c", "user.email=test@example.test", "commit", "-qm", "fixture")
             manifest = root / "baseline.json"
@@ -158,12 +158,21 @@ class RuntimeIntegrityTests(unittest.TestCase):
                 return subprocess.run([sys.executable, str(SCRIPT), "--mode", mode,
                                        "--manifest", str(manifest)], cwd=root, capture_output=True, text=True)
             self.assertEqual(run("snapshot").returncode, 0)
-            path = root / "cache" / "HEPSI" / "state.json"
-            path.parent.mkdir(parents=True)
-            path.write_text("ignored protected")
-            result = run("check")
-            self.assertNotEqual(result.returncode, 0)
-            self.assertIn("cache/HEPSI/state.json", json.loads(result.stdout)["changed_paths"])
+            for name in ("cache/HEPSI/state.json", "cache/EPG/tv.xml",
+                         "cache/logos/logo.png", "cache/logolar/logo.png",
+                         "cache/arsiv/history.json", "cache/favorites.json"):
+                with self.subTest(path=name):
+                    path = root / name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text("ignored protected")
+                    ignored = subprocess.run(["git", "check-ignore", name], cwd=root, capture_output=True)
+                    self.assertEqual(ignored.returncode, 0)
+                    result = run("check")
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn(name, json.loads(result.stdout)["changed_paths"])
+                    self.assertEqual(path.read_text(), "ignored protected")
+                    path.unlink()
+                    self.assertEqual(run("check").returncode, 0)
 
     def test_general_maintenance_baseline_precedes_regression(self):
         workflow = (ROOT / '.github/workflows/madsc-05-genel-bakim.yml').read_text(encoding='utf-8')

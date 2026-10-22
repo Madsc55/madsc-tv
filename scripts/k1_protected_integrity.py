@@ -51,7 +51,9 @@ def working_snapshot():
         folded = name.casefold()
         return protected(name) and (
             "/" not in name
-            or any(part in ("favoriler", "hepsi", "yedekler") for part in folded.split("/"))
+            or any(part in ("favoriler", "hepsi", "yedekler", "epg", "logolar", "logos", "arsiv")
+                   for part in folded.split("/"))
+            or Path(folded).stem in {"favoriler", "favorites", "hepsi"}
             or any(folded.startswith(prefix.casefold()) for prefix in PREFIXES)
         )
     paths = (set(tree("HEAD"))

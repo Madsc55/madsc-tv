@@ -1,3 +1,13 @@
+## 22 Ekim 2026 — K1 iki somut koruma açığı giderildi (CI bekleniyor)
+
+- İşlem öncesi dal HEAD da2a9423ab7a55f27d30e31b40b9351b084b66ee; başka sohbetten yeni commit görülmedi. Yazma yalnız bu dalda ve beklenen HEAD kontrolüyle yapılır.
+- Gerçek geçici Git deposunda FAVORILER.json, nested/favorites.csv, cache/HEPSI.txt yazma kapısından geçiyordu. tools/protected_write_gate.py, runtime denetiminde zaten korunan favoriler/favorites/hepsi dosya kök adlarını şimdi push öncesinde de engelliyor.
+- Yeni, izlenmeyen cache/EPG, cache/logos, cache/logolar, cache/arsiv ve cache/favorites.json dosyaları working_snapshot filtresinden kaçıyordu. scripts/k1_protected_integrity.py tüm korunan klasör bileşenlerini ve favori/HEPSİ metadata kök adlarını yeni dosyalarda da izliyor; bağımsız aday M3U raporu istisnası korunuyor.
+- Önce 8 negatif alt senaryo gerçek subprocess testinde başarısız olarak yeniden üretildi; düzeltme sonrası mevcut toplu komut 14/14 paket başarılı. Ignore testi eskiden literal satır sonu içeriyordu; gerçek .gitignore satırı ve git check-ignore ile artık ignore durumu da kanıtlanıyor. Gerçek proje verisine yazılmadı.
+- Henüz bu yeni kodun GitHub run sonucu yok; commit sonrası K1 ve beşli run/job/artifact doğrulanacak. 0/26 runtime kabulü ve 0/92 davranışsal kabul sayısı değiştirilmedi. main, PR71, eski workflow, cron, izinler, listeler, logo/EPG/arşiv dosyaları değiştirilmedi.
+
+---
+
 ## 22 Ekim 2026 — DOĞRULANMIŞ SON CI / YENİ SOHBET BAŞLANGICI
 
 - Kod commit **17e9167ff31fe230ff362934899637569b2778bd**; yalnız K1/K5 testindeki literal satır sonu hatası ve notlar düzeltildi. K1 run [39765036545](https://github.com/Madsc55/madsc-tv/actions/runs/39765036545) **completed/success**, job **119778261145**. Gerçek log: **14/14 regresyon paketi**, 136 korunan dosya, changed_paths=[]; 0/26 runtime verified, 0/92 behavioral verified. Kabul artifact **12420350283**, risk **12420080853**, tarihsel korunan fark **12419099542**. Main ile dört tarihsel EPG farkı hâlâ ayrı raporlanıyor, onaylanmadı.
