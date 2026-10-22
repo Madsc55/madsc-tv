@@ -1,3 +1,11 @@
+## 22 Ekim 2026 — DOĞRULANMIŞ SON CI / YENİ SOHBET BAŞLANGICI
+
+- Kod commit **17e9167ff31fe230ff362934899637569b2778bd**; yalnız K1/K5 testindeki literal satır sonu hatası ve notlar düzeltildi. K1 run [39765036545](https://github.com/Madsc55/madsc-tv/actions/runs/39765036545) **completed/success**, job **119778261145**. Gerçek log: **14/14 regresyon paketi**, 136 korunan dosya, changed_paths=[]; 0/26 runtime verified, 0/92 behavioral verified. Kabul artifact **12420350283**, risk **12420080853**, tarihsel korunan fark **12419099542**. Main ile dört tarihsel EPG farkı hâlâ ayrı raporlanıyor, onaylanmadı.
+- Aynı SHA beşli run [39765036526](https://github.com/Madsc55/madsc-tv/actions/runs/39765036526) **completed/failure**. K1 job **119778261443** 26 gerçek kural kanıtı eksik olduğu için fail-closed; K2–K4 skipped. K5 job **119778380802** önceki kategoriler ve kategori kanıtı eksik olduğu için failure. Regresyon onarımı gerçek CI ile kanıtlandı; beşli kabul tamamlanmadı.
+- **Sıradaki somut iş:** 26 kural gerçek uygulama açıklarını ve legacy writer/dispatch yollarını kaynak bazında ele al; salt test başarısını runtime kabulü sayma. EPG işi ertelendi, IBO cihaz onayı kullanıcıda, bağımsız dış restore açık. Eski 92 workflow, main, PR #71 ve korunan veri değiştirilmedi. Bu son ekleme yalnız belgedir; yeni kod değişikliği/test tetiklemesi değildir.
+
+---
+
 ## 22 Ekim 2026 — Güncel koşu doğrulaması ve K1/K5 regresyon onarımı
 
 - Güncel kod SHA `be2adeb2a21be01294dafa2bade960995ccb387a`: hızlı run 39590927336 success; K1 run 39590927353 failure, job 119191381368, toplu paket 13/14. Kesin hata `test_k1_k5_ci_evidence.py` kategori kanıt adımında gerçek satır sonu yerine literal `\n` arıyordu. Workflow adımı zaten doğruydu. Yalnız test düzeltildi; ayrı kategori doğrulama adımının always(), --verify ve continue-on-error olmaması birlikte aranıyor.
