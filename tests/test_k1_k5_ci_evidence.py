@@ -39,8 +39,10 @@ class EvidenceContinuityTests(unittest.TestCase):
         self.assertIn("if: always()", protected)
         self.assertIn("--mode check --manifest", protected)
         self.assertNotIn("category_evidence_collect.py --verify", protected)
-        self.assertIn("      - name: Kategori kanit aktarimini ayri dogrula\\n        if: always()".replace("\\\\n", "\\n"), source)
-        self.assertIn("python3 scripts/category_evidence_collect.py --verify", source)
+        category = source.split("      - name: Kategori kanit aktarimini ayri dogrula\n", 1)[1].split("      - name:", 1)[0]
+        self.assertIn("if: always()", category)
+        self.assertIn("run: python3 scripts/category_evidence_collect.py --verify", category)
+        self.assertNotIn("continue-on-error: true", category)
 
     def test_runtime_rule_acceptance_is_not_waived(self):
         source = SECURITY.read_text(encoding="utf-8")

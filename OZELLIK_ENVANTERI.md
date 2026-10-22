@@ -81,3 +81,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - K3 medya bağlantısı gerçekCI 1568187 / #38957224597 SUCCESS5/5; eskipriority #38957224570 ve eski genel #38957224651 SUCCESS. K3 102gerçekprobe/102gözlem/132tekilpuanlamaadayı,24hkararlı0;2ortakURLtekrarprobesiz. Ata kararlılık restore gerçekPASS. Cache sonraki gerçekreusekabulü bekliyor;79yerelkategoritestPASS.
 
 - K3 medya reuse gerçekCI: 45c1729 / #38958162467 SUCCESS5/5. Önceki #38957224597'nin102gözlemi geri geldi; yeniadaymedyaprobe0/yenigözlem0, candidate_discovery_ran=false; statehash ve4kaynakraporhashi aynı.132tekilpuanlama/in 24hkararlı0;43korunan0fark,K5eksikrapor0.79yerelkategoritest ve K3gerçek40regresyonPASS. Genelmedya yalnız ilk30parti; tümadaykapsamı/gerçek24h/7gün/30gün ve tam92parity onayı değil.
+
+- 22 Ekim K1/K5 kanıt regresyonu: ayrı kategori --verify adımını kontrol eden testte literal satır sonu hatası giderildi; always ve hata yutmama şartları aynı adımda doğrulanıyor. Yerel toplu paket 14/14; yeni Actions sonucu DEVAM_NOTU.md üzerinden izlenecek. 26/92 gerçek kabulü değişmedi.

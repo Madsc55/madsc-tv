@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — Güncel koşu doğrulaması ve K1/K5 regresyon onarımı
+
+- Güncel kod SHA `be2adeb2a21be01294dafa2bade960995ccb387a`: hızlı run 39590927336 success; K1 run 39590927353 failure, job 119191381368, toplu paket 13/14. Kesin hata `test_k1_k5_ci_evidence.py` kategori kanıt adımında gerçek satır sonu yerine literal `\n` arıyordu. Workflow adımı zaten doğruydu. Yalnız test düzeltildi; ayrı kategori doğrulama adımının always(), --verify ve continue-on-error olmaması birlikte aranıyor.
+- Beşli run 39590927434: K1 job 119191383209 gerçek 26/26 kanıtı eksik olduğundan failure, K2–K4 skipped; K5 job 119191517401 kategori bağımlılığı ve eksik kategori kanıtı nedeniyle failure. K5 bağımsız 92 envanteri ve korunan bütünlük kontrolü success. K1 runtime bütünlük 136 dosya/0 değişiklik; main ile dört tarihsel EPG farkı ayrıca mevcut, onaylanmış değil.
+- Yerel aynı toplu komut `python -m scripts.acceptance_26_92`: 14/14 regresyon paketi başarılı; gerçek uygulama 0/26, davranışsal eşdeğerlik 0/92, acceptance_complete=false. Yerel sonuç yeni GitHub Actions kanıtı değildir. Yeni commitin run/job/artifact sonucu commit sonrası kontrol edilecek.
+- Değişiklik kapsamı: yalnız test ve durum notları; üretim kapıları/izinler/cron/92 eski workflow/main/PR71 ve korunan veriler değişmedi. Sıradaki iş: yeni SHA'nın K1 ve beşli koşusunu doğrula; 26 kural gerçek uygulama ve eski writer/dispatch yollarının eksiklerini kaynak bazında tamamla. EPG ve IBO cihaz işi ertelendi.
+
+---
+
 ## 18 EKİM 2026 — YENİ SOHBETE DEVİR: K1–K5 VE 92 WORKFLOW (EN GÜNCEL)
 
 **Yeni sohbet ilk işi:** Bu kaydı oku; `D` = doğrudan somut inceleme/düzeltme/commit yap, aynı teşhisi ve kullanıcıdan ekran görüntüsü istemeyi tekrarlama. Kullanıcı beşli sistemi ve 92 eski workflow'un gerçek davranışsal entegrasyonunu bitirmek istiyor; EPG'yi özellikle ERTELEDİ.
