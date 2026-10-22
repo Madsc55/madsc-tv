@@ -1,3 +1,13 @@
+## 22 Ekim 2026 — SON DOĞRULANMIŞ: 24 kaydın job/step bağlamı
+
+- Kod **4bc73284a24d1a72ced121724384b15a38158b44**. K1 run [39767812103](https://github.com/Madsc55/madsc-tv/actions/runs/39767812103) **completed/success**, job **119787527318**: **15/15 paket**, 136 korunan dosyada changed_paths=[]. Artifact acceptance **12421550552**, risk **12421051687**, tarihsel korunan fark **12421216247**. Gerçek logdaki job-scope raporu **24 kayıt / 18 komut-script-adı sinyalli / 6 bu düzeyde sinyalsiz**.
+- Mevcut risk+toplu kabul artifact'ine job, step, kaynak satırı, job if, reusable çağrı ve continue-on-error sinyali eklendi. Başka job'daki/sonradan gelen/hatası yutulan gate önceki yazma adımını koruyor sayılmaz. GET-only Actions API, echo/yorum/Python test metni yanlış komut sinyallerinden ayrılır. Yedi bağlam regresyonu geçiyor. Bunlar statik kaynak kanıtı; sinyalsiz altı dosya güvenli/eksiksiz sayılmaz.
+- Aynı SHA beşli run **39767812121 completed/failure**: K1 job **119787528527** gerçek 26 kural kanıtı eksik, K2–K4 skipped; K5 job **119787646486** kategori bağımlılığı/kanıtı eksik. 0/26 runtime ve 0/92 davranışsal kabul değiştirilmedi. Workflow/cron/izin/main/PR71/korunan veri değişmedi.
+- **Sonraki somut betik bulguları (salt okunur kaynak okundu, ÇALIŞTIRILMADI):** scripts/archive_backups_354_classified.py module düzeyinde CALISANLAR.m3u ve iki arşiv M3U'su yazar; workflow'daki push gate bu yazmalardan sonradır. Already processed ve 354 giriş önkoşulu güncel kullanıcı yetkisi değildir; eski sınıflandırmayı yeniden uygulama. scripts/vod_guncelle.py yalnız vod/guncel-bolumler.json yazar ancak tüm API günleri hata verirse de boş episode listesiyle eski kaydı ezip başarı dönebilir; kaldığı yerden güvenli devam ve önceki veri koruması gerçek açık olarak ele alınacak.
+- Sıradaki iş bu iki gerçek script davranışını güvenli, geçici ve ağsız testlerle doğrulamak; korunan listeye/tarihsel kararlara dokunmamak. EPG içerik ve IBO cihaz işi ertelendi. Başka sohbetten yeni commit görünmedi, beklenen HEAD ve dosya SHA kullanıldı.
+
+---
+
 ## 22 Ekim 2026 — 24 kapsam kaydı job/step düzeyine indirildi / CI bekleniyor
 
 - İşlem öncesi dal HEAD **ac6bf963c1e818bff7d545a71200a007c4788b7a**. Mevcut k1_workflow_risk_inventory raporuna kaynak satırı, job/step, job if koşulu, reusable workflow işareti, aynı job'da önceki hata kapısı ve continue-on-error sinyali eklendi. Komutlar çalıştırılmadı; ham komut/URL/env içerikleri rapora kopyalanmadı.
