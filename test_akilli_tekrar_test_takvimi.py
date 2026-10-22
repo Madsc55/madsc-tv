@@ -30,6 +30,19 @@ class SchedulerTest(unittest.TestCase):
             with output.open(encoding="utf-8-sig", newline="") as file:
                 self.assertEqual(len(list(csv.DictReader(file))), 1)
 
+    def test_naive_timestamp_does_not_use_runner_local_timezone(self):
+        now = datetime(2026, 10, 10, 12, tzinfo=timezone.utc)
+        records = {
+            "https://example.org/naive.m3u8": {
+                "name": "Naive", "last_seen": "2020-01-01T00:00:00",
+                "technical": "HATA", "media": "YOK", "successful_runs": []
+            }
+        }
+        result = plan(records, now)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["TEST_ZAMANI_GELDI"], "HAYIR")
+        self.assertEqual(result[0]["SON_TEST"], now.isoformat(timespec="seconds"))
+
     def test_priority_and_no_mutation(self):
         now = datetime(2026, 10, 10, 12, tzinfo=timezone.utc)
         records = {
