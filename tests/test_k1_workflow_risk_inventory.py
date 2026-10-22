@@ -141,5 +141,40 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                 self.assertTrue(record["protected_reference"])
                 self.assertEqual(record["tier"], "HIGH_WRITE_OR_TRIGGER")
 
+    def test_failure_gate_filename_mentions_are_not_calls(self):
+        for mention in ("# python3 tools/workflow_failure_gate.py",
+                        "  - 'tools/workflow_failure_gate.py'",
+                        '  - run: echo "python3 tools/workflow_failure_gate.py"'):
+            with self.subTest(mention=mention):
+                record = self.inspect_text(mention + "\n  - run: gh workflow run next.yml\n")
+                self.assertEqual(record["failure_gate_call_signal_count"], 0)
+                self.assertTrue(record["mutation_or_write_permission_without_failure_gate_signal"])
+
+    def test_failure_gate_call_is_static_scope_not_runtime_proof(self):
+        for invocation in ("  - run: python3 tools/workflow_failure_gate.py",
+                           "  - run: |\n      python tools/workflow_failure_gate.py"):
+            with self.subTest(invocation=invocation):
+                record = self.inspect_text(invocation + "\n  - run: git push origin HEAD\n")
+                self.assertEqual(record["failure_gate_call_signal_count"], 1)
+                self.assertFalse(record["mutation_or_write_permission_without_failure_gate_signal"])
+                self.assertFalse(record["failure_circuit_runtime_verified"])
+                # A failure circuit never substitutes for protected-write authorization.
+                self.assertEqual(record["tier"], "CRITICAL_UNGATED_PUSH")
+
+    def test_write_permission_without_command_still_needs_circuit_review(self):
+        record = self.inspect_text("permissions:\n  actions: write\nsteps:\n  - run: echo pending\n")
+        self.assertTrue(record["mutation_or_write_permission_without_failure_gate_signal"])
+        readonly = self.inspect_text("permissions:\n  contents: read\nsteps:\n  - run: echo safe\n")
+        self.assertFalse(readonly["mutation_or_write_permission_without_failure_gate_signal"])
+
+    def test_real_scope_report_does_not_treat_ci_path_filters_as_enforcement(self):
+        from scripts.k1_workflow_risk_inventory import audit
+        report = audit()
+        calls = report["failure_gate_call_signal_workflows"]
+        self.assertEqual(set(calls), {".github/workflows/" + name for name in
+                                     ("madsc-birlesik-kesif.yml", "madsc-son-kontrol.yml", "madsc-uc-asama.yml")})
+        self.assertEqual(report["failure_circuit_runtime_verified_workflows"], 0)
+        self.assertIn(".github/workflows/vod-guncelle.yml", report["failure_circuit_scope_review_paths"])
+
 if __name__ == "__main__":
     unittest.main()

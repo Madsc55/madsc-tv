@@ -91,3 +91,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - 22 Ekim Kural 24: workflow_failure_gate geçmişi ilk 100 koşuyla sınırlamaz; yeterli eski tamamlanmış koşu veya tam geçmiş için sayfalama yapar. İkinci sayfa başarısızlıkları ve API/eksik geçmişte durma regresyonları eklendi. 17 devre kesici testi ve yerel toplu 14/14 paket başarılı; gerçek CI DEVAM_NOTU.md'de izlenecek. Tüm writer kapsamı henüz kabul edilmedi.
 
 - 22 Ekim Kural24 eski root testleri: mevcut koşu kaydı eksik üç fixture onarıldı; test_workflow_failure_gate artık acceptance_26_92 toplu paketinde de çalışır. Yerelde 21 devre kesici testi ve 15/15 paket başarılı; aynı SHA gerçek CI sonucu DEVAM_NOTU.md'de izlenir.
+
+- 22 Ekim Kural24 kapsam raporu: mevcut k1_workflow_risk_inventory ve acceptance_26_92, çağrı metni görünen workflowları ve yazma/izin sinyali olup çağrı görülmeyen inceleme kuyruğunu birlikte raporlar. 99 dosyada üç çağrı sinyali, 24 inceleme kaydı (22 legacy+K2/K5); runtime_verified=0. Test/yorum/trigger dosya adı çağrı sayılmaz; 15/15 yerel paket, Actions kanıtı DEVAM_NOTU.md'de izlenir.

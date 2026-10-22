@@ -117,6 +117,9 @@ def execute():
                                      "gaps": item["migration_gap_reasons"]}
                                     for item in workflows["items"]],
         "workflow_risk_count": risks["workflow_count"],
+        "failure_gate_call_signal_workflows": risks["failure_gate_call_signal_workflows"],
+        "failure_circuit_scope_review_paths": risks["failure_circuit_scope_review_paths"],
+        "failure_circuit_runtime_verified_workflows": risks["failure_circuit_runtime_verified_workflows"],
         "critical_ungated_push_count": critical_risks,
         "missing_explicit_permission_count": missing_permissions,
         "static_security_clean": static_security_clean,

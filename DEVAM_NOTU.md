@@ -1,3 +1,13 @@
+## 22 Ekim 2026 — Kural24 kapsam kuyruğu mevcut toplu rapora bağlandı / CI bekleniyor
+
+- İşlem öncesi HEAD **ad8e4f209df1ee082c1e6775d3bbc7a65da680fb**. 99 workflow mevcut risk envanteriyle tarandı. Salt dosya adı/trigger filtresi veya echo yorumunu devre kesici çağrısı saymayan statik çağrı sinyali eklendi. Gerçek çağrı metni yalnız madsc-birlesik-kesif.yml, madsc-son-kontrol.yml ve madsc-uc-asama.yml içinde saptandı; bu runtime doğrulama değildir.
+- Yazma komutu/izni sinyali bulunan ve devre kesici çağrı sinyali bulunmayan **24 dosya** inceleme kuyruğunda: 22 eski workflow + iki yeni merkez (K2 ve K5). Test/salt-okunur denetim metinleri de muhafazakâr sinyaller üretebildiği için bunlar 24 kesin açık/aktif writer ilan edilmez. İzin ve dolaylı çağrı/gate sırası ayrıca incelenecek. Özellikle vod-guncelle ve tarihsel IBO writer'lar kapsam incelemesi bekliyor; eski kararlar yeniden yürütülmez.
+- scripts/k1_workflow_risk_inventory.py raporunda failure_gate_call_signal_workflows ve failure_circuit_scope_review_paths; scripts/acceptance_26_92.py toplu artifact'inde de aynı kuyruk var. failure_circuit_runtime_verified_workflows=0; statik çağrı sırası/gate referansı runtime kanıtı sayılmaz. Korumalı yazma kapısı yerine kullanılmaz.
+- Mevcut testlere dört kapsam regresyonu eklendi (yorum/echo/trigger false positive, inline/block çağrı, yetki-only ve gerçek depo kapsamı). Yerel toplu **15/15 paket** başarılı; yeni SHA gerçek Actions sonucu commit sonrası doğrulanacak. 0/26 ve 0/92 kabul sayıları değişmedi; korunan veriler/main/PR71/workflow/cron/izin değişikliği yok.
+- Sıradaki somut iş: bu 24 kaydı gerçek job/step/dolaylı writer bağlamına göre ayrıştır; devre kesiciyi tüm writer'lara bağlı kabul etme. EPG içerik ve IBO cihaz işi ertelendi. Başka sohbetten yeni commit görünmedi; dal yazımı beklenen HEAD ile yapılır.
+
+---
+
 ## 22 Ekim 2026 — SON DOĞRULANMIŞ: Kural24 sayfalama açığı ve eski test onarımı
 
 - Son kod SHA **1b4474da5ecd2b548b99bd6b39654039907b4eca** (sayfalama kodu önceki **28fe1550e79360d9b5f95323af4d4ae6309b1398** commitinde). K1 run [39766742769](https://github.com/Madsc55/madsc-tv/actions/runs/39766742769) **completed/success**, job **119783961896**: **15/15 toplu paket**, korunan 136 dosyada changed_paths=[]. Artifact acceptance **12420856508**, risk **12420412500**, tarihsel korunan fark **12420856510**. Ayrı Kural24 run **39766742707 success**, job **119783961571**.

@@ -18,6 +18,9 @@ GH_API_MUTATION_FLAGS = re.compile(r"(?<!\w)(?:-X|--method|-f|-F|--field|--raw-f
 PERMISSION = re.compile(r"(?:contents|actions|pull-requests|workflows):\s*write\b|permissions:\s*write-all", re.I)
 TRIGGER = re.compile(r"^\s*(push|pull_request|pull_request_target|workflow_run|schedule|workflow_dispatch|repository_dispatch):", re.M)
 GATE = "tools/protected_write_gate.py"
+FAILURE_GATE_CALL = re.compile(
+    r"(?m)^\s*(?:-\s*)?(?:run:\s*)?python3?\s+tools/workflow_failure_gate\.py(?:\s|$)"
+)
 
 def inspect(path):
     s = path.read_text(encoding="utf-8-sig")
@@ -64,6 +67,7 @@ def inspect(path):
     } and "persist-credentials: false" in s
         and bool(re.search(r"(?m)^  contents: read\s*$", s)))
     has_permission = bool(PERMISSION.search(s))
+    failure_gate_calls = len(FAILURE_GATE_CALL.findall(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
     if read_only_audit_exemption:
@@ -88,6 +92,10 @@ def inspect(path):
         "multiple_push_signal": pushes > 1,
         "gate_reference_count": gates,
         "write_command_signal": has_write,
+        "failure_gate_call_signal_count": failure_gate_calls,
+        "mutation_or_write_permission_without_failure_gate_signal":
+            (has_write or has_permission) and failure_gate_calls == 0,
+        "failure_circuit_runtime_verified": False,
         "indirect_write_signal": indirect_write,
         "indirect_write_without_gate_reference": indirect_write and gates == 0,
         "runtime_gate_order_verified": False,
@@ -110,6 +118,10 @@ def audit():
         "force_push_commands": sum(r["force_push_count"] for r in records),
         "workflows_with_multiple_push_signals": [r["path"] for r in records if r["multiple_push_signal"]],
         "gate_references": sum(r["gate_reference_count"] for r in records),
+        "failure_gate_call_signal_workflows": [r["path"] for r in records if r["failure_gate_call_signal_count"]],
+        "failure_circuit_scope_review_paths": [r["path"] for r in records
+                                               if r["mutation_or_write_permission_without_failure_gate_signal"]],
+        "failure_circuit_runtime_verified_workflows": 0,
         "indirect_writers_without_gate_reference": [r["path"] for r in records if r["indirect_write_without_gate_reference"]],
         "runtime_gate_order_verified_workflows": 0,
         "audit_text_exemption_review_paths": [r["path"] for r in records if r["audit_text_exemption_requires_review"]],
