@@ -38,6 +38,11 @@ jobs:
         run: python3 scripts/akilli_aday_puanla.py YENILER_TARAMA_RAPORU.csv ONCELIKLI_KANAL_TEK_NIK_RAPOR.csv GENEL_ADAY_GERCEK_MEDYA_RAPORU.csv
       - name: Stability evidence
         run: python3 scripts/kanal_kararlilik_takip.py
+      - name: Save updated longitudinal observations
+        uses: actions/cache/save@v4
+        with:
+          path: KARARLILIK_GECMISI.json
+          key: kanal-kararlilik-${{ github.run_id }}
       - name: Consolidated approval report
         run: python3 scripts/birlesik_aday_raporu.py
       - name: Upload separate review artifacts
