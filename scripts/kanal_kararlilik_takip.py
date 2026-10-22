@@ -19,7 +19,21 @@ for row in current:
  old=history.get(url,[])
  if not isinstance(old,list):old=[]
  old=[x for x in old if isinstance(x,dict) and x.get("at") and x.get("state")]
- old=[x for x in old if (NOW-datetime.datetime.fromisoformat(x["at"])).total_seconds()<=7*86400]
+ # Keep only timezone-aware observations in the past seven days. A future
+ # timestamp must never inflate the 24-hour stability span.
+ valid_old=[]
+ for item in old:
+  try:
+   stamp=datetime.datetime.fromisoformat(str(item["at"]).replace("Z","+00:00"))
+  except (TypeError,ValueError):
+   continue
+  if stamp.tzinfo is None:
+   continue
+  stamp=stamp.astimezone(datetime.timezone.utc)
+  age=(NOW-stamp).total_seconds()
+  if 0 <= age <= 7*86400:
+   valid_old.append({"at":stamp.isoformat(),"state":str(item["state"])})
+ old=valid_old
  old.append({"at":NOW.isoformat(),"state":state})
  history[url]=old[-40:]
  good=[datetime.datetime.fromisoformat(x["at"]) for x in old if x["state"]=="VIDEO_SES_VAR"]
