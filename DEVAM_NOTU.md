@@ -1,3 +1,12 @@
+## 22 Ekim 2026 — SON DOĞRULANMIŞ İŞ: iki K1 koruma açığı kapandı
+
+- Kod SHA **ebf7e25e5b11b4dd3c6225301f42bb1b3de11c6c**. K1 run [39765478676](https://github.com/Madsc55/madsc-tv/actions/runs/39765478676) **completed/success**, job **119779731588**: **14/14 paket**, 136 korunan dosyada changed_paths=[]. Artifact: acceptance-26-92 **12420435666**, risk **12420390878**, tarihsel EPG farkları **12420181265**. Aynı SHA bütünleşik güvenli kontrol run **39765478696 success**.
+- Gerçek düzeltme: favoriler/favorites/hepsi metadata kök adları push kapısından kaçamıyor; nested/ignored EPG, logo, arşiv ve favori metadata yeni dosyaları runtime snapshot/check tarafından yakalanıyor. Önce 8 kaçış gerçek geçici Git deposunda tekrar üretildi, düzeltmeden sonra CI başarılı. Ignore testi git check-ignore ile gerçekten ignored olduğunun kanıtını da arıyor. Üretim verisine yazma yok.
+- Beşli run **39765478565 completed/failure**: K1 job **119779732051** 26 kural gerçek uygulama kanıtı eksik olduğu için failure; K2–K4 skipped. K5 job **119779847579** önceki kategori ve kategori kanıtı eksik olduğu için failure. 0/26 runtime kabul, 0/92 davranışsal kabul; bu iki güvenlik düzeltmesi tüm kuralların kabulü sayılmadı.
+- Sonraki somut iş: kalan gerçek writer/dispatch/devre kesici yollarını kaynak ve izole davranış testleriyle incele; 92 eski workflow'u emekli etme/izin açma/main veya PR71 işlemi yok. EPG içerik işi ve IBO cihaz testi ertelendi. Bu son ekleme belge kaydıdır, yeni kod testi gerektirmez. Diğer sohbetin çalışmasına ilişkin doğrudan görünürlük yok; commit öncesi HEAD, dosya SHA ve beklenen HEAD kontrolü kullanıldı.
+
+---
+
 ## 22 Ekim 2026 — K1 iki somut koruma açığı giderildi (CI bekleniyor)
 
 - İşlem öncesi dal HEAD da2a9423ab7a55f27d30e31b40b9351b084b66ee; başka sohbetten yeni commit görülmedi. Yazma yalnız bu dalda ve beklenen HEAD kontrolüyle yapılır.
