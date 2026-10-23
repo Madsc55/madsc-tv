@@ -29,9 +29,20 @@ def playlist_channels():
     return result
 def download(url):
     req = urllib.request.Request(url,headers={"User-Agent":"madsc-tv-epg/1.0"})
+    max_compressed = 120_000_000
+    max_expanded = 120_000_000
     with urllib.request.urlopen(req,timeout=90) as response:
-        data=response.read(120_000_000)
-    return gzip.decompress(data) if data[:2]==b"\x1f\x8b" else data
+        data=response.read(max_compressed + 1)
+    if len(data) > max_compressed:
+        raise ValueError("EPG download exceeds compressed size limit")
+    if data[:2] != b"\x1f\x8b":
+        return data
+    import io
+    with gzip.GzipFile(fileobj=io.BytesIO(data)) as stream:
+        expanded=stream.read(max_expanded + 1)
+    if len(expanded) > max_expanded:
+        raise ValueError("EPG download exceeds expanded size limit")
+    return expanded
 def main():
     channels=playlist_channels()
     all_channels={}
