@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-23T11:01:11.060735+00:00",
+  "checked_utc": "2026-10-23T21:00:11.305543+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -12273,6 +12273,45 @@
       "conversion": "png_ready",
       "png_file": "madsc_kesif/candidate_pngs/44da45ce7e3fb61b2fb06067.png",
       "png_sha256": "a14d705aa186853fc1ef7a9cc775176c39896c0b2f88a0dc116bc99021f9ac53"
+    },
+    {
+      "channel": "ABC TV (720p)",
+      "stream_sha256": "c878d4b16c5eadea9282b4ffaa4d4c99388e8f3b9358395a56945f75af82d4e7",
+      "channel_id": "ABCTV.au",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/DPVQSjM.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/9319a99f8eb5f83f7650dc28.png",
+      "png_sha256": "d1e4e4bcffa414dfd4a9421f16680553c40394966ad6f89d71ea9bf91b60c161"
+    },
+    {
+      "channel": "BBC Two (720p)",
+      "stream_sha256": "bc5ab26556ca56c68a8795e0d5c395fab8f13f6211a633e8938d1e1d8ee6dda2",
+      "channel_id": "BBCTwo.uk",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/BBC_Two_logo_2021.svg/960px-BBC_Two_logo_2021.svg.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/37c90d98599fddad10869d77.png",
+      "png_sha256": "2726a7b0670751245c7d5c9a909bf81be04c6edd4ee37b3ce4e63abbeff1965f"
+    },
+    {
+      "channel": "FailArmy (720p)",
+      "stream_sha256": "54ff408934b3ffe1fdc25987c40691fbfab922fc095ffe6991f34c75d90ea6a4",
+      "channel_id": "FailArmy.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/VIpQJxL.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/e966d7b677b59b92b616d85b.png",
+      "png_sha256": "b153ae0c2081dc39ae6d29b8c93f30db13e24b2184e517b9ac74e49fa8468002"
     }
   ],
   "limits": "PNG preparation only; visual identity and IBO approval required. No playlist edits."

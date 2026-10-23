@@ -1,29 +1,29 @@
 {
-  "checked_utc": "2026-10-23T11:01:58.895094+00:00",
+  "checked_utc": "2026-10-23T21:00:30.515457+00:00",
   "stages": {
     "yedek": {
-      "historical_entries": 12181,
+      "historical_entries": 12184,
       "restore_tested": false,
       "independent_offsite_copy_verified": false,
       "status": "KANIT_EKSIK"
     },
     "arsiv": {
-      "archived_urls": 12161,
+      "archived_urls": 12164,
       "duplicate_exact_urls": 0,
-      "historical_entries": 12181,
+      "historical_entries": 12184,
       "status": "KAYIT_KONTROL_EDILDI"
     },
     "kesif": {
-      "candidates": 12,
+      "candidates": 3,
       "alternatives": 0,
       "candidate_technical_status": {
-        "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR": 11,
+        "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR": 2,
         "FFPROBE_GECMEDI_PLAYER_UYUMLULUGU_BELIRSIZ": 1
       },
       "status": "RAPORLANDI_CIHAZ_ONAYSIZ"
     },
     "aday_logo_ve_tekrar": {
-      "prepared_logo_results": 1048,
+      "prepared_logo_results": 1051,
       "visual_identity_confirmed": false,
       "main_playlist_logos_preserved": true,
       "status": "ADAY_KANITI_AYRI"
