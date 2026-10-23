@@ -38,8 +38,11 @@ def download(url):
     if data[:2] != b"\x1f\x8b":
         return data
     import io
-    with gzip.GzipFile(fileobj=io.BytesIO(data)) as stream:
-        expanded=stream.read(max_expanded + 1)
+    try:
+        with gzip.GzipFile(fileobj=io.BytesIO(data)) as stream:
+            expanded=stream.read(max_expanded + 1)
+    except (OSError, EOFError) as exc:
+        raise ValueError("Invalid or truncated gzip EPG feed") from exc
     if len(expanded) > max_expanded:
         raise ValueError("EPG download exceeds expanded size limit")
     return expanded
