@@ -166,7 +166,10 @@ def main():
     exported_ids={ch.get("id") for ch in result.findall("channel")}
     usable_count=sum(1 for ch in channels if ch["id"] in exported_ids)
     print(f"EPG validation: {epg_path.stat().st_size} bytes; {len(exported_ids)} XMLTV channels; {usable_count} playlist entries with matching IDs")
-    report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"ambiguous_entries":len(ambiguous),"programmes":count,"overlap_skipped":overlap_skipped,"usable_playlist_entries":usable_count,"epg_bytes":epg_path.stat().st_size,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
+    unmatched_missing_id=sum(not ch["id"] for ch in unmatched)
+    unmatched_with_id=len(unmatched)-unmatched_missing_id
+    matched_missing_id=sum(not channels[index]["id"] for index in matched)
+    report={"generated_utc":datetime.now(timezone.utc).isoformat(),"playlist_entries":len(channels),"matched_entries":len(matched),"unmatched_entries":len(unmatched),"unmatched_missing_tvg_id":unmatched_missing_id,"unmatched_with_tvg_id":unmatched_with_id,"matched_missing_tvg_id":matched_missing_id,"ambiguous_entries":len(ambiguous),"programmes":count,"overlap_skipped":overlap_skipped,"usable_playlist_entries":usable_count,"epg_bytes":epg_path.stat().st_size,"sources":source_results,"unmatched":unmatched,"ambiguous":ambiguous}
     (OUT/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({k:v for k,v in report.items() if k not in ("unmatched","ambiguous")},ensure_ascii=False,indent=2))
 if __name__=="__main__": main()
