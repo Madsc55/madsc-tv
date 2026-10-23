@@ -1,0 +1,28 @@
+name: EPG Offline Regression Tests
+on:
+  push:
+    paths:
+      - 'scripts/build_epg.py'
+      - 'test_epg_download_limits.py'
+      - '.github/workflows/epg-offline-tests.yml'
+  pull_request:
+    paths:
+      - 'scripts/build_epg.py'
+      - 'test_epg_download_limits.py'
+      - '.github/workflows/epg-offline-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  epg-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify EPG download and gzip failure handling
+        run: python3 -m unittest -v test_epg_download_limits
