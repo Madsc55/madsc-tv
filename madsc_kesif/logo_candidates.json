@@ -1,26 +1,34 @@
 [
   {
-    "channel": "ABC TV (720p)",
-    "stream_sha256": "c878d4b16c5eadea9282b4ffaa4d4c99388e8f3b9358395a56945f75af82d4e7",
+    "channel": "Deal or No Deal (1080p)",
+    "stream_sha256": "bdd9e8e8dacac4c2a65343344fbe7a4534089d45e2f95d71d4f475e65538f422",
     "source": "dearbulut-language-eng",
-    "channel_id": "ABCTV.au",
-    "logo_url": "https://i.imgur.com/DPVQSjM.png",
+    "channel_id": "DealorNoDeal.us",
+    "logo_url": "https://i.imgur.com/lZvNXA1.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "BBC Two (720p)",
-    "stream_sha256": "bc5ab26556ca56c68a8795e0d5c395fab8f13f6211a633e8938d1e1d8ee6dda2",
+    "channel": "FBI Files",
+    "stream_sha256": "8fd870d5f54de4a84065beae2134c97df3abaadb9f476fcd95e41c2ab9588799",
     "source": "dearbulut-language-eng",
-    "channel_id": "BBCTwo.uk",
-    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/BBC_Two_logo_2021.svg/960px-BBC_Two_logo_2021.svg.png",
+    "channel_id": "FBIFiles.us",
+    "logo_url": "https://i.imgur.com/vzYDSLo.png",
     "logo_source_review_required": false
   },
   {
-    "channel": "FailArmy (720p)",
-    "stream_sha256": "54ff408934b3ffe1fdc25987c40691fbfab922fc095ffe6991f34c75d90ea6a4",
+    "channel": "Grace TV (360p)",
+    "stream_sha256": "01c447398d5ad9f59a96168f887eeb2882015e89816c2cb472e61cae8ecd359c",
     "source": "dearbulut-language-eng",
-    "channel_id": "FailArmy.us",
-    "logo_url": "https://i.imgur.com/VIpQJxL.png",
-    "logo_source_review_required": false
+    "channel_id": "GraceTV.in",
+    "logo_url": "",
+    "logo_source_review_required": true
+  },
+  {
+    "channel": "Red Bull TV (1080p)",
+    "stream_sha256": "551d0855a53f3f45837ecdfc513a0c82af3d89901bf41b0bf964334c5e608f68",
+    "source": "dearbulut-language-eng",
+    "channel_id": "RedBullTV.at",
+    "logo_url": "",
+    "logo_source_review_required": true
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-23T21:00:11.305543+00:00",
+  "checked_utc": "2026-10-24T10:18:30.275504+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -12312,6 +12312,52 @@
       "conversion": "png_ready",
       "png_file": "madsc_kesif/candidate_pngs/e966d7b677b59b92b616d85b.png",
       "png_sha256": "b153ae0c2081dc39ae6d29b8c93f30db13e24b2184e517b9ac74e49fa8468002"
+    },
+    {
+      "channel": "Deal or No Deal (1080p)",
+      "stream_sha256": "bdd9e8e8dacac4c2a65343344fbe7a4534089d45e2f95d71d4f475e65538f422",
+      "channel_id": "DealorNoDeal.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/lZvNXA1.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/af8800816c3b54d0921e0e21.png",
+      "png_sha256": "f84783d2c9e31cf1bb695b09ac87af1ac04c76e6f0c87b020f2cac022fe48773"
+    },
+    {
+      "channel": "FBI Files",
+      "stream_sha256": "8fd870d5f54de4a84065beae2134c97df3abaadb9f476fcd95e41c2ab9588799",
+      "channel_id": "FBIFiles.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/vzYDSLo.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/30e879d2b343ad7199909e2b.png",
+      "png_sha256": "23d1143e4f97f4e2105f68f1f1dc1320b6a736083b057528e58b0ed007b4f9f4"
+    },
+    {
+      "channel": "Grace TV (360p)",
+      "stream_sha256": "01c447398d5ad9f59a96168f887eeb2882015e89816c2cb472e61cae8ecd359c",
+      "channel_id": "GraceTV.in",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "Red Bull TV (1080p)",
+      "stream_sha256": "551d0855a53f3f45837ecdfc513a0c82af3d89901bf41b0bf964334c5e608f68",
+      "channel_id": "RedBullTV.at",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
     }
   ],
   "limits": "PNG preparation only; visual identity and IBO approval required. No playlist edits."
