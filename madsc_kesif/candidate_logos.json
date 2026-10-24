@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-24T10:18:30.275504+00:00",
+  "checked_utc": "2026-10-24T20:14:39.459611+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -12358,6 +12358,43 @@
       "visual_match": "NOT_VERIFIED",
       "playlist_approved": false,
       "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "ABC (1080p)",
+      "stream_sha256": "e672eaebd4237788de640b9a8699a35526a1fefd5d2bc001d33d99d271e123c7",
+      "channel_id": "ABC.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://upload.wikimedia.org/wikipedia/commons/f/f8/KTVX2022LOGO.svg",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "SOURCE_LOGO_FAILED",
+      "conversion": "ValueError"
+    },
+    {
+      "channel": "ABC TV (720p)",
+      "stream_sha256": "3e8fa81445e5ad19ffcd68c18d12417c555d0a64589d995403b275f6ccf129b8",
+      "channel_id": "ABCTV.au",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/DPVQSjM.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/9319a99f8eb5f83f7650dc28.png",
+      "png_sha256": "d1e4e4bcffa414dfd4a9421f16680553c40394966ad6f89d71ea9bf91b60c161"
+    },
+    {
+      "channel": "Cinecanal (1080p)",
+      "stream_sha256": "eb64aa73d415beafbb77321db482eb7288a2cd8d621b8225cc823d2f53208af3",
+      "channel_id": "Cinecanal.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CinecanalLA.png/960px-CinecanalLA.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/551037c7b579e2b935779163.png",
+      "png_sha256": "a0cb4c975a9e705731c304b2c2cbb4b6d47eec08ddce2be17af14e44ca2f9172"
     }
   ],
   "limits": "PNG preparation only; visual identity and IBO approval required. No playlist edits."

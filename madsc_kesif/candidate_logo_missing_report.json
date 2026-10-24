@@ -1,13 +1,23 @@
 {
-  "total_candidates": 4,
+  "total_candidates": 3,
   "category_counts": {
-    "LOGO_KAYNAGI_GUVENLIK_INCELEMESI": 2,
+    "LOGO_INDIRME_VEYA_DONUSUM_HATASI": 1,
     "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 2
   },
   "candidates": [
     {
-      "channel": "Deal or No Deal (1080p)",
-      "stream_sha256": "bdd9e8e8dacac4c2a65343344fbe7a4534089d45e2f95d71d4f475e65538f422",
+      "channel": "ABC (1080p)",
+      "stream_sha256": "e672eaebd4237788de640b9a8699a35526a1fefd5d2bc001d33d99d271e123c7",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
+      "preparation_status": "SOURCE_LOGO_FAILED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "ABC TV (720p)",
+      "stream_sha256": "3e8fa81445e5ad19ffcd68c18d12417c555d0a64589d995403b275f6ccf129b8",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -16,31 +26,11 @@
       "playlist_approved": false
     },
     {
-      "channel": "FBI Files",
-      "stream_sha256": "8fd870d5f54de4a84065beae2134c97df3abaadb9f476fcd95e41c2ab9588799",
+      "channel": "Cinecanal (1080p)",
+      "stream_sha256": "eb64aa73d415beafbb77321db482eb7288a2cd8d621b8225cc823d2f53208af3",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Grace TV (360p)",
-      "stream_sha256": "01c447398d5ad9f59a96168f887eeb2882015e89816c2cb472e61cae8ecd359c",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
-      "same_name_source_suggestions": [],
-      "identity_verified": false,
-      "playlist_approved": false
-    },
-    {
-      "channel": "Red Bull TV (1080p)",
-      "stream_sha256": "551d0855a53f3f45837ecdfc513a0c82af3d89901bf41b0bf964334c5e608f68",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
-      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false
