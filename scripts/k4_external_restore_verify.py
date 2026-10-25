@@ -40,6 +40,12 @@ def verify_archive(archive, manifest):
     for name, digest in expected.items():
         if not safe_name(name) or not isinstance(digest, str) or not re.fullmatch("[0-9a-f]{64}", digest):
             raise ValueError("Unsafe manifest entry")
+    # A path cannot be both a file and an ancestor directory of another file.
+    names = set(expected)
+    for name in names:
+        parts = name.split("/")
+        if any("/".join(parts[:i]) in names for i in range(1, len(parts))):
+            raise ValueError("Manifest file/directory path collision")
     # Streaming avoids materializing attacker-controlled TAR headers in memory.
     with tempfile.TemporaryDirectory(prefix="madsc-k4-restore-") as tmp:
         seen = set()
