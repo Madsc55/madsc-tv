@@ -1,5 +1,12 @@
 name: MADSC 05 - Genel Bakim Toplu
 on:
+  pull_request:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-05-genel-bakim.yml'
+      - 'scripts/k5_parity_evidence_gate.py'
+      - 'tests/test_k5_parity_evidence_gate.py'
   workflow_dispatch:
     inputs:
       wide_scan_mode:
@@ -143,7 +150,9 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
-          Path("madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json").write_text("[]", encoding="utf-8")
+          evidence = Path("madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json")
+          if not evidence.exists():
+              evidence.write_text("[]", encoding="utf-8")
           PY
           python3 scripts/k5_parity_evidence_gate.py \
             --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
