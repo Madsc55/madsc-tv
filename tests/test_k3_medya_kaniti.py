@@ -42,6 +42,12 @@ class MedyaKanitTesti(unittest.TestCase):
             value = k3.check(ROW)
         self.assertEqual(value[:2], ["BELIRSIZ", "BELIRSIZ"])
 
+    def test_gecersiz_url_ffmpeg_calistirmaz(self):
+        with patch.object(k3.subprocess, "run") as run:
+            value = k3.check({"YAYIN_URL": "file:///etc/passwd"})
+        self.assertEqual(value[:3], ["HAYIR", "HAYIR", "DOGRULANAMADI"])
+        run.assert_not_called()
+
     def test_zaman_asimi_bozuk_olarak_isaretlenmez(self):
         with patch.object(k3.subprocess, "run", side_effect=subprocess.TimeoutExpired("ffmpeg", 65)):
             value = k3.check(ROW)
