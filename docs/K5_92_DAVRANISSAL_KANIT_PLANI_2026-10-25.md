@@ -32,3 +32,9 @@ Ana liste, YENİLER, FAVORİLER, YEDEKLER, logolar, cihaz verisi ve arşiv deği
 - K5 job `121179081543`: `k5_evidence_tests` ve `k5_evidence_gate` **success**. Bu yalnız statik/aday denetimidir; davranışsal kabul değildir.
 - K1 job `121179018491`: 26 kural kanıt adımı başarısız; rapor artifact `12599588579` üretildi. K2–K4 bağımlılık nedeniyle skipped. K5 `category_evidence` failure, `actions_evidence` skipped, `audit_1` skipped; kategori aktarım dosyası bulunamadı. Toplu hata kapısı fail-closed kaldı.
 - Bu kayıt, K1 güvenlik kapısını atlamak için gerekçe değildir. 0/26 runtime ve 0/92 davranışsal kanıt kabulü korunur. K1 kanıtı ayrı düzeltilmeli, sonra yeni SHA için yeniden çalıştırılmalı.
+
+## 25 Ekim 2026 — SHA-bağlı güncel K5 doğrulaması
+- Head `37b2c1f5a94661a096bbab0408abc4ad55881a6b`: [Actions run 40206822029](https://github.com/Madsc55/madsc-tv/actions/runs/40206822029) tamamlandı, genel sonuç **failure**.
+- K5 job `121209633237`: `K5 davranissal kanit dogrulayici regresyon testleri` **success**, `K5 92 satir kanit adaylarini salt okunur denetle` **success**. Test paketi 10 vakadır; üretim kanıtı değildir.
+- K1 job `121209544857`: `26 guvenlik kurali kanit raporu ve belge kontrolu` **failure**; K2–K4 **skipped**. K5 genel kapısı güvenli şekilde failure.
+- Yeni `--require-production-ready` parametresi doğrulanmamış satırlar için nonzero döner; CI normal aday modunu çalıştırır. Bağımsız 92/92 onayı veya 26/26 runtime doğrulaması yoktur.
