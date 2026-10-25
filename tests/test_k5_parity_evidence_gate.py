@@ -43,6 +43,16 @@ class K5EvidenceGateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate([row], NAMES)
 
+    def test_duplicate_inventory_rejected(self):
+        with self.assertRaises(ValueError):
+            validate([], NAMES[:-1] + [NAMES[0]])
+
+    def test_unrecognized_replacement_rejected(self):
+        row = sample()
+        row["replacement_workflow"] = "madsc-00-fake.yml"
+        with self.assertRaises(ValueError):
+            validate([row], NAMES)
+
     def test_inventory_count_rejected(self):
         with self.assertRaises(ValueError):
             validate([], NAMES[:-1])
