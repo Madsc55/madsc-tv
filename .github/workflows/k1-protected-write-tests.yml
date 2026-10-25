@@ -22,6 +22,9 @@ on:
       - 'tests/test_five_category_92_workflow_audit.py'
       - 'tests/test_legacy_permission_gap.py'
       - 'scripts/acceptance_26_92.py'
+      - 'scripts/archive_backups_354_classified.py'
+      - 'scripts/vod_guncelle.py'
+      - 'test_k1_legacy_writer_regression.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
       - 'tests/test_k1_legacy_writer_guards.py'
@@ -34,6 +37,17 @@ on:
       - '.github/workflows/madsc-02-kesif.yml'
       - '.github/workflows/toplu-sistem-kontrol.yml'
       - '.github/workflows/yedek-geri-yukleme-tatbikat.yml'
+  pull_request:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - 'test_k1_legacy_writer_regression.py'
+      - 'test_five_category_runtime_integrity.py'
+      - 'test_workflow_failure_gate.py'
+      - '.github/workflows/**'
+      - 'tools/**'
   workflow_dispatch:
 permissions:
   contents: read

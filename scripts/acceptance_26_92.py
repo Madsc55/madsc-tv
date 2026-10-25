@@ -33,6 +33,10 @@ def execute():
 
     tests = []
     for name in SUITES:
+        if not list((ROOT / "tests").glob(name)):
+            tests.append({"suite": name, "passed": False, "returncode": None,
+                          "log_tail": "No test files matched this suite pattern"})
+            continue
         try:
             result = subprocess.run(
                 [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", name, "-v"],
@@ -44,7 +48,11 @@ def execute():
         except (subprocess.TimeoutExpired, OSError) as exc:
             tests.append({"suite": name, "passed": False, "returncode": None,
                           "log_tail": str(exc)})
-    for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate"):
+    for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate", "test_k1_legacy_writer_regression"):
+        if not (ROOT / (name + ".py")).is_file():
+            tests.append({"suite": name, "passed": False, "returncode": None,
+                          "log_tail": "Required root-level test file missing"})
+            continue
         try:
             runtime = subprocess.run([sys.executable, "-m", "unittest", "discover",
                                       "-s", ".", "-p", name + ".py", "-v"],
@@ -109,6 +117,9 @@ def execute():
         "legacy_workflow_count": workflows["total"],
         "legacy_behavior_verified": workflows["behavioral_parity_verified_count"],
         "legacy_behavior_blocked": workflows["migration_blocked_count"],
+        "legacy_parity_unverified_workflows": [item["file"] for item in workflows["items"] if not item["behavioral_parity_verified"]],
+        "legacy_write_risk_workflows": [item["file"] for item in workflows["items"] if item["write_permission_parity_unverified"]],
+        "legacy_trigger_gap_workflows": [item["file"] for item in workflows["items"] if item["unmatched_trigger_signals"] or item["unmatched_cron_expressions"]],
         "legacy_workflow_evidence": [{"file": item["file"],
                                      "category": item["primary_category"],
                                      "candidate_replacements": item["possible_replacement_workflows"],
@@ -139,17 +150,28 @@ def main():
     parser.add_argument("--output", default="acceptance-26-92.json")
     parser.add_argument("--require-full-acceptance", action="store_true")
     args = parser.parse_args()
-    report = execute()
+    try:
+        report = execute()
+    except (Exception, SystemExit) as exc:
+        report = {"generated_utc": datetime.now(timezone.utc).isoformat(),
+                  "git_sha": os.environ.get("GITHUB_SHA"),
+                  "github_run_id": os.environ.get("GITHUB_RUN_ID"),
+                  "test_suites": [], "audit_errors": [{"audit": "acceptance_execution",
+                  "error": "{}: {}".format(type(exc).__name__, exc)}],
+                  "static_security_clean": False, "acceptance_complete": False}
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({k: v for k, v in report.items() if k != "test_suites"}, ensure_ascii=False))
+    print(json.dumps({k: v for k, v in report.items() if k not in ("test_suites", "security_rule_evidence", "legacy_workflow_evidence", "legacy_parity_unverified_workflows", "legacy_write_risk_workflows", "legacy_trigger_gap_workflows")}, ensure_ascii=False))
     for suite in report["test_suites"]:
         if not suite["passed"]:
             print("::error title=Toplu test hatasi::{} failed; see acceptance artifact".format(suite["suite"]))
     for issue in report.get("audit_errors", []):
         print("::error title=Envanter denetimi::{}: {}".format(issue["audit"], issue["error"]))
     if not all(row["passed"] for row in report["test_suites"]) or report.get("audit_errors"):
+        return 1
+    if not report.get("static_security_clean", False):
+        print("::error title=K1 statik guvenlik::Ungated protected writes or missing workflow permissions")
         return 1
     if args.require_full_acceptance and not report["acceptance_complete"]:
         return 2

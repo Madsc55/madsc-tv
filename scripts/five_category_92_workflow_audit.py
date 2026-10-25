@@ -176,6 +176,15 @@ def inspect(root=ROOT):
             item["migration_gap_reasons"].append("INHERITED_PERMISSION_REQUIRES_REVIEW")
         if item["explicit_read_and_write_permission_conflict"]:
             item["migration_gap_reasons"].append("MIXED_READ_WRITE_PERMISSION_REQUIRES_REVIEW")
+        item["k1_security_review_pending"] = bool(item["requires_protected_write_review"] or item["write_permission_parity_unverified"] or item["unmatched_trigger_signals"] or item["unmatched_cron_expressions"])
+        # K1/K5 migration remains fail-closed until independent runtime evidence exists.
+        item["k1_security_review"] = {
+            "protected_write": item["requires_protected_write_review"],
+            "write_or_dispatch": item["write_permission_parity_unverified"],
+            "permissions": item["write_permission_inherited_or_unknown"] or item["explicit_read_and_write_permission_conflict"],
+            "triggers": bool(item["unmatched_trigger_signals"] or item["unmatched_cron_expressions"] or item["unverified_trigger_behavior"]),
+            "acceptance": "BLOCKED_NO_RUNTIME_PARITY_PROOF",
+        }
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
@@ -194,6 +203,7 @@ def inspect(root=ROOT):
         "push": sum(x["push"] for x in items), "workflow_run": sum(x["workflow_run"] for x in items),
         "manual": sum(x["manual"] for x in items), "write_enabled_with_auto_trigger": risks,
         "protected_write_review_count": sum(x["requires_protected_write_review"] for x in items),
+        "k1_security_review_pending_count": sum(x["k1_security_review_pending"] for x in items),
         "api_write_or_dispatch_review_count": sum(bool(x["write_risk_commands"]) for x in items),
         "multiple_push_workflows": [x["file"] for x in items if x["multiple_push_command_signal"]],
         "force_push_workflows": [x["file"] for x in items if x["force_push_command_count"]],
@@ -229,7 +239,7 @@ def main():
             "multiple_push_command_signal", "push_signal_lines", "legacy_commands", "legacy_actions",
             "output_hints", "possible_replacement_workflows",
             "shared_script_entrypoints", "unmatched_script_entrypoints",
-            "behavioral_parity_verified", "migration_decision",
+            "behavioral_parity_verified", "migration_decision", "k1_security_review_pending",
             "integration_evidence_level", "unverified_trigger_behavior",
             "migration_gap_reasons", "missing_legacy_script_files",
             "unmatched_trigger_signals", "write_permission_parity_unverified",
@@ -237,6 +247,8 @@ def main():
             "requires_protected_write_review", "write_risk_commands",
             "required_acceptance_checks", "script_entrypoint_coverage_ratio",
             "unmatched_cron_expressions", "cron_requires_default_branch_activation",
+            "k1_security_acceptance", "k1_protected_write_review",
+            "k1_write_dispatch_review", "k1_permission_review", "k1_trigger_review",
         ]
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
@@ -264,6 +276,7 @@ def main():
                 "unmatched_script_entrypoints": "; ".join(item["unmatched_script_entrypoints"]),
                 "behavioral_parity_verified": item["behavioral_parity_verified"],
                 "migration_decision": item["migration_decision"],
+                "k1_security_review_pending": item["k1_security_review_pending"],
                 "integration_evidence_level": item["integration_evidence_level"],
                 "unverified_trigger_behavior": item["unverified_trigger_behavior"],
                 "migration_gap_reasons": "; ".join(item["migration_gap_reasons"]),
@@ -275,6 +288,11 @@ def main():
                 "script_entrypoint_coverage_ratio": item["script_entrypoint_coverage_ratio"],
                 "unmatched_cron_expressions": "; ".join(item["unmatched_cron_expressions"]),
                 "cron_requires_default_branch_activation": bool(item["cron_utc"]),
+                "k1_security_acceptance": item["k1_security_review"]["acceptance"],
+                "k1_protected_write_review": item["k1_security_review"]["protected_write"],
+                "k1_write_dispatch_review": item["k1_security_review"]["write_or_dispatch"],
+                "k1_permission_review": item["k1_security_review"]["permissions"],
+                "k1_trigger_review": item["k1_security_review"]["triggers"],
                 "missing_legacy_script_files": "; ".join(item["missing_legacy_script_files"]),
             })
     # Five actionable queues in one artifact; no legacy workflow is mutated.
