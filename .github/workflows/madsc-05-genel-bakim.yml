@@ -158,6 +158,14 @@ jobs:
             --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
             --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
             --output madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json
+      - name: K5 GitHub Actions kanit kimliklerini bagimsiz kontrol et
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/k5_github_evidence_probe.py \
+            --repo "${{ github.repository }}" \
+            --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
+            --output madsc_merkezi_denetim/k5_github_kanit_kimlikleri.json
       - name: K5 kanit raporu 92 satir ve engel butunlugu
         run: |
           python3 - <<'PY'
