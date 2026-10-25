@@ -74,6 +74,7 @@ jobs:
           test -s madsc_kesif/bulunan_kanal_arsivi.csv
           cp -a madsc_kesif "${RUNNER_TEMP}/k2-new-report"
           git fetch origin refs/heads/madsc/k2-discovery-report-store:refs/remotes/origin/madsc/k2-discovery-report-store
+          git diff --quiet refs/remotes/origin/madsc/k2-discovery-report-store -- madsc_kesif/ || { echo "::error::K2 rapor dalı koşu sırasında değişti; artifact korunur, üzerine yazılmaz"; exit 1; }
           git worktree add --detach "${RUNNER_TEMP}/k2-report-worktree" refs/remotes/origin/madsc/k2-discovery-report-store
           cd "${RUNNER_TEMP}/k2-report-worktree"
           mkdir -p madsc_kesif
