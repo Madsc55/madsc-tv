@@ -69,3 +69,10 @@ Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu n
 - Kaynak onay dosyası artık çalışma dizinine göre değil, tarayıcı dosyasının bulunduğu dizine göre okunur; farklı dizinden çağrılınca yanlış dosya kullanılma riski azaltıldı (`f1060b25eb3ff7f48ada9d9ac794d60f9f4464dc`).
 - Regresyon testi eklendi (`9123d926f9f60a1351d13a89a86b3747e7aee689`).
 - Son test commit'inin Actions sonucu ayrıca doğrulanmalıdır; kaynak onayı hâlâ sıfırdır.
+
+## Son test doğrulaması ve doğrudan tarayıcı koruması
+
+- GitHub Actions `40229329888`, `40229334508`, `40229341761`, `40229346426`, `40229354941`: `completed/success`.
+- Doğrudan çağrılan tarayıcıda da aynı URL'nin birden fazla kaynak adına bağlanması reddedilir (`75de4cc6ae5b7d1a5e32203bc36bba35e3f9652e`).
+- Bunun için regresyon testi eklendi (`cea3c376ce508e2a3c476cff66fb760002d0999a`).
+- Bu commit'ler için yeni CI sonucunu ayrıca görmek gerekir. Kanıtlı kaynak onayı yok; tam keşif ve 5'li entegrasyon kabulü açık.
