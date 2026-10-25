@@ -1,0 +1,34 @@
+import unittest
+from scripts.k5_legacy_parity_gate import compare
+
+def workflow(name, **kwargs):
+    row = {"file": name, "schedule_utc": [], "manual": True, "push": False,
+           "workflow_run": False, "writes_contents": False,
+           "has_concurrency": False, "concurrency_group": ""}
+    row.update(kwargs)
+    return row
+
+class K5LegacyParityTest(unittest.TestCase):
+    def test_same_metadata_is_not_behavioral_proof(self):
+        old = {"workflows": [workflow("a.yml")]}
+        result = compare(old, old)
+        self.assertEqual(result["status"], "PASS")
+        self.assertFalse(result["behavioral_parity_verified"])
+
+    def test_missing_legacy_workflow_fails(self):
+        result = compare({"workflows": [workflow("old.yml")]}, {"workflows": []})
+        self.assertEqual(result["missing_workflows"], ["old.yml"])
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+
+    def test_trigger_change_requires_review(self):
+        result = compare({"workflows": [workflow("a.yml", schedule_utc=["0 7 * * *"])]},
+                         {"workflows": [workflow("a.yml")]})
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertIn("schedule_utc", result["changed_triggers_or_permissions"][0]["differences"])
+
+    def test_duplicate_names_rejected(self):
+        with self.assertRaisesRegex(ValueError, "Duplicate"):
+            compare({"workflows": [workflow("a.yml"), workflow("a.yml")]}, {"workflows": []})
+
+if __name__ == "__main__":
+    unittest.main()
