@@ -37,6 +37,8 @@ def compare(baseline, current):
                         and isinstance(source.get("sha256"), str)
                         and len(source["sha256"]) == 64
                         and all(c in "0123456789abcdef" for c in source["sha256"]))
+    # Metadata cannot establish the source digest was actually checked.
+    # Treat provenance as supplied evidence, not independently verified proof.
     baseline_verified = baseline.get("historical_baseline_verified") is True and provenance_valid
     expected_count = baseline.get("historical_workflow_count")
     count_verified = type(expected_count) is int and expected_count == len(old)
@@ -44,12 +46,13 @@ def compare(baseline, current):
             "baseline_count": len(old), "current_count": len(new),
             "historical_baseline_verified": baseline_verified,
             "historical_provenance_metadata_present": bool(provenance_valid),
+            "historical_source_digest_independently_verified": False,
             "historical_count_matches": count_verified,
             "missing_workflows": missing, "added_workflows": added,
             "changed_triggers_or_permissions": changes,
             "missing_step_level_evidence": missing_evidence,
             "behavioral_parity_verified": False,
-            "limitations": "Static metadata comparison cannot prove step-level behavior, dispatch chains, runtime success, or 92 historical workflow equivalence."}
+            "limitations": "Supplied provenance metadata and hashes are not independently checked. Static comparison cannot prove runtime behavior or 92 historical workflow equivalence."}
 
 def main():
     parser = argparse.ArgumentParser()
