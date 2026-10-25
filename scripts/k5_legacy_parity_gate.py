@@ -5,6 +5,7 @@ A mapping of workflow names to five stages is not behavioral equivalence.
 Compare an independently captured baseline with the current workflow inventory.
 """
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -12,7 +13,7 @@ FIELDS = ("schedule_utc", "manual", "push", "workflow_run", "writes_contents", "
 # Optional independently captured step-level fingerprints and dispatch targets.
 OPTIONAL_FIELDS = ("job_steps_sha256", "dispatch_targets", "job_dependencies", "workflow_content_sha256")
 
-def compare(baseline, current):
+def compare(baseline, current, source_bytes=None):
     old = {w["file"]: w for w in baseline["workflows"]}
     new = {w["file"]: w for w in current["workflows"]}
     if len(old) != len(baseline["workflows"]) or len(new) != len(current["workflows"]):
@@ -41,28 +42,34 @@ def compare(baseline, current):
                         and all(c in "0123456789abcdef" for c in source["sha256"]))
     # Metadata cannot establish the source digest was actually checked.
     # Treat provenance as supplied evidence, not independently verified proof.
-    baseline_verified = baseline.get("historical_baseline_verified") is True and provenance_valid
+    digest_verified = (provenance_valid and source_bytes is not None and
+                       hashlib.sha256(source_bytes).hexdigest() == source["sha256"])
+    baseline_verified = baseline.get("historical_baseline_verified") is True and digest_verified
     expected_count = baseline.get("historical_workflow_count")
     count_verified = type(expected_count) is int and expected_count == len(old)
     return {"status": "REVIEW_REQUIRED" if missing or added or changes or missing_evidence or not baseline_verified or not count_verified else "PASS",
             "baseline_count": len(old), "current_count": len(new),
             "historical_baseline_verified": baseline_verified,
             "historical_provenance_metadata_present": bool(provenance_valid),
-            "historical_source_digest_independently_verified": False,
+            "historical_source_digest_independently_verified": bool(digest_verified),
             "historical_count_matches": count_verified,
             "missing_workflows": missing, "added_workflows": added,
             "changed_triggers_or_permissions": changes,
             "missing_step_level_evidence": missing_evidence,
             "behavioral_parity_verified": False,
-            "limitations": "Supplied provenance metadata and hashes are not independently checked. Static comparison cannot prove runtime behavior or 92 historical workflow equivalence."}
+            "limitations": "Source SHA-256 is checked only when historical source bytes are supplied. Static comparison cannot prove runtime behavior or 92 historical workflow equivalence."}
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("baseline", type=Path)
     parser.add_argument("current", type=Path)
+    parser.add_argument("--historical-source-file", type=Path,
+                        help="Immutable historical source bytes for SHA-256 verification")
     args = parser.parse_args()
+    source_bytes = args.historical_source_file.read_bytes() if args.historical_source_file else None
     report = compare(json.loads(args.baseline.read_text(encoding="utf-8")),
-                     json.loads(args.current.read_text(encoding="utf-8")))
+                     json.loads(args.current.read_text(encoding="utf-8")),
+                     source_bytes=source_bytes)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     if report["status"] != "PASS":
         raise SystemExit(1)
