@@ -119,5 +119,29 @@ class K1Regression(unittest.TestCase):
             self.assertEqual(mod.out.read_bytes(), original)
             self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
 
+
+    def test_vod_malformed_api_day_preserves_existing_file_end_to_end(self):
+        import io
+        import json
+        from unittest.mock import patch
+        spec = importlib.util.spec_from_file_location("vod_k1_end_to_end", VOD)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with tempfile.TemporaryDirectory() as d:
+            mod.out = pathlib.Path(d) / "guncel-bolumler.json"
+            original = b'{"existing":true}'
+            mod.out.write_bytes(original)
+            def fake_opener(request, timeout):
+                day = request.full_url.rsplit("=", 1)[-1]
+                episodes = [] if day != "2026-10-25" else [{"show": [], "name": "bad"}]
+                return io.BytesIO(json.dumps(episodes).encode("utf-8"))
+            real_collect = mod.collect
+            with patch.object(mod, "collect", side_effect=lambda today: real_collect(
+                datetime.date(2026, 10, 25), opener=fake_opener)):
+                with self.assertRaises(RuntimeError):
+                    mod.main()
+            self.assertEqual(mod.out.read_bytes(), original)
+            self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
+
 if __name__ == "__main__":
     unittest.main()
