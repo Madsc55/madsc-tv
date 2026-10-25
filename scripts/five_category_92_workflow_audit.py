@@ -177,6 +177,14 @@ def inspect(root=ROOT):
         if item["explicit_read_and_write_permission_conflict"]:
             item["migration_gap_reasons"].append("MIXED_READ_WRITE_PERMISSION_REQUIRES_REVIEW")
         item["k1_security_review_pending"] = bool(item["requires_protected_write_review"] or item["write_permission_parity_unverified"] or item["unmatched_trigger_signals"] or item["unmatched_cron_expressions"])
+        # K1/K5 migration remains fail-closed until independent runtime evidence exists.
+        item["k1_security_review"] = {
+            "protected_write": item["requires_protected_write_review"],
+            "write_or_dispatch": item["write_permission_parity_unverified"],
+            "permissions": item["write_permission_inherited_or_unknown"] or item["explicit_read_and_write_permission_conflict"],
+            "triggers": bool(item["unmatched_trigger_signals"] or item["unmatched_cron_expressions"] or item["unverified_trigger_behavior"]),
+            "acceptance": "BLOCKED_NO_RUNTIME_PARITY_PROOF",
+        }
         item["behavioral_parity_verified"] = False
     # Explicit migration gate: static script-name matches are not production parity.
     for item in items:
