@@ -15,6 +15,12 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_unhashable_mapping_candidate_rejected(self):
+        mapping = {name: ["madsc-05-genel-bakim.yml"] for name in NAMES}
+        mapping[NAMES[-1]] = [{"bad": "value"}]
+        with self.assertRaises(ValueError):
+            validate([], NAMES, mapping)
+
     def test_report_cannot_overwrite_evidence(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)
