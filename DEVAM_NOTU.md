@@ -1,3 +1,12 @@
+## 25 Ekim 2026 — K4 HARİCİ YEDEK İZOLE KURTARMA DEVİR NOTU
+- K4 dalı: `k4/external-restore-evidence-20261025`; taslak PR #80, hedef `fix/ibo-only-xmltv-20261025`. Ana dala birleştirme yapılmadı.
+- Yeni `scripts/k4_external_restore_verify.py`: kullanıcı tarafından sağlanan TAR arşivi ve SHA256 manifestini yalnız geçici dizinde açıp doğrular; yol aşımı, bağlantılar, manifest uyuşmazlığı, boyut ve dosya sayısı sınırları uygulanır. Korunan yayın listelerine, yedeklere ve cron'a yazmaz.
+- `test_k4_external_restore_verify.py`: örnek arşiv, bozuk SHA256, tehlikeli yol ve sembolik bağlantı için regresyon senaryoları eklendi.
+- `.github/workflows/k4-izole-geri-yukleme.yml`: Türkçe adlı, salt okunur PR/manuel CI tanımı eklendi. Gerçek Actions run ID ve başarılı sonuç henüz elde edilmedi; test BAŞARILI olarak raporlanmaz.
+- Kabul ayrımı: `supplied_archive_integrity_verified` ile `external_backup_verified` ve `historical_recovery_verified` birbirinden ayrıdır. Son ikisi gerçek bağımsız ve tarihsel yedek kanıtı olmadan FALSE.
+- AÇIK: CI koşusunu ve loglarını doğrula; gerçek GitHub dışı tarihsel yedeği güvenli ortamda kurtarıp kaynak/provenans ve SHA256 kanıtını sakla; 1/15 bakım akışı ve merkezi K1–K5 kabulüne entegre et. K1/K2/K3/K5 ve IBO kabulünü K4 kodu tamamlamaz.
+- Korunan CALISANLAR.m3u, HEPSİ, YENİLER, FAVORİLER, logolar ve arşiv/yedekler değiştirilmedi.
+
 ## 14 Ekim 2026 — TOPLU OTOMASYON YUKU AZALTMA / EK DENETIMLER ELLE
 - Kullanici merkezi testin yesil oldugunu bildirdi; gereksiz tekrarlari tek committe azaltma istendi.
 - Haftalik Cuma ana kanal + EPG denetiminin otomatik schedule tetigi kaldirildi; workflow_dispatch saklandi. Ana liste sagligi ayin 1 ve 15'inde, birlesik kanal kesfi her gun iki kez suruyor.
