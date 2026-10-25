@@ -1,23 +1,53 @@
 {
-  "total_candidates": 3,
+  "total_candidates": 8,
   "category_counts": {
-    "LOGO_INDIRME_VEYA_DONUSUM_HATASI": 1,
-    "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 2
+    "LOGO_KAYNAGI_GUVENLIK_INCELEMESI": 4,
+    "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR": 4
   },
   "candidates": [
     {
-      "channel": "ABC (1080p)",
-      "stream_sha256": "e672eaebd4237788de640b9a8699a35526a1fefd5d2bc001d33d99d271e123c7",
-      "source": "dearbulut-language-eng",
-      "category": "LOGO_INDIRME_VEYA_DONUSUM_HATASI",
-      "preparation_status": "SOURCE_LOGO_FAILED",
+      "channel": "BabyTV Turkiye [Geo-blocked]",
+      "stream_sha256": "e00c56aab8aab89f19e745eb74ad67fe3cc901a6ce06659638acfd3d98996c2a",
+      "source": "iptv-org-TURKIYE",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false
     },
     {
-      "channel": "ABC TV (720p)",
-      "stream_sha256": "3e8fa81445e5ad19ffcd68c18d12417c555d0a64589d995403b275f6ccf129b8",
+      "channel": "Bondi Rescue (720p)",
+      "stream_sha256": "c532f871ee93986d08cd4421fd968c44e04102f3962e98bb28d92099eac13dfd",
+      "source": "dearbulut-ISVEC",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "DG:TV (1080p)",
+      "stream_sha256": "9fb3457b10076367c72c037249f92cee00dfb27d34722167e35c72e95d887d25",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "ET Now Swadesh (1080p)",
+      "stream_sha256": "982ef961bc351980648733885603c59bf55adb9652854fa6d7379030d7b51f12",
+      "source": "dearbulut-language-eng",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "Fairground AI Creator TV (1080p)",
+      "stream_sha256": "a7f83b273610e685b20014bd1227c6a84a62cb4a3bfabb15c7fd9eed8c721002",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
@@ -26,11 +56,31 @@
       "playlist_approved": false
     },
     {
-      "channel": "Cinecanal (1080p)",
-      "stream_sha256": "eb64aa73d415beafbb77321db482eb7288a2cd8d621b8225cc823d2f53208af3",
+      "channel": "Nick Jr.",
+      "stream_sha256": "9366a4992ccc9413f4755657e47cc87c2ab4dbcee9eb04c60b1f7354f0dfe216",
       "source": "dearbulut-language-eng",
       "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
       "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "TFX",
+      "stream_sha256": "de48591c87fa575e17c3738a9cdcc552ab4945a63527eeb410a6a04c774a4356",
+      "source": "dearbulut-language-eng",
+      "category": "PNG_HAZIR_KIMLIK_ONAYI_BEKLIYOR",
+      "preparation_status": "PNG_READY_REVIEW_PENDING",
+      "same_name_source_suggestions": [],
+      "identity_verified": false,
+      "playlist_approved": false
+    },
+    {
+      "channel": "TV Bozsike Hamburg HD (1080p)",
+      "stream_sha256": "dc88990e81c43fe3275611fb577e5d3796a069af396e5828306848dadbc3bacd",
+      "source": "dearbulut-ALMANYA",
+      "category": "LOGO_KAYNAGI_GUVENLIK_INCELEMESI",
+      "preparation_status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED",
       "same_name_source_suggestions": [],
       "identity_verified": false,
       "playlist_approved": false

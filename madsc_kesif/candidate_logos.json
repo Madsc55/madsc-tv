@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-24T20:14:39.459611+00:00",
+  "checked_utc": "2026-10-25T10:44:39.518891+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -12395,6 +12395,98 @@
       "conversion": "png_ready",
       "png_file": "madsc_kesif/candidate_pngs/551037c7b579e2b935779163.png",
       "png_sha256": "a0cb4c975a9e705731c304b2c2cbb4b6d47eec08ddce2be17af14e44ca2f9172"
+    },
+    {
+      "channel": "BabyTV Turkiye [Geo-blocked]",
+      "stream_sha256": "e00c56aab8aab89f19e745eb74ad67fe3cc901a6ce06659638acfd3d98996c2a",
+      "channel_id": "BabyTV.uk@Turkiye",
+      "source": "iptv-org-TURKIYE",
+      "source_logo": "https://i.imgur.com/4BDJ5FT.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/dc1530cf8549ef09beede8e0.png",
+      "png_sha256": "f4bf28cce856c8a23ba5e5361100aa10b04dfb967430e197036a1e59ca35ff63"
+    },
+    {
+      "channel": "Bondi Rescue (720p)",
+      "stream_sha256": "c532f871ee93986d08cd4421fd968c44e04102f3962e98bb28d92099eac13dfd",
+      "channel_id": "BondiRescue.se",
+      "source": "dearbulut-ISVEC",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "DG:TV (1080p)",
+      "stream_sha256": "9fb3457b10076367c72c037249f92cee00dfb27d34722167e35c72e95d887d25",
+      "channel_id": "DGTV.au",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "ET Now Swadesh (1080p)",
+      "stream_sha256": "982ef961bc351980648733885603c59bf55adb9652854fa6d7379030d7b51f12",
+      "channel_id": "ETNowSwadesh.in",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "Fairground AI Creator TV (1080p)",
+      "stream_sha256": "a7f83b273610e685b20014bd1227c6a84a62cb4a3bfabb15c7fd9eed8c721002",
+      "channel_id": "FairgroundAICreatorTV.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://raw.githubusercontent.com/RoqueDJ/iptv-svg/main/1792454211883.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/366204a3a7a34bc3d8d62ad6.png",
+      "png_sha256": "2b44ac42d9f9dfffe1e33d6368d125dc8ed79366172554b62000101bd079c073"
+    },
+    {
+      "channel": "Nick Jr.",
+      "stream_sha256": "9366a4992ccc9413f4755657e47cc87c2ab4dbcee9eb04c60b1f7354f0dfe216",
+      "channel_id": "NickJr.it",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/6p3eFgf.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/8d4a944f1034d5a46d79a769.png",
+      "png_sha256": "a5eb3d2bf2e07e0f81cc17f6ca6f9408b70a864910012e06598e5f47a0e27cd1"
+    },
+    {
+      "channel": "TFX",
+      "stream_sha256": "de48591c87fa575e17c3738a9cdcc552ab4945a63527eeb410a6a04c774a4356",
+      "channel_id": "TFX.fr",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/d91GcVf.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/d36717a886a51e134e0e2a56.png",
+      "png_sha256": "21e2a0245cc137e8bdfe1f367c53fdfe4a9af6c977881b8d0725e9e61ac22d16"
+    },
+    {
+      "channel": "TV Bozsike Hamburg HD (1080p)",
+      "stream_sha256": "dc88990e81c43fe3275611fb577e5d3796a069af396e5828306848dadbc3bacd",
+      "channel_id": "TVBozsikeHamburgHD.de",
+      "source": "dearbulut-ALMANYA",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
     }
   ],
   "limits": "PNG preparation only; visual identity and IBO approval required. No playlist edits."
