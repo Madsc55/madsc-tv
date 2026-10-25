@@ -162,7 +162,7 @@ def main():
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({k: v for k, v in report.items() if k not in ("test_suites", "security_rule_evidence", "legacy_workflow_evidence")}, ensure_ascii=False))
+    print(json.dumps({k: v for k, v in report.items() if k not in ("test_suites", "security_rule_evidence", "legacy_workflow_evidence", "legacy_parity_unverified_workflows", "legacy_write_risk_workflows", "legacy_trigger_gap_workflows")}, ensure_ascii=False))
     for suite in report["test_suites"]:
         if not suite["passed"]:
             print("::error title=Toplu test hatasi::{} failed; see acceptance artifact".format(suite["suite"]))
