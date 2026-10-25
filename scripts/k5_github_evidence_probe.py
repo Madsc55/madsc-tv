@@ -29,6 +29,7 @@ def probe(rows, repo, token, fetch=fetch_json):
     if not isinstance(repo, str) or not re.fullmatch(r"(?!\\.{1,2}(?:/|$))[A-Za-z0-9_][A-Za-z0-9_.-]*/[A-Za-z0-9_][A-Za-z0-9_.-]*", repo):
         raise ValueError("Invalid repository identifier")
     results = []
+    seen = set()
     for row in rows:
         name = row.get("legacy_workflow") if isinstance(row, dict) else None
         result = {"legacy_workflow": name, "github_metadata_verified": False, "errors": []}
@@ -36,6 +37,17 @@ def probe(rows, repo, token, fetch=fetch_json):
         try:
             if not isinstance(row, dict):
                 raise ValueError("Evidence record must be an object")
+            if not isinstance(name, str) or not name.endswith((".yml", ".yaml")) or "/" in name:
+                raise ValueError("Invalid legacy workflow name")
+            if name in seen:
+                raise ValueError("Duplicate legacy workflow evidence")
+            seen.add(name)
+            replacement = row.get("replacement_workflow")
+            if not isinstance(replacement, str) or not re.fullmatch(r"madsc-0[1-5]-[A-Za-z0-9_.-]+\\.ya?ml", replacement):
+                raise ValueError("Invalid replacement workflow")
+            sha = row.get("source_sha")
+            if not isinstance(sha, str) or not re.fullmatch(r"[0-9a-f]{40}", sha):
+                raise ValueError("Invalid source SHA")
             run_id, job_id, artifact_id = (row.get(k) for k in ("run_id", "job_id", "artifact_id"))
             if any(type(value) is not int or value <= 0 for value in (run_id, job_id, artifact_id)):
                 raise ValueError("Positive integer run/job/artifact IDs required")
