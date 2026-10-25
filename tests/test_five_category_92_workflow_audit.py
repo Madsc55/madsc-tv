@@ -350,5 +350,15 @@ class CentralCronRegressionTests(unittest.TestCase):
             self.assertEqual(report["protected_write_review_count"], len(names))
             self.assertEqual(report["behavioral_parity_verified_count"], 0)
 
+    def test_all_legacy_workflows_have_fail_closed_k1_review(self):
+        report = inspect(Path(__file__).resolve().parents[1])
+        self.assertEqual(report["total"], 92)
+        for item in report["items"]:
+            review = item["k1_security_review"]
+            self.assertEqual(review["acceptance"], "BLOCKED_NO_RUNTIME_PARITY_PROOF")
+            self.assertEqual(review["protected_write"], item["requires_protected_write_review"])
+            self.assertEqual(review["write_or_dispatch"], item["write_permission_parity_unverified"])
+            self.assertFalse(item["behavioral_parity_verified"])
+
 if __name__ == "__main__":
     unittest.main()
