@@ -46,5 +46,32 @@ class K4HariciGeriYuklemeTesti(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Unsafe archive member"):
                 verify_archive(archive, manifest)
 
+    def test_beklenmeyen_ve_eksik_dosya_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
+            manifest.write_text(json.dumps({"different.txt": hashlib.sha256(b"protected sample").hexdigest()}))
+            with self.assertRaisesRegex(ValueError, "Archive differs"):
+                verify_archive(archive, manifest)
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
+            manifest.write_text(json.dumps({
+                "safe/file.txt": hashlib.sha256(b"protected sample").hexdigest(),
+                "missing.txt": hashlib.sha256(b"").hexdigest(),
+            }))
+            with self.assertRaisesRegex(ValueError, "Archive differs"):
+                verify_archive(archive, manifest)
+
+    def test_cift_tar_uyesi_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            archive, manifest = self.create_case(root)
+            with tarfile.open(archive, "w:gz") as tar:
+                for _ in range(2):
+                    entry = tarfile.TarInfo("safe/file.txt")
+                    entry.size = len(b"protected sample")
+                    tar.addfile(entry, io.BytesIO(b"protected sample"))
+            with self.assertRaisesRegex(ValueError, "Archive differs"):
+                verify_archive(archive, manifest)
+
 if __name__ == "__main__":
     unittest.main()
