@@ -54,11 +54,11 @@ class K1Regression(unittest.TestCase):
         spec.loader.exec_module(mod)
         with tempfile.TemporaryDirectory() as d:
             mod.out = pathlib.Path(d) / "guncel-bolumler.json"
-            mod.out.write_bytes(b'{"existing":true}\\n')
+            mod.out.write_bytes(b'{"existing":true}\n')
             mod.collect = lambda today: (14, [{"episode": "partial"}])
             with self.assertRaises(RuntimeError):
                 mod.main()
-            self.assertEqual(mod.out.read_bytes(), b'{"existing":true}\\n')
+            self.assertEqual(mod.out.read_bytes(), b'{"existing":true}\n')
 
 if __name__ == "__main__":
     unittest.main()
