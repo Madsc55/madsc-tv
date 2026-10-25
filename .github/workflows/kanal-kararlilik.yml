@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/kanal_kararlilik_takip.py'
+      - 'tests/test_kararlilik_gecmis.py'
       - '.github/workflows/kanal-kararlilik.yml'
 permissions:
   contents: read
