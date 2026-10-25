@@ -51,6 +51,13 @@ class SourceApprovalTests(unittest.TestCase):
         self.write({"other": {"url": "https://example.org/other.m3u", "status": "BEKLIYOR"}})
         self.assertTrue(gate.audit()["errors"])
 
+    def test_workflow_checks_approval_before_install(self):
+        workflow = (gate.ROOT / ".github/workflows/madsc-birlesik-kesif.yml").read_text(encoding="utf-8")
+        self.assertLess(workflow.index("K2 onaylı kaynaklar olmadan otomatik keşfi engelle"),
+                        workflow.index("Yayın kontrol aracını kur"))
+        self.assertLess(workflow.index("K2 onaylı kaynaklar olmadan otomatik keşfi engelle"),
+                        workflow.index("Kaynakları tara, tekrarları ayıkla ve adayları test et"))
+
     def test_invalid_schema_is_rejected(self):
         self.write({}, schema=2)
         with self.assertRaises(ValueError):
