@@ -27,6 +27,10 @@ class K5EvidenceGateTests(unittest.TestCase):
                 self.assertEqual(main(), 0)
             report = json.loads(output.read_text())
             self.assertEqual(len(report["workflow_gaps"]), 92)
+            self.assertEqual(report["gap_reason_counts"]["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"], 92)
+            self.assertEqual(report["unmapped_workflow_count"], 0)
+            self.assertEqual(report["missing_script_workflow_count"], 0)
+            self.assertEqual(report["unmatched_trigger_workflow_count"], 0)
             self.assertTrue(all(not row["behavioral_parity_verified"] for row in report["workflow_gaps"]))
 
     def test_directory_output_rejected(self):
