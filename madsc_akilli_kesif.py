@@ -10,7 +10,8 @@ SOURCES={"iptv-turk-tr-EK-KAYNAK":"https://raw.githubusercontent.com/iptv-turk-t
 # Only explicitly approved sources may be scanned. The registry is checked again
 # here so invoking the script outside Actions cannot bypass the approval gate.
 def approved_sources():
-    registry = json.loads(pathlib.Path("k2_kaynak_onaylari.json").read_text(encoding="utf-8"))
+    registry_path = pathlib.Path(__file__).resolve().with_name("k2_kaynak_onaylari.json")
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
     if registry.get("schema_version") != 1 or not isinstance(registry.get("sources"), dict):
         raise RuntimeError("Invalid K2 source approval registry")
     selected = {}
