@@ -79,5 +79,16 @@ class K5LegacyParityTest(unittest.TestCase):
         self.assertEqual(result["status"], "REVIEW_REQUIRED")
         self.assertFalse(result["historical_provenance_metadata_present"])
 
+    def test_added_workflow_requires_review(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": [],
+                  "job_dependencies": {}, "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("old.yml", **fields)],
+               "historical_baseline_verified": True, "historical_workflow_count": 1,
+               "historical_source": {"ref": "git:legacy-commit", "sha256": "c" * 64}}
+        new = {"workflows": [workflow("old.yml", **fields), workflow("new.yml", **fields)]}
+        result = compare(old, new)
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertEqual(result["added_workflows"], ["new.yml"])
+
 if __name__ == "__main__":
     unittest.main()
