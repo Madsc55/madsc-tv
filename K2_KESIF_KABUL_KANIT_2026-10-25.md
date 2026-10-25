@@ -46,3 +46,11 @@ Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu n
 - Commit `b5c8cec3822adfbf76990a65c7de496db391fc71` çalışma dosyası farkını çakışma sanıyordu; normal rapor üretiminde yanlış pozitif verebilirdi.
 - Commit `453cf3a964ff7dcdd63e3dc96b0c6a6a187bee12` bunun yerine rapor dalının keşif başındaki commit SHA değerini kaydedip yazmadan önce dal SHA'sını yeniden kontrol eder. Push non-fast-forward durumunda başarısız olur; geçmişin üzerine sessiz yazılmaz.
 - Bu commit için PR tetiklemeli Actions koşusu bulunmadı; canlı kabul henüz yok.
+
+## 25 Ekim — kaynak onay kapısı
+
+- `k2_kaynak_onaylari.json` başlangıçta `sources: {}`: **0 onaylı kaynak**; kullanıcı veya yetkili kaynak onayı kanıtı olmadan onay uydurulmadı.
+- `scripts/k2_source_approval_audit.py` şema, URL eşitliği, onaylayan, tarih ve kanıt alanlarını denetler (commit `2e5eabf1b2cde54915daa5c331fcfee7d5f50f61`).
+- Keşif workflow'u hiç onaylı kaynak yoksa açık hata verir (`e398f6677e34a1d4b1648184e657727148dc6dfd`).
+- `madsc_akilli_kesif.py` artık doğrudan çağrılsa bile yalnız `ONAYLI` ve kanıtlı kaynakları tarar (`159159660dadcb7c7a7369976fda8d6bde394c18`).
+- **Mevcut 0 onay nedeniyle yeni keşif koşusunun başarıya ulaşması beklenmez.** Bu bir onay eksikliği ve güvenlik kapısıdır, tamamlanmış K2 kabulü değildir. Onay kaynağı sağlanmadan bu kontrol devre dışı bırakılmamalı.
