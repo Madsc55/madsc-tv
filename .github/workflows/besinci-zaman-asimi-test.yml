@@ -5,11 +5,14 @@ on:
     paths:
       - '.github/workflows/besinci-zaman-asimi-test.yml'
       - 'gelismis_medya_testi.py'
+      - 'tests/test_k3_medya_kaniti.py'
 jobs:
   zaman-asimi:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: K3 medya regresyonlarini dogrula
+        run: python3 -m unittest discover -s tests -p test_k3_medya_kaniti.py -v
       - name: Zaman asimi davranisini dogrula
         run: |
           python3 - <<'PY'
