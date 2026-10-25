@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 SON CI DOĞRULAMASI
+- `6fc47ba1cf533ec97e1e2cbc984293e004078683` commit'i için K4 Actions run `40196727272` (`K4 - İzole Yedek Geri Yükleme Testi`) `completed/success`. GitHub API üzerinden iş `K4 güvenli arşiv kurtarma testleri` ve adım `K4 söz dizimini ve regresyon testlerini doğrula` ayrı ayrı `success` doğrulandı.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40196727272
+- Açık kabul: GitHub dışı gerçek yedek kaynağı, tarihsel kopya ve üretim kurtarma kanıtı sağlanmadı; bu CI bunları doğrulamaz. PR #80 taslak, main değişmedi.
+
 ## 25 Ekim 2026 — K4 MERKEZİ RAPOR SÖZDİZİMİ DÜZELTMESİ
 - Merkezi rapora eklenen K4 sözlüğünde yanlışlıkla literal `\\n` kaçışları oluşmuştu. `fa46a1a7053ffd713a747f9c226461c969597af2` ile gerçek Python satır sonlarına düzeltildi.
 - `06b772c599b84195c6d4555f4f53ad17308f0a85` ile `test_central_backup_evidence.py` K4 güvenli/kanıtsız durum ayrımını doğruluyor.
