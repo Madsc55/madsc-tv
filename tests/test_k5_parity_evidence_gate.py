@@ -24,6 +24,10 @@ class K5EvidenceGateTests(unittest.TestCase):
         self.assertEqual(result["records"][0]["errors"], ["ValueError"])
         self.assertNotIn("TOPSECRET", json.dumps(result))
 
+    def test_more_than_92_evidence_records_rejected(self):
+        with self.assertRaises(ValueError):
+            validate([sample()] * 93, NAMES)
+
     def test_all_92_workflows_get_gap_records(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)
