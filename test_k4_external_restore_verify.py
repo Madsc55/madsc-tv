@@ -88,5 +88,22 @@ class K4HariciGeriYuklemeTesti(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Duplicate manifest entry"):
                 verify_archive(archive, manifest)
 
+    def test_nul_karakterli_yol_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
+            manifest.write_text(json.dumps({"safe/\\u0000file.txt": "0" * 64}))
+            with self.assertRaisesRegex(ValueError, "Unsafe manifest entry"):
+                verify_archive(archive, manifest)
+
+    def test_dosya_klasor_cakismasi_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
+            manifest.write_text(json.dumps({
+                "safe": hashlib.sha256(b"protected sample").hexdigest(),
+                "safe/file.txt": hashlib.sha256(b"protected sample").hexdigest(),
+            }))
+            with self.assertRaisesRegex(ValueError, "path collision"):
+                verify_archive(archive, manifest)
+
 if __name__ == "__main__":
     unittest.main()
