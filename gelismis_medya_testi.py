@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent bounded 20-second decode test of promising HLS candidates; no playlist edits."""
+"""Bounded independent video-frame and audio-PCM decode probes; no playlist edits."""
 import csv
 import json
 import os
@@ -29,8 +29,8 @@ def check(row):
         has_video = video.returncode == 0 and len(video.stdout) > 0
         has_audio = audio.returncode == 0 and len(audio.stdout) > 0
         if has_video and has_audio:
-            return ["EVET", "EVET", "20SN_MEDYA_COZUMLEME_GECTI_KIMLIK_BEKLIYOR",
-                    "Video kare ve ses PCM verisi ayri ayri cozuldu; kimlik ve yayin hakki dogrulanmadi"]
+            return ["EVET", "EVET", "MEDYA_ORNEGI_COZULDU_KIMLIK_BEKLIYOR",
+                    "Tek video kare ve iki saniyelik ses PCM ornegi cozuldu; sureklilik, kimlik ve yayin hakki dogrulanmadi"]
         details = (video.stderr or b"")[-100:] + b" " + (audio.stderr or b"")[-100:]
         return ["EVET" if has_video else "BELIRSIZ",
                 "EVET" if has_audio else "BELIRSIZ",
