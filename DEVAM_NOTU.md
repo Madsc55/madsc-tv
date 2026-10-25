@@ -1,3 +1,9 @@
+## 25 Ekim 2026 — K4 TAR AKIŞ GÜVENLİĞİ
+- `79dec1c0a2071ce3ae8322b5a4ac7cd8ade460eb`: K4 arşiv doğrulayıcısı `getmembers()` ile tüm arşiv başlıklarını belleğe yüklemek yerine `r|*` akış modu ile tek tek doğruluyor; toplam dosya/boyut sınırları ve SHA256 kontrolleri korunuyor.
+- `cb34c243c7941c3e5c51a8d28363ebc682809b66`: beklenmeyen, eksik ve tekrarlanan arşiv üyesi için regresyon testleri eklendi.
+- Son değişiklikler için CI sonucu henüz doğrulanmadı; önceki başarı `40206357479` yeni kodu kapsamaz.
+- Harici depolama kaynağı ve tarihsel kurtarma kanıtı halen sağlanmadı. PR #80 taslak, korunan dosyalar değiştirilmedi.
+
 ## 25 Ekim 2026 — K4 TEKRARLANAN SON COMMIT CI KANITI
 - `6d157deaf9d4b85516c2a98cb56902139d698460` için GitHub Actions run `40206143509` `completed/success`; `K4 güvenli arşiv kurtarma testleri` işi ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı ayrı ayrı başarıyla tamamlandı.
 - https://github.com/Madsc55/madsc-tv/actions/runs/40206143509
