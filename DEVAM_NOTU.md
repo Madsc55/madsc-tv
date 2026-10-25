@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 MANİFEST GÜVENLİĞİ CI SONUCU
+- `3529cced3c4b055facfd3a9a6f111c328e7a0b47` için K4 GitHub Actions run `40228693990` `completed/success`; iş `K4 güvenli arşiv kurtarma testleri` ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı ayrı ayrı `success`.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40228693990
+- Manifest boyut kontrolü dahil otomatik kod testleri doğrulandı. Gerçek bağımsız/tarihsel yedek ve izole üretim kurtarma kanıtı hâlâ mevcut değil. PR #80 taslak; K1–K5 nihai kabulü ayrı.
+
 ## 25 Ekim 2026 — K4 MANİFEST BOYUT SINIRI
 - `0298b3e1975be75c85067c2b0de2519580b57c69` commit'i için GitHub Actions `40228072328` `completed/success` doğrulandı: https://github.com/Madsc55/madsc-tv/actions/runs/40228072328
 - `ca5c24fcb620e73d8eddbe8da0105f24d1778bd7`: güvenilmeyen manifest dosyasına JSON parse öncesi 2 MiB üst sınır eklendi.
