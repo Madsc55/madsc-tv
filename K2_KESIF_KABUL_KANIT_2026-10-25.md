@@ -40,3 +40,9 @@ Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu n
 - Sonunda ayrı Git worktree içinde raporlar commit edilip yalnızca `madsc/k2-discovery-report-store` dalına push edilir; `main` için push komutu yoktur. Aynı anda yazma çakışmasında push başarısız olur, artifact saklanır; sessiz üzerine yazma yoktur.
 - `contents: write` izni yalnızca rapor dalına push gereksinimi nedeniyle geri getirildi. GitHub token düzeyinde dal kapsamlı izin sınırlaması yok; güvenlik değerlendirmesi ve branch koruma kuralları ayrıca gerekli.
 - **Henüz yeni workflow canlı koşusu ve K3/K5 tüketici uyumu doğrulanmadı.** Özellikle `main/madsc_kesif` okuyan mevcut tüketiciler için rapor dalından okuma veya artifact üzerinden okuma geçişi tamamlanmadan merge yapılmamalı.
+
+## Çakışma kontrolü düzeltmesi
+
+- Commit `b5c8cec3822adfbf76990a65c7de496db391fc71` çalışma dosyası farkını çakışma sanıyordu; normal rapor üretiminde yanlış pozitif verebilirdi.
+- Commit `453cf3a964ff7dcdd63e3dc96b0c6a6a187bee12` bunun yerine rapor dalının keşif başındaki commit SHA değerini kaydedip yazmadan önce dal SHA'sını yeniden kontrol eder. Push non-fast-forward durumunda başarısız olur; geçmişin üzerine sessiz yazılmaz.
+- Bu commit için PR tetiklemeli Actions koşusu bulunmadı; canlı kabul henüz yok.
