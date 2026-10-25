@@ -5,7 +5,6 @@ on:
     - cron: '0 6,18 * * *'
 permissions:
   contents: write
-  actions: write
 concurrency:
   group: madsc-rapor-yazma
   cancel-in-progress: false
@@ -20,15 +19,38 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 tools/workflow_failure_gate.py
-      - name: Kuyruk sonrası en güncel test geçmişini al
+      - name: Kuyruk sonrası dal bütünlüğünü doğrula
         run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Rapor başlangıç sürümünü kaydet
+          set -euo pipefail
+          echo "Keşif, tetiklendiği commit üzerinde çalışır; main üzerine sıfırlama yapılmaz."
+          git rev-parse HEAD
+      - name: Kalıcı K2 rapor geçmişini ayrı daldan yükle
         shell: bash
         run: |
           set -euo pipefail
-          git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
+          git fetch origin refs/heads/madsc/k2-discovery-report-store:refs/remotes/origin/madsc/k2-discovery-report-store
+          git rev-parse refs/remotes/origin/madsc/k2-discovery-report-store > "${RUNNER_TEMP}/k2-report-base-sha"
+          git restore --source=refs/remotes/origin/madsc/k2-discovery-report-store --worktree -- madsc_kesif/
+          python3 -m json.tool madsc_kesif/gecmis.json > /dev/null
+          test -s madsc_kesif/gecmis.json || { echo "::error::Kalıcı keşif geçmişi eksik"; exit 1; }
+          test -s madsc_kesif/bulunan_kanal_arsivi.csv || { echo "::error::Kalıcı keşif arşivi eksik"; exit 1; }
+      - name: K2 kaynak onay kayıtlarını denetle
+        run: |
+          python3 scripts/k2_source_approval_audit.py
+          echo '### K2 kaynak onayı' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Onaylı kaynak yoksa tarama başlamaz. Onay kayıtları: k2_kaynak_onaylari.json' >> "$GITHUB_STEP_SUMMARY"
+      - name: K2 onaylı kaynaklar olmadan otomatik keşfi engelle
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from scripts.k2_source_approval_audit import audit
+          report = audit()
+          if report['errors']:
+              raise SystemExit('Kaynak onay kaydı geçersiz')
+          if not report['approved_ids']:
+              raise SystemExit('Onaylı kaynak bulunmuyor; otomatik keşif güvenli şekilde durduruldu')
+          PY
       - name: Yayın kontrol aracını kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Python ortamını hazırla
@@ -61,46 +83,29 @@ jobs:
           name: madsc-kesif-raporu
           path: madsc_kesif/
           retention-days: 30
-      - name: Raporları güvenli şekilde GitHub'a kaydet
+      - name: Keşif raporlarını yalnızca ayrı K2 arşiv dalına kaydet
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ ! -d madsc_kesif ]; then
-            echo "Rapor dizini yok; kaydedilecek veri yok"
+          test -s madsc_kesif/gecmis.json
+          test -s madsc_kesif/bulunan_kanal_arsivi.csv
+          cp -a madsc_kesif "${RUNNER_TEMP}/k2-new-report"
+          git fetch origin refs/heads/madsc/k2-discovery-report-store:refs/remotes/origin/madsc/k2-discovery-report-store
+          test "$(cat "${RUNNER_TEMP}/k2-report-base-sha")" = "$(git rev-parse refs/remotes/origin/madsc/k2-discovery-report-store)" || { echo "::error::K2 rapor dalı koşu sırasında değişti; artifact korunur, üzerine yazılmaz"; exit 1; }
+          git worktree add --detach "${RUNNER_TEMP}/k2-report-worktree" refs/remotes/origin/madsc/k2-discovery-report-store
+          cd "${RUNNER_TEMP}/k2-report-worktree"
+          mkdir -p madsc_kesif
+          cp -a "${RUNNER_TEMP}/k2-new-report/." madsc_kesif/
+          git add -- madsc_kesif/
+          if git diff --cached --quiet; then
+            echo "K2 raporlarında değişiklik yok"
             exit 0
           fi
-          cp -a madsc_kesif "${RUNNER_TEMP}/madsc-kesif-rapor"
-          for attempt in $(seq 1 10); do
-            git fetch origin main
-            # Discovery modifies tracked report files; reset only the runner checkout.
-            # A preserved report copy is restored below; remote playlists stay untouched.
-            # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
-            if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_kesif/; then
-              echo "::warning::Rapor klasoru eszamanli degisti. GitHub uzerindeki yeni raporlar korundu; bu calismanin raporlari artifact icinde saklandi. Yeniden kanal testi baslatilmadi."
-              exit 0
-            fi
-            git reset --hard origin/main
-            git clean -fd -- madsc_kesif/
-            git checkout -B report-save origin/main
-            mkdir -p madsc_kesif
-            cp -a "${RUNNER_TEMP}/madsc-kesif-rapor/." madsc_kesif/
-            git add madsc_kesif/
-            if git diff --cached --quiet; then
-              echo "Raporlarda degisiklik yok"
-              exit 0
-            fi
-            git commit -m "Update MADSC discovery reports"
-            if git push origin HEAD:main; then
-              echo "Raporlar kaydedildi"
-              exit 0
-            fi
-            echo "Eszamanli guncelleme; yeniden deneme $attempt"
-            sleep $((attempt * 2))
-          done
-          echo "Raporlar GitHub'a kaydedilemedi; artifact arsivinde korunuyor"
-          exit 1
+          git commit -m "K2: persist discovery evidence"
+          git push origin HEAD:refs/heads/madsc/k2-discovery-report-store
+          echo "K2 raporları yalnızca ayrı arşiv dalına kaydedildi; main değişmedi."
       - name: Tekrar test baslatmadan sonucu bildir
         if: success()
         shell: bash
