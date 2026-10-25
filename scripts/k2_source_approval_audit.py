@@ -51,6 +51,8 @@ def audit():
             errors.append(source_id + ": invalid status")
     for source_id in entries.keys() - sources.keys():
         errors.append(source_id + ": no longer declared")
+    if len(set(sources.values())) != len(sources):
+        errors.append("duplicate source URLs declared")
     return {"declared": len(sources), "approved": len(approved), "pending": len(pending),
             "approved_ids": sorted(approved), "pending_ids": sorted(pending),
             "errors": sorted(errors), "approval_complete": not pending and not errors}
