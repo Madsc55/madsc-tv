@@ -22,11 +22,19 @@ def safe_name(name):
     p = PurePosixPath(name)
     return not p.is_absolute() and all(part not in (".", "..") for part in name.split("/")) and bool(p.parts)
 
+def reject_duplicate_manifest_keys(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("Duplicate manifest entry: " + key)
+        result[key] = value
+    return result
+
 def verify_archive(archive, manifest):
     manifest_path = Path(manifest)
     if manifest_path.stat().st_size > MAX_MANIFEST_BYTES:
         raise ValueError("Manifest exceeds size limit")
-    expected = json.loads(manifest_path.read_text(encoding="utf-8"))
+    expected = json.loads(manifest_path.read_text(encoding="utf-8"), object_pairs_hook=reject_duplicate_manifest_keys)
     if not isinstance(expected, dict) or not expected or len(expected) > MAX_FILES:
         raise ValueError("Invalid manifest size")
     for name, digest in expected.items():
