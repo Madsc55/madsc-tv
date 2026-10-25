@@ -19,6 +19,11 @@ def validate(rows, legacy_names, replacement_candidates=None):
         raise ValueError("Expected exactly 92 unique legacy workflows")
     if replacement_candidates is not None and (not isinstance(replacement_candidates, dict) or set(replacement_candidates) != known):
         raise ValueError("Incomplete replacement mapping inventory")
+    if replacement_candidates is not None and any(
+        not isinstance(candidates, list) or any(not isinstance(candidate, str) for candidate in candidates)
+        for candidates in replacement_candidates.values()
+    ):
+        raise ValueError("Malformed replacement mapping candidates")
     seen = set()
     approved = set()
     for row in rows:
