@@ -26,3 +26,9 @@ Ana liste, YENİLER, FAVORİLER, YEDEKLER, logolar, cihaz verisi ve arşiv deği
 
 ## Mevcut kanıt durumu
 92/92 **doğrulanmadı**; K5 üretim kabulü **kapalı**. Bu doküman yalnız denetim ve uygulama sırasını kalıcılaştırır. Kod/test değişikliği yapılmadı.
+
+## 25 Ekim 2026 — PR #83 gerçek CI sonucu
+- PR head `191cf528f2904fd4d48774deac317704adcc82d9` için Actions run [40196718336](https://github.com/Madsc55/madsc-tv/actions/runs/40196718336) **failure**.
+- K5 job `121179081543`: `k5_evidence_tests` ve `k5_evidence_gate` **success**. Bu yalnız statik/aday denetimidir; davranışsal kabul değildir.
+- K1 job `121179018491`: 26 kural kanıt adımı başarısız; rapor artifact `12599588579` üretildi. K2–K4 bağımlılık nedeniyle skipped. K5 `category_evidence` failure, `actions_evidence` skipped, `audit_1` skipped; kategori aktarım dosyası bulunamadı. Toplu hata kapısı fail-closed kaldı.
+- Bu kayıt, K1 güvenlik kapısını atlamak için gerekçe değildir. 0/26 runtime ve 0/92 davranışsal kanıt kabulü korunur. K1 kanıtı ayrı düzeltilmeli, sonra yeni SHA için yeniden çalıştırılmalı.
