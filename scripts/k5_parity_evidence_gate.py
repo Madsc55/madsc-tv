@@ -12,6 +12,8 @@ REQUIRED = ("legacy_workflow", "replacement_workflow", "source_sha",
 def validate(rows, legacy_names, replacement_candidates=None):
     if not isinstance(rows, list) or not isinstance(legacy_names, (list, set, tuple)):
         raise ValueError("Evidence and inventory must be collections")
+    if len(rows) > 92:
+        raise ValueError("Too many evidence records")
     if any(not isinstance(name, str) for name in legacy_names):
         raise ValueError("Legacy workflow names must be strings")
     known = set(legacy_names)
