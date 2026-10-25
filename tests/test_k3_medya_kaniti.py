@@ -53,6 +53,11 @@ class MedyaKanitTesti(unittest.TestCase):
             value = k3.check(ROW)
         self.assertEqual(value[:3], ["BELIRSIZ", "BELIRSIZ", "DOGRULANAMADI"])
 
+    def test_ses_ciktisi_bos_ise_ses_onayi_yok(self):
+        with patch.object(k3.subprocess, "run", side_effect=[result(), result(payload=b"")]):
+            value = k3.check(ROW)
+        self.assertEqual(value[:3], ["EVET", "BELIRSIZ", "MEDYA_BILESENI_BELIRSIZ"])
+
     def test_zaman_asimi_bozuk_olarak_isaretlenmez(self):
         with patch.object(k3.subprocess, "run", side_effect=subprocess.TimeoutExpired("ffmpeg", 65)):
             value = k3.check(ROW)
