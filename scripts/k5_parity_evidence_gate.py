@@ -19,8 +19,9 @@ def validate(rows, legacy_names, replacement_candidates=None):
         raise ValueError("Expected exactly 92 unique legacy workflows")
     if replacement_candidates is not None and (not isinstance(replacement_candidates, dict) or set(replacement_candidates) != known):
         raise ValueError("Incomplete replacement mapping inventory")
+    allowed_replacements = {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}
     if replacement_candidates is not None and any(
-        not isinstance(candidates, list) or any(not isinstance(candidate, str) for candidate in candidates)
+        not isinstance(candidates, list) or any(not isinstance(candidate, str) or candidate not in allowed_replacements for candidate in candidates)
         for candidates in replacement_candidates.values()
     ):
         raise ValueError("Malformed replacement mapping candidates")
@@ -33,7 +34,7 @@ def validate(rows, legacy_names, replacement_candidates=None):
         if not isinstance(name, str) or name not in known or name in seen:
             raise ValueError("Unknown or duplicate legacy workflow")
         seen.add(name)
-        if not isinstance(row["replacement_workflow"], str) or row["replacement_workflow"] not in {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}:
+        if not isinstance(row["replacement_workflow"], str) or row["replacement_workflow"] not in allowed_replacements:
             raise ValueError("Missing five-system replacement")
         if replacement_candidates is not None and (not isinstance(replacement_candidates[name], list) or row["replacement_workflow"] not in replacement_candidates[name]):
             raise ValueError("Replacement is not a mapped candidate for legacy workflow")
