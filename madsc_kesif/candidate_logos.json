@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-25T10:44:39.518891+00:00",
+  "checked_utc": "2026-10-25T20:23:43.267180+00:00",
   "results": [
     {
       "channel": "12tv (1080p)",
@@ -12487,6 +12487,42 @@
       "visual_match": "NOT_VERIFIED",
       "playlist_approved": false,
       "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "Bounce XL (1080p)",
+      "stream_sha256": "85dca0c1af9f89b53ff92c08927ccd1ca29bb8ec73e162c3ff3b49ae7e1b2fef",
+      "channel_id": "BounceXL.us",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/GzxgSkc.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/c711d2ba0ec9b17108438b40.png",
+      "png_sha256": "c8ab4b9e659fdaa6c30a47858ac8e0065a2770c5f5cb316affa757bdd61405a5"
+    },
+    {
+      "channel": "HauntTV (1080p)",
+      "stream_sha256": "a20f627883eeef87648653163b7699c032400908102851e5ad99003cf1d1b72e",
+      "channel_id": "HauntTV.ca",
+      "source": "dearbulut-language-eng",
+      "source_logo": "",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PUBLIC_LOGO_SOURCE_REVIEW_REQUIRED"
+    },
+    {
+      "channel": "Kantipur TV",
+      "stream_sha256": "cfa59cad8553c33fd7bd8929e1f168656d6f25efbd36fe3845a76653ecb2a1f2",
+      "channel_id": "KantipurTV.np",
+      "source": "dearbulut-language-eng",
+      "source_logo": "https://i.imgur.com/HEVo2Gc.png",
+      "visual_match": "NOT_VERIFIED",
+      "playlist_approved": false,
+      "status": "PNG_READY_REVIEW_PENDING",
+      "conversion": "png_ready",
+      "png_file": "madsc_kesif/candidate_pngs/b666e90cdb8c9e12b2251048.png",
+      "png_sha256": "c08c722ece13c6ca48fdd41002cc100e15bda758a2bc68b5a012d1ee1002e156"
     }
   ],
   "limits": "PNG preparation only; visual identity and IBO approval required. No playlist edits."
