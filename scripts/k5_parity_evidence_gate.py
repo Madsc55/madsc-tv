@@ -3,7 +3,6 @@
 import argparse
 import json
 import re
-import sys
 from pathlib import Path
 
 SHA = re.compile(r"^[0-9a-f]{40}$")
@@ -14,7 +13,7 @@ def validate(rows, legacy_names):
     if not isinstance(rows, list) or not isinstance(legacy_names, (list, set, tuple)):
         raise ValueError("Evidence and inventory must be collections")
     known = set(legacy_names)
-    if len(known) != 92:
+    if len(legacy_names) != 92 or len(known) != 92:
         raise ValueError("Expected exactly 92 unique legacy workflows")
     seen = set()
     approved = set()
@@ -25,7 +24,7 @@ def validate(rows, legacy_names):
         if not isinstance(name, str) or name not in known or name in seen:
             raise ValueError("Unknown or duplicate legacy workflow")
         seen.add(name)
-        if not isinstance(row["replacement_workflow"], str) or not row["replacement_workflow"].startswith("madsc-0"):
+        if row["replacement_workflow"] not in {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}:
             raise ValueError("Missing five-system replacement")
         if not isinstance(row["source_sha"], str) or not SHA.fullmatch(row["source_sha"]):
             raise ValueError("Invalid source commit SHA")
