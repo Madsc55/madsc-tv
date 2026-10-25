@@ -3,6 +3,7 @@
 import ast
 import json
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "k2_kaynak_onaylari.json"
@@ -30,7 +31,7 @@ def audit():
     pending = []
     errors = []
     for source_id, url in sources.items():
-        if not isinstance(source_id, str) or not isinstance(url, str) or not url.startswith(("https://", "http://")):
+        if not isinstance(source_id, str) or not isinstance(url, str) or urlsplit(url).scheme not in ("https", "http") or not urlsplit(url).hostname:
             errors.append(str(source_id) + ": invalid source identifier or URL")
             continue
         entry = entries.get(source_id)
