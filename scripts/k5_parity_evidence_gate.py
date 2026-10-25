@@ -12,6 +12,8 @@ REQUIRED = ("legacy_workflow", "replacement_workflow", "source_sha",
 def validate(rows, legacy_names, replacement_candidates=None):
     if not isinstance(rows, list) or not isinstance(legacy_names, (list, set, tuple)):
         raise ValueError("Evidence and inventory must be collections")
+    if any(not isinstance(name, str) for name in legacy_names):
+        raise ValueError("Legacy workflow names must be strings")
     known = set(legacy_names)
     if len(legacy_names) != 92 or len(known) != 92 or any(not isinstance(name, str) or not name.endswith((".yml", ".yaml")) for name in known):
         raise ValueError("Expected exactly 92 unique legacy workflows")
@@ -26,7 +28,7 @@ def validate(rows, legacy_names, replacement_candidates=None):
         if not isinstance(name, str) or name not in known or name in seen:
             raise ValueError("Unknown or duplicate legacy workflow")
         seen.add(name)
-        if row["replacement_workflow"] not in {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}:
+        if not isinstance(row["replacement_workflow"], str) or row["replacement_workflow"] not in {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}:
             raise ValueError("Missing five-system replacement")
         if replacement_candidates is not None and (not isinstance(replacement_candidates[name], list) or row["replacement_workflow"] not in replacement_candidates[name]):
             raise ValueError("Replacement is not a mapped candidate for legacy workflow")
@@ -57,6 +59,12 @@ def main():
     args = parser.parse_args()
     inventory = json.loads(Path(args.inventory).read_text(encoding="utf-8"))
     evidence = json.loads(Path(args.evidence).read_text(encoding="utf-8"))
+    if not isinstance(inventory, dict) or not isinstance(inventory.get("items"), list):
+        raise ValueError("Inventory must contain items list")
+    if any(not isinstance(item, dict) or not isinstance(item.get("file"), str) or
+           not isinstance(item.get("possible_replacement_workflows"), list)
+           for item in inventory["items"]):
+        raise ValueError("Invalid inventory item")
     report = validate(evidence, [item["file"] for item in inventory["items"]],
                       {item["file"]: item["possible_replacement_workflows"] for item in inventory["items"]})
     Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
