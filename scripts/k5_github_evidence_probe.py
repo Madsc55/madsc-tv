@@ -26,7 +26,9 @@ def fetch_json(repo, endpoint, token):
 def probe(rows, repo, token, fetch=fetch_json):
     if not isinstance(rows, list):
         raise ValueError("Evidence must be a list")
-    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo or ""):\n        raise ValueError("Invalid repository identifier")\n    results = []
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo or ""):
+        raise ValueError("Invalid repository identifier")
+    results = []
     for row in rows:
         name = row.get("legacy_workflow") if isinstance(row, dict) else None
         result = {"legacy_workflow": name, "github_metadata_verified": False, "errors": []}
