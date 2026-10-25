@@ -15,6 +15,20 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_all_92_workflows_get_gap_records(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            inventory = root / "inventory.json"
+            evidence = root / "evidence.json"
+            output = root / "report.json"
+            inventory.write_text(json.dumps({"items": [{"file": name, "possible_replacement_workflows": ["madsc-05-genel-bakim.yml"], "migration_gap_reasons": ["BEHAVIORAL_EQUIVALENCE_NOT_PROVEN"]} for name in NAMES]}))
+            evidence.write_text("[]")
+            with patch("sys.argv", ["gate", "--inventory", str(inventory), "--evidence", str(evidence), "--output", str(output)]):
+                self.assertEqual(main(), 0)
+            report = json.loads(output.read_text())
+            self.assertEqual(len(report["workflow_gaps"]), 92)
+            self.assertTrue(all(not row["behavioral_parity_verified"] for row in report["workflow_gaps"]))
+
     def test_directory_output_rejected(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)
