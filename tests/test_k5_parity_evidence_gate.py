@@ -15,13 +15,21 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_unmapped_replacement_rejected(self):
+        with self.assertRaises(ValueError):
+            validate([sample()], NAMES, {NAMES[0]: ["madsc-01-guvenlik.yml"]})
+
+    def test_mapped_replacement_candidate_still_not_verified(self):
+        result = validate([sample()], NAMES, {NAMES[0]: ["madsc-05-genel-bakim.yml"]})
+        self.assertEqual(result["independently_verified_count"], 0)
+
     def test_production_switch_fails_closed(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)
             inventory = root / "inventory.json"
             evidence = root / "evidence.json"
             output = root / "report.json"
-            inventory.write_text(json.dumps({"items": [{"file": name} for name in NAMES]}))
+            inventory.write_text(json.dumps({"items": [{"file": name, "possible_replacement_workflows": ["madsc-05-genel-bakim.yml"]} for name in NAMES]}))
             evidence.write_text("[]")
             with patch("sys.argv", ["gate", "--inventory", str(inventory), "--evidence", str(evidence), "--output", str(output), "--require-production-ready"]):
                 self.assertEqual(main(), 1)
