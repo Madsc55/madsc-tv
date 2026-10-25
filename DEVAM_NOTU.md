@@ -577,3 +577,11 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 
 ## 13 Ekim — 24. güvenlik kuralı onaylandı
 - Kullanıcı tekrarlanan otomasyon hatalarında güvenli durma ve hata raporu önerisini kabul etti. `GUVENLIK_KURALLARI.md` 24. maddeyle güncellendi (commit 6c56118796c299f22080b5f68f8a8ff4993f8e2a). Üç ana workflow incelendi: her birinde sınırlı git push denemesi bulunuyor; tüm koşular boyunca ortak hata sayacı/devre kesici henüz doğrulanmadı. Sıradaki iş teknik uygulama ve test; korunan kanal listeleri değişmedi.
+
+
+## 25 Ekim 2026 — K3 kanal medya kaniti devir notu (PR #79)
+- Dal: `k3/medya-kanit-duzeltme-20261025`; PR #79 taslak, `main` ile birlestirilmedi.
+- `gelismis_medya_testi.py` eski CSV `MEDYA_TEST` degerine guvenmek yerine ayri FFmpeg video kare ve PCM ses ciktisi ariyor; hata/zaman asimi basari sayilmiyor. `tests/test_k3_medya_kaniti.py` dort regresyon testi, mevcut Turkce CI is akisina baglandi. Run #40183629518 basarili.
+- `kanal-kararlilik.yml` gecmis normalizasyon testlerini calistiriyor ve test degisikliklerinde tetikleniyor; `scripts/kanal_kararlilik_takip.py` K3 75 aday x 6 saat hedefini BEKLIYOR diye raporluyor, URL tekrarlarini tekil sayiyor ve aralikli orneklerin kesintisiz yayin kaniti olmadigini belirtiyor. Run #40206339290 basarili.
+- EKSIK: 75 farkli yayinda gercek alti saatlik oynatma/teknik sureklilik kaniti ve K1-K5 davranissal kabul; IBO cihaz testi kullaniciya ait. Mevcut 24 saatlik seyrek gozlemler kesintisiz oynatma kaniti degil. K3 raporuna basari iddiasi eklenmemeli.
+- Korunan M3U listeleri, favoriler, logolar, arsivler, yedekler degistirilmedi. PR #71 ve `main` birlestirmesi yapilmadi.
