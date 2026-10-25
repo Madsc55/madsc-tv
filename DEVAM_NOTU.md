@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 TEKRARLANAN SON COMMIT CI KANITI
+- `6d157deaf9d4b85516c2a98cb56902139d698460` için GitHub Actions run `40206143509` `completed/success`; `K4 güvenli arşiv kurtarma testleri` işi ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı ayrı ayrı başarıyla tamamlandı.
+- https://github.com/Madsc55/madsc-tv/actions/runs/40206143509
+- Bu kanıt yalnız kod/regresyon testine aittir; gerçek offsite ve tarihsel geri yükleme kabulü açık kalır. PR #80 taslak; korunan liste ve yedeklere dokunulmadı.
+
 ## 25 Ekim 2026 — K4 SON CI DOĞRULAMASI
 - `6fc47ba1cf533ec97e1e2cbc984293e004078683` commit'i için K4 Actions run `40196727272` (`K4 - İzole Yedek Geri Yükleme Testi`) `completed/success`. GitHub API üzerinden iş `K4 güvenli arşiv kurtarma testleri` ve adım `K4 söz dizimini ve regresyon testlerini doğrula` ayrı ayrı `success` doğrulandı.
 - Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40196727272
