@@ -4,8 +4,7 @@ on:
   schedule:
     - cron: '0 6,18 * * *'
 permissions:
-  contents: write
-  actions: write
+  contents: read
 concurrency:
   group: madsc-rapor-yazma
   cancel-in-progress: false
@@ -20,15 +19,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 tools/workflow_failure_gate.py
-      - name: Kuyruk sonrası en güncel test geçmişini al
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Rapor başlangıç sürümünü kaydet
-        shell: bash
+      - name: Kuyruk sonrası dal bütünlüğünü doğrula
         run: |
           set -euo pipefail
-          git rev-parse origin/main > "${RUNNER_TEMP}/madsc-rapor-base-sha"
+          echo "Keşif, tetiklendiği commit üzerinde çalışır; main üzerine sıfırlama yapılmaz."
+          git rev-parse HEAD
       - name: Yayın kontrol aracını kur
         run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
       - name: Python ortamını hazırla
@@ -61,46 +56,11 @@ jobs:
           name: madsc-kesif-raporu
           path: madsc_kesif/
           retention-days: 30
-      - name: Raporları güvenli şekilde GitHub'a kaydet
-        shell: bash
+      - name: Keşif raporlarını yalnızca artifact olarak koru
+        if: success()
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ ! -d madsc_kesif ]; then
-            echo "Rapor dizini yok; kaydedilecek veri yok"
-            exit 0
-          fi
-          cp -a madsc_kesif "${RUNNER_TEMP}/madsc-kesif-rapor"
-          for attempt in $(seq 1 10); do
-            git fetch origin main
-            # Discovery modifies tracked report files; reset only the runner checkout.
-            # A preserved report copy is restored below; remote playlists stay untouched.
-            # Farkli bir calisma ayni rapor klasorunu degistirdiyse eski kopyayla ustune yazma.
-            if ! git diff --quiet "$(cat "${RUNNER_TEMP}/madsc-rapor-base-sha")" origin/main -- madsc_kesif/; then
-              echo "::warning::Rapor klasoru eszamanli degisti. GitHub uzerindeki yeni raporlar korundu; bu calismanin raporlari artifact icinde saklandi. Yeniden kanal testi baslatilmadi."
-              exit 0
-            fi
-            git reset --hard origin/main
-            git clean -fd -- madsc_kesif/
-            git checkout -B report-save origin/main
-            mkdir -p madsc_kesif
-            cp -a "${RUNNER_TEMP}/madsc-kesif-rapor/." madsc_kesif/
-            git add madsc_kesif/
-            if git diff --cached --quiet; then
-              echo "Raporlarda degisiklik yok"
-              exit 0
-            fi
-            git commit -m "Update MADSC discovery reports"
-            if git push origin HEAD:main; then
-              echo "Raporlar kaydedildi"
-              exit 0
-            fi
-            echo "Eszamanli guncelleme; yeniden deneme $attempt"
-            sleep $((attempt * 2))
-          done
-          echo "Raporlar GitHub'a kaydedilemedi; artifact arsivinde korunuyor"
-          exit 1
+          echo "Keşif raporları madsc-kesif-raporu artifact içinde saklandı."
+          echo "Korunan main dalına veya kanal listelerine otomatik commit/push yapılmaz."
       - name: Tekrar test baslatmadan sonucu bildir
         if: success()
         shell: bash
