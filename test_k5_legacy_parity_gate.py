@@ -12,7 +12,8 @@ class K5LegacyParityTest(unittest.TestCase):
     def test_same_metadata_is_not_behavioral_proof(self):
         old = {"workflows": [workflow("a.yml")]}
         result = compare(old, old)
-        self.assertEqual(result["status"], "PASS")
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertEqual(result["missing_step_level_evidence"], ["a.yml"])
         self.assertFalse(result["behavioral_parity_verified"])
 
     def test_missing_legacy_workflow_fails(self):
@@ -29,6 +30,24 @@ class K5LegacyParityTest(unittest.TestCase):
     def test_duplicate_names_rejected(self):
         with self.assertRaisesRegex(ValueError, "Duplicate"):
             compare({"workflows": [workflow("a.yml"), workflow("a.yml")]}, {"workflows": []})
+
+    def test_complete_fingerprints_pass_static_gate_only(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": ["target.yml"],
+                  "job_dependencies": {"build": ["test"]},
+                  "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("a.yml", **fields)]}
+        result = compare(old, old)
+        self.assertEqual(result["status"], "PASS")
+        self.assertFalse(result["behavioral_parity_verified"])
+
+    def test_changed_dispatch_target_requires_review(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": ["target.yml"],
+                  "job_dependencies": {}, "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("a.yml", **fields)]}
+        new = {"workflows": [workflow("a.yml", **{**fields, "dispatch_targets": ["other.yml"]})]}
+        result = compare(old, new)
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertIn("dispatch_targets", result["changed_triggers_or_permissions"][0]["differences"])
 
 if __name__ == "__main__":
     unittest.main()
