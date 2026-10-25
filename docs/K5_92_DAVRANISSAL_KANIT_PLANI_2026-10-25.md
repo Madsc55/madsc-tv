@@ -38,3 +38,9 @@ Ana liste, YENİLER, FAVORİLER, YEDEKLER, logolar, cihaz verisi ve arşiv deği
 - K5 job `121209633237`: `K5 davranissal kanit dogrulayici regresyon testleri` **success**, `K5 92 satir kanit adaylarini salt okunur denetle` **success**. Test paketi 10 vakadır; üretim kanıtı değildir.
 - K1 job `121209544857`: `26 guvenlik kurali kanit raporu ve belge kontrolu` **failure**; K2–K4 **skipped**. K5 genel kapısı güvenli şekilde failure.
 - Yeni `--require-production-ready` parametresi doğrulanmamış satırlar için nonzero döner; CI normal aday modunu çalıştırır. Bağımsız 92/92 onayı veya 26/26 runtime doğrulaması yoktur.
+
+## 25 Ekim 2026 — 14 testin gerçek CI kabulü
+- `ff0d0b49d3eab1b1f99800842ad59e802c316265` commit'i: [Actions #319](https://github.com/Madsc55/madsc-tv/actions/runs/40226388862), tamamlandı, genel **failure**.
+- K5 job `121268627612`: regresyon testleri **success** (14 vaka), 92 satır kanıt aday denetimi **success**. Bir önceki #318 koşusundaki test uyumsuzluğu giderildi.
+- K1 job `121268547601`: 26 güvenlik kuralı kanıt raporu/belge kontrolü **failure**; K2/K3/K4 **skipped**; kategori kanıt aktarımı ve birleşik kabul **failure**.
+- Bağımsız 92/92 davranışsal eşdeğerlik kanıtı sunulmadı; bu başarı üretim kabulü veya eski workflow kapatma izni değildir.
