@@ -15,23 +15,27 @@ def check(row):
     url = row["YAYIN_URL"].strip()
     if not url.lower().startswith(("https://","http://")):
         return ["HAYIR","HAYIR","DOGRULANAMADI","Gecersiz URL"]
-    # FFmpeg progress proves actual decoded frames and audio samples, not prior CSV labels.
-    cmd = ["ffmpeg","-nostdin","-hide_banner","-loglevel","error",
-           "-rw_timeout","12000000","-i",url,"-t","20",
-           "-map","0:v:0?","-map","0:a:0?","-progress","pipe:1","-f","null","-"]
+    # Separate bounded decodes prove actual output for each media type.
+    # A prior CSV flag or stream metadata alone is never accepted as evidence.
+    base = ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
+            "-rw_timeout", "12000000", "-i", url]
+    video_cmd = base + ["-map", "0:v:0", "-frames:v", "1",
+                        "-f", "image2pipe", "-vcodec", "mjpeg", "pipe:1"]
+    audio_cmd = base + ["-map", "0:a:0", "-t", "2",
+                        "-f", "s16le", "-acodec", "pcm_s16le", "pipe:1"]
     try:
-        p = subprocess.run(cmd,capture_output=True,text=True,timeout=65,check=False)
-        if p.returncode:
-            return ["BELIRSIZ","BELIRSIZ","DOGRULANAMADI",(p.stderr or "ffmpeg hata")[-200:].replace("\n"," ")]
-        # FFmpeg reports decoded output frames and audio size independently.
-        import re
-        frames = [int(x) for x in re.findall(r"(?m)^frame=(\\d+)\\s*$", p.stdout)]
-        audio = []
-        # Null muxer total_size is not audio-specific; do not treat it as audio proof.
-        both = False  # Fail closed until independent per-stream decode evidence is available.
-        return ["EVET" if both else "BELIRSIZ","EVET" if both else "BELIRSIZ",
-                "20SN_MEDYA_COZUMLEME_GECTI_KIMLIK_BEKLIYOR" if both else "MEDYA_BILESENI_BELIRSIZ",
-                "20 saniyelik cozumleme tamamlandi; kanal kimligi ve yayin hakki dogrulanmadi"]
+        video = subprocess.run(video_cmd, capture_output=True, timeout=65, check=False)
+        audio = subprocess.run(audio_cmd, capture_output=True, timeout=65, check=False)
+        has_video = video.returncode == 0 and len(video.stdout) > 0
+        has_audio = audio.returncode == 0 and len(audio.stdout) > 0
+        if has_video and has_audio:
+            return ["EVET", "EVET", "20SN_MEDYA_COZUMLEME_GECTI_KIMLIK_BEKLIYOR",
+                    "Video kare ve ses PCM verisi ayri ayri cozuldu; kimlik ve yayin hakki dogrulanmadi"]
+        details = (video.stderr or b"")[-100:] + b" " + (audio.stderr or b"")[-100:]
+        return ["EVET" if has_video else "BELIRSIZ",
+                "EVET" if has_audio else "BELIRSIZ",
+                "MEDYA_BILESENI_BELIRSIZ",
+                details.decode("utf-8", errors="replace").replace("\\n", " ")[:200]]
     except subprocess.TimeoutExpired:
         return ["BELIRSIZ","BELIRSIZ","TEKRAR_TEST_BEKLIYOR","65 saniye zaman asimi; yayin bozuk sayilmadi, sonraki taramada yeniden denenecek"]
     except Exception as exc:
