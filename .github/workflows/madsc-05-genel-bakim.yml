@@ -39,6 +39,9 @@ on:
       - 'tests/test_five_category_shared_controls.py'
       - 'tests/test_five_system_cutover_readiness.py'
       - 'scripts/five_category_92_workflow_audit.py'
+      - 'scripts/k5_behavior_evidence_gate.py'
+      - 'test_k5_behavior_evidence_gate.py'
+      - 'k5_workflow_behavior_evidence.json'
       - 'tests/test_five_category_92_workflow_audit.py'
       - 'tools/protected_write_gate.py'
       - 'tests/test_protected_write_gate.py'
@@ -170,6 +173,10 @@ jobs:
             echo "::endgroup::"
           done
           exit "${failed}"
+      - name: K5 davranissal kanit kaydi regresyon ve kapisi
+        run: |
+          python3 -m unittest -v test_k5_behavior_evidence_gate
+          python3 scripts/k5_behavior_evidence_gate.py
       - name: 92 satirlik toplu esdegerlik matrisi kabul kapisi
         id: audit_2
         continue-on-error: true
