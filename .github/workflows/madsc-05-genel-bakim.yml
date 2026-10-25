@@ -158,6 +158,22 @@ jobs:
             --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
             --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
             --output madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json
+      - name: K5 kanit raporu 92 satir ve engel butunlugu
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json")
+          report = json.loads(path.read_text(encoding="utf-8"))
+          gaps = report["workflow_gaps"]
+          assert len(gaps) == 92 and len({row["legacy_workflow"] for row in gaps}) == 92
+          assert report["inventory_total"] == 92
+          assert report["unmapped_workflow_count"] == len(report["unmapped_workflows"])
+          assert report["missing_script_workflow_count"] == len(report["missing_script_workflows"])
+          assert report["unmatched_trigger_workflow_count"] == len(report["unmatched_trigger_workflows"])
+          assert report["independently_verified_count"] == 0 and report["production_ready"] is False
+          print("K5: 92 workflow gaps audited; production acceptance remains blocked")
+          PY
       - name: Ayni kosunun dort basarili kategori kanitini guvenle al
         id: category_evidence
         continue-on-error: true
