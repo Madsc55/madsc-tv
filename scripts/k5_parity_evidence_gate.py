@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 
 SHA = re.compile(r"^[0-9a-f]{40}$")
