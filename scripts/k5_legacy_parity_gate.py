@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 
 FIELDS = ("schedule_utc", "manual", "push", "workflow_run", "writes_contents", "has_concurrency", "concurrency_group")
+# Optional independently captured step-level fingerprints and dispatch targets.
+OPTIONAL_FIELDS = ("job_steps_sha256", "dispatch_targets", "job_dependencies", "workflow_content_sha256")
 
 def compare(baseline, current):
     old = {w["file"]: w for w in baseline["workflows"]}
@@ -20,13 +22,18 @@ def compare(baseline, current):
     changes = []
     for name in sorted(old.keys() & new.keys()):
         differences = {field: {"before": old[name].get(field), "after": new[name].get(field)}
-                       for field in FIELDS if old[name].get(field) != new[name].get(field)}
+                       for field in FIELDS + tuple(field for field in OPTIONAL_FIELDS if field in old[name])
+                       if old[name].get(field) != new[name].get(field)}
         if differences:
             changes.append({"file": name, "differences": differences})
-    return {"status": "PASS" if not missing and not changes else "REVIEW_REQUIRED",
+    missing_evidence = sorted(name for name in old if name in new and
+                              any(field not in old[name] or field not in new[name]
+                                  for field in OPTIONAL_FIELDS))
+    return {"status": "REVIEW_REQUIRED" if missing or changes or missing_evidence else "PASS",
             "baseline_count": len(old), "current_count": len(new),
             "missing_workflows": missing, "added_workflows": added,
             "changed_triggers_or_permissions": changes,
+            "missing_step_level_evidence": missing_evidence,
             "behavioral_parity_verified": False,
             "limitations": "Static metadata comparison cannot prove step-level behavior, dispatch chains, runtime success, or 92 historical workflow equivalence."}
 
