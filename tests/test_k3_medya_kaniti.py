@@ -63,6 +63,21 @@ class MedyaKanitTesti(unittest.TestCase):
             value = k3.check(ROW)
         self.assertEqual(value[:3], ["BELIRSIZ", "BELIRSIZ", "DOGRULANAMADI"])
 
+    def test_ffmpeg_hatasinda_gizli_url_rapora_yazilmaz(self):
+        secret = b"https://example.org/live.m3u8?token=SECRET123"
+        with patch.object(k3.subprocess, "run", side_effect=[
+            subprocess.CompletedProcess([], 1, b"", secret),
+            subprocess.CompletedProcess([], 1, b"", secret),
+        ]):
+            value = k3.check(ROW)
+        self.assertNotIn("SECRET123", str(value))
+
+    def test_eksik_url_guvenle_reddedilir(self):
+        with patch.object(k3.subprocess, "run") as run:
+            value = k3.check({})
+        self.assertEqual(value[:3], ["HAYIR", "HAYIR", "DOGRULANAMADI"])
+        run.assert_not_called()
+
     def test_zaman_asimi_bozuk_olarak_isaretlenmez(self):
         with patch.object(k3.subprocess, "run", side_effect=subprocess.TimeoutExpired("ffmpeg", 65)):
             value = k3.check(ROW)
