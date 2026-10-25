@@ -7,7 +7,7 @@ class K5GithubEvidenceProbeTests(unittest.TestCase):
         row = {"legacy_workflow": "legacy.yml", "replacement_workflow": "madsc-05-genel-bakim.yml",
                "source_sha": "a" * 40, "run_id": 10, "job_id": 20, "artifact_id": 30}
         responses = {
-            "actions/runs/10": {"conclusion": "success", "head_sha": "a" * 40,
+            "actions/runs/10": {"repository": {"full_name": "Madsc55/madsc-tv"}, "conclusion": "success", "head_sha": "a" * 40,
                                 "path": ".github/workflows/madsc-05-genel-bakim.yml"},
             "actions/jobs/20": {"id": 20, "run_id": 10, "conclusion": "success"},
             "actions/artifacts/30": {"id": 30, "workflow_run": {"id": 10}, "expired": False, "size_in_bytes": 10},
