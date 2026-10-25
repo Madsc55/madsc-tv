@@ -85,6 +85,11 @@ class SourceApprovalTests(unittest.TestCase):
             self.write({})
             self.assertTrue(gate.audit()["errors"])
 
+    def test_credential_bearing_url_is_rejected(self):
+        with patch.object(gate, "declared_sources", return_value={"unsafe": "https://user:secret@example.org/stream.m3u"}):
+            self.write({})
+            self.assertTrue(gate.audit()["errors"])
+
     def test_invalid_schema_is_rejected(self):
         self.write({}, schema=2)
         with self.assertRaises(ValueError):
