@@ -54,7 +54,7 @@ def probe(rows, repo, token, fetch=fetch_json):
             result["errors"] = [key for key, ok in checks.items() if not ok]
             result["github_metadata_verified"] = all(checks.values())
         except (ValueError, KeyError, TypeError, urllib.error.URLError, TimeoutError) as exc:
-            result["errors"].append(type(exc).__name__ + ": " + str(exc))
+            result["errors"].append(type(exc).__name__)
     return {"records": results, "github_metadata_verified_count": sum(r["github_metadata_verified"] for r in results),
             "independently_verified_behavior_count": 0, "production_ready": False}
 
