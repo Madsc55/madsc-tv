@@ -9,8 +9,8 @@ class K5GithubEvidenceProbeTests(unittest.TestCase):
         responses = {
             "actions/runs/10": {"conclusion": "success", "head_sha": "a" * 40,
                                 "path": ".github/workflows/madsc-05-genel-bakim.yml"},
-            "actions/jobs/20": {"run_id": 10, "conclusion": "success"},
-            "actions/artifacts/30": {"workflow_run": {"id": 10}, "expired": False, "size_in_bytes": 10},
+            "actions/jobs/20": {"id": 20, "run_id": 10, "conclusion": "success"},
+            "actions/artifacts/30": {"id": 30, "workflow_run": {"id": 10}, "expired": False, "size_in_bytes": 10},
         }
         result = probe([row], "Madsc55/madsc-tv", "token", lambda repo, endpoint, token: responses[endpoint])
         self.assertEqual(result["github_metadata_verified_count"], 1)
