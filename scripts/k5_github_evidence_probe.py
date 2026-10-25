@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 def fetch_json(repo, endpoint, token):
-    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo or "") or not token:
+    if not re.fullmatch(r"(?!\\.{1,2}(?:/|$))[A-Za-z0-9_][A-Za-z0-9_.-]*/[A-Za-z0-9_][A-Za-z0-9_.-]*", repo or "") or not token:
         raise ValueError("GitHub repository and read-only token required")
     url = "https://api.github.com/repos/" + repo + "/" + endpoint
     request = urllib.request.Request(url, headers={
