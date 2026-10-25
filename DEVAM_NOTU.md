@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 GERÇEK GERİ YÜKLEME KABUL PROSEDÜRÜ
+- `ba241d10b364bab9d3e936db047d80881bc65497` commit'i için K4 Actions run `40225354525` `completed/success`; test işi ve regresyon adımı da `success`. https://github.com/Madsc55/madsc-tv/actions/runs/40225354525
+- `3364b44a1eea35872ab6915868a8efd043c5a264`: `K4_GERCEK_GERI_YUKLEME_KABUL.md` eklendi; bağımsız kaynak, tarihsel kopya, izole test, gizli veri koruması ve kabul kapıları tanımlandı.
+- Harici yedek/manifest sağlanmadığı için gerçek kurtarma kabulü `BEKLİYOR`. Kod CI başarısı bu kanıtın yerini tutmaz; K1–K5 üretim kabulü de ayrıca açık.
+
 ## 25 Ekim 2026 — K4 TAR AKIŞ TESTLERİ KABUL KANITI
 - `bebe44d5450d08f26199e2f156bc22aa61f06c18` commit'i için K4 Actions run `40207463954` (`K4 - İzole Yedek Geri Yükleme Testi`) `completed/success`; iş ve regresyon testi adımı `success` olarak doğrulandı.
 - Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40207463954
