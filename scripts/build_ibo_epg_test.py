@@ -30,6 +30,7 @@ for programme in source.findall("programme"):
         counts[cid] += 1
 if set(TARGETS) != channel_ids or any(not counts[cid] for cid in TARGETS):
     raise RuntimeError(f"Five-channel EPG incomplete: found={channel_ids}, programmes={counts}")
+ET.indent(result, space="  ")
 ET.ElementTree(result).write(DEST, encoding="utf-8", xml_declaration=True)
 ET.parse(DEST)
 print(f"IBO test EPG: {DEST.stat().st_size} bytes, 5 channels, {sum(counts.values())} programmes")
