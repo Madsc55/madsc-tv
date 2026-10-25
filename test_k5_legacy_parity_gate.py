@@ -1,3 +1,4 @@
+import hashlib
 import unittest
 from scripts.k5_legacy_parity_gate import compare
 
@@ -36,10 +37,10 @@ class K5LegacyParityTest(unittest.TestCase):
                   "job_dependencies": {"build": ["test"]},
                   "workflow_content_sha256": "b" * 64}
         old = {"workflows": [workflow("a.yml", **fields)]}
-        old["historical_source"] = {"ref": "git:legacy-commit", "sha256": "c" * 64}
+        old["historical_source"] = {"ref": "git:legacy-commit", "sha256": hashlib.sha256(b"historical").hexdigest()}
         old["historical_baseline_verified"] = True
         old["historical_workflow_count"] = 1
-        result = compare(old, old)
+        result = compare(old, old, source_bytes=b"historical")
         self.assertEqual(result["status"], "PASS")
         self.assertFalse(result["behavioral_parity_verified"])
 
@@ -89,6 +90,17 @@ class K5LegacyParityTest(unittest.TestCase):
         result = compare(old, new)
         self.assertEqual(result["status"], "REVIEW_REQUIRED")
         self.assertEqual(result["added_workflows"], ["new.yml"])
+
+    def test_wrong_source_bytes_rejected(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": [],
+                  "job_dependencies": {}, "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("a.yml", **fields)],
+               "historical_baseline_verified": True, "historical_workflow_count": 1,
+               "historical_source": {"ref": "git:legacy-commit",
+                                     "sha256": hashlib.sha256(b"expected").hexdigest()}}
+        result = compare(old, old, source_bytes=b"tampered")
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertFalse(result["historical_source_digest_independently_verified"])
 
 if __name__ == "__main__":
     unittest.main()
