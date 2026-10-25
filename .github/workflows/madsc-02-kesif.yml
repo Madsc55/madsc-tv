@@ -87,7 +87,8 @@ jobs:
           python3 scripts/discovery_archive.py before
           python3 madsc_akilli_kesif.py
           python3 scripts/discovery_archive.py after
-          python3 scripts/candidate_epg_logo_join.py
+          # Legacy combined discovery deliberately deferred EPG joining.
+          # Keep the disabled legacy step out of the read-only replacement.
           python3 scripts/four_stage_discovery_report.py
       - name: Genis kaynak gecmisini koru ve secilen taramayi calistir
         id: wide
