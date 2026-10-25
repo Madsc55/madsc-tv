@@ -37,10 +37,6 @@ on:
       - '.github/workflows/madsc-02-kesif.yml'
       - '.github/workflows/toplu-sistem-kontrol.yml'
       - '.github/workflows/yedek-geri-yukleme-tatbikat.yml'
-      - 'test_five_category_runtime_integrity.py'
-      - 'test_workflow_failure_gate.py'
-      - 'tests/test_five_system_cutover_readiness.py'
-      - 'tests/test_k1_k5_ci_evidence.py'
   pull_request:
     branches:
       - madsc/bes-sistem-toplu-birlestirme
