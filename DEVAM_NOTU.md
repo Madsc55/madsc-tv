@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 TAR AKIŞ TESTLERİ KABUL KANITI
+- `bebe44d5450d08f26199e2f156bc22aa61f06c18` commit'i için K4 Actions run `40207463954` (`K4 - İzole Yedek Geri Yükleme Testi`) `completed/success`; iş ve regresyon testi adımı `success` olarak doğrulandı.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40207463954
+- Bu otomatik test, gerçek bağımsız/tarihsel yedek kurtarma kabulü değildir. Gerçek offsite yedek ve manifest bulunmadığından kabul `BEKLİYOR`; taslak PR #80 korunuyor.
+
 ## 25 Ekim 2026 — K4 TAR AKIŞ GÜVENLİĞİ
 - `79dec1c0a2071ce3ae8322b5a4ac7cd8ade460eb`: K4 arşiv doğrulayıcısı `getmembers()` ile tüm arşiv başlıklarını belleğe yüklemek yerine `r|*` akış modu ile tek tek doğruluyor; toplam dosya/boyut sınırları ve SHA256 kontrolleri korunuyor.
 - `cb34c243c7941c3e5c51a8d28363ebc682809b66`: beklenmeyen, eksik ve tekrarlanan arşiv üyesi için regresyon testleri eklendi.
