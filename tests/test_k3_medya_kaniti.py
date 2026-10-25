@@ -78,6 +78,14 @@ class MedyaKanitTesti(unittest.TestCase):
         self.assertEqual(value[:3], ["HAYIR", "HAYIR", "DOGRULANAMADI"])
         run.assert_not_called()
 
+    def test_ses_asamasinda_zaman_asimi_tum_onayi_engeller(self):
+        with patch.object(k3.subprocess, "run", side_effect=[
+            result(), subprocess.TimeoutExpired("ffmpeg", 65)
+        ]) as run:
+            value = k3.check(ROW)
+        self.assertEqual(value[:3], ["BELIRSIZ", "BELIRSIZ", "TEKRAR_TEST_BEKLIYOR"])
+        self.assertEqual(run.call_count, 2)
+
     def test_zaman_asimi_bozuk_olarak_isaretlenmez(self):
         with patch.object(k3.subprocess, "run", side_effect=subprocess.TimeoutExpired("ffmpeg", 65)):
             value = k3.check(ROW)
