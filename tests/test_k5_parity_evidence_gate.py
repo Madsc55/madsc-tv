@@ -24,6 +24,10 @@ class K5EvidenceGateTests(unittest.TestCase):
         self.assertEqual(result["records"][0]["errors"], ["ValueError"])
         self.assertNotIn("TOPSECRET", json.dumps(result))
 
+    def test_non_object_evidence_record_rejected(self):
+        with self.assertRaises(ValueError):
+            validate([None], NAMES)
+
     def test_more_than_92_evidence_records_rejected(self):
         with self.assertRaises(ValueError):
             validate([sample()] * 93, NAMES)
