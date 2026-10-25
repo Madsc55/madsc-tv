@@ -29,6 +29,8 @@ def compare(baseline, current):
     missing_evidence = sorted(name for name in old if name in new and
                               any(field not in old[name] or field not in new[name]
                                   for field in OPTIONAL_FIELDS))
+    # An added workflow is not automatically a regression, but must be reviewed.
+    # It may duplicate a legacy schedule or introduce a new write path.
     # A self-asserted boolean is not independent provenance. Require an
     # externally recorded immutable source ref and its 64-char SHA-256.
     source = baseline.get("historical_source")
@@ -42,7 +44,7 @@ def compare(baseline, current):
     baseline_verified = baseline.get("historical_baseline_verified") is True and provenance_valid
     expected_count = baseline.get("historical_workflow_count")
     count_verified = type(expected_count) is int and expected_count == len(old)
-    return {"status": "REVIEW_REQUIRED" if missing or changes or missing_evidence or not baseline_verified or not count_verified else "PASS",
+    return {"status": "REVIEW_REQUIRED" if missing or added or changes or missing_evidence or not baseline_verified or not count_verified else "PASS",
             "baseline_count": len(old), "current_count": len(new),
             "historical_baseline_verified": baseline_verified,
             "historical_provenance_metadata_present": bool(provenance_valid),
