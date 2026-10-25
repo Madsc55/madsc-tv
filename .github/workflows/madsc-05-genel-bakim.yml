@@ -7,6 +7,9 @@ on:
       - '.github/workflows/madsc-05-genel-bakim.yml'
       - 'scripts/k5_parity_evidence_gate.py'
       - 'tests/test_k5_parity_evidence_gate.py'
+      - 'scripts/k5_github_evidence_probe.py'
+      - 'tests/test_k5_github_evidence_probe.py'
+      - 'scripts/five_category_92_workflow_audit.py'
   workflow_dispatch:
     inputs:
       wide_scan_mode:
