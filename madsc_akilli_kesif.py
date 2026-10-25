@@ -27,6 +27,8 @@ def approved_sources():
             selected[source_id] = SOURCES[source_id]
         elif entry.get("status") != "BEKLIYOR":
             raise RuntimeError("Invalid K2 source status")
+    if len(set(SOURCES.values())) != len(SOURCES):
+        raise RuntimeError("Duplicate K2 discovery source URLs")
     if not selected:
         raise RuntimeError("No approved K2 discovery sources")
     return selected
