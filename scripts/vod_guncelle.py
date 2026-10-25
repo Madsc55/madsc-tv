@@ -44,8 +44,8 @@ def collect(today, opener=urllib.request.urlopen):
 def main():
     today = datetime.date.today()
     successes, records = collect(today)
-    if successes < 15:
-        raise RuntimeError("Incomplete TVMaze schedule; previous metadata preserved")
+    if successes < 15 or not records:
+        raise RuntimeError("Incomplete or empty TVMaze schedule; previous metadata preserved")
     payload = {"updated": today.isoformat(),
                "note": "Bölüm yayın takvimi; oynatma bağlantısı değildir.",
                "episodes": records}
