@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch TVMaze schedule metadata without erasing last known data on total failure."""
+"""Fetch TVMaze schedule metadata without overwriting prior data on incomplete or invalid responses."""
 import datetime
 import json
 import os
@@ -22,15 +22,19 @@ def collect(today, opener=urllib.request.urlopen):
                 episodes = json.load(response)
             if not isinstance(episodes, list):
                 raise ValueError("Expected a list of episodes")
-            successes += 1
+            day_records = []
             for ep in episodes:
                 if not isinstance(ep, dict):
                     raise ValueError("Invalid episode")
                 show = ep.get("show") or {}
-                records.append({"show": show.get("name"), "episode": ep.get("name"),
+                if not isinstance(show, dict):
+                    raise ValueError("Invalid show metadata")
+                day_records.append({"show": show.get("name"), "episode": ep.get("name"),
                                 "season": ep.get("season"), "number": ep.get("number"),
                                 "airdate": ep.get("airdate"), "url": ep.get("url"),
                                 "watch_url": None})
+            records.extend(day_records)
+            successes += 1
         except Exception as exc:
             print("Skipped", day, type(exc).__name__)
     return successes, records
