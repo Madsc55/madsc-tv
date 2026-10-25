@@ -585,3 +585,10 @@ Ton TV Yerel 64: yayıncının resmi site/iletişim bilgileri Çanakkale merkezl
 - `kanal-kararlilik.yml` gecmis normalizasyon testlerini calistiriyor ve test degisikliklerinde tetikleniyor; `scripts/kanal_kararlilik_takip.py` K3 75 aday x 6 saat hedefini BEKLIYOR diye raporluyor, URL tekrarlarini tekil sayiyor ve aralikli orneklerin kesintisiz yayin kaniti olmadigini belirtiyor. Run #40206339290 basarili.
 - EKSIK: 75 farkli yayinda gercek alti saatlik oynatma/teknik sureklilik kaniti ve K1-K5 davranissal kabul; IBO cihaz testi kullaniciya ait. Mevcut 24 saatlik seyrek gozlemler kesintisiz oynatma kaniti degil. K3 raporuna basari iddiasi eklenmemeli.
 - Korunan M3U listeleri, favoriler, logolar, arsivler, yedekler degistirilmedi. PR #71 ve `main` birlestirmesi yapilmadi.
+
+
+## 25 Ekim 2026 gece — K3 guvenlik ve medya testleri devir eki
+- K3 PR #79 dalinda `gelismis_medya_testi.py` bir kare video + 2 saniyelik ses ornegi cozer; 20 saniyelik kesintisiz oynatma iddiasi kaldirildi (433f8c8). 12 medya regresyon senaryosu `tests/test_k3_medya_kaniti.py` icinde; son commit 429e71c ve GitHub Actions #40229341717 basarili.
+- FFmpeg hata ciktisi URL/token sizintisi riski nedeniyle rapordan cikarildi; eksik URL guvenle reddediliyor. `bde3363` ve `429e71c` CI basarili.
+- K3 nihai kabul halen BEKLIYOR: 75 tekil yayin icin gercek 6 saatlik sureklilik kaniti, IBO cihazinda yayin/EPG dogrulamasi ve K1-K5 birlesik kabul testleri yok. Basarili birim testleri bu kanitlarin yerine gecmez.
+- Korunan M3U listeleri/favoriler/logolar/yedekler degismedi; main merge yok, PR #71 merge yok.
