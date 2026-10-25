@@ -90,6 +90,11 @@ def main():
         }
         for name in sorted(by_name)
     ]
+    report["unverified_evidence_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if row["evidence_submitted"])
+    report["production_acceptance_blockers"] = [
+        "NO_INDEPENDENT_BEHAVIOR_VERIFICATION",
+        "NOT_ALL_92_WORKFLOWS_HAVE_ACCEPTED_EVIDENCE",
+    ]
     report["unmapped_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if not row["replacement_candidates"])
     report["missing_script_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if row["unmatched_script_entrypoints"])
     report["unmatched_trigger_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if row["unmatched_trigger_signals"] or row["unmatched_cron_expressions"])
