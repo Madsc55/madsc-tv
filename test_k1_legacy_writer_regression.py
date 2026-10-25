@@ -7,7 +7,7 @@ import sys
 import tempfile
 import unittest
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parent
 ARCHIVE = ROOT / "scripts" / "archive_backups_354_classified.py"
 VOD = ROOT / "scripts" / "vod_guncelle.py"
 
