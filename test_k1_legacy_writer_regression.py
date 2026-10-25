@@ -102,5 +102,22 @@ class K1Regression(unittest.TestCase):
         self.assertEqual(len(records), 14)
         self.assertTrue(all(row["show"] == "Valid" for row in records))
 
+
+    def test_vod_replace_failure_preserves_previous_data_and_cleans_temp(self):
+        from unittest.mock import patch
+        spec = importlib.util.spec_from_file_location("vod_k1_replace", VOD)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with tempfile.TemporaryDirectory() as d:
+            mod.out = pathlib.Path(d) / "guncel-bolumler.json"
+            original = b'{"existing":true}\\n'
+            mod.out.write_bytes(original)
+            mod.collect = lambda today: (15, [{"episode": "valid"}])
+            with patch.object(mod.os, "replace", side_effect=OSError("disk error")):
+                with self.assertRaises(OSError):
+                    mod.main()
+            self.assertEqual(mod.out.read_bytes(), original)
+            self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
+
 if __name__ == "__main__":
     unittest.main()
