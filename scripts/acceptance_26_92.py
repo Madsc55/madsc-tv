@@ -147,7 +147,15 @@ def main():
     parser.add_argument("--output", default="acceptance-26-92.json")
     parser.add_argument("--require-full-acceptance", action="store_true")
     args = parser.parse_args()
-    report = execute()
+    try:
+        report = execute()
+    except (Exception, SystemExit) as exc:
+        report = {"generated_utc": datetime.now(timezone.utc).isoformat(),
+                  "git_sha": os.environ.get("GITHUB_SHA"),
+                  "github_run_id": os.environ.get("GITHUB_RUN_ID"),
+                  "test_suites": [], "audit_errors": [{"audit": "acceptance_execution",
+                  "error": "{}: {}".format(type(exc).__name__, exc)}],
+                  "static_security_clean": False, "acceptance_complete": False}
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
