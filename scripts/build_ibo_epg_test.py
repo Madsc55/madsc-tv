@@ -30,6 +30,14 @@ for programme in source.findall("programme"):
         counts[cid] += 1
 if set(TARGETS) != channel_ids or any(not counts[cid] for cid in TARGETS):
     raise RuntimeError(f"Five-channel EPG incomplete: found={channel_ids}, programmes={counts}")
+# Minimal XMLTV for IBO compatibility: retain programme title and exact channel IDs.
+for programme in result.findall("programme"):
+    for child in list(programme):
+        if child.tag not in ("title", "desc"):
+            programme.remove(child)
+    for field in ("start", "stop"):
+        if len(programme.get(field, "")) < 14:
+            raise RuntimeError(f"Invalid XMLTV {field}")
 ET.indent(result, space="  ")
 ET.ElementTree(result).write(DEST, encoding="utf-8", xml_declaration=True)
 ET.parse(DEST)
