@@ -1,3 +1,9 @@
+## 25 Ekim 2026 — K4 MERKEZİ RAPOR SÖZDİZİMİ DÜZELTMESİ
+- Merkezi rapora eklenen K4 sözlüğünde yanlışlıkla literal `\\n` kaçışları oluşmuştu. `fa46a1a7053ffd713a747f9c226461c969597af2` ile gerçek Python satır sonlarına düzeltildi.
+- `06b772c599b84195c6d4555f4f53ad17308f0a85` ile `test_central_backup_evidence.py` K4 güvenli/kanıtsız durum ayrımını doğruluyor.
+- `51b9df32ad7edc3fc89ec865f7a1f8d541a38786` ile K4 PR CI, merkezi yedek raporu sözdizimini ve testini de kapsıyor. Bu değişikliklerin Actions sonucu ayrıca doğrulanmalı.
+- Önceki `40184899307` run başarılıydı ancak yeni merkezi rapor düzeltmelerini kanıtlamaz. Gerçek harici/tarihsel yedek kurtarma halen kanıtsızdır.
+
 ## 25 Ekim 2026 — K4 MERKEZİ YEDEK KANIT RAPORU BAĞLANTISI
 - `scripts/central_backup_evidence.py` merkezi raporuna `k4_archive_verifier` bölümü eklendi. K4 kod/test/workflow varlığı gösterilir; gerçek arşiv kurtarma, dış depolama ve tarihsel geri dönüş kanıtları otomatik olarak başarı sayılmaz.
 - Değişiklik commit: `4d5b8c065fa4b037c15a1b600688d1d6ab2ceb6c`. Önceki doğrulanmış K4 CI run: `40183682226` success; bu yeni commit için ayrı başarılı CI sonucu henüz doğrulanmadı.
