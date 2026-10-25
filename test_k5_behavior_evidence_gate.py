@@ -71,5 +71,19 @@ class K5BehaviorEvidenceTests(unittest.TestCase):
             self.assertTrue(result["errors"])
             self.assertEqual(result["evidence_complete_pass_count"], 0)
 
+    def test_non_string_evidence_key_is_rejected(self):
+        import csv
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "matrix.csv"
+            with path.open("w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["legacy_workflow", "migration_decision"])
+                writer.writeheader()
+                writer.writerows(rows())
+            result = validate(path, {123: {"decision": "PASS"}})
+            self.assertTrue(result["errors"])
+            self.assertFalse(result["production_parity_verified"])
+
 if __name__ == "__main__":
     unittest.main()
