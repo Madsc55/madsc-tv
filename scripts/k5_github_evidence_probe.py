@@ -57,9 +57,13 @@ def probe(rows, repo, token, fetch=fetch_json):
             expected_path = ".github/workflows/" + str(row.get("replacement_workflow", ""))
             checks = {
                 "run_success": run.get("conclusion") == "success",
+                "run_repository": run.get("repository", {}).get("full_name", repo) == repo,
+                "run_event": run.get("event") in ("push", "pull_request", "workflow_dispatch", "schedule", "workflow_call"),
                 "run_sha": run.get("head_sha") == row.get("source_sha"),
                 "run_workflow": run.get("path", "").split("@", 1)[0] == expected_path,
                 "job_run": job.get("run_id") == run_id,
+                "job_id": job.get("id") == job_id,
+                "artifact_id": artifact.get("id") == artifact_id,
                 "job_success": job.get("conclusion") == "success",
                 "artifact_run": artifact.get("workflow_run", {}).get("id") == run_id,
                 "artifact_available": artifact.get("expired") is False and artifact.get("size_in_bytes", 0) > 0,
