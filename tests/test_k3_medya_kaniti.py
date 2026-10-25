@@ -14,6 +14,8 @@ class MedyaKanitTesti(unittest.TestCase):
         with patch.object(k3.subprocess, "run", side_effect=[result(), result()]) as run:
             value = k3.check(ROW)
         self.assertEqual(value[:2], ["EVET", "EVET"])
+        self.assertEqual(value[2], "MEDYA_ORNEGI_COZULDU_KIMLIK_BEKLIYOR")
+        self.assertIn("sureklilik", value[3])
         self.assertEqual(run.call_count, 2)
         self.assertIn("0:v:0", run.call_args_list[0].args[0])
         self.assertIn("0:a:0", run.call_args_list[1].args[0])
