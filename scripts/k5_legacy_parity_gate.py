@@ -29,8 +29,13 @@ def compare(baseline, current):
     missing_evidence = sorted(name for name in old if name in new and
                               any(field not in old[name] or field not in new[name]
                                   for field in OPTIONAL_FIELDS))
-    return {"status": "REVIEW_REQUIRED" if missing or changes or missing_evidence else "PASS",
+    baseline_verified = baseline.get("historical_baseline_verified") is True
+    expected_count = baseline.get("historical_workflow_count")
+    count_verified = type(expected_count) is int and expected_count == len(old)
+    return {"status": "REVIEW_REQUIRED" if missing or changes or missing_evidence or not baseline_verified or not count_verified else "PASS",
             "baseline_count": len(old), "current_count": len(new),
+            "historical_baseline_verified": baseline_verified,
+            "historical_count_matches": count_verified,
             "missing_workflows": missing, "added_workflows": added,
             "changed_triggers_or_permissions": changes,
             "missing_step_level_evidence": missing_evidence,
