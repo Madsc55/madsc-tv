@@ -9,7 +9,7 @@ SHA = re.compile(r"^[0-9a-f]{40}$")
 REQUIRED = ("legacy_workflow", "replacement_workflow", "source_sha",
             "run_id", "job_id", "artifact_id", "checks")
 
-def validate(rows, legacy_names):
+def validate(rows, legacy_names, replacement_candidates=None):
     if not isinstance(rows, list) or not isinstance(legacy_names, (list, set, tuple)):
         raise ValueError("Evidence and inventory must be collections")
     known = set(legacy_names)
@@ -26,6 +26,8 @@ def validate(rows, legacy_names):
         seen.add(name)
         if row["replacement_workflow"] not in {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}:
             raise ValueError("Missing five-system replacement")
+        if replacement_candidates is not None and row["replacement_workflow"] not in replacement_candidates.get(name, []):
+            raise ValueError("Replacement is not a mapped candidate for legacy workflow")
         if not isinstance(row["source_sha"], str) or not SHA.fullmatch(row["source_sha"]):
             raise ValueError("Invalid source commit SHA")
         if any(type(row[key]) is not int or row[key] <= 0 for key in ("run_id", "job_id", "artifact_id")):
@@ -53,7 +55,8 @@ def main():
     args = parser.parse_args()
     inventory = json.loads(Path(args.inventory).read_text(encoding="utf-8"))
     evidence = json.loads(Path(args.evidence).read_text(encoding="utf-8"))
-    report = validate(evidence, [item["file"] for item in inventory["items"]])
+    report = validate(evidence, [item["file"] for item in inventory["items"]],
+                      {item["file"]: item["possible_replacement_workflows"] for item in inventory["items"]})
     Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({key: value for key, value in report.items() if key != "missing_evidence"}))
     if args.require_production_ready and not report["production_ready"]:
