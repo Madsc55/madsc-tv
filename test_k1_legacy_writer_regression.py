@@ -158,5 +158,13 @@ class K1Regression(unittest.TestCase):
             self.assertEqual(mod.out.read_bytes(), original)
             self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
 
+    def test_k5_legacy_parity_cannot_be_approved_from_static_inventory(self):
+        from scripts.five_category_92_workflow_audit import inspect
+        report = inspect(ROOT)
+        self.assertEqual(report["total"], 92)
+        self.assertEqual(report["behavioral_parity_verified_count"], 0)
+        self.assertEqual(report["migration_blocked_count"], 92)
+        self.assertTrue(all(not item["behavioral_parity_verified"] for item in report["items"]))
+
 if __name__ == "__main__":
     unittest.main()
