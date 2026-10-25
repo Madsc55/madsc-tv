@@ -34,16 +34,11 @@ jobs:
           python3 -m json.tool madsc_kesif/gecmis.json > /dev/null
           test -s madsc_kesif/gecmis.json || { echo "::error::Kalıcı keşif geçmişi eksik"; exit 1; }
           test -s madsc_kesif/bulunan_kanal_arsivi.csv || { echo "::error::Kalıcı keşif arşivi eksik"; exit 1; }
-      - name: Yayın kontrol aracını kur
-        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
-      - name: Python ortamını hazırla
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Görüntü işleme araçlarını kur
-        run: python -m pip install Pillow cairosvg
       - name: K2 kaynak onay kayıtlarını denetle
-        run: python3 scripts/k2_source_approval_audit.py
+        run: |
+          python3 scripts/k2_source_approval_audit.py
+          echo '### K2 kaynak onayı' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Onaylı kaynak yoksa tarama başlamaz. Onay kayıtları: k2_kaynak_onaylari.json' >> "$GITHUB_STEP_SUMMARY"
       - name: K2 onaylı kaynaklar olmadan otomatik keşfi engelle
         shell: bash
         run: |
@@ -56,6 +51,14 @@ jobs:
           if not report['approved_ids']:
               raise SystemExit('Onaylı kaynak bulunmuyor; otomatik keşif güvenli şekilde durduruldu')
           PY
+      - name: Yayın kontrol aracını kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Python ortamını hazırla
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Görüntü işleme araçlarını kur
+        run: python -m pip install Pillow cairosvg
       - name: Kalici arsivdeki URLleri tekrar testten koru
         run: python3 scripts/discovery_archive.py before
       - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
