@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/kanal_kararlilik_takip.py'
+      - 'tests/test_kararlilik_gecmis.py'
       - '.github/workflows/kanal-kararlilik.yml'
 permissions:
   contents: read
@@ -15,6 +16,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: K3 gecmis regresyonlarini dogrula
+        run: python3 -m unittest discover -s tests -p test_kararlilik_gecmis.py -v
       - name: Restore previous observation history
         uses: actions/cache/restore@v4
         with:

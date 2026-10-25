@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent bounded 20-second decode test of promising HLS candidates; no playlist edits."""
+"""Bounded independent video-frame and audio-PCM decode probes; no playlist edits."""
 import csv
 import json
 import os
@@ -12,26 +12,33 @@ FIELDS = ["KANAL","YAYIN_URL","KAYNAK","ON_TEST","VIDEO","SES","DURUM","ACIKLAMA
 MAX = max(0, min(int(os.getenv("DEEP_TEST_LIMIT", "5")), 10))
 
 def check(row):
-    url = row["YAYIN_URL"].strip()
+    url = (row.get("YAYIN_URL") or "").strip()
     if not url.lower().startswith(("https://","http://")):
         return ["HAYIR","HAYIR","DOGRULANAMADI","Gecersiz URL"]
-    # -t bounds media duration, subprocess timeout bounds stalled network.
-    cmd = ["ffmpeg","-nostdin","-hide_banner","-loglevel","error",
-           "-rw_timeout","12000000","-i",url,"-t","20",
-           "-map","0:v:0?","-map","0:a:0?","-f","null","-"]
+    # Separate bounded decodes prove actual output for each media type.
+    # A prior CSV flag or stream metadata alone is never accepted as evidence.
+    base = ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
+            "-rw_timeout", "12000000", "-i", url]
+    video_cmd = base + ["-map", "0:v:0", "-frames:v", "1",
+                        "-f", "image2pipe", "-vcodec", "mjpeg", "pipe:1"]
+    audio_cmd = base + ["-map", "0:a:0", "-t", "2",
+                        "-f", "s16le", "-acodec", "pcm_s16le", "pipe:1"]
     try:
-        p = subprocess.run(cmd,capture_output=True,text=True,timeout=65,check=False)
-        if p.returncode:
-            return ["BELIRSIZ","BELIRSIZ","DOGRULANAMADI",(p.stderr or "ffmpeg hata")[-200:].replace("\n"," ")]
-        # Decode success is not proof of BOTH streams. Require prior ffprobe video+audio metadata.
-        both = row.get("MEDYA_TEST") == "VIDEO_SES_VAR"
-        return ["EVET" if both else "BELIRSIZ","EVET" if both else "BELIRSIZ",
-                "20SN_MEDYA_COZUMLEME_GECTI_KIMLIK_BEKLIYOR" if both else "MEDYA_BILESENI_BELIRSIZ",
-                "20 saniyelik cozumleme tamamlandi; kanal kimligi ve yayin hakki dogrulanmadi"]
+        video = subprocess.run(video_cmd, capture_output=True, timeout=65, check=False)
+        audio = subprocess.run(audio_cmd, capture_output=True, timeout=65, check=False)
+        has_video = video.returncode == 0 and len(video.stdout) > 0
+        has_audio = audio.returncode == 0 and len(audio.stdout) > 0
+        if has_video and has_audio:
+            return ["EVET", "EVET", "MEDYA_ORNEGI_COZULDU_KIMLIK_BEKLIYOR",
+                    "Tek video kare ve iki saniyelik ses PCM ornegi cozuldu; sureklilik, kimlik ve yayin hakki dogrulanmadi"]
+        return ["EVET" if has_video else "BELIRSIZ",
+                "EVET" if has_audio else "BELIRSIZ",
+                "MEDYA_BILESENI_BELIRSIZ",
+                "Video veya ses ornegi cozulmedi; ayrintili FFmpeg hatasi gizlendi (URL/token sizintisini onlemek icin)"]
     except subprocess.TimeoutExpired:
         return ["BELIRSIZ","BELIRSIZ","TEKRAR_TEST_BEKLIYOR","65 saniye zaman asimi; yayin bozuk sayilmadi, sonraki taramada yeniden denenecek"]
     except Exception as exc:
-        return ["BELIRSIZ","BELIRSIZ","DOGRULANAMADI",str(exc)[:200]]
+        return ["BELIRSIZ","BELIRSIZ","DOGRULANAMADI",type(exc).__name__]
 
 def main():
     with SOURCE.open(encoding="utf-8-sig",newline="") as f:
