@@ -60,5 +60,20 @@ class K1Regression(unittest.TestCase):
                 mod.main()
             self.assertEqual(mod.out.read_bytes(), b'{"existing":true}\n')
 
+
+    def test_vod_complete_success_replaces_metadata(self):
+        import json
+        spec = importlib.util.spec_from_file_location("vod_k1_success", VOD)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with tempfile.TemporaryDirectory() as d:
+            mod.out = pathlib.Path(d) / "guncel-bolumler.json"
+            mod.out.write_text('{"existing":true}', encoding="utf-8")
+            mod.collect = lambda today: (15, [{"episode": "verified"}])
+            mod.main()
+            result = json.loads(mod.out.read_text(encoding="utf-8"))
+            self.assertEqual(result["episodes"], [{"episode": "verified"}])
+            self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
+
 if __name__ == "__main__":
     unittest.main()
