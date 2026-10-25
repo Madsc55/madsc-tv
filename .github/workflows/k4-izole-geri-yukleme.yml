@@ -7,6 +7,8 @@ on:
       - 'test_k4_external_restore_verify.py'
       - 'scripts/central_backup_evidence.py'
       - 'test_central_backup_evidence.py'
+      - 'scripts/k5_legacy_parity_gate.py'
+      - 'test_k5_legacy_parity_gate.py'
       - '.github/workflows/k4-izole-geri-yukleme.yml'
 permissions:
   contents: read
@@ -22,5 +24,5 @@ jobs:
           persist-credentials: false
       - name: K4 söz dizimini ve regresyon testlerini doğrula
         run: |
-          python3 -m py_compile scripts/k4_external_restore_verify.py test_k4_external_restore_verify.py scripts/central_backup_evidence.py test_central_backup_evidence.py
-          python3 -m unittest test_k4_external_restore_verify test_central_backup_evidence -v
+          python3 -m py_compile scripts/k4_external_restore_verify.py test_k4_external_restore_verify.py scripts/central_backup_evidence.py test_central_backup_evidence.py scripts/k5_legacy_parity_gate.py test_k5_legacy_parity_gate.py
+          python3 -m unittest test_k4_external_restore_verify test_central_backup_evidence test_k5_legacy_parity_gate -v
