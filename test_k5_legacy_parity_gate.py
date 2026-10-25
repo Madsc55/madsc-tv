@@ -36,6 +36,7 @@ class K5LegacyParityTest(unittest.TestCase):
                   "job_dependencies": {"build": ["test"]},
                   "workflow_content_sha256": "b" * 64}
         old = {"workflows": [workflow("a.yml", **fields)]}
+        old["historical_source"] = {"ref": "git:legacy-commit", "sha256": "c" * 64}
         old["historical_baseline_verified"] = True
         old["historical_workflow_count"] = 1
         result = compare(old, old)
@@ -68,6 +69,15 @@ class K5LegacyParityTest(unittest.TestCase):
         result = compare(old, old)
         self.assertEqual(result["status"], "REVIEW_REQUIRED")
         self.assertFalse(result["historical_count_matches"])
+
+    def test_self_attested_baseline_without_source_rejected(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": [],
+                  "job_dependencies": {}, "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("a.yml", **fields)],
+               "historical_baseline_verified": True, "historical_workflow_count": 1}
+        result = compare(old, old)
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertFalse(result["historical_provenance_metadata_present"])
 
 if __name__ == "__main__":
     unittest.main()
