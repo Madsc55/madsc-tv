@@ -1,0 +1,24 @@
+name: K4 - İzole Yedek Geri Yükleme Testi
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/k4_external_restore_verify.py'
+      - 'test_k4_external_restore_verify.py'
+      - '.github/workflows/k4-izole-geri-yukleme.yml'
+permissions:
+  contents: read
+jobs:
+  izole-kurtarma:
+    name: K4 güvenli arşiv kurtarma testleri
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Depoyu salt okunur al
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: K4 söz dizimini ve regresyon testlerini doğrula
+        run: |
+          python3 -m py_compile scripts/k4_external_restore_verify.py test_k4_external_restore_verify.py
+          python3 -m unittest test_k4_external_restore_verify -v
