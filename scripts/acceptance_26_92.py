@@ -18,7 +18,6 @@ SUITES = [
     "test_k1_24_rule_evidence.py",
     "test_k1_workflow_risk_inventory.py",
     "test_k1_legacy_writer_guards.py",
-    "test_k1_legacy_writer_regression.py",
     "test_k1_reviewed_readonly_scanner.py",
     "test_k1_k5_ci_evidence.py",
     "test_k1_runtime_workflow_guard.py",
@@ -45,7 +44,7 @@ def execute():
         except (subprocess.TimeoutExpired, OSError) as exc:
             tests.append({"suite": name, "passed": False, "returncode": None,
                           "log_tail": str(exc)})
-    for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate"):
+    for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate", "test_k1_legacy_writer_regression"):
         try:
             runtime = subprocess.run([sys.executable, "-m", "unittest", "discover",
                                       "-s", ".", "-p", name + ".py", "-v"],
