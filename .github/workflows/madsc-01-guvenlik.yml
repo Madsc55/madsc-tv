@@ -77,7 +77,7 @@ jobs:
         run: |
           set -uo pipefail
           failed=0
-          for suite in test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory test_five_category_runtime_integrity; do
+          for suite in test_central_protected_write_gate test_central_consolidation_audit test_tek_merkez_tetikleme test_central_workflow_inventory test_five_category_runtime_integrity test_k1_legacy_writer_regression; do
             echo "::group::Regresyon: ${suite}"
             if python3 -m unittest "${suite}" -v; then
               echo "PASS ${suite}"
