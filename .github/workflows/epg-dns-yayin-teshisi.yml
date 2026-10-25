@@ -1,0 +1,69 @@
+name: EPG DNS ve Yayin Teshisi
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  epg-dns-yayin-denetimi:
+    name: EPG DNS ve yayin erisimi
+    runs-on: ubuntu-latest
+    steps:
+      - name: DNS cozumlemesi ve canli XMLTV denetimi
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import socket
+          import urllib.error
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+
+          host = "madsc55.github.io"
+          url = "https://madsc55.github.io/madsc-tv/madsc-epg.xml"
+          try:
+              addresses = sorted({row[4][0] for row in socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM)})
+              print("DNS_OK:", host, addresses)
+          except OSError as exc:
+              raise SystemExit("DNS_FAILURE: " + str(exc))
+          request = urllib.request.Request(url + "?diagnostic=" + dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d%H%M"),
+                                           headers={"Cache-Control": "no-cache", "User-Agent": "MADSC55-EPG-health/1.0"})
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  print("HTTP_STATUS:", response.status, "CONTENT_TYPE:", response.headers.get("Content-Type"))
+                  data = response.read(30_000_001)
+          except (urllib.error.URLError, TimeoutError) as exc:
+              raise SystemExit("HTTP_OR_TLS_FAILURE: " + str(exc))
+          if len(data) > 30_000_000:
+              raise SystemExit("XMLTV_TOO_LARGE")
+          try:
+              root = ET.fromstring(data)
+          except ET.ParseError as exc:
+              raise SystemExit("XMLTV_PARSE_FAILURE: " + str(exc))
+          if root.tag != "tv":
+              raise SystemExit("INVALID_XMLTV_ROOT")
+          channels = {c.get("id") for c in root.findall("channel")}
+          programmes = root.findall("programme")
+          print("XMLTV_CHANNELS:", len(channels), "XMLTV_PROGRAMMES:", len(programmes), "BYTES:", len(data))
+          now = dt.datetime.now(dt.timezone.utc)
+          future = Counter()
+          for p in programmes:
+              stop = p.get("stop", "")
+              try:
+                  timestamp = dt.datetime.strptime(stop[:14], "%Y%m%d%H%M%S")
+                  offset = stop[14:].strip()
+                  if offset and len(offset) == 5 and offset[0] in "+-" and offset[1:].isdigit():
+                      delta = dt.timedelta(hours=int(offset[1:3]), minutes=int(offset[3:]))
+                      timestamp -= delta if offset[0] == "+" else -delta
+                  timestamp = timestamp.replace(tzinfo=dt.timezone.utc)
+                  if timestamp > now:
+                      future[p.get("channel")] += 1
+              except ValueError:
+                  continue
+          print("CHANNELS_WITH_FUTURE_PROGRAMMES:", len(future))
+          if not channels or not programmes:
+              raise SystemExit("XMLTV_EMPTY")
+          if not future:
+              raise SystemExit("XMLTV_STALE_NO_FUTURE_PROGRAMMES")
+          print("EPG_LIVE_CHECK_OK (device check still required)")
+          PY
