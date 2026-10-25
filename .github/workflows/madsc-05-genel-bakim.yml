@@ -142,9 +142,8 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import json
           from pathlib import Path
-          Path("madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json").write_text("[]\\n", encoding="utf-8")
+          Path("madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json").write_text("[]", encoding="utf-8")
           PY
           python3 scripts/k5_parity_evidence_gate.py \
             --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
