@@ -1,3 +1,9 @@
+## 25 Ekim 2026 — K4 GOOGLE DRIVE YEDEK KAYNAĞI DENETİMİ
+- Bağlı Google Drive'da `MADSC55-TV/K4-Backups` klasörü doğrulandı: https://drive.google.com/drive/folders/1jZC8sddYmZWpEnJeeoZmobOXem5aCtx8
+- Klasörde yalnız `K4-Fixture-Only` alt klasörü var; içindeki iki `.txt` ve bir Google Docs dosyası adları gereği fixture/test verisi. Gerçek TAR yedek arşivi veya SHA-256 manifesti bulunmadı. Bu bulgu, arama ve klasör listeleme kapsamıyla sınırlıdır.
+- `c0aabb8aed084bd258e66f662d73ad27e0b696fa` commit'i için K4 Actions run `40229085296` `completed/success`: https://github.com/Madsc55/madsc-tv/actions/runs/40229085296
+- Gerçek tarihsel offsite kurtarma kabulü `BEKLİYOR`. Fixture dosyaları gerçek yedek olarak gösterilmez. PR #80 taslak, korunan dosyalara dokunulmadı.
+
 ## 25 Ekim 2026 — K4 MANİFEST GÜVENLİĞİ CI SONUCU
 - `3529cced3c4b055facfd3a9a6f111c328e7a0b47` için K4 GitHub Actions run `40228693990` `completed/success`; iş `K4 güvenli arşiv kurtarma testleri` ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı ayrı ayrı `success`.
 - Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40228693990
