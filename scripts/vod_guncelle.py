@@ -26,7 +26,9 @@ def collect(today, opener=urllib.request.urlopen):
             for ep in episodes:
                 if not isinstance(ep, dict):
                     raise ValueError("Invalid episode")
-                show = ep.get("show") or {}
+                show = ep.get("show")
+                if show is None:
+                    show = {}
                 if not isinstance(show, dict):
                     raise ValueError("Invalid show metadata")
                 day_records.append({"show": show.get("name"), "episode": ep.get("name"),
