@@ -11,6 +11,7 @@ import tarfile
 import tempfile
 from pathlib import Path, PurePosixPath
 
+MAX_MANIFEST_BYTES = 2 * 1024 * 1024
 MAX_FILES = 10000
 MAX_TOTAL_BYTES = 2 * 1024 * 1024 * 1024
 MAX_FILE_BYTES = 512 * 1024 * 1024
@@ -22,7 +23,10 @@ def safe_name(name):
     return not p.is_absolute() and all(part not in (".", "..") for part in name.split("/")) and bool(p.parts)
 
 def verify_archive(archive, manifest):
-    expected = json.loads(Path(manifest).read_text(encoding="utf-8"))
+    manifest_path = Path(manifest)
+    if manifest_path.stat().st_size > MAX_MANIFEST_BYTES:
+        raise ValueError("Manifest exceeds size limit")
+    expected = json.loads(manifest_path.read_text(encoding="utf-8"))
     if not isinstance(expected, dict) or not expected or len(expected) > MAX_FILES:
         raise ValueError("Invalid manifest size")
     for name, digest in expected.items():
