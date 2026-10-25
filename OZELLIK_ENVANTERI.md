@@ -43,3 +43,5 @@ Bu envanter **tekrar önleme kayıt kapısıdır**, tek başına tüm gelecektek
 - **İzole Git HEAD geri yükleme doğrulaması:** `scripts/central_isolated_git_restore.py` ve `test_central_isolated_git_restore.py`; üç korunan dosyanın Git HEAD sürümünü geçici dizinde geri açar, SHA256 ile doğrular. Harici veya tarihsel yedek kurtarma kanıtı değildir.
 
 - **IBO aday inceleme kuyruğu:** `scripts/central_ibo_review_queue.py`, `test_central_ibo_review_queue.py`; aday kanıtı varsa tekrarsız CSV üretir, IBO onayı ve liste aktarımı yapmaz. Kaynak mutabakatında ham kaynak adı tekrarları da denetlenir.
+
+- **K4 izole arşiv kurtarma doğrulayıcısı (25 Ekim 2026):** `scripts/k4_external_restore_verify.py`, `test_k4_external_restore_verify.py` ve `.github/workflows/k4-izole-geri-yukleme.yml`; TAR+SHA256 manifesti geçici dizinde sınırlarla doğrular. Harici depolama, tarihsel geri dönüş veya üretim kurtarması kanıtlanmış değildir. Taslak PR #80; Actions başarı koşusu bekleniyor.
