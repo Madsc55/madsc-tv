@@ -19,6 +19,11 @@ def validate(matrix, evidence):
     errors = []
     if len(names) != 92 or len(set(names)) != 92:
         errors.append("Expected exactly 92 unique legacy workflows")
+    if not all(isinstance(key, str) for key in evidence):
+        errors.append("Evidence keys must be workflow filenames")
+        return {"inventory_total": len(names), "evidence_submitted": len(evidence),
+                "evidence_complete_pass_count": 0, "accepted_candidates": [],
+                "errors": errors, "production_parity_verified": False}
     unknown = set(evidence) - set(names)
     if unknown:
         errors.append("Unknown evidence entries: " + ", ".join(sorted(unknown)))
@@ -62,7 +67,12 @@ def main():
     evidence = json.loads(evidence_file.read_text(encoding="utf-8"))
     if not isinstance(evidence, dict):
         raise SystemExit("Evidence registry must be a JSON object")
-    report = validate(matrix, evidence)
+    try:
+        report = validate(matrix, evidence)
+    except (OSError, ValueError, KeyError) as exc:
+        print(json.dumps({"errors": [f"Invalid or unavailable inventory matrix: {exc}"],
+                          "production_parity_verified": False}, ensure_ascii=False))
+        return 1
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 1 if report["errors"] else 0
 
