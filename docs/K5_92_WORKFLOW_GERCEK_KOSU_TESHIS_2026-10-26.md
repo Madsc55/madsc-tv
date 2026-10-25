@@ -21,3 +21,8 @@ Bu rapor canlı GitHub Actions koşusu `40244488710` ve K5 denetim sonuçlarınd
 Kayıt formatı doğrulaması **davranışsal eşdeğerlik kanıtı değildir**. Sahte/eksik kayıtlar reddedilir. `main`, CALISANLAR, IBO listeleri, YEDEKLER, YENİLER, FAVORİLER, logo ve arşiv korunur.
 
 Koşu: https://github.com/Madsc55/madsc-tv/actions/runs/40244488710
+
+## K2/K5 davranış farkı düzeltmesi
+- Eski `.github/workflows/madsc-birlesik-kesif.yml` içinde `candidate_epg_logo_join.py` adımı açıkça `if: ${{ false }}` ile devre dışıdır (EPG ertelendi).
+- Yeni `.github/workflows/madsc-02-kesif.yml` aynı scripti koşulsuz çalıştırıyordu; bu fark commit `67e6d0b53de0f27f51ca29c7cd61e783a357a571` ile giderildi.
+- Bu, **tek davranış farkının kod düzeltmesidir**; tüm eski birleşik keşif workflow'unun tam eşdeğerliği anlamına gelmez. Eski akışın `main` dalına rapor push etmesi yeni salt-okunur gölge akışta bilinçli olarak yoktur.
