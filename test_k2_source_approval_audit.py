@@ -75,6 +75,11 @@ class SourceApprovalTests(unittest.TestCase):
         scanner = (gate.ROOT / "madsc_akilli_kesif.py").read_text(encoding="utf-8")
         self.assertIn('raise RuntimeError("Duplicate K2 discovery source URLs")', scanner)
 
+    def test_non_http_source_is_rejected(self):
+        with patch.object(gate, "declared_sources", return_value={"unsafe": "file:///etc/passwd"}):
+            self.write({})
+            self.assertTrue(gate.audit()["errors"])
+
     def test_invalid_schema_is_rejected(self):
         self.write({}, schema=2)
         with self.assertRaises(ValueError):
