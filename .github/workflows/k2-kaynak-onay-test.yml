@@ -1,0 +1,36 @@
+name: K2 - Kaynak Onayı Birim Testleri
+on:
+  pull_request:
+    paths:
+      - 'madsc_akilli_kesif.py'
+      - 'scripts/k2_source_approval_audit.py'
+      - 'test_k2_source_approval_audit.py'
+      - 'k2_kaynak_onaylari.json'
+      - '.github/workflows/k2-kaynak-onay-test.yml'
+  push:
+    branches:
+      - 'fix/k2-discovery-safety-20261025'
+    paths:
+      - 'madsc_akilli_kesif.py'
+      - 'scripts/k2_source_approval_audit.py'
+      - 'test_k2_source_approval_audit.py'
+      - 'k2_kaynak_onaylari.json'
+      - '.github/workflows/k2-kaynak-onay-test.yml'
+permissions:
+  contents: read
+jobs:
+  kaynak-onay-testleri:
+    name: K2 kaynak onay kapısı
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Onay birim testlerini çalıştır
+        run: python3 -m unittest -v test_k2_source_approval_audit
+      - name: Mevcut kaynak kayıtlarını denetle
+        run: python3 scripts/k2_source_approval_audit.py
