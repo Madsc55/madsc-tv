@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 MERKEZİ YEDEK KANIT RAPORU BAĞLANTISI
+- `scripts/central_backup_evidence.py` merkezi raporuna `k4_archive_verifier` bölümü eklendi. K4 kod/test/workflow varlığı gösterilir; gerçek arşiv kurtarma, dış depolama ve tarihsel geri dönüş kanıtları otomatik olarak başarı sayılmaz.
+- Değişiklik commit: `4d5b8c065fa4b037c15a1b600688d1d6ab2ceb6c`. Önceki doğrulanmış K4 CI run: `40183682226` success; bu yeni commit için ayrı başarılı CI sonucu henüz doğrulanmadı.
+- Ana liste, yedek, logo, cron ve favoriler değiştirilmedi. PR #80 taslak, K1–K5 kabulü açık.
+
 ## 25 Ekim 2026 — K4 CI GERÇEK KOŞU DOĞRULAMASI
 - K4 taslak PR #80 için GitHub Actions run `40183682226` (`K4 - İzole Yedek Geri Yükleme Testi`) durumu `completed`, sonucu `success`. İş `K4 güvenli arşiv kurtarma testleri` ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı da `success` olarak GitHub API üzerinden doğrulandı.
 - Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40183682226
