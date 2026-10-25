@@ -48,6 +48,11 @@ class MedyaKanitTesti(unittest.TestCase):
         self.assertEqual(value[:3], ["HAYIR", "HAYIR", "DOGRULANAMADI"])
         run.assert_not_called()
 
+    def test_ffmpeg_baslatilamazsa_onay_verilmez(self):
+        with patch.object(k3.subprocess, "run", side_effect=FileNotFoundError("ffmpeg")):
+            value = k3.check(ROW)
+        self.assertEqual(value[:3], ["BELIRSIZ", "BELIRSIZ", "DOGRULANAMADI"])
+
     def test_zaman_asimi_bozuk_olarak_isaretlenmez(self):
         with patch.object(k3.subprocess, "run", side_effect=subprocess.TimeoutExpired("ffmpeg", 65)):
             value = k3.check(ROW)
