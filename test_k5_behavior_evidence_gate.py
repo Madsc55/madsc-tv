@@ -37,5 +37,25 @@ class K5BehaviorEvidenceTests(unittest.TestCase):
             result = validate(path, {"unrecognized.yml": {"decision": "PASS"}})
             self.assertTrue(result["errors"])
 
+    def test_forged_run_url_and_invalid_sha_fail_closed(self):
+        import csv
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "matrix.csv"
+            with path.open("w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["legacy_workflow", "migration_decision"])
+                writer.writeheader()
+                writer.writerows(rows())
+            evidence = {"legacy-00.yml": {
+                "legacy_sha": "not-a-sha", "replacement_sha": "b" * 40,
+                "trigger_comparison": "checked", "input_output_comparison": "checked",
+                "failure_comparison": "checked", "write_permission_comparison": "checked",
+                "actions_run_url": "https://github.com/Madsc55/madsc-tv/actions/runs/123/../../fake",
+                "decision": "PASS"}}
+            result = validate(path, evidence)
+            self.assertTrue(result["errors"])
+            self.assertEqual(result["evidence_complete_pass_count"], 0)
+
 if __name__ == "__main__":
     unittest.main()
