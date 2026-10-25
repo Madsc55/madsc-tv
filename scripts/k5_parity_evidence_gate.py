@@ -76,6 +76,8 @@ def main():
     report = validate(evidence, [item["file"] for item in inventory["items"]],
                       {item["file"]: item["possible_replacement_workflows"] for item in inventory["items"]})
     output_path = Path(args.output)
+    if output_path.is_dir():
+        raise ValueError("Report output must be a file")
     if output_path.resolve() in {Path(args.inventory).resolve(), Path(args.evidence).resolve()}:
         raise ValueError("Report output must not overwrite inventory or evidence")
     output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
