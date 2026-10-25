@@ -15,6 +15,14 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_incomplete_mapping_inventory_rejected(self):
+        with self.assertRaises(ValueError):
+            validate([], NAMES, {NAMES[0]: ["madsc-05-genel-bakim.yml"]})
+
+    def test_non_workflow_inventory_name_rejected(self):
+        with self.assertRaises(ValueError):
+            validate([], NAMES[:-1] + ["not-a-workflow.txt"])
+
     def test_unmapped_replacement_rejected(self):
         with self.assertRaises(ValueError):
             validate([sample()], NAMES, {NAMES[0]: ["madsc-01-guvenlik.yml"]})
