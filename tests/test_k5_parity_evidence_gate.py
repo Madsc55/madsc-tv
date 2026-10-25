@@ -1,4 +1,9 @@
 import unittest
+from unittest.mock import patch
+from tempfile import TemporaryDirectory
+from pathlib import Path
+import json
+from scripts.k5_parity_evidence_gate import main
 from scripts.k5_parity_evidence_gate import validate
 
 NAMES = [f"legacy-{i:02d}.yml" for i in range(92)]
@@ -10,6 +15,18 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_production_switch_fails_closed(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            inventory = root / "inventory.json"
+            evidence = root / "evidence.json"
+            output = root / "report.json"
+            inventory.write_text(json.dumps({"items": [{"file": name} for name in NAMES]}))
+            evidence.write_text("[]")
+            with patch("sys.argv", ["gate", "--inventory", str(inventory), "--evidence", str(evidence), "--output", str(output), "--require-production-ready"]):
+                self.assertEqual(main(), 1)
+            self.assertFalse(json.loads(output.read_text())["production_ready"])
+
     def test_empty_evidence_is_not_approval(self):
         result = validate([], NAMES)
         self.assertEqual(result["independently_verified_count"], 0)
