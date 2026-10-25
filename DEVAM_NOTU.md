@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 TEKRARLANAN MANİFEST ANAHTARI GÜVENLİĞİ
+- `1a58fe761e1f56e17d10f7540f11a4c27a5b5da2`: JSON manifestindeki aynı dosya anahtarının birden fazla kez verilmesi artık sessizce üzerine yazılmaz, hata ile reddedilir.
+- `3eea1112a3ae47b336039b93570cbe8d4818186f`: yinelenen JSON anahtarına regresyon testi eklendi. Yeni commit için CI sonucu henüz doğrulanmadı.
+- Bağımsız tarihsel TAR ve SHA256 manifesti bulunmadı; Drive `K4-Backups` yalnız fixture içeriyor. Gerçek geri yükleme kabulü açık; PR #80 taslak.
+
 ## 25 Ekim 2026 — K4 GOOGLE DRIVE YEDEK KAYNAĞI DENETİMİ
 - Bağlı Google Drive'da `MADSC55-TV/K4-Backups` klasörü doğrulandı: https://drive.google.com/drive/folders/1jZC8sddYmZWpEnJeeoZmobOXem5aCtx8
 - Klasörde yalnız `K4-Fixture-Only` alt klasörü var; içindeki iki `.txt` ve bir Google Docs dosyası adları gereği fixture/test verisi. Gerçek TAR yedek arşivi veya SHA-256 manifesti bulunmadı. Bu bulgu, arama ve klasör listeleme kapsamıyla sınırlıdır.
