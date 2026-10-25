@@ -33,6 +33,10 @@ def execute():
 
     tests = []
     for name in SUITES:
+        if not list((ROOT / "tests").glob(name)):
+            tests.append({"suite": name, "passed": False, "returncode": None,
+                          "log_tail": "No test files matched this suite pattern"})
+            continue
         try:
             result = subprocess.run(
                 [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", name, "-v"],
@@ -45,6 +49,10 @@ def execute():
             tests.append({"suite": name, "passed": False, "returncode": None,
                           "log_tail": str(exc)})
     for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate", "test_k1_legacy_writer_regression"):
+        if not (ROOT / (name + ".py")).is_file():
+            tests.append({"suite": name, "passed": False, "returncode": None,
+                          "log_tail": "Required root-level test file missing"})
+            continue
         try:
             runtime = subprocess.run([sys.executable, "-m", "unittest", "discover",
                                       "-s", ".", "-p", name + ".py", "-v"],
