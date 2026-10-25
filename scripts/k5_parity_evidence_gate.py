@@ -90,6 +90,9 @@ def main():
         }
         for name in sorted(by_name)
     ]
+    report["unmapped_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if not row["replacement_candidates"])
+    report["missing_script_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if row["unmatched_script_entrypoints"])
+    report["unmatched_trigger_workflows"] = sorted(row["legacy_workflow"] for row in report["workflow_gaps"] if row["unmatched_trigger_signals"] or row["unmatched_cron_expressions"])
     report["gap_reason_counts"] = {
         reason: sum(reason in row["migration_gap_reasons"] for row in report["workflow_gaps"])
         for reason in sorted({reason for row in report["workflow_gaps"] for reason in row["migration_gap_reasons"]})
