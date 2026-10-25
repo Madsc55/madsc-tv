@@ -42,6 +42,8 @@ jobs:
           python-version: '3.12'
       - name: Görüntü işleme araçlarını kur
         run: python -m pip install Pillow cairosvg
+      - name: K2 kaynak onay kayıtlarını denetle
+        run: python3 scripts/k2_source_approval_audit.py
       - name: Kalici arsivdeki URLleri tekrar testten koru
         run: python3 scripts/discovery_archive.py before
       - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
