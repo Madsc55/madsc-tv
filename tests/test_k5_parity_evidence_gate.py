@@ -5,6 +5,7 @@ from pathlib import Path
 import json
 from scripts.k5_parity_evidence_gate import main
 from scripts.k5_parity_evidence_gate import validate
+from scripts.k5_github_evidence_probe import probe
 
 NAMES = [f"legacy-{i:02d}.yml" for i in range(92)]
 
@@ -15,6 +16,14 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_github_probe_exception_does_not_leak_secret(self):
+        def bad_fetch(repo, endpoint, token):
+            raise ValueError("token=TOPSECRET in " + endpoint)
+        result = probe([sample()], "Madsc55/madsc-tv", "TOPSECRET", fetch=bad_fetch)
+        self.assertEqual(result["github_metadata_verified_count"], 0)
+        self.assertEqual(result["records"][0]["errors"], ["ValueError"])
+        self.assertNotIn("TOPSECRET", json.dumps(result))
+
     def test_all_92_workflows_get_gap_records(self):
         with TemporaryDirectory() as directory:
             root = Path(directory)
