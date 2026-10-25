@@ -66,6 +66,11 @@ class SourceApprovalTests(unittest.TestCase):
             self.write({})
             self.assertIn("duplicate source URLs declared", gate.audit()["errors"])
 
+    def test_scanner_uses_repository_relative_registry(self):
+        scanner = (gate.ROOT / "madsc_akilli_kesif.py").read_text(encoding="utf-8")
+        self.assertIn('pathlib.Path(__file__).resolve().with_name("k2_kaynak_onaylari.json")', scanner)
+        self.assertNotIn('pathlib.Path("k2_kaynak_onaylari.json").read_text', scanner)
+
     def test_invalid_schema_is_rejected(self):
         self.write({}, schema=2)
         with self.assertRaises(ValueError):
