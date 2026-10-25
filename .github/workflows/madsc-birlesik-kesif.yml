@@ -44,6 +44,18 @@ jobs:
         run: python -m pip install Pillow cairosvg
       - name: K2 kaynak onay kayıtlarını denetle
         run: python3 scripts/k2_source_approval_audit.py
+      - name: K2 onaylı kaynaklar olmadan otomatik keşfi engelle
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from scripts.k2_source_approval_audit import audit
+          report = audit()
+          if report['errors']:
+              raise SystemExit('Kaynak onay kaydı geçersiz')
+          if not report['approved_ids']:
+              raise SystemExit('Onaylı kaynak bulunmuyor; otomatik keşif güvenli şekilde durduruldu')
+          PY
       - name: Kalici arsivdeki URLleri tekrar testten koru
         run: python3 scripts/discovery_archive.py before
       - name: Kaynakları tara, tekrarları ayıkla ve adayları test et
