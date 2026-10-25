@@ -15,6 +15,17 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_directory_output_rejected(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            inventory = root / "inventory.json"
+            evidence = root / "evidence.json"
+            inventory.write_text(json.dumps({"items": [{"file": name, "possible_replacement_workflows": ["madsc-05-genel-bakim.yml"]} for name in NAMES]}))
+            evidence.write_text("[]")
+            with patch("sys.argv", ["gate", "--inventory", str(inventory), "--evidence", str(evidence), "--output", str(root)]):
+                with self.assertRaises(ValueError):
+                    main()
+
     def test_unhashable_mapping_candidate_rejected(self):
         mapping = {name: ["madsc-05-genel-bakim.yml"] for name in NAMES}
         mapping[NAMES[-1]] = [{"bad": "value"}]
