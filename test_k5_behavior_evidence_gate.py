@@ -57,5 +57,19 @@ class K5BehaviorEvidenceTests(unittest.TestCase):
             self.assertTrue(result["errors"])
             self.assertEqual(result["evidence_complete_pass_count"], 0)
 
+    def test_malformed_submitted_evidence_fails_closed(self):
+        import csv
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "matrix.csv"
+            with path.open("w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["legacy_workflow", "migration_decision"])
+                writer.writeheader()
+                writer.writerows(rows())
+            result = validate(path, {"legacy-00.yml": "approved"})
+            self.assertTrue(result["errors"])
+            self.assertEqual(result["evidence_complete_pass_count"], 0)
+
 if __name__ == "__main__":
     unittest.main()
