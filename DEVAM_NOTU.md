@@ -1,3 +1,81 @@
+## 25 Ekim 2026 — K4 TEKRARLANAN MANİFEST ANAHTARI GÜVENLİĞİ
+- `1a58fe761e1f56e17d10f7540f11a4c27a5b5da2`: JSON manifestindeki aynı dosya anahtarının birden fazla kez verilmesi artık sessizce üzerine yazılmaz, hata ile reddedilir.
+- `3eea1112a3ae47b336039b93570cbe8d4818186f`: yinelenen JSON anahtarına regresyon testi eklendi. Yeni commit için CI sonucu henüz doğrulanmadı.
+- Bağımsız tarihsel TAR ve SHA256 manifesti bulunmadı; Drive `K4-Backups` yalnız fixture içeriyor. Gerçek geri yükleme kabulü açık; PR #80 taslak.
+
+## 25 Ekim 2026 — K4 GOOGLE DRIVE YEDEK KAYNAĞI DENETİMİ
+- Bağlı Google Drive'da `MADSC55-TV/K4-Backups` klasörü doğrulandı: https://drive.google.com/drive/folders/1jZC8sddYmZWpEnJeeoZmobOXem5aCtx8
+- Klasörde yalnız `K4-Fixture-Only` alt klasörü var; içindeki iki `.txt` ve bir Google Docs dosyası adları gereği fixture/test verisi. Gerçek TAR yedek arşivi veya SHA-256 manifesti bulunmadı. Bu bulgu, arama ve klasör listeleme kapsamıyla sınırlıdır.
+- `c0aabb8aed084bd258e66f662d73ad27e0b696fa` commit'i için K4 Actions run `40229085296` `completed/success`: https://github.com/Madsc55/madsc-tv/actions/runs/40229085296
+- Gerçek tarihsel offsite kurtarma kabulü `BEKLİYOR`. Fixture dosyaları gerçek yedek olarak gösterilmez. PR #80 taslak, korunan dosyalara dokunulmadı.
+
+## 25 Ekim 2026 — K4 MANİFEST GÜVENLİĞİ CI SONUCU
+- `3529cced3c4b055facfd3a9a6f111c328e7a0b47` için K4 GitHub Actions run `40228693990` `completed/success`; iş `K4 güvenli arşiv kurtarma testleri` ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı ayrı ayrı `success`.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40228693990
+- Manifest boyut kontrolü dahil otomatik kod testleri doğrulandı. Gerçek bağımsız/tarihsel yedek ve izole üretim kurtarma kanıtı hâlâ mevcut değil. PR #80 taslak; K1–K5 nihai kabulü ayrı.
+
+## 25 Ekim 2026 — K4 MANİFEST BOYUT SINIRI
+- `0298b3e1975be75c85067c2b0de2519580b57c69` commit'i için GitHub Actions `40228072328` `completed/success` doğrulandı: https://github.com/Madsc55/madsc-tv/actions/runs/40228072328
+- `ca5c24fcb620e73d8eddbe8da0105f24d1778bd7`: güvenilmeyen manifest dosyasına JSON parse öncesi 2 MiB üst sınır eklendi.
+- `4f0d5c1ced6ea2f6c660ef629fee7bc321f817d6`: aşırı büyük manifest için reddetme regresyon testi eklendi. Bu yeni kodun CI sonucu henüz doğrulanmadı.
+- Gerçek offsite/tarihsel kurtarma için bağımsız arşiv ve manifest erişimi yok; üretim kabulü açık. PR #80 taslak, korunan dosyalar değişmedi.
+
+## 25 Ekim 2026 — K4 PROSEDÜR SONRASI CI KANITI
+- `55f0237f15e709e9449f4a5b769b1422ad1af44c` commit'i için K4 GitHub Actions run `40226372049` `completed/success`. `K4 güvenli arşiv kurtarma testleri` işi ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı da `success`.
+- https://github.com/Madsc55/madsc-tv/actions/runs/40226372049
+- Kod/test kabulü doğrulandı. Gerçek GitHub dışı tarihsel yedek, bağımsız manifest ve izole gerçek kurtarma kanıtı sunulmadığı için üretim kabulü açık. PR #80 taslak.
+
+## 25 Ekim 2026 — K4 GERÇEK GERİ YÜKLEME KABUL PROSEDÜRÜ
+- `ba241d10b364bab9d3e936db047d80881bc65497` commit'i için K4 Actions run `40225354525` `completed/success`; test işi ve regresyon adımı da `success`. https://github.com/Madsc55/madsc-tv/actions/runs/40225354525
+- `3364b44a1eea35872ab6915868a8efd043c5a264`: `K4_GERCEK_GERI_YUKLEME_KABUL.md` eklendi; bağımsız kaynak, tarihsel kopya, izole test, gizli veri koruması ve kabul kapıları tanımlandı.
+- Harici yedek/manifest sağlanmadığı için gerçek kurtarma kabulü `BEKLİYOR`. Kod CI başarısı bu kanıtın yerini tutmaz; K1–K5 üretim kabulü de ayrıca açık.
+
+## 25 Ekim 2026 — K4 TAR AKIŞ TESTLERİ KABUL KANITI
+- `bebe44d5450d08f26199e2f156bc22aa61f06c18` commit'i için K4 Actions run `40207463954` (`K4 - İzole Yedek Geri Yükleme Testi`) `completed/success`; iş ve regresyon testi adımı `success` olarak doğrulandı.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40207463954
+- Bu otomatik test, gerçek bağımsız/tarihsel yedek kurtarma kabulü değildir. Gerçek offsite yedek ve manifest bulunmadığından kabul `BEKLİYOR`; taslak PR #80 korunuyor.
+
+## 25 Ekim 2026 — K4 TAR AKIŞ GÜVENLİĞİ
+- `79dec1c0a2071ce3ae8322b5a4ac7cd8ade460eb`: K4 arşiv doğrulayıcısı `getmembers()` ile tüm arşiv başlıklarını belleğe yüklemek yerine `r|*` akış modu ile tek tek doğruluyor; toplam dosya/boyut sınırları ve SHA256 kontrolleri korunuyor.
+- `cb34c243c7941c3e5c51a8d28363ebc682809b66`: beklenmeyen, eksik ve tekrarlanan arşiv üyesi için regresyon testleri eklendi.
+- Son değişiklikler için CI sonucu henüz doğrulanmadı; önceki başarı `40206357479` yeni kodu kapsamaz.
+- Harici depolama kaynağı ve tarihsel kurtarma kanıtı halen sağlanmadı. PR #80 taslak, korunan dosyalar değiştirilmedi.
+
+## 25 Ekim 2026 — K4 TEKRARLANAN SON COMMIT CI KANITI
+- `6d157deaf9d4b85516c2a98cb56902139d698460` için GitHub Actions run `40206143509` `completed/success`; `K4 güvenli arşiv kurtarma testleri` işi ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı ayrı ayrı başarıyla tamamlandı.
+- https://github.com/Madsc55/madsc-tv/actions/runs/40206143509
+- Bu kanıt yalnız kod/regresyon testine aittir; gerçek offsite ve tarihsel geri yükleme kabulü açık kalır. PR #80 taslak; korunan liste ve yedeklere dokunulmadı.
+
+## 25 Ekim 2026 — K4 SON CI DOĞRULAMASI
+- `6fc47ba1cf533ec97e1e2cbc984293e004078683` commit'i için K4 Actions run `40196727272` (`K4 - İzole Yedek Geri Yükleme Testi`) `completed/success`. GitHub API üzerinden iş `K4 güvenli arşiv kurtarma testleri` ve adım `K4 söz dizimini ve regresyon testlerini doğrula` ayrı ayrı `success` doğrulandı.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40196727272
+- Açık kabul: GitHub dışı gerçek yedek kaynağı, tarihsel kopya ve üretim kurtarma kanıtı sağlanmadı; bu CI bunları doğrulamaz. PR #80 taslak, main değişmedi.
+
+## 25 Ekim 2026 — K4 MERKEZİ RAPOR SÖZDİZİMİ DÜZELTMESİ
+- Merkezi rapora eklenen K4 sözlüğünde yanlışlıkla literal `\\n` kaçışları oluşmuştu. `fa46a1a7053ffd713a747f9c226461c969597af2` ile gerçek Python satır sonlarına düzeltildi.
+- `06b772c599b84195c6d4555f4f53ad17308f0a85` ile `test_central_backup_evidence.py` K4 güvenli/kanıtsız durum ayrımını doğruluyor.
+- `51b9df32ad7edc3fc89ec865f7a1f8d541a38786` ile K4 PR CI, merkezi yedek raporu sözdizimini ve testini de kapsıyor. Bu değişikliklerin Actions sonucu ayrıca doğrulanmalı.
+- Önceki `40184899307` run başarılıydı ancak yeni merkezi rapor düzeltmelerini kanıtlamaz. Gerçek harici/tarihsel yedek kurtarma halen kanıtsızdır.
+
+## 25 Ekim 2026 — K4 MERKEZİ YEDEK KANIT RAPORU BAĞLANTISI
+- `scripts/central_backup_evidence.py` merkezi raporuna `k4_archive_verifier` bölümü eklendi. K4 kod/test/workflow varlığı gösterilir; gerçek arşiv kurtarma, dış depolama ve tarihsel geri dönüş kanıtları otomatik olarak başarı sayılmaz.
+- Değişiklik commit: `4d5b8c065fa4b037c15a1b600688d1d6ab2ceb6c`. Önceki doğrulanmış K4 CI run: `40183682226` success; bu yeni commit için ayrı başarılı CI sonucu henüz doğrulanmadı.
+- Ana liste, yedek, logo, cron ve favoriler değiştirilmedi. PR #80 taslak, K1–K5 kabulü açık.
+
+## 25 Ekim 2026 — K4 CI GERÇEK KOŞU DOĞRULAMASI
+- K4 taslak PR #80 için GitHub Actions run `40183682226` (`K4 - İzole Yedek Geri Yükleme Testi`) durumu `completed`, sonucu `success`. İş `K4 güvenli arşiv kurtarma testleri` ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı da `success` olarak GitHub API üzerinden doğrulandı.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40183682226
+- Bu yalnız örnek arşivli otomatik regresyon doğrulamasıdır. Gerçek bağımsız/offsite yedek kurtarma, tarihsel veri kurtarma ve K1–K5 nihai kabulü HENÜZ doğrulanmadı. Korunan dosyalara dokunulmadı.
+
+## 25 Ekim 2026 — K4 HARİCİ YEDEK İZOLE KURTARMA DEVİR NOTU
+- K4 dalı: `k4/external-restore-evidence-20261025`; taslak PR #80, hedef `fix/ibo-only-xmltv-20261025`. Ana dala birleştirme yapılmadı.
+- Yeni `scripts/k4_external_restore_verify.py`: kullanıcı tarafından sağlanan TAR arşivi ve SHA256 manifestini yalnız geçici dizinde açıp doğrular; yol aşımı, bağlantılar, manifest uyuşmazlığı, boyut ve dosya sayısı sınırları uygulanır. Korunan yayın listelerine, yedeklere ve cron'a yazmaz.
+- `test_k4_external_restore_verify.py`: örnek arşiv, bozuk SHA256, tehlikeli yol ve sembolik bağlantı için regresyon senaryoları eklendi.
+- `.github/workflows/k4-izole-geri-yukleme.yml`: Türkçe adlı, salt okunur PR/manuel CI tanımı eklendi. Gerçek Actions run ID ve başarılı sonuç henüz elde edilmedi; test BAŞARILI olarak raporlanmaz.
+- Kabul ayrımı: `supplied_archive_integrity_verified` ile `external_backup_verified` ve `historical_recovery_verified` birbirinden ayrıdır. Son ikisi gerçek bağımsız ve tarihsel yedek kanıtı olmadan FALSE.
+- AÇIK: CI koşusunu ve loglarını doğrula; gerçek GitHub dışı tarihsel yedeği güvenli ortamda kurtarıp kaynak/provenans ve SHA256 kanıtını sakla; 1/15 bakım akışı ve merkezi K1–K5 kabulüne entegre et. K1/K2/K3/K5 ve IBO kabulünü K4 kodu tamamlamaz.
+- Korunan CALISANLAR.m3u, HEPSİ, YENİLER, FAVORİLER, logolar ve arşiv/yedekler değiştirilmedi.
+
 ## 14 Ekim 2026 — TOPLU OTOMASYON YUKU AZALTMA / EK DENETIMLER ELLE
 - Kullanici merkezi testin yesil oldugunu bildirdi; gereksiz tekrarlari tek committe azaltma istendi.
 - Haftalik Cuma ana kanal + EPG denetiminin otomatik schedule tetigi kaldirildi; workflow_dispatch saklandi. Ana liste sagligi ayin 1 ve 15'inde, birlesik kanal kesfi her gun iki kez suruyor.
