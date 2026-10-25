@@ -15,16 +15,20 @@ def check(row):
     url = row["YAYIN_URL"].strip()
     if not url.lower().startswith(("https://","http://")):
         return ["HAYIR","HAYIR","DOGRULANAMADI","Gecersiz URL"]
-    # -t bounds media duration, subprocess timeout bounds stalled network.
+    # FFmpeg progress proves actual decoded frames and audio samples, not prior CSV labels.
     cmd = ["ffmpeg","-nostdin","-hide_banner","-loglevel","error",
            "-rw_timeout","12000000","-i",url,"-t","20",
-           "-map","0:v:0?","-map","0:a:0?","-f","null","-"]
+           "-map","0:v:0?","-map","0:a:0?","-progress","pipe:1","-f","null","-"]
     try:
         p = subprocess.run(cmd,capture_output=True,text=True,timeout=65,check=False)
         if p.returncode:
             return ["BELIRSIZ","BELIRSIZ","DOGRULANAMADI",(p.stderr or "ffmpeg hata")[-200:].replace("\n"," ")]
-        # Decode success is not proof of BOTH streams. Require prior ffprobe video+audio metadata.
-        both = row.get("MEDYA_TEST") == "VIDEO_SES_VAR"
+        # FFmpeg reports decoded output frames and audio size independently.
+        import re
+        frames = [int(x) for x in re.findall(r"(?m)^frame=(\\d+)\\s*$", p.stdout)]
+        audio = []
+        # Null muxer total_size is not audio-specific; do not treat it as audio proof.
+        both = False  # Fail closed until independent per-stream decode evidence is available.
         return ["EVET" if both else "BELIRSIZ","EVET" if both else "BELIRSIZ",
                 "20SN_MEDYA_COZUMLEME_GECTI_KIMLIK_BEKLIYOR" if both else "MEDYA_BILESENI_BELIRSIZ",
                 "20 saniyelik cozumleme tamamlandi; kanal kimligi ve yayin hakki dogrulanmadi"]
