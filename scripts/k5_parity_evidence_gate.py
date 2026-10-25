@@ -75,6 +75,21 @@ def main():
         raise ValueError("Invalid inventory item")
     report = validate(evidence, [item["file"] for item in inventory["items"]],
                       {item["file"]: item["possible_replacement_workflows"] for item in inventory["items"]})
+    # Every legacy workflow gets an actionable parity gap, not a blanket pass.
+    by_name = {item["file"]: item for item in inventory["items"]}
+    report["workflow_gaps"] = [
+        {
+            "legacy_workflow": name,
+            "evidence_submitted": name not in report["missing_evidence"],
+            "replacement_candidates": by_name[name]["possible_replacement_workflows"],
+            "unmatched_script_entrypoints": by_name[name].get("unmatched_script_entrypoints", []),
+            "unmatched_trigger_signals": by_name[name].get("unmatched_trigger_signals", []),
+            "unmatched_cron_expressions": by_name[name].get("unmatched_cron_expressions", []),
+            "migration_gap_reasons": by_name[name].get("migration_gap_reasons", []),
+            "behavioral_parity_verified": False,
+        }
+        for name in sorted(by_name)
+    ]
     output_path = Path(args.output)
     if output_path.is_dir():
         raise ValueError("Report output must be a file")
