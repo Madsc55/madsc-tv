@@ -4,13 +4,13 @@ import argparse
 import json
 import os
 import urllib.error
-import urllib.parse
+import re
 import urllib.request
 from pathlib import Path
 
 
 def fetch_json(repo, endpoint, token):
-    if not repo or "/" not in repo or not token:
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo or "") or not token:
         raise ValueError("GitHub repository and read-only token required")
     url = "https://api.github.com/repos/" + repo + "/" + endpoint
     request = urllib.request.Request(url, headers={
@@ -26,7 +26,7 @@ def fetch_json(repo, endpoint, token):
 def probe(rows, repo, token, fetch=fetch_json):
     if not isinstance(rows, list):
         raise ValueError("Evidence must be a list")
-    results = []
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo or ""):\n        raise ValueError("Invalid repository identifier")\n    results = []
     for row in rows:
         name = row.get("legacy_workflow") if isinstance(row, dict) else None
         result = {"legacy_workflow": name, "github_metadata_verified": False, "errors": []}
@@ -53,7 +53,7 @@ def probe(rows, repo, token, fetch=fetch_json):
             result["checks"] = checks
             result["errors"] = [key for key, ok in checks.items() if not ok]
             result["github_metadata_verified"] = all(checks.values())
-        except (ValueError, KeyError, TypeError, urllib.error.URLError, TimeoutError) as exc:
+        except (ValueError, KeyError, TypeError, AttributeError, urllib.error.URLError, TimeoutError) as exc:
             result["errors"].append(type(exc).__name__)
     return {"records": results, "github_metadata_verified_count": sum(r["github_metadata_verified"] for r in results),
             "independently_verified_behavior_count": 0, "production_ready": False}
