@@ -151,6 +151,9 @@ def main():
         print("::error title=Envanter denetimi::{}: {}".format(issue["audit"], issue["error"]))
     if not all(row["passed"] for row in report["test_suites"]) or report.get("audit_errors"):
         return 1
+    if not report.get("static_security_clean", False):
+        print("::error title=K1 statik guvenlik::Ungated protected writes or missing workflow permissions")
+        return 1
     if args.require_full_acceptance and not report["acceptance_complete"]:
         return 2
     return 0
