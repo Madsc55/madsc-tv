@@ -74,7 +74,10 @@ def main():
         raise ValueError("Invalid inventory item")
     report = validate(evidence, [item["file"] for item in inventory["items"]],
                       {item["file"]: item["possible_replacement_workflows"] for item in inventory["items"]})
-    Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    output_path = Path(args.output)
+    if output_path.resolve() in {Path(args.inventory).resolve(), Path(args.evidence).resolve()}:
+        raise ValueError("Report output must not overwrite inventory or evidence")
+    output_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({key: value for key, value in report.items() if key != "missing_evidence"}))
     if args.require_production_ready and not report["production_ready"]:
         return 1
