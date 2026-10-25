@@ -31,6 +31,7 @@ jobs:
           git fetch origin refs/heads/madsc/k2-discovery-report-store:refs/remotes/origin/madsc/k2-discovery-report-store
           git rev-parse refs/remotes/origin/madsc/k2-discovery-report-store > "${RUNNER_TEMP}/k2-report-base-sha"
           git restore --source=refs/remotes/origin/madsc/k2-discovery-report-store --worktree -- madsc_kesif/
+          git clean -fd -- madsc_kesif/
           test -s madsc_kesif/gecmis.json || { echo "::error::Kalıcı keşif geçmişi eksik"; exit 1; }
           test -s madsc_kesif/bulunan_kanal_arsivi.csv || { echo "::error::Kalıcı keşif arşivi eksik"; exit 1; }
       - name: Yayın kontrol aracını kur
