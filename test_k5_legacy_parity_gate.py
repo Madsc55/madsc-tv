@@ -36,6 +36,8 @@ class K5LegacyParityTest(unittest.TestCase):
                   "job_dependencies": {"build": ["test"]},
                   "workflow_content_sha256": "b" * 64}
         old = {"workflows": [workflow("a.yml", **fields)]}
+        old["historical_baseline_verified"] = True
+        old["historical_workflow_count"] = 1
         result = compare(old, old)
         self.assertEqual(result["status"], "PASS")
         self.assertFalse(result["behavioral_parity_verified"])
@@ -48,6 +50,24 @@ class K5LegacyParityTest(unittest.TestCase):
         result = compare(old, new)
         self.assertEqual(result["status"], "REVIEW_REQUIRED")
         self.assertIn("dispatch_targets", result["changed_triggers_or_permissions"][0]["differences"])
+
+    def test_unverified_historical_baseline_never_passes(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": [],
+                  "job_dependencies": {}, "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("a.yml", **fields)]}
+        result = compare(old, old)
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertFalse(result["historical_baseline_verified"])
+        self.assertFalse(result["historical_count_matches"])
+
+    def test_historical_count_mismatch_requires_review(self):
+        fields = {"job_steps_sha256": "a" * 64, "dispatch_targets": [],
+                  "job_dependencies": {}, "workflow_content_sha256": "b" * 64}
+        old = {"workflows": [workflow("a.yml", **fields)],
+               "historical_baseline_verified": True, "historical_workflow_count": 92}
+        result = compare(old, old)
+        self.assertEqual(result["status"], "REVIEW_REQUIRED")
+        self.assertFalse(result["historical_count_matches"])
 
 if __name__ == "__main__":
     unittest.main()
