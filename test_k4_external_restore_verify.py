@@ -80,5 +80,13 @@ class K4HariciGeriYuklemeTesti(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Manifest exceeds size limit"):
                 verify_archive(archive, manifest)
 
+    def test_manifest_cift_anahtar_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
+            digest = hashlib.sha256(b"protected sample").hexdigest()
+            manifest.write_text('{"safe/file.txt":"' + digest + '","safe/file.txt":"' + digest + '"}')
+            with self.assertRaisesRegex(ValueError, "Duplicate manifest entry"):
+                verify_archive(archive, manifest)
+
 if __name__ == "__main__":
     unittest.main()
