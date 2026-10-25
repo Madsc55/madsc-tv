@@ -27,3 +27,7 @@
 5. 92 eski workflow davranış eşdeğerliği ve beşli üretim kabulü merkez #78'de ayrıca doğrulanmalı.
 
 Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu not üretim onayı değildir.
+
+## Yeni saptanan entegrasyon riski (inceleme zorunlu)
+
+`scripts/discovery_archive.py` geçmişi `madsc_kesif/gecmis.json` ve `bulunan_kanal_arsivi.csv` üzerinden kalıcı okur/yazar. PR #81'in artifact-only yaklaşımı, sonraki koşuda bu dosyaların Git checkout'unda güncel bulunmasını **garanti etmez**; K2 tekrar-test engelleme geçmişi ve K3/K5 dosya tüketimi gerileyebilir. Bu nedenle PR #81 mevcut hâliyle **birleştirilmemeli**. Çözüm: kalıcı geçmişin güvenli ve atomik olarak saklanıp sonraki koşuda geri yüklenmesi; rapor tüketicilerinin de yeni konuma taşınması veya mevcut sözleşmenin korunması. Canlı uçtan uca test olmadan onay yok.
