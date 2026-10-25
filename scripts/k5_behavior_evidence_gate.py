@@ -3,6 +3,8 @@
 import csv
 import json
 import sys
+import re
+from urllib.parse import urlsplit
 from pathlib import Path
 
 REQUIRED = ("legacy_sha", "replacement_sha", "trigger_comparison", "input_output_comparison",
@@ -29,8 +31,15 @@ def validate(matrix, evidence):
         if any(not isinstance(record.get(key), str) or not record[key].strip() for key in REQUIRED):
             errors.append(name + ": incomplete behavior evidence")
             continue
-        if not record["actions_run_url"].startswith(RUN_PREFIX):
+        parsed = urlsplit(record["actions_run_url"])
+        if (parsed.scheme != "https" or parsed.netloc != "github.com"
+                or not re.fullmatch(r"/Madsc55/madsc-tv/actions/runs/[0-9]+", parsed.path)
+                or parsed.query or parsed.fragment):
             errors.append(name + ": invalid Actions run URL")
+            continue
+        if (not re.fullmatch(r"[0-9a-fA-F]{40}", record["legacy_sha"])
+                or not re.fullmatch(r"[0-9a-fA-F]{40}", record["replacement_sha"])):
+            errors.append(name + ": invalid commit SHA")
             continue
         if record.get("decision") != "PASS":
             continue
