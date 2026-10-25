@@ -28,7 +28,7 @@ class K5EvidenceGateTests(unittest.TestCase):
             validate([sample()], NAMES, {NAMES[0]: ["madsc-01-guvenlik.yml"]})
 
     def test_mapped_replacement_candidate_still_not_verified(self):
-        result = validate([sample()], NAMES, {NAMES[0]: ["madsc-05-genel-bakim.yml"]})
+        result = validate([sample()], NAMES, {name: ["madsc-05-genel-bakim.yml"] for name in NAMES})
         self.assertEqual(result["independently_verified_count"], 0)
 
     def test_production_switch_fails_closed(self):
