@@ -143,5 +143,20 @@ class K1Regression(unittest.TestCase):
             self.assertEqual(mod.out.read_bytes(), original)
             self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
 
+
+    def test_vod_all_empty_successful_days_do_not_erase_previous_data(self):
+        spec = importlib.util.spec_from_file_location("vod_k1_empty", VOD)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with tempfile.TemporaryDirectory() as d:
+            mod.out = pathlib.Path(d) / "guncel-bolumler.json"
+            original = b'{"existing":true}'
+            mod.out.write_bytes(original)
+            mod.collect = lambda today: (15, [])
+            with self.assertRaises(RuntimeError):
+                mod.main()
+            self.assertEqual(mod.out.read_bytes(), original)
+            self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
+
 if __name__ == "__main__":
     unittest.main()
