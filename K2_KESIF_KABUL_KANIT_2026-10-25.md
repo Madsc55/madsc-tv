@@ -54,3 +54,11 @@ Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu n
 - Keşif workflow'u hiç onaylı kaynak yoksa açık hata verir (`e398f6677e34a1d4b1648184e657727148dc6dfd`).
 - `madsc_akilli_kesif.py` artık doğrudan çağrılsa bile yalnız `ONAYLI` ve kanıtlı kaynakları tarar (`159159660dadcb7c7a7369976fda8d6bde394c18`).
 - **Mevcut 0 onay nedeniyle yeni keşif koşusunun başarıya ulaşması beklenmez.** Bu bir onay eksikliği ve güvenlik kapısıdır, tamamlanmış K2 kabulü değildir. Onay kaynağı sağlanmadan bu kontrol devre dışı bırakılmamalı.
+
+## K2 kaynak onayı CI — gerçek sonuç
+
+- Workflow: `K2 - Kaynak Onayı Birim Testleri`; commit `1db79abb1e48ea4de0b33f64d8bfa253788f6be6`.
+- Run `40226332452`: `completed/success`.
+- Run `40226336764`: `completed/success`.
+- Bu iki koşu yalnız onay kayıtlarının birim testlerini doğrular; tam keşif ve gerçek cihaz kabulü değildir.
+- Kaynak onay kayıtları hâlâ boş olduğundan keşif fail-closed durumdadır. Kaynak yetkilendirme kanıtı ve uçtan uca doğrulama eksiktir.
