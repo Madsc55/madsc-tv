@@ -110,7 +110,7 @@ class K1Regression(unittest.TestCase):
         spec.loader.exec_module(mod)
         with tempfile.TemporaryDirectory() as d:
             mod.out = pathlib.Path(d) / "guncel-bolumler.json"
-            original = b'{"existing":true}\\n'
+            original = b'{"existing":true}'
             mod.out.write_bytes(original)
             mod.collect = lambda today: (15, [{"episode": "valid"}])
             with patch.object(mod.os, "replace", side_effect=OSError("disk error")):
