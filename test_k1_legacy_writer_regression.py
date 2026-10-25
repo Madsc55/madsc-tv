@@ -75,5 +75,32 @@ class K1Regression(unittest.TestCase):
             self.assertEqual(result["episodes"], [{"episode": "verified"}])
             self.assertFalse(list(pathlib.Path(d).glob(".vod-*.tmp")))
 
+
+    def test_vod_malformed_day_does_not_count_or_leak_partial_records(self):
+        import io
+        import json
+        import urllib.parse
+        spec = importlib.util.spec_from_file_location("vod_k1_malformed", VOD)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        class Response(io.BytesIO):
+            def __enter__(self):
+                return self
+            def __exit__(self, *args):
+                self.close()
+
+        def fake_opener(request, timeout):
+            day = urllib.parse.parse_qs(urllib.parse.urlparse(request.full_url).query)["date"][0]
+            episodes = [{"show": {"name": "Valid"}, "name": "first"}]
+            if day == "2026-10-25":
+                episodes.append({"show": [], "name": "invalid"})
+            return Response(json.dumps(episodes).encode("utf-8"))
+
+        successes, records = mod.collect(datetime.date(2026, 10, 25), opener=fake_opener)
+        self.assertEqual(successes, 14)
+        self.assertEqual(len(records), 14)
+        self.assertTrue(all(row["show"] == "Valid" for row in records))
+
 if __name__ == "__main__":
     unittest.main()
