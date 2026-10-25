@@ -47,5 +47,18 @@ class K1Regression(unittest.TestCase):
             finally:
                 mod.out = old_out
 
+
+    def test_vod_partial_failure_keeps_previous_data(self):
+        spec = importlib.util.spec_from_file_location("vod_k1_partial", VOD)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with tempfile.TemporaryDirectory() as d:
+            mod.out = pathlib.Path(d) / "guncel-bolumler.json"
+            mod.out.write_bytes(b'{"existing":true}\\n')
+            mod.collect = lambda today: (14, [{"episode": "partial"}])
+            with self.assertRaises(RuntimeError):
+                mod.main()
+            self.assertEqual(mod.out.read_bytes(), b'{"existing":true}\\n')
+
 if __name__ == "__main__":
     unittest.main()
