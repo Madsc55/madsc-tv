@@ -134,6 +134,22 @@ jobs:
         id: inventory_92
         if: always()
         run: python3 scripts/five_category_92_workflow_audit.py
+      - name: K5 davranissal kanit dogrulayici regresyon testleri
+        id: k5_evidence_tests
+        run: python3 -m unittest discover -s tests -p 'test_k5_parity_evidence_gate.py' -v
+      - name: K5 92 satir kanit adaylarini salt okunur denetle
+        id: k5_evidence_gate
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          Path("madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json").write_text("[]\\n", encoding="utf-8")
+          PY
+          python3 scripts/k5_parity_evidence_gate.py \
+            --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
+            --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
+            --output madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json
       - name: Ayni kosunun dort basarili kategori kanitini guvenle al
         id: category_evidence
         continue-on-error: true
@@ -311,7 +327,7 @@ jobs:
           import json, os
           from pathlib import Path
           data = json.loads(os.environ["AUDIT_RESULTS"])
-          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["inventory_92", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
+          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["inventory_92", "k5_evidence_tests", "k5_evidence_gate", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
           categories = {name: os.environ[name] for name in ["SECURITY_RESULT", "DISCOVERY_RESULT", "CHANNEL_RESULT", "ARCHIVE_RESULT"]}
           result = {"audit_steps": audits, "categories": categories}
           folder = Path("madsc_merkezi_denetim")
@@ -328,7 +344,7 @@ jobs:
           python3 - <<'PY'
           import json, os, sys
           data = json.loads(os.environ["AUDIT_RESULTS"])
-          names = ["inventory_92", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
+          names = ["inventory_92", "k5_evidence_tests", "k5_evidence_gate", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
           failures = [name for name in names if data.get(name, {}).get("outcome") != "success"]
           if failures:
               print("::error::Failed or skipped consolidated audits: " + ", ".join(failures))
