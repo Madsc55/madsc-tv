@@ -1,3 +1,8 @@
+## 25 Ekim 2026 — K4 CI GERÇEK KOŞU DOĞRULAMASI
+- K4 taslak PR #80 için GitHub Actions run `40183682226` (`K4 - İzole Yedek Geri Yükleme Testi`) durumu `completed`, sonucu `success`. İş `K4 güvenli arşiv kurtarma testleri` ve `K4 söz dizimini ve regresyon testlerini doğrula` adımı da `success` olarak GitHub API üzerinden doğrulandı.
+- Kanıt: https://github.com/Madsc55/madsc-tv/actions/runs/40183682226
+- Bu yalnız örnek arşivli otomatik regresyon doğrulamasıdır. Gerçek bağımsız/offsite yedek kurtarma, tarihsel veri kurtarma ve K1–K5 nihai kabulü HENÜZ doğrulanmadı. Korunan dosyalara dokunulmadı.
+
 ## 25 Ekim 2026 — K4 HARİCİ YEDEK İZOLE KURTARMA DEVİR NOTU
 - K4 dalı: `k4/external-restore-evidence-20261025`; taslak PR #80, hedef `fix/ibo-only-xmltv-20261025`. Ana dala birleştirme yapılmadı.
 - Yeni `scripts/k4_external_restore_verify.py`: kullanıcı tarafından sağlanan TAR arşivi ve SHA256 manifestini yalnız geçici dizinde açıp doğrular; yol aşımı, bağlantılar, manifest uyuşmazlığı, boyut ve dosya sayısı sınırları uygulanır. Korunan yayın listelerine, yedeklere ve cron'a yazmaz.
