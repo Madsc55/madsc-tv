@@ -15,6 +15,18 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_report_cannot_overwrite_evidence(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            inventory = root / "inventory.json"
+            evidence = root / "evidence.json"
+            inventory.write_text(json.dumps({"items": [{"file": name, "possible_replacement_workflows": ["madsc-05-genel-bakim.yml"]} for name in NAMES]}))
+            evidence.write_text("[]")
+            with patch("sys.argv", ["gate", "--inventory", str(inventory), "--evidence", str(evidence), "--output", str(evidence)]):
+                with self.assertRaises(ValueError):
+                    main()
+            self.assertEqual(evidence.read_text(), "[]")
+
     def test_duplicate_replacement_candidates_rejected(self):
         mapping = {name: ["madsc-05-genel-bakim.yml"] for name in NAMES}
         mapping[NAMES[-1]] = ["madsc-05-genel-bakim.yml", "madsc-05-genel-bakim.yml"]
