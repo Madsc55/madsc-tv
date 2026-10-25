@@ -27,6 +27,8 @@ def validate(matrix, evidence):
         name = row["legacy_workflow"]
         record = evidence.get(name)
         if not isinstance(record, dict):
+            if record is not None:
+                errors.append(name + ": evidence entry must be an object")
             continue
         if any(not isinstance(record.get(key), str) or not record[key].strip() for key in REQUIRED):
             errors.append(name + ": incomplete behavior evidence")
@@ -42,6 +44,7 @@ def validate(matrix, evidence):
             errors.append(name + ": invalid commit SHA")
             continue
         if record.get("decision") != "PASS":
+            errors.append(name + ": evidence entry requires explicit PASS decision")
             continue
         if row["migration_decision"] != "BLOCKED_NEEDS_BEHAVIOR_EVIDENCE":
             errors.append(name + ": unexpected inventory decision")
