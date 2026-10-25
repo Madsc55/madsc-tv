@@ -17,7 +17,7 @@ MAX_TOTAL_BYTES = 2 * 1024 * 1024 * 1024
 MAX_FILE_BYTES = 512 * 1024 * 1024
 
 def safe_name(name):
-    if not isinstance(name, str) or not name or "\\" in name:
+    if not isinstance(name, str) or not name or "\\" in name or "\x00" in name:
         return False
     p = PurePosixPath(name)
     return not p.is_absolute() and all(part not in (".", "..") for part in name.split("/")) and bool(p.parts)
