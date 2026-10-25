@@ -43,7 +43,7 @@ def probe(rows, repo, token, fetch=fetch_json):
                 raise ValueError("Duplicate legacy workflow evidence")
             seen.add(name)
             replacement = row.get("replacement_workflow")
-            if not isinstance(replacement, str) or not re.fullmatch(r"madsc-0[1-5]-[A-Za-z0-9_.-]+\\.ya?ml", replacement):
+            if not isinstance(replacement, str) or not re.fullmatch(r"madsc-0[1-5]-[A-Za-z0-9_.-]+\.ya?ml", replacement):
                 raise ValueError("Invalid replacement workflow")
             sha = row.get("source_sha")
             if not isinstance(sha, str) or not re.fullmatch(r"[0-9a-f]{40}", sha):
