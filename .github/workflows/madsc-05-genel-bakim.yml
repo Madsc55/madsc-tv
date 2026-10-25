@@ -158,6 +158,8 @@ jobs:
             --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
             --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
             --output madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json
+      - name: K5 GitHub Actions kanit dogrulayici regresyon testleri
+        run: python3 -m unittest discover -s tests -p 'test_k5_github_evidence_probe.py' -v
       - name: K5 GitHub Actions kanit kimliklerini bagimsiz kontrol et
         env:
           GH_TOKEN: ${{ github.token }}
