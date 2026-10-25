@@ -31,3 +31,12 @@ Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu n
 ## Yeni saptanan entegrasyon riski (inceleme zorunlu)
 
 `scripts/discovery_archive.py` geçmişi `madsc_kesif/gecmis.json` ve `bulunan_kanal_arsivi.csv` üzerinden kalıcı okur/yazar. PR #81'in artifact-only yaklaşımı, sonraki koşuda bu dosyaların Git checkout'unda güncel bulunmasını **garanti etmez**; K2 tekrar-test engelleme geçmişi ve K3/K5 dosya tüketimi gerileyebilir. Bu nedenle PR #81 mevcut hâliyle **birleştirilmemeli**. Çözüm: kalıcı geçmişin güvenli ve atomik olarak saklanıp sonraki koşuda geri yüklenmesi; rapor tüketicilerinin de yeni konuma taşınması veya mevcut sözleşmenin korunması. Canlı uçtan uca test olmadan onay yok.
+
+## 25 Ekim ek düzeltme: ayrı kalıcı rapor dalı
+
+- Kalıcı arşiv dalı oluşturuldu: `madsc/k2-discovery-report-store` (`main` mevcut rapor durumundan başlangıç).
+- Workflow düzeltme commit'i: `dcb4402cad078150873bf5d2b99d49d12205a909`.
+- Başlangıçta arşiv dalındaki `madsc_kesif/` geçmişi yüklenir; `gecmis.json` ve `bulunan_kanal_arsivi.csv` boş/eksikse keşif hata verir (sessiz geçmiş sıfırlaması yok).
+- Sonunda ayrı Git worktree içinde raporlar commit edilip yalnızca `madsc/k2-discovery-report-store` dalına push edilir; `main` için push komutu yoktur. Aynı anda yazma çakışmasında push başarısız olur, artifact saklanır; sessiz üzerine yazma yoktur.
+- `contents: write` izni yalnızca rapor dalına push gereksinimi nedeniyle geri getirildi. GitHub token düzeyinde dal kapsamlı izin sınırlaması yok; güvenlik değerlendirmesi ve branch koruma kuralları ayrıca gerekli.
+- **Henüz yeni workflow canlı koşusu ve K3/K5 tüketici uyumu doğrulanmadı.** Özellikle `main/madsc_kesif` okuyan mevcut tüketiciler için rapor dalından okuma veya artifact üzerinden okuma geçişi tamamlanmadan merge yapılmamalı.
