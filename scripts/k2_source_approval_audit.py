@@ -3,7 +3,6 @@
 import ast
 import json
 from pathlib import Path
-from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "k2_kaynak_onaylari.json"
@@ -22,6 +21,8 @@ def declared_sources():
 def audit():
     sources = declared_sources()
     doc = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    if doc.get("schema_version") != 1:
+        raise ValueError("unsupported schema_version")
     entries = doc.get("sources", {})
     if not isinstance(entries, dict):
         raise ValueError("sources must be a mapping")
@@ -40,7 +41,7 @@ def audit():
             errors.append(source_id + ": URL mismatch")
             continue
         if entry.get("status") == "ONAYLI":
-            if not all(entry.get(k) for k in ("approved_by", "approved_at", "evidence")):
+            if not all(isinstance(entry.get(k), str) and entry[k].strip() for k in ("approved_by", "approved_at", "evidence")):
                 errors.append(source_id + ": approval evidence missing")
             else:
                 approved.append(source_id)
@@ -56,6 +57,6 @@ def audit():
 
 if __name__ == "__main__":
     result = audit()
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    print(json.dumps({k: v for k, v in result.items() if k != "pending_ids"}, ensure_ascii=False, indent=2))
     if result["errors"]:
         raise SystemExit(1)
