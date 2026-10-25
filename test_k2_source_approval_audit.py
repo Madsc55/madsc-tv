@@ -58,6 +58,14 @@ class SourceApprovalTests(unittest.TestCase):
         self.assertLess(workflow.index("K2 onaylı kaynaklar olmadan otomatik keşfi engelle"),
                         workflow.index("Kaynakları tara, tekrarları ayıkla ve adayları test et"))
 
+    def test_duplicate_source_url_is_rejected(self):
+        with patch.object(gate, "declared_sources", return_value={
+            "test-TR": self.sources["test-TR"],
+            "test-TR-copy": self.sources["test-TR"],
+        }):
+            self.write({})
+            self.assertIn("duplicate source URLs declared", gate.audit()["errors"])
+
     def test_invalid_schema_is_rejected(self):
         self.write({}, schema=2)
         with self.assertRaises(ValueError):
