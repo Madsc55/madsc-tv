@@ -62,3 +62,10 @@ Korunan ana kanal listeleri, favoriler, logolar, yedekler değiştirilmedi. Bu n
 - Run `40226336764`: `completed/success`.
 - Bu iki koşu yalnız onay kayıtlarının birim testlerini doğrular; tam keşif ve gerçek cihaz kabulü değildir.
 - Kaynak onay kayıtları hâlâ boş olduğundan keşif fail-closed durumdadır. Kaynak yetkilendirme kanıtı ve uçtan uca doğrulama eksiktir.
+
+## K2 yeni test ve yol düzeltmesi
+
+- Run `40229056952`, `40229061269`, `40229063557`, `40229067258`: `completed/success` (kaynak tekrar kontrolü testleri).
+- Kaynak onay dosyası artık çalışma dizinine göre değil, tarayıcı dosyasının bulunduğu dizine göre okunur; farklı dizinden çağrılınca yanlış dosya kullanılma riski azaltıldı (`f1060b25eb3ff7f48ada9d9ac794d60f9f4464dc`).
+- Regresyon testi eklendi (`9123d926f9f60a1351d13a89a86b3747e7aee689`).
+- Son test commit'inin Actions sonucu ayrıca doğrulanmalıdır; kaynak onayı hâlâ sıfırdır.
