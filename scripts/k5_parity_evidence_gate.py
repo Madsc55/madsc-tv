@@ -48,12 +48,16 @@ def main():
     parser.add_argument("--inventory", required=True)
     parser.add_argument("--evidence", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--require-production-ready", action="store_true",
+                        help="Exit nonzero unless independent 92/92 verification exists")
     args = parser.parse_args()
     inventory = json.loads(Path(args.inventory).read_text(encoding="utf-8"))
     evidence = json.loads(Path(args.evidence).read_text(encoding="utf-8"))
     report = validate(evidence, [item["file"] for item in inventory["items"]])
     Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({key: value for key, value in report.items() if key != "missing_evidence"}))
+    if args.require_production_ready and not report["production_ready"]:
+        return 1
     return 0
 
 if __name__ == "__main__":
