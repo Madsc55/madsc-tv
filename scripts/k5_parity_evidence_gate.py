@@ -14,6 +14,8 @@ def validate(rows, legacy_names, replacement_candidates=None):
         raise ValueError("Evidence and inventory must be collections")
     if len(rows) > 92:
         raise ValueError("Too many evidence records")
+    if any(not isinstance(row, dict) for row in rows):
+        raise ValueError("Evidence records must be objects")
     if any(not isinstance(name, str) for name in legacy_names):
         raise ValueError("Legacy workflow names must be strings")
     known = set(legacy_names)
