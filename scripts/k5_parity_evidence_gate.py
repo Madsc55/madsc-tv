@@ -90,6 +90,13 @@ def main():
         }
         for name in sorted(by_name)
     ]
+    report["gap_reason_counts"] = {
+        reason: sum(reason in row["migration_gap_reasons"] for row in report["workflow_gaps"])
+        for reason in sorted({reason for row in report["workflow_gaps"] for reason in row["migration_gap_reasons"]})
+    }
+    report["unmapped_workflow_count"] = sum(not row["replacement_candidates"] for row in report["workflow_gaps"])
+    report["missing_script_workflow_count"] = sum(bool(row["unmatched_script_entrypoints"]) for row in report["workflow_gaps"])
+    report["unmatched_trigger_workflow_count"] = sum(bool(row["unmatched_trigger_signals"] or row["unmatched_cron_expressions"]) for row in report["workflow_gaps"])
     output_path = Path(args.output)
     if output_path.is_dir():
         raise ValueError("Report output must be a file")
