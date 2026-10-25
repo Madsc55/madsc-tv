@@ -21,7 +21,8 @@ def validate(rows, legacy_names, replacement_candidates=None):
         raise ValueError("Incomplete replacement mapping inventory")
     allowed_replacements = {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}
     if replacement_candidates is not None and any(
-        not isinstance(candidates, list) or any(not isinstance(candidate, str) or candidate not in allowed_replacements for candidate in candidates)
+        not isinstance(candidates, list) or len(candidates) != len(set(candidates)) or
+        any(not isinstance(candidate, str) or candidate not in allowed_replacements for candidate in candidates)
         for candidates in replacement_candidates.values()
     ):
         raise ValueError("Malformed replacement mapping candidates")
