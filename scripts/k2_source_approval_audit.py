@@ -30,6 +30,9 @@ def audit():
     pending = []
     errors = []
     for source_id, url in sources.items():
+        if not isinstance(source_id, str) or not isinstance(url, str) or not url.startswith(("https://", "http://")):
+            errors.append(str(source_id) + ": invalid source identifier or URL")
+            continue
         entry = entries.get(source_id)
         if entry is None:
             pending.append(source_id)
