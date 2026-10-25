@@ -8,29 +8,42 @@ from pathlib import Path
 from scripts.k4_external_restore_verify import verify_archive
 
 class K4HariciGeriYuklemeTesti(unittest.TestCase):
-    def test_izole_geri_yukleme_ve_bozuk_arsiv_reddi(self):
+    def create_case(self, root, name="safe/file.txt", data=b"protected sample", kind=tarfile.REGTYPE):
+        archive = root / "backup.tar.gz"
+        manifest = root / "manifest.json"
+        manifest.write_text(json.dumps({name: hashlib.sha256(data).hexdigest()}))
+        with tarfile.open(archive, "w:gz") as tar:
+            entry = tarfile.TarInfo(name)
+            entry.type = kind
+            entry.size = len(data) if kind == tarfile.REGTYPE else 0
+            tar.addfile(entry, io.BytesIO(data) if kind == tarfile.REGTYPE else None)
+        return archive, manifest
+
+    def test_izole_geri_yukleme_harici_kanit_degildir(self):
         with tempfile.TemporaryDirectory() as folder:
-            root = Path(folder)
-            archive = root / "backup.tar.gz"
-            manifest = root / "manifest.json"
-            data = b"protected sample"
-            manifest.write_text(json.dumps({"safe/file.txt": hashlib.sha256(data).hexdigest()}))
-            with tarfile.open(archive, "w:gz") as tar:
-                entry = tarfile.TarInfo("safe/file.txt")
-                entry.size = len(data)
-                tar.addfile(entry, io.BytesIO(data))
-            self.assertTrue(verify_archive(archive, manifest)["external_backup_verified"])
+            archive, manifest = self.create_case(Path(folder))
+            result = verify_archive(archive, manifest)
+            self.assertTrue(result["supplied_archive_integrity_verified"])
+            self.assertFalse(result["external_backup_verified"])
+            self.assertFalse(result["historical_recovery_verified"])
+            self.assertFalse(result["production_modified"])
+
+    def test_bozuk_ozet_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
             manifest.write_text(json.dumps({"safe/file.txt": "0" * 64}))
             with self.assertRaisesRegex(ValueError, "SHA256"):
                 verify_archive(archive, manifest)
 
-    def test_path_traversal_reddedilir(self):
+    def test_dizin_asimi_ve_sembolik_baglanti_reddedilir(self):
+        for name in ("../escape", "/absolute", "a/../escape", "a\\escape"):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as folder:
+                archive, manifest = self.create_case(Path(folder), name=name)
+                with self.assertRaises(ValueError):
+                    verify_archive(archive, manifest)
         with tempfile.TemporaryDirectory() as folder:
-            root = Path(folder)
-            archive = root / "backup.tar"
-            manifest = root / "manifest.json"
-            manifest.write_text(json.dumps({"../escape": "0" * 64}))
-            with self.assertRaises(ValueError):
+            archive, manifest = self.create_case(Path(folder), kind=tarfile.SYMTYPE)
+            with self.assertRaisesRegex(ValueError, "Unsafe archive member"):
                 verify_archive(archive, manifest)
 
 if __name__ == "__main__":
