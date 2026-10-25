@@ -94,7 +94,7 @@ class K1Regression(unittest.TestCase):
             day = urllib.parse.parse_qs(urllib.parse.urlparse(request.full_url).query)["date"][0]
             episodes = [{"show": {"name": "Valid"}, "name": "first"}]
             if day == "2026-10-25":
-                episodes.append({"show": ["invalid"], "name": "invalid"})
+                episodes.append({"show": [], "name": "invalid"})
             return Response(json.dumps(episodes).encode("utf-8"))
 
         successes, records = mod.collect(datetime.date(2026, 10, 25), opener=fake_opener)
