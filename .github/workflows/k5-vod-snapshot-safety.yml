@@ -1,0 +1,22 @@
+name: K5 VOD Snapshot Safety
+on:
+  push:
+    branches: [madsc/bes-sistem-toplu-birlestirme]
+    paths:
+      - 'scripts/vod_guncelle.py'
+      - 'tests/test_vod_snapshot_safety.py'
+      - '.github/workflows/k5-vod-snapshot-safety.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  vod-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m unittest discover -s tests -p 'test_vod_snapshot_safety.py' -v
