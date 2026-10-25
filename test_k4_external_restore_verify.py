@@ -73,5 +73,12 @@ class K4HariciGeriYuklemeTesti(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Archive differs"):
                 verify_archive(archive, manifest)
 
+    def test_buyuk_manifest_reddedilir(self):
+        with tempfile.TemporaryDirectory() as folder:
+            archive, manifest = self.create_case(Path(folder))
+            manifest.write_bytes(b" " * (2 * 1024 * 1024 + 1))
+            with self.assertRaisesRegex(ValueError, "Manifest exceeds size limit"):
+                verify_archive(archive, manifest)
+
 if __name__ == "__main__":
     unittest.main()
