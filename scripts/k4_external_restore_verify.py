@@ -28,36 +28,40 @@ def verify_archive(archive, manifest):
     for name, digest in expected.items():
         if not safe_name(name) or not isinstance(digest, str) or not re.fullmatch("[0-9a-f]{64}", digest):
             raise ValueError("Unsafe manifest entry")
+    # Streaming avoids materializing attacker-controlled TAR headers in memory.
     with tempfile.TemporaryDirectory(prefix="madsc-k4-restore-") as tmp:
-        with tarfile.open(archive, "r:*") as tar:
-            members = tar.getmembers()
-            names = [m.name for m in members]
-            if len(members) > MAX_FILES or len(names) != len(set(names)) or set(names) != set(expected):
-                raise ValueError("Archive differs from manifest")
-            total = 0
-            for member in members:
-                if not member.isfile() or not safe_name(member.name) or member.size < 0 or member.size > MAX_FILE_BYTES:
+        seen = set()
+        total = 0
+        with tarfile.open(archive, "r|*") as tar:
+            for member in tar:
+                name = member.name
+                if not safe_name(name) or name not in expected or name in seen:
+                    raise ValueError("Archive differs from manifest")
+                if len(seen) >= MAX_FILES or not member.isfile() or member.size < 0 or member.size > MAX_FILE_BYTES:
                     raise ValueError("Unsafe archive member")
+                seen.add(name)
                 total += member.size
                 if total > MAX_TOTAL_BYTES:
                     raise ValueError("Archive exceeds size limit")
-            for member in members:
                 source = tar.extractfile(member)
                 if source is None:
                     raise ValueError("Unreadable archive member")
-                destination = Path(tmp).joinpath(*PurePosixPath(member.name).parts)
+                destination = Path(tmp).joinpath(*PurePosixPath(name).parts)
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 digest = hashlib.sha256()
                 copied = 0
-                with destination.open("wb") as output:
-                    while block := source.read(min(1024 * 1024, member.size - copied + 1)):
+                with source, destination.open("wb") as output:
+                    while copied < member.size:
+                        block = source.read(min(1024 * 1024, member.size - copied))
+                        if not block:
+                            raise ValueError("Archive member truncated")
                         copied += len(block)
-                        if copied > member.size:
-                            raise ValueError("Archive member exceeds declared size")
                         digest.update(block)
                         output.write(block)
-                if copied != member.size or digest.hexdigest() != expected[member.name]:
-                    raise ValueError("SHA256 or size mismatch: " + member.name)
+                if digest.hexdigest() != expected[name]:
+                    raise ValueError("SHA256 or size mismatch: " + name)
+        if seen != set(expected):
+            raise ValueError("Archive differs from manifest")
         return {"status": "PASS", "verified_files": len(expected),
                 "supplied_archive_integrity_verified": True,
                 "external_backup_verified": False,
