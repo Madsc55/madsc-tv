@@ -13,8 +13,10 @@ def validate(rows, legacy_names, replacement_candidates=None):
     if not isinstance(rows, list) or not isinstance(legacy_names, (list, set, tuple)):
         raise ValueError("Evidence and inventory must be collections")
     known = set(legacy_names)
-    if len(legacy_names) != 92 or len(known) != 92:
+    if len(legacy_names) != 92 or len(known) != 92 or any(not isinstance(name, str) or not name.endswith((".yml", ".yaml")) for name in known):
         raise ValueError("Expected exactly 92 unique legacy workflows")
+    if replacement_candidates is not None and (not isinstance(replacement_candidates, dict) or set(replacement_candidates) != known):
+        raise ValueError("Incomplete replacement mapping inventory")
     seen = set()
     approved = set()
     for row in rows:
@@ -26,7 +28,7 @@ def validate(rows, legacy_names, replacement_candidates=None):
         seen.add(name)
         if row["replacement_workflow"] not in {f"madsc-0{n}-{suffix}.yml" for n, suffix in ((1, "guvenlik"), (2, "kesif"), (3, "kanal-test"), (4, "arsiv-yedek"), (5, "genel-bakim"))}:
             raise ValueError("Missing five-system replacement")
-        if replacement_candidates is not None and row["replacement_workflow"] not in replacement_candidates.get(name, []):
+        if replacement_candidates is not None and (not isinstance(replacement_candidates[name], list) or row["replacement_workflow"] not in replacement_candidates[name]):
             raise ValueError("Replacement is not a mapped candidate for legacy workflow")
         if not isinstance(row["source_sha"], str) or not SHA.fullmatch(row["source_sha"]):
             raise ValueError("Invalid source commit SHA")
