@@ -15,6 +15,12 @@ def sample():
                                                "permissions", "protected_paths", "regression")}}
 
 class K5EvidenceGateTests(unittest.TestCase):
+    def test_duplicate_replacement_candidates_rejected(self):
+        mapping = {name: ["madsc-05-genel-bakim.yml"] for name in NAMES}
+        mapping[NAMES[-1]] = ["madsc-05-genel-bakim.yml", "madsc-05-genel-bakim.yml"]
+        with self.assertRaises(ValueError):
+            validate([], NAMES, mapping)
+
     def test_unknown_unused_replacement_rejected(self):
         mapping = {name: ["madsc-05-genel-bakim.yml"] for name in NAMES}
         mapping[NAMES[-1]] = ["unknown.yml"]
