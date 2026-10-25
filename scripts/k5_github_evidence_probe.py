@@ -26,7 +26,7 @@ def fetch_json(repo, endpoint, token):
 def probe(rows, repo, token, fetch=fetch_json):
     if not isinstance(rows, list):
         raise ValueError("Evidence must be a list")
-    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo or ""):
+    if not isinstance(repo, str) or not re.fullmatch(r"[A-Za-z0-9_][A-Za-z0-9_.-]*/[A-Za-z0-9_][A-Za-z0-9_.-]*", repo):
         raise ValueError("Invalid repository identifier")
     results = []
     for row in rows:
