@@ -164,6 +164,23 @@ def main():
  for old_url,old in history.items():
   if int(old.get("runs",0))>0 and int(old.get("successful_runs",0))==0 and old.get("url"):
    found.append(dict(name=old.get("channel","Bilinmeyen"),url=old["url"],logo="",id="",source="GECMIS_BASARISIZ_YENIDEN_TEST"))
+
+ # Fail closed: foreign, radio, paid/DRM and uncertain identity are not tested
+ # as eligible Turkish television. Retain rejected items in an audit report.
+ from scripts.youtube_turkish_tv_discovery import classify
+ rejected=[]
+ allowed=[]
+ for candidate in found:
+  decision=classify(candidate.get("name",""),language=candidate.get("language",""),
+                    category=candidate.get("category",""),source=candidate.get("source",""),
+                    url=candidate.get("url",""))
+  if decision=="REVIEW_TURKISH_TV_CANDIDATE_NOT_APPROVED":
+   allowed.append(candidate)
+  else:
+   rejected.append(dict(kanal=candidate.get("name",""),kaynak=candidate.get("source",""),
+                        durum=decision))
+ found=allowed
+ write("filtre_reddedilenler.csv",rejected,["kanal","kaynak","durum"])
  pending=[];duplicates=[];seen=set()
  for x in found:
   k=key(x["url"])
