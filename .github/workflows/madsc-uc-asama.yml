@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'verification_pipeline.py'
+      - 'ops/verification-run-request.txt'
 permissions:
   contents: write
   actions: write
