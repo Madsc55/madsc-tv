@@ -40,12 +40,37 @@ def discover():
     return result
 
 
+def build_stage_index(entries):
+    """Build a standard five-stage routing manifest without modifying legacy code."""
+    stages = {stage: [] for stage in STAGES}
+    unmapped = []
+    for entry in entries:
+        mapped = [stage for stage in entry["stages"] if stage in stages]
+        if not mapped:
+            unmapped.append(entry["file"])
+            continue
+        for stage in mapped:
+            stages[stage].append(entry["file"])
+    return {
+        "stages": stages,
+        "unmapped": unmapped,
+        "coverage": {
+            "indexed": len(entries),
+            "classified": len(entries) - len(unmapped),
+            "target": 92,
+            "behavior_equivalence_verified": False,
+        },
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="madsc_legacy_bridge.json")
     args = parser.parse_args()
     entries = discover()
+    stage_index = build_stage_index(entries)
     report = {
+        "stage_index": stage_index,
         "legacy_target": 92,
         "observed_workflow_files": len(entries),
         "equivalence_claimed": False,
