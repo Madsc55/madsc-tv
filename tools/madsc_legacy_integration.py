@@ -11,10 +11,10 @@ import subprocess
 from datetime import datetime, timezone
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ARCHIVE_NAMES = (
-    "MASTER_PROJE_HAFIZASI.md",
-    "MASTER_PROJE_HAFIZASI_PART2.md",
-    "MASTER_PROJE_HAFIZASI_PART3.md",
+ARCHIVE_GROUPS = (
+    ("1-120", ("MASTER_PROJE_HAFIZASI.md",)),
+    ("121-150", ("PART2.md", "MASTER_PROJE_HAFIZASI_PART2.md")),
+    ("151-190", ("PART3.md", "MASTER_PROJE_HAFIZASI_PART3.md")),
 )
 PROTECTED = ("CALISANLAR.m3u", "YENILER.m3u")
 STAGES = {
@@ -70,10 +70,11 @@ def build_report() -> dict:
         key=lambda p: p.name,
     )
     archives = []
-    for name in ARCHIVE_NAMES:
-        matches = sorted(p for p in files if p.name == name and p.is_file())
+    for volume, names in ARCHIVE_GROUPS:
+        matches = sorted(p for p in files if p.name in names and p.is_file())
         archives.append({
-            "requested_name": name,
+            "volume": volume,
+            "accepted_names": list(names),
             "matches": [{"path": str(p.relative_to(ROOT)), "bytes": p.stat().st_size,
                          "sha256": digest(p)} for p in matches],
             "status": "present" if matches else "not_found",
@@ -84,6 +85,13 @@ def build_report() -> dict:
         "workflow_count": len(workflows),
         "expected_legacy_count": 92,
         "legacy_equivalence_proven": False,
+        "workflow_count_gap_to_92": max(0, 92 - len(workflows)),
+        "unmapped_workflows": [
+            str(p.relative_to(ROOT)) for p in workflows if classify(p) == ["UNMAPPED"]
+        ],
+        "missing_archive_volumes": [
+            item["volume"] for item in archives if item["status"] == "not_found"
+        ],
         "workflows": [workflow_details(p) for p in workflows],
         "archives": archives,
         "protected_files": [
