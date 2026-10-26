@@ -41,7 +41,8 @@ def main():
     parser.add_argument("--url", required=True, help="Exact URL identifying the channel")
     parser.add_argument("--action", required=True, choices=("inspect", "working", "not-working", "remove", "backup", "assign"))
     parser.add_argument("--category", help="Existing category, required for assign")
-    parser.add_argument("--apply", action="store_true", help="Explicitly commit local playlist change")
+    parser.add_argument("--apply", action="store_true", help="Request local playlist change")
+    parser.add_argument("--written-approval", help="Exact written approval: ONAYLIYORUM:<action>:<url>")
     args = parser.parse_args()
     if not VISIBLE.exists():
         parser.error(f"Missing {VISIBLE}")
@@ -69,6 +70,8 @@ def main():
         message = f"Assign selected channel to {BACKUP if action == 'backup' else category}"
     print(json.dumps({"action": action, "channel": record["title"], "current_group": record["group"],
                       "proposal": message, "apply": args.apply}, ensure_ascii=False, indent=2))
+    if args.apply and action not in ("working", "inspect") and args.written_approval != f"ONAYLIYORUM:{action}:{args.url}":
+        parser.error("DENIED: exact written user approval required; --apply alone is insufficient")
     if not args.apply or action in ("working", "inspect"):
         return 0
     if action in ("remove", "not-working"):
