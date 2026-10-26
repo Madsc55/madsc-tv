@@ -10,7 +10,7 @@ concurrency:
 jobs:
   coordinate:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 360
     steps:
       - name: Mevcut kesif ve dogrulama zincirini sirayla calistir
         env:
