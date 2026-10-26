@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-26T21:15:54.028125+00:00",
+  "checked_utc": "2026-10-26T22:18:32.756182+00:00",
   "stages": {
     "yedek": {
       "historical_entries": 12226,
@@ -14,12 +14,9 @@
       "status": "KAYIT_KONTROL_EDILDI"
     },
     "kesif": {
-      "candidates": 7,
+      "candidates": 0,
       "alternatives": 0,
-      "candidate_technical_status": {
-        "FARKLI_SAATTE_TEKRAR_TEST_BEKLIYOR": 5,
-        "FFPROBE_GECMEDI_PLAYER_UYUMLULUGU_BELIRSIZ": 2
-      },
+      "candidate_technical_status": {},
       "status": "RAPORLANDI_CIHAZ_ONAYSIZ"
     },
     "aday_logo_ve_tekrar": {
