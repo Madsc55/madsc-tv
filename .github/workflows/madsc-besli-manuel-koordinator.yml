@@ -1,0 +1,38 @@
+name: MADSC - Besli Sistem Manuel Koordinator
+on:
+  workflow_dispatch:
+permissions:
+  actions: write
+  contents: read
+concurrency:
+  group: madsc-besli-manuel-koordinator
+  cancel-in-progress: false
+jobs:
+  coordinate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Mevcut kesif ve dogrulama zincirini sirayla calistir
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for workflow in madsc-birlesik-kesif.yml madsc-uc-asama.yml; do
+            echo "Starting $workflow"
+            before="$(gh run list --workflow "$workflow" --branch main --limit 1 --json databaseId --jq '.[0].databaseId // 0')"
+            gh workflow run "$workflow" --ref main
+            run_id=""
+            for attempt in $(seq 1 36); do
+              run_id="$(gh run list --workflow "$workflow" --branch main --event workflow_dispatch --limit 10 --json databaseId --jq --argjson before "$before" '[.[] | select(.databaseId > $before) | .databaseId] | max // empty')"
+              if [ -n "$run_id" ]; then break; fi
+              sleep 5
+            done
+            if [ -z "$run_id" ]; then
+              echo "::error::Workflow run was not discovered: $workflow"
+              exit 1
+            fi
+            gh run watch "$run_id" --exit-status
+          done
+          echo "Discovery and three-stage verification completed. Existing workflow_run trigger handles final validation."
