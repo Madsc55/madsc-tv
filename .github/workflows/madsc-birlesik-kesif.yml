@@ -1,6 +1,9 @@
 name: MADSC TV - Birleşik Kanal Keşfi ve Testi
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'ops/discovery-run-request.txt'
   schedule:
     - cron: '0 6,18 * * *'
 permissions:
