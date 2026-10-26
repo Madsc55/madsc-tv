@@ -1,0 +1,24 @@
+name: MADSC - Eski Workflow Entegrasyon Envanteri
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Depoyu oku
+        uses: actions/checkout@v4
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eski workflow ve arsiv referanslarini raporla
+        run: python3 tools/madsc_legacy_integration.py --output madsc_legacy_integration_report.json
+      - name: Degistirilmeyen envanteri artifact olarak sakla
+        uses: actions/upload-artifact@v4
+        with:
+          name: madsc-legacy-integration-inventory
+          path: madsc_legacy_integration_report.json
+          retention-days: 30
