@@ -257459,5 +257459,6997 @@
     },
     "status": "TECHNICAL_PASS_IDENTITY_PENDING",
     "image_evidence": "madsc_son_kontrol/images/dcafc6c6d72574fdb2c6.jpg"
+  },
+  {
+    "candidate_id": "80a9074dbe5bf468b75e",
+    "label": "The New Detectives",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.235078+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 109.104,
+      "decoded_frames": 2671
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": "madsc_son_kontrol/images/80a9074dbe5bf468b75e.jpg"
+  },
+  {
+    "candidate_id": "281277490f65f9a1b99b",
+    "label": "The Walk TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.240444+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989667,
+      "decoded_frames": 8988
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/281277490f65f9a1b99b.jpg"
+  },
+  {
+    "candidate_id": "fc8788f77087338b7e19",
+    "label": "The Peninsula Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.236308+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8983
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 2
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/fc8788f77087338b7e19.jpg"
+  },
+  {
+    "candidate_id": "608fe4163598cbcffb4b",
+    "label": "The Retro Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.239695+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.985,
+      "decoded_frames": 8979
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/608fe4163598cbcffb4b.jpg"
+  },
+  {
+    "candidate_id": "656247ea28b385cf1555",
+    "label": "The Islamic Network (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.229880+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8998
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/656247ea28b385cf1555.jpg"
+  },
+  {
+    "candidate_id": "177a4ca5bcc05375dc24",
+    "label": "The Monterey Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.233489+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8983
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/177a4ca5bcc05375dc24.jpg"
+  },
+  {
+    "candidate_id": "810db3a54350ed140191",
+    "label": "The Loop (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.231606+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/810db3a54350ed140191.jpg"
+  },
+  {
+    "candidate_id": "d783822bf2b7f019e194",
+    "label": "The Point Televsion Network (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.236991+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d783822bf2b7f019e194.jpg"
+  },
+  {
+    "candidate_id": "c6f52cdd4310e077bdae",
+    "label": "Thraki Net TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:37.886774+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "d5482ac5672f734d7a47",
+    "label": "The Price Is Right: The Barker Era (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.239286+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d5482ac5672f734d7a47.jpg"
+  },
+  {
+    "candidate_id": "6b2a088061deb3e545f6",
+    "label": "The Pet Collective (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.236782+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6b2a088061deb3e545f6.jpg"
+  },
+  {
+    "candidate_id": "92e7c0b397aafc30bc5b",
+    "label": "The Jamie Oliver Channel (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.230168+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/92e7c0b397aafc30bc5b.jpg"
+  },
+  {
+    "candidate_id": "7e88d5bf69bee80ad0ba",
+    "label": "The Walking Dead Universe (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.243189+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8986
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/7e88d5bf69bee80ad0ba.jpg"
+  },
+  {
+    "candidate_id": "cae7dbe27946a2af8da7",
+    "label": "The Graham Norton Show (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.225827+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/cae7dbe27946a2af8da7.jpg"
+  },
+  {
+    "candidate_id": "44593d8e981cca4cb82a",
+    "label": "The Design Network (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.224689+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/44593d8e981cca4cb82a.jpg"
+  },
+  {
+    "candidate_id": "b4fdab6df49729ad97cc",
+    "label": "The Now Network (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.235988+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.980998,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b4fdab6df49729ad97cc.jpg"
+  },
+  {
+    "candidate_id": "9b25fe46d2c8b9a4bccb",
+    "label": "The First TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.225393+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9b25fe46d2c8b9a4bccb.jpg"
+  },
+  {
+    "candidate_id": "e7aa467bc21e13c844ec",
+    "label": "The Nest (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.234667+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 8,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e7aa467bc21e13c844ec.jpg"
+  },
+  {
+    "candidate_id": "23efe3951c9854b91a96",
+    "label": "The Doctors (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.224893+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/23efe3951c9854b91a96.jpg"
+  },
+  {
+    "candidate_id": "db92cc5fb4bda284fc8b",
+    "label": "The Hill TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.227097+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/db92cc5fb4bda284fc8b.jpg"
+  },
+  {
+    "candidate_id": "6388f8ca7c58b172e7ed",
+    "label": "The Jungle Book (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.231204+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7473
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6388f8ca7c58b172e7ed.jpg"
+  },
+  {
+    "candidate_id": "19dde5af32dacf7ca1f9",
+    "label": "The Movie Club (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.233734+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/19dde5af32dacf7ca1f9.jpg"
+  },
+  {
+    "candidate_id": "d00e436c0b6a1764f8a4",
+    "label": "The Judge Judy Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.230632+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1216,
+        "height": 684,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1216,
+        "height": 684,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1216,
+        "height": 684,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "status": "TIMEOUT"
+  },
+  {
+    "candidate_id": "adb19c0e8d10357f8650",
+    "label": "The Voice (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.240123+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "status": "TIMEOUT"
+  },
+  {
+    "candidate_id": "e74eb0cbd3b8c9ef2e0a",
+    "label": "The Indonesia Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:48:52.228482+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "status": "TIMEOUT"
+  },
+  {
+    "candidate_id": "b73d414509841d2a15e6",
+    "label": "The Weather Channel (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:51:14.201312+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b73d414509841d2a15e6.jpg"
+  },
+  {
+    "candidate_id": "79679ac5e36914586820",
+    "label": "Tito TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:55:33.468861+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 119.194631,
+      "decoded_frames": 2982
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": "madsc_son_kontrol/images/79679ac5e36914586820.jpg"
+  },
+  {
+    "candidate_id": "78796fc4cf0d2c9feb34",
+    "label": "The Word Network (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:23.618973+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998333,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/78796fc4cf0d2c9feb34.jpg"
+  },
+  {
+    "candidate_id": "53e26aeb49d8781c48f6",
+    "label": "Tiankov Orient Folk (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:41.397786+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/53e26aeb49d8781c48f6.jpg"
+  },
+  {
+    "candidate_id": "6465105cc16adc9781e4",
+    "label": "This Old House (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:36.906431+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6465105cc16adc9781e4.jpg"
+  },
+  {
+    "candidate_id": "a57d620466522cbb3a88",
+    "label": "Tiankov Folk (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:40.104052+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/a57d620466522cbb3a88.jpg"
+  },
+  {
+    "candidate_id": "ee4ff1126514043ea188",
+    "label": "Tien Giang TV (540p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:45.588892+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.983,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ee4ff1126514043ea188.jpg"
+  },
+  {
+    "candidate_id": "5c58f729fcd7ee3276dc",
+    "label": "TiJi (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:38.341121+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 718,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/5c58f729fcd7ee3276dc.jpg"
+  },
+  {
+    "candidate_id": "300b1e08298e3b4880e7",
+    "label": "Tin TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:56.502878+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8986
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/300b1e08298e3b4880e7.jpg"
+  },
+  {
+    "candidate_id": "99dbd1642a7f2b34b7a0",
+    "label": "Telemax (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:51.673524+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8660
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/99dbd1642a7f2b34b7a0.jpg"
+  },
+  {
+    "candidate_id": "69b5aa6d0310b1053f2a",
+    "label": "Tigo Sports",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:45.981657+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.991833,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/69b5aa6d0310b1053f2a.jpg"
+  },
+  {
+    "candidate_id": "6862ae209aa7398e9a0e",
+    "label": "This is Bulgaria HD (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:37.511026+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6862ae209aa7398e9a0e.jpg"
+  },
+  {
+    "candidate_id": "46dbeee74c7b110ae45c",
+    "label": "TikTok Radio Brasil (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:54.242867+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 256,
+        "height": 144,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 842,
+        "height": 474,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/46dbeee74c7b110ae45c.jpg"
+  },
+  {
+    "candidate_id": "b932b397af13af17ae3e",
+    "label": "The Archive (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:52.430115+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b932b397af13af17ae3e.jpg"
+  },
+  {
+    "candidate_id": "fd08e4e8c778b98306a9",
+    "label": "Tigo Sports (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:50.208291+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 7968
+    },
+    "review_events": {
+      "freeze": 4,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/fd08e4e8c778b98306a9.jpg"
+  },
+  {
+    "candidate_id": "efcee9f178e2c5d6bd72",
+    "label": "Times Now Navbharat (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:55.247878+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.994,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/efcee9f178e2c5d6bd72.jpg"
+  },
+  {
+    "candidate_id": "06d8395608fb18997ce1",
+    "label": "Thema Television (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:53.493722+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999333,
+      "decoded_frames": 8962
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/06d8395608fb18997ce1.jpg"
+  },
+  {
+    "candidate_id": "87e1d58d9c7aece97930",
+    "label": "Tiny House Nation (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:54:00.915062+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/87e1d58d9c7aece97930.jpg"
+  },
+  {
+    "candidate_id": "2c5d5eed95374a8d9d8b",
+    "label": "Thikrayat TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:34.346993+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 832,
+        "height": 468,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/2c5d5eed95374a8d9d8b.jpg"
+  },
+  {
+    "candidate_id": "7a6a783de75bb62f4111",
+    "label": "Tigo Sports (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:49.704073+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 298.1979,
+      "decoded_frames": 8013
+    },
+    "review_events": {
+      "freeze": 4,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": "madsc_son_kontrol/images/7a6a783de75bb62f4111.jpg"
+  },
+  {
+    "candidate_id": "8614a7685d6c57f505e5",
+    "label": "TicaVision (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:44.696990+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.8,
+      "decoded_frames": 510
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8614a7685d6c57f505e5.jpg"
+  },
+  {
+    "candidate_id": "5d86fb9954bf935b9a8b",
+    "label": "Thendral TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:53:34.287642+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "status": "TIMEOUT"
+  },
+  {
+    "candidate_id": "0081873a7fe4e92586ed",
+    "label": "Tiny Pop (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:55:26.605167+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0081873a7fe4e92586ed.jpg"
+  },
+  {
+    "candidate_id": "8b72b0cd8fa435538004",
+    "label": "Tirol TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:55:31.572659+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.99,
+      "decoded_frames": 7491
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8b72b0cd8fa435538004.jpg"
+  },
+  {
+    "candidate_id": "240d9050d88f768558cc",
+    "label": "Tjil TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:57:25.431229+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/240d9050d88f768558cc.jpg"
+  },
+  {
+    "candidate_id": "dd07e4b34f1277a63828",
+    "label": "Tlnovelas Mexico (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:57:53.349354+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.994717,
+      "decoded_frames": 8994
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/dd07e4b34f1277a63828.jpg"
+  },
+  {
+    "candidate_id": "f1614bfa9bb9c3a3b1d8",
+    "label": "Tochka otryva (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:05.807892+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/f1614bfa9bb9c3a3b1d8.jpg"
+  },
+  {
+    "candidate_id": "4daa3a982e70c6694a7a",
+    "label": "Tolk (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:30.638258+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.98,
+      "decoded_frames": 15000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/4daa3a982e70c6694a7a.jpg"
+  },
+  {
+    "candidate_id": "ee1d46e1f193dc33284f",
+    "label": "Tolo TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:32.276436+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ee1d46e1f193dc33284f.jpg"
+  },
+  {
+    "candidate_id": "3124fb758c75362c89bf",
+    "label": "Tolly TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:31.900407+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.986313,
+      "decoded_frames": 7273
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/3124fb758c75362c89bf.jpg"
+  },
+  {
+    "candidate_id": "82322efc1b7ac8a3dd04",
+    "label": "Tom And Jerry (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:35.200714+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 408,
+        "avg_frame_rate": "24000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.99093,
+      "decoded_frames": 6947
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/82322efc1b7ac8a3dd04.jpg"
+  },
+  {
+    "candidate_id": "6f6bd73b849ed796fdac",
+    "label": "Today Radio (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:25.721870+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6f6bd73b849ed796fdac.jpg"
+  },
+  {
+    "candidate_id": "c0b86df49a6c3e42dbb3",
+    "label": "Todo Novelas (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:27.753057+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997333,
+      "decoded_frames": 7050
+    },
+    "review_events": {
+      "freeze": 3,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/c0b86df49a6c3e42dbb3.jpg"
+  },
+  {
+    "candidate_id": "8809889ee14d38bca42d",
+    "label": "Tonus (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:35.766042+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8809889ee14d38bca42d.jpg"
+  },
+  {
+    "candidate_id": "b754d367bd754601d781",
+    "label": "Tour Spot TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:29.295977+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "d886eca35ce229141466",
+    "label": "ToonGoggles (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:41.345831+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998667,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d886eca35ce229141466.jpg"
+  },
+  {
+    "candidate_id": "a00dec2f38baeed9e7d9",
+    "label": "Toonami Aftermath (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:45.844615+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 480,
+        "avg_frame_rate": "60/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 17999
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/a00dec2f38baeed9e7d9.jpg"
+  },
+  {
+    "candidate_id": "6f7166bcd1b9b1159a5d",
+    "label": "TraLaLa DSN",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:35.839231+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "32bd6608edb3daf1f18d",
+    "label": "Top Channel (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:48.208979+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "50/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 14999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/32bd6608edb3daf1f18d.jpg"
+  },
+  {
+    "candidate_id": "24c0f9872bfd60419b4a",
+    "label": "Tooku (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:36.166414+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/24c0f9872bfd60419b4a.jpg"
+  },
+  {
+    "candidate_id": "f17f8137736b6d348bcb",
+    "label": "Topical Moon RD (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:57.738080+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.998231,
+      "decoded_frames": 7273
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/f17f8137736b6d348bcb.jpg"
+  },
+  {
+    "candidate_id": "8cf0326856f7e0051a3f",
+    "label": "Top News (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:53.579730+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 6,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/8cf0326856f7e0051a3f.jpg"
+  },
+  {
+    "candidate_id": "1c68f411e617a04f96d5",
+    "label": "Top Gear (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:50.961477+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1c68f411e617a04f96d5.jpg"
+  },
+  {
+    "candidate_id": "81c37f396be46478597c",
+    "label": "Top TV (240p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:56.488890+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8990
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/81c37f396be46478597c.jpg"
+  },
+  {
+    "candidate_id": "5b5d2694fd9b0ec522f4",
+    "label": "Top Movies Polska (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:52.800984+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 252,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 768,
+        "height": 432,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/5b5d2694fd9b0ec522f4.jpg"
+  },
+  {
+    "candidate_id": "ca0b9e1fe2f1d0567534",
+    "label": "Top Stories by Newsy (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:58:55.242921+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 704,
+        "height": 396,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 896,
+        "height": 504,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 896,
+        "height": 504,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 704,
+        "height": 396,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 896,
+        "height": 504,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 896,
+        "height": 504,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8986
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ca0b9e1fe2f1d0567534.jpg"
+  },
+  {
+    "candidate_id": "3d2738959a904b6ef196",
+    "label": "Tora Canal 69",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T12:59:45.786248+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8994
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3d2738959a904b6ef196.jpg"
+  },
+  {
+    "candidate_id": "af7780ac979026dea7ff",
+    "label": "Tortues Ninja TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:00:12.993849+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1216,
+        "height": 684,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/af7780ac979026dea7ff.jpg"
+  },
+  {
+    "candidate_id": "02d856634356c24e153c",
+    "label": "Toshkent (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:00:22.642289+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/02d856634356c24e153c.jpg"
+  },
+  {
+    "candidate_id": "8ee2298f97a593a2f588",
+    "label": "Total Bhakti (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:00:36.090680+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 288,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8ee2298f97a593a2f588.jpg"
+  },
+  {
+    "candidate_id": "58988b9f5aae6d5ff9b5",
+    "label": "Total Crime (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:02:16.597681+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/58988b9f5aae6d5ff9b5.jpg"
+  },
+  {
+    "candidate_id": "fd926c15076ea3135ea5",
+    "label": "Totally Turtles (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:14.293990+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 209.996333,
+      "decoded_frames": 6300
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": "madsc_son_kontrol/images/fd926c15076ea3135ea5.jpg"
+  },
+  {
+    "candidate_id": "885e6411d472dfd8ffb1",
+    "label": "Totally Turtles (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:03.531614+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.984,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/885e6411d472dfd8ffb1.jpg"
+  },
+  {
+    "candidate_id": "8c4f2a4d042370c97330",
+    "label": "Total TV Haryana (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:02:47.532184+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 424,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7478
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8c4f2a4d042370c97330.jpg"
+  },
+  {
+    "candidate_id": "0612df993f1778303031",
+    "label": "Totalmusic 80s (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:16.655975+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0612df993f1778303031.jpg"
+  },
+  {
+    "candidate_id": "4344c00ff5f88c3dcab5",
+    "label": "Totalmusic Concerts (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:17.167973+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/4344c00ff5f88c3dcab5.jpg"
+  },
+  {
+    "candidate_id": "ee80b09c7b649746f0d5",
+    "label": "Totalmusic Dance (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:28.119885+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ee80b09c7b649746f0d5.jpg"
+  },
+  {
+    "candidate_id": "d530a3c7b9b0c0d48303",
+    "label": "Totalmusic (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:14.815256+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 1,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/d530a3c7b9b0c0d48303.jpg"
+  },
+  {
+    "candidate_id": "de6a767f66079cb0a99c",
+    "label": "TraLaLa TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:38.798857+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/de6a767f66079cb0a99c.jpg"
+  },
+  {
+    "candidate_id": "0e171f5077ae088547e0",
+    "label": "Trace Latina (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:39.249006+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0e171f5077ae088547e0.jpg"
+  },
+  {
+    "candidate_id": "7ac61ca424e0a2bebd1f",
+    "label": "Trace Urban (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:42.034836+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.982667,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/7ac61ca424e0a2bebd1f.jpg"
+  },
+  {
+    "candidate_id": "237090037bfbe1278ef9",
+    "label": "Town TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:31.965210+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.999,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/237090037bfbe1278ef9.jpg"
+  },
+  {
+    "candidate_id": "9aacdbe1391e378d5e98",
+    "label": "Turan TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:38.707705+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [],
+    "audio": [],
+    "continuity": {
+      "passed": false,
+      "decoded_seconds": 0.0,
+      "decoded_frames": 0
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "CONTINUITY_FAILED",
+    "image_evidence": null
+  },
+  {
+    "candidate_id": "c5f4adab172b8b034e72",
+    "label": "Trace Sport Stars (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:40.263941+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c5f4adab172b8b034e72.jpg"
+  },
+  {
+    "candidate_id": "5127cecc14bc0d2cab0f",
+    "label": "Travel TV (480p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:53.088589+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7497
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/5127cecc14bc0d2cab0f.jpg"
+  },
+  {
+    "candidate_id": "ce8b0ff79a380264ad0d",
+    "label": "Trailers (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:47.592351+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/ce8b0ff79a380264ad0d.jpg"
+  },
+  {
+    "candidate_id": "9c3dfaf26aa1ee60e693",
+    "label": "Travel+Adventure (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:58.194961+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9c3dfaf26aa1ee60e693.jpg"
+  },
+  {
+    "candidate_id": "4c3a1416bae0605277e9",
+    "label": "Trece (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:04:05.635826+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "mpeg2video",
+        "width": 720,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8973
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 2
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/4c3a1416bae0605277e9.jpg"
+  },
+  {
+    "candidate_id": "eab4b9250875129f133c",
+    "label": "Traditional TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:44.165128+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.928,
+      "decoded_frames": 4212
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/eab4b9250875129f133c.jpg"
+  },
+  {
+    "candidate_id": "c5e8ade3bd593b115e01",
+    "label": "Tribeca Channel (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:04:24.033577+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 404,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 288,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/c5e8ade3bd593b115e01.jpg"
+  },
+  {
+    "candidate_id": "014afeeaed079e2029f3",
+    "label": "Travel Box Brazil (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:51.608081+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8823
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/014afeeaed079e2029f3.jpg"
+  },
+  {
+    "candidate_id": "0e930a5bbd43fd4ca543",
+    "label": "Tra Vinh TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:03:32.491190+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0e930a5bbd43fd4ca543.jpg"
+  },
+  {
+    "candidate_id": "5832ef5c5e7009a9eba0",
+    "label": "Trishul Broadcasting Network (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:05:09.310828+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 17981
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/5832ef5c5e7009a9eba0.jpg"
+  },
+  {
+    "candidate_id": "9a0d3d494b0ab5d23010",
+    "label": "Trofei (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:05:33.677107+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9a0d3d494b0ab5d23010.jpg"
+  },
+  {
+    "candidate_id": "e14d6f441770fa4ae71d",
+    "label": "Trivu (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:05:17.535781+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.990271,
+      "decoded_frames": 15462
+    },
+    "review_events": {
+      "freeze": 7,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e14d6f441770fa4ae71d.jpg"
+  },
+  {
+    "candidate_id": "fa55012a8bc1a7b75f91",
+    "label": "Tropi Q 99.7 FM (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:07:10.770770+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "48/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 14399
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/fa55012a8bc1a7b75f91.jpg"
+  },
+  {
+    "candidate_id": "6ce92c71a22f90cf06bf",
+    "label": "Tropoja Televizion (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:07:13.890757+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 0,
+        "height": 0,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "0",
+        "channels": 0
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6ce92c71a22f90cf06bf.jpg"
+  },
+  {
+    "candidate_id": "143a0d22329383f81e62",
+    "label": "True4U (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:11.227036+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1024,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.990975,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/143a0d22329383f81e62.jpg"
+  },
+  {
+    "candidate_id": "c1f86af437e2225c1c70",
+    "label": "True Crime (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:03.740864+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 384,
+        "height": 216,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 540,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 5,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/c1f86af437e2225c1c70.jpg"
+  },
+  {
+    "candidate_id": "1bbe5132343eb521a4dc",
+    "label": "True Crime Network (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:05.139588+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 426,
+        "height": 240,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 848,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30000/1001"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8992
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/1bbe5132343eb521a4dc.jpg"
+  },
+  {
+    "candidate_id": "3f5d800dd4dca830eb8a",
+    "label": "True Crime Now (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:07.560790+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.988,
+      "decoded_frames": 7500
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3f5d800dd4dca830eb8a.jpg"
+  },
+  {
+    "candidate_id": "20dc4a01322cda7aec70",
+    "label": "Tu TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:13.748086+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/20dc4a01322cda7aec70.jpg"
+  },
+  {
+    "candidate_id": "33887af647e6ad6ff90d",
+    "label": "Tu Universo TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:34.638853+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "24/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 8701
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 2
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/33887af647e6ad6ff90d.jpg"
+  },
+  {
+    "candidate_id": "3db79284529ad78742d7",
+    "label": "Tshwane TV (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:13.486858+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 320,
+        "height": 240,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 630,
+        "height": 360,
+        "avg_frame_rate": "25/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "32000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "32000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "32000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.968,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/3db79284529ad78742d7.jpg"
+  },
+  {
+    "candidate_id": "e95ff17ef17068ce93de",
+    "label": "Turbo Mix Radio TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:40.335768+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978979,
+      "decoded_frames": 9000
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/e95ff17ef17068ce93de.jpg"
+  },
+  {
+    "candidate_id": "080a33a09838916bb017",
+    "label": "Turismo Travel TV",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:45.473143+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.990544,
+      "decoded_frames": 7453
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/080a33a09838916bb017.jpg"
+  },
+  {
+    "candidate_id": "03ab326f41a12c64ce76",
+    "label": "TvOro (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:51.934626+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8999
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/03ab326f41a12c64ce76.jpg"
+  },
+  {
+    "candidate_id": "50150295d95752d97ec2",
+    "label": "Turbo TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:40.858741+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.993333,
+      "decoded_frames": 7475
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/50150295d95752d97ec2.jpg"
+  },
+  {
+    "candidate_id": "1afd710ac1c13ff7a75d",
+    "label": "Turismo HD (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:44.333173+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1276,
+        "height": 720,
+        "avg_frame_rate": "24000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978594,
+      "decoded_frames": 6712
+    },
+    "review_events": {
+      "freeze": 4,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/1afd710ac1c13ff7a75d.jpg"
+  },
+  {
+    "candidate_id": "b6fe2414a0aebbd1a929",
+    "label": "Turistik TV (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:51.674451+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8991
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/b6fe2414a0aebbd1a929.jpg"
+  },
+  {
+    "candidate_id": "8cd00901f39b50be8d93",
+    "label": "Tviy serial (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:09:02.027491+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/8cd00901f39b50be8d93.jpg"
+  },
+  {
+    "candidate_id": "660479510c63d6a6299e",
+    "label": "Turf Movil (720p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:08:43.425394+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 720,
+        "height": 404,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8983
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 2
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/660479510c63d6a6299e.jpg"
+  },
+  {
+    "candidate_id": "d115de1a6279787aeb21",
+    "label": "TyC Sports USA",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:09:23.735462+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "mpeg2video",
+        "width": 720,
+        "height": 480,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.9997,
+      "decoded_frames": 8958
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/d115de1a6279787aeb21.jpg"
+  },
+  {
+    "candidate_id": "20ec4a4ef1f189091a9b",
+    "label": "TyC Sports (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:09:19.216072+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 640,
+        "height": 360,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 854,
+        "height": 480,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      },
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.989333,
+      "decoded_frames": 8995
+    },
+    "review_events": {
+      "freeze": 1,
+      "black": 1,
+      "silence": 1
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/20ec4a4ef1f189091a9b.jpg"
+  },
+  {
+    "candidate_id": "9b3486fdb8834fbb193a",
+    "label": "U Bangla (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:10:31.978492+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.997778,
+      "decoded_frames": 7499
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/9b3486fdb8834fbb193a.jpg"
+  },
+  {
+    "candidate_id": "0282cc7f53a6c96ad50c",
+    "label": "U Channel",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:11:02.837700+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.978005,
+      "decoded_frames": 7498
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/0282cc7f53a6c96ad50c.jpg"
+  },
+  {
+    "candidate_id": "e0eccad424c07294d5e5",
+    "label": "Tvoe TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:09:03.655214+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "status": "TIMEOUT"
+  },
+  {
+    "candidate_id": "156218eca034df76c558",
+    "label": "Tvoye TV Yumor (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:09:16.779843+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "status": "TIMEOUT"
+  },
+  {
+    "candidate_id": "8fe35a878b424b597670",
+    "label": "U (576p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:10:09.843424+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "mpeg2video",
+        "width": 720,
+        "height": 576,
+        "avg_frame_rate": "25/1"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "mp2",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.976,
+      "decoded_frames": 6822
+    },
+    "review_events": {
+      "freeze": 5,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_CONTENT_REVIEW",
+    "image_evidence": "madsc_son_kontrol/images/8fe35a878b424b597670.jpg"
+  },
+  {
+    "candidate_id": "6a66ddb9deb275e74526",
+    "label": "U Los Lagos TV (1080p)",
+    "selection_reason": "Three separate decode passes; identity and device still unverified",
+    "source_id": "",
+    "source_language_hint": "UNKNOWN",
+    "license_status": "NOT_VERIFIED",
+    "source_rights_review": "REQUIRED",
+    "station_identity_evidence": "NOT_VERIFIED",
+    "logo_identity_evidence": "NOT_VERIFIED",
+    "epg_device_evidence": "NOT_VERIFIED",
+    "checked_utc": "2026-10-26T13:12:08.098657+00:00",
+    "station_identity": "REVIEW_REQUIRED",
+    "ibo_sweden": "NOT_VERIFIED",
+    "video": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "60000/1001"
+      }
+    ],
+    "audio": [
+      {
+        "codec_name": "aac",
+        "sample_rate": "44100",
+        "channels": 2
+      }
+    ],
+    "continuity": {
+      "passed": true,
+      "decoded_seconds": 299.983017,
+      "decoded_frames": 8959
+    },
+    "review_events": {
+      "freeze": 0,
+      "black": 0,
+      "silence": 0
+    },
+    "status": "TECHNICAL_PASS_IDENTITY_PENDING",
+    "image_evidence": "madsc_son_kontrol/images/6a66ddb9deb275e74526.jpg"
   }
 ]
