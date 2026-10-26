@@ -25,7 +25,7 @@ jobs:
             gh workflow run "$workflow" --ref main
             run_id=""
             for attempt in $(seq 1 36); do
-              run_id="$(gh run list --workflow "$workflow" --branch main --event workflow_dispatch --limit 10 --json databaseId --jq --argjson before "$before" '[.[] | select(.databaseId > $before) | .databaseId] | max // empty')"
+              run_id="$(gh run list --workflow "$workflow" --branch main --event workflow_dispatch --limit 10 --json databaseId --jq "[.[] | select(.databaseId > ${before}) | .databaseId] | max // empty")"
               if [ -n "$run_id" ]; then break; fi
               sleep 5
             done
