@@ -72,6 +72,15 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Aday dogrulamasi korunan uretim listelerini degistiremez.
+          if ! git diff --quiet -- CALISANLAR.m3u YENILER.m3u; then
+            echo "::error::Dogrulama korunan kanal listelerini degistirdi; yayinlanmiyor."
+            exit 1
+          fi
+          if ! git diff --cached --quiet -- CALISANLAR.m3u YENILER.m3u; then
+            echo "::error::Korunan listelerde staged degisiklik var."
+            exit 1
+          fi
           cp -a madsc_dogrulama "${RUNNER_TEMP}/verification"
           for attempt in $(seq 1 10); do
             git fetch origin main
