@@ -71,6 +71,16 @@ jobs:
             echo "Rapor dizini yok; kaydedilecek veri yok"
             exit 0
           fi
+          # Kesif raporlarini kaydederken korunan uretim dosyalarina yazmayi reddet.
+          # Yalniz madsc_kesif/ dizini commit'e dahil edilebilir.
+          if ! git diff --quiet -- CALISANLAR.m3u YENILER.m3u; then
+            echo "::error::Kesif korunan kanal listelerini degistirdi; yayinlanmiyor."
+            exit 1
+          fi
+          if ! git diff --cached --quiet -- CALISANLAR.m3u YENILER.m3u; then
+            echo "::error::Korunan kanal listelerinde staged degisiklik var."
+            exit 1
+          fi
           cp -a madsc_kesif "${RUNNER_TEMP}/madsc-kesif-rapor"
           for attempt in $(seq 1 10); do
             git fetch origin main
