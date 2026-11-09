@@ -78,6 +78,17 @@ class LegacyWriterGuards(unittest.TestCase):
                 self.assertLess(rebase, second_gate)
                 self.assertLess(second_gate, push)
 
+    def test_son_kontrol_checks_protected_paths_before_and_after_commit(self):
+        source = (ROOT / "madsc-son-kontrol.yml").read_text(encoding="utf-8-sig")
+        step = source.split('git add -- madsc_son_kontrol/results.json madsc_son_kontrol/summary.json', 1)[1]
+        first_gate = step.index("python3 tools/protected_write_gate.py --base origin/main")
+        commit = step.index('git commit -m "Save separate completed-candidate continuity report"')
+        second_gate = step.index("python3 tools/protected_write_gate.py --base origin/main", first_gate + 1)
+        push = step.index("git push origin HEAD:main")
+        self.assertLess(first_gate, commit)
+        self.assertLess(commit, second_gate)
+        self.assertLess(second_gate, push)
+
     def test_all_legacy_push_writers_have_gate_reference(self):
         """Detect unguarded publishers across the full legacy inventory."""
         from scripts.five_category_92_workflow_audit import inspect
