@@ -1,3 +1,12 @@
+## 9 Kasım 2026 — K1 Actions API salt-okunur istisnası daraltıldı
+
+- 563da72: scripts/k1_workflow_risk_inventory.py READ_ONLY_ACTIONS_API regex'i yalnız actions/runs ve actions/workflows listeleme uç noktalarını kabul edecek şekilde sınırlandı; alt yolun yanlışlıkla GET-only sayılması engellendi.
+- 9396cb1: tests/test_k1_workflow_risk_inventory.py içine /runs/123/cancel, /runs/123/rerun ve /workflows/ci.yml/dispatches yollarını inceleme gerektiren yazma sinyali olarak işaretleme regresyonu eklendi.
+- GitHub Actions çalıştırma/log başarısı henüz doğrulanmadı; yerel checkout github.com DNS erişimi nedeniyle kullanılamadı. Test yeşil ilan edilmedi. K1 26 runtime ve K5 92 davranışsal kabul açık.
+- Sıradaki: CI kanıtı ve 24 workflow yazma riski incelemesi. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 9 Kasım 2026 — VOD JSON yazma hatası regresyonu
 
 - 188ca02 / 8ac77cb: tests/test_vod_snapshot_preservation.py içine JSON serileştirme sırasında TypeError oluştuğunda eski snapshot'ın değişmemesi ve .vod-*.tmp dosyasının temizlenmesi testi eklendi; kullanılmayan test değişkeni temizlendi.
