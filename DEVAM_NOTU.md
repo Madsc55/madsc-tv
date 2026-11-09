@@ -1,3 +1,11 @@
+## 9 Kasım 2026 — VOD boş API yanıtı için fail-closed koruma
+
+- e62ec68: scripts/vod_guncelle.py 15/15 API gününün başarılı fakat tamamının boş olduğu durumda önceki snapshot'ı koruyarak nonzero döner; boş verinin eski bölümleri silmesi engellendi.
+- 1144a33: tests/test_vod_snapshot_preservation.py içine 15 günün tamamı boş olduğunda dosyanın byte-byte değişmemesi regresyonu eklendi. Bu test scripts/acceptance_26_92.py SUITES listesinde zaten kayıtlı olan dosyadadır.
+- GitHub Actions yeşil kabul kanıtı bu değişiklikler için henüz yok. Gerçek CI ve 26/92 runtime kabulü bekliyor. Ana listeler, main, PR71, V2 ve tarihsel 354 göçü değiştirilmedi/çalıştırılmadı.
+
+---
+
 ## 9 Kasım 2026 — K1–K5 toplu regresyon kapsamına iki güvenlik testi bağlandı
 
 - Commit 91dd191: scripts/acceptance_26_92.py SUITES listesine test_archive_354_authorization.py ve test_vod_snapshot_preservation.py eklendi. Birleşik kabul çalıştığında iki yeni dosya da ayrı test paketi olarak koşacak; başarısızlık kabulü yeşile çevirmeyecek.
