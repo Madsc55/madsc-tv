@@ -23,6 +23,8 @@ SUITES = [
     "test_k1_runtime_workflow_guard.py",
     "test_five_category_92_workflow_audit.py",
     "test_legacy_permission_gap.py",
+    "test_archive_354_authorization.py",
+    "test_vod_snapshot_preservation.py",
     "test_five_system_cutover_readiness.py",
 ]
 
