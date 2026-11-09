@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1 zincirli gh api komutları
+
+- 08cf228: scripts/k1_workflow_risk_inventory.py job_scope() artık aynı satırda birden çok gh api çağrısını salt okunur istisnaya sokmuyor. Statik inceleme sinyali; çalışma güvenliği kanıtı değildir.
+- b059a3b: tests/test_k1_workflow_risk_inventory.py içinde GET-only Actions çağrısı + zincirli ikinci API çağrısının yazma incelemesine düşmesi regresyonu eklendi.
+- Gerçek GitHub Actions/yerel test çalıştırma sonucu henüz doğrulanmadı. K1 26 çalışma kanıtı ve K5 92 davranışsal kabul açık. main, PR71, korunan listeler ve V2 değiştirilmedi.
+
+---
+
 ## 9 Kasım 2026 — Birleşik keşif raporu commit öncesi gate
 
 - ad746a5: .github/workflows/madsc-birlesik-kesif.yml içindeki rapor kaydetme döngüsünde korunan dosya gate'i commit öncesi ve commit sonrası/push öncesi çağrılıyor. Mevcut cron, permissions, branch koşulu, rapor hedefi ve concurrency değişmedi.
