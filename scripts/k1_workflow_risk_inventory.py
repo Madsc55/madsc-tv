@@ -150,10 +150,10 @@ def inspect(path):
     failure_gate_calls = len(FAILURE_GATE_CALL.findall(s))
     protected = bool(PROTECTED.search(s))
     risky_triggers = any(x in triggers for x in ("pull_request_target", "workflow_run"))
-    if read_only_audit_exemption:
-        tier = "READ_ONLY_AUDIT_TEXT"
-    elif pushes and (gates < pushes or pushes_without_prior_gate):
+    if pushes and (gates < pushes or pushes_without_prior_gate):
         tier = "CRITICAL_UNGATED_PUSH"
+    elif read_only_audit_exemption:
+        tier = "READ_ONLY_AUDIT_TEXT"
     elif has_write and (protected or risky_triggers):
         tier = "HIGH_WRITE_OR_TRIGGER"
     elif has_write or has_permission:
