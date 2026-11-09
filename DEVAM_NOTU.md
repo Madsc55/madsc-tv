@@ -1,3 +1,12 @@
+## 9 Kasım 2026 — K1 son kontrol yazıcısına commit-öncesi koruma
+
+- 49c1e44: .github/workflows/madsc-son-kontrol.yml rapor commit'i öncesinde de tools/protected_write_gate.py --base origin/main çalıştırıyor; commit sonrası push öncesi denetim korunuyor. Cron, permissions, main dalı koşulu ve rapor hedefleri değiştirilmedi.
+- e371348: tests/test_k1_legacy_writer_guards.py dosyasında ilk gate < commit < ikinci gate < push sıralaması regresyonla kontrol ediliyor.
+- GitHub Actions/yerel test yeşil sonucu henüz kanıtlanmadı; github.com DNS erişimi olmadığından checkout yapılamadı. Bu değişiklikler çalışma kanıtı veya K1 26/26 kabulü değildir.
+- Sıradaki: diğer gerçek writer yollarını ve 24 kapsam kaydını incele, toplu test/CI loglarını doğrula, K5 92 davranışsal eşdeğerlik kanıtını tamamla. main, PR71, korunan listeler, V2 değiştirilmedi.
+
+---
+
 ## 9 Kasım 2026 — K1 Actions API salt-okunur istisnası daraltıldı
 
 - 563da72: scripts/k1_workflow_risk_inventory.py READ_ONLY_ACTIONS_API regex'i yalnız actions/runs ve actions/workflows listeleme uç noktalarını kabul edecek şekilde sınırlandı; alt yolun yanlışlıkla GET-only sayılması engellendi.
