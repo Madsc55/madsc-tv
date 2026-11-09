@@ -23,15 +23,19 @@ def collect(day, opener=urllib.request.urlopen):
                 episodes = json.load(response)
             if not isinstance(episodes, list):
                 raise ValueError("Schedule response is not a list")
-            successful_days += 1
+            day_records = []
             for ep in episodes:
                 if not isinstance(ep, dict):
                     raise ValueError("Invalid episode record")
                 show = ep.get("show") or {}
-                records.append({"show": show.get("name"), "episode": ep.get("name"),
-                                "season": ep.get("season"), "number": ep.get("number"),
-                                "airdate": ep.get("airdate"), "url": ep.get("url"),
-                                "watch_url": None})
+                if not isinstance(show, dict):
+                    raise ValueError("Invalid show record")
+                day_records.append({"show": show.get("name"), "episode": ep.get("name"),
+                                    "season": ep.get("season"), "number": ep.get("number"),
+                                    "airdate": ep.get("airdate"), "url": ep.get("url"),
+                                    "watch_url": None})
+            records.extend(day_records)
+            successful_days += 1
         except (OSError, ValueError, TypeError, KeyError) as exc:
             print("Skipped", date, str(exc))
     return records, successful_days
