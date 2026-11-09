@@ -1,3 +1,11 @@
+## 9 Kasım 2026 — VOD atomik değiştirme hata testi
+
+- 47dac5e: tests/test_vod_snapshot_preservation.py dosyasına os.replace hatası enjekte edilen ağsız regresyon testi eklendi. Eski snapshot'ın byte düzeyinde değişmemesi ve geçici .vod-*.tmp dosyasının temizlenmesi beklenir.
+- Test mevcut K1–K5 toplu kabul SUITES girdisi içinde çalışacak. Bu commit için gerçek CI/log başarısı henüz doğrulanmadı; K1 26 runtime ve K5 92 davranışsal kanıt tamamlandı sayılmaz.
+- Sıradaki iş gerçek CI kanıtı, 24 workflow kapsamının ve yazma sinyallerinin incelenmesi. Korunan kanal listeleri/main/PR71/V2 değiştirilmedi.
+
+---
+
 ## 9 Kasım 2026 — VOD boş API yanıtı için fail-closed koruma
 
 - e62ec68: scripts/vod_guncelle.py 15/15 API gününün başarılı fakat tamamının boş olduğu durumda önceki snapshot'ı koruyarak nonzero döner; boş verinin eski bölümleri silmesi engellendi.
