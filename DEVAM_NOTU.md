@@ -1,3 +1,12 @@
+## 9 Kasım 2026 — Birleşik keşif raporu commit öncesi gate
+
+- ad746a5: .github/workflows/madsc-birlesik-kesif.yml içindeki rapor kaydetme döngüsünde korunan dosya gate'i commit öncesi ve commit sonrası/push öncesi çağrılıyor. Mevcut cron, permissions, branch koşulu, rapor hedefi ve concurrency değişmedi.
+- 3db1676: tests/test_k1_legacy_writer_guards.py içine ilk gate < commit < ikinci gate < push sırası regresyonu eklendi.
+- GitHub Actions veya yerel regresyon çalıştırma sonucu doğrulanmadı; K1 26 runtime ve K5 92 davranışsal kabul hâlâ açık. Bu kod değişikliği tek başına üretim koruması kanıtı değildir.
+- Sıradaki: 24 workflow kapsamındaki diğer gerçek yazıcıları denetle, CI run/job loglarıyla regresyon kanıtını al. main, PR71, korunan listeler, V2 değiştirilmedi.
+
+---
+
 ## 9 Kasım 2026 — K1 son kontrol yazıcısına commit-öncesi koruma
 
 - 49c1e44: .github/workflows/madsc-son-kontrol.yml rapor commit'i öncesinde de tools/protected_write_gate.py --base origin/main çalıştırıyor; commit sonrası push öncesi denetim korunuyor. Cron, permissions, main dalı koşulu ve rapor hedefleri değiştirilmedi.
