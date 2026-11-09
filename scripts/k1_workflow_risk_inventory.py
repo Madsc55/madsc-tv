@@ -13,7 +13,7 @@ GH_CLI_MUTATION = re.compile(r"\bgh\s+(?:workflow\s+(?:run|enable|disable)|run\s
 GIT_MUTATION = re.compile(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+)*(?:push|reset\s+--hard|clean\s+-(?=[A-Za-z]*f)[A-Za-z]+|checkout\s+--|restore\b)\b", re.I)
 PYTHON_MUTATION = re.compile(r"\b(?:python3?|bash|sh)\s+(?:\S+/)*\S*(?:publish|upload|update|write|sync|deploy|delete|restore)\S*\.(?:py|sh)\b", re.I)
 # Only the existing monthly audit\u0027s known GET-only Actions report calls are exempt.
-READ_ONLY_ACTIONS_API = re.compile(r"\brepos/\$\{GITHUB_REPOSITORY\}/actions/(?:runs|workflows)(?:\?[^\s\"]*)?", re.I)
+READ_ONLY_ACTIONS_API = re.compile(r"\brepos/\$\{GITHUB_REPOSITORY\}/actions/(?:runs|workflows)(?=\?|[\"'\s]|$)(?:\?[^\s\"']*)?", re.I)
 GH_API_MUTATION_FLAGS = re.compile(r"(?<!\w)(?:-X|--method|-f|-F|--field|--raw-field|--input)(?:\s|=|$)", re.I)
 PERMISSION = re.compile(r"(?:contents|actions|pull-requests|workflows):\s*write\b|permissions:\s*write-all", re.I)
 TRIGGER = re.compile(r"^\s*(push|pull_request|pull_request_target|workflow_run|schedule|workflow_dispatch|repository_dispatch):", re.M)
