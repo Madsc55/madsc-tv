@@ -242,6 +242,13 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                          '          gh api "repos/${GITHUB_REPOSITORY}/actions/runs" && curl -X POST https://example.invalid\n')
         self.assertEqual(len(jobs[0]["mutation_lines_without_prior_failure_gate_signal"]), 1)
 
+    def test_readonly_api_does_not_hide_chained_second_api_call(self):
+        jobs = job_scope(
+            'jobs:\n  audit:\n    steps:\n      - run: |\n'
+            '          gh api "repos/${GITHUB_REPOSITORY}/actions/runs" && gh api "repos/${GITHUB_REPOSITORY}/dispatches"\n'
+        )
+        self.assertEqual(len(jobs[0]["mutation_lines_without_prior_failure_gate_signal"]), 1)
+
     def test_prior_same_job_gate_is_only_order_signal(self):
         jobs = job_scope('jobs:\n  publish:\n    steps:\n'
                          '      - run: python3 tools/workflow_failure_gate.py\n'
