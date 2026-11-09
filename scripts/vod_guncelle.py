@@ -47,6 +47,9 @@ def update(out=OUT, day=None, opener=urllib.request.urlopen):
     if successful_days != 15:
         print("Incomplete schedule: preserving previous snapshot", successful_days, "/15")
         return 1
+    if not records:
+        print("Empty schedule: preserving previous snapshot")
+        return 1
     payload = {"updated": day.isoformat(),
                "note": "Bölüm yayın takvimi; oynatma bağlantısı değildir.",
                "episodes": records}
