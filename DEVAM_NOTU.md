@@ -1,3 +1,11 @@
+## 9 Kasım 2026 — K1–K5 toplu regresyon kapsamına iki güvenlik testi bağlandı
+
+- Commit 91dd191: scripts/acceptance_26_92.py SUITES listesine test_archive_354_authorization.py ve test_vod_snapshot_preservation.py eklendi. Birleşik kabul çalıştığında iki yeni dosya da ayrı test paketi olarak koşacak; başarısızlık kabulü yeşile çevirmeyecek.
+- Bu commit için gerçek GitHub Actions/job/log sonucu henüz doğrulanmadı. Yerel/CI testleri başarılı ilan edilmedi. Önce testlerin koştuğunu ve korunan dosya farkının sıfır olduğunu doğrula; ardından 24 kapsam kaydındaki gerçek writer yollarını incele.
+- Eski MADSC-TV geliştirme dalı dışında değişiklik yok; main, PR71, üretim listeleri, yedekler ve MADSC55 TV V2 korunuyor. 0/26 runtime ve 0/92 davranışsal kabul değişmedi.
+
+---
+
 ## 9 Kasım 2026 — MADSC-TV eski sistem, güvenli devam kaydı
 
 - Yalnız eski Madsc55/madsc-tv deposunun madsc/bes-sistem-toplu-birlestirme dalında çalışıldı. V2, main, PR #71, CALISANLAR.m3u, YEDEKLER/YENİLER/FAVORİLER ve cihaz listeleri değiştirilmedi.
