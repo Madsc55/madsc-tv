@@ -1,3 +1,11 @@
+## 9 Kasım 2026 — VOD JSON yazma hatası regresyonu
+
+- 188ca02 / 8ac77cb: tests/test_vod_snapshot_preservation.py içine JSON serileştirme sırasında TypeError oluştuğunda eski snapshot'ın değişmemesi ve .vod-*.tmp dosyasının temizlenmesi testi eklendi; kullanılmayan test değişkeni temizlendi.
+- Bu dosya scripts/acceptance_26_92.py SUITES içinde zaten bulunuyor. GitHub Actions sonucu veya yerel toplu test başarısı doğrulanmadı. Repo yerel ortama indirilemedi (github.com DNS erişimi yok); bunu yeşil kabul sayma.
+- Sıradaki: K1 24 workflow yazma kapsamı, 26 runtime güvenlik kanıtı, K5 92 davranışsal eşdeğerlik ve gerçek Actions job/log doğrulaması. Korunan üretim listeleri, main, PR71, V2 değişmedi.
+
+---
+
 ## 9 Kasım 2026 — Arşiv yetkili yanlış envanter regresyonu
 
 - af3b1a7: tests/test_archive_354_authorization.py içinde yalnız geçici çalışma dizininde açık yetkilendirme + 354 yerine tek giriş durumunda işlemin durması, mevcut playlist'in byte düzeyinde korunması ve arşiv klasörü oluşmaması beklentisi eklendi. Üretim arşiv betiği çalıştırılmadı.
