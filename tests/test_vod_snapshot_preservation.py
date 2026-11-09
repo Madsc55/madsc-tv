@@ -53,6 +53,17 @@ class VodSnapshotTests(unittest.TestCase):
         self.assertEqual(vod.update(self.out, self.day, invalid), 1)
         self.assertEqual(self.out.read_bytes(), self.previous)
 
+    def test_malformed_episode_in_one_day_preserves_snapshot(self):
+        calls = 0
+        def malformed(request, timeout):
+            nonlocal calls
+            calls += 1
+            if calls == 8:
+                return Response('[{"show":{"name":"Valid"}}, {"show":"invalid"}]')
+            return Response("[]")
+        self.assertEqual(vod.update(self.out, self.day, malformed), 1)
+        self.assertEqual(self.out.read_bytes(), self.previous)
+
     def test_complete_success_atomically_updates_snapshot(self):
         def valid(request, timeout):
             return Response(json.dumps([{"show":{"name":"Example"},"name":"Episode 1"}]))
