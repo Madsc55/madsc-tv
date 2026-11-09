@@ -52,6 +52,20 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                 self.assertFalse(record["write_command_signal"])
                 self.assertEqual(record["tier"], "LOW_STATIC_SIGNAL")
 
+    def test_actions_api_subpaths_are_not_readonly_exemptions(self):
+        commands = (
+            'gh api "repos/${GITHUB_REPOSITORY}/actions/runs/123/cancel"',
+            'gh api "repos/${GITHUB_REPOSITORY}/actions/runs/123/rerun"',
+            'gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/ci.yml/dispatches"',
+        )
+        for command in commands:
+            with self.subTest(command=command):
+                record = self.inspect_text(
+                    "permissions:\n  contents: read\nsteps:\n  - run: " + command + "\n"
+                )
+                self.assertTrue(record["write_command_signal"])
+                self.assertEqual(record["tier"], "REVIEW_WRITE")
+
     def test_actions_api_mutations_remain_write_signals(self):
         commands = (
             'gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/runs"',
