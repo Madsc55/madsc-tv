@@ -2,6 +2,13 @@
 """Archive user-classified backup positions 3-334 and 335-354, retaining 1-2."""
 from pathlib import Path
 import json,re
+import os
+import sys
+
+# Historical one-time migration. Never run implicitly from a workflow or import.
+# A separate, explicit user authorization is required before any protected write.
+if __name__ != "__main__" or sys.argv[1:] != ["--apply-authorized"] or os.environ.get("MADSC_ARCHIVE_354_AUTHORIZED") != "YES":
+    raise SystemExit("DENY: historical archive migration requires explicit --apply-authorized and MADSC_ARCHIVE_354_AUTHORIZED=YES; protected playlist unchanged")
 p=Path("CALISANLAR.m3u"); d=Path("madsc_kesif")
 tr=d/"ibo_354_3_334_turk_calismaz_arsiv.m3u"
 foreign=d/"ibo_354_335_354_yabanci_arsiv.m3u"
