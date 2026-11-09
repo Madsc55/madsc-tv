@@ -80,6 +80,18 @@ class VodSnapshotTests(unittest.TestCase):
         self.assertEqual(self.out.read_bytes(), self.previous)
         self.assertEqual(list(self.out.parent.glob(".vod-*.tmp")), [])
 
+    def test_unserializable_api_data_preserves_snapshot_and_cleans_temp(self):
+        def invalid_json_value(request, timeout):
+            return Response('[{"show":{"name":"Example"},"season":1}]')
+        original_collect = vod.collect
+        def bad_collect(day, opener):
+            return ([{"show": object()}], 15)
+        with mock.patch.object(vod, "collect", side_effect=bad_collect):
+            with self.assertRaises(TypeError):
+                vod.update(self.out, self.day, invalid_json_value)
+        self.assertEqual(self.out.read_bytes(), self.previous)
+        self.assertEqual(list(self.out.parent.glob(".vod-*.tmp")), [])
+
     def test_complete_success_atomically_updates_snapshot(self):
         def valid(request, timeout):
             return Response(json.dumps([{"show":{"name":"Example"},"name":"Episode 1"}]))
