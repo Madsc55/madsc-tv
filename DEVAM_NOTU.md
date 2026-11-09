@@ -1,3 +1,16 @@
+## 9 Kasım 2026 — MADSC-TV eski sistem, güvenli devam kaydı
+
+- Yalnız eski Madsc55/madsc-tv deposunun madsc/bes-sistem-toplu-birlestirme dalında çalışıldı. V2, main, PR #71, CALISANLAR.m3u, YEDEKLER/YENİLER/FAVORİLER ve cihaz listeleri değiştirilmedi.
+- 7618390: scripts/archive_backups_354_classified.py tarihsel 354-kanal mutasyonu artık varsayılan/örtük çalışmayı reddediyor; yalnız --apply-authorized ve MADSC_ARCHIVE_354_AUTHORIZED=YES birlikte verilirse eski kod yoluna geçiyor. Bu, üretim çalıştırma onayı değildir; tarihsel göçü yeniden çalıştırma.
+- 71964d5: tests/test_archive_354_authorization.py beş yetkisiz başlatma senaryosunda liste ve arşiv değişmezliğini denetlemek üzere eklendi.
+- bf49f38: tests/test_vod_snapshot_preservation.py tam ağ kesintisi, kısmi hata, yanlış API biçimi ve tam başarı senaryolarını kapsıyor.
+- bba5d4b: scripts/vod_guncelle.py yalnız tüm günün bölüm kayıtları ve show nesneleri doğrulanınca o günü başarılı sayıyor; yarım gün kayıtları başarılı kabul edilmiyor.
+- dd38997: kısmen bozuk bölüm günü için ek VOD regresyon testi.
+- GitHub commit status ve PR-triggered workflow sorguları son SHA için boş döndü. Bu, Actions yeşil veya testlerin geçtiği anlamına gelmez. Yeni testler henüz gerçek CI ile doğrulanmadı. 26/26 runtime ve 92/92 davranışsal kabul hâlâ açık; eski sayılar değiştirilmedi.
+- Sıradaki: izole/ağsız testleri gerçek koşuda çalıştırıp logları kaydet; testlerin K1 CI tarafından keşfedildiğini doğrula. Sonra 24 workflow kapsam kaydı ve 18 yazma sinyalini sırayla incele. Korunan dosyalara otomatik yazma veya tarihsel 354 göçünü başlatma.
+
+---
+
 ## 22 Ekim 2026 — SON DOĞRULANMIŞ: 24 kaydın job/step bağlamı
 
 - Kod **4bc73284a24d1a72ced121724384b15a38158b44**. K1 run [39767812103](https://github.com/Madsc55/madsc-tv/actions/runs/39767812103) **completed/success**, job **119787527318**: **15/15 paket**, 136 korunan dosyada changed_paths=[]. Artifact acceptance **12421550552**, risk **12421051687**, tarihsel korunan fark **12421216247**. Gerçek logdaki job-scope raporu **24 kayıt / 18 komut-script-adı sinyalli / 6 bu düzeyde sinyalsiz**.
