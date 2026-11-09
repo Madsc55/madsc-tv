@@ -39,5 +39,23 @@ class HistoricalArchiveAuthorizationTests(unittest.TestCase):
                     self.assertFalse((root / "madsc_kesif").exists())
 
 
+    def test_explicit_authorization_rejects_wrong_inventory_without_writing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            playlist = root / "CALISANLAR.m3u"
+            original = b"#EXTM3U\n#EXTINF:-1,Protected\nhttps://example.invalid/live.m3u8\n"
+            playlist.write_bytes(original)
+            env = os.environ.copy()
+            env["MADSC_ARCHIVE_354_AUTHORIZED"] = "YES"
+            result = subprocess.run(
+                [sys.executable, str(SCRIPT), "--apply-authorized"],
+                cwd=root, env=env, capture_output=True, text=True, timeout=10,
+            )
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("Expected 354", result.stderr + result.stdout)
+            self.assertEqual(playlist.read_bytes(), original)
+            self.assertFalse((root / "madsc_kesif").exists())
+
+
 if __name__ == "__main__":
     unittest.main()
