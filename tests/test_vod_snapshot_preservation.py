@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "vod_guncelle.py"
 spec = importlib.util.spec_from_file_location("vod_guncelle_under_test", SCRIPT)
@@ -69,6 +70,15 @@ class VodSnapshotTests(unittest.TestCase):
             return Response("[]")
         self.assertEqual(vod.update(self.out, self.day, empty), 1)
         self.assertEqual(self.out.read_bytes(), self.previous)
+
+    def test_atomic_replace_failure_preserves_snapshot_and_cleans_temp(self):
+        def valid(request, timeout):
+            return Response('[{"show":{"name":"Example"},"name":"Episode"}]')
+        with mock.patch.object(vod.os, "replace", side_effect=OSError("disk failure")):
+            with self.assertRaises(OSError):
+                vod.update(self.out, self.day, valid)
+        self.assertEqual(self.out.read_bytes(), self.previous)
+        self.assertEqual(list(self.out.parent.glob(".vod-*.tmp")), [])
 
     def test_complete_success_atomically_updates_snapshot(self):
         def valid(request, timeout):
