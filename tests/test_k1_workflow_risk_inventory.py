@@ -18,6 +18,22 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
         self.assertEqual(record["force_push_count"], 1)
         self.assertEqual(record["tier"], "CRITICAL_UNGATED_PUSH")
 
+    def test_readonly_audit_label_never_masks_ungated_push(self):
+        root = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory(dir=root / ".github" / "workflows") as tmp:
+            p = Path(tmp) / "test-32-unapproved-write-regression.yml"
+            p.write_text(
+                "permissions:\n  contents: read\njobs:\n  audit:\n    steps:\n"
+                "      - uses: actions/checkout@v4\n"
+                "        with:\n          persist-credentials: false\n"
+                "      - run: git push origin HEAD:main\n",
+                encoding="utf-8",
+            )
+            record = inspect(p)
+        self.assertTrue(record["audit_text_exemption_requires_review"])
+        self.assertEqual(record["pushes_without_prior_gate_signal"], 1)
+        self.assertEqual(record["tier"], "CRITICAL_UNGATED_PUSH")
+
     def test_two_push_commands_flagged(self):
         record = self.inspect_text("steps:\n  - run: git push origin HEAD\n  - run: git push origin HEAD\n")
         self.assertEqual(record["git_push_count"], 2)
