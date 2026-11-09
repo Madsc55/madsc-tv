@@ -68,6 +68,7 @@ jobs:
             cp "${RUNNER_TEMP}/son-kontrol/"*.json madsc_son_kontrol/
             git add -- madsc_son_kontrol/results.json madsc_son_kontrol/summary.json
             if git diff --cached --quiet; then exit 0; fi
+            python3 tools/protected_write_gate.py --base origin/main
             git commit -m "Save separate completed-candidate continuity report"
             python3 tools/protected_write_gate.py --base origin/main
             if git push origin HEAD:main; then exit 0; fi
