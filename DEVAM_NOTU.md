@@ -1,3 +1,12 @@
+## 9 Kasım 2026 — Arşiv yetkili yanlış envanter regresyonu
+
+- af3b1a7: tests/test_archive_354_authorization.py içinde yalnız geçici çalışma dizininde açık yetkilendirme + 354 yerine tek giriş durumunda işlemin durması, mevcut playlist'in byte düzeyinde korunması ve arşiv klasörü oluşmaması beklentisi eklendi. Üretim arşiv betiği çalıştırılmadı.
+- Bu test zaten scripts/acceptance_26_92.py toplu SUITES kapsamındadır. Commit için GitHub status ve PR workflow sorguları boş; CI başarılı kabul edilmedi.
+- Önceki K1 risk sınıflandırma düzeltmesi 493432f ve regresyonu 35374d0 da henüz gerçek CI kabulüyle kanıtlanmadı. Sıradaki: gerçek CI job/log kanıtını al, 24 workflow yazma kapsamını çöz. 26/92 runtime kabul açık.
+- main, PR71, korunan listeler, V2 değiştirilmedi.
+
+---
+
 ## 9 Kasım 2026 — VOD atomik değiştirme hata testi
 
 - 47dac5e: tests/test_vod_snapshot_preservation.py dosyasına os.replace hatası enjekte edilen ağsız regresyon testi eklendi. Eski snapshot'ın byte düzeyinde değişmemesi ve geçici .vod-*.tmp dosyasının temizlenmesi beklenir.
