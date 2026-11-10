@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1-K5 tüm workflow değişiklikleri CI tetikleyicisi
+
+- a2e18c4: .github/workflows/k1-protected-write-tests.yml push.paths içine '.github/workflows/**' eklendi; yalnızca belirli workflow dosyalarına bağımlı olmayan genel regresyon tetiklemesi.
+- 6acdcee: tests/test_k1_legacy_writer_guards.py bu wildcard tetikleyicisini doğrulayan statik test eklendi.
+- Bu yalnızca push event path kapsamıdır; Actions çalıştırma kanıtı değildir. Tam test/CI sonucu doğrulanmadı. K1 26 runtime ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 zincirli Python yayınlayıcı tespiti
 
 - 35ea448: scripts/k1_workflow_risk_inventory.py job_scope() içinde aynı shell satırında önce başka komut bulunan python/bash/sh yayınlayıcı betikleri de mutation signal kapsamına alındı.
