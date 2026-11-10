@@ -1,3 +1,12 @@
+## 10 Kasım 2026 — Kırmızı CI koşuları / hata tanılama önceliği
+
+- Kullanıcı GitHub Actions ekranlarında K1 Protected Write Gate Negative Tests #282–#292 ve MADSC 05 bakım koşularının kırmızı olduğunu gösterdi. Önceki yanıtlarda Actions sonuçları doğrulanmadan ardışık commitler üretildi; bu bir çözüm değildir.
+- 112bdf2: scripts/acceptance_26_92.py başarısız suite traceback/log_tail çıktılarını doğrudan GitHub Actions loguna gruplu yazıyor; hata durumunda exit code 1 korunuyor, başarısızlık gizlenmiyor.
+- Kök hata henüz belirlenemedi: GitHub bağlantısında commit PR-run filtresi gerçek push koşularını listelemiyor; job loglarına erişmek için gerçek run ID gerekiyor, ekran görüntüsündeki #292 workflow sıra numarası ID değil. Yerel git ağ erişimi DNS yüzünden çalışmıyor.
+- Bir sonraki iş yeni özellik değil: gerçek başarısız job loglarını elde edip toplu regresyon hatalarını düzeltmek, yeniden çalıştırmak ve sonucu doğrulamak. K1 26 runtime ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1-K5 tüm workflow değişiklikleri CI tetikleyicisi
 
 - a2e18c4: .github/workflows/k1-protected-write-tests.yml push.paths içine '.github/workflows/**' eklendi; yalnızca belirli workflow dosyalarına bağımlı olmayan genel regresyon tetiklemesi.
