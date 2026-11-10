@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1 genel envanter zincirli API sınıflandırması
+
+- e8c17bb: scripts/k1_workflow_risk_inventory.py inspect() genel api_write sınıflandırmasında aynı satırda birden fazla gh api çağrısını inceleme gerektiren sinyal olarak ele alıyor. Önceki 08cf228 job_scope() düzeltmesinin genel envanter karşılığıdır.
+- 4c25951: tests/test_k1_workflow_risk_inventory.py test_chained_actions_api_calls_are_write_review_in_inventory regresyonu eklendi.
+- Gerçek CI/test sonucu henüz doğrulanmadı; K1 26 çalışma kanıtı ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 zincirli gh api komutları
 
 - 08cf228: scripts/k1_workflow_risk_inventory.py job_scope() artık aynı satırda birden çok gh api çağrısını salt okunur istisnaya sokmuyor. Statik inceleme sinyali; çalışma güvenliği kanıtı değildir.
