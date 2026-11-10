@@ -58,6 +58,12 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
         self.assertTrue(record["write_command_signal"])
         self.assertEqual(record["tier"], "REVIEW_WRITE")
 
+    def test_readonly_api_does_not_exempt_second_repository_endpoint(self):
+        command = 'gh api "repos/${GITHUB_REPOSITORY}/dispatches" --jq "repos/${GITHUB_REPOSITORY}/actions/runs"'
+        record = self.inspect_text("permissions:\n  contents: read\nsteps:\n  - run: " + command + "\n")
+        self.assertTrue(record["write_command_signal"])
+        self.assertEqual(record["tier"], "REVIEW_WRITE")
+
     def test_actions_api_subpaths_are_not_readonly_exemptions(self):
         commands = (
             'gh api "repos/${GITHUB_REPOSITORY}/actions/runs/123/cancel"',
