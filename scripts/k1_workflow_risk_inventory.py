@@ -86,6 +86,7 @@ def job_scope(source):
             step["failure_gate_call_lines"].append(number)
         readonly_api = (GH_API.search(body) and READ_ONLY_ACTIONS_API.search(body)
                         and len(re.findall(r"\bgh\s+api\b", body, re.I)) == 1
+                        and len(re.findall(r"\brepos/[^\s\"\u0027]+", body, re.I)) == 1
                         and not GH_API_MUTATION_FLAGS.search(body) and "graphql" not in body.casefold()
                         and not GIT_MUTATION.search(body) and not GH_CLI_MUTATION.search(body)
                         and not WRITE.search(body))
