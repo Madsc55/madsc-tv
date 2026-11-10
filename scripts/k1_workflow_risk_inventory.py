@@ -92,7 +92,7 @@ def job_scope(source):
                         and not WRITE.search(body))
         if command.search(body) and not readonly_api:
             step["mutation_signal_lines"].append(number)
-        if PYTHON_MUTATION.match(body):
+        if PYTHON_MUTATION.search(body) and re.search(r"(?:^|[;&|()])\s*(?:python3?|bash|sh)\s+", body):
             step["script_mutation_name_lines"].append(number)
     for job in jobs:
         gates = [line for step in job["steps"] if not step["continue_on_error_signal"]
