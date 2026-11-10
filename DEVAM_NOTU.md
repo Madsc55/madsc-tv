@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1 job-scope API uç noktası tutarlılığı
+
+- 2e2224c: scripts/k1_workflow_risk_inventory.py job_scope() GET-only gh api istisnasında artık tam bir adet repos/ uç noktası gerektiriyor. Genel inspect() kontrolüyle tutarlı.
+- 805cf14: tests/test_k1_workflow_risk_inventory.py ikinci uç nokta maskelenmesini önleyen job_scope regresyonu eklendi.
+- Gerçek GitHub Actions/yerel tam test sonucu henüz doğrulanmadı; K1 26 runtime ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — Ayrı son kontrol workflow_run kaynak dalı kısıtı
 
 - 2d0da4e: .github/workflows/madsc-son-kontrol.yml ayrıcalıklı continuity job artık main ref ve workflow_run tetiklemesinde başarılı main kaynak dalı koşulunu gerektiriyor. Schedule, workflow_dispatch, permissions, cron ve yayın listeleri değiştirilmedi.
