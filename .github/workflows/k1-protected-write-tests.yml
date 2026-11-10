@@ -24,7 +24,7 @@ on:
       - 'scripts/acceptance_26_92.py'
       - 'scripts/archive_backups_354_classified.py'
       - 'tests/test_archive_354_authorization.py'
-      - 'scripts/vod_snapshot_preservation.py'
+      - 'scripts/vod_guncelle.py'
       - 'tests/test_vod_snapshot_preservation.py'
       - '.github/workflows/madsc-ibo-354-classify.yml'
       - '.github/workflows/madsc-birlesik-kesif.yml'
