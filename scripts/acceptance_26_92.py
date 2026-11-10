@@ -148,7 +148,10 @@ def main():
     print(json.dumps({k: v for k, v in report.items() if k != "test_suites"}, ensure_ascii=False))
     for suite in report["test_suites"]:
         if not suite["passed"]:
-            print("::error title=Toplu test hatasi::{} failed; see acceptance artifact".format(suite["suite"]))
+            print("::group::FAILED SUITE: {}".format(suite["suite"]))
+            print(suite["log_tail"] or "(no test output captured)")
+            print("::endgroup::")
+            print("::error title=Toplu test hatasi::{} failed; inspect grouped traceback above".format(suite["suite"]))
     for issue in report.get("audit_errors", []):
         print("::error title=Envanter denetimi::{}: {}".format(issue["audit"], issue["error"]))
     if not all(row["passed"] for row in report["test_suites"]) or report.get("audit_errors"):
