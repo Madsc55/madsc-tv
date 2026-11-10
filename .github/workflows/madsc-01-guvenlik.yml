@@ -68,6 +68,20 @@ jobs:
           if len(rows) != 26 or not report.get("rule_count_valid"):
               raise SystemExit("K1 BELGE HATASI: 26 kuralin envanteri gecersiz")
           if len(verified) != 26:
+              unresolved = [row for row in rows if row.get("runtime_enforcement_verified") is not True]
+              print("::group::K1 eksik gercek uygulama kanitlari")
+              for row in unresolved:
+                  number = row.get("rule", "?")
+                  reason = str(row.get("outstanding_verification") or "Canli dogrulama eksik")
+                  print(f"::error title=K1 kural {number} kanit eksikligi::{reason}")
+              print("::endgroup::")
+              summary_path = __import__("os").environ.get("GITHUB_STEP_SUMMARY")
+              if summary_path:
+                  with open(summary_path, "a", encoding="utf-8") as summary:
+                      summary.write("## K1 — Canli guvenlik kaniti eksikleri\n\n")
+                      summary.write(f"Dogrulanan: {len(verified)}/26. Bu durum test hatasindan farklidir.\n\n")
+                      for row in unresolved:
+                          summary.write(f"- Kural {row.get('rule')}: {row.get('outstanding_verification', 'Kanit eksik')}\n")
               raise SystemExit("K1 KANIT EKSIKLIGI: 26/26 gercek uygulama dogrulanmadi; regresyon test hatasi degil")
           PY
       - name: Kategoriye ait tum regresyon testleri
