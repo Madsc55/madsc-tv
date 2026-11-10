@@ -85,7 +85,7 @@ def job_scope(source):
         if re.match(r"^python3?\s+tools/workflow_failure_gate\.py(?:\s|$)", body):
             step["failure_gate_call_lines"].append(number)
         readonly_api = (GH_API.search(body) and READ_ONLY_ACTIONS_API.search(body)
-                        and len(re.findall(r"\\bgh\\s+api\\b", body, re.I)) == 1
+                        and len(re.findall(r"\bgh\s+api\b", body, re.I)) == 1
                         and not GH_API_MUTATION_FLAGS.search(body) and "graphql" not in body.casefold()
                         and not GIT_MUTATION.search(body) and not GH_CLI_MUTATION.search(body)
                         and not WRITE.search(body))
@@ -111,7 +111,7 @@ def inspect(path):
     force_pushes = len(re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n]*(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", s))
     api_calls = GH_API.findall(s)
     api_write = any(
-        len(re.findall(r"\\bgh\\s+api\\b", call, re.I)) != 1
+        len(re.findall(r"\bgh\s+api\b", call, re.I)) != 1
         or not READ_ONLY_ACTIONS_API.search(call)
         or len(re.findall(r"\brepos/[^\s\"\u0027]+", call, re.I)) != 1
         or bool(GH_API_MUTATION_FLAGS.search(call))
