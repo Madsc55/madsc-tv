@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1 gh api sayma regex hata düzeltmesi
+
+- 573a536: scripts/k1_workflow_risk_inventory.py içinde job_scope() ve inspect() içindeki iki adet çift kaçışlı raw regex düzeltildi (\\\\b yerine \\b); zincirli gh api çağrılarının sayımı artık regex düzeyinde çalışıyor.
+- Yerel izole regex kontrolü: tek çağrı=1, zincirli çağrı=2; 2/2 geçti. Bu, tüm depo testleri veya GitHub Actions kabulünün geçtiği anlamına gelmez.
+- K1 26 runtime ve K5 92 workflow davranışsal kabul açık; gerçek Actions job kanıtı henüz yok. main, PR71, korunan listeler ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 tek API uç noktası kuralı
 
 - e04c622 / 00e710b: scripts/k1_workflow_risk_inventory.py genel gh api salt-okunur sınıflandırması tek repos/ adresi şartıyla daraltıldı; ilk regex düzenlemesindeki kaçış sorunu hemen sonraki commit'te düzeltildi.
