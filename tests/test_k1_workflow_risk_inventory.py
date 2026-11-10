@@ -52,6 +52,12 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
                 self.assertFalse(record["write_command_signal"])
                 self.assertEqual(record["tier"], "LOW_STATIC_SIGNAL")
 
+    def test_chained_actions_api_calls_are_write_review_in_inventory(self):
+        command = 'gh api "repos/${GITHUB_REPOSITORY}/actions/runs" && gh api "repos/${GITHUB_REPOSITORY}/dispatches"'
+        record = self.inspect_text("permissions:\n  contents: read\nsteps:\n  - run: " + command + "\n")
+        self.assertTrue(record["write_command_signal"])
+        self.assertEqual(record["tier"], "REVIEW_WRITE")
+
     def test_actions_api_subpaths_are_not_readonly_exemptions(self):
         commands = (
             'gh api "repos/${GITHUB_REPOSITORY}/actions/runs/123/cancel"',
