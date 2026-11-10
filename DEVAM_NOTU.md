@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1 CI eksik workflow path tetikleyicileri
+
+- 20a510e: .github/workflows/k1-protected-write-tests.yml push.paths içine madsc-son-kontrol.yml, madsc-uc-asama.yml, madsc-genis-kaynak-kontrol.yml eklendi. Önceden var olan madsc-birlesik-kesif.yml korundu. Cron, izinler, main ve korunan listeler değişmedi.
+- 16bd97d: tests/test_k1_legacy_writer_guards.py dört kritik workflow'un CI path kapsamını denetleyen regresyon eklendi.
+- Actions gerçek çalıştırma sonucu henüz doğrulanmadı. K1 26 runtime ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 job-scope API uç noktası tutarlılığı
 
 - 2e2224c: scripts/k1_workflow_risk_inventory.py job_scope() GET-only gh api istisnasında artık tam bir adet repos/ uç noktası gerektiriyor. Genel inspect() kontrolüyle tutarlı.
