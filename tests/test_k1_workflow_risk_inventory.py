@@ -261,6 +261,13 @@ class WorkflowRiskInventoryTests(unittest.TestCase):
         )
         self.assertEqual(len(jobs[0]["mutation_lines_without_prior_failure_gate_signal"]), 1)
 
+    def test_job_scope_second_repository_endpoint_requires_review(self):
+        jobs = job_scope(
+            'jobs:\n  audit:\n    steps:\n      - run: |\n'
+            '          gh api "repos/${GITHUB_REPOSITORY}/dispatches" --jq "repos/${GITHUB_REPOSITORY}/actions/runs"\n'
+        )
+        self.assertEqual(len(jobs[0]["mutation_lines_without_prior_failure_gate_signal"]), 1)
+
     def test_prior_same_job_gate_is_only_order_signal(self):
         jobs = job_scope('jobs:\n  publish:\n    steps:\n'
                          '      - run: python3 tools/workflow_failure_gate.py\n'
