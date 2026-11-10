@@ -1,3 +1,12 @@
+## 10 Kasım 2026 — Ayrı son kontrol workflow_run kaynak dalı kısıtı
+
+- 2d0da4e: .github/workflows/madsc-son-kontrol.yml ayrıcalıklı continuity job artık main ref ve workflow_run tetiklemesinde başarılı main kaynak dalı koşulunu gerektiriyor. Schedule, workflow_dispatch, permissions, cron ve yayın listeleri değiştirilmedi.
+- a1e69b8: tests/test_k1_legacy_writer_guards.py bu üç koşulu statik regresyonla denetliyor.
+- 9e120db commit'ine ait Actions PR-triggered run ve combined status sorgularında kayıt dönmedi; bu bütün Actions çalıştırmalarının yokluğunu kanıtlamaz. Bu değişikliklerin CI sonucu henüz doğrulanmadı.
+- K1 26 runtime ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 gh api sayma regex hata düzeltmesi
 
 - 573a536: scripts/k1_workflow_risk_inventory.py içinde job_scope() ve inspect() içindeki iki adet çift kaçışlı raw regex düzeltildi (\\\\b yerine \\b); zincirli gh api çağrılarının sayımı artık regex düzeyinde çalışıyor.
