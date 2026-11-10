@@ -111,7 +111,8 @@ def inspect(path):
     force_pushes = len(re.findall(r"\bgit\s+(?:(?:-c|--config)\s+\S+\s+|(?:-[A-Za-z]+|--[\w-]+(?:=\S+)?)\s+)*push\b[^\n]*(?:--force(?:-with-lease)?\b|\s-f(?:\s|$))", s))
     api_calls = GH_API.findall(s)
     api_write = any(
-        not READ_ONLY_ACTIONS_API.search(call)
+        len(re.findall(r"\\bgh\\s+api\\b", call, re.I)) != 1
+        or not READ_ONLY_ACTIONS_API.search(call)
         or bool(GH_API_MUTATION_FLAGS.search(call))
         or "graphql" in call.casefold()
         for call in api_calls
