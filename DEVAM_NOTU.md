@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1-K5 CI arşiv ve VOD tetikleme kapsamı
+
+- 0df7443 / 034e3b8: .github/workflows/k1-protected-write-tests.yml push.paths listesine scripts/archive_backups_354_classified.py, tests/test_archive_354_authorization.py, scripts/vod_guncelle.py, tests/test_vod_snapshot_preservation.py eklendi. İlk VOD yolu varsayımı sonraki commit'te gerçek depo yoluyla düzeltildi.
+- 859e4e8: tests/test_k1_legacy_writer_guards.py bu dört path için statik regresyon eklendi.
+- K1 26 runtime ve K5 92 davranışsal kabul açık; Actions sonucu henüz doğrulanmadı. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 CI eksik workflow path tetikleyicileri
 
 - 20a510e: .github/workflows/k1-protected-write-tests.yml push.paths içine madsc-son-kontrol.yml, madsc-uc-asama.yml, madsc-genis-kaynak-kontrol.yml eklendi. Önceden var olan madsc-birlesik-kesif.yml korundu. Cron, izinler, main ve korunan listeler değişmedi.
