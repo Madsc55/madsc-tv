@@ -113,6 +113,7 @@ def inspect(path):
     api_write = any(
         len(re.findall(r"\\bgh\\s+api\\b", call, re.I)) != 1
         or not READ_ONLY_ACTIONS_API.search(call)
+        or bool(re.search(r"\\brepos/[^\\s\\\"\u0027]+", call, re.I)) and len(re.findall(r"\\brepos/[^\\s\\\"\u0027]+", call, re.I)) != 1
         or bool(GH_API_MUTATION_FLAGS.search(call))
         or "graphql" in call.casefold()
         for call in api_calls
