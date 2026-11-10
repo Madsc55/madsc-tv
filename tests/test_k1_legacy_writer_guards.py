@@ -132,6 +132,13 @@ class LegacyWriterGuards(unittest.TestCase):
         self.assertEqual(len(missing), report["missing_explicit_permissions"])
         self.assertEqual(missing, [], "Every workflow must declare explicit permissions")
 
+    def test_k1_ci_triggers_on_privileged_writer_changes(self):
+        source = (ROOT / "k1-protected-write-tests.yml").read_text(encoding="utf-8-sig")
+        for name in ("madsc-birlesik-kesif.yml", "madsc-son-kontrol.yml",
+                     "madsc-uc-asama.yml", "madsc-genis-kaynak-kontrol.yml"):
+            with self.subTest(workflow=name):
+                self.assertIn("'.github/workflows/" + name + "'", source)
+
     def test_read_only_ci_has_no_write_permission(self):
         source = (ROOT / "k1-protected-write-tests.yml").read_text()
         self.assertRegex(source, r"(?m)^  contents: read$")
