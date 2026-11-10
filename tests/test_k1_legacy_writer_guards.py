@@ -132,6 +132,10 @@ class LegacyWriterGuards(unittest.TestCase):
         self.assertEqual(len(missing), report["missing_explicit_permissions"])
         self.assertEqual(missing, [], "Every workflow must declare explicit permissions")
 
+    def test_k1_ci_covers_all_workflow_changes(self):
+        source = (ROOT / "k1-protected-write-tests.yml").read_text(encoding="utf-8-sig")
+        self.assertIn("      - '.github/workflows/**'\n", source)
+
     def test_k1_ci_triggers_on_archive_and_vod_regressions(self):
         source = (ROOT / "k1-protected-write-tests.yml").read_text(encoding="utf-8-sig")
         for name in ("scripts/archive_backups_354_classified.py",
