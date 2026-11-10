@@ -78,6 +78,13 @@ class LegacyWriterGuards(unittest.TestCase):
                 self.assertLess(rebase, second_gate)
                 self.assertLess(second_gate, push)
 
+    def test_son_kontrol_privileged_workflow_run_requires_main_source(self):
+        source = (ROOT / "madsc-son-kontrol.yml").read_text(encoding="utf-8-sig")
+        condition = next(line for line in source.splitlines() if line.startswith("    if: "))
+        self.assertIn("github.ref == 'refs/heads/main'", condition)
+        self.assertIn("github.event.workflow_run.conclusion == 'success'", condition)
+        self.assertIn("github.event.workflow_run.head_branch == 'main'", condition)
+
     def test_son_kontrol_checks_protected_paths_before_and_after_commit(self):
         source = (ROOT / "madsc-son-kontrol.yml").read_text(encoding="utf-8-sig")
         step = source.split('git add -- madsc_son_kontrol/results.json madsc_son_kontrol/summary.json', 1)[1]
