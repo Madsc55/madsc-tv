@@ -1,3 +1,12 @@
+## 10 Kasım 2026 — K1 zincirli Python yayınlayıcı tespiti
+
+- 35ea448: scripts/k1_workflow_risk_inventory.py job_scope() içinde aynı shell satırında önce başka komut bulunan python/bash/sh yayınlayıcı betikleri de mutation signal kapsamına alındı.
+- 9c9c5aa: tests/test_k1_workflow_risk_inventory.py içine echo && python3 scripts/publish_channels.py regresyonu eklendi.
+- eea6129: regex metni kontrolü amacıyla ayrıca commit oluştu; kod içeriği değişmedi.
+- Tam depo testleri ve Actions sonuçları henüz doğrulanmadı. K1 26 runtime ve K5 92 davranışsal kabul açık; main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1-K5 CI arşiv ve VOD tetikleme kapsamı
 
 - 0df7443 / 034e3b8: .github/workflows/k1-protected-write-tests.yml push.paths listesine scripts/archive_backups_354_classified.py, tests/test_archive_354_authorization.py, scripts/vod_guncelle.py, tests/test_vod_snapshot_preservation.py eklendi. İlk VOD yolu varsayımı sonraki commit'te gerçek depo yoluyla düzeltildi.
