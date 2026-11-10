@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — K1 tek API uç noktası kuralı
+
+- e04c622 / 00e710b: scripts/k1_workflow_risk_inventory.py genel gh api salt-okunur sınıflandırması tek repos/ adresi şartıyla daraltıldı; ilk regex düzenlemesindeki kaçış sorunu hemen sonraki commit'te düzeltildi.
+- e86622e: tests/test_k1_workflow_risk_inventory.py içine ikinci depo API yolunun ilk salt-okunur URL ile maskelenmemesi regresyonu eklendi.
+- Gerçek CI ve yerel test sonucu henüz doğrulanmadı. K1 26 çalışma kanıtı ve K5 92 davranışsal kabul açık. main, PR71, korunan üretim listeleri ve V2 değiştirilmedi.
+
+---
+
 ## 10 Kasım 2026 — K1 genel envanter zincirli API sınıflandırması
 
 - e8c17bb: scripts/k1_workflow_risk_inventory.py inspect() genel api_write sınıflandırmasında aynı satırda birden fazla gh api çağrısını inceleme gerektiren sinyal olarak ele alıyor. Önceki 08cf228 job_scope() düzeltmesinin genel envanter karşılığıdır.
