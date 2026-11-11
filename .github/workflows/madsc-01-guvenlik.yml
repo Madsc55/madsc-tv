@@ -148,6 +148,21 @@ jobs:
             failed=1
           fi
           exit "${failed}"
+      - name: Guvenlik adimlari sonucunu ozetle
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## MADSC K1 guvenlik denetimi'
+            echo '| Denetim | Sonuc |'
+            echo '|---|---|'
+            echo '| Raporlar | ${{ steps.reports.outcome }} |'
+            echo '| 26 kural canli kanit | ${{ steps.rule_evidence.outcome }} |'
+            echo '| Regresyon testleri | ${{ steps.regressions.outcome }} |'
+            echo '| Korunan dosyalar | ${{ steps.protected_integrity.outcome }} |'
+            echo ''
+            echo 'Basarisiz veya atlanan denetimler guvenlik kabulunu engeller.'
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Toplu güvenlik kanıtlarını yükle
         uses: actions/upload-artifact@v4
         if: always()
