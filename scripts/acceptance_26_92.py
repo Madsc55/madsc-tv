@@ -43,7 +43,13 @@ def execute():
             tests.append({"suite": name, "passed": result.returncode == 0 and bool(re.search(r"Ran [1-9][0-9]* tests? in ", result.stdout + result.stderr)),
                           "returncode": result.returncode,
                           "log_tail": (result.stdout + result.stderr)[-8000:]})
-        except (subprocess.TimeoutExpired, OSError) as exc:
+        except subprocess.TimeoutExpired as exc:
+            def decode(value):
+                return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else (value or "")
+            partial = decode(exc.stdout) + decode(exc.stderr)
+            tests.append({"suite": name, "passed": False, "returncode": None,
+                          "log_tail": (partial + "\nTIMEOUT after 240 seconds").strip()[-8000:]})
+        except OSError as exc:
             tests.append({"suite": name, "passed": False, "returncode": None,
                           "log_tail": str(exc)})
     for name in ("test_five_category_runtime_integrity", "test_workflow_failure_gate"):
