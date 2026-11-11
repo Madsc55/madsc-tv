@@ -57,6 +57,19 @@ class EvidenceContinuityTests(unittest.TestCase):
         self.assertIn('GITHUB_STEP_SUMMARY', source)
         self.assertIn('raise SystemExit("K1 KANIT EKSIKLIGI:', source)
 
+    def test_k1_summary_keeps_all_four_gates_visible_after_failure(self):
+        source = SECURITY.read_text(encoding="utf-8")
+        summary = source.split("      - name: Guvenlik adimlari sonucunu ozetle\n", 1)[1].split("      - name:", 1)[0]
+        self.assertIn("if: always()", summary)
+        self.assertIn('>> "$GITHUB_STEP_SUMMARY"', summary)
+        for step in ("reports", "rule_evidence", "regressions", "protected_integrity"):
+            with self.subTest(step=step):
+                self.assertIn("steps." + step + ".outcome", summary)
+        failure_gate = source.index("      - name: Guvenlik basarisizlik kapisi")
+        summary_position = source.index("      - name: Guvenlik adimlari sonucunu ozetle")
+        self.assertLess(failure_gate, summary_position)
+        self.assertNotIn("continue-on-error: true", summary)
+
     def test_trigger_paths_cover_new_regressions(self):
         for workflow in (K1, K5):
             source = workflow.read_text(encoding="utf-8")
