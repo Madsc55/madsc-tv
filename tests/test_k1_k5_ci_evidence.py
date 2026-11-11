@@ -49,6 +49,14 @@ class EvidenceContinuityTests(unittest.TestCase):
         self.assertIn("if len(verified) != 26:", source)
         self.assertIn('if [[ "${{ steps.rule_evidence.outcome }}" != "success" ]]', source)
 
+    def test_security_failure_explains_each_unverified_rule(self):
+        source = SECURITY.read_text(encoding="utf-8")
+        self.assertIn('unresolved = [row for row in rows if row.get("runtime_enforcement_verified") is not True]', source)
+        self.assertIn('outstanding_verification', source)
+        self.assertIn('::error title=K1 kural', source)
+        self.assertIn('GITHUB_STEP_SUMMARY', source)
+        self.assertIn('raise SystemExit("K1 KANIT EKSIKLIGI:', source)
+
     def test_trigger_paths_cover_new_regressions(self):
         for workflow in (K1, K5):
             source = workflow.read_text(encoding="utf-8")
