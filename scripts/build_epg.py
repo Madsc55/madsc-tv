@@ -159,6 +159,12 @@ def main():
             count+=1
     if count == 0:
         raise RuntimeError("No matching EPG programmes found; refusing to replace existing EPG")
+    future_count = 0
+    for item in result.findall("programme"):
+        if parse_xmltv_time(item.get("stop", "")) > now:
+            future_count += 1
+    if future_count == 0:
+        raise RuntimeError("EPG has no future programmes; refusing to replace existing EPG")
     epg_path=OUT/"madsc-epg.xml"
     ET.ElementTree(result).write(epg_path,encoding="utf-8",xml_declaration=True)
     ET.parse(epg_path)  # reject invalid XML before publishing
