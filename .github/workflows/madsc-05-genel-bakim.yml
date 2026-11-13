@@ -1,5 +1,15 @@
 name: MADSC 05 - Genel Bakim Toplu
 on:
+  pull_request:
+    branches:
+      - madsc/bes-sistem-toplu-birlestirme
+    paths:
+      - '.github/workflows/madsc-05-genel-bakim.yml'
+      - 'scripts/k5_parity_evidence_gate.py'
+      - 'tests/test_k5_parity_evidence_gate.py'
+      - 'scripts/k5_github_evidence_probe.py'
+      - 'tests/test_k5_github_evidence_probe.py'
+      - 'scripts/five_category_92_workflow_audit.py'
   workflow_dispatch:
     inputs:
       wide_scan_mode:
@@ -137,6 +147,49 @@ jobs:
         id: inventory_92
         if: always()
         run: python3 scripts/five_category_92_workflow_audit.py
+      - name: K5 davranissal kanit dogrulayici regresyon testleri
+        id: k5_evidence_tests
+        run: python3 -m unittest discover -s tests -p 'test_k5_parity_evidence_gate.py' -v
+      - name: K5 92 satir kanit adaylarini salt okunur denetle
+        id: k5_evidence_gate
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          evidence = Path("madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json")
+          if not evidence.exists():
+              evidence.write_text("[]", encoding="utf-8")
+          PY
+          python3 scripts/k5_parity_evidence_gate.py \
+            --inventory madsc_merkezi_denetim/92_workflow_gorev_ve_kategori_haritasi.json \
+            --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
+            --output madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json
+      - name: K5 GitHub Actions kanit dogrulayici regresyon testleri
+        run: python3 -m unittest discover -s tests -p 'test_k5_github_evidence_probe.py' -v
+      - name: K5 GitHub Actions kanit kimliklerini bagimsiz kontrol et
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/k5_github_evidence_probe.py \
+            --repo "${{ github.repository }}" \
+            --evidence madsc_merkezi_denetim/k5_davranissal_kanit_adaylari.json \
+            --output madsc_merkezi_denetim/k5_github_kanit_kimlikleri.json
+      - name: K5 kanit raporu 92 satir ve engel butunlugu
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("madsc_merkezi_denetim/k5_davranissal_kanit_durumu.json")
+          report = json.loads(path.read_text(encoding="utf-8"))
+          gaps = report["workflow_gaps"]
+          assert len(gaps) == 92 and len({row["legacy_workflow"] for row in gaps}) == 92
+          assert report["inventory_total"] == 92
+          assert report["unmapped_workflow_count"] == len(report["unmapped_workflows"])
+          assert report["missing_script_workflow_count"] == len(report["missing_script_workflows"])
+          assert report["unmatched_trigger_workflow_count"] == len(report["unmatched_trigger_workflows"])
+          assert report["independently_verified_count"] == 0 and report["production_ready"] is False
+          print("K5: 92 workflow gaps audited; production acceptance remains blocked")
+          PY
       - name: Ayni kosunun dort basarili kategori kanitini guvenle al
         id: category_evidence
         continue-on-error: true
@@ -318,7 +371,7 @@ jobs:
           import json, os
           from pathlib import Path
           data = json.loads(os.environ["AUDIT_RESULTS"])
-          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["inventory_92", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
+          audits = {name: data.get(name, {}).get("outcome", "not_run") for name in ["inventory_92", "k5_evidence_tests", "k5_evidence_gate", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]}
           categories = {name: os.environ[name] for name in ["SECURITY_RESULT", "DISCOVERY_RESULT", "CHANNEL_RESULT", "ARCHIVE_RESULT"]}
           result = {"audit_steps": audits, "categories": categories}
           folder = Path("madsc_merkezi_denetim")
@@ -335,7 +388,7 @@ jobs:
           python3 - <<'PY'
           import json, os, sys
           data = json.loads(os.environ["AUDIT_RESULTS"])
-          names = ["inventory_92", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
+          names = ["inventory_92", "k5_evidence_tests", "k5_evidence_gate", "category_evidence", "actions_evidence", "audit_1", "audit_2", "audit_3", "audit_4", "audit_5", "audit_6", "audit_7", "audit_8", "audit_9"]
           failures = [name for name in names if data.get(name, {}).get("outcome") != "success"]
           if failures:
               print("::error::Failed or skipped consolidated audits: " + ", ".join(failures))
