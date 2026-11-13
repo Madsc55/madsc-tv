@@ -31,6 +31,6 @@ HISTORY.write_text(json.dumps(history,ensure_ascii=False,indent=2),encoding="utf
 fields=["KANAL","GRUP","YAYIN_URL","SON_DURUM","GOZLEM_SAYISI","BASARILI_VIDEO_SES_GOZLEMI","BASARILI_ARALIK_SAAT","24_SAAT_KARARLI","IBO_ONAYI","ANA_LISTEYE_EKLENEBILIR"]
 with OUT.open("w",encoding="utf-8-sig",newline="") as f:
  w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(report)
-summary={"aday":len(report),"24_saat_kararli":sum(r["24_SAAT_KARARLI"]=="EVET" for r in report),"not":"Yalniz teknik gozlemler; IBO oynatma veya kanal kimligi onayi degildir. Otomatik liste degisikligi yapilmaz."}
+summary={"aday":len(report),"24_saat_kararli":sum(r["24_SAAT_KARARLI"]=="EVET" for r in report),"k3_hedef_aday":75,"k3_hedef_saat":6,"k3_75x6_saat_kabul":"BEKLIYOR","k3_eksik_aday":max(0,75-len({r["YAYIN_URL"] for r in report})),"k3_tekil_aday":len({r["YAYIN_URL"] for r in report}),"gozlem_kaniti":"Aralikli teknik ornekler; kesintisiz oynatma kaniti degil","not":"Yalniz teknik gozlemler; IBO oynatma veya kanal kimligi onayi degildir. Otomatik liste degisikligi yapilmaz."}
 Path("KARARLILIK_OZET.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps(summary,ensure_ascii=False))
